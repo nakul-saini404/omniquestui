@@ -46,7 +46,7 @@ export default function LeadForm({ onSubmit }: Props) {
           Your Report is Ready!
         </h2>
         <p style={{ color: "rgba(241,245,255,.5)", fontSize: ".95rem", lineHeight: 1.7, maxWidth: 440, margin: "0 auto" }}>
-          Enter your details to unlock your Grok AI–generated personality report and personalised program recommendation.
+          Enter your details to unlock your  AI–generated personality report and personalised program recommendation.
         </p>
       </div>
 
@@ -146,7 +146,7 @@ export default function LeadForm({ onSubmit }: Props) {
           style={{ width: "100%", marginTop: 28, padding: "16px", borderRadius: 14, background: submitting ? "rgba(255,255,255,.08)" : "var(--grad-teal)", border: "none", color: "white", fontSize: "1rem", fontWeight: 700, cursor: submitting ? "default" : "pointer", transition: "transform .2s", boxShadow: submitting ? "none" : "0 8px 32px rgba(0,201,177,.3)", fontFamily: "var(--font-body)" }}
           onMouseEnter={(e) => { if (!submitting) (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; }}
           onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = "none"; }}>
-          {submitting ? "⏳ Generating with Grok AI…" : "🔓 Unlock My Personality Report →"}
+          {submitting ? "⏳ Generating with  AI…" : "🔓 Unlock My Personality Report →"}
         </button>
 
         <p style={{ textAlign: "center", color: "rgba(241,245,255,.25)", fontSize: ".72rem", marginTop: 14 }}>

@@ -97,3 +97,18 @@ export const METRICS = [
 ];
 
 export const UNIVERSITIES = ['MIT', 'Harvard', 'Stanford', 'Wharton', 'INSEAD', 'Oxford', 'Cambridge', 'ISB', 'NUS', 'UC Berkeley', 'NYU Stern', 'LBS'];
+
+
+export const WHY_POINTS = [
+  { n: '01', title: "We Don't Coach. We Build Profiles.", desc: 'Every engagement begins with a full strategic audit — not a course enrollment. We architect your academic and professional profile from first principles.' },
+  { n: '02', title: 'Ivy League & Top 50 Strategy', desc: 'Our consultants have personally navigated Harvard, Wharton, MIT, and INSEAD admissions. We bring insider precision — not guesswork.' },
+  { n: '03', title: 'End-to-End Architecture', desc: 'From psychometric assessment to visa approval — we manage every milestone of your journey with dedicated strategy consultants.' },
+  { n: '04', title: 'Leadership by Design', desc: 'We engineer the extracurricular profile, leadership narrative, and essay architecture that admissions committees at elite schools actually reward.' },
+  { n: '05', title: 'Data-Driven Decisions', desc: 'We analyse thousands of successful applicant profiles to give you a statistically-informed strategy — not hope and guesswork.' },
+  { n: '06', title: 'Long-Term Career Positioning', desc: 'Our work does not stop at admission. We align your university choice and profile to your 10-year career trajectory from day one.' },
+];
+
+
+export const US_UNIS = ['Harvard', 'MIT', 'Stanford', 'Wharton', 'Columbia', 'NYU Stern', 'UCLA', 'UC Berkeley'];
+export const UK_UNIS = ['Oxford', 'Cambridge', 'LSE', 'UCL', 'KCL', 'Imperial', 'LBS'];
+export const GLOBAL_UNIS = ['INSEAD', 'ISB', 'NUS', 'McGill', 'UBC', 'Toronto', 'HEC Paris'];

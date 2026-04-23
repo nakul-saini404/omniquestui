@@ -20,7 +20,7 @@ export default function PersonalityReportView({ report }: { report: PersonalityR
       <div style={{ textAlign: "center", marginBottom: 40 }}>
         <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "6px 16px", borderRadius: 100, background: "rgba(91,138,255,.12)", border: "1px solid rgba(91,138,255,.25)", color: "#5b8aff", fontSize: ".7rem", letterSpacing: ".14em", fontWeight: 600, textTransform: "uppercase", marginBottom: 18 }}>
           <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#5b8aff", animation: "blink 1.5s ease-in-out infinite" }} />
-          Grok AI Personality Intelligence Report
+           AI Personality Intelligence Report
         </div>
         <h1 style={{ fontFamily: "var(--font-head)", fontSize: "clamp(1.8rem,5vw,2.8rem)", fontWeight: 800, marginBottom: 8 }}>{report.studentName}</h1>
         <div style={{ display: "inline-block", padding: "9px 26px", borderRadius: 100, background: "linear-gradient(135deg,rgba(91,138,255,.18),rgba(167,139,250,.18))", border: "1px solid rgba(91,138,255,.3)", marginBottom: 10 }}>
@@ -113,7 +113,7 @@ export default function PersonalityReportView({ report }: { report: PersonalityR
       </Box>
 
       {/* AI INSIGHT */}
-      <Box title="Grok AI Counsellor Insight" icon="🤖">
+      <Box title="AI Counsellor Insight" icon="🤖">
         <div style={{ padding: "18px 22px", borderRadius: 13, background: "linear-gradient(135deg,rgba(91,138,255,.09),rgba(167,139,250,.07))", border: "1px solid rgba(91,138,255,.2)" }}>
           <p style={{ fontSize: ".92rem", color: "rgba(241,245,255,.78)", lineHeight: 1.85 }}>{report.aiInsight}</p>
         </div>

@@ -80,7 +80,7 @@ export default function Chatbot() {
               <div style={{ color: "white", fontWeight: 700, fontFamily: "var(--font-head)", fontSize: ".95rem" }}>OmniQuest AI</div>
               <div style={{ color: "rgba(255,255,255,.55)", fontSize: ".72rem", display: "flex", alignItems: "center", gap: 5 }}>
                 <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#22c55e", display: "inline-block", animation: "blink 2s ease-in-out infinite" }} />
-                Powered by Grok · Online
+                Powered by Omniquest · Online
               </div>
             </div>
             <div style={{ fontSize: ".65rem", color: "rgba(255,255,255,.3)", textAlign: "right", lineHeight: 1.4 }}>
@@ -168,7 +168,7 @@ export default function Chatbot() {
 
           {/* Powered by */}
           <div style={{ padding: "6px", textAlign: "center", fontSize: ".65rem", color: "var(--grey-400)", borderTop: "1px solid var(--grey-100)", background: "white", flexShrink: 0 }}>
-            ⚡ Powered by Grok AI · xAI
+            ⚡ Powered by OmniQuest AI · xAI
           </div>
         </div>
       )}
