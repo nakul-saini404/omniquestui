@@ -147,7 +147,7 @@ export default function Home() {
         </section>
 
         {/* ══ 2. PSYCHOMETRIC / INTELLIGENCE SECTION ══ */}
-        <section style={{ padding:"100px 0", background:"linear-gradient(160deg,#060c1a,#0b1c3d)", position:"relative", overflow:"hidden" }}>
+        <section style={{ padding:"100px 0 50px", background:"linear-gradient(160deg,#060c1a,#0b1c3d)", position:"relative", overflow:"hidden" }}>
           <div style={{ position:"absolute", inset:0, backgroundImage:"radial-gradient(circle at 70% 50%,rgba(0,201,177,.05) 0%,transparent 60%)", pointerEvents:"none" }} />
           <div className="psycho-grid" style={{ maxWidth:1200, margin:"0 auto", padding:"0 24px", display:"grid", gridTemplateColumns:"1fr 1fr", gap:80, alignItems:"flex-start", position:"relative", zIndex:2 }}>
 
@@ -210,7 +210,6 @@ export default function Home() {
                   </select>
                 </div>
 
-                {/* ✅ Navigates to /personality-test */}
                 <Link
                   href="/personality-test"
                   style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:8, width:"100%", padding:"14px", borderRadius:8, background:"#d4af37", color:"#0a0f1e", fontWeight:800, fontSize:".9rem", textDecoration:"none", boxSizing:"border-box", transition:"opacity .2s" }}
@@ -227,8 +226,77 @@ export default function Home() {
           </div>
         </section>
 
+        <section style={{ padding:"100px 0 50px", background:"linear-gradient(160deg,#060c1a,#0b1c3d)", position:"relative", overflow:"hidden" }}>
+  {/* Ambient light */}
+  <div style={{ position:"absolute", inset:0, backgroundImage:"radial-gradient(circle at 30% 50%,rgba(0,201,177,.06) 0%,transparent 60%)", pointerEvents:"none" }} />
+
+  <div className="psycho-grid" style={{ maxWidth:1200, margin:"0 auto", padding:"0 24px", display:"grid", gridTemplateColumns:"1fr 1fr", gap:80, alignItems:"center", position:"relative", zIndex:2 }}>
+
+    {/* Left – text content */}
+    <div className="reveal">
+      <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:24 }}>
+        <div style={{ width:32, height:1, background:"#d4af37" }} />
+        <span style={{ fontSize:".68rem", fontWeight:700, letterSpacing:".14em", color:"#d4af37", textTransform:"uppercase" }}>AI‑Powered Career Advisory</span>
+      </div>
+      <h2 style={{ fontFamily:"var(--font-head)", fontSize:"clamp(1.9rem,3.5vw,2.8rem)", fontWeight:800, color:"white", lineHeight:1.15, marginBottom:4 }}>
+        Clarity, Delivered.
+      </h2>
+      <h2 style={{ fontFamily:"var(--font-head)", fontSize:"clamp(1.9rem,3.5vw,2.8rem)", fontWeight:800, fontStyle:"italic", color:"#d4af37", lineHeight:1.15, marginBottom:28 }}>
+        Every Career Decision, Optimised.
+      </h2>
+      <p style={{ fontSize:".95rem", color:"rgba(255,255,255,.48)", lineHeight:1.8, maxWidth:400 }}>
+        Our AI‑driven Career Advisor analyses your profile, market trends, and academic strengths to give you a <em style={{ color:"rgba(255,255,255,.65)" }}>personalised roadmap</em> — no guesswork, no generic advice.
+      </p>
+    </div>
+
+    {/* Right – interactive card (no form, just CTA) */}
+    <div className="reveal">
+      <div style={{ background:"rgba(255,255,255,.04)", border:"1px solid rgba(255,255,255,.1)", borderRadius:20, padding:"36px 32px", backdropFilter:"blur(12px)", textAlign:"center" }}>
+        {/* AI visual metaphor – subtle icon */}
+        <div style={{ fontSize:"2.8rem", marginBottom:16, filter:"drop-shadow(0 0 12px rgba(0,201,177,.2))" }}>
+          🤖
+        </div>
+        <h3 style={{ fontFamily:"var(--font-head)", fontSize:"1.25rem", fontWeight:800, color:"white", marginBottom:8 }}>
+          Talk to Your AI Career Advisor
+        </h3>
+        <p style={{ fontSize:".82rem", color:"rgba(255,255,255,.38)", marginBottom:28, lineHeight:1.65 }}>
+          Get instant, intelligent guidance tailored to your goals. Start a free session now.
+        </p>
+
+        {/* CTA Button – navigate to desired URL */}
+        <Link
+          href="https://eduquest-career-ai-v2.onrender.com/"  
+          style={{
+            display:"inline-flex",
+            alignItems:"center",
+            justifyContent:"center",
+            gap:8,
+            width:"100%",
+            padding:"14px",
+            borderRadius:8,
+            background:"#d4af37",
+            color:"#0a0f1e",
+            fontWeight:800,
+            fontSize:".9rem",
+            textDecoration:"none",
+            boxSizing:"border-box",
+            transition:"opacity .2s"
+          }}
+          onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = ".88"}
+          onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = "1"}
+        >
+          🚀 Launch Career Advisor →
+        </Link>
+        <p style={{ textAlign:"center", fontSize:".7rem", color:"rgba(255,255,255,.28)", marginTop:12 }}>
+          ⚡ Powered by AI • Real‑time market insights
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
         {/* ══ 3. STRATEGY CONSULTING MODEL ══ */}
-        <section style={{ padding:"100px 0", background:"#f8f7f4" }}>
+        <section style={{ padding:"100px 0 50px", background:"#f8f7f4" }}>
           <div className="consultant-grid" style={{ maxWidth:1200, margin:"0 auto", padding:"0 24px", display:"grid", gridTemplateColumns:"1fr 1fr", gap:80, alignItems:"start" }}>
             {/* Left */}
             <div className="reveal">
@@ -280,7 +348,7 @@ export default function Home() {
         </section>
 
         {/* ══ 4. THREE PATHWAYS / DIVISIONS ══ */}
-        <section id="pathways" style={{ padding:"100px 0", background:"#f8f7f4" }} aria-labelledby="pathways-h">
+        <section id="pathways" style={{ padding:"100px 0 50px", background:"#f8f7f4" }} aria-labelledby="pathways-h">
           <div style={{ maxWidth:1200, margin:"0 auto", padding:"0 24px" }}>
             <div className="reveal" style={{ textAlign:"center", marginBottom:64 }}>
               <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:10, marginBottom:16 }}>
@@ -332,7 +400,7 @@ export default function Home() {
         </section>
 
         {/* ══ 5. WHY US — dark numbered grid ══ */}
-        <section id="why-us" style={{ padding:"100px 0", background:"#0b1c3d", position:"relative" }} aria-labelledby="why-h">
+        <section id="why-us" style={{ padding:"100px 0 50px", background:"#0b1c3d", position:"relative" }} aria-labelledby="why-h">
           <div style={{ maxWidth:1200, margin:"0 auto", padding:"0 24px" }}>
             <div className="reveal" style={{ textAlign:"center", marginBottom:64 }}>
               <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:10, marginBottom:16 }}>
@@ -367,93 +435,372 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ══ 6. RESULTS — light background ══ */}
-        <section id="results" style={{ padding:"100px 0", background:"#f8f9fb" }} aria-labelledby="results-h">
-          <div style={{ maxWidth:1100, margin:"0 auto", padding:"0 24px" }}>
-            <div className="reveal" style={{ textAlign:"center", marginBottom:56 }}>
-              <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:10, marginBottom:16 }}>
-                <div style={{ width:32, height:1, background:"#d4af37" }} />
-                <span style={{ fontSize:".68rem", fontWeight:700, letterSpacing:".14em", color:"#d4af37", textTransform:"uppercase" }}>Success Outcomes</span>
-                <div style={{ width:32, height:1, background:"#d4af37" }} />
-              </div>
-              <h2 id="results-h" style={{ fontFamily:"var(--font-head)", fontSize:"clamp(2rem,4vw,3rem)", fontWeight:800, color:"#0b1c3d", lineHeight:1.15, marginBottom:4 }}>Numbers That Speak</h2>
-              <h2 style={{ fontFamily:"var(--font-head)", fontSize:"clamp(2rem,4vw,3rem)", fontWeight:800, fontStyle:"italic", color:"#d4af37", lineHeight:1.15, marginBottom:20 }}>For Themselves</h2>
-              <p style={{ fontSize:".9rem", color:"#64748b", maxWidth:460, margin:"0 auto", lineHeight:1.78 }}>
-                A decade of strategic consulting, <em>precision profile building</em>, and data-driven <em style={{ color:"#d4af37" }}>admissions outcomes</em>.
-              </p>
-            </div>
+       {/* ══ 6. RESULTS ══ */}
+<section id="results" style={{ padding:"100px 0 50px", background:"#f8f9fb" }} aria-labelledby="results-h">
+  <div style={{ maxWidth:1100, margin:"0 auto", padding:"0 24px" }}>
 
-            {/* Metrics */}
-            <div className="reveal metrics-row" style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:0, marginBottom:56, border:"1px solid #e2e8f0", borderRadius:16, overflow:"hidden" }}>
-              {METRICS.map((m,i)=>(
-                <div key={m.label} style={{ padding:"36px 24px", textAlign:"center", borderRight:i<3?"1px solid #e2e8f0":"none", background:"white" }}>
-                  <span style={{ fontSize:".63rem", color:"#d4af37", fontWeight:700, letterSpacing:".1em", display:"block", marginBottom:10, textTransform:"uppercase" }}>{m.badge}</span>
-                  <span data-target={m.target} style={{ fontFamily:"var(--font-head)", fontSize:"2.6rem", fontWeight:800, color:"#0b1c3d", display:"block", marginBottom:6 }}>0</span>
-                  <div style={{ fontSize:".76rem", color:"#94a3b8", fontWeight:500 }}>{m.label}</div>
-                </div>
-              ))}
-            </div>
+    {/* Header */}
+    <div className="reveal" style={{ textAlign:"center", marginBottom:56 }}>
+      <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:10, marginBottom:16 }}>
+        <div style={{ width:32, height:1, background:"#d4af37" }} />
+        <span style={{ fontSize:".68rem", fontWeight:700, letterSpacing:".14em", color:"#d4af37", textTransform:"uppercase" }}>Success Outcomes</span>
+        <div style={{ width:32, height:1, background:"#d4af37" }} />
+      </div>
+      <h2 id="results-h" style={{ fontFamily:"var(--font-head)", fontSize:"clamp(2rem,4vw,3rem)", fontWeight:800, color:"#0b1c3d", lineHeight:1.15, marginBottom:4 }}>Numbers That Speak</h2>
+      <h2 style={{ fontFamily:"var(--font-head)", fontSize:"clamp(2rem,4vw,3rem)", fontWeight:800, fontStyle:"italic", color:"#d4af37", lineHeight:1.15, marginBottom:20 }}>For Themselves</h2>
+      <p style={{ fontSize:".9rem", color:"#64748b", maxWidth:460, margin:"0 auto", lineHeight:1.78 }}>
+        A decade of strategic consulting, <em>precision profile building</em>, and data-driven <em style={{ color:"#d4af37" }}>admissions outcomes</em>.
+      </p>
+    </div>
 
-            {/* University tags */}
-            <div className="reveal uni-grid" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:40 }}>
-              <div>
-                <p style={{ fontSize:".78rem", fontWeight:700, color:"#0b1c3d", marginBottom:14 }}>
-                  <span style={{ textDecoration:"underline", textDecorationColor:"#d4af37" }}>United States</span> &amp; <span style={{ textDecoration:"underline", textDecorationColor:"#d4af37" }}>United Kingdom</span>
-                </p>
-                <div style={{ display:"flex", flexWrap:"wrap", gap:8 }}>
-                  {["Harvard","MIT","Stanford","Wharton","Columbia","NYU Stern","UCLA","UC Berkeley","Oxford","Cambridge","LSE","UCL","KCL","Imperial","LBS"].map(u=>(
-                    <span key={u} style={{ fontSize:".74rem", padding:"5px 12px", borderRadius:6, border:"1px solid #e2e8f0", color:"#475569", background:"white", fontWeight:500 }}>{u}</span>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <p style={{ fontSize:".78rem", fontWeight:700, color:"#0b1c3d", marginBottom:14 }}>Global Institutions</p>
-                <div style={{ display:"flex", flexWrap:"wrap", gap:8 }}>
-                  {["INSEAD","ISB","NUS","McGill","UBC","Toronto","HEC Paris"].map(u=>(
-                    <span key={u} style={{ fontSize:".74rem", padding:"5px 12px", borderRadius:6, border:"1px solid #e2e8f0", color:"#475569", background:"white", fontWeight:500 }}>{u}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+    {/* Metrics */}
+    <div
+      className="reveal metrics-row"
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(4, 1fr)",
+        gap: 0,
+        marginBottom: 56,
+        border: "1px solid #e2e8f0",
+        borderRadius: 16,
+        overflow: "hidden",
+      }}
+    >
+      {METRICS.map((m, i) => (
+        <div
+          key={m.label}
+          className={`metric-cell metric-cell-${i}`}
+          style={{
+            padding: "36px 24px",
+            textAlign: "center",
+            borderRight: i < 3 ? "1px solid #e2e8f0" : "none",
+            background: "white",
+          }}
+        >
+          <span
+            className="metric-badge"
+            style={{
+              fontSize: ".63rem",
+              color: "#d4af37",
+              fontWeight: 700,
+              letterSpacing: ".1em",
+              display: "block",
+              marginBottom: 10,
+              textTransform: "uppercase",
+            }}
+          >
+            {m.badge}
+          </span>
+          <span
+            data-target={m.target}
+            className="metric-number"
+            style={{
+              fontFamily: "var(--font-head)",
+              fontSize: "2.6rem",
+              fontWeight: 800,
+              color: "#0b1c3d",
+              display: "block",
+              marginBottom: 6,
+            }}
+          >
+            0
+          </span>
+          {/* ✅ scoped class instead of bare div */}
+          <p className="metric-label" style={{ fontSize: ".76rem", color: "#94a3b8", fontWeight: 500, margin: 0 }}>
+            {m.label}
+          </p>
+        </div>
+      ))}
+    </div>
 
+   
+
+    {/* University tags */}
+    <div className="reveal uni-grid" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:40 }}>
+      <div>
+        <p style={{ fontSize:".78rem", fontWeight:700, color:"#0b1c3d", marginBottom:14 }}>
+          <span style={{ textDecoration:"underline", textDecorationColor:"#d4af37" }}>United States</span>
+          {" "}&amp;{" "}
+          <span style={{ textDecoration:"underline", textDecorationColor:"#d4af37" }}>United Kingdom</span>
+        </p>
+        <div style={{ display:"flex", flexWrap:"wrap", gap:8 }}>
+          {["Harvard","MIT","Stanford","Wharton","Columbia","NYU Stern","UCLA","UC Berkeley","Oxford","Cambridge","LSE","UCL","KCL","Imperial","LBS"].map(u=>(
+            <span key={u} style={{ fontSize:".74rem", padding:"5px 12px", borderRadius:6, border:"1px solid #e2e8f0", color:"#475569", background:"white", fontWeight:500 }}>{u}</span>
+          ))}
+        </div>
+      </div>
+      <div>
+        <p style={{ fontSize:".78rem", fontWeight:700, color:"#0b1c3d", marginBottom:14 }}>Global Institutions</p>
+        <div style={{ display:"flex", flexWrap:"wrap", gap:8 }}>
+          {["INSEAD","ISB","NUS","McGill","UBC","Toronto","HEC Paris"].map(u=>(
+            <span key={u} style={{ fontSize:".74rem", padding:"5px 12px", borderRadius:6, border:"1px solid #e2e8f0", color:"#475569", background:"white", fontWeight:500 }}>{u}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+   {/* ✅ All selectors scoped — no bleed into uni-grid */}
+ 
+
+    <style dangerouslySetInnerHTML={{ __html: `
+  .metrics-row {
+        grid-template-columns: repeat(4, 1fr) !important;
+      }
+
+      /* Tablet: 1024px and below */
+      @media (max-width: 1024px) {
+        .metrics-row {
+          grid-template-columns: repeat(2, 1fr) !important;
+        }
+        .metric-cell {
+          border-right: none !important;
+          border-bottom: 1px solid #e2e8f0 !important;
+        }
+        .metric-cell-0,
+        .metric-cell-2 {
+          border-right: 1px solid #e2e8f0 !important;
+        }
+        .metric-cell-2,
+        .metric-cell-3 {
+          border-bottom: none !important;
+        }
+      }
+
+      /* Mobile: 640px and below */
+      @media (max-width: 640px) {
+        .metrics-row {
+          grid-template-columns: repeat(2, 1fr) !important;
+        }
+        .metric-cell {
+          padding: 24px 16px !important;
+        }
+        .metric-number {
+          font-size: 2rem !important;
+        }
+      }
+
+      /* Small mobile: 420px and below */
+      @media (max-width: 420px) {
+        .metrics-row {
+          grid-template-columns: repeat(2, 1fr) !important;
+          margin-bottom: 32px !important;
+          border-radius: 12px !important;
+        }
+        .metric-cell {
+          padding: 18px 10px !important;
+        }
+        .metric-number {
+          font-size: 1.6rem !important;
+        }
+        .metric-badge {
+          font-size: .56rem !important;
+          letter-spacing: .05em !important;
+        }
+        .metric-label {
+          font-size: .66rem !important;
+        }
+      }
+
+      /* Very small: 320px and below */
+      @media (max-width: 320px) {
+        .metrics-row {
+          grid-template-columns: 1fr !important;
+        }
+        .metric-cell-0,
+        .metric-cell-2 {
+          border-right: none !important;
+        }
+        .metric-cell {
+          border-bottom: 1px solid #e2e8f0 !important;
+        }
+        .metric-cell-3 {
+          border-bottom: none !important;
+        }
+        .metric-number {
+          font-size: 2rem !important;
+        }
+      }
+
+      /* University grid responsive */
+      @media (max-width: 640px) {
+        .uni-grid {
+          grid-template-columns: 1fr !important;
+          gap: 28px !important;
+        }
+      }
+      @media (max-width: 420px) {
+        .uni-grid {
+          gap: 20px !important;
+        }
+      }
+`}} />
+</section>
         {/* ══ 7. GLOBAL MAP ══ */}
-        <section id="global-map" style={{ padding:"100px 0", background:"linear-gradient(160deg,#060c1a,#0b1c3d)", position:"relative", overflow:"hidden" }} aria-labelledby="map-h">
-          <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 60% 50%,rgba(0,201,177,.05) 0%,transparent 60%)", pointerEvents:"none" }} />
-          <div style={{ maxWidth:1200, margin:"0 auto", padding:"0 24px", position:"relative", zIndex:2 }}>
-            <div className="reveal" style={{ textAlign:"center", marginBottom:56 }}>
-              <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:10, marginBottom:16 }}>
-                <div style={{ width:32, height:1, background:"#d4af37" }} />
-                <span style={{ fontSize:".68rem", fontWeight:700, letterSpacing:".14em", color:"#d4af37", textTransform:"uppercase" }}>Global Reach</span>
-                <div style={{ width:32, height:1, background:"#d4af37" }} />
+        <section
+          id="global-map"
+          style={{
+            padding: "80px 0",
+            background: "linear-gradient(160deg,#060c1a,#0b1c3d)",
+            position: "relative",
+            overflow: "hidden",
+          }}
+          aria-labelledby="map-h"
+        >
+          {/* Background glow */}
+          <div style={{
+            position: "absolute", inset: 0,
+            background: "radial-gradient(ellipse at 60% 50%,rgba(0,201,177,.05) 0%,transparent 60%)",
+            pointerEvents: "none",
+          }} />
+
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 2 }}>
+
+            {/* Header */}
+            <div className="reveal" style={{ textAlign: "center", marginBottom: 48 }}>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, marginBottom: 16 }}>
+                <div style={{ width: 32, height: 1, background: "#d4af37" }} />
+                <span style={{ fontSize: ".68rem", fontWeight: 700, letterSpacing: ".14em", color: "#d4af37", textTransform: "uppercase" }}>
+                  Global Reach
+                </span>
+                <div style={{ width: 32, height: 1, background: "#d4af37" }} />
               </div>
-              <h2 id="map-h" style={{ fontFamily:"var(--font-head)", fontSize:"clamp(2rem,4vw,3rem)", fontWeight:800, color:"white", lineHeight:1.15, marginBottom:4 }}>From India to</h2>
-              <h2 style={{ fontFamily:"var(--font-head)", fontSize:"clamp(2rem,4vw,3rem)", fontWeight:800, fontStyle:"italic", color:"#d4af37", lineHeight:1.15, marginBottom:20 }}>Every Elite Institution</h2>
-              <p style={{ fontSize:".9rem", color:"rgba(255,255,255,.42)", maxWidth:460, margin:"0 auto", lineHeight:1.78 }}>
+
+              <h2 id="map-h" style={{ fontFamily: "var(--font-head)", fontSize: "clamp(1.8rem,4vw,3rem)", fontWeight: 800, color: "white", lineHeight: 1.15, marginBottom: 4 }}>
+                From India to
+              </h2>
+              <h2 style={{ fontFamily: "var(--font-head)", fontSize: "clamp(1.8rem,4vw,3rem)", fontWeight: 800, fontStyle: "italic", color: "#d4af37", lineHeight: 1.15, marginBottom: 20 }}>
+                Every Elite Institution
+              </h2>
+              <p style={{ fontSize: "clamp(.82rem,1.5vw,.9rem)", color: "rgba(255,255,255,.42)", maxWidth: 460, margin: "0 auto", lineHeight: 1.78 }}>
                 We place students from across India into the world&apos;s most competitive universities — in the USA, UK, Canada, Europe, and beyond.
               </p>
             </div>
-            <div className="reveal" style={{ maxWidth:860, margin:"0 auto" }}>
-              <div style={{ width:"100%", height:380, background:"rgba(255,255,255,.03)", border:"1px solid rgba(255,255,255,.07)", borderRadius:20, position:"relative", overflow:"hidden", display:"flex", alignItems:"center", justifyContent:"center" }}>
-                <div style={{ position:"absolute", inset:0, backgroundImage:"radial-gradient(rgba(255,255,255,.1) 1px,transparent 1px)", backgroundSize:"22px 22px", opacity:.5 }} />
-                {MAP_LABELS.map(l=>(
-                  <div key={l.name} style={{ position:"absolute", top:l.top, left:l.left, background:l.gold?"rgba(212,175,55,.15)":"rgba(255,255,255,.07)", border:`1px solid ${l.gold?"rgba(212,175,55,.4)":"rgba(255,255,255,.15)"}`, color:l.gold?"#d4af37":"rgba(255,255,255,.6)", borderRadius:50, padding:"6px 14px", fontSize:".72rem", fontWeight:700, letterSpacing:".06em", display:"flex", alignItems:"center", gap:6, whiteSpace:"nowrap" }}>
-                    <span style={{ width:7, height:7, borderRadius:"50%", background:l.gold?"#d4af37":"rgba(255,255,255,.5)", display:"inline-block" }} />
-                    ✦ {l.name} {l.flag ?? ""}
+
+            {/* Map Card */}
+            <div className="reveal" style={{ maxWidth: 860, margin: "0 auto" }}>
+              <div className="map-card" style={{ width: "100%", background: "rgba(255,255,255,.03)", border: "1px solid rgba(255,255,255,.07)", borderRadius: 20, position: "relative", overflow: "hidden" }}>
+                {/* Dot grid */}
+                <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(255,255,255,.1) 1px,transparent 1px)", backgroundSize: "22px 22px", opacity: .5, pointerEvents: "none" }} />
+
+                {/* Desktop layout */}
+                <div className="map-desktop" style={{ position: "relative", height: 380 }}>
+                  {MAP_LABELS.map(l => (
+                    <div
+                      key={l.name}
+                      style={{
+                        position: "absolute", top: l.top, left: l.left,
+                        background: l.gold ? "rgba(212,175,55,.15)" : "rgba(255,255,255,.07)",
+                        border: `1px solid ${l.gold ? "rgba(212,175,55,.4)" : "rgba(255,255,255,.15)"}`,
+                        color: l.gold ? "#d4af37" : "rgba(255,255,255,.6)",
+                        borderRadius: 50, padding: "6px 14px",
+                        fontSize: ".72rem", fontWeight: 700, letterSpacing: ".06em",
+                        display: "flex", alignItems: "center", gap: 6, whiteSpace: "nowrap",
+                        transition: "transform .2s, background .2s",
+                      }}
+                      onMouseEnter={e => {
+                        const el = e.currentTarget as HTMLElement;
+                        el.style.transform = "scale(1.06)";
+                        el.style.background = l.gold ? "rgba(212,175,55,.25)" : "rgba(255,255,255,.12)";
+                      }}
+                      onMouseLeave={e => {
+                        const el = e.currentTarget as HTMLElement;
+                        el.style.transform = "none";
+                        el.style.background = l.gold ? "rgba(212,175,55,.15)" : "rgba(255,255,255,.07)";
+                      }}
+                    >
+                      <span style={{ width: 7, height: 7, borderRadius: "50%", background: l.gold ? "#d4af37" : "rgba(255,255,255,.5)", display: "inline-block", flexShrink: 0 }} />
+                      ✦ {l.name} {l.flag ?? ""}
+                    </div>
+                  ))}
+
+                  {/* Centre text */}
+                  <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", zIndex: 2 }}>
+                    <h3 style={{ fontFamily: "var(--font-head)", fontSize: "clamp(1rem,2.5vw,1.3rem)", fontWeight: 800, color: "white", marginBottom: 8 }}>
+                      40+ Destination Countries
+                    </h3>
+                    <p style={{ fontSize: ".82rem", color: "rgba(255,255,255,.35)" }}>
+                      Students admitted to 200+ elite institutions worldwide
+                    </p>
                   </div>
-                ))}
-                <div style={{ textAlign:"center", position:"relative", zIndex:2 }}>
-                  <h3 style={{ fontFamily:"var(--font-head)", fontSize:"1.3rem", fontWeight:800, color:"white", marginBottom:8 }}>40+ Destination Countries</h3>
-                  <p style={{ fontSize:".82rem", color:"rgba(255,255,255,.35)" }}>Students admitted to 200+ elite institutions worldwide</p>
+                </div>
+
+                {/* Mobile layout */}
+                <div className="map-mobile" style={{ display: "none", padding: "32px 20px" }}>
+                  <div style={{ textAlign: "center", marginBottom: 28 }}>
+                    <h3 style={{ fontFamily: "var(--font-head)", fontSize: "1.15rem", fontWeight: 800, color: "white", marginBottom: 6 }}>
+                      40+ Destination Countries
+                    </h3>
+                    <p style={{ fontSize: ".78rem", color: "rgba(255,255,255,.35)", lineHeight: 1.6 }}>
+                      Students admitted to 200+ elite institutions worldwide
+                    </p>
+                  </div>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "center" }}>
+                    {MAP_LABELS.map(l => (
+                      <div key={l.name} style={{ background: l.gold ? "rgba(212,175,55,.15)" : "rgba(255,255,255,.07)", border: `1px solid ${l.gold ? "rgba(212,175,55,.4)" : "rgba(255,255,255,.15)"}`, color: l.gold ? "#d4af37" : "rgba(255,255,255,.6)", borderRadius: 50, padding: "7px 14px", fontSize: ".72rem", fontWeight: 700, letterSpacing: ".06em", display: "flex", alignItems: "center", gap: 6, whiteSpace: "nowrap" }}>
+                        <span style={{ width: 7, height: 7, borderRadius: "50%", background: l.gold ? "#d4af37" : "rgba(255,255,255,.5)", display: "inline-block", flexShrink: 0 }} />
+                        ✦ {l.name} {l.flag ?? ""}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
+
+            {/* Stats row */}
+            <div className="reveal map-stats" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 1, maxWidth: 860, margin: "24px auto 0", background: "rgba(255,255,255,.06)", border: "1px solid rgba(255,255,255,.08)", borderRadius: 16, overflow: "hidden" }}>
+              {[
+                { val: "40+",  label: "Countries" },
+                { val: "200+", label: "Institutions" },
+                { val: "10K+", label: "Students Placed" },
+                { val: "92%",  label: "First-choice Rate" },
+              ].map((s, i, arr) => (
+                <div
+                  key={s.label}
+                  style={{ padding: "20px 16px", textAlign: "center", borderRight: i < arr.length - 1 ? "1px solid rgba(255,255,255,.07)" : "none", background: "rgba(255,255,255,.02)", transition: "background .2s" }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,.06)"; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,.02)"; }}
+                >
+                  <div style={{ fontFamily: "var(--font-head)", fontSize: "clamp(1.2rem,2.5vw,1.6rem)", fontWeight: 800, color: "white", marginBottom: 4 }}>{s.val}</div>
+                  <div style={{ fontSize: "clamp(.62rem,1.2vw,.72rem)", color: "rgba(255,255,255,.38)", fontWeight: 600, letterSpacing: ".06em", textTransform: "uppercase" }}>{s.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
+
+          {/* ✅ FIX: Removed all < and > from CSS comments to prevent SSR hydration mismatch */}
+         
+          <style
+  dangerouslySetInnerHTML={{
+    __html: `
+       /* Desktop 640px and above: show absolute map, hide mobile grid */
+            @media (min-width: 640px) {
+              .map-desktop { display: block !important; }
+              .map-mobile  { display: none   !important; }
+            }
+
+            /* Mobile 639px and below: hide absolute map, show pill grid */
+            @media (max-width: 639px) {
+              .map-desktop { display: none  !important; }
+              .map-mobile  { display: block !important; }
+              .map-stats   { grid-template-columns: repeat(2,1fr) !important; }
+              .map-stats > div:nth-child(2) { border-right: none !important; }
+            }
+
+            /* Very small 379px and below */
+            @media (max-width: 379px) {
+              .map-stats { grid-template-columns: 1fr 1fr !important; }
+              #global-map { padding: 60px 0 !important; }
+            }
+    `,
+  }}
+/>
         </section>
 
         {/* ══ 8. BLOG / STRATEGIC INSIGHTS ══ */}
-        <section id="blog" style={{ padding:"100px 0", background:"white" }} aria-labelledby="blog-h">
+        <section id="blog" style={{ padding:"100px 0 50px", background:"white" }} aria-labelledby="blog-h">
           <div style={{ maxWidth:1200, margin:"0 auto", padding:"0 24px" }}>
             <div className="reveal" style={{ display:"flex", alignItems:"flex-end", justifyContent:"space-between", marginBottom:56, flexWrap:"wrap", gap:20 }}>
               <div>
@@ -511,7 +858,6 @@ export default function Home() {
                 Join 10,000+ students whose globally competitive futures were designed by OmniQuest.
               </p>
               <div style={{ display:"flex", gap:14, justifyContent:"center", flexWrap:"wrap" }}>
-                {/* ✅ External link preserved */}
                 <a
                   href="https://eduquest.org.in/contact-us/"
                   target="_blank" rel="noopener noreferrer"
@@ -521,7 +867,6 @@ export default function Home() {
                 >
                   📅 Book Strategy Session
                 </a>
-                {/* ✅ Next.js Link preserved */}
                 <Link
                   href="/personality-test"
                   style={{ display:"inline-flex", alignItems:"center", gap:8, padding:"15px 32px", borderRadius:6, background:"rgba(255,255,255,.08)", border:"1px solid rgba(255,255,255,.15)", color:"white", fontWeight:700, fontSize:".9rem", textDecoration:"none", transition:"all .2s" }}
@@ -593,14 +938,14 @@ export default function Home() {
       <Chatbot />
 
       <style dangerouslySetInnerHTML={{ __html: `
-        /* ── Reveal animation ── */
+        /* Reveal animation */
         .reveal { opacity:0; transform:translateY(24px); transition:opacity .6s ease,transform .6s ease; }
         .reveal.visible { opacity:1; transform:none; }
         .animate-fade-up { opacity:0; transform:translateY(20px); animation:fadeUp .7s ease forwards; }
         .delay-1{animation-delay:.12s} .delay-2{animation-delay:.22s} .delay-3{animation-delay:.32s} .delay-4{animation-delay:.42s}
         @keyframes fadeUp { to { opacity:1; transform:none; } }
 
-        /* ── Responsive ── */
+        /* Responsive */
 
         /* Tablet landscape */
         @media(max-width:1024px){
@@ -641,7 +986,7 @@ export default function Home() {
   );
 }
 
-/* ── DATA ── */
+/* DATA */
 const PATHWAYS = [
   {
     icon:"🏛", division:"School Division · EduQuest",
@@ -695,10 +1040,10 @@ const MAP_LABELS = [
 ];
 
 const BLOGS = [
-  { emoji:"📚", tag:"SAT Strategy",  title:"How to Score 1500+ on the SAT: A Proven Study Plan",                         meta:"8 min read · Study Abroad"   },
-  { emoji:"🎯", tag:"GMAT Guide",    title:"The Complete GMAT 720+ Blueprint for Indian MBA Aspirants",                   meta:"12 min read · MBA Admissions" },
-  { emoji:"🌍", tag:"Ivy League",    title:"What Ivy League Admissions Officers Actually Look For in 2026",               meta:"10 min read · Profile Strategy"},
-  { emoji:"🤖", tag:"Tech Careers",  title:"Careers in AI: Skills, Salaries & How to Break In Without a CS Degree",      meta:"9 min read · Career Strategy" },
+  { emoji:"📚", tag:"SAT Strategy",  title:"How to Score 1500+ on the SAT: A Proven Study Plan",                    meta:"8 min read · Study Abroad"    },
+  { emoji:"🎯", tag:"GMAT Guide",    title:"The Complete GMAT 720+ Blueprint for Indian MBA Aspirants",              meta:"12 min read · MBA Admissions"  },
+  { emoji:"🌍", tag:"Ivy League",    title:"What Ivy League Admissions Officers Actually Look For in 2026",          meta:"10 min read · Profile Strategy" },
+  { emoji:"🤖", tag:"Tech Careers",  title:"Careers in AI: Skills, Salaries & How to Break In Without a CS Degree", meta:"9 min read · Career Strategy"  },
 ];
 
 const BLOG_COLORS = [
@@ -712,33 +1057,33 @@ const FOOTER_COLS = [
   {
     title:"Strategy",
     links:[
-      { label:"Ivy League Admissions",     href:"https://eduquest.org.in/",                   external:true  },
-      { label:"UG Profile Building",        href:"https://eduquest.org.in/",                   external:true  },
-      { label:"MBA Admissions",             href:"https://eduquest.org.in/",                   external:true  },
-      { label:"GMAT Strategy",              href:"https://eduquest.org.in/",                   external:true  },
-      { label:"Tech Career Programs",       href:"https://eduquest.org.in/eduquest-aptech/",   external:true  },
-      { label:"Psychometric Assessment",    href:"/personality-test",                           external:false },
+      { label:"Ivy League Admissions",  href:"https://eduquest.org.in/",                 external:true  },
+      { label:"UG Profile Building",    href:"https://eduquest.org.in/",                 external:true  },
+      { label:"MBA Admissions",         href:"https://eduquest.org.in/",                 external:true  },
+      { label:"GMAT Strategy",          href:"https://eduquest.org.in/",                 external:true  },
+      { label:"Tech Career Programs",   href:"https://eduquest.org.in/eduquest-aptech/", external:true  },
+      { label:"Psychometric Assessment",href:"/personality-test",                         external:false },
     ],
   },
   {
     title:"Offices",
     links:[
-      { label:"Delhi / NCR",         href:"https://eduquest.org.in/contact-us/", external:true },
-      { label:"Bangalore",           href:"https://eduquest.org.in/contact-us/", external:true },
-      { label:"Mumbai",              href:"https://eduquest.org.in/contact-us/", external:true },
-      { label:"Hyderabad",           href:"https://eduquest.org.in/contact-us/", external:true },
-      { label:"Online — Pan India",  href:"https://eduquest.org.in/contact-us/", external:true },
+      { label:"Delhi / NCR",       href:"https://eduquest.org.in/contact-us/", external:true },
+      { label:"Bangalore",         href:"https://eduquest.org.in/contact-us/", external:true },
+      { label:"Mumbai",            href:"https://eduquest.org.in/contact-us/", external:true },
+      { label:"Hyderabad",         href:"https://eduquest.org.in/contact-us/", external:true },
+      { label:"Online — Pan India",href:"https://eduquest.org.in/contact-us/", external:true },
     ],
   },
   {
     title:"Company",
     links:[
-      { label:"About OmniQuest",    href:"https://eduquest.org.in/about-us/",         external:true  },
-      { label:"Success Outcomes",   href:"https://eduquest.org.in/our-achievements/", external:true  },
-      { label:"Strategic Insights", href:"https://eduquest.org.in/blog",              external:true  },
-      { label:"FAQs",               href:"#faq",                                       external:false },
-      { label:"Contact Us",         href:"https://eduquest.org.in/contact-us/",        external:true  },
-      { label:"Join Our Team",      href:"https://eduquest.org.in/franchise/",         external:true  },
+      { label:"About OmniQuest",   href:"https://eduquest.org.in/about-us/",         external:true  },
+      { label:"Success Outcomes",  href:"https://eduquest.org.in/our-achievements/", external:true  },
+      { label:"Strategic Insights",href:"https://eduquest.org.in/blog",              external:true  },
+      { label:"FAQs",              href:"#faq",                                       external:false },
+      { label:"Contact Us",        href:"https://eduquest.org.in/contact-us/",        external:true  },
+      { label:"Join Our Team",     href:"https://eduquest.org.in/franchise/",         external:true  },
     ],
   },
 ];

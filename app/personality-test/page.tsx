@@ -9,7 +9,7 @@ import type { Metadata } from "next";
 
 type Stage = "intro" | "quiz" | "form" | "loading" | "report";
 const ICONS: Record<string, string> = { analytical:"🧠", creative:"🎨", leadership:"🎯", empathy:"💙", ambition:"🚀", resilience:"⚡" };
-const LOADS = ["Sending answers to Grok AI…","Analysing 6 personality dimensions…","Identifying your unique type…","Mapping career strengths…","Crafting personalised insights…","Almost ready…"];
+const LOADS = ["Sending answers to  AI…","Analysing 6 personality dimensions…","Identifying your unique type…","Mapping career strengths…","Crafting personalised insights…","Almost ready…"];
 
 export default function PersonalityTestPage() {
   const [stage, setStage] = useState<Stage>("intro");
@@ -49,7 +49,7 @@ export default function PersonalityTestPage() {
       setReport(aiReport);
       fetch("/api/submit-lead", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ leadData: data, answers, report: aiReport }) });
     } catch (err) {
-      console.error("Grok failed, using fallback:", err);
+      console.error("OpenAi failed, using fallback:", err);
       const { computeReport } = await import("@/lib/personality");
       const fb = computeReport(answers, data.fullName);
       setReport(fb);
@@ -82,17 +82,17 @@ export default function PersonalityTestPage() {
           <div style={{ textAlign:"center", animation:"fadeUp .7s ease both" }}>
             <div style={{ display:"inline-flex", alignItems:"center", gap:8, padding:"7px 18px", borderRadius:100, background:"rgba(91,138,255,.12)", border:"1px solid rgba(91,138,255,.3)", color:"#5b8aff", fontSize:".72rem", letterSpacing:".14em", fontWeight:600, textTransform:"uppercase", marginBottom:26 }}>
               <span style={{ width:6, height:6, borderRadius:"50%", background:"#5b8aff", animation:"blink 1.5s ease-in-out infinite" }} />
-              Powered by Grok AI · xAI
+              Powered by OmniQuest
             </div>
             <h1 style={{ fontFamily:"var(--font-head)", fontSize:"clamp(2.2rem,5vw,3.5rem)", fontWeight:800, lineHeight:1.14, marginBottom:18 }}>
               Discover Your<br />
               <span style={{ background:"linear-gradient(135deg,#5b8aff,#a78bfa,#00C9B1)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent" }}>True Potential</span>
             </h1>
             <p style={{ fontSize:"1.05rem", color:"rgba(241,245,255,.55)", maxWidth:500, margin:"0 auto 36px", lineHeight:1.75 }}>
-              12 questions across 6 dimensions. Grok AI analyses your answers and generates a personalised personality report with career matches and program recommendations.
+              12 questions across 6 dimensions. AI analyses your answers and generates a personalised personality report with career matches and program recommendations.
             </p>
             <div style={{ display:"flex", gap:20, justifyContent:"center", marginBottom:44, flexWrap:"wrap" }}>
-              {[["⏱️","5 min"],["⚡","Grok AI"],["📊","Full report"],["🎯","Program match"]].map(([ic,lb]) => (
+              {[["⏱️","5 min"],["⚡"," AI"],["📊","Full report"],["🎯","Program match"]].map(([ic,lb]) => (
                 <div key={lb} style={{ textAlign:"center" }}><div style={{ fontSize:"1.5rem", marginBottom:4 }}>{ic}</div><div style={{ fontSize:".74rem", color:"rgba(241,245,255,.4)" }}>{lb}</div></div>
               ))}
             </div>
@@ -175,13 +175,13 @@ export default function PersonalityTestPage() {
               <div style={{ position:"absolute", inset:-8, borderRadius:"50%", border:"3px solid transparent", borderTopColor:"#5b8aff", borderRightColor:"#a78bfa", animation:"spin 1.4s linear infinite" }} />
               <div style={{ position:"absolute", inset:-18, borderRadius:"50%", border:"2px solid transparent", borderTopColor:"rgba(0,201,177,.5)", borderBottomColor:"rgba(0,201,177,.3)", animation:"spin 2.5s linear infinite reverse" }} />
             </div>
-            <h2 style={{ fontFamily:"var(--font-head)", fontSize:"1.6rem", fontWeight:800, marginBottom:10 }}>Grok AI is analysing your profile</h2>
+            <h2 style={{ fontFamily:"var(--font-head)", fontSize:"1.6rem", fontWeight:800, marginBottom:10 }}>AI is analysing your profile</h2>
             <p style={{ color:"rgba(241,245,255,.4)", fontSize:".9rem", marginBottom:32, minHeight:26, transition:"opacity .5s" }}>{loadMsg}</p>
             <div style={{ display:"flex", gap:8, justifyContent:"center", marginBottom:40 }}>
               {[0,1,2,3,4].map(i => <div key={i} style={{ width:10, height:10, borderRadius:"50%", background:"var(--teal)", animation:"typingDot 1.4s ease-in-out infinite", animationDelay:`${i*.18}s` }} />)}
             </div>
             <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:9, maxWidth:420, margin:"0 auto" }}>
-              {[["🧠","Processing 12 answers"],["📊","Scoring 6 dimensions"],["⚡","Grok AI reasoning"],["🎯","Matching personality type"],["💼","Finding career paths"],["🎓","Picking best program"]].map(([ic,tx]) => (
+              {[["🧠","Processing 12 answers"],["📊","Scoring 6 dimensions"],["⚡","AI reasoning"],["🎯","Matching personality type"],["💼","Finding career paths"],["🎓","Picking best program"]].map(([ic,tx]) => (
                 <div key={tx} style={{ padding:"10px 14px", borderRadius:10, background:"rgba(255,255,255,.04)", border:"1px solid rgba(255,255,255,.06)", display:"flex", alignItems:"center", gap:8, fontSize:".78rem", color:"rgba(241,245,255,.4)" }}><span>{ic}</span>{tx}</div>
               ))}
             </div>
