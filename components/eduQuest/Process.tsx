@@ -36,8 +36,12 @@ const steps = [
 export default function Process() {
   return (
     <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+    
+      
+       <style
+        dangerouslySetInnerHTML={{
+          __html: `
+             @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
 
         .eq-system-section {
           background: #ffffff;
@@ -150,8 +154,10 @@ export default function Process() {
           .eq-system-step::before { left: 29px; }
           .eq-step-circle { width: 36px; height: 36px; font-size: 0.75rem; }
         }
-      `}</style>
-
+          `
+        }}
+      />
+    
       <section className="eq-system-section" id="admissions-system">
         <div className="eq-system-inner">
 

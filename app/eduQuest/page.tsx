@@ -15,6 +15,7 @@ import Contact from '@/components/eduQuest/Contact';
 import Footer from '@/components/eduQuest/Footer';
 import FloatingWidgets from '@/components/eduQuest/FloatingWidgets';
 import TimelineAndTestimonials from '@/components/eduQuest/Testimonials';
+import Calculators from '@/components/eduQuest/Calculators';
 
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
       <Navbar  />
       <main>
         <Hero />
+        <Calculators />
         <Courses />
         <WhyChooseUs />
         <Process />

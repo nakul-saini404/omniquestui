@@ -282,8 +282,10 @@ export default function FloatingWidgets() {
         </div>
       </div>
 
-      <style>{`
-        @keyframes shimmer {
+        <style
+        dangerouslySetInnerHTML={{
+          __html: `
+           @keyframes shimmer {
           0%   { background-position: -200% 0; }
           100% { background-position:  200% 0; }
         }
@@ -296,7 +298,10 @@ export default function FloatingWidgets() {
           to   { opacity: 1; transform: scale(1)    translateY(0);    transform-origin: bottom right; }
         }
         .animate-fade-in { animation: fade-in 0.25s ease-out; }
-      `}</style>
+          `
+        }}
+      />
+       
     </>
   );
 }

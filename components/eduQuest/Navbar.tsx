@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 // ─── NAV DATA ───────────────────────────────────────────────────────────────
 const navItems = [
-  { label: 'Home', href: 'https://eduquest.org.in' },
+  { label: 'Home', href: '/eduQuest' },
   { label: 'About Us', href: 'https://eduquest.org.in/about-us/' },
   { label: 'EduQuest × Aptech', href: 'https://eduquest.org.in/eduquest-aptech/' },
   {
@@ -602,7 +602,7 @@ export default function Navbar({ onToggleDesign }: { onToggleDesign?: () => void
       <div className="eq-row2">
         <div className="eq-row2-inner">
           {/* Logo */}
-          <a href="https://eduquest.org.in" className="eq-logo-wrap">
+          <a href="/eduQuest" className="eq-logo-wrap">
             <Image
               src="https://eduquest.org.in/wp-content/uploads/2020/11/logo40.png"
               alt="EduQuest Logo"

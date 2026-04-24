@@ -35,8 +35,10 @@ const vsRows = [
 export default function WhyEduQuest() {
   return (
     <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
 
         /* ── Section ── */
         .eq-auth-section {
@@ -275,8 +277,10 @@ export default function WhyEduQuest() {
             font-size: 0.74rem;
           }
         }
-      `}</style>
-
+          `
+        }}
+      />
+      
       <section className="eq-auth-section" id="why-eduquest">
         <div className="eq-auth-inner">
           <div className="eq-auth-grid">

@@ -43,8 +43,11 @@ export default function Hero() {
   return (
     <>
       {/* ── STYLES ─────────────────────────────────────────────────────── */}
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+       <style
+        dangerouslySetInnerHTML={{
+          __html: `
+           @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
         :root {
           --navy: #0a1628;
@@ -315,8 +318,10 @@ export default function Hero() {
           .eq-hero { padding: 50px 20px 40px; }
           .eq-stats-inner { grid-template-columns: repeat(2, 1fr); }
         }
-      `}</style>
-
+          `
+        }}
+      />
+     
       {/* ── HERO SECTION ────────────────────────────────────────────────── */}
       <section className="eq-hero" id="home" style={{minHeight:"auto"}}>
         <div className="eq-hero-inner">

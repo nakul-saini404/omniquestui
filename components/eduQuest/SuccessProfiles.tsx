@@ -43,8 +43,11 @@ const profiles = [
 export default function SuccessProfiles() {
   return (
     <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+    
+       <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap');
 
         /* ── Section ── */
         .sp-section {
@@ -144,7 +147,9 @@ export default function SuccessProfiles() {
             gap: 14px;
           }
         }
-      `}</style>
+          `
+        }}
+      />
 
       <section className="sp-section" id="profiles">
         <div className="sp-inner">

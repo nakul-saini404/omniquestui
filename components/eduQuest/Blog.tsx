@@ -28,8 +28,10 @@ const articles = [
 export default function Blog() {
   return (
     <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+             @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap');
 
         /* ── Section ── */
         .blog-section {
@@ -176,7 +178,10 @@ export default function Blog() {
           .blog-grid { grid-template-columns: 1fr; }
           .blog-header { align-items: flex-start; }
         }
-      `}</style>
+          `
+        }}
+      />
+    
 
       <section className="blog-section" id="blog">
         <div className="blog-inner">

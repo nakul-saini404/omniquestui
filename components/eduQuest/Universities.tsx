@@ -26,8 +26,10 @@ const universities = [
 export default function Universities() {
   return (
     <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+       <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap');
 
         /* ── Section ── */
         .uni-section {
@@ -147,8 +149,9 @@ export default function Universities() {
           .uni-marquee-wrap::before,
           .uni-marquee-wrap::after { width: 40px; }
         }
-      `}</style>
-
+          `
+        }}
+      />
       <section className="uni-section" id="universities">
         <div className="uni-inner">
 

@@ -39,8 +39,11 @@ export default function FAQ() {
 
   return (
     <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+    
+        <style
+        dangerouslySetInnerHTML={{
+          __html: `
+         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap');
 
         /* ── Section ── */
         .faq-section {
@@ -148,7 +151,10 @@ export default function FAQ() {
           .faq-question { font-size: 0.88rem; padding: 16px 18px; }
           .faq-answer   { padding: 0 18px 16px; }
         }
-      `}</style>
+          `
+        }}
+      />
+      
 
       <section className="faq-section" id="faq">
         <div className="faq-inner">
