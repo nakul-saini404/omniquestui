@@ -34,8 +34,8 @@ export default function Courses() {
       setTimeout(() => {
         setCurrentIndex((prev) => (prev + 1) % courses.length);
         setIsChanging(false);
-      }, 400);
-    }, 3500);
+      }, 1000);
+    }, 3000);
 
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);

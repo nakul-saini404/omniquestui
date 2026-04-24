@@ -27,8 +27,8 @@ export default function Home() {
       <main>
         <Hero />
         <Calculators />
-        <Courses />
         <WhyChooseUs />
+        <Courses />
         <Process />
         <StudyAbroad />
         <TimelineAndTestimonials />

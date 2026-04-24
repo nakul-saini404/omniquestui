@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 
-/* ─── TIMELINE DATA ──────────────────────────────────────────────────────── */
+// ─── TIMELINE DATA ──────────────────────────────────────────────────────────
 const timelineTabs = [
   {
     id: 'all',
@@ -153,7 +153,7 @@ const timelineTabs = [
   },
 ];
 
-/* ─── TESTIMONIAL DATA ───────────────────────────────────────────────────── */
+// ─── TESTIMONIAL DATA ─────────────────────────────────────────────────────
 const testimonials = [
   {
     name: 'Hardik',
@@ -205,52 +205,43 @@ const testimonials = [
   },
 ];
 
-/* ─── VIDEO STORIES DATA ─────────────────────────────────────────────────── */
+// ─── VIDEO STORIES DATA ──────────────────────────────────────────────────
 const videoStories = [
-  { label: "Hardik's SAT 1520 Journey",          thumb: 'https://eduquest.org.in/wp-content/uploads/2025/09/Student-Testimony-Video-4.jpg',  youtubeId: 'dQw4w9WgXcQ' },
-  { label: "Seher's Study Abroad Story",          thumb: 'https://eduquest.org.in/wp-content/uploads/2025/09/Student-Testimonial-2.jpg',       youtubeId: 'dQw4w9WgXcQ' },
-  { label: 'AP 5/5 — Soham Experience',           thumb: 'https://eduquest.org.in/wp-content/uploads/2025/09/Student-Video-3.jpg',             youtubeId: 'dQw4w9WgXcQ' },
-  { label: 'From India to Top-50 Universities',   thumb: 'https://eduquest.org.in/wp-content/uploads/2025/09/Student-TESTIMONIAL-1.jpg',       youtubeId: 'dQw4w9WgXcQ' },
-  { label: 'Profile Building — 18 Month Journey', thumb: 'https://eduquest.org.in/wp-content/uploads/2025/09/Student-Video-5.jpg',             youtubeId: 'dQw4w9WgXcQ' },
-  { label: 'Watch More on YouTube',               thumb: '',                                                                                    youtubeId: 'dQw4w9WgXcQ' },
+  { label: "Hardik's SAT 1520 Journey",      thumb: 'https://eduquest.org.in/wp-content/uploads/2025/09/Student-Testimony-Video-4.jpg',  youtubeId: 'dQw4w9WgXcQ' },
+  { label: "Seher's Study Abroad Story",     thumb: 'https://eduquest.org.in/wp-content/uploads/2025/09/Student-Testimonial-2.jpg',       youtubeId: 'dQw4w9WgXcQ' },
+  { label: 'AP 5/5 — Soham Experience',   thumb: 'https://eduquest.org.in/wp-content/uploads/2025/09/Student-Video-3.jpg',             youtubeId: 'dQw4w9WgXcQ' },
+  { label: 'From India to Top-50 Universities', thumb: 'https://eduquest.org.in/wp-content/uploads/2025/09/Student-TESTIMONIAL-1.jpg',   youtubeId: 'dQw4w9WgXcQ' },
+  { label: 'Profile Building — 18 Month Journey', thumb: 'https://eduquest.org.in/wp-content/uploads/2025/09/Student-Video-5.jpg',       youtubeId: 'dQw4w9WgXcQ' },
+  { label: 'Watch More on YouTube',          thumb: '',                                                                                     youtubeId: 'dQw4w9WgXcQ' },
 ];
 
-/* ── Helper: map class number → tab index ─────────────────────────────── */
-function classToTabIndex(cls: number): number | null {
-  if (cls === 8 || cls === 9) return 0;   // Class 8–12 Overview
-  if (cls === 10) return 1;
-  if (cls === 11) return 2;
-  if (cls === 12) return 3;
-  return null;
-}
-
 /* ══════════════════════════════════════════════════════════
-   SECTION 1 — CLASS-WISE TIMELINE
+   SECTION 1 — CLASS-WISE TIMELINE (With Input Field)
 ══════════════════════════════════════════════════════════ */
 export function TimelineSection() {
+  const [inputClass, setInputClass] = useState('');
   const [activeTab, setActiveTab] = useState(0);
 
-  /* ── NEW: class input state ── */
-  const [classInput, setClassInput] = useState('');
-  const [inputError, setInputError] = useState('');
+  // Handle input change and determine which timeline to show
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setInputClass(value);
+    
+    // Normalize input to determine timeline
+    const normalized = value.toLowerCase().trim();
+    if (normalized === '10' || normalized === '10th' || normalized === 'class 10') {
+      setActiveTab(1);
+    } else if (normalized === '11' || normalized === '11th' || normalized === 'class 11') {
+      setActiveTab(2);
+    } else if (normalized === '12' || normalized === '12th' || normalized === 'class 12') {
+      setActiveTab(3);
+    } else {
+      // Default to overview for empty, 8, 9, or any other input
+      setActiveTab(0);
+    }
+  };
 
   const tab = timelineTabs[activeTab];
-
-  /* Handle input submit */
-  function handleClassSearch() {
-    const num = parseInt(classInput.trim(), 10);
-    if (isNaN(num) || num < 8 || num > 12) {
-      setInputError('Please enter a valid class between 8 and 12.');
-      return;
-    }
-    setInputError('');
-    const tabIdx = classToTabIndex(num);
-    if (tabIdx !== null) setActiveTab(tabIdx);
-  }
-
-  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
-    if (e.key === 'Enter') handleClassSearch();
-  }
 
   return (
     <>
@@ -259,140 +250,142 @@ export function TimelineSection() {
           __html: `
             @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
 
-        /* ── Section ── */
-        .tl-section {
-          background: #f8f4ed;
-          padding: 80px 24px;
-          font-family: 'DM Sans', sans-serif;
-        }
-        .tl-inner { max-width: 1320px; margin: 0 auto; }
+            /* ── Section ── */
+            .tl-section {
+              background: #f8f4ed;
+              padding: 80px 24px;
+              font-family: 'DM Sans', sans-serif;
+            }
+            .tl-inner { max-width: 1320px; margin: 0 auto; }
 
-        /* ── Header ── */
-        .tl-tag {
-          display: inline-block; font-size: 0.72rem; font-weight: 700;
-          letter-spacing: 0.12em; text-transform: uppercase; color: #c9a84c;
-          padding: 4px 12px; background: rgba(201,168,76,0.1); border-radius: 4px; margin-bottom: 12px;
-        }
-        .tl-title {
-          font-family: 'Playfair Display', serif;
-          font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800; line-height: 1.2;
-          color: #0a1628; margin-bottom: 16px; letter-spacing: -0.02em;
-        }
-        .tl-title em { font-style: normal; color: #c9a84c; }
-        .tl-desc { font-size: 1.05rem; color: #6b7280; max-width: 600px; line-height: 1.7; margin: 0; }
+            /* ── Header ── */
+            .tl-tag {
+              display: inline-block; font-size: 0.72rem; font-weight: 700;
+              letter-spacing: 0.12em; text-transform: uppercase; color: #c9a84c;
+              padding: 4px 12px; background: rgba(201,168,76,0.1); border-radius: 4px; margin-bottom: 12px;
+            }
+            .tl-title {
+              font-family: 'Playfair Display', serif;
+              font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800; line-height: 1.2;
+              color: #0a1628; margin-bottom: 16px; letter-spacing: -0.02em;
+            }
+            .tl-title em { font-style: normal; color: #c9a84c; }
+            .tl-desc { font-size: 1.05rem; color: #6b7280; max-width: 600px; line-height: 1.7; margin: 0; }
 
-        /* ── Class Input ── */
-        .tl-input-wrap {
-          display: flex; align-items: flex-start; gap: 12px;
-          flex-wrap: wrap; margin-top: 32px; margin-bottom: 8px;
-        }
-        .tl-input-group { display: flex; flex-direction: column; gap: 6px; }
-        .tl-input-label {
-          font-size: 0.78rem; font-weight: 600; color: #6b7280;
-          letter-spacing: 0.04em; text-transform: uppercase;
-        }
-        .tl-input-row { display: flex; gap: 10px; align-items: center; }
-        .tl-class-input {
-          width: 200px; padding: 10px 16px; border-radius: 8px;
-          border: 1.5px solid #d1d5db; background: #ffffff;
-          font-size: 0.92rem; font-family: 'DM Sans', sans-serif;
-          color: #0a1628; outline: none; transition: border-color 0.2s;
-        }
-        .tl-class-input:focus { border-color: #c9a84c; }
-        .tl-class-input::placeholder { color: #9ca3af; }
-        .tl-class-input.tl-input-error { border-color: #ef4444; }
-        .tl-search-btn {
-          padding: 10px 24px; background: #0a1628; color: #ffffff;
-          border: none; border-radius: 8px; font-size: 0.88rem;
-          font-weight: 600; font-family: 'DM Sans', sans-serif;
-          cursor: pointer; transition: background 0.2s, transform 0.1s;
-          white-space: nowrap;
-        }
-        .tl-search-btn:hover { background: #c9a84c; }
-        .tl-search-btn:active { transform: scale(0.97); }
-        .tl-input-error-msg {
-          font-size: 0.78rem; color: #ef4444; margin-top: 4px;
-          display: flex; align-items: center; gap: 4px;
-        }
-        .tl-input-hint {
-          font-size: 0.78rem; color: #9ca3af; margin-top: 4px;
-        }
+            /* ── Input Container ── */
+            .tl-input-container {
+              margin: 36px 0;
+              max-width: 400px;
+            }
+            .tl-input-label {
+              display: block;
+              font-size: 0.85rem;
+              font-weight: 600;
+              color: #0a1628;
+              margin-bottom: 8px;
+              text-transform: uppercase;
+              letter-spacing: 0.05em;
+            }
+            .tl-input-wrapper {
+              position: relative;
+              display: flex;
+              align-items: center;
+            }
+            .tl-input {
+              width: 100%;
+              padding: 14px 18px;
+              border: 2px solid #e2e8f0;
+              border-radius: 10px;
+              font-family: 'DM Sans', sans-serif;
+              font-size: 1rem;
+              color: #0a1628;
+              background: #ffffff;
+              transition: all 0.3s;
+              outline: none;
+            }
+            .tl-input:focus {
+              border-color: #c9a84c;
+              box-shadow: 0 0 0 4px rgba(201,168,76,0.1);
+            }
+            .tl-input::placeholder {
+              color: #9ca3af;
+            }
+            .tl-current-timeline {
+              margin-top: 12px;
+              font-size: 0.9rem;
+              color: #6b7280;
+              display: flex;
+              align-items: center;
+              gap: 8px;
+            }
+            .tl-current-timeline strong {
+              color: #c9a84c;
+              font-weight: 700;
+            }
 
-        /* ── Tabs ── */
-        .tl-tabs {
-          display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 36px; margin-top: 32px;
-        }
-        .tl-tab {
-          padding: 10px 22px; border-radius: 8px; font-size: 0.85rem; font-weight: 600;
-          border: 1.5px solid #e2e8f0; background: transparent; cursor: pointer;
-          transition: all 0.3s; color: #1a1a2e; font-family: 'DM Sans', sans-serif;
-        }
-        .tl-tab:hover:not(.tl-tab-active) { border-color: #c9a84c; color: #c9a84c; }
-        .tl-tab-active { background: #0a1628; color: #ffffff; border-color: #0a1628; }
+            /* ── Stage cards grid ── */
+            .tl-stages {
+              display: grid;
+              grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+              gap: 20px;
+            }
+            .tl-stage {
+              background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px;
+              padding: 24px; position: relative; transition: all 0.3s;
+            }
+            .tl-stage:hover {
+              border-color: #c9a84c;
+              box-shadow: 0 8px 30px rgba(201,168,76,0.1);
+              transform: translateY(-3px);
+            }
+            .stage-num {
+              font-family: 'DM Mono', monospace; font-size: 0.7rem; color: #c9a84c;
+              font-weight: 500; margin-bottom: 8px; letter-spacing: 0.1em; display: block;
+            }
+            .stage-period {
+              position: absolute; top: 16px; right: 16px;
+              font-size: 0.68rem; background: rgba(201,168,76,0.1); color: #c9a84c;
+              padding: 3px 8px; border-radius: 100px; font-weight: 600;
+              font-family: 'DM Sans', sans-serif;
+            }
+            .stage-title {
+              font-size: 1rem; font-weight: 700; color: #0a1628; margin-bottom: 10px;
+            }
+            .stage-items { list-style: none; padding: 0; margin: 0; }
+            .stage-items li {
+              font-size: 0.82rem; color: #6b7280; padding: 4px 0;
+              display: flex; align-items: flex-start; gap: 6px; line-height: 1.4;
+            }
+            .stage-items li::before {
+              content: '→'; color: #c9a84c; font-size: 0.7rem; margin-top: 2px; flex-shrink: 0;
+            }
+            /* milestone dot */
+            .stage-milestone-dot {
+              position: absolute; top: -8px; left: 24px;
+              width: 16px; height: 16px; border-radius: 50%;
+              background: #c9a84c; border: 3px solid #f8f4ed;
+              box-shadow: 0 0 0 2px rgba(201,168,76,0.3);
+            }
+            /* note + slogan */
+            .tl-note {
+              margin-top: 24px; background: rgba(201,168,76,0.08);
+              border: 1px solid rgba(201,168,76,0.25); border-radius: 10px; padding: 14px 18px;
+              font-size: 0.82rem; color: #92400e; line-height: 1.6;
+            }
+            .tl-slogan {
+              margin-top: 12px; background: #0a1628; border-radius: 10px;
+              padding: 14px 18px; text-align: center;
+              font-size: 0.82rem; font-weight: 800; color: #c9a84c;
+              letter-spacing: 0.05em; text-transform: uppercase;
+            }
 
-        /* ── Stage cards grid ── */
-        .tl-stages {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-          gap: 20px;
-        }
-        .tl-stage {
-          background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px;
-          padding: 24px; position: relative; transition: all 0.3s;
-        }
-        .tl-stage:hover {
-          border-color: #c9a84c;
-          box-shadow: 0 8px 30px rgba(201,168,76,0.1);
-          transform: translateY(-3px);
-        }
-        .stage-num {
-          font-family: 'DM Mono', monospace; font-size: 0.7rem; color: #c9a84c;
-          font-weight: 500; margin-bottom: 8px; letter-spacing: 0.1em; display: block;
-        }
-        .stage-period {
-          position: absolute; top: 16px; right: 16px;
-          font-size: 0.68rem; background: rgba(201,168,76,0.1); color: #c9a84c;
-          padding: 3px 8px; border-radius: 100px; font-weight: 600;
-          font-family: 'DM Sans', sans-serif;
-        }
-        .stage-title {
-          font-size: 1rem; font-weight: 700; color: #0a1628; margin-bottom: 10px;
-        }
-        .stage-items { list-style: none; padding: 0; margin: 0; }
-        .stage-items li {
-          font-size: 0.82rem; color: #6b7280; padding: 4px 0;
-          display: flex; align-items: flex-start; gap: 6px; line-height: 1.4;
-        }
-        .stage-items li::before {
-          content: '→'; color: #c9a84c; font-size: 0.7rem; margin-top: 2px; flex-shrink: 0;
-        }
-        /* milestone dot */
-        .stage-milestone-dot {
-          position: absolute; top: -8px; left: 24px;
-          width: 16px; height: 16px; border-radius: 50%;
-          background: #c9a84c; border: 3px solid #f8f4ed;
-          box-shadow: 0 0 0 2px rgba(201,168,76,0.3);
-        }
-        /* note + slogan */
-        .tl-note {
-          margin-top: 24px; background: rgba(201,168,76,0.08);
-          border: 1px solid rgba(201,168,76,0.25); border-radius: 10px; padding: 14px 18px;
-          font-size: 0.82rem; color: #92400e; line-height: 1.6;
-        }
-        .tl-slogan {
-          margin-top: 12px; background: #0a1628; border-radius: 10px;
-          padding: 14px 18px; text-align: center;
-          font-size: 0.82rem; font-weight: 800; color: #c9a84c;
-          letter-spacing: 0.05em; text-transform: uppercase;
-        }
-
-        /* ── Responsive ── */
-        @media (max-width: 768px) {
-          .tl-section { padding: 56px 20px; }
-          .tl-stages { grid-template-columns: 1fr; }
-          .tl-class-input { width: 140px; }
-        }
-          `,
+            /* ── Responsive ── */
+            @media (max-width: 768px) {
+              .tl-section { padding: 56px 20px; }
+              .tl-stages { grid-template-columns: 1fr; }
+              .tl-input-container { max-width: 100%; }
+            }
+          `
         }}
       />
 
@@ -401,54 +394,24 @@ export function TimelineSection() {
           <div className="tl-tag">Class-wise Timeline</div>
           <h2 className="tl-title">Your Year-by-Year <em>Admissions Roadmap</em></h2>
           <p className="tl-desc">
-            Enter your current class below or select a tab to see your personalised action plan for getting into a top global university.
+            Enter your current class below to see your personalised action plan for getting into a top global university.
           </p>
 
-          {/* ── Class Input Field (NEW) ── */}
-          <div className="tl-input-wrap">
-            <div className="tl-input-group">
-              <span className="tl-input-label">Enter Your Current Class</span>
-              <div className="tl-input-row">
-                <input
-                  type="number"
-                  min={8}
-                  max={12}
-                  value={classInput}
-                  onChange={(e) => {
-                    setClassInput(e.target.value);
-                    setInputError('');
-                  }}
-                  onKeyDown={handleKeyDown}
-                  placeholder="e.g. 10"
-                  className={`tl-class-input${inputError ? ' tl-input-error' : ''}`}
-                />
-                <button className="tl-search-btn" onClick={handleClassSearch}>
-                  Show Timeline →
-                </button>
-              </div>
-              {inputError ? (
-                <span className="tl-input-error-msg">⚠ {inputError}</span>
-              ) : (
-                <span className="tl-input-hint">Enter class 8, 9, 10, 11, or 12</span>
-              )}
+          {/* Input Field */}
+          <div className="tl-input-container">
+            <label className="tl-input-label">Which class are you in?</label>
+            <div className="tl-input-wrapper">
+              <input
+                type="text"
+                className="tl-input"
+                placeholder="Enter 10, 11, 12 or 8-12..."
+                value={inputClass}
+                onChange={handleInputChange}
+              />
             </div>
-          </div>
-
-          {/* Tabs */}
-          <div className="tl-tabs">
-            {timelineTabs.map((t, i) => (
-              <button
-                key={t.id}
-                className={`tl-tab${activeTab === i ? ' tl-tab-active' : ''}`}
-                onClick={() => {
-                  setActiveTab(i);
-                  setClassInput('');
-                  setInputError('');
-                }}
-              >
-                {t.label}
-              </button>
-            ))}
+            <div className="tl-current-timeline">
+              Showing: <strong>{tab.label}</strong>
+            </div>
           </div>
 
           {/* Stage cards */}
@@ -463,8 +426,9 @@ export function TimelineSection() {
   );
 }
 
-/* ── Group flat steps into milestone-bounded cards ── */
-function TimelineStages({ steps }: { steps: (typeof timelineTabs)[0]['steps'] }) {
+/* Group flat steps into cards of ~4 each for a cleaner grid */
+function TimelineStages({ steps }: { steps: typeof timelineTabs[0]['steps'] }) {
+  // We group by milestone boundaries — each milestone starts a new card
   const groups: { heading: string; period: string; items: typeof steps }[] = [];
   let currentGroup: (typeof groups)[0] | null = null;
 
@@ -475,7 +439,10 @@ function TimelineStages({ steps }: { steps: (typeof timelineTabs)[0]['steps'] })
     } else if (currentGroup) {
       currentGroup.items.push(step);
     } else {
-      if (!currentGroup) currentGroup = { heading: 'Pre-Start', period: step.month, items: [] };
+      // steps before first milestone
+      if (!currentGroup) {
+        currentGroup = { heading: 'Pre-Start', period: step.month, items: [] };
+      }
       currentGroup.items.push(step);
     }
   });
@@ -515,7 +482,7 @@ function TimelineStages({ steps }: { steps: (typeof timelineTabs)[0]['steps'] })
 }
 
 /* ══════════════════════════════════════════════════════════
-   SECTION 2 — TESTIMONIALS  (unchanged)
+   SECTION 2 — TESTIMONIALS
 ══════════════════════════════════════════════════════════ */
 function YouTubeModal({ videoId, onClose }: { videoId: string; onClose: () => void }) {
   return (
@@ -528,7 +495,10 @@ function YouTubeModal({ videoId, onClose }: { videoId: string; onClose: () => vo
       }}
       onClick={onClose}
     >
-      <div style={{ width: 'min(860px, 95vw)', position: 'relative' }} onClick={(e) => e.stopPropagation()}>
+      <div
+        style={{ width: 'min(860px, 95vw)', position: 'relative' }}
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
           onClick={onClose}
           style={{
@@ -561,8 +531,14 @@ export function TestimonialsSection() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap');
 
-        .ts-section { background: #0a1628; padding: 80px 24px; font-family: 'DM Sans', sans-serif; }
+        /* ── Section ── */
+        .ts-section {
+          background: #0a1628; padding: 80px 24px;
+          font-family: 'DM Sans', sans-serif;
+        }
         .ts-inner { max-width: 1320px; margin: 0 auto; }
+
+        /* ── Header ── */
         .ts-header { text-align: center; margin-bottom: 48px; }
         .ts-tag {
           display: inline-block; font-size: 0.72rem; font-weight: 700;
@@ -576,28 +552,41 @@ export function TestimonialsSection() {
         }
         .ts-title em { font-style: normal; color: #c9a84c; }
         .ts-desc { font-size: 1.05rem; color: rgba(255,255,255,0.65); max-width: 600px; margin: 0 auto; line-height: 1.7; }
+
+        /* ── Panel tabs ── */
         .ts-panel-tabs { display: flex; gap: 10px; margin-bottom: 36px; flex-wrap: wrap; }
         .ts-panel-tab {
           padding: 10px 24px; border-radius: 8px; font-size: 0.88rem; font-weight: 600;
-          border: 1.5px solid rgba(255,255,255,0.2); background: transparent; cursor: pointer;
+          border: 1.5px solid #e2e8f0; background: transparent; cursor: pointer;
           transition: all 0.3s; color: #ffffff; font-family: 'DM Sans', sans-serif;
+          border-color: rgba(255,255,255,0.2);
         }
         .ts-panel-tab:hover:not(.ts-panel-tab-active) { border-color: #c9a84c; color: #c9a84c; }
         .ts-panel-tab-active { background: #ffffff; color: #0a1628; border-color: #ffffff; }
-        .ts-reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+
+        /* ── Written reviews grid ── */
+        .ts-reviews-grid {
+          display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
+        }
         .ts-review-card {
           background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px;
           padding: 28px; transition: all 0.3s;
         }
-        .ts-review-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.15); transform: translateY(-3px); }
+        .ts-review-card:hover {
+          box-shadow: 0 8px 30px rgba(0,0,0,0.15); transform: translateY(-3px);
+        }
         .ts-stars { color: #c9a84c; font-size: 1rem; margin-bottom: 14px; letter-spacing: 2px; }
-        .ts-quote { font-size: 0.85rem; color: #1a1a2e; line-height: 1.7; margin-bottom: 16px; font-style: italic; }
+        .ts-quote {
+          font-size: 0.85rem; color: #1a1a2e; line-height: 1.7; margin-bottom: 16px;
+          font-style: italic;
+        }
         .ts-author { display: flex; align-items: center; gap: 12px; }
         .ts-avatar {
           width: 44px; height: 44px; border-radius: 50%;
           background: linear-gradient(135deg,#0a1628,#1d4ed8);
           display: flex; align-items: center; justify-content: center;
-          font-size: 1rem; font-weight: 700; color: #fff; flex-shrink: 0; overflow: hidden;
+          font-size: 1rem; font-weight: 700; color: #fff; flex-shrink: 0;
+          overflow: hidden;
         }
         .ts-author-name { font-size: 0.88rem; font-weight: 700; color: #0a1628; }
         .ts-author-detail { font-size: 0.75rem; color: #6b7280; }
@@ -605,11 +594,14 @@ export function TestimonialsSection() {
           display: inline-block; background: rgba(201,168,76,0.1); color: #c9a84c;
           font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 100px; margin-top: 2px;
         }
+
+        /* ── Video gallery ── */
         .ts-video-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
         .ts-video-thumb {
           position: relative; border-radius: 12px; overflow: hidden;
           aspect-ratio: 16/9; cursor: pointer;
-          border: 2px solid transparent; transition: all 0.3s; background: #112240;
+          border: 2px solid transparent; transition: all 0.3s;
+          background: #112240;
         }
         .ts-video-thumb:hover { border-color: #c9a84c; transform: scale(1.02); }
         .ts-video-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -619,7 +611,9 @@ export function TestimonialsSection() {
           display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px;
           transition: all 0.3s;
         }
-        .ts-video-thumb:hover .ts-video-overlay { background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.25)); }
+        .ts-video-thumb:hover .ts-video-overlay {
+          background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.25));
+        }
         .ts-play-btn {
           width: 54px; height: 54px; border-radius: 50%;
           background: rgba(255,255,255,0.95);
@@ -629,23 +623,31 @@ export function TestimonialsSection() {
         .ts-play-btn::after {
           content: ''; border-style: solid;
           border-width: 9px 0 9px 16px;
-          border-color: transparent transparent transparent #0a1628; margin-left: 3px;
+          border-color: transparent transparent transparent #0a1628;
+          margin-left: 3px;
         }
         .ts-video-thumb:hover .ts-play-btn { transform: scale(1.1); background: #c9a84c; }
-        .ts-video-label { color: #fff; font-size: 0.78rem; font-weight: 600; text-align: center; padding: 0 12px; font-family: 'DM Sans', sans-serif; }
+        .ts-video-label {
+          color: #fff; font-size: 0.78rem; font-weight: 600;
+          text-align: center; padding: 0 12px;
+          font-family: 'DM Sans', sans-serif;
+        }
         .ts-no-thumb {
           width: 100%; height: 100%;
           background: linear-gradient(135deg,#0a1628,#1d4ed8);
-          display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px;
+          display: flex; align-items: center; justify-content: center;
+          flex-direction: column; gap: 10px;
         }
+
+        /* ── Responsive ── */
         @media (max-width: 1024px) {
           .ts-reviews-grid { grid-template-columns: 1fr 1fr; }
-          .ts-video-grid { grid-template-columns: 1fr 1fr; }
+          .ts-video-grid   { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 640px) {
           .ts-section { padding: 56px 20px; }
           .ts-reviews-grid { grid-template-columns: 1fr; }
-          .ts-video-grid { grid-template-columns: 1fr; }
+          .ts-video-grid   { grid-template-columns: 1fr; }
         }
       `}</style>
 
@@ -653,21 +655,33 @@ export function TestimonialsSection() {
 
       <section className="ts-section" id="testimonials">
         <div className="ts-inner">
+
+          {/* Header */}
           <div className="ts-header">
             <div className="ts-tag">Student Voices</div>
             <h2 className="ts-title">What Our Students &amp; <em>Families Say</em></h2>
-            <p className="ts-desc">Real stories from students who achieved their dream university admissions with EduQuest.</p>
+            <p className="ts-desc">
+              Real stories from students who achieved their dream university admissions with EduQuest.
+            </p>
           </div>
 
+          {/* Panel tabs */}
           <div className="ts-panel-tabs">
-            <button className={`ts-panel-tab${activePanel === 'written' ? ' ts-panel-tab-active' : ''}`} onClick={() => setActivePanel('written')}>
+            <button
+              className={`ts-panel-tab${activePanel === 'written' ? ' ts-panel-tab-active' : ''}`}
+              onClick={() => setActivePanel('written')}
+            >
               📝 Written Reviews
             </button>
-            <button className={`ts-panel-tab${activePanel === 'video' ? ' ts-panel-tab-active' : ''}`} onClick={() => setActivePanel('video')}>
+            <button
+              className={`ts-panel-tab${activePanel === 'video' ? ' ts-panel-tab-active' : ''}`}
+              onClick={() => setActivePanel('video')}
+            >
               🎬 Video Stories
             </button>
           </div>
 
+          {/* Written Reviews Panel */}
           {activePanel === 'written' && (
             <div className="ts-reviews-grid">
               {testimonials.map((t) => (
@@ -685,7 +699,8 @@ export function TestimonialsSection() {
                     <div>
                       <div className="ts-author-name">{t.name}</div>
                       <div className="ts-author-detail">
-                        {t.location} <span className="ts-score-badge">{t.score}</span>
+                        {t.location}{' '}
+                        <span className="ts-score-badge">{t.score}</span>
                       </div>
                     </div>
                   </div>
@@ -694,13 +709,22 @@ export function TestimonialsSection() {
             </div>
           )}
 
+          {/* Video Stories Panel */}
           {activePanel === 'video' && (
             <div className="ts-video-grid">
               {videoStories.map((v, i) => (
-                <div className="ts-video-thumb" key={i} onClick={() => setVideoModal(v.youtubeId)}>
+                <div
+                  className="ts-video-thumb"
+                  key={i}
+                  onClick={() => setVideoModal(v.youtubeId)}
+                >
                   {v.thumb ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={v.thumb} alt={v.label} onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img
+                      src={v.thumb}
+                      alt={v.label}
+                      onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                    />
                   ) : (
                     <div className="ts-no-thumb">
                       <span style={{ fontSize: '2rem', color: '#fff' }}>▶</span>
@@ -714,6 +738,7 @@ export function TestimonialsSection() {
               ))}
             </div>
           )}
+
         </div>
       </section>
     </>
@@ -721,7 +746,7 @@ export function TestimonialsSection() {
 }
 
 /* ══════════════════════════════════════════════════════════
-   DEFAULT EXPORT
+   DEFAULT EXPORT — both sections together
 ══════════════════════════════════════════════════════════ */
 export default function TimelineAndTestimonials() {
   return (
