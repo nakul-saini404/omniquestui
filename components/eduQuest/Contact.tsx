@@ -20,11 +20,7 @@ export default function Contact() {
 
   return (
     <>
-      <style>{`
-       
-      `}</style>
-
-       <style
+        <style
         dangerouslySetInnerHTML={{
           __html: `
             @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap');
