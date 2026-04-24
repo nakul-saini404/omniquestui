@@ -24,24 +24,32 @@ export interface StreamRecommendation {
   careerPathsFromStream: string[]; confidence: number;
 }
 
-/* ── NEW extended types ── */
+/* ── Career types ── */
 export interface CareerMatch {
   title: string; fit: number; icon: string;
-  description: string;           // what the role does
-  primarySkills: string[];       // top 3 skills needed
-  salaryRange: string;           // e.g. "₹8–35 LPA"
+  description: string;
+  primarySkills: string[];
+  salaryRange: string;
   priority: "primary" | "secondary";
 }
 
+/* ── University — restricted to USA / Canada / Australia / Europe ── */
 export interface University {
-  name: string; country: string; flag: string;
-  program: string; ranking: string; website: string;
+  name: string;
+  country: string;
+  flag: string;
+  program: string;
+  ranking: string;
+  website: string;
+  region: "USA" | "Canada" | "Australia" | "Europe";
+  tuitionRange?: string;   // e.g. "$45–80K/yr"
+  whyForYou?: string;      // AI personalised reason
 }
 
 export interface FuturisticCareer {
   title: string; icon: string; description: string;
-  blend: string;                 // e.g. "AI + Psychology"
-  growthOutlook: string;        // e.g. "Very High — 2030s onwards"
+  blend: string;
+  growthOutlook: string;
 }
 
 export interface AptitudeEnhancement {
@@ -52,14 +60,47 @@ export interface AptitudeEnhancement {
 }
 
 export interface SkillAttribute {
-  skill: string; level: number;  // 0–100
+  skill: string; level: number;
   description: string; icon: string;
 }
 
+/* ── Exam — class-aware ── */
+export interface ExamRecommendation {
+  title: string;
+  fullForm: string;
+  classLevel: "Class 9–10" | "Class 11" | "Class 11–12" | "Class 12" | "Post Class 12";
+  description: string;
+  whyForYou: string;          // personalised to student's profile
+  priority: "Essential" | "High" | "Medium";
+  preparationTime: string;    // e.g. "8–12 months"
+  link: string;
+}
+
+/* ── Profile building item ── */
 export interface ProfileBuildingItem {
   type: "degree" | "exam" | "certification" | "activity";
-  title: string; description: string; priority: string;
+  title: string;
+  description: string;
+  priority: "Essential" | "High" | "Medium";
   link?: string;
+  benefit?: string;        // Why this matters for the student
+  importance?: string;     // Long-term career impact
+  classLevel?: string;     // When to pursue: "Class 10", "Class 11–12", etc.
+}
+
+/* ── Profile building benefits (new section) ── */
+export interface ProfileBuildingBenefits {
+  overview: string;           // 2–3 sentence intro
+  keyBenefits: {
+    icon: string;
+    title: string;
+    description: string;      // 1–2 sentences
+  }[];
+  whyItMatters: string;       // Closing motivational paragraph
+  timelineByClass: {
+    classLevel: string;       // "Class 9–10", "Class 11", "Class 12"
+    actions: string[];        // 2–4 actions per stage
+  }[];
 }
 
 export interface Scholarship {
@@ -70,6 +111,7 @@ export interface Scholarship {
 export interface BestCollege {
   name: string; country: string; flag: string;
   program: string; acceptanceRate: string; avgPackage: string;
+  region: "USA" | "Canada" | "Australia" | "Europe";
 }
 
 export interface PersonalityReport {
@@ -80,20 +122,35 @@ export interface PersonalityReport {
   aiInsight: string; programRecommendation: string;
   streamRecommendation: StreamRecommendation;
 
-  /* ── NEW extended sections ── */
+  /* career */
   careerMatches: CareerMatch[];
   secondaryCareerMatches: CareerMatch[];
+
+  /* universities — USA / Canada / Australia / Europe ONLY */
   universities: University[];
+
+  /* future */
   futuristicCareers: FuturisticCareer[];
+
+  /* aptitude */
   aptitudeEnhancement: AptitudeEnhancement;
+
+  /* skills */
   skillAttributes: SkillAttribute[];
+
+  /* profile building — fully AI generated */
   profileBuilding: {
     degrees: ProfileBuildingItem[];
-    exams: ProfileBuildingItem[];
+    exams: ExamRecommendation[];      // ← replaces old ProfileBuildingItem[] for exams
     activities: string[];
     importantTip: string;
     quote: string;
   };
+
+  /* NEW: profile building benefits section */
+  profileBuildingBenefits: ProfileBuildingBenefits;
+
+  /* scholarships & colleges */
   scholarships: Scholarship[];
   bestColleges: BestCollege[];
 
@@ -134,7 +191,7 @@ const CATEGORY_COLORS: Record<string, string> = {
 };
 
 /* ══════════════════════════════════════════════════════════════
-   FALLBACK COMPUTE
+   FALLBACK COMPUTE  (used only when AI call fails)
 ══════════════════════════════════════════════════════════════ */
 
 export function computeReport(
@@ -170,9 +227,13 @@ export function computeReport(
     growthAreas: sorted.slice(-2).map(c=>`Build on your ${c.name.toLowerCase()} dimension`),
     aiInsight: `${studentName}, your balanced profile positions you for a wide range of global programs.`,
     programRecommendation: "Personalised Counselling — Book a Free Session",
-    streamRecommendation: { primary:"Commerce", alternates:["Science (PCM)","Arts / Humanities"], reasoning:"Your balanced profile suggests Commerce as a strong default.", subjects:["Economics","Business Studies","Accountancy","Mathematics"], careerPathsFromStream:["MBA","Finance","Entrepreneurship","CA"], confidence:65 },
-
-    /* Extended sections — fallback values */
+    streamRecommendation: {
+      primary:"Commerce", alternates:["Science (PCM)","Arts / Humanities"],
+      reasoning:"Your balanced profile suggests Commerce as a strong default.",
+      subjects:["Economics","Business Studies","Accountancy","Mathematics"],
+      careerPathsFromStream:["MBA","Finance","Entrepreneurship","CA"],
+      confidence:65,
+    },
     careerMatches: [
       { title:"Management Consultant", fit:88, icon:"📊", description:"Helps organisations solve complex business problems.", primarySkills:["Analytical Thinking","Communication","Strategy"], salaryRange:"₹12–40 LPA", priority:"primary" },
       { title:"Product Manager", fit:84, icon:"🎯", description:"Leads product development from concept to launch.", primarySkills:["Leadership","User Research","Data Analysis"], salaryRange:"₹15–50 LPA", priority:"primary" },
@@ -181,15 +242,15 @@ export function computeReport(
     ],
     secondaryCareerMatches: [
       { title:"UX Researcher", fit:72, icon:"🔍", description:"Studies user behaviour to improve product design.", primarySkills:["Empathy","Research Methods","Synthesis"], salaryRange:"₹8–30 LPA", priority:"secondary" },
-      { title:"Business Analyst", fit:68, icon:"📋", description:"Bridges the gap between business needs and tech solutions.", primarySkills:["Analysis","Documentation","Communication"], salaryRange:"₹8–28 LPA", priority:"secondary" },
+      { title:"Business Analyst", fit:68, icon:"📋", description:"Bridges business needs with tech solutions.", primarySkills:["Analysis","Documentation","Communication"], salaryRange:"₹8–28 LPA", priority:"secondary" },
     ],
     universities: [
-      { name:"Stanford University", country:"USA", flag:"🇺🇸", program:"Business / CS / Engineering", ranking:"#3 World", website:"https://stanford.edu" },
-      { name:"University of Oxford", country:"UK", flag:"🇬🇧", program:"PPE / Law / Sciences", ranking:"#1 World", website:"https://ox.ac.uk" },
-      { name:"MIT", country:"USA", flag:"🇺🇸", program:"Engineering / Data Science", ranking:"#1 Engineering", website:"https://mit.edu" },
-      { name:"University of Cambridge", country:"UK", flag:"🇬🇧", program:"Natural Sciences / Economics", ranking:"#2 World", website:"https://cam.ac.uk" },
-      { name:"Harvard University", country:"USA", flag:"🇺🇸", program:"Business / Law / Medicine", ranking:"#4 World", website:"https://harvard.edu" },
-      { name:"NUS Singapore", country:"Singapore", flag:"🇸🇬", program:"Business / Engineering / CS", ranking:"#8 Asia", website:"https://nus.edu.sg" },
+      { name:"University of Toronto", country:"Canada", flag:"🇨🇦", program:"Business / CS / Engineering", ranking:"#21 World", website:"https://utoronto.ca", region:"Canada" },
+      { name:"University of Melbourne", country:"Australia", flag:"🇦🇺", program:"Business / Sciences / Law", ranking:"#33 World", website:"https://unimelb.edu.au", region:"Australia" },
+      { name:"Harvard University", country:"USA", flag:"🇺🇸", program:"Business / Law / Medicine", ranking:"#4 World", website:"https://harvard.edu", region:"USA" },
+      { name:"University of Oxford", country:"UK (Europe)", flag:"🇬🇧", program:"PPE / Law / Sciences", ranking:"#1 World", website:"https://ox.ac.uk", region:"Europe" },
+      { name:"ETH Zurich", country:"Switzerland (Europe)", flag:"🇨🇭", program:"Engineering / Sciences", ranking:"#7 World", website:"https://ethz.ch", region:"Europe" },
+      { name:"Stanford University", country:"USA", flag:"🇺🇸", program:"Business / CS / Engineering", ranking:"#3 World", website:"https://stanford.edu", region:"USA" },
     ],
     futuristicCareers: [
       { title:"AI Ethics Officer", icon:"🤖", description:"Ensures AI systems are fair, transparent and human-aligned.", blend:"AI + Philosophy + Law", growthOutlook:"Very High — 2025 onwards" },
@@ -224,15 +285,15 @@ export function computeReport(
     ],
     profileBuilding: {
       degrees: [
-        { type:"degree", title:"Bachelor of Science in Computer Science", description:"Focuses on theory and application of computing principles — opens tech and data roles globally.", priority:"High", link:"https://eduquest.org.in/" },
-        { type:"degree", title:"Bachelor of Business Administration (BBA)", description:"Develops core business, finance and management competencies.", priority:"High", link:"https://eduquest.org.in/" },
-        { type:"degree", title:"Bachelor of Arts in Psychology", description:"Builds deep understanding of human behaviour — ideal for HR, UX, therapy.", priority:"Medium", link:"https://eduquest.org.in/" },
+        { type:"degree", title:"Bachelor of Science in Computer Science", description:"Opens tech and data roles globally.", priority:"High", link:"https://eduquest.org.in/", benefit:"High global demand with strong salary prospects.", importance:"Foundation for AI, software, and product careers.", classLevel:"Post Class 12" },
+        { type:"degree", title:"Bachelor of Business Administration (BBA)", description:"Develops core business, finance and management competencies.", priority:"High", link:"https://eduquest.org.in/", benefit:"Builds entrepreneurial and corporate leadership skills.", importance:"Gateway to MBA, consulting, and C-suite roles.", classLevel:"Post Class 12" },
+        { type:"degree", title:"Bachelor of Arts in Psychology", description:"Builds deep understanding of human behaviour.", priority:"Medium", link:"https://eduquest.org.in/", benefit:"Ideal for HR, UX research, therapy and counselling.", importance:"Growing field with interdisciplinary applications.", classLevel:"Post Class 12" },
       ],
       exams: [
-        { type:"exam", title:"SAT", description:"Opens 50+ leading universities in India and global admission to USA/UK universities.", priority:"Essential", link:"https://collegereadiness.collegeboard.org/sat" },
-        { type:"exam", title:"GMAT", description:"Required for MBA admissions at M7 and top global business schools.", priority:"High", link:"https://www.mba.com/exams/gmat" },
-        { type:"exam", title:"GRE", description:"Needed for graduate programmes in sciences, engineering and humanities.", priority:"High", link:"https://www.ets.org/gre" },
-        { type:"exam", title:"IELTS / TOEFL", description:"English proficiency test required by all UK, USA, Canada, Australia universities.", priority:"Essential", link:"https://www.ielts.org" },
+        { title:"SAT", fullForm:"Scholastic Assessment Test", classLevel:"Class 11–12", description:"Opens 50+ leading universities in India and global admission to USA/Canada/Australia universities.", whyForYou:"Your analytical strength makes you a strong SAT candidate — especially in Math and Evidence-Based Reading.", priority:"Essential", preparationTime:"6–12 months", link:"https://collegereadiness.collegeboard.org/sat" },
+        { title:"IELTS / TOEFL", fullForm:"English Language Proficiency Tests", classLevel:"Class 11–12", description:"English proficiency test required by all UK, USA, Canada, Australia universities.", whyForYou:"A must-have for all international university applications — start early in Class 11.", priority:"Essential", preparationTime:"2–4 months", link:"https://www.ielts.org" },
+        { title:"AP Exams", fullForm:"Advanced Placement Examinations", classLevel:"Class 11–12", description:"College-level courses recognised by 4,000+ US/Canadian universities for credit transfer.", whyForYou:"Taking AP courses shows academic rigour and can earn you college credits before you even enrol.", priority:"High", preparationTime:"Full academic year", link:"https://apstudents.collegeboard.org" },
+        { title:"GMAT", fullForm:"Graduate Management Admission Test", classLevel:"Post Class 12", description:"Required for MBA admissions at M7 and top global business schools.", whyForYou:"If MBA is your goal, start GMAT prep 1–2 years into your undergraduate degree.", priority:"Medium", preparationTime:"4–6 months", link:"https://www.mba.com/exams/gmat" },
       ],
       activities: [
         "Join Model United Nations (MUN) to build leadership and public speaking",
@@ -244,21 +305,36 @@ export function computeReport(
       importantTip: "Take SAT and you can apply to 50+ leading universities in India and avoid multiple entrance tests. To navigate SAT preparation, reach out to EduQuest at eduquest.org.in",
       quote: "The difference between Ordinary and Extraordinary is that little extra.",
     },
+    profileBuildingBenefits: {
+      overview: "Building a strong academic and extracurricular profile from Class 9 onwards significantly increases your chances of admission to top global universities and scholarship opportunities.",
+      keyBenefits: [
+        { icon:"🏆", title:"Stronger University Applications", description:"A well-rounded profile gives you a competitive edge over thousands of applicants at top universities in USA, Canada, Australia and Europe." },
+        { icon:"💰", title:"Scholarship Eligibility", description:"Many merit scholarships (Chevening, Fulbright, Erasmus) require demonstrated leadership, community involvement and academic excellence built over years." },
+        { icon:"🌍", title:"Global Career Opportunities", description:"International degree + strong profile = access to global job markets with 3–5x higher earning potential compared to domestic-only qualifications." },
+        { icon:"🧠", title:"Personal Growth & Clarity", description:"The process of building your profile forces you to discover what you're truly passionate about — leading to better career decisions." },
+        { icon:"⚡", title:"Early Competitive Advantage", description:"Students who start profile-building in Class 9–10 arrive at Class 12 with a story that no last-minute cramming can replicate." },
+      ],
+      whyItMatters: "Top universities look far beyond grades — they want students who lead, create, serve, and grow. Your profile is your story, and the earlier you start writing it, the more compelling it becomes.",
+      timelineByClass: [
+        { classLevel:"Class 9–10", actions:["Build foundational study habits and explore interests","Participate in school clubs, sports, or arts","Attempt Olympiads and inter-school competitions","Research different career paths and streams"] },
+        { classLevel:"Class 11", actions:["Choose stream aligned with career goals","Begin SAT / AP exam preparation","Take on a leadership role in school or community","Start building a portfolio or personal project"] },
+        { classLevel:"Class 12", actions:["Appear for SAT, IELTS/TOEFL and AP Exams","Finalise university shortlist and write application essays","Apply for scholarships early — most deadlines are Oct–Jan","Secure strong recommendation letters from teachers"] },
+      ],
+    },
     scholarships: [
       { name:"Fulbright Scholarship", country:"USA 🇺🇸", amount:"Full funding", eligibility:"Graduate students — exceptional academic record", deadline:"October annually", link:"https://fulbrightprogram.org" },
       { name:"Chevening Scholarship", country:"UK 🇬🇧", amount:"Full funding + stipend", eligibility:"1+ year work experience, leadership potential", deadline:"November annually", link:"https://chevening.org" },
       { name:"Erasmus Mundus", country:"Europe 🇪🇺", amount:"€1,000–1,400/month", eligibility:"UG/PG students — merit-based", deadline:"January annually", link:"https://erasmus-plus.ec.europa.eu" },
-      { name:"Commonwealth Scholarship", country:"UK 🇬🇧", amount:"Full funding", eligibility:"Citizens of Commonwealth nations", deadline:"December annually", link:"https://cscuk.fcdo.gov.uk" },
-      { name:"Rotary Foundation GSE", country:"Global 🌍", amount:"Full exchange funding", eligibility:"Young professionals 25–40", deadline:"Varies by district", link:"https://rotary.org" },
-      { name:"QS Scholarships", country:"Various 🌐", amount:"Up to ₹40 Lakhs", eligibility:"Merit-based, varies by university", deadline:"Rolling", link:"https://scholarships.qs.com" },
+      { name:"Vanier Canada Graduate", country:"Canada 🇨🇦", amount:"CAD $50,000/year", eligibility:"Doctoral students with leadership and research excellence", deadline:"November annually", link:"https://vanier.gc.ca" },
+      { name:"Australia Awards", country:"Australia 🇦🇺", amount:"Full funding + living allowance", eligibility:"Citizens of eligible developing countries", deadline:"April–June annually", link:"https://australiaawards.gov.au" },
     ],
     bestColleges: [
-      { name:"IIT Bombay", country:"India 🇮🇳", flag:"🇮🇳", program:"B.Tech / M.Tech", acceptanceRate:"<1%", avgPackage:"₹18–80 LPA" },
-      { name:"IIM Ahmedabad", country:"India 🇮🇳", flag:"🇮🇳", program:"MBA / PGP", acceptanceRate:"<1%", avgPackage:"₹35–90 LPA" },
-      { name:"Stanford University", country:"USA 🇺🇸", flag:"🇺🇸", program:"Multiple", acceptanceRate:"3.7%", avgPackage:"$130K+" },
-      { name:"London School of Economics", country:"UK 🇬🇧", flag:"🇬🇧", program:"Economics / Finance / Law", acceptanceRate:"8%", avgPackage:"£55K+" },
-      { name:"NUS Singapore", country:"Singapore 🇸🇬", flag:"🇸🇬", program:"Business / CS / Engineering", acceptanceRate:"5%", avgPackage:"S$65K+" },
-      { name:"INSEAD", country:"France / Singapore 🇫🇷", flag:"🇫🇷", program:"MBA", acceptanceRate:"30%", avgPackage:"€90K+" },
+      { name:"MIT", country:"USA 🇺🇸", flag:"🇺🇸", program:"Engineering / Data Science / AI", acceptanceRate:"3.9%", avgPackage:"$130K+", region:"USA" },
+      { name:"University of British Columbia", country:"Canada 🇨🇦", flag:"🇨🇦", program:"Business / Sciences / Engineering", acceptanceRate:"52%", avgPackage:"CAD $75K+", region:"Canada" },
+      { name:"University of Sydney", country:"Australia 🇦🇺", flag:"🇦🇺", program:"Business / Law / Engineering", acceptanceRate:"30%", avgPackage:"AUD $85K+", region:"Australia" },
+      { name:"London School of Economics", country:"UK 🇬🇧", flag:"🇬🇧", program:"Economics / Finance / Law", acceptanceRate:"8%", avgPackage:"£55K+", region:"Europe" },
+      { name:"Stanford University", country:"USA 🇺🇸", flag:"🇺🇸", program:"CS / Business / Engineering", acceptanceRate:"3.7%", avgPackage:"$140K+", region:"USA" },
+      { name:"University of Amsterdam", country:"Netherlands 🇳🇱", flag:"🇳🇱", program:"Business / Social Sciences", acceptanceRate:"35%", avgPackage:"€55K+", region:"Europe" },
     ],
     adminContact: {
       email: process.env.ADMIN_EMAIL ?? "admissions@eduquest.org.in",

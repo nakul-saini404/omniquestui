@@ -1,3 +1,11 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-module.exports = nextConfig;
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: 'eduquest.org.in' },
+      { protocol: 'https', hostname: 'join.eduquest.org.in' },
+      { protocol: 'https', hostname: 'storage.files-vault.com' },
+    ],
+  },
+};
+export default nextConfig;

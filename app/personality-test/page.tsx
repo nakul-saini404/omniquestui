@@ -181,7 +181,7 @@ export default function PersonalityTestPage() {
               {[0,1,2,3,4].map(i => <div key={i} style={{ width:10, height:10, borderRadius:"50%", background:"var(--teal)", animation:"typingDot 1.4s ease-in-out infinite", animationDelay:`${i*.18}s` }} />)}
             </div>
             <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:9, maxWidth:420, margin:"0 auto" }}>
-              {[["🧠","Processing 12 answers"],["📊","Scoring 6 dimensions"],["⚡","AI reasoning"],["🎯","Matching personality type"],["💼","Finding career paths"],["🎓","Picking best program"]].map(([ic,tx]) => (
+              {[["🧠","Processing your answers"],["📊","Scoring 6 dimensions"],["⚡","AI reasoning"],["🎯","Matching personality type"],["💼","Finding career paths"],["🎓","Picking best program"]].map(([ic,tx]) => (
                 <div key={tx} style={{ padding:"10px 14px", borderRadius:10, background:"rgba(255,255,255,.04)", border:"1px solid rgba(255,255,255,.06)", display:"flex", alignItems:"center", gap:8, fontSize:".78rem", color:"rgba(241,245,255,.4)" }}><span>{ic}</span>{tx}</div>
               ))}
             </div>

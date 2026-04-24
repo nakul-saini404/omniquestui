@@ -991,7 +991,7 @@ const PATHWAYS = [
   {
     icon:"🏛", division:"School Division · EduQuest",
     title:"Ivy League & Global UG Admissions",
-    href:"https://eduquest.org.in/",
+    href:"./eduQuest",
     desc:"End-to-end admissions architecture for students targeting Ivy League, Oxbridge, and top-50 global universities — from cognitive profiling to offer letter.",
     features:["SAT / ACT / AP Coaching","Ivy League Profile Building","Essay & Application Architecture","Scholarship & Financial Aid Strategy"],
     shortName:"School Strategy",
