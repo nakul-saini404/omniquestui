@@ -26,141 +26,214 @@ const universities = [
 export default function Universities() {
   return (
     <>
-       <style
+      <style
         dangerouslySetInnerHTML={{
           __html: `
-            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap');
 
-        /* ── Section ── */
-        .uni-section {
-          background: #ffffff;
-          padding: 80px 24px;
-          font-family: 'DM Sans', sans-serif;
-        }
-        .uni-inner {
-          max-width: 1320px;
-          margin: 0 auto;
-        }
+            /* ── Section ── */
+            .uni-section {
+              background: #ffffff;
+              padding: 88px 24px;
+              font-family: 'DM Sans', system-ui, sans-serif;
+              border-top: 1px solid #e2e8f0;
+            }
+            .uni-inner {
+              max-width: 1140px;
+              margin: 0 auto;
+              padding: 0 24px;
+            }
 
-        /* ── Header ── */
-        .uni-header { text-align: center; margin-bottom: 48px; }
-        .uni-tag {
-          display: inline-block;
-          font-size: 0.72rem; font-weight: 700;
-          letter-spacing: 0.12em; text-transform: uppercase;
-          color: #c9a84c; padding: 4px 12px;
-          background: rgba(201,168,76,0.1); border-radius: 4px;
-          margin-bottom: 12px;
-        }
-        .uni-title {
-          font-family: 'Playfair Display', serif;
-          font-size: clamp(1.8rem, 3vw, 2.6rem);
-          font-weight: 800; line-height: 1.2;
-          color: #0a1628; margin-bottom: 0;
-          letter-spacing: -0.02em;
-        }
-        .uni-title em { font-style: normal; color: #c9a84c; }
+            /* ── Header ── */
+            .uni-header {
+              max-width: 680px;
+              margin-bottom: 56px;
+            }
+            .uni-tag {
+              display: inline-block;
+              font-size: 12px;
+              font-weight: 600;
+              letter-spacing: 0.12em;
+              text-transform: uppercase;
+              color: #c9a84c;
+              margin-bottom: 16px;
+            }
+            .uni-title {
+              font-family: 'Playfair Display', Georgia, serif;
+              font-size: clamp(28px, 3.5vw, 44px);
+              font-weight: 700;
+              line-height: 1.15;
+              color: #0a1628;
+              margin-bottom: 0;
+            }
+            .uni-title em {
+              font-style: normal;
+              color: #c9a84c;
+            }
 
-        /* ── Marquee wrapper ── */
-        .uni-marquee-wrap {
-          position: relative;
-          overflow: hidden;
-          margin-bottom: 48px;
-        }
-        /* Gradient fades */
-        .uni-marquee-wrap::before,
-        .uni-marquee-wrap::after {
-          content: '';
-          position: absolute; top: 0; bottom: 0;
-          width: 80px; z-index: 2; pointer-events: none;
-        }
-        .uni-marquee-wrap::before {
-          left: 0;
-          background: linear-gradient(to right, #ffffff, transparent);
-        }
-        .uni-marquee-wrap::after {
-          right: 0;
-          background: linear-gradient(to left, #ffffff, transparent);
-        }
+            /* ── Marquee wrapper ── */
+            .uni-marquee-wrap {
+              position: relative;
+              overflow: hidden;
+              margin-bottom: 56px;
+            }
+            /* Gradient fades */
+            .uni-marquee-wrap::before,
+            .uni-marquee-wrap::after {
+              content: '';
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              width: 80px;
+              z-index: 2;
+              pointer-events: none;
+            }
+            .uni-marquee-wrap::before {
+              left: 0;
+              background: linear-gradient(to right, #ffffff, transparent);
+            }
+            .uni-marquee-wrap::after {
+              right: 0;
+              background: linear-gradient(to left, #ffffff, transparent);
+            }
 
-        /* Scrolling track */
-        .uni-track {
-          display: flex;
-          gap: 12px;
-          width: max-content;
-          animation: uni-scroll 32s linear infinite;
-        }
-        .uni-marquee-wrap:hover .uni-track {
-          animation-play-state: paused;
-        }
-        @keyframes uni-scroll {
-          from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
-        }
+            /* Scrolling track */
+            .uni-track {
+              display: flex;
+              gap: 12px;
+              width: max-content;
+              animation: uni-scroll 32s linear infinite;
+            }
+            .uni-marquee-wrap:hover .uni-track {
+              animation-play-state: paused;
+            }
+            @keyframes uni-scroll {
+              from { transform: translateX(0); }
+              to   { transform: translateX(-50%); }
+            }
 
-        /* Logo card */
-        .uni-logo-card {
-          background: #ffffff;
-          border: 1px solid #e2e8f0;
-          border-radius: 10px;
-          padding: 14px 20px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          min-width: 120px;
-          height: 60px;
-          flex-shrink: 0;
-          transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-        }
-        .uni-logo-card:hover {
-          border-color: #c9a84c;
-          transform: scale(1.05);
-          box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-        }
-        .uni-logo-card img {
-          max-height: 36px;
-          max-width: 100px;
-          object-fit: contain;
-          filter: grayscale(30%);
-          transition: filter 0.3s;
-        }
-        .uni-logo-card:hover img { filter: grayscale(0%); }
+            /* Logo card — matches HTML .country-card style adapted for white bg */
+            .uni-logo-card {
+              background: #ffffff;
+              border: 1px solid #e2e8f0;
+              border-radius: 12px;
+              padding: 14px 20px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              min-width: 130px;
+              height: 64px;
+              flex-shrink: 0;
+              transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            }
+            .uni-logo-card:hover {
+              border-color: #c9a84c;
+              transform: translateY(-2px);
+              box-shadow: 0 4px 16px rgba(201, 168, 76, 0.15);
+            }
+            .uni-logo-card img {
+              max-height: 36px;
+              max-width: 100px;
+              object-fit: contain;
+              filter: grayscale(30%);
+              transition: filter 0.2s ease;
+            }
+            .uni-logo-card:hover img {
+              filter: grayscale(0%);
+            }
 
-        /* ── CTA row ── */
-        .uni-cta { text-align: center; }
-        .btn-gold-uni {
-          display: inline-block;
-          background: #c9a84c; color: #0a1628;
-          padding: 14px 32px; border-radius: 8px;
-          font-weight: 700; font-size: 0.95rem;
-          text-decoration: none;
-          transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-          font-family: 'DM Sans', sans-serif;
-        }
-        .btn-gold-uni:hover {
-          background: #f0c96e;
-          transform: translateY(-2px);
-          box-shadow: 0 8px 24px rgba(201,168,76,0.4);
-        }
+            /* ── Stats row — mirrors HTML stats-row adapted for white bg ── */
+            .uni-stats-row {
+              display: grid;
+              grid-template-columns: repeat(4, 1fr);
+              gap: 1px;
+              background: #e2e8f0;
+              border: 1px solid #e2e8f0;
+              border-radius: 12px;
+              overflow: hidden;
+              margin-bottom: 56px;
+            }
+            .uni-stat-box {
+              background: #f8fafc;
+              padding: 28px 24px;
+              text-align: center;
+            }
+            .uni-stat-num {
+              font-family: 'Playfair Display', serif;
+              font-size: 36px;
+              font-weight: 700;
+              color: #c9a84c;
+              display: block;
+            }
+            .uni-stat-label {
+              font-size: 13px;
+              color: #64748b;
+              margin-top: 4px;
+            }
 
-        /* ── Responsive ── */
-        @media (max-width: 768px) {
-          .uni-section { padding: 56px 20px; }
-          .uni-marquee-wrap::before,
-          .uni-marquee-wrap::after { width: 40px; }
-        }
+            /* ── CTA row ── */
+            .uni-cta {
+              text-align: left;
+            }
+            .btn-gold-uni {
+              display: inline-block;
+              background: #c9a84c;
+              color: #0a1628;
+              padding: 15px 32px;
+              border-radius: 8px;
+              font-weight: 700;
+              font-size: 15px;
+              text-decoration: none;
+              transition: background 0.2s ease, transform 0.15s ease;
+              font-family: 'DM Sans', sans-serif;
+              cursor: pointer;
+              border: none;
+            }
+            .btn-gold-uni:hover {
+              background: #f0c96e;
+              transform: translateY(-1px);
+            }
+
+            /* ── Responsive ── */
+            @media (max-width: 768px) {
+              .uni-section { padding: 56px 20px; }
+              .uni-marquee-wrap::before,
+              .uni-marquee-wrap::after { width: 40px; }
+              .uni-stats-row { grid-template-columns: 1fr 1fr; }
+            }
           `
         }}
       />
+
       <section className="uni-section" id="universities">
         <div className="uni-inner">
 
-          {/* Header */}
+          {/* Header — matches HTML .section-head pattern */}
           <div className="uni-header">
-            <div className="uni-tag">Student Admissions</div>
+            <span className="uni-tag">Student Admissions</span>
             <h2 className="uni-title">
               Our Students Are Accepted at <em>World&apos;s Best</em> Universities
             </h2>
+          </div>
+
+          {/* Stats row — matches HTML hero stats-row */}
+          <div className="uni-stats-row">
+            <div className="uni-stat-box">
+              <span className="uni-stat-num">98%</span>
+              <div className="uni-stat-label">Success Ratio</div>
+            </div>
+            <div className="uni-stat-box">
+              <span className="uni-stat-num">10K+</span>
+              <div className="uni-stat-label">Happy Students</div>
+            </div>
+            <div className="uni-stat-box">
+              <span className="uni-stat-num">$8M+</span>
+              <div className="uni-stat-label">Scholarships Awarded</div>
+            </div>
+            <div className="uni-stat-box">
+              <span className="uni-stat-num">50+</span>
+              <div className="uni-stat-label">Partner Universities</div>
+            </div>
           </div>
 
           {/* Scrolling marquee */}
