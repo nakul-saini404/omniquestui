@@ -1,0 +1,43 @@
+/* styles/globals.animations.css */
+/* ─────────────────────────────────────────────────────────────────────────── */
+/* Shared reveal + fade-up animations used across all sections                */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* Scroll-triggered reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+  
+  /* Hero fade-up (animation-driven, not scroll) */
+  .animate-fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.7s ease forwards;
+  }
+  .delay-1 { animation-delay: 0.12s; }
+  .delay-2 { animation-delay: 0.22s; }
+  .delay-3 { animation-delay: 0.32s; }
+  .delay-4 { animation-delay: 0.42s; }
+  
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  
+  /* Input & select resets */
+  input::placeholder,
+  select {
+    color: rgba(255, 255, 255, 0.35);
+  }
+  select option {
+    background: #0b1c3d;
+    color: white;
+  }

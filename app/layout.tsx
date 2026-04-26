@@ -37,24 +37,32 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+          rel="stylesheet"
+        />
         <link rel="icon" href="/favicon.ico" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "EducationalOrganization",
-          "name": "OmniQuest",
-          "description": "India's premier global education platform",
-          "url": "https://omniquest.in",
-          "logo": "https://omniquest.in/logo.png",
-          "address": { "@type": "PostalAddress", "addressCountry": "IN", "addressLocality": "Delhi" },
-          "sameAs": ["https://twitter.com/omniquest", "https://linkedin.com/company/omniquest"],
-          "offers": [
-            { "@type": "Offer", "name": "SAT Coaching", "description": "SAT preparation for 1500+ score" },
-            { "@type": "Offer", "name": "GMAT Coaching", "description": "GMAT prep targeting 720+" },
-            { "@type": "Offer", "name": "MBA Admissions Consulting", "description": "Expert MBA admissions guidance" },
-            { "@type": "Offer", "name": "Study Abroad Consulting", "description": "End-to-end study abroad support" },
-          ]
-        }) }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "EducationalOrganization",
+              name: "OmniQuest",
+              description: "India's premier global education platform",
+              url: "https://omniquest.in",
+              logo: "https://omniquest.in/logo.png",
+              address: { "@type": "PostalAddress", addressCountry: "IN", addressLocality: "Delhi" },
+              sameAs: ["https://twitter.com/omniquest", "https://linkedin.com/company/omniquest"],
+              offers: [
+                { "@type": "Offer", name: "SAT Coaching", description: "SAT preparation for 1500+ score" },
+                { "@type": "Offer", name: "GMAT Coaching", description: "GMAT prep targeting 720+" },
+                { "@type": "Offer", name: "MBA Admissions Consulting", description: "Expert MBA admissions guidance" },
+                { "@type": "Offer", name: "Study Abroad Consulting", description: "End-to-end study abroad support" },
+              ],
+            }),
+          }}
+        />
       </head>
       <body>{children}</body>
     </html>

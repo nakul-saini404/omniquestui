@@ -1,0 +1,136 @@
+/* components/CareerAdvisorSection/CareerAdvisorSection.module.css */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+.section {
+    padding: 100px 0 50px;
+    background: linear-gradient(160deg, #060c1a, #0b1c3d);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .ambient {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+      circle at 30% 50%,
+      rgba(0, 201, 177, 0.06) 0%,
+      transparent 60%
+    );
+    pointer-events: none;
+  }
+  
+  .grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* ── Left text ── */
+  .eyebrowRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .eyebrowLine { width: 32px; height: 1px; background: #d4af37; }
+  .eyebrow {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #d4af37;
+    text-transform: uppercase;
+  }
+  
+  .h2 {
+    font-family: var(--font-head);
+    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+    font-weight: 800;
+    color: white;
+    line-height: 1.15;
+    margin-bottom: 4px;
+  }
+  
+  .h2Gold {
+    font-family: var(--font-head);
+    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+    font-weight: 800;
+    font-style: italic;
+    color: #d4af37;
+    line-height: 1.15;
+    margin-bottom: 28px;
+  }
+  
+  .body {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.48);
+    line-height: 1.8;
+    max-width: 400px;
+  }
+  .bodyEm { color: rgba(255, 255, 255, 0.65); }
+  
+  /* ── Right CTA card ── */
+  .card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 36px 32px;
+    backdrop-filter: blur(12px);
+    text-align: center;
+  }
+  
+  .cardIcon {
+    font-size: 2.8rem;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 0 12px rgba(0, 201, 177, 0.2));
+  }
+  
+  .cardTitle {
+    font-family: var(--font-head);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 8px;
+  }
+  
+  .cardSubtitle {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.38);
+    margin-bottom: 28px;
+    line-height: 1.65;
+  }
+  
+  .ctaBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    background: #d4af37;
+    color: #0a0f1e;
+    font-weight: 800;
+    font-size: 0.9rem;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: opacity 0.2s;
+  }
+  .ctaBtn:hover { opacity: 0.88; }
+  
+  .cardFootnote {
+    text-align: center;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.28);
+    margin-top: 12px;
+  }
+  
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .grid { grid-template-columns: 1fr; gap: 40px; }
+  }

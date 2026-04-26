@@ -1,5 +1,7 @@
 /* ─────────────────────────────────────────────────────────────
    lib/personality.ts — Complete Extended Personality Engine
+   with Class-Aware Logic, Country/Course Routing, and
+   University Track Intelligence Matrix
 ───────────────────────────────────────────────────────────── */
 
 export type Category =
@@ -33,7 +35,86 @@ export interface CareerMatch {
   priority: "primary" | "secondary";
 }
 
-/* ── University — restricted to USA / Canada / Australia / Europe ── */
+/* ── University Track (from Intelligence Matrix) ── */
+export type UniversityRegion = "USA" | "Canada" | "Australia" | "Europe" | "Singapore" | "UK" | "South Korea";
+
+export interface UniversityTrack {
+  region: UniversityRegion;
+  flag: string;
+  targetUniversities: string[];
+  academicExpectations: string;
+  testingStrategy: string;
+  profileRequirements: string;
+  keyStrategicInsight: string;
+}
+
+export const UNIVERSITY_TRACKS: UniversityTrack[] = [
+  {
+    region: "USA",
+    flag: "🇺🇸",
+    targetUniversities: ["Harvard", "Yale", "Princeton", "Stanford", "MIT", "Columbia", "UPenn", "Cornell", "Dartmouth", "Brown", "Duke", "Northwestern", "Johns Hopkins"],
+    academicExpectations: "Very high academic consistency + rigorous subject selection",
+    testingStrategy: "SAT/ACT strongly recommended + AP highly recommended",
+    profileRequirements: "Highly structured, deeply focused profile building is essential. Only coherent, high-impact, narrative-driven profiles are competitive.",
+    keyStrategicInsight: "Holistic evaluation — academics, narrative, and impact must align into one unified identity",
+  },
+  {
+    region: "UK",
+    flag: "🇬🇧",
+    targetUniversities: ["Oxford", "Cambridge", "LSE", "Imperial", "UCL", "King's College London", "Edinburgh", "Manchester"],
+    academicExpectations: "Deep subject specialization with strong academic consistency",
+    testingStrategy: "SAT/AP (optional but recommended) + TMUA (Maths/Econ/CS) + ESAT (Engineering/Sciences) + UCAT (Medicine/Dentistry) + LNAT (Law) + TARA (select routes)",
+    profileRequirements: "Highly focused, subject-aligned profile depth; extracurriculars must directly reinforce academic intent",
+    keyStrategicInsight: "UK admissions are test + subject mastery driven, where entrance tests often define selection",
+  },
+  {
+    region: "Canada",
+    flag: "🇨🇦",
+    targetUniversities: ["University of Toronto", "UBC", "McGill", "Waterloo", "McMaster", "Queens University"],
+    academicExpectations: "Strong academic grades + consistency",
+    testingStrategy: "SAT optional but helpful (not required for most programs)",
+    profileRequirements: "Academic performance is primary filter. Balanced profile required; structured profile depth becomes important for highly competitive programs (Business, Engineering, Computer Science).",
+    keyStrategicInsight: "Canada is academics-first, with selective profile importance in top professional programs",
+  },
+  {
+    region: "Singapore",
+    flag: "🇸🇬",
+    targetUniversities: ["NUS", "NTU", "SMU"],
+    academicExpectations: "Extremely high academic excellence",
+    testingStrategy: "SAT recommended but not mandatory + AP recommended for competitive edge + TMUA-level quantitative reasoning highly valued",
+    profileRequirements: "Sharp academic identity with clear subject direction; structured profile strengthens competitiveness but academics remain primary filter",
+    keyStrategicInsight: "Highly competitive system prioritizing top-percentile academics and strong quantitative reasoning signals",
+  },
+  {
+    region: "Australia",
+    flag: "🇦🇺",
+    targetUniversities: ["University of Melbourne", "ANU", "University of Sydney", "UNSW", "Monash"],
+    academicExpectations: "Strong academic performance with consistent grades",
+    testingStrategy: "SAT/AP not mandatory but recommended for scholarships; UCAT for medical pathways",
+    profileRequirements: "Moderately structured profile; academics are primary, differentiation improves scholarship chances",
+    keyStrategicInsight: "Flexible admissions system with strong scholarship-based differentiation logic",
+  },
+  {
+    region: "Europe",
+    flag: "🇪🇺",
+    targetUniversities: ["ETH Zurich", "LMU Munich", "University of Amsterdam", "Heidelberg University", "TU Delft", "HEC Paris", "Sciences Po", "Bocconi University"],
+    academicExpectations: "Strong subject alignment + academic rigor",
+    testingStrategy: "SAT required in some programs depending on country/university",
+    profileRequirements: "Academic-depth driven profiles; subject relevance is more important than extracurricular diversity",
+    keyStrategicInsight: "Program-specific admissions; academically strict but less holistic",
+  },
+  {
+    region: "South Korea",
+    flag: "🇰🇷",
+    targetUniversities: ["Seoul National University", "KAIST", "Yonsei", "Korea University"],
+    academicExpectations: "Very high academic performance",
+    testingStrategy: "SAT required for many international admissions routes",
+    profileRequirements: "Strong academic consistency with focused subject strength required",
+    keyStrategicInsight: "Highly exam-driven and academically selective system",
+  },
+];
+
+/* ── University ── */
 export interface University {
   name: string;
   country: string;
@@ -41,9 +122,10 @@ export interface University {
   program: string;
   ranking: string;
   website: string;
-  region: "USA" | "Canada" | "Australia" | "Europe";
-  tuitionRange?: string;   // e.g. "$45–80K/yr"
-  whyForYou?: string;      // AI personalised reason
+  region: UniversityRegion;
+  tuitionRange?: string;
+  whyForYou?: string;
+  requiredExams?: string[];
 }
 
 export interface FuturisticCareer {
@@ -70,10 +152,12 @@ export interface ExamRecommendation {
   fullForm: string;
   classLevel: "Class 9–10" | "Class 11" | "Class 11–12" | "Class 12" | "Post Class 12";
   description: string;
-  whyForYou: string;          // personalised to student's profile
+  whyForYou: string;
   priority: "Essential" | "High" | "Medium";
-  preparationTime: string;    // e.g. "8–12 months"
+  preparationTime: string;
   link: string;
+  benefit: string;
+  targetCountries: string[];
 }
 
 /* ── Profile building item ── */
@@ -83,24 +167,16 @@ export interface ProfileBuildingItem {
   description: string;
   priority: "Essential" | "High" | "Medium";
   link?: string;
-  benefit?: string;        // Why this matters for the student
-  importance?: string;     // Long-term career impact
-  classLevel?: string;     // When to pursue: "Class 10", "Class 11–12", etc.
+  benefit?: string;
+  importance?: string;
+  classLevel?: string;
 }
 
-/* ── Profile building benefits (new section) ── */
 export interface ProfileBuildingBenefits {
-  overview: string;           // 2–3 sentence intro
-  keyBenefits: {
-    icon: string;
-    title: string;
-    description: string;      // 1–2 sentences
-  }[];
-  whyItMatters: string;       // Closing motivational paragraph
-  timelineByClass: {
-    classLevel: string;       // "Class 9–10", "Class 11", "Class 12"
-    actions: string[];        // 2–4 actions per stage
-  }[];
+  overview: string;
+  keyBenefits: { icon: string; title: string; description: string }[];
+  whyItMatters: string;
+  timelineByClass: { classLevel: string; actions: string[] }[];
 }
 
 export interface Scholarship {
@@ -111,51 +187,53 @@ export interface Scholarship {
 export interface BestCollege {
   name: string; country: string; flag: string;
   program: string; acceptanceRate: string; avgPackage: string;
-  region: "USA" | "Canada" | "Australia" | "Europe";
+  region: UniversityRegion;
 }
 
+/* ── Lead form data ── */
+export interface LeadFormData {
+  fullName: string;
+  email: string;
+  phone: string;
+  city: string;
+  currentClass: string;   // NEW — "8", "9", "10", "11", "12", "Graduate", "Working Professional"
+  educationLevel?: string;
+  programInterest?: string;
+  age?: string;
+  consent: boolean;
+  // For Class 11/12 students — after quiz
+  targetCountry?: string;   // e.g. "USA", "UK", "Canada", "Australia", "Europe", "Singapore", "South Korea"
+  targetDegree?: string;    // e.g. "Engineering", "Business/MBA", "Medicine", "Law", "Arts & Design", "Sciences", "Computer Science"
+}
+
+/* ── Main report ── */
 export interface PersonalityReport {
-  /* core */
   studentName: string; personalityType: string; tagline: string;
   overallScore: number; categories: CategoryScore[];
   strengths: string[]; growthAreas: string[];
   aiInsight: string; programRecommendation: string;
-  streamRecommendation: StreamRecommendation;
-
-  /* career */
+  streamRecommendation?: StreamRecommendation;  // Only for Class 8–10
+  targetCountry?: string;
+  targetDegree?: string;
   careerMatches: CareerMatch[];
   secondaryCareerMatches: CareerMatch[];
-
-  /* universities — USA / Canada / Australia / Europe ONLY */
   universities: University[];
-
-  /* future */
+  recommendedExams: ExamRecommendation[];   // Unified exam list derived from country + class
   futuristicCareers: FuturisticCareer[];
-
-  /* aptitude */
   aptitudeEnhancement: AptitudeEnhancement;
-
-  /* skills */
   skillAttributes: SkillAttribute[];
-
-  /* profile building — fully AI generated */
   profileBuilding: {
     degrees: ProfileBuildingItem[];
-    exams: ExamRecommendation[];      // ← replaces old ProfileBuildingItem[] for exams
+    exams: ExamRecommendation[];
     activities: string[];
     importantTip: string;
     quote: string;
   };
-
-  /* NEW: profile building benefits section */
   profileBuildingBenefits: ProfileBuildingBenefits;
-
-  /* scholarships & colleges */
   scholarships: Scholarship[];
   bestColleges: BestCollege[];
-
-  /* contact */
   adminContact: { email: string; phone: string; name: string };
+  currentClass?: string;
 }
 
 /* ══════════════════════════════════════════════════════════════
@@ -190,13 +268,31 @@ const CATEGORY_COLORS: Record<string, string> = {
   empathy:"#f472b6", ambition:"#fb923c", resilience:"#34d399",
 };
 
+/* ── Helper: get track for country ── */
+export function getTrackForCountry(country: string): UniversityTrack | undefined {
+  return UNIVERSITY_TRACKS.find(t =>
+    t.region.toLowerCase() === country.toLowerCase() ||
+    (country === "UK" && t.region === "UK")
+  );
+}
+
+/* ── Helper: determine flow type ── */
+export type FlowType = "stream_recommendation" | "university_recommendation";
+
+export function getFlowType(currentClass: string): FlowType {
+  const classNum = parseInt(currentClass, 10);
+  if (!isNaN(classNum) && classNum <= 10) return "stream_recommendation";
+  return "university_recommendation";
+}
+
 /* ══════════════════════════════════════════════════════════════
-   FALLBACK COMPUTE  (used only when AI call fails)
+   FALLBACK COMPUTE
 ══════════════════════════════════════════════════════════════ */
 
 export function computeReport(
   answers: Record<number, number>,
-  studentName: string
+  studentName: string,
+  leadData?: Partial<LeadFormData>
 ): PersonalityReport {
   const catTotals: Record<string, { sum: number; max: number }> = {};
   for (const q of PERSONALITY_QUESTIONS) {
@@ -218,6 +314,53 @@ export function computeReport(
 
   const overallScore = Math.round(categories.reduce((a,c)=>a+c.percentage,0)/categories.length);
   const sorted = [...categories].sort((a,b)=>b.percentage-a.percentage);
+  const flowType = getFlowType(leadData?.currentClass ?? "12");
+  const targetCountry = leadData?.targetCountry ?? "USA";
+  const track = getTrackForCountry(targetCountry);
+
+  const streamRec: StreamRecommendation = {
+    primary:"Commerce", alternates:["Science (PCM)","Arts / Humanities"],
+    reasoning:"Your balanced profile suggests Commerce as a strong default.",
+    subjects:["Economics","Business Studies","Accountancy","Mathematics"],
+    careerPathsFromStream:["MBA","Finance","Entrepreneurship","CA"],
+    confidence:65,
+  };
+
+  const baseExams: ExamRecommendation[] = [
+    {
+      title:"SAT", fullForm:"Scholastic Assessment Test",
+      classLevel:"Class 11–12",
+      description:`The SAT opens doors to 4,000+ universities globally. Target universities in ${targetCountry}: ${track?.targetUniversities.slice(0,3).join(", ")}.`,
+      whyForYou:"Your analytical strength makes you a strong SAT candidate.",
+      priority:"Essential", preparationTime:"6–12 months",
+      link:"https://collegereadiness.collegeboard.org/sat",
+      benefit:"Accepted by top universities across USA, Canada, and beyond.",
+      targetCountries:["USA","Canada","Singapore","Australia"],
+    },
+    {
+      title:"IELTS / TOEFL", fullForm:"English Language Proficiency Tests",
+      classLevel:"Class 11–12",
+      description:"English proficiency test required by all international universities.",
+      whyForYou:"A non-negotiable gateway for all international university applications.",
+      priority:"Essential", preparationTime:"2–4 months",
+      link:"https://www.ielts.org",
+      benefit:"Mandatory for admission. Aim for 7.0+ IELTS or 100+ TOEFL.",
+      targetCountries:["USA","UK","Canada","Australia","Europe","Singapore"],
+    },
+  ];
+
+  if (targetCountry === "UK") {
+    baseExams.push({
+      title:"UCAT/TMUA/LNAT", fullForm:"UK University Entrance Tests",
+      classLevel:"Class 12",
+      description:"Subject-specific UK entrance tests for Medicine (UCAT), Maths/Econ (TMUA), Law (LNAT).",
+      whyForYou:"Required by Oxford, Cambridge and Russell Group universities for your chosen subject.",
+      priority:"Essential", preparationTime:"3–6 months",
+      link:"https://www.ucas.com",
+      benefit:"Critical differentiator for UK top-tier admission.",
+      targetCountries:["UK"],
+    });
+  }
 
   return {
     studentName, overallScore, categories,
@@ -227,119 +370,87 @@ export function computeReport(
     growthAreas: sorted.slice(-2).map(c=>`Build on your ${c.name.toLowerCase()} dimension`),
     aiInsight: `${studentName}, your balanced profile positions you for a wide range of global programs.`,
     programRecommendation: "Personalised Counselling — Book a Free Session",
-    streamRecommendation: {
-      primary:"Commerce", alternates:["Science (PCM)","Arts / Humanities"],
-      reasoning:"Your balanced profile suggests Commerce as a strong default.",
-      subjects:["Economics","Business Studies","Accountancy","Mathematics"],
-      careerPathsFromStream:["MBA","Finance","Entrepreneurship","CA"],
-      confidence:65,
-    },
+    streamRecommendation: flowType === "stream_recommendation" ? streamRec : undefined,
+    targetCountry,
+    targetDegree: leadData?.targetDegree,
+    currentClass: leadData?.currentClass,
     careerMatches: [
       { title:"Management Consultant", fit:88, icon:"📊", description:"Helps organisations solve complex business problems.", primarySkills:["Analytical Thinking","Communication","Strategy"], salaryRange:"₹12–40 LPA", priority:"primary" },
       { title:"Product Manager", fit:84, icon:"🎯", description:"Leads product development from concept to launch.", primarySkills:["Leadership","User Research","Data Analysis"], salaryRange:"₹15–50 LPA", priority:"primary" },
-      { title:"Data Scientist", fit:80, icon:"🧠", description:"Extracts insights from large datasets using ML and statistics.", primarySkills:["Python","Statistics","Machine Learning"], salaryRange:"₹10–45 LPA", priority:"primary" },
-      { title:"Entrepreneur", fit:76, icon:"🚀", description:"Builds and scales new businesses or startups.", primarySkills:["Vision","Resilience","Leadership"], salaryRange:"Variable", priority:"primary" },
+      { title:"Data Scientist", fit:80, icon:"🧠", description:"Extracts insights from large datasets.", primarySkills:["Python","Statistics","Machine Learning"], salaryRange:"₹10–45 LPA", priority:"primary" },
+      { title:"Entrepreneur", fit:76, icon:"🚀", description:"Builds and scales new businesses.", primarySkills:["Vision","Resilience","Leadership"], salaryRange:"Variable", priority:"primary" },
     ],
     secondaryCareerMatches: [
-      { title:"UX Researcher", fit:72, icon:"🔍", description:"Studies user behaviour to improve product design.", primarySkills:["Empathy","Research Methods","Synthesis"], salaryRange:"₹8–30 LPA", priority:"secondary" },
+      { title:"UX Researcher", fit:72, icon:"🔍", description:"Studies user behaviour to improve product design.", primarySkills:["Empathy","Research","Synthesis"], salaryRange:"₹8–30 LPA", priority:"secondary" },
       { title:"Business Analyst", fit:68, icon:"📋", description:"Bridges business needs with tech solutions.", primarySkills:["Analysis","Documentation","Communication"], salaryRange:"₹8–28 LPA", priority:"secondary" },
     ],
-    universities: [
-      { name:"University of Toronto", country:"Canada", flag:"🇨🇦", program:"Business / CS / Engineering", ranking:"#21 World", website:"https://utoronto.ca", region:"Canada" },
-      { name:"University of Melbourne", country:"Australia", flag:"🇦🇺", program:"Business / Sciences / Law", ranking:"#33 World", website:"https://unimelb.edu.au", region:"Australia" },
-      { name:"Harvard University", country:"USA", flag:"🇺🇸", program:"Business / Law / Medicine", ranking:"#4 World", website:"https://harvard.edu", region:"USA" },
-      { name:"University of Oxford", country:"UK (Europe)", flag:"🇬🇧", program:"PPE / Law / Sciences", ranking:"#1 World", website:"https://ox.ac.uk", region:"Europe" },
-      { name:"ETH Zurich", country:"Switzerland (Europe)", flag:"🇨🇭", program:"Engineering / Sciences", ranking:"#7 World", website:"https://ethz.ch", region:"Europe" },
-      { name:"Stanford University", country:"USA", flag:"🇺🇸", program:"Business / CS / Engineering", ranking:"#3 World", website:"https://stanford.edu", region:"USA" },
-    ],
+    universities: (track?.targetUniversities.slice(0,6) ?? ["Harvard","MIT","Stanford"]).map((name, i) => ({
+      name, country: targetCountry, flag: track?.flag ?? "🌍",
+      program: leadData?.targetDegree ?? "Business / Sciences",
+      ranking: `Top ${(i+1)*10} in ${targetCountry}`,
+      website: `https://www.google.com/search?q=${encodeURIComponent(name)}`,
+      region: (targetCountry as UniversityRegion) ?? "USA",
+    })),
+    recommendedExams: baseExams,
     futuristicCareers: [
-      { title:"AI Ethics Officer", icon:"🤖", description:"Ensures AI systems are fair, transparent and human-aligned.", blend:"AI + Philosophy + Law", growthOutlook:"Very High — 2025 onwards" },
-      { title:"Virtual Reality Experience Designer", icon:"🥽", description:"Crafts immersive VR/AR experiences for education, entertainment and therapy.", blend:"Design + Technology + Psychology", growthOutlook:"High — Metaverse economy" },
-      { title:"Sustainability Strategist", icon:"🌱", description:"Helps organisations build carbon-neutral, ESG-compliant strategies.", blend:"Environmental Science + Business + Policy", growthOutlook:"Very High — Global mandate" },
-      { title:"Neurotech Product Manager", icon:"🧬", description:"Leads brain-computer interface product development.", blend:"Neuroscience + Engineering + Product", growthOutlook:"Emerging — 2028+ opportunity" },
-      { title:"Cybersecurity Architect", icon:"🔐", description:"Designs enterprise-level security systems against next-gen threats.", blend:"CS + Cryptography + Systems Thinking", growthOutlook:"Very High — Every industry" },
+      { title:"AI Ethics Officer", icon:"🤖", description:"Ensures AI systems are fair and human-aligned.", blend:"AI + Philosophy + Law", growthOutlook:"Very High — 2025 onwards" },
+      { title:"Sustainability Strategist", icon:"🌱", description:"Builds carbon-neutral strategies for organisations.", blend:"Environmental Science + Business + Policy", growthOutlook:"Very High — Global mandate" },
+      { title:"Cybersecurity Architect", icon:"🔐", description:"Designs enterprise-level security systems.", blend:"CS + Cryptography + Systems Thinking", growthOutlook:"Very High — Every industry" },
     ],
     aptitudeEnhancement: {
-      books: [
-        { title:"A Modern Approach to Logical Reasoning", author:"R.S. Aggarwal" },
-        { title:"Shortcuts in Reasoning", author:"Disha Experts" },
-        { title:"Analytical Reasoning", author:"M.K. Pandey" },
-      ],
-      apps: ["Lumosity","Brilliant","Elevate","Peak","NeuroNation","Sudoku","Brain Wars","Crossword"],
-      techniques: [
-        "Study logical fallacies to evaluate arguments critically",
-        "Break problems into smaller components before solving",
-        "Practice under timed conditions to improve speed and accuracy",
-        "Use mind mapping to connect ideas and spot patterns",
-        "Solve puzzles daily for 20 minutes to build cognitive agility",
-      ],
-      quote: "Aptitude ignites potential, turning passion into purpose and dreams into reality.",
+      books:[{title:"Thinking, Fast and Slow",author:"Daniel Kahneman"},{title:"Deep Work",author:"Cal Newport"},{title:"The Lean Startup",author:"Eric Ries"}],
+      apps:["Lumosity","Brilliant","Elevate","Peak","Duolingo","Khan Academy"],
+      techniques:["Break problems into sub-problems","Practice timed exercises","Use mind mapping for complex topics"],
+      quote:"Aptitude ignites potential, turning passion into purpose and dreams into reality.",
     },
-    skillAttributes: [
-      { skill:"Communication",    level:82, description:"Ability to convey ideas clearly across audiences.", icon:"💬" },
-      { skill:"Problem-Solving",  level:78, description:"Structured approach to breaking down complex issues.", icon:"🧩" },
-      { skill:"Leadership",       level:74, description:"Natural tendency to guide, motivate and coordinate teams.", icon:"🏆" },
-      { skill:"Time Management",  level:70, description:"Capacity to prioritise and execute efficiently under pressure.", icon:"⏱" },
-      { skill:"Adaptability",     level:76, description:"Ease of pivoting when circumstances change unexpectedly.", icon:"🔄" },
-      { skill:"Critical Thinking",level:80, description:"Evaluating information and arguments with logical rigour.", icon:"🔬" },
+    skillAttributes:[
+      {skill:"Communication",level:82,description:"Ability to convey ideas clearly.",icon:"💬"},
+      {skill:"Problem-Solving",level:78,description:"Structured approach to complex issues.",icon:"🧩"},
+      {skill:"Leadership",level:74,description:"Guides and motivates teams.",icon:"🏆"},
+      {skill:"Critical Thinking",level:80,description:"Evaluates information with logical rigour.",icon:"🔬"},
+      {skill:"Adaptability",level:76,description:"Pivots when circumstances change.",icon:"🔄"},
+      {skill:"Time Management",level:70,description:"Prioritises and executes efficiently.",icon:"⏱"},
     ],
-    profileBuilding: {
-      degrees: [
-        { type:"degree", title:"Bachelor of Science in Computer Science", description:"Opens tech and data roles globally.", priority:"High", link:"https://eduquest.org.in/", benefit:"High global demand with strong salary prospects.", importance:"Foundation for AI, software, and product careers.", classLevel:"Post Class 12" },
-        { type:"degree", title:"Bachelor of Business Administration (BBA)", description:"Develops core business, finance and management competencies.", priority:"High", link:"https://eduquest.org.in/", benefit:"Builds entrepreneurial and corporate leadership skills.", importance:"Gateway to MBA, consulting, and C-suite roles.", classLevel:"Post Class 12" },
-        { type:"degree", title:"Bachelor of Arts in Psychology", description:"Builds deep understanding of human behaviour.", priority:"Medium", link:"https://eduquest.org.in/", benefit:"Ideal for HR, UX research, therapy and counselling.", importance:"Growing field with interdisciplinary applications.", classLevel:"Post Class 12" },
+    profileBuilding:{
+      degrees:[
+        {type:"degree",title:"Bachelor of Science in Computer Science",description:"Opens tech and data roles globally.",priority:"High",link:"https://eduquest.org.in/",benefit:"High global demand.",importance:"Foundation for AI, software, and product careers.",classLevel:"Post Class 12"},
+        {type:"degree",title:"Bachelor of Business Administration",description:"Develops core business competencies.",priority:"High",link:"https://eduquest.org.in/",benefit:"Builds corporate leadership skills.",importance:"Gateway to MBA, consulting, and C-suite roles.",classLevel:"Post Class 12"},
       ],
-      exams: [
-        { title:"SAT", fullForm:"Scholastic Assessment Test", classLevel:"Class 11–12", description:"Opens 50+ leading universities in India and global admission to USA/Canada/Australia universities.", whyForYou:"Your analytical strength makes you a strong SAT candidate — especially in Math and Evidence-Based Reading.", priority:"Essential", preparationTime:"6–12 months", link:"https://collegereadiness.collegeboard.org/sat" },
-        { title:"IELTS / TOEFL", fullForm:"English Language Proficiency Tests", classLevel:"Class 11–12", description:"English proficiency test required by all UK, USA, Canada, Australia universities.", whyForYou:"A must-have for all international university applications — start early in Class 11.", priority:"Essential", preparationTime:"2–4 months", link:"https://www.ielts.org" },
-        { title:"AP Exams", fullForm:"Advanced Placement Examinations", classLevel:"Class 11–12", description:"College-level courses recognised by 4,000+ US/Canadian universities for credit transfer.", whyForYou:"Taking AP courses shows academic rigour and can earn you college credits before you even enrol.", priority:"High", preparationTime:"Full academic year", link:"https://apstudents.collegeboard.org" },
-        { title:"GMAT", fullForm:"Graduate Management Admission Test", classLevel:"Post Class 12", description:"Required for MBA admissions at M7 and top global business schools.", whyForYou:"If MBA is your goal, start GMAT prep 1–2 years into your undergraduate degree.", priority:"Medium", preparationTime:"4–6 months", link:"https://www.mba.com/exams/gmat" },
-      ],
-      activities: [
-        "Join Model United Nations (MUN) to build leadership and public speaking",
-        "Participate in national-level Olympiads (Math, Science, Economics)",
-        "Take on a school club leadership role (captain, head, editor)",
-        "Complete a summer internship or research project before Class 12",
-        "Build a personal project, portfolio or startup idea by Class 11",
-      ],
-      importantTip: "Take SAT and you can apply to 50+ leading universities in India and avoid multiple entrance tests. To navigate SAT preparation, reach out to EduQuest at eduquest.org.in",
-      quote: "The difference between Ordinary and Extraordinary is that little extra.",
+      exams: baseExams,
+      activities:["Join Model United Nations (MUN)","Participate in Math/Science Olympiads","Take on school club leadership","Build a personal project or portfolio","Complete a summer internship"],
+      importantTip:`Take SAT to apply to top universities in ${targetCountry}. Reach out to EduQuest at eduquest.org.in for personalised guidance.`,
+      quote:"The difference between Ordinary and Extraordinary is that little extra.",
     },
-    profileBuildingBenefits: {
-      overview: "Building a strong academic and extracurricular profile from Class 9 onwards significantly increases your chances of admission to top global universities and scholarship opportunities.",
-      keyBenefits: [
-        { icon:"🏆", title:"Stronger University Applications", description:"A well-rounded profile gives you a competitive edge over thousands of applicants at top universities in USA, Canada, Australia and Europe." },
-        { icon:"💰", title:"Scholarship Eligibility", description:"Many merit scholarships (Chevening, Fulbright, Erasmus) require demonstrated leadership, community involvement and academic excellence built over years." },
-        { icon:"🌍", title:"Global Career Opportunities", description:"International degree + strong profile = access to global job markets with 3–5x higher earning potential compared to domestic-only qualifications." },
-        { icon:"🧠", title:"Personal Growth & Clarity", description:"The process of building your profile forces you to discover what you're truly passionate about — leading to better career decisions." },
-        { icon:"⚡", title:"Early Competitive Advantage", description:"Students who start profile-building in Class 9–10 arrive at Class 12 with a story that no last-minute cramming can replicate." },
+    profileBuildingBenefits:{
+      overview:"Building a strong academic profile from Class 9 significantly increases your chances at top global universities.",
+      keyBenefits:[
+        {icon:"🏆",title:"Stronger University Applications",description:"A well-rounded profile gives you a competitive edge at target universities."},
+        {icon:"💰",title:"Scholarship Eligibility",description:"Merit scholarships require demonstrated leadership and academic excellence built over years."},
+        {icon:"🌍",title:"Global Career Opportunities",description:"International degree opens global job markets with higher earning potential."},
+        {icon:"⚡",title:"Early Competitive Advantage",description:"Students who start in Class 9–10 arrive at Class 12 with a story no last-minute effort can replicate."},
       ],
-      whyItMatters: "Top universities look far beyond grades — they want students who lead, create, serve, and grow. Your profile is your story, and the earlier you start writing it, the more compelling it becomes.",
-      timelineByClass: [
-        { classLevel:"Class 9–10", actions:["Build foundational study habits and explore interests","Participate in school clubs, sports, or arts","Attempt Olympiads and inter-school competitions","Research different career paths and streams"] },
-        { classLevel:"Class 11", actions:["Choose stream aligned with career goals","Begin SAT / AP exam preparation","Take on a leadership role in school or community","Start building a portfolio or personal project"] },
-        { classLevel:"Class 12", actions:["Appear for SAT, IELTS/TOEFL and AP Exams","Finalise university shortlist and write application essays","Apply for scholarships early — most deadlines are Oct–Jan","Secure strong recommendation letters from teachers"] },
+      whyItMatters:"Top universities look far beyond grades — they want students who lead, create, and grow.",
+      timelineByClass:[
+        {classLevel:"Class 9–10",actions:["Explore interests and career paths","Participate in Olympiads and competitions","Build foundational study habits","Join clubs aligned to interests"]},
+        {classLevel:"Class 11",actions:["Begin SAT/IELTS preparation","Choose subjects aligned to target degree","Take on leadership roles","Build portfolio or personal project"]},
+        {classLevel:"Class 12",actions:["Appear for SAT, IELTS, and subject tests","Write university application essays","Apply for scholarships","Finalise university shortlist with EduQuest"]},
       ],
     },
-    scholarships: [
-      { name:"Fulbright Scholarship", country:"USA 🇺🇸", amount:"Full funding", eligibility:"Graduate students — exceptional academic record", deadline:"October annually", link:"https://fulbrightprogram.org" },
-      { name:"Chevening Scholarship", country:"UK 🇬🇧", amount:"Full funding + stipend", eligibility:"1+ year work experience, leadership potential", deadline:"November annually", link:"https://chevening.org" },
-      { name:"Erasmus Mundus", country:"Europe 🇪🇺", amount:"€1,000–1,400/month", eligibility:"UG/PG students — merit-based", deadline:"January annually", link:"https://erasmus-plus.ec.europa.eu" },
-      { name:"Vanier Canada Graduate", country:"Canada 🇨🇦", amount:"CAD $50,000/year", eligibility:"Doctoral students with leadership and research excellence", deadline:"November annually", link:"https://vanier.gc.ca" },
-      { name:"Australia Awards", country:"Australia 🇦🇺", amount:"Full funding + living allowance", eligibility:"Citizens of eligible developing countries", deadline:"April–June annually", link:"https://australiaawards.gov.au" },
+    scholarships:[
+      {name:"Fulbright Scholarship",country:"USA 🇺🇸",amount:"Full funding",eligibility:"Graduate students with exceptional academic record",deadline:"October annually",link:"https://fulbrightprogram.org"},
+      {name:"Chevening Scholarship",country:"UK 🇬🇧",amount:"Full funding + stipend",eligibility:"1+ year work experience, leadership potential",deadline:"November annually",link:"https://chevening.org"},
+      {name:"Erasmus Mundus",country:"Europe 🇪🇺",amount:"€1,000–1,400/month",eligibility:"UG/PG students — merit-based",deadline:"January annually",link:"https://erasmus-plus.ec.europa.eu"},
     ],
-    bestColleges: [
-      { name:"MIT", country:"USA 🇺🇸", flag:"🇺🇸", program:"Engineering / Data Science / AI", acceptanceRate:"3.9%", avgPackage:"$130K+", region:"USA" },
-      { name:"University of British Columbia", country:"Canada 🇨🇦", flag:"🇨🇦", program:"Business / Sciences / Engineering", acceptanceRate:"52%", avgPackage:"CAD $75K+", region:"Canada" },
-      { name:"University of Sydney", country:"Australia 🇦🇺", flag:"🇦🇺", program:"Business / Law / Engineering", acceptanceRate:"30%", avgPackage:"AUD $85K+", region:"Australia" },
-      { name:"London School of Economics", country:"UK 🇬🇧", flag:"🇬🇧", program:"Economics / Finance / Law", acceptanceRate:"8%", avgPackage:"£55K+", region:"Europe" },
-      { name:"Stanford University", country:"USA 🇺🇸", flag:"🇺🇸", program:"CS / Business / Engineering", acceptanceRate:"3.7%", avgPackage:"$140K+", region:"USA" },
-      { name:"University of Amsterdam", country:"Netherlands 🇳🇱", flag:"🇳🇱", program:"Business / Social Sciences", acceptanceRate:"35%", avgPackage:"€55K+", region:"Europe" },
+    bestColleges:[
+      {name:"MIT",country:"USA 🇺🇸",flag:"🇺🇸",program:"Engineering / CS / AI",acceptanceRate:"3.9%",avgPackage:"$130K+",region:"USA"},
+      {name:"University of Toronto",country:"Canada 🇨🇦",flag:"🇨🇦",program:"Business / Sciences",acceptanceRate:"43%",avgPackage:"CAD $75K+",region:"Canada"},
+      {name:"University of Melbourne",country:"Australia 🇦🇺",flag:"🇦🇺",program:"Business / Law",acceptanceRate:"30%",avgPackage:"AUD $85K+",region:"Australia"},
+      {name:"LSE",country:"UK 🇬🇧",flag:"🇬🇧",program:"Economics / Finance",acceptanceRate:"8%",avgPackage:"£55K+",region:"UK"},
     ],
-    adminContact: {
+    adminContact:{
       email: process.env.ADMIN_EMAIL ?? "admissions@eduquest.org.in",
       phone: process.env.ADMIN_PHONE ?? "+91 98765 43210",
-      name:  "EduQuest Admissions Team",
+      name: "EduQuest Admissions Team",
     },
   };
 }
