@@ -1,0 +1,121 @@
+/* components/DecisionCtaSection/DecisionCtaSection.module.css */
+
+.section {
+  background: var(--bg2);
+  text-align: center;
+  padding: 120px 5%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Inner ── */
+.inner {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 0 auto;
+
+  /* fade-up initial state */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Tag ── */
+.tag {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 32px;
+  display: inline-block;
+}
+
+/* ── Heading ── */
+.h2 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 60px);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+.h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ── Body ── */
+.body {
+  font-size: 16px;
+  color: var(--text2);
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+/* ── Buttons ── */
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  padding: 16px 40px;
+  background: var(--gold);
+  color: #0a0a08;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+.btnPrimary:hover {
+  opacity: 0.88;
+}
+
+.btnSecondary {
+  padding: 15px 40px;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-radius: 2px;
+  border: 1px solid var(--line2);
+  transition: border-color 0.2s;
+  white-space: nowrap;
+}
+.btnSecondary:hover {
+  border-color: var(--text2);
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .section {
+    padding: 80px 5%;
+  }
+  .buttons {
+    flex-direction: column;
+  }
+  .btnPrimary,
+  .btnSecondary {
+    width: 100%;
+    text-align: center;
+    padding: 14px 24px;
+  }
+}

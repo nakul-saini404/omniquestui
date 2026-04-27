@@ -1,162 +1,158 @@
-/* components/ResultsSection/ResultsSection.module.css */
-/* ─────────────────────────────────────────────────────────────────────────── */
+/* ResultsSection.module.css */
 
 .section {
-    padding: 100px 0 50px;
-    background: #f8f9fb;
-  }
-  
-  .inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-  
-  /* ── Header ── */
-  .header { text-align: center; margin-bottom: 56px; }
-  
-  .eyebrowRow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 16px;
-  }
-  .eyebrowLine { width: 32px; height: 1px; background: #d4af37; }
-  .eyebrow {
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    color: #d4af37;
-    text-transform: uppercase;
-  }
-  
-  .h2 {
-    font-family: var(--font-head);
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800;
-    color: #0b1c3d;
-    line-height: 1.15;
-    margin-bottom: 4px;
-  }
-  .h2Gold {
-    font-family: var(--font-head);
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800;
-    font-style: italic;
-    color: #d4af37;
-    line-height: 1.15;
-    margin-bottom: 20px;
-  }
-  
-  .headerBody {
-    font-size: 0.9rem;
-    color: #64748b;
-    max-width: 460px;
-    margin: 0 auto;
-    line-height: 1.78;
-  }
-  .headerBodyEm { color: #d4af37; }
-  
-  /* ── Metrics row ── */
-  .metricsRow {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    margin-bottom: 56px;
-    border: 1px solid #e2e8f0;
-    border-radius: 16px;
-    overflow: hidden;
-  }
-  
-  .metricCell {
-    padding: 36px 24px;
-    text-align: center;
-    background: white;
-  }
-  /* dividers via nth-child */
-  .metricCell:not(:last-child) {
-    border-right: 1px solid #e2e8f0;
-  }
-  
-  .metricBadge {
-    font-size: 0.63rem;
-    color: #d4af37;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    display: block;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-  }
-  
-  .metricNumber {
-    font-family: var(--font-head);
-    font-size: 2.6rem;
-    font-weight: 800;
-    color: #0b1c3d;
-    display: block;
-    margin-bottom: 6px;
-  }
-  
-  .metricLabel {
-    font-size: 0.76rem;
-    color: #94a3b8;
-    font-weight: 500;
-    margin: 0;
-  }
-  
-  /* ── University tags ── */
-  .uniGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-  }
-  
-  .uniGroupTitle {
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: #0b1c3d;
-    margin-bottom: 14px;
-  }
-  
-  .underlineGold {
-    text-decoration: underline;
-    text-decoration-color: #d4af37;
-  }
-  
-  .tagWrap {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  
-  .uniTag {
-    font-size: 0.74rem;
-    padding: 5px 12px;
-    border-radius: 6px;
-    border: 1px solid #e2e8f0;
-    color: #475569;
-    background: white;
-    font-weight: 500;
-  }
-  
-  /* ── Responsive ── */
-  @media (max-width: 1024px) {
-    .metricsRow { grid-template-columns: repeat(2, 1fr); }
-    .metricCell:not(:last-child) { border-right: none; }
-    .metricCell:nth-child(odd) { border-right: 1px solid #e2e8f0; }
-    .metricCell:nth-child(1),
-    .metricCell:nth-child(2) { border-bottom: 1px solid #e2e8f0; }
-  }
-  
-  @media (max-width: 640px) {
-    .metricCell { padding: 24px 16px; }
-    .metricNumber { font-size: 2rem; }
-    .uniGrid { grid-template-columns: 1fr; gap: 24px; }
-  }
-  
-  @media (max-width: 420px) {
-    .metricNumber { font-size: 1.6rem; }
-    .metricBadge { font-size: 0.56rem; }
-    .metricLabel { font-size: 0.66rem; }
-  }
+  background: var(--bg2);
+  text-align: center;
+  padding: 120px 5%;
+}
+
+/* ── Header ── */
+.head {
+  max-width: 600px;
+  margin: 0 auto 64px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.head:global(.visible) {
+  opacity: 1;
+  transform: none;
+}
+
+.sectionLabel {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+.sectionLabel::before {
+  content: "—— ";
+  color: var(--gold);
+  opacity: 0.6;
+}
+
+.h2 {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 4vw, 64px);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.subtext {
+  font-size: 16px;
+  color: var(--text2);
+  line-height: 1.8;
+}
+
+/* ── Metrics grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  max-width: 1100px;
+  margin: 0 auto 72px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s;
+}
+.grid:global(.visible) {
+  opacity: 1;
+  transform: none;
+}
+
+.cell {
+  padding: 48px 28px;
+  background: var(--surface);
+  border-right: 1px solid var(--line);
+}
+.cell:last-child {
+  border-right: none;
+}
+
+.num {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.label {
+  font-size: 13px;
+  color: var(--text3);
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+/* ── Marquee ── */
+.marqueeWrap {
+  overflow: hidden;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+}
+.marqueeWrap:global(.visible) {
+  opacity: 1;
+  transform: none;
+}
+
+.marqueeInner {
+  display: flex;
+  gap: 40px;
+  animation: marquee 25s linear infinite;
+  white-space: nowrap;
+}
+
+.marqueeItem {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text2);
+}
+
+.marqueeDot {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--text3);
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .cell:nth-child(odd) { border-right: 1px solid var(--line); }
+  .cell:nth-child(1),
+  .cell:nth-child(2) { border-bottom: 1px solid var(--line); }
+  .cell:nth-child(even) { border-right: none; }
+}
+
+@media (max-width: 480px) {
+  .num { font-size: 40px; }
+  .cell { padding: 32px 20px; }
+}

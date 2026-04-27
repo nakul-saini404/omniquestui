@@ -7,14 +7,14 @@ import HeroSection from "@/components/omniquest/HeroSection/HeroSection";
 
 import PsychometricSection     from "@/components/omniquest/PsychometricSection/PsychometricSection";
 import CareerAdvisorSection    from "@/components/omniquest/CareerAdvisorSection/CareerAdvisorSection";
-import ConsultingModelSection  from "@/components/omniquest/ConsultingModelSection/ConsultingModelSection";
 import PathwaysSection         from "@/components/omniquest/PathwaysSection/PathwaysSection";
-import WhyUsSection            from "@/components/omniquest/WhyUsSection/WhyUsSection";
 import ResultsSection          from "@/components/omniquest/ResultsSection/ResultsSection";
-import GlobalMapSection        from "@/components/omniquest/GlobalMapSection/GlobalMapSection";
-import BlogSection             from "@/components/omniquest/BlogSection/BlogSection";
-import CtaSection              from "@/components/omniquest/CtaSection/CtaSection";
-import Footer                  from "@/components/omniquest/Footer/Footer";
+import What from "@/components/omniquest/WhatSection/WhatSection";
+import SystemArchitectureSection from "@/components/omniquest/Systemarchitecturesection/Systemarchitecturesection";
+import SystemPhilosophySection from "@/components/omniquest/Systemphilosophysection/Systemphilosophysection";
+import FinalCtaSection from "@/components/omniquest/FinalCtaSection/FinalCtaSection";
+import DecisionCtaSection from "@/components/omniquest/DecisionCtaSection/DecisionCtaSection";
+import FooterSection from "@/components/omniquest/FooterSection/FooterSection";
 
 export default function Home() {
   // ── Intersection Observer: powers the `.reveal` animation on every section ──
@@ -44,34 +44,35 @@ export default function Home() {
         <HeroSection />
 
         {/* 2. Psychometric gate / form */}
-        <PsychometricSection />
+        {/* <PsychometricSection /> */}
 
         {/* 3. AI Career Advisor CTA */}
-        <CareerAdvisorSection />
+        {/* <CareerAdvisorSection /> */}
 
         {/* 4. Strategy Consulting Model */}
-        <ConsultingModelSection />
+        <What/>
+        <SystemArchitectureSection/>
 
         {/* 5. Three Pathways / Divisions */}
         <PathwaysSection />
 
         {/* 6. Why Us — numbered grid */}
-        <WhyUsSection />
+        <SystemPhilosophySection />
 
         {/* 7. Results & metrics */}
         <ResultsSection />
 
         {/* 8. Global Map */}
-        <GlobalMapSection />
+        <DecisionCtaSection />
 
         {/* 9. Blog / Strategic Insights */}
-        <BlogSection />
+        {/* <BlogSection /> */}
 
         {/* 10. Final CTA */}
-        <CtaSection />
+        <FinalCtaSection />
 
         {/* 11. Footer */}
-        <Footer />
+        <FooterSection />
       </main>
 
       <Chatbot />

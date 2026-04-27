@@ -1,0 +1,70 @@
+/* components/What/What.module.css */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+.section {
+  padding:    120px 5%;
+  background: #111110 !important;
+  position:   relative;
+}
+
+.layout {
+  display:               grid;
+  grid-template-columns: 1fr 1fr;
+  gap:                   80px;
+  align-items:           center;
+  max-width:             1200px;
+  margin:                0 auto;
+}
+
+/* ── Left ── */
+.left {}
+.right {
+  display:        flex;
+  flex-direction: column;
+  gap:            20px;
+}
+
+/* Principle box */
+.principleBox {
+  margin-top:    32px;
+  padding:       24px 28px;
+  border:        1px solid rgba(201, 168, 76, 0.12) !important;
+  border-left:   3px solid #C9A84C !important;
+  border-radius: 0 4px 4px 0;
+  background:    rgba(201, 168, 76, 0.04) !important;
+}
+
+/* Cards */
+.card {
+  padding:       28px 32px;
+  border:        1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 4px;
+  background:    #1E1E1C !important;
+  position:      relative;
+  overflow:      hidden;
+  transition:    border-color 0.25s;
+}
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.14) !important;
+}
+
+.accent {
+  position: absolute;
+  top:      0;
+  left:     0;
+  width:    4px;
+  height:   100%;
+}
+
+.cardInner {
+  padding-left: 16px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .layout { grid-template-columns: 1fr; gap: 48px; }
+}
+@media (max-width: 640px) {
+  .section { padding: 80px 5%; }
+  .card    { padding: 22px 24px; }
+}
