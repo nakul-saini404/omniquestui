@@ -2,7 +2,7 @@
 // components/SystemArchitectureSection/SystemArchitectureSection.tsx
 // ─────────────────────────────────────────────────────────────────────────────
 
-import styles from "./SystemArchitectureSection.module.css";
+import styles from "./Systemarchitecturesection.module.css";
 
 // ── Types ────────────────────────────────────────────────────────────────────
 

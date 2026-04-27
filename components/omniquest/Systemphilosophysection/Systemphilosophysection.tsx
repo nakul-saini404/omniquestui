@@ -2,7 +2,7 @@
 // components/SystemPhilosophySection/SystemPhilosophySection.tsx
 // ─────────────────────────────────────────────────────────────────────────────
 
-import styles from "./SystemPhilosophySection.module.css";
+import styles from "./Systemphilosophysection.module.css";
 import {
   PHILOSOPHY_STEPS,
   BEFORE_AFTER,
