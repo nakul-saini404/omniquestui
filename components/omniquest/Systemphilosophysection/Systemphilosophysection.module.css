@@ -1,0 +1,227 @@
+/* components/SystemPhilosophySection/SystemPhilosophySection.module.css */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── Design tokens (mirrors global CSS vars) ─────────────────────────────── */
+
+
+/* ── Section shell ───────────────────────────────────────────────────────── */
+.section {
+  padding: 120px 5%;
+  background: var(--ph-bg);
+}
+
+/* ── Two-column layout (1 : 1.2) ─────────────────────────────────────────── */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Left column ─────────────────────────────────────────────────────────── */
+
+.sectionLabel {
+  font-family: var(--ph-font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ph-gold);
+  margin-bottom: 24px;
+}
+
+.sectionLabel::before {
+  content: "—— ";
+  color: var(--ph-gold);
+  opacity: 0.6;
+}
+
+.h2 {
+  font-family: var(--ph-font-display);
+  font-size: clamp(40px, 4vw, 64px);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  color: var(--ph-text);
+  margin-bottom: 24px;
+}
+
+.h2Em {
+  font-style: italic;
+  color: var(--ph-gold);
+}
+
+.body {
+  font-size: 16px;
+  color: var(--ph-text2);
+  line-height: 1.85;
+  margin-bottom: 40px;
+}
+
+/* ── Steps list ──────────────────────────────────────────────────────────── */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.step {
+  display: flex;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--ph-line);
+}
+
+/* first step has no top padding so it sits flush under the body copy */
+.stepFirst {
+  padding-top: 0;
+}
+
+.stepMarker {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--ph-gold-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ph-font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ph-gold);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.stepTitle {
+  font-family: var(--ph-font-ui);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ph-text);
+  margin-bottom: 6px;
+}
+
+.stepDesc {
+  font-size: 14px;
+  color: var(--ph-text2);
+  line-height: 1.7;
+}
+
+/* ── Right column ────────────────────────────────────────────────────────── */
+.right {
+  position: sticky;
+  top: 100px;
+}
+
+/* ── Before / After card ─────────────────────────────────────────────────── */
+.beforeAfter {
+  border: 1px solid var(--ph-line);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--ph-bg2);
+}
+
+.baGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.baCol {
+  padding: 24px 28px;
+}
+
+.baColBefore {
+  border-right: 1px solid var(--ph-line);
+}
+
+.baLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.baLabelBefore { color: var(--ph-text3); }
+.baLabelAfter  { color: var(--ph-gold); }
+
+.baItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--ph-line);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.baItem:last-child {
+  border-bottom: none;
+}
+
+.baItemBefore { color: var(--ph-text3); }
+.baItemAfter  { color: var(--ph-text2); }
+
+.baDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.baDotBefore { background: var(--ph-text3); }
+.baDotAfter  { background: var(--ph-gold); }
+
+/* ── Pull-quote ──────────────────────────────────────────────────────────── */
+.quoteBox {
+  margin-top: 28px;
+  padding: 28px 32px;
+  background: var(--ph-bg2);
+  border: 1px solid var(--ph-line);
+  border-radius: 4px;
+}
+
+.quote {
+  font-family: var(--ph-font-display);
+  font-size: 19px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ph-text);
+  line-height: 1.65;
+}
+
+.quoteStrong {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--ph-gold);
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .right {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 80px 5%;
+  }
+
+  .baGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .baColBefore {
+    border-right: none;
+    border-bottom: 1px solid var(--ph-line);
+  }
+}

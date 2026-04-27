@@ -699,3 +699,14 @@ footer {
   .hero-h1       { font-size: clamp(40px,10vw,64px); }
   .footer-grid   { grid-template-columns: 1fr; }
 }
+
+
+:global(.animate-fade-up) {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.7s ease forwards;
+}
+:global(.delay-1) { animation-delay: 0.1s; }
+:global(.delay-2) { animation-delay: 0.2s; }
+:global(.delay-3) { animation-delay: 0.3s; }
+:global(.delay-4) { animation-delay: 0.45s; }

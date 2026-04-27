@@ -1,0 +1,209 @@
+/* components/SystemArchitectureSection/SystemArchitectureSection.module.css */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── Design tokens (mirrors global CSS vars) ─────────────────────────────── */
+
+
+/* ── Section shell ───────────────────────────────────────────────────────── */
+.section {
+  padding: 120px 5%;
+  background: var(--sa-bg);
+}
+
+/* ── Header block ────────────────────────────────────────────────────────── */
+.titleWrap {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 72px;
+}
+
+.sectionLabel {
+  font-family: var(--sa-font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sa-gold);
+  margin-bottom: 24px;
+}
+
+.sectionLabel::before {
+  content: "—— ";
+  color: var(--sa-gold);
+  opacity: 0.6;
+}
+
+.h2 {
+  font-family: var(--sa-font-display);
+  font-size: clamp(40px, 4vw, 64px);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  color: var(--sa-text);
+  margin-bottom: 20px;
+}
+
+.h2Em {
+  font-style: italic;
+  color: var(--sa-gold);
+}
+
+.subtitle {
+  font-size: 16px;
+  color: var(--sa-text2);
+  line-height: 1.8;
+}
+
+/* ── Panel grid ──────────────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  max-width: 1200px;
+  margin: 0 auto;
+  border: 1px solid var(--sa-line);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* ── Individual panel ────────────────────────────────────────────────────── */
+.panel {
+  padding: 52px 40px;
+  background: var(--sa-bg2);
+  position: relative;
+  border-right: 1px solid var(--sa-line);
+  display: flex;
+  flex-direction: column;
+}
+
+.panel:last-child {
+  border-right: none;
+}
+
+/* ── Colour bar ──────────────────────────────────────────────────────────── */
+.bar {
+  height: 3px;
+  width: 48px;
+  border-radius: 2px;
+  margin-bottom: 36px;
+  flex-shrink: 0;
+}
+
+.bar.blue   { background: var(--sa-blue); }
+.bar.purple { background: var(--sa-purple); }
+.bar.green  { background: var(--sa-green); }
+
+/* ── Pathway label ───────────────────────────────────────────────────────── */
+.pathwayNum {
+  font-family: var(--sa-font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.pathwayNum.blue   { color: var(--sa-blue); }
+.pathwayNum.purple { color: var(--sa-purple); }
+.pathwayNum.green  { color: var(--sa-green); }
+
+/* ── Panel name ──────────────────────────────────────────────────────────── */
+.panelTitle {
+  font-family: var(--sa-font-ui);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--sa-text);
+  margin-bottom: 8px;
+}
+
+/* ── Audience label ──────────────────────────────────────────────────────── */
+.audience {
+  font-size: 12px;
+  color: var(--sa-text3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* ── Description ─────────────────────────────────────────────────────────── */
+.desc {
+  font-size: 15px;
+  color: var(--sa-text2);
+  line-height: 1.7;
+  margin-bottom: 32px;
+  flex-grow: 1;
+}
+
+/* ── Bullet list ─────────────────────────────────────────────────────────── */
+.bulletList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bulletItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--sa-text2);
+  line-height: 1.5;
+}
+
+.bulletItem::before {
+  content: "✦";
+  font-size: 8px;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+/* bullet marker colours via parent variant */
+.li_blue   .bulletItem::before { color: var(--sa-blue); }
+.li_purple .bulletItem::before { color: var(--sa-purple); }
+.li_green  .bulletItem::before { color: var(--sa-green); }
+
+/* ── Tagline ──────────────────────────────────────────────────────────────── */
+.tagline {
+  font-family: var(--sa-font-display);
+  font-size: 16px;
+  font-style: italic;
+  color: var(--sa-text3);
+  border-top: 1px solid var(--sa-line);
+  padding-top: 20px;
+  line-height: 1.6;
+  margin-top: auto;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    border-right: none;
+    border-bottom: 1px solid var(--sa-line);
+  }
+
+  .panel:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 80px 5%;
+  }
+
+  .titleWrap {
+    margin-bottom: 48px;
+  }
+
+  .panel {
+    padding: 36px 24px;
+  }
+}
