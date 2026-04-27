@@ -31,7 +31,7 @@ export default function HeroSection() {
         {/* H1 */}
         <h1 className={`animate-fade-up delay-1 ${styles.h1}`}>
           One System.<br />
-          <em>Every Stage.</em><br />
+          <em>Different Stage.</em><br />
           Global Outcomes.
         </h1>
 

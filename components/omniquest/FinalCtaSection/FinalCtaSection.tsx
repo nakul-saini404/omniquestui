@@ -44,17 +44,7 @@ export default function FinalCtaSection() {
           designed for high-performance outcomes.
         </p>
 
-        <div className={styles.buttons}>
-          <Link
-            href="https://eduquest.org.in/contact-us/"
-            className={styles.btnPrimary}
-          >
-            Enter the System
-          </Link>
-          <Link href="#pathways" className={styles.btnSecondary}>
-            Explore Pathways →
-          </Link>
-        </div>
+      
       </div>
     </section>
   );

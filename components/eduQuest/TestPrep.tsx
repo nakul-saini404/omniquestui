@@ -2,36 +2,59 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-const calculators = [
-  { title: 'PSAT Score Calculator', href: 'https://test.eduquest.org.in/psat-score-calculator/' },
+const exams = [
+  {
+    icon: 'SAT',
+    name: 'Digital SAT Coaching',
+    desc: 'Highest SAT scores: 1590–1600. AI-powered diagnostics + score gap analysis.',
+    href: 'https://eduquest.org.in/sat/',
+  },
+  {
+    icon: 'ACT',
+    name: 'ACT Coaching',
+    desc: 'Perfect 36 achieved. Online live, hybrid, and classroom modes available.',
+    href: 'https://eduquest.org.in/act/',
+  },
+  {
+    icon: 'AP',
+    name: 'AP Coaching',
+    desc: 'Multiple 5/5 scores across AP CS, Calculus, Micro & Macroeconomics.',
+    href: 'https://eduquest.org.in/ap-coaching/',
+  },
+  {
+    icon: 'TMUA',
+    name: 'TMUA / UCAT / LSAT',
+    desc: 'Specialist coaching for UK and law school admissions routes.',
+    href: 'https://eduquest.org.in/tmua/',
+  },
+  {
+    icon: 'IELT',
+    name: 'IELTS / TOEFL / PTE',
+    desc: 'Language proficiency coaching aligned with your application strategy.',
+    href: 'https://eduquest.org.in/ielts/',
+  },
+];
+
+const calcs = [
   { title: 'SAT Score Calculator',  href: 'https://test.eduquest.org.in/sat-score-calculator/' },
   { title: 'ACT Score Calculator',  href: 'https://test.eduquest.org.in/act-score-calculator/' },
   { title: 'AP Score Calculator',   href: 'https://test.eduquest.org.in/ap-score-calculator/' },
   { title: 'TMUA Score Calculator', href: 'https://test.eduquest.org.in/tmua-score-calculator/' },
-  { title: 'UCAT Score Calculator', href: 'https://test.eduquest.org.in/ucat-score-calculator/' },
-  { title: 'ESAT Score Calculator', href: 'https://test.eduquest.org.in/esat-score-calculator/' },
-  { title: 'LSAT Score Calculator', href: 'https://test.eduquest.org.in/lsat-score-calculator/' },
-  { title: 'LNAT Score Calculator', href: 'https://test.eduquest.org.in/lnat-score-calculator/' },
-  { title: 'GMAT Score Calculator', href: 'https://test.eduquest.org.in/gmat-score-calculator/' },
-  { title: 'GRE Score Calculator',  href: 'https://test.eduquest.org.in/gre-score-calculator/' },
-  { title: 'CAT Score Calculator',  href: 'https://test.eduquest.org.in/cat-score-calculator/' },
-  { title: 'MCAT Score Calculator', href: 'https://test.eduquest.org.in/mcat-score-calculator/' },
-  { title: 'SSAT Score Calculator', href: 'https://test.eduquest.org.in/ssat-score-calculator/' },
+  { title: 'IELTS Score Estimator', href: 'https://test.eduquest.org.in/' },
 ];
 
 export default function TestPrep() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [examIndex, setExamIndex] = useState(0);
   const [isChanging, setIsChanging] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
-    // Change calculator name every 3.5s, fade out 400ms before the swap
     intervalRef.current = setInterval(() => {
       setIsChanging(true);
       setTimeout(() => {
-        setCurrentIndex((prev) => (prev + 1) % calculators.length);
+        setExamIndex((prev) => (prev + 1) % exams.length);
         setIsChanging(false);
-      }, 400);
+      }, 350);
     }, 3500);
 
     return () => {
@@ -39,14 +62,15 @@ export default function TestPrep() {
     };
   }, []);
 
-  const currentCalc = calculators[currentIndex];
+  const currentExam = exams[examIndex];
+  const currentCalc = calcs[examIndex % calcs.length];
 
   return (
     <>
       <style
         dangerouslySetInnerHTML={{
           __html: `
-            @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
             :root {
               --ink: #0A0A14;
@@ -59,311 +83,289 @@ export default function TestPrep() {
               --border: rgba(10,10,20,0.1);
               --serif: 'DM Serif Display', Georgia, serif;
               --sans: 'DM Sans', system-ui, sans-serif;
-              --mono: 'DM Mono', monospace;
             }
 
             /* ===== TEST PREP SECTION ===== */
-            .eq-testprep {
+            .tp {
               background: var(--cream);
-              padding: 100px 80px;
+              padding: 64px 48px;
               font-family: var(--sans);
+              border-radius: 16px;
             }
 
-            .eq-testprep .eq-section-label {
-              font-size: 0.75rem;
+            .tp-top {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 48px;
+              align-items: center;
+              margin-bottom: 48px;
+            }
+
+            .tp-label {
+              font-size: 0.7rem;
               font-weight: 700;
               letter-spacing: 0.12em;
               text-transform: uppercase;
               color: var(--gold);
-              margin-bottom: 12px;
+              margin-bottom: 10px;
             }
 
-            .eq-testprep .eq-section-title {
+            .tp-title {
               font-family: var(--serif);
-              font-size: clamp(1.8rem, 3vw, 2.6rem);
-              line-height: 1.2;
+              font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+              line-height: 1.22;
               color: var(--ink);
-              margin-bottom: 20px;
             }
 
-            .eq-testprep .eq-section-sub {
-              font-size: 1rem;
-              color: var(--slate-light);
-              max-width: 560px;
-              line-height: 1.7;
+            .tp-title em {
+              font-style: italic;
+              color: var(--gold);
             }
 
-            /* ── Grid ── */
-            .eq-testprep-grid {
-              display: grid;
-              grid-template-columns: 1fr 1fr;
-              gap: 60px;
-              margin-top: 60px;
-              align-items: start;
-            }
-
-            /* ── Left: exam items ── */
-            .eq-testprep-items {
-              display: flex;
-              flex-direction: column;
-              gap: 16px;
-            }
-
-            .eq-testprep-item {
-              display: flex;
-              align-items: center;
-              gap: 16px;
+            /* ── Animated Exam Card ── */
+            .exam-card {
               background: #fff;
               border: 1px solid var(--border);
-              border-radius: 12px;
-              padding: 18px 24px;
-              transition: all 0.2s;
-              text-decoration: none;
-              color: inherit;
+              border-radius: 16px;
+              padding: 28px 24px;
+              position: relative;
+              overflow: hidden;
+              min-height: 148px;
+              display: flex;
+              align-items: center;
+              gap: 20px;
+              box-shadow: 0 2px 16px rgba(0,0,0,0.05);
             }
 
-            .eq-testprep-item:hover {
-              border-color: var(--gold);
-              transform: translateX(4px);
+            .exam-card::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              height: 3px;
+              background: linear-gradient(90deg, var(--gold), var(--gold-light));
+              border-radius: 16px 16px 0 0;
             }
 
-            .eq-testprep-item-icon {
-              width: 40px;
-              height: 40px;
+            .exam-icon {
+              width: 60px;
+              height: 60px;
               background: var(--slate);
-              border-radius: 8px;
+              border-radius: 12px;
               display: flex;
               align-items: center;
               justify-content: center;
               color: var(--gold);
               font-weight: 800;
-              font-size: 0.8rem;
+              font-size: 0.85rem;
               flex-shrink: 0;
               font-family: var(--sans);
+              letter-spacing: 0.02em;
+              transition: all 0.35s ease;
             }
 
-            .eq-testprep-item-icon.small {
-              font-size: 0.65rem;
-            }
+            .exam-content { flex: 1; }
 
-            .eq-testprep-item-name {
-              font-weight: 600;
-              font-size: 0.95rem;
+            .exam-name {
+              font-weight: 700;
+              font-size: 1.05rem;
               color: var(--ink);
-              margin-bottom: 2px;
+              margin-bottom: 6px;
+              transition: all 0.35s ease;
             }
 
-            .eq-testprep-item-desc {
-              font-size: 0.78rem;
+            .exam-desc {
+              font-size: 0.82rem;
               color: var(--slate-light);
+              line-height: 1.6;
+              transition: all 0.35s ease;
             }
 
-            /* ── Right: tool cards ── */
-            .eq-testprep-tools {
+            .exam-dots {
+              position: absolute;
+              bottom: 14px;
+              right: 18px;
               display: flex;
-              flex-direction: column;
-              gap: 16px;
+              gap: 5px;
             }
 
-            .eq-tool-card {
+            .exam-dot {
+              width: 6px;
+              height: 6px;
+              border-radius: 50%;
+              background: var(--border);
+              transition: background 0.3s;
+            }
+
+            .exam-dot.active { background: var(--gold); }
+
+            /* Fade out / fade in states */
+            .exam-card.fading .exam-icon,
+            .exam-card.fading .exam-name,
+            .exam-card.fading .exam-desc {
+              opacity: 0;
+              transform: translateY(-6px);
+            }
+
+            .exam-card.entering .exam-icon,
+            .exam-card.entering .exam-name,
+            .exam-card.entering .exam-desc {
+              opacity: 0;
+              transform: translateY(8px);
+            }
+
+            /* ── Tool Cards Row ── */
+            .tp-tools {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 18px;
+            }
+
+            .tool-card {
               background: #fff;
               border: 1px solid var(--border);
-              border-radius: 16px;
-              padding: 28px;
+              border-radius: 14px;
+              padding: 24px;
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
             }
 
-            .eq-tool-title {
+            .tool-icon { font-size: 1.5rem; line-height: 1; }
+
+            .tool-title {
               font-weight: 700;
-              font-size: 1rem;
-              margin-bottom: 8px;
+              font-size: 0.92rem;
               color: var(--ink);
             }
 
-            .eq-tool-desc {
-              font-size: 0.85rem;
+            .tool-desc {
+              font-size: 0.78rem;
               color: var(--slate-light);
-              margin-bottom: 16px;
               line-height: 1.6;
+              flex: 1;
             }
 
-            /* ── Button (shared by all three tool cards) ── */
-            .eq-tool-btn {
+            .tool-btn {
               display: inline-flex;
               align-items: center;
-              gap: 6px;
+              gap: 5px;
               background: var(--slate);
               color: #fff;
-              padding: 10px 20px;
+              padding: 9px 16px;
               border-radius: 8px;
-              font-size: 0.85rem;
+              font-size: 0.78rem;
               font-weight: 600;
               text-decoration: none;
               transition: background 0.2s;
               font-family: var(--sans);
+              border: none;
+              cursor: pointer;
+              width: fit-content;
             }
 
-            .eq-tool-btn:hover { background: var(--ink); }
+            .tool-btn:hover { background: var(--ink); }
 
-            /* ── Animated text span inside the calculator button ── */
-            .eq-calc-btn-text {
-              font-family: 'DM Serif Display', Georgia, serif;
-              font-weight: 700;
+            /* ── Animated calc name ── */
+            .calc-name {
+              font-family: 'DM Serif Display', serif;
               display: inline-block;
+              transition: opacity 0.35s, transform 0.35s;
             }
 
-            /* Slow gentle blink while visible */
-            .eq-calc-btn-text.blinking {
-              animation: eq-calc-blink 3s ease-in-out infinite;
-            }
-
-            /* Fade + slide up before swap */
-            .eq-calc-btn-text.fading-out {
-              animation: eq-calc-fade-out 0.4s ease-out forwards;
-            }
-
-            /* Slide up + fade in after swap */
-            .eq-calc-btn-text.fading-in {
-              animation: eq-calc-fade-in 0.4s ease-out forwards;
-            }
-
-            @keyframes eq-calc-blink {
-              0%, 80%, 100% { opacity: 1; }
-              90%            { opacity: 0.2; }
-            }
-
-            @keyframes eq-calc-fade-out {
-              from { opacity: 1; transform: translateY(0);    }
-              to   { opacity: 0; transform: translateY(-6px); }
-            }
-
-            @keyframes eq-calc-fade-in {
-              from { opacity: 0; transform: translateY(8px); }
-              to   { opacity: 1; transform: translateY(0);   }
+            .calc-name.fade {
+              opacity: 0;
+              transform: translateY(-4px);
             }
 
             /* ── Responsive ── */
-            @media (max-width: 1024px) {
-              .eq-testprep       { padding: 80px 40px; }
-              .eq-testprep-grid  { gap: 40px; }
+            @media (max-width: 900px) {
+              .tp { padding: 48px 28px; }
+              .tp-top { grid-template-columns: 1fr; gap: 28px; }
+              .tp-tools { grid-template-columns: 1fr; }
             }
 
-            @media (max-width: 768px) {
-              .eq-testprep { padding: 60px 20px; }
-              .eq-testprep-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-              }
+            @media (max-width: 600px) {
+              .tp { padding: 36px 16px; }
+              .tp-tools { grid-template-columns: 1fr; }
             }
           `,
         }}
       />
 
-      <section className="eq-testprep" id="test-prep">
-
-        {/* ── Section header ── */}
-        <div className="eq-section-label">Precision Test Preparation System</div>
-        <h2 className="eq-section-title">SAT ACT AP Coaching with Strategy Approach</h2>
-        <p className="eq-section-sub">
-          We don't just prepare you for tests. We use tests as a strategic lever in your overall admissions architecture.
-        </p>
-
-        {/* ── Two-column grid ── */}
-        <div className="eq-testprep-grid">
-
-          {/* ── Left: exam list ── */}
-          <div className="eq-testprep-items">
-
-            <a href="https://eduquest.org.in/sat/" className="eq-testprep-item">
-              <div className="eq-testprep-item-icon">SAT</div>
-              <div>
-                <div className="eq-testprep-item-name">Digital SAT Coaching</div>
-                <div className="eq-testprep-item-desc">Highest SAT scores: 1590–1600. AI-powered diagnostics + score gap analysis.</div>
-              </div>
-            </a>
-
-            <a href="https://eduquest.org.in/act/" className="eq-testprep-item">
-              <div className="eq-testprep-item-icon">ACT</div>
-              <div>
-                <div className="eq-testprep-item-name">ACT Coaching</div>
-                <div className="eq-testprep-item-desc">Perfect 36 achieved. Online live, hybrid, and classroom modes.</div>
-              </div>
-            </a>
-
-            <a href="https://eduquest.org.in/ap-coaching/" className="eq-testprep-item">
-              <div className="eq-testprep-item-icon">AP</div>
-              <div>
-                <div className="eq-testprep-item-name">AP Coaching</div>
-                <div className="eq-testprep-item-desc">Multiple 5/5 scores across AP CS, Calculus, Micro &amp; Macroeconomics.</div>
-              </div>
-            </a>
-
-            <a href="https://eduquest.org.in/tmua/" className="eq-testprep-item">
-              <div className="eq-testprep-item-icon small">TMUA</div>
-              <div>
-                <div className="eq-testprep-item-name">TMUA / UCAT / LSAT</div>
-                <div className="eq-testprep-item-desc">Specialist coaching for UK and law school admissions routes.</div>
-              </div>
-            </a>
-
-            <a href="https://eduquest.org.in/ielts/" className="eq-testprep-item">
-              <div className="eq-testprep-item-icon small">IELT</div>
-              <div>
-                <div className="eq-testprep-item-name">IELTS / TOEFL / PTE</div>
-                <div className="eq-testprep-item-desc">Language proficiency aligned with your application strategy.</div>
-              </div>
-            </a>
-
+      <div className="tp">
+        {/* ── Top: heading + animated exam card ── */}
+        <div className="tp-top">
+          <div>
+            <div className="tp-label">Precision Test Preparation System</div>
+            <h2 className="tp-title">
+              We don't just prepare you for tests.<br />
+              We use tests as a <em>strategic lever</em> in your overall admissions architecture.
+            </h2>
           </div>
 
-          {/* ── Right: tool cards ── */}
-          <div className="eq-testprep-tools">
-
-            {/* Diagnostic */}
-            <div className="eq-tool-card">
-              <div className="eq-tool-title">🧠 Free AI Diagnostic Test</div>
-              <div className="eq-tool-desc">
-                Know exactly where you stand before you start. Our AI-based diagnostic gives you a score gap
-                analysis, strengths map, and a strategy-based learning path in minutes.
-              </div>
-              <a href="https://test.eduquest.org.in/" target="_blank" rel="noreferrer" className="eq-tool-btn">
-                Take Free Diagnostic Test →
-              </a>
+          <div className={`exam-card ${isChanging ? 'fading' : ''}`}>
+            <div className="exam-icon">{currentExam.icon}</div>
+            <div className="exam-content">
+              <div className="exam-name">{currentExam.name}</div>
+              <div className="exam-desc">{currentExam.desc}</div>
             </div>
-
-            {/* Interactive Score Calculators — animated button */}
-            <div className="eq-tool-card">
-              <div className="eq-tool-title">📊 Interactive Score Calculators</div>
-              <div className="eq-tool-desc">
-                Instantly estimate, convert, and benchmark your scores for SAT, ACT, AP, TMUA, UCAT, LSAT,
-                GRE, GMAT and more.
-              </div>
-              <a
-                href={currentCalc.href}
-                target="_blank"
-                rel="noreferrer"
-                className="eq-tool-btn"
-              >
-                <span className={`eq-calc-btn-text ${isChanging ? 'fading-out' : 'blinking'}`}>
-                  {currentCalc.title}
-                </span>
-                {' →'}
-              </a>
+            <div className="exam-dots">
+              {exams.map((_, i) => (
+                <div key={i} className={`exam-dot${i === examIndex ? ' active' : ''}`} />
+              ))}
             </div>
-
-            {/* Practice Platform */}
-            <div className="eq-tool-card">
-              <div className="eq-tool-title">📚 Practice Test Platform</div>
-              <div className="eq-tool-desc">
-                Access full-length mocks designed to mirror the real exam. Used by 10,000+ students globally.
-              </div>
-              <a href="http://eduquest-2026.web.app/" target="_blank" rel="noreferrer" className="eq-tool-btn">
-                Go to Practice Kiln →
-              </a>
-            </div>
-
           </div>
         </div>
-      </section>
+
+        {/* ── Tool Cards Row ── */}
+        <div className="tp-tools">
+
+          {/* Free AI Diagnostic */}
+          <div className="tool-card">
+            <div className="tool-icon">🧠</div>
+            <div className="tool-title">Free AI Diagnostic Test</div>
+            <div className="tool-desc">
+              Know exactly where you stand. Our AI diagnostic gives you a score gap analysis,
+              strengths map, and strategy-based learning path in minutes.
+            </div>
+            <a href="https://test.eduquest.org.in/" target="_blank" rel="noreferrer" className="tool-btn">
+              Take Free Diagnostic →
+            </a>
+          </div>
+
+          {/* Interactive Score Calculators — animated button */}
+          <div className="tool-card">
+            <div className="tool-icon">📊</div>
+            <div className="tool-title">Interactive Score Calculators</div>
+            <div className="tool-desc">
+              Estimate, convert, and benchmark your scores for SAT, ACT, AP, TMUA, UCAT,
+              LSAT, GRE, GMAT and more.
+            </div>
+            <a href={currentCalc.href} target="_blank" rel="noreferrer" className="tool-btn">
+              <span className={`calc-name${isChanging ? ' fade' : ''}`}>
+                {currentCalc.title}
+              </span>
+              {' →'}
+            </a>
+          </div>
+
+          {/* Practice Test Platform */}
+          <div className="tool-card">
+            <div className="tool-icon">📚</div>
+            <div className="tool-title">Practice Test Platform</div>
+            <div className="tool-desc">
+              Full-length mocks designed to mirror the real exam. Used by 10,000+ students
+              globally to track progress.
+            </div>
+            <a href="http://eduquest-2026.web.app/" target="_blank" rel="noreferrer" className="tool-btn">
+              Go to Practice Kiln →
+            </a>
+          </div>
+
+        </div>
+      </div>
     </>
   );
 }

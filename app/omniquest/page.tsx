@@ -1,81 +1,50 @@
-"use client";
-import { useEffect }           from "react";
+import type { Metadata } from "next";
+import OmniquestClient from "./OmniquestClient";
 
-import Navbar                  from "@/components/Navbar";
-import Chatbot                 from "@/components/chatbot/Chatbot";
-import HeroSection from "@/components/omniquest/HeroSection/HeroSection";
-
-import PsychometricSection     from "@/components/omniquest/PsychometricSection/PsychometricSection";
-import CareerAdvisorSection    from "@/components/omniquest/CareerAdvisorSection/CareerAdvisorSection";
-import PathwaysSection         from "@/components/omniquest/PathwaysSection/PathwaysSection";
-import ResultsSection          from "@/components/omniquest/ResultsSection/ResultsSection";
-import What from "@/components/omniquest/WhatSection/WhatSection";
-import SystemArchitectureSection from "@/components/omniquest/Systemarchitecturesection/Systemarchitecturesection";
-import SystemPhilosophySection from "@/components/omniquest/Systemphilosophysection/Systemphilosophysection";
-import FinalCtaSection from "@/components/omniquest/FinalCtaSection/FinalCtaSection";
-import DecisionCtaSection from "@/components/omniquest/DecisionCtaSection/DecisionCtaSection";
-import FooterSection from "@/components/omniquest/FooterSection/FooterSection";
-
-export default function Home() {
-  // ── Intersection Observer: powers the `.reveal` animation on every section ──
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("visible");
-            obs.unobserve(e.target);
-          }
-        });
+export const metadata: Metadata = {
+  title: "OmniQuest — India's #1 Global Admissions Strategy Firm | Ivy League & MBA",
+  description:
+    "OmniQuest is India's premier education intelligence ecosystem — powering Ivy League admissions (EduQuest), MBA strategy (MBA Wizards), and career readiness (Aptech). 10,000+ students. 40+ countries. Book a free strategy session.",
+  keywords: [
+    "global admissions strategy India",
+    "Ivy League admissions consultant India",
+    "MBA admissions India",
+    "study abroad consultant Gurgaon",
+    "OmniQuest EduQuest MBA Wizards",
+  ],
+  alternates: {
+    canonical: "https://omniquestui.vercel.app/omniquest",
+  },
+  openGraph: {
+    title: "OmniQuest — India's #1 Global Admissions Strategy Firm",
+    description:
+      "One unified intelligence system. Three pathways. Global outcomes. EduQuest · MBA Wizards · Aptech.",
+    url: "https://omniquestui.vercel.app/omniquest",
+    siteName: "OmniQuest",
+    locale: "en_IN",
+    type: "website",
+    images: [
+      {
+        url: "https://eduquest.org.in/wp-content/uploads/2020/11/logo40.png",
+        width: 1200,
+        height: 630,
+        alt: "OmniQuest — India's Global Admissions Strategy Firm",
       },
-      { threshold: 0.1 }
-    );
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "OmniQuest — India's #1 Global Admissions Strategy Firm",
+    description:
+      "EduQuest · MBA Wizards · Aptech — one system, three pathways, global outcomes.",
+    images: ["https://eduquest.org.in/wp-content/uploads/2020/11/logo40.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
-    document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
-  }, []);
-
-  return (
-    <>
-      <Navbar />
-
-      <main>
-        {/* 1. Hero */}
-        <HeroSection />
-
-        {/* 2. Psychometric gate / form */}
-        {/* <PsychometricSection /> */}
-
-        {/* 3. AI Career Advisor CTA */}
-        {/* <CareerAdvisorSection /> */}
-
-        {/* 4. Strategy Consulting Model */}
-        <What/>
-        <SystemArchitectureSection/>
-
-        {/* 5. Three Pathways / Divisions */}
-        <PathwaysSection />
-
-        {/* 6. Why Us — numbered grid */}
-        <SystemPhilosophySection />
-
-        {/* 7. Results & metrics */}
-        <ResultsSection />
-
-        {/* 8. Global Map */}
-        <DecisionCtaSection />
-
-        {/* 9. Blog / Strategic Insights */}
-        {/* <BlogSection /> */}
-
-        {/* 10. Final CTA */}
-        <FinalCtaSection />
-
-        {/* 11. Footer */}
-        <FooterSection />
-      </main>
-
-      <Chatbot />
-    </>
-  );
+export default function Page() {
+  return <OmniquestClient />;
 }

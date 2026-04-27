@@ -1,5 +1,7 @@
 'use client';
 
+import { useState } from 'react';
+
 const beforeItems = [
   'Random, disconnected activities',
   'No coherent narrative',
@@ -56,6 +58,9 @@ const pill = (color: string, bg: string) => ({
 });
 
 export default function WhatChanges() {
+  const [showCards, setShowCards] = useState(false);
+  const [showMore, setShowMore] = useState(false);
+
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: `
@@ -80,10 +85,65 @@ export default function WhatChanges() {
         .eq-gb   { display:inline-block; background:rgba(46,58,82,0.08); color:${T.slate};
           font-weight:700; font-size:0.7rem; padding:2px 7px; border-radius:4px; white-space:nowrap; }
 
+        /* Toggle animation for before/after cards */
+        .eq-cards-wrap {
+          display: grid;
+          grid-template-rows: 0fr;
+          opacity: 0;
+          transition: grid-template-rows 0.45s ease, opacity 0.45s ease;
+        }
+        .eq-cards-wrap.open {
+          grid-template-rows: 1fr;
+          opacity: 1;
+        }
+        .eq-cards-inner { overflow: hidden; }
+
+        /* Toggle animation for profile building section */
+        .eq-profile-wrap {
+          display: grid;
+          grid-template-rows: 0fr;
+          opacity: 0;
+          transition: grid-template-rows 0.45s ease, opacity 0.45s ease;
+        }
+        .eq-profile-wrap.open {
+          grid-template-rows: 1fr;
+          opacity: 1;
+        }
+        .eq-profile-inner { overflow: hidden; }
+
+        /* Check Changes button */
+        .eq-check-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 7px;
+          background: ${T.slate};
+          color: ${T.white};
+          border: none;
+          padding: 10px 20px;
+          border-radius: 8px;
+          font-size: 0.83rem;
+          font-weight: 600;
+          font-family: ${T.sans};
+          cursor: pointer;
+          transition: background 0.2s, transform 0.15s;
+          white-space: nowrap;
+          flex-shrink: 0;
+        }
+        .eq-check-btn:hover { background: ${T.ink}; transform: translateY(-1px); }
+        .eq-check-btn.active { background: ${T.gold}; }
+        .eq-check-btn .eq-btn-arrow {
+          display: inline-block;
+          transition: transform 0.3s ease;
+        }
+        .eq-check-btn.active .eq-btn-arrow {
+          transform: rotate(180deg);
+        }
+
         @media (max-width:900px) {
-          .eq-tg { grid-template-columns:1fr !important; }
+          .eq-tg  { grid-template-columns:1fr !important; }
           .eq-arr { display:none !important; }
           .eq-mg  { grid-template-columns:1fr !important; }
+          .eq-heading-row { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
         }
         @media (max-width:640px) {
           .eq-s1 { padding:50px 16px !important; }
@@ -99,38 +159,58 @@ export default function WhatChanges() {
       }}>
         <div style={{ marginBottom: '36px' }}>
           <div style={pill(T.gold, 'rgba(201,151,58,0.08)')}>Busy vs Selected Students</div>
-          <h2 style={{ fontFamily: T.serif, fontSize: 'clamp(1.8rem,3.5vw,2.6rem)', fontWeight: 400, color: T.ink, lineHeight: 1.2, margin: '0 0 12px' }}>
-            What Changes When You Work With Us
-          </h2>
+
+          {/* Heading row with button */}
+          <div
+            className="eq-heading-row"
+            style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '20px', flexWrap: 'wrap' }}
+          >
+            <h2 style={{ fontFamily: T.serif, fontSize: 'clamp(1.8rem,3.5vw,2.6rem)', fontWeight: 400, color: T.ink, lineHeight: 1.2, margin: '0 0 12px' }}>
+              What Changes When You Work With Us
+            </h2>
+            <button
+              className={`eq-check-btn${showCards ? ' active' : ''}`}
+              onClick={() => setShowCards(prev => !prev)}
+            >
+              {showCards ? 'Hide Changes' : 'Check Changes'}
+              <span className="eq-btn-arrow">▼</span>
+            </button>
+          </div>
+
           <p style={{ fontSize: '0.97rem', color: T.slateLight, lineHeight: 1.7, margin: 0, maxWidth: '560px', fontFamily: T.sans }}>
             The difference between a rejected student and an admitted one is never just grades. It's always the narrative.
           </p>
         </div>
 
-        <div className="eq-tg" style={{ display: 'grid', gridTemplateColumns: '1fr 52px 1fr' }}>
-          {/* Before */}
-          <div style={{ ...card, borderRadius: '14px 0 0 14px', padding: '22px 26px', borderRight: 'none' }}>
-            <div style={{ display:'inline-flex', alignItems:'center', gap:'7px', background:T.redBg, color:T.rust, fontWeight:700, fontSize:'0.78rem', padding:'5px 12px', borderRadius:'7px', marginBottom:'16px', fontFamily:T.sans }}>
-              ❌ Before EduQuest
-            </div>
-            {beforeItems.map(item => (
-              <div key={item} className="eq-ti"><div className="eq-dot" style={{ background: T.rust }} />{item}</div>
-            ))}
-          </div>
+        {/* Animated wrapper for before/after cards */}
+        <div className={`eq-cards-wrap${showCards ? ' open' : ''}`}>
+          <div className="eq-cards-inner">
+            <div className="eq-tg" style={{ display: 'grid', gridTemplateColumns: '1fr 52px 1fr' }}>
+              {/* Before */}
+              <div style={{ ...card, borderRadius: '14px 0 0 14px', padding: '22px 26px', borderRight: 'none' }}>
+                <div style={{ display:'inline-flex', alignItems:'center', gap:'7px', background:T.redBg, color:T.rust, fontWeight:700, fontSize:'0.78rem', padding:'5px 12px', borderRadius:'7px', marginBottom:'16px', fontFamily:T.sans }}>
+                  ❌ Before EduQuest
+                </div>
+                {beforeItems.map(item => (
+                  <div key={item} className="eq-ti"><div className="eq-dot" style={{ background: T.rust }} />{item}</div>
+                ))}
+              </div>
 
-          {/* Arrow */}
-          <div className="eq-arr" style={{ display:'flex', alignItems:'center', justifyContent:'center', background:`linear-gradient(180deg,${T.paper},${T.cream})` }}>
-            <div style={{ width:'36px', height:'36px', borderRadius:'50%', background:T.gold, color:T.white, display:'flex', alignItems:'center', justifyContent:'center', fontSize:'1rem', fontWeight:700, boxShadow:'0 2px 10px rgba(201,151,58,0.3)' }}>→</div>
-          </div>
+              {/* Arrow */}
+              <div className="eq-arr" style={{ display:'flex', alignItems:'center', justifyContent:'center', background:`linear-gradient(180deg,${T.paper},${T.cream})` }}>
+                <div style={{ width:'36px', height:'36px', borderRadius:'50%', background:T.gold, color:T.white, display:'flex', alignItems:'center', justifyContent:'center', fontSize:'1rem', fontWeight:700, boxShadow:'0 2px 10px rgba(201,151,58,0.3)' }}>→</div>
+              </div>
 
-          {/* After */}
-          <div style={{ ...card, borderRadius: '0 14px 14px 0', padding: '22px 26px', borderLeft: 'none' }}>
-            <div style={{ display:'inline-flex', alignItems:'center', gap:'7px', background:T.greenBg, color:T.green, fontWeight:700, fontSize:'0.78rem', padding:'5px 12px', borderRadius:'7px', marginBottom:'16px', fontFamily:T.sans }}>
-              ✅ After EduQuest
+              {/* After */}
+              <div style={{ ...card, borderRadius: '0 14px 14px 0', padding: '22px 26px', borderLeft: 'none' }}>
+                <div style={{ display:'inline-flex', alignItems:'center', gap:'7px', background:T.greenBg, color:T.green, fontWeight:700, fontSize:'0.78rem', padding:'5px 12px', borderRadius:'7px', marginBottom:'16px', fontFamily:T.sans }}>
+                  ✅ After EduQuest
+                </div>
+                {afterItems.map(item => (
+                  <div key={item} className="eq-ti"><div className="eq-dot" style={{ background: T.green }} />{item}</div>
+                ))}
+              </div>
             </div>
-            {afterItems.map(item => (
-              <div key={item} className="eq-ti"><div className="eq-dot" style={{ background: T.green }} />{item}</div>
-            ))}
           </div>
         </div>
       </section>
@@ -139,82 +219,102 @@ export default function WhatChanges() {
       <section className="eq-s2" style={{ padding: '0 80px 80px', background: T.cream, fontFamily: T.sans }}>
         <div style={{ marginBottom: '28px' }}>
           <div style={pill(T.gold, 'rgba(201,151,58,0.08)')}>The Thinking Behind the Work</div>
-          <h2 style={{ fontFamily: T.serif, fontSize: 'clamp(1.6rem,3vw,2.2rem)', fontWeight: 400, color: T.ink, lineHeight: 1.2, margin: '0 0 10px' }}>
-            Profile Building Is <em style={{ fontStyle:'italic', color:T.gold }}>NOT</em> a Checklist
-          </h2>
+          {/* Heading row with View More button */}
+          <div
+            className="eq-heading-row"
+            style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '20px', flexWrap: 'wrap', marginBottom: '10px' }}
+          >
+            <h2 style={{ fontFamily: T.serif, fontSize: 'clamp(1.6rem,3vw,2.2rem)', fontWeight: 400, color: T.ink, lineHeight: 1.2, margin: 0 }}>
+              Profile Building Is <em style={{ fontStyle:'italic', color:T.gold }}>NOT</em> a Checklist
+            </h2>
+            <button
+              className={`eq-check-btn${showMore ? ' active' : ''}`}
+              onClick={() => setShowMore(prev => !prev)}
+            >
+              {showMore ? 'View Less' : 'View More'}
+              <span className="eq-btn-arrow">▼</span>
+            </button>
+          </div>
           <p style={{ fontSize: '0.95rem', color: T.slateLight, lineHeight: 1.7, margin: 0, maxWidth: '540px', fontFamily: T.sans }}>
             Most students collect activities. Our students build brands.
           </p>
         </div>
 
-        {/* Grade Table */}
-        <div style={{ ...card, marginBottom: '20px' }}>
-          <div style={{ padding: '16px 20px 0', fontSize:'0.68rem', fontWeight:700, letterSpacing:'0.1em', textTransform:'uppercase' as const, color:T.slateLight, fontFamily:T.sans }}>
-            📊 Grade-by-Grade: Checklist vs Brand Thinking
-          </div>
-          <div style={{ overflowX: 'auto' }}>
-            <table className="eq-tbl">
-              <thead>
-                <tr>
-                  <th style={{ color:T.slate, width:'80px' }}>Grade</th>
-                  <th style={{ color:T.rust }}>❌ Checklist</th>
-                  <th style={{ color:T.green }}>✅ Brand Thinking</th>
-                  <th style={{ color:T.gold }}>What's Happening</th>
-                </tr>
-              </thead>
-              <tbody>
-                {gradeJourney.map(row => (
-                  <tr key={row.grade}>
-                    <td><span className="eq-gb">{row.grade}</span></td>
-                    <td className="eq-bad">{row.wrong}</td>
-                    <td className="eq-good">{row.right}</td>
-                    <td className="eq-ital">{row.insight}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* Mindshift + Final Callout */}
-        <div className="eq-mg" style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'20px' }}>
-
-          {/* Mindshift */}
-          <div style={{ ...card, padding: '20px 22px' }}>
-            <div style={{ fontSize:'0.68rem', fontWeight:700, letterSpacing:'0.1em', textTransform:'uppercase' as const, color:T.slateLight, fontFamily:T.sans, marginBottom:'14px' }}>
-              🧠 The Shift That Changes Everything
-            </div>
-            <div style={{ display:'flex', flexDirection:'column' as const, gap:'10px' }}>
-              {mindshiftRows.map((row, i) => (
-                <div key={i} style={{ background:T.cream, border:`1px solid ${T.border}`, borderRadius:'10px', padding:'14px 16px' }}>
-                  <div style={{ fontSize:'0.8rem', color:T.rust, fontFamily:T.sans, marginBottom:'6px' }}>❌ {row.bad}</div>
-                  <div style={{ fontSize:'0.85rem', color:T.green, fontWeight:600, fontFamily:T.sans }}>✅ {row.good}</div>
+        {/* Animated wrapper for profile building content */}
+        <div className={`eq-profile-wrap${showMore ? ' open' : ''}`}>
+          <div className="eq-profile-inner">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              {/* Grade Table */}
+              <div style={{ ...card }}>
+                <div style={{ padding: '16px 20px 0', fontSize:'0.68rem', fontWeight:700, letterSpacing:'0.1em', textTransform:'uppercase' as const, color:T.slateLight, fontFamily:T.sans }}>
+                  📊 Grade-by-Grade: Checklist vs Brand Thinking
                 </div>
-              ))}
-            </div>
-          </div>
+                <div style={{ overflowX: 'auto' }}>
+                  <table className="eq-tbl">
+                    <thead>
+                      <tr>
+                        <th style={{ color:T.slate, width:'80px' }}>Grade</th>
+                        <th style={{ color:T.rust }}>❌ Checklist</th>
+                        <th style={{ color:T.green }}>✅ Brand Thinking</th>
+                        <th style={{ color:T.gold }}>What's Happening</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {gradeJourney.map(row => (
+                        <tr key={row.grade}>
+                          <td><span className="eq-gb">{row.grade}</span></td>
+                          <td className="eq-bad">{row.wrong}</td>
+                          <td className="eq-good">{row.right}</td>
+                          <td className="eq-ital">{row.insight}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
 
-          {/* Final Callout */}
-          <div style={{ background:`linear-gradient(135deg,${T.slate} 0%,${T.ink} 100%)`, borderRadius:'14px', padding:'26px', display:'flex', flexDirection:'column' as const, gap:'14px' }}>
-            <div style={{ fontSize:'0.68rem', fontWeight:700, letterSpacing:'0.1em', textTransform:'uppercase' as const, color:T.gold, fontFamily:T.sans }}>
-              🎯 What a Strong Profile Looks Like (Grade 12)
+              {/* Mindshift + Final Callout */}
+              <div className="eq-mg" style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'20px' }}>
+
+                {/* Mindshift */}
+                <div style={{ ...card, padding: '20px 22px' }}>
+                  <div style={{ fontSize:'0.68rem', fontWeight:700, letterSpacing:'0.1em', textTransform:'uppercase' as const, color:T.slateLight, fontFamily:T.sans, marginBottom:'14px' }}>
+                    🧠 The Shift That Changes Everything
+                  </div>
+                  <div style={{ display:'flex', flexDirection:'column' as const, gap:'10px' }}>
+                    {mindshiftRows.map((row, i) => (
+                      <div key={i} style={{ background:T.cream, border:`1px solid ${T.border}`, borderRadius:'10px', padding:'14px 16px' }}>
+                        <div style={{ fontSize:'0.8rem', color:T.rust, fontFamily:T.sans, marginBottom:'6px' }}>❌ {row.bad}</div>
+                        <div style={{ fontSize:'0.85rem', color:T.green, fontWeight:600, fontFamily:T.sans }}>✅ {row.good}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Final Callout */}
+                <div style={{ background:`linear-gradient(135deg,${T.slate} 0%,${T.ink} 100%)`, borderRadius:'14px', padding:'26px', display:'flex', flexDirection:'column' as const, gap:'14px' }}>
+                  <div style={{ fontSize:'0.68rem', fontWeight:700, letterSpacing:'0.1em', textTransform:'uppercase' as const, color:T.gold, fontFamily:T.sans }}>
+                    🎯 What a Strong Profile Looks Like (Grade 12)
+                  </div>
+                  <div style={{ background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.1)', borderRadius:'10px', padding:'14px 16px' }}>
+                    <div style={{ fontSize:'0.63rem', fontWeight:700, color:'rgba(255,255,255,0.35)', textTransform:'uppercase' as const, letterSpacing:'0.08em', fontFamily:T.sans, marginBottom:'6px' }}>❌ Not this</div>
+                    <p style={{ fontSize:'0.83rem', color:'rgba(255,255,255,0.5)', fontFamily:T.sans, lineHeight:1.6, margin:0, fontStyle:'italic' }}>
+                      "I did MUN, coding, volunteering, and internships"
+                    </p>
+                  </div>
+                  <div style={{ color:T.gold, fontSize:'1rem', textAlign:'center' as const, fontWeight:700 }}>↓</div>
+                  <div style={{ background:'rgba(201,151,58,0.12)', border:'1px solid rgba(201,151,58,0.3)', borderRadius:'10px', padding:'14px 16px' }}>
+                    <div style={{ fontSize:'0.63rem', fontWeight:700, color:T.goldLight, textTransform:'uppercase' as const, letterSpacing:'0.08em', fontFamily:T.sans, marginBottom:'6px' }}>✅ But this</div>
+                    <p style={{ fontSize:'0.83rem', color:T.white, fontFamily:T.sans, lineHeight:1.6, margin:0 }}>
+                      "Over 4 years, I developed a deep interest in X, built skills in Y, created Z impact."
+                    </p>
+                  </div>
+                  <p style={{ fontFamily:T.serif, fontSize:'0.95rem', color:T.gold, margin:0, textAlign:'center' as const }}>
+                    That's not a resume. That's a <em>brand with a narrative</em>.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div style={{ background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.1)', borderRadius:'10px', padding:'14px 16px' }}>
-              <div style={{ fontSize:'0.63rem', fontWeight:700, color:'rgba(255,255,255,0.35)', textTransform:'uppercase' as const, letterSpacing:'0.08em', fontFamily:T.sans, marginBottom:'6px' }}>❌ Not this</div>
-              <p style={{ fontSize:'0.83rem', color:'rgba(255,255,255,0.5)', fontFamily:T.sans, lineHeight:1.6, margin:0, fontStyle:'italic' }}>
-                "I did MUN, coding, volunteering, and internships"
-              </p>
-            </div>
-            <div style={{ color:T.gold, fontSize:'1rem', textAlign:'center' as const, fontWeight:700 }}>↓</div>
-            <div style={{ background:'rgba(201,151,58,0.12)', border:'1px solid rgba(201,151,58,0.3)', borderRadius:'10px', padding:'14px 16px' }}>
-              <div style={{ fontSize:'0.63rem', fontWeight:700, color:T.goldLight, textTransform:'uppercase' as const, letterSpacing:'0.08em', fontFamily:T.sans, marginBottom:'6px' }}>✅ But this</div>
-              <p style={{ fontSize:'0.83rem', color:T.white, fontFamily:T.sans, lineHeight:1.6, margin:0 }}>
-                "Over 4 years, I developed a deep interest in X, built skills in Y, created Z impact."
-              </p>
-            </div>
-            <p style={{ fontFamily:T.serif, fontSize:'0.95rem', color:T.gold, margin:0, textAlign:'center' as const }}>
-              That's not a resume. That's a <em>brand with a narrative</em>.
-            </p>
           </div>
         </div>
       </section>
