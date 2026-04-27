@@ -243,7 +243,7 @@ export default function Hero() {
         className="eq-hero-section"
         id="home"
         style={{
-          minHeight: 'calc(100vh - 110px)',
+          minHeight: 'calc(100vh - 180px)',
           padding: '80px',
           background: `linear-gradient(135deg, ${T.paper} 0%, ${T.cream} 100%)`,
           fontFamily: T.sans,
