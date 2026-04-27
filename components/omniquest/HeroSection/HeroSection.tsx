@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "./HeroSection.module.css";
+import styles from "./Herosection.module.css";
 
 // ── Data ─────────────────────────────────────────────────────────────────────
 const STATS = [
