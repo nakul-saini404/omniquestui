@@ -23,12 +23,19 @@ import TestPrep from '@/components/eduQuest/TestPrep';
 import WhatChanges from '@/components/eduQuest/WhatChanges';
 import { TestimonialsSection } from '@/components/eduQuest/Testimonials';
 
+import JsonLd   from "@/components/JsonLd/JsonLd";
+import { EDUQUEST_FAQ }      from "@/app/data/faq";
+import { buildFAQSchema } from "@/lib/schemas/faqSchema";
+
 
 export default function Home() {
+   const faqSchema = buildFAQSchema(EDUQUEST_FAQ);
  
   
   return (
     <>
+        <JsonLd data={faqSchema} />
+    
       <Navbar  />
       <main>
         <Hero />
