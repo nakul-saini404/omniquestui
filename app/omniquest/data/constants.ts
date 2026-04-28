@@ -193,7 +193,7 @@ export const FOOTER_COLS = [
       { label: "MBA Admissions",          href: "https://eduquest.org.in/" },
       { label: "GMAT Strategy",           href: "https://eduquest.org.in/" },
       { label: "Tech Career Programs",    href: "https://eduquest.org.in/eduquest-aptech/" },
-      { label: "Psychometric Assessment", href: "https://omniquestui.vercel.app/personality-test" },
+      { label: "Narrative Intelligence Scan", href: "https://omniquestui.vercel.app/personality-test" },
     ],
   },
   {

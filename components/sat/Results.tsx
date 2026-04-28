@@ -85,7 +85,7 @@ export default function Results() {
           <div className="section-head reveal">
             <div className="label">Trusted Authority Block</div>
             <h2>
-              Trusted by Students Scoring<br /><em>1400–1560+</em>
+              Trusted by Students Scoring<br /><em>1500–1600+</em>
             </h2>
             <p>Real proof. Real students. Real outcomes — from India, Nigeria, UAE, and beyond.</p>
           </div>

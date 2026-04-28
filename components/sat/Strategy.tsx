@@ -100,7 +100,7 @@ export default function Strategy() {
             ))}
 
             {/* Pricing */}
-            <div className={styles.pricingBox}>
+            {/* <div className={styles.pricingBox}>
               <div className={styles.pricingLabel}>Online &amp; Offline Modes</div>
               <div className={styles.pricingList}>
                 {pricing.map((p, i) => (
@@ -117,7 +117,7 @@ export default function Strategy() {
               >
                 Get Custom Quote
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
