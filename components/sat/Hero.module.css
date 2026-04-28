@@ -1,0 +1,262 @@
+.hero {
+  padding: 72px 0 80px;
+  background: var(--cream);
+  overflow: hidden;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  right: -120px;
+  top: -80px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 168, 67, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 60px;
+  align-items: center;
+}
+
+.heroEyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.heroEyebrowLine {
+  width: 28px;
+  height: 2px;
+  background: var(--red);
+}
+
+.heroEyebrowText {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.heroH1 {
+  font-family: var(--ff-head);
+  font-size: clamp(38px, 4.5vw, 60px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  color: var(--navy);
+  margin-bottom: 20px;
+}
+
+.heroH1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.heroSub {
+  font-size: 16px;
+  color: var(--text2);
+  line-height: 1.85;
+  margin-bottom: 12px;
+  max-width: 500px;
+}
+
+.heroSnippet {
+  background: var(--navy);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin: 24px 0 32px;
+  border-left: 4px solid var(--gold);
+}
+
+.heroSnippet strong {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.heroSnippet p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.heroCtas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.heroStats {
+  display: flex;
+  gap: 28px;
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.heroStatNum {
+  font-family: var(--ff-head);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.heroStatLbl {
+  font-size: 11px;
+  color: var(--text3);
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+/* RIGHT CARD */
+.heroCard {
+  background: var(--white);
+  border: 1px solid var(--line2);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(11, 28, 61, 0.1);
+}
+
+.heroCardHeader {
+  background: var(--navy);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.heroCardIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.heroCardHeaderText h3 {
+  font-family: var(--ff-head);
+  font-size: 17px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.heroCardHeaderText p {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 2px;
+}
+
+.heroCardBody {
+  padding: 24px;
+}
+
+.scoreRow {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.scoreBadge {
+  flex: 1;
+  text-align: center;
+  padding: 14px 8px;
+  border-radius: 8px;
+  background: var(--cream2);
+}
+
+.scoreBadgeNum {
+  font-family: var(--ff-head);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.scoreBadgeLbl {
+  font-size: 10px;
+  color: var(--text3);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.gold {
+  background: rgba(212, 168, 67, 0.12);
+}
+
+.gold .scoreBadgeNum {
+  color: var(--gold);
+}
+
+.progressList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.progItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.progLabel {
+  min-width: 110px;
+  color: var(--text2);
+  font-weight: 500;
+}
+
+.progBarWrap {
+  flex: 1;
+  height: 6px;
+  background: var(--cream2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progBar {
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--navy), var(--navy3));
+}
+
+.progVal {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy);
+  min-width: 36px;
+  text-align: right;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroCard {
+    max-width: 480px;
+  }
+
+  .heroStats {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}

@@ -1,0 +1,101 @@
+.timeline {
+  background: var(--cream);
+  padding: 96px 0;
+}
+
+.timelineGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.tlCard {
+  border-radius: 10px;
+  padding: 32px;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+}
+
+.foundation {
+  background: var(--navy);
+}
+
+.execution {
+  background: var(--red);
+}
+
+.tlCardPhase {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  opacity: 0.6;
+}
+
+.tlCard h3 {
+  font-family: var(--ff-head);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.tlCardGrade {
+  font-size: 12px;
+  opacity: 0.55;
+  margin-bottom: 20px;
+  letter-spacing: 0.06em;
+}
+
+.tlItems {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tlItem {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.tlBullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.tlBulletWhite {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.tlCta {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 10px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #fff;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.tlCta:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .timelineGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,158 @@
+.strategy {
+  background: var(--cream2);
+  padding: 96px 0;
+}
+
+.strategyGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.strategySteps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.stratItem {
+  display: flex;
+  gap: 18px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.stratItem:last-child {
+  border-bottom: none;
+}
+
+.stratNum {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.stratTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.stratDesc {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.65;
+}
+
+/* RIGHT CARDS */
+.strategyRightCards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stratCard {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.stratCard h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.stratCard p {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.65;
+}
+
+.stratCardIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.blue {
+  background: rgba(11, 28, 61, 0.08);
+}
+
+.gold {
+  background: rgba(212, 168, 67, 0.15);
+}
+
+.red {
+  background: rgba(200, 75, 49, 0.1);
+}
+
+/* PRICING BOX */
+.pricingBox {
+  background: var(--navy);
+  border-radius: 10px;
+  padding: 24px;
+  color: #fff;
+}
+
+.pricingLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.pricingList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.pricingRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  padding: 8px 0;
+}
+
+.bordered {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pricingMode {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.pricingPrice {
+  color: #fff;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .strategyGrid {
+    grid-template-columns: 1fr;
+  }
+}

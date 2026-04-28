@@ -146,8 +146,13 @@ export default function Hero() {
           z-index: 0;
         }
         .eq-hero-inner {
+          max-width:"1560px";
           position: relative;
           z-index: 1;
+        }
+
+        #hero-div {
+        max-width:"1560px";
         }
 
         /* ── Layout grid ── */
@@ -251,7 +256,7 @@ export default function Hero() {
           alignItems: 'center',
         }}
       >
-        <div className="eq-hero-inner" style={{ width: '100%' }}>
+        <div className="eq-hero-inner" id="hero-div" style={{ maxWidth: '100%' }}>
           <div className="eq-hero-grid">
 
             {/* ── LEFT ── */}

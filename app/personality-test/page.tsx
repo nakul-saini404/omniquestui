@@ -385,7 +385,7 @@ export default function PersonalityTestPage() {
           <div style={{ textAlign:"center", marginBottom:40 }}>
             <div style={{ display:"inline-flex", alignItems:"center", gap:8, padding:"6px 18px", borderRadius:100, background:"rgba(91,138,255,.12)", border:"1px solid rgba(91,138,255,.25)", color:"#5b8aff", fontSize:".7rem", letterSpacing:".14em", fontWeight:700, textTransform:"uppercase", marginBottom:20 }}>
               <span style={{ width:6,height:6,borderRadius:"50%",background:"#5b8aff",animation:"blink 1.5s infinite" }} />
-              AI Personality Assessment · OmniQuest
+              AI  Narrative Intelligence Scan · OmniQuest
             </div>
             <h1 style={{ fontFamily:"Syne,sans-serif", fontSize:"clamp(1.8rem,5vw,2.6rem)", fontWeight:900, lineHeight:1.1, marginBottom:14 }}>
               Discover Your<br/>
@@ -549,7 +549,7 @@ export default function PersonalityTestPage() {
           {!leadData.targetCountry && !leadData.targetDegree && (
             <div style={{ padding:"14px 18px", borderRadius:12, background:"rgba(255,255,255,.03)", border:"1px solid rgba(255,255,255,.06)", marginBottom:24 }}>
               <p style={{ fontSize:".8rem", color:"rgba(255,255,255,.4)", lineHeight:1.65, margin:0 }}>
-                💡 <strong style={{color:"rgba(255,255,255,.6)"}}>No selections?</strong> That's completely fine! Our AI will suggest the best universities across USA, UK, Canada, Australia and Singapore based entirely on your personality type.
+                💡 <strong style={{color:"rgba(255,255,255,.6)"}}>No selections?</strong> That's completely fine! Our AI will suggest the best universities across USA, UK, Canada, Australia and Singapore based entirely on your Narrative Intelligence Scan.
               </p>
             </div>
           )}

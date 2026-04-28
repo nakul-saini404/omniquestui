@@ -1,0 +1,113 @@
+.howBuild {
+  background: var(--white);
+  padding: 96px 0;
+}
+
+.h2 {
+  font-family: var(--ff-head);
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.15;
+  margin: 12px 0 14px;
+}
+
+.h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.howBuildSub {
+  font-size: 15px;
+  color: var(--text2);
+  margin-bottom: 48px;
+  max-width: 500px;
+}
+
+.howSteps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.howStep {
+  padding: 32px 28px;
+  border-right: 1px solid var(--line);
+  position: relative;
+}
+
+.howStep:last-child {
+  border-right: none;
+}
+
+.howStepNum {
+  font-family: var(--ff-head);
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--cream3);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.howStep h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.howStep p {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+.howStepTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.howStepTag {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  background: rgba(11, 28, 61, 0.06);
+  color: var(--navy2);
+}
+
+@media (max-width: 900px) {
+  .howSteps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .howStep:nth-child(2) {
+    border-right: none;
+  }
+
+  .howStep:nth-child(1),
+  .howStep:nth-child(2) {
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 580px) {
+  .howSteps {
+    grid-template-columns: 1fr;
+  }
+
+  .howStep {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .howStep:last-child {
+    border-bottom: none;
+  }
+}

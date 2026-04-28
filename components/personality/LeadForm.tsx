@@ -117,11 +117,11 @@ export default function LeadForm({ onSubmit, mode = "pre_quiz", existingData }: 
           {mode === "post_quiz" ? "🎉" : "🧠"}
         </div>
         <h2 style={{ fontFamily: "var(--font-head)", fontSize: "clamp(1.5rem,4vw,2.1rem)", fontWeight: 800, marginBottom: 12 }}>
-          {mode === "post_quiz" ? "Your Report is Ready!" : "Start Your Personality Assessment"}
+          {mode === "post_quiz" ? "Your Report is Ready!" : "Start Your Narrative Intelligence Scan"}
         </h2>
         <p style={{ color: "rgba(241,245,255,.5)", fontSize: ".95rem", lineHeight: 1.7, maxWidth: 480, margin: "0 auto" }}>
           {mode === "post_quiz"
-            ? "Enter your details to unlock your AI-generated personality report and personalised program recommendation."
+            ? "Enter your details to unlock your AI-generated  Narrative Intelligence report and personalised program recommendation."
             : "Fill in your details to begin. Your results will be personalised to your stage of education."}
         </p>
       </div>
@@ -322,8 +322,8 @@ export default function LeadForm({ onSubmit, mode = "pre_quiz", existingData }: 
           {submitting
             ? "⏳ Generating with AI…"
             : mode === "post_quiz"
-            ? "🔓 Unlock My Personality Report →"
-            : "🧠 Begin My Personality Assessment →"}
+            ? "🔓 Unlock My  Narrative Intelligence Report →"
+            : "🧠 Begin My  Narrative Intelligence Scan →"}
         </button>
 
         <p style={{ textAlign:"center", color:"rgba(241,245,255,.25)", fontSize:".72rem", marginTop:14 }}>

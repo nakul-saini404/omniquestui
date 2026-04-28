@@ -23,7 +23,7 @@ const navItems = [
     label: 'Test Prep',
     href: '#',
     children: [
-      { label: 'SAT Coaching', href: 'https://eduquest.org.in/sat/' },
+      { label: 'SAT Coaching', href: '/sat' },
       { label: 'ACT Coaching', href: 'https://eduquest.org.in/act/' },
       { label: 'AP Coaching', href: 'https://eduquest.org.in/ap-coaching/' },
       { label: 'Pre-AP Coaching', href: 'https://eduquest.org.in/pre-ap-coaching-in-gurgaon/' },

@@ -1,0 +1,117 @@
+/* Footer.module.css — same UI, updated data columns */
+
+.footer {
+  background: #080f1e;
+  padding: 60px 0 28px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+/* ── Brand column ── */
+.footerBrandLogo {
+  font-family: var(--ff-head);
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.footerBrandLogo span {
+  color: var(--red);
+}
+
+.footerBrandDesc {
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.footerLocations {
+  margin-top: 14px;
+  font-size: 12px;
+}
+
+/* Office address block */
+.addressBlock {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.addressBlock p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.addressBlock strong {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+}
+
+/* ── Link columns ── */
+.footerColTitle {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 16px;
+  min-height: 18px; /* keeps blank title col aligned */
+}
+
+.footerColLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+/* Col 3 (second half of locations) aligns to top same as col 2 */
+.footerColLinksOffset {
+  margin-top: 0;
+}
+
+.footerColLinks a {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footerColLinks a:hover {
+  color: #fff;
+}
+
+/* ── Bottom bar ── */
+.footerBottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .footerGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 580px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .footerBottom {
+    flex-direction: column;
+  }
+}

@@ -1,70 +1,97 @@
-/* components/What/What.module.css */
+/* components/What/Whatsection.module.css */
 /* ─────────────────────────────────────────────────────────────────────────── */
 
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap');
+
+/* ── Section ── */
 .section {
-  padding:    120px 5%;
   background: #111110 !important;
+  padding:    110px 4rem;
   position:   relative;
 }
 
-.layout {
+/* ── Centred container ── */
+.inner {
+  max-width:  860px;
+  margin:     0 auto;
+  text-align: center;
+}
+
+/* ── Section tag (flex row, centred) ── */
+.sectionTag {
+  justify-content: center;
+}
+
+/* ── Thin gold rule between heading and body ── */
+.rule {
+  width:        48px;
+  height:       1px;
+  background:   rgba(201, 168, 76, 0.4);
+  margin:       0 auto 28px;
+  border:       none;
+}
+
+/* ── Four pill cards ── */
+.pills {
   display:               grid;
-  grid-template-columns: 1fr 1fr;
-  gap:                   80px;
-  align-items:           center;
-  max-width:             1200px;
-  margin:                0 auto;
+  grid-template-columns: repeat(4, 1fr);
+  gap:                   1px;
+  background:            rgba(255, 255, 255, 0.06);
+  border:                1px solid rgba(255, 255, 255, 0.06);
+  border-radius:         6px;
+  overflow:              hidden;
 }
 
-/* ── Left ── */
-.left {}
-.right {
-  display:        flex;
-  flex-direction: column;
-  gap:            20px;
+.pill {
+  background:  #1A1A18;
+  padding:     36px 28px;
+  text-align:  center;
+  transition:  background 0.25s, border-color 0.25s;
+  position:    relative;
 }
 
-/* Principle box */
-.principleBox {
-  margin-top:    32px;
-  padding:       24px 28px;
-  border:        1px solid rgba(201, 168, 76, 0.12) !important;
-  border-left:   3px solid #C9A84C !important;
-  border-radius: 0 4px 4px 0;
-  background:    rgba(201, 168, 76, 0.04) !important;
+/* Subtle top-edge gold accent line on hover */
+.pill::before {
+  content:    '';
+  position:   absolute;
+  top:        0;
+  left:       0;
+  right:      0;
+  height:     2px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.6), transparent);
+  opacity:    0;
+  transition: opacity 0.3s;
 }
 
-/* Cards */
-.card {
-  padding:       28px 32px;
-  border:        1px solid rgba(255, 255, 255, 0.08) !important;
-  border-radius: 4px;
-  background:    #1E1E1C !important;
-  position:      relative;
-  overflow:      hidden;
-  transition:    border-color 0.25s;
-}
-.card:hover {
-  border-color: rgba(255, 255, 255, 0.14) !important;
+.pill:hover {
+  background: #212120;
 }
 
-.accent {
-  position: absolute;
-  top:      0;
-  left:     0;
-  width:    4px;
-  height:   100%;
+.pill:hover::before {
+  opacity: 1;
 }
 
-.cardInner {
-  padding-left: 16px;
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .section {
+    padding: 80px 2.5rem;
+  }
+
+  .pills {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .layout { grid-template-columns: 1fr; gap: 48px; }
-}
-@media (max-width: 640px) {
-  .section { padding: 80px 5%; }
-  .card    { padding: 22px 24px; }
+@media (max-width: 560px) {
+  .section {
+    padding: 64px 1.5rem;
+  }
+
+  .pills {
+    grid-template-columns: 1fr;
+  }
+
+  .pill {
+    padding: 28px 24px;
+  }
 }

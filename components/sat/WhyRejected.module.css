@@ -1,0 +1,101 @@
+.rejected {
+  background: var(--navy);
+  padding: 96px 0;
+  color: #fff;
+}
+
+.h2 {
+  font-family: var(--ff-head);
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.15;
+  margin: 12px 0 14px;
+}
+
+.h2 em {
+  font-style: italic;
+  color: var(--red2);
+}
+
+.rejectedSub {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 48px;
+  max-width: 540px;
+}
+
+.rejectedGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.rejCell {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 32px 28px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.rejCell:last-child {
+  border-right: none;
+}
+
+.rejIcon {
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+
+.rejTitle {
+  font-family: var(--ff-head);
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.rejDesc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.7;
+}
+
+.rejectedQuote {
+  margin-top: 48px;
+  padding: 28px 32px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 3px solid var(--red);
+  border-radius: var(--radius);
+}
+
+.rejectedQuote blockquote {
+  font-family: var(--ff-head);
+  font-size: 18px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.65;
+}
+
+.rejectedQuote strong {
+  color: #fff;
+  font-style: normal;
+}
+
+@media (max-width: 768px) {
+  .rejectedGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .rejCell {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .rejCell:last-child {
+    border-bottom: none;
+  }
+}
