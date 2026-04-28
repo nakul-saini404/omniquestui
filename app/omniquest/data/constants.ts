@@ -25,7 +25,7 @@ export const PATHWAYS = [
     color: "green",
     route: "For Execution-Focused Learners & Professionals",
     title: "Aptech",
-    href:  "https://www.aptech-worldwide.com//",
+    href:  "https://www.aptechindia.com/",
     desc:  "Aptech develops applied skill systems that translate learning into measurable, industry-relevant capability. Beyond learning — we focus on execution and demonstrable competence.",
     cta:   "Build Execution-Level Capability →",
   },
