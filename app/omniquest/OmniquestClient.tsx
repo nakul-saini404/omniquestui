@@ -12,9 +12,9 @@ import SystemPhilosophySection from "@/components/omniquest/Systemphilosophysect
 import FinalCtaSection from "@/components/omniquest/FinalCtaSection/FinalCtaSection";
 import DecisionCtaSection from "@/components/omniquest/DecisionCtaSection/DecisionCtaSection";
 import FooterSection from "@/components/omniquest/FooterSection/FooterSection";
-import JsonLd   from "@/components/JsonLd/JsonLd";
-import { OMNIQUEST_FAQ }      from "@/app/data/faq";
-import { buildFAQSchema } from "@/lib/schemas/faqSchema";
+import JsonLd            from "@/components/JsonLd/JsonLd";
+import { OMNIQUEST_FAQ } from "@/app/data/faq";   // ← exact filename
+import { buildFAQSchema } from "@/lib/schemas/faqSchema";  
 
 export default function OmniquestClient() {
   const faqSchema = buildFAQSchema(OMNIQUEST_FAQ);
