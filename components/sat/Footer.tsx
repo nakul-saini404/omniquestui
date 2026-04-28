@@ -2,7 +2,7 @@ import styles from "./Footer.module.css";
 
 // ── SAT Coaching Locations ────────────────────────────────────────────────────
 const satLocations = [
-  { href: "https://eduquest.org.in/sat-coaching-classes-delhi/",      label: "Delhi/NCR" },
+  { href: "/sat_delhi",      label: "Delhi/NCR" },
   { href: "https://eduquest.org.in/sat-coaching-classes-mumbai/",     label: "Mumbai" },
   { href: "https://eduquest.org.in/sat-coaching-classes-gurugram/",   label: "Gurgaon" },
   { href: "https://eduquest.org.in/sat-coaching-classes-jaipur/",     label: "Jaipur" },
