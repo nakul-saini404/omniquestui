@@ -85,3 +85,12 @@ logs/
 .turbo/
 .eslintcache
 *.tgz
+
+
+seo-audit.json
+seo-metadata-*.ts
+
+seo-metadata-about-us.ts
+seo-metadata-contact-us.ts
+seo-metadata-home.ts
+seo-metadata-sat.ts
