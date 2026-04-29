@@ -10,7 +10,7 @@ import FeeStructure from "@/components/sat_jaipur/FeeStructure/FeeStructure";
 import StudentTestimonials from "@/components/sat_jaipur/StudentTestimonials/StudentTestimonials";
 import ScoreImprovement from "@/components/sat_jaipur/ScoreImprovement/ScoreImprovement";
 import RelatedProgrammes from "@/components/sat_gurgaon/RelatedProgrammes/RelatedProgrammes";
-import FrequentlyAskedQuestions from "@/components/sat_jaipur/Frequentlyaskedquestions/Frequentlyaskedquestions";
+import FrequentlyAskedQuestions from "@/components/sat_jaipur/FrequentlyAskedquestions/FrequentlyAskedquestions";
 import CTAStrip from "@/components/sat_jaipur/CTAStrip/CTAStrip";
 import LongTermProgrammes from "@/components/sat_jaipur/LongTermProgrammes/LongTermProgrammes";
 

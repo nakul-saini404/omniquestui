@@ -13,7 +13,7 @@ import FeeStructure from "@/components/sat_gurgaon/FeeStructure/FeeStructure";
 import StudentTestimonials from "@/components/sat_gurgaon/StudentTestimonials/StudentTestimonials";
 import ScoreImprovement from "@/components/sat_gurgaon/ScoreImprovement/ScoreImprovement";
 import RelatedProgrammes from "@/components/sat_gurgaon/RelatedProgrammes/RelatedProgrammes";
-import FrequentlyAskedQuestions from "@/components/sat_gurgaon/Frequentlyaskedquestions/Frequentlyaskedquestions";
+import FrequentlyAskedQuestions from "@/components/sat_gurgaon/FrequentlyAskedquestions/FrequentlyAskedquestions";
 
 export default function SATGurgaon() {
   return (
