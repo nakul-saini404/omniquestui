@@ -3,6 +3,7 @@
   padding: 96px 0;
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 .section::before {
@@ -20,13 +21,16 @@
 
 .inner {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 60px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  max-width: var(--max);
+  justify-content: center;
+  text-align: center;
+  max-width: 760px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 24px;
+  box-sizing: border-box;
 }
 
 .badge {
@@ -49,6 +53,7 @@
   line-height: 1.15;
   color: #fff;
   margin-bottom: 16px;
+  width: 100%;
 }
 
 .h2 em {
@@ -60,13 +65,18 @@
   font-size: 16px;
   color: rgba(255, 255, 255, 0.55);
   line-height: 1.8;
-  margin-bottom: 32px;
+  margin-bottom: 36px;
+  max-width: 600px;
+  width: 100%;
 }
 
 .btns {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .btnGold {
@@ -88,65 +98,13 @@
   border-color: rgba(255, 255, 255, 0.35);
 }
 
-/* Form card */
-.formCard {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 12px;
-  padding: 32px;
-}
+@media (max-width: 768px) {
+  .section {
+    padding: 64px 0;
+  }
 
-.formCard h3 {
-  font-family: var(--ff-head);
-  font-size: 18px;
-  color: #fff;
-  margin-bottom: 6px;
-}
-
-.formCard p {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.45);
-  margin-bottom: 20px;
-}
-
-.formCard input,
-.formCard select {
-  width: 100%;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #fff;
-  padding: 11px 14px;
-  border-radius: var(--radius);
-  font-family: var(--ff-body);
-  font-size: 13px;
-  outline: none;
-  margin-bottom: 10px;
-  transition: border-color 0.2s;
-}
-
-.formCard input:focus,
-.formCard select:focus {
-  border-color: var(--gold);
-}
-
-.formCard input::placeholder {
-  color: rgba(255, 255, 255, 0.35);
-}
-
-.formCard select option {
-  background: var(--navy);
-}
-
-.formNote {
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.3);
-  text-align: center;
-  margin-top: 12px;
-}
-
-@media (max-width: 1024px) {
-  .inner {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  .btns {
+    flex-direction: column;
+    align-items: center;
   }
 }
