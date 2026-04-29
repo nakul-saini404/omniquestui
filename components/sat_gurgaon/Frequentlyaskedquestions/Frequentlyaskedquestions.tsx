@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import styles from "./FrequentlyAskedQuestions.module.css";
+import styles from "./temp.module.css";
 
 const faqs = [
   {
