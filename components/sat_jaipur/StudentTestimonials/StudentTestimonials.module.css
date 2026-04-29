@@ -1,0 +1,122 @@
+/* ── SECTION ── */
+.section {
+  padding: 80px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── SECTION LABEL ── */
+.sectionLabel {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+/* ── HEADING ── */
+.heading {
+  font-family: var(--ff-head);
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  color: var(--navy);
+  line-height: 1.22;
+  margin-bottom: 18px;
+}
+
+.heading em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ── SECTION SUB ── */
+.sectionSub {
+  color: var(--text2);
+  font-size: 16px;
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+/* ── TESTIMONIALS GRID ── */
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 22px;
+  margin-top: 48px;
+}
+
+/* ── TESTIMONIAL CARD ── */
+.testimonialCard {
+  background: var(--white);
+  border: 1px solid var(--line2);
+  border-radius: var(--radius);
+  padding: 28px 26px;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.testimonialCard:hover {
+  border-color: var(--gold);
+  box-shadow: 0 8px 24px rgba(212, 168, 67, 0.1);
+}
+
+/* ── STARS ── */
+.stars {
+  color: var(--gold);
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+/* ── TESTIMONIAL TEXT ── */
+.testimonialText {
+  font-size: 14.5px;
+  color: var(--text2);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+/* ── TESTIMONIAL AUTHOR ── */
+.testimonialAuthor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ── AUTHOR AVATAR ── */
+.authorAvatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--navy3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--white);
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+/* ── AUTHOR NAME ── */
+.authorName {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 14px;
+}
+
+/* ── AUTHOR SUB ── */
+.authorSub {
+  font-size: 12px;
+  color: var(--gold);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 24px;
+  }
+
+  .testimonialsGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,383 @@
+/* ═══════════════════════════════════════════════════
+   AboutEduQuest.module.css
+   All design values pulled from global CSS tokens.
+   No hard-coded colors or font families.
+═══════════════════════════════════════════════════ */
+
+/* ── Keyframe ── */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Stagger entry class ──
+   Elements start invisible; .slideUp triggers the animation.
+   Each element passes its own animation-delay via inline style.
+─────────────────────────────────────────────────── */
+.slideUp {
+  animation: slideUpFade 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Before .slideUp is applied, elements must be invisible */
+.sectionLabel,
+.heading,
+.subText,
+.quoteBox,
+.featureCard,
+.stepCard,
+.diffCol {
+  opacity: 0;
+}
+
+/* ── Divider ── */
+.divider {
+  height: 1px;
+  background: var(--line);
+  margin: 0 48px;
+}
+
+/* ════════════════════════════════════════════════
+   INTRO SECTION  (label + heading + quote + cards)
+════════════════════════════════════════════════ */
+.introSection {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.introInner {
+  max-width: 1200px;
+  padding: 0 48px;
+  margin: 0 auto;
+}
+
+/* ── Shared label ── */
+.sectionLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.sectionLabel::before {
+  content: "── ";
+  opacity: 0.55;
+}
+
+/* ── Shared heading ── */
+.heading {
+  font-family: var(--ff-head);
+  font-size: clamp(1.85rem, 3vw, 2.75rem);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ── Shared sub-text ── */
+.subText {
+  font-size: 16px;
+  color: var(--text2);
+  line-height: 1.75;
+  max-width: 640px;
+  margin-bottom: 0;
+}
+
+/* ── Quote box ── */
+.quoteBox {
+  background: rgba(212, 168, 67, 0.08);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 20px 26px;
+  margin: 30px 0 0;
+  font-style: italic;
+  color: var(--text2);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.quoteBox p {
+  margin: 0;
+}
+
+.quoteAuthor {
+  display: block;
+  margin-top: 12px;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--navy3);
+}
+
+/* ── Features grid ── */
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.featureCard {
+  background: var(--white);
+  border: 1px solid var(--line2);
+  border-radius: var(--radius);
+  padding: 28px 26px;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  cursor: default;
+}
+
+.featureCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  box-shadow: 0 12px 30px rgba(212, 168, 67, 0.12);
+}
+
+.featureIcon {
+  display: block;
+  font-size: 26px;
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+.featureTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+  font-family: var(--ff-body);
+}
+
+.featureDesc {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ════════════════════════════════════════════════
+   METHODOLOGY STEPS SECTION
+════════════════════════════════════════════════ */
+.stepsSection {
+  padding: 80px 0;
+}
+
+.stepsInner {
+  max-width: 1200px;
+  padding: 0 48px;
+  margin: 0 auto;
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.stepCard {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--line2);
+  border-radius: var(--radius);
+  padding: 28px 26px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  cursor: default;
+  overflow: hidden;
+}
+
+.stepCard:hover {
+  border-color: var(--gold);
+  box-shadow: 0 8px 28px rgba(212, 168, 67, 0.11);
+}
+
+/* Ghost step number — top-right watermark */
+.stepNum {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-family: var(--ff-head);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: rgba(212, 168, 67, 0.18);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+}
+
+.stepIcon {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+.stepTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+  font-family: var(--ff-body);
+}
+
+.stepDesc {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Connector line between steps (desktop) ── */
+@media (min-width: 900px) {
+  .stepsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    position: relative;
+  }
+
+  /* Subtle dashed connector drawn via pseudo on the grid */
+  .stepsGrid::before {
+    content: "";
+    position: absolute;
+    top: 38px; /* vertically aligns with the ghost number area */
+    left: calc(33.33% - 0px);
+    right: calc(33.33% - 0px);
+    height: 1px;
+    background: repeating-linear-gradient(
+      to right,
+      rgba(212, 168, 67, 0.35) 0,
+      rgba(212, 168, 67, 0.35) 6px,
+      transparent 6px,
+      transparent 14px
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+/* ════════════════════════════════════════════════
+   WHY EDUQUEST SECTION (diff blocks)
+════════════════════════════════════════════════ */
+.whyBg {
+  background: var(--cream2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.whySection {
+  padding: 80px 0;
+}
+
+.whyInner {
+  max-width: 1200px;
+  padding: 0 48px;
+  margin: 0 auto;
+}
+
+.diffGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 52px;
+  margin-top: 44px;
+}
+
+.diffCol {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.diffBlock {
+  /* no background — lives directly on cream2 */
+}
+
+.diffHeading {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+  font-family: var(--ff-body);
+  /* decorative left accent */
+  padding-left: 14px;
+  border-left: 2px solid var(--gold);
+}
+
+.diffBody {
+  font-size: 15px;
+  color: var(--text2);
+  line-height: 1.75;
+  margin: 0;
+  padding-left: 14px;
+}
+
+/* ════════════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .diffGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .introSection,
+  .stepsSection,
+  .whySection {
+    padding: 56px 0;
+  }
+
+  .introInner,
+  .stepsInner,
+  .whyInner {
+    padding: 0 24px;
+  }
+
+  .divider {
+    margin: 0 24px;
+  }
+
+  .featuresGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 32px;
+  }
+
+  .stepsGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 32px;
+  }
+
+  /* hide the connector line on mobile */
+  .stepsGrid::before {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: clamp(1.65rem, 6vw, 2.1rem);
+  }
+
+  .quoteBox {
+    padding: 16px 18px;
+    font-size: 14px;
+  }
+
+  .featureCard,
+  .stepCard {
+    padding: 22px 18px;
+  }
+}

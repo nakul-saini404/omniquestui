@@ -1,0 +1,293 @@
+/*
+  SatStructure.module.css
+  ════════════════════════════════════════════════════════════════
+  All colour / typography / radius tokens come from global.css.
+  This file only owns: layout, component shapes, and motion.
+  ════════════════════════════════════════════════════════════════
+*/
+
+/* ── Section shell ──────────────────────────────────────────── */
+.section {
+  background: var(--white);
+  padding: 96px 0;
+}
+
+/* ── Max-width wrapper ──────────────────────────────────────── */
+.inner {
+  max-width: var(--max);
+}
+
+/* section-head max-width override (global .section-head is 620px) */
+.headOverride {
+  max-width: 680px;
+}
+
+/* ── Two section cards grid ─────────────────────────────────── */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+/* Individual section card */
+.sectionCard {
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+.sectionCard:hover {
+  box-shadow: 0 4px 24px rgba(11, 28, 61, 0.08);
+}
+
+/* Card header — navy bg */
+.cardHead {
+  padding: 18px 22px;
+  background: var(--navy);
+}
+
+/* Alternate accent (slightly lighter navy) for Math card */
+.headAlt {
+  background: var(--navy3);
+}
+
+.cardHeadTitle {
+  font-family: var(--ff-head);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0 0 4px;
+  line-height: 1.2;
+}
+
+.cardHeadSub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.52);
+  margin: 0;
+}
+
+/* Card body */
+.cardBody {
+  padding: 6px 22px 10px;
+}
+
+/* Stat row */
+.statRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+
+.statRow:last-child {
+  border: none;
+}
+
+.statLabel {
+  color: var(--text2);
+  flex-shrink: 0;
+  min-width: 120px;
+}
+
+.statValue {
+  font-weight: 600;
+  color: var(--navy);
+  text-align: right;
+}
+
+/* ── Adaptive note panel (two columns) ─────────────────────── */
+.adaptiveNote {
+  background: var(--cream2);
+  border: 1.5px solid var(--line2);
+  border-radius: 12px;
+  padding: 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.adaptiveColTitle {
+  font-family: var(--ff-head);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 18px;
+  padding-bottom: 12px;
+  border-bottom: 1.5px solid var(--line2);
+}
+
+/* ── Adaptive steps list ────────────────────────────────────── */
+.stepList {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Vertical connector line */
+.stepList::before {
+  content: "";
+  position: absolute;
+  left: 19px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--line2);
+}
+
+.step {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 11px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.step:last-child {
+  padding-bottom: 0;
+}
+
+.stepNum {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  /* sits above the line */
+  position: relative;
+  z-index: 1;
+}
+
+.stepBody {
+  font-size: 13.5px;
+  color: var(--text2);
+  line-height: 1.65;
+  padding-top: 10px;
+}
+
+.stepBody strong {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+/* ── Score range table ──────────────────────────────────────── */
+.scoreTable {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(11, 28, 61, 0.07);
+  margin-bottom: 16px;
+}
+
+.scoreTable thead {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.scoreTable th {
+  padding: 11px 14px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.scoreTable td {
+  padding: 10px 14px;
+  font-size: 13.5px;
+  border-bottom: 1px solid var(--line);
+  color: var(--text2);
+}
+
+.scoreTable tr:last-child td {
+  border: none;
+}
+
+.scoreTable tr:nth-child(even) td {
+  background: var(--cream);
+}
+
+/* Highlight row (top tiers) */
+.tierHighlight td {
+  background: rgba(212, 168, 67, 0.07) !important;
+}
+
+.tierHighlight td:first-child strong {
+  color: var(--navy);
+}
+
+/* ── Quick stats strip ──────────────────────────────────────── */
+.statsStrip {
+  background: var(--navy);
+  border-radius: 8px;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.stripItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  gap: 3px;
+  text-align: center;
+}
+
+.stripVal {
+  font-family: var(--ff-head);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.stripLbl {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.48);
+  line-height: 1.3;
+}
+
+/* ════════════════════════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════════════════════════ */
+@media (max-width: 860px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .adaptiveNote {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 22px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 72px 0; }
+
+  .statsStrip {
+    flex-direction: row;
+    gap: 4px;
+    padding: 12px;
+  }
+
+  .stripVal { font-size: 16px; }
+}

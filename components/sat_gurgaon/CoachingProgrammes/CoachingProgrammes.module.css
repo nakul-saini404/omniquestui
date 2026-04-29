@@ -1,0 +1,180 @@
+/* ── SECTION ── */
+.section {
+  padding: 80px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── SECTION LABEL ── */
+.sectionLabel {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+/* ── HEADING ── */
+.heading {
+  font-family: var(--ff-head);
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  color: var(--navy);
+  line-height: 1.22;
+  margin-bottom: 18px;
+}
+
+.heading em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ── SECTION SUB ── */
+.sectionSub {
+  color: var(--text2);
+  font-size: 16px;
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+/* ── COURSES GRID ── */
+.coursesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+
+/* ── COURSE CARD ── */
+.courseCard {
+  background: var(--white);
+  border: 1px solid var(--line2);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+
+.courseCard:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(212, 168, 67, 0.12);
+}
+
+.courseCard.popular {
+  border-color: var(--gold);
+}
+
+/* ── POPULAR BADGE ── */
+.popularBadge {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 16px;
+  border-radius: 50px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ── COURSE TYPE ── */
+.courseType {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* ── COURSE TITLE ── */
+.courseCard h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 20px;
+}
+
+/* ── COURSE FEATURES ── */
+.courseFeatures {
+  list-style: none;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.courseFeatures li {
+  font-size: 14px;
+  color: var(--text2);
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.courseFeatures li::before {
+  content: "✓";
+  color: var(--gold);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 22px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--ff-body);
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s;
+  margin-top: auto;
+  text-align: center;
+}
+
+.btnPrimary {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.btnPrimary:hover {
+  background: var(--gold2);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(212, 168, 67, 0.35);
+}
+
+.btnGhostLight {
+  background: transparent;
+  border: 1.5px solid var(--line2);
+  color: var(--navy);
+}
+
+.btnGhostLight:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(212, 168, 67, 0.06);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 24px;
+  }
+
+  .coursesGrid {
+    grid-template-columns: 1fr;
+  }
+}

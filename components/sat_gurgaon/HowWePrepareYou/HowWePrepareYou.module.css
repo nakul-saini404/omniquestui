@@ -1,0 +1,104 @@
+/* ── SECTION ── */
+.section {
+  padding: 80px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── SECTION LABEL ── */
+.sectionLabel {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+/* ── HEADING ── */
+.heading {
+  font-family: var(--ff-head);
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  color: var(--navy);
+  line-height: 1.22;
+  margin-bottom: 18px;
+}
+
+.heading em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ── SECTION SUB ── */
+.sectionSub {
+  color: var(--text2);
+  font-size: 16px;
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+/* ── STEPS GRID ── */
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 48px;
+}
+
+/* ── STEP CARD ── */
+.stepCard {
+  background: var(--white);
+  border: 1px solid var(--line2);
+  border-radius: var(--radius);
+  padding: 26px;
+  position: relative;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.stepCard:hover {
+  border-color: var(--gold);
+  box-shadow: 0 8px 24px rgba(212, 168, 67, 0.1);
+}
+
+/* ── STEP NUMBER ── */
+.stepNum {
+  font-family: var(--ff-head);
+  font-size: 2.4rem;
+  color: rgba(212, 168, 67, 0.2);
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  line-height: 1;
+}
+
+/* ── STEP ICON ── */
+.stepIcon {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+/* ── STEP TITLE ── */
+.stepTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+/* ── STEP DESC ── */
+.stepDesc {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.6;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 24px;
+  }
+
+  .stepsGrid {
+    grid-template-columns: 1fr;
+  }
+}

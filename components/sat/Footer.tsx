@@ -4,8 +4,8 @@ import styles from "./Footer.module.css";
 const satLocations = [
   { href: "/sat_delhi",      label: "Delhi/NCR" },
   { href: "/sat_mumbai",     label: "Mumbai" },
-  { href: "https://eduquest.org.in/sat-coaching-classes-gurugram/",   label: "Gurgaon" },
-  { href: "https://eduquest.org.in/sat-coaching-classes-jaipur/",     label: "Jaipur" },
+  { href: "/sat_gurgaon",   label: "Gurgaon" },
+  { href: "/sat_jaipur",     label: "Jaipur" },
   { href: "https://eduquest.org.in/sat-coaching-classes-nepal",       label: "Nepal" },
   { href: "https://eduquest.org.in/sat-coaching-classes-pune/",       label: "Pune" },
   { href: "https://eduquest.org.in/sat-coaching-classes-us/",         label: "US" },

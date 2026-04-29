@@ -1,0 +1,93 @@
+/* ── SECTION ── */
+.section {
+  padding: 80px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── SECTION LABEL ── */
+.sectionLabel {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+/* ── HEADING ── */
+.heading {
+  font-family: var(--ff-head);
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  color: var(--navy);
+  line-height: 1.22;
+  margin-bottom: 18px;
+}
+
+.heading em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ── SCORE TABLE ── */
+.scoreTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 36px;
+}
+
+.scoreTable th {
+  background: var(--navy);
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  border-bottom: 2px solid var(--gold);
+}
+
+.scoreTable td {
+  padding: 14px 18px;
+  font-size: 14.5px;
+  border-bottom: 1px solid var(--line);
+  color: var(--text);
+  background: var(--white);
+}
+
+.scoreTable tr:last-child td {
+  border-bottom: none;
+}
+
+.scoreTable tr:hover td {
+  background: rgba(212, 168, 67, 0.05);
+}
+
+/* ── SCORE JOURNEY ── */
+.scoreBefore {
+  color: var(--text3);
+}
+
+.scoreArrow {
+  color: var(--gold);
+  margin: 0 4px;
+}
+
+.scoreAfter {
+  color: var(--navy3);
+  font-weight: 700;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 24px;
+  }
+
+  .scoreTable {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}

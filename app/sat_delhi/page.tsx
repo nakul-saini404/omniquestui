@@ -14,14 +14,16 @@ import InternalLinks from "@/components/sat-delhi/InternalLinks";
 import Faq from "@/components/sat-delhi/Faq";
 import FinalCta from "@/components/sat-delhi/FinalCta";
 import Footer from "../../components/sat/Footer";
+import SatStructure from "@/components/sat-delhi/SatStructure";
+import KeyAreas from "@/components/sat-delhi/KeyAreas";
 
 /* ─────────────────────────────────────────────
    SEO METADATA
 ───────────────────────────────────────────── */
 export const metadata: Metadata = {
-  title: "SAT Coaching in Delhi | Score 1500+ | EduQuest India's #1 SAT Prep",
+  title: "SAT Coaching in Delhi 2026 | Score 1500+ | EduQuest",
   description:
-    "EduQuest — India's top SAT coaching in Delhi. Digital SAT preparation, adaptive testing strategy, diagnostics, section-wise prep, 1500+ score plans. Online + offline in Delhi, Gurgaon, Bangalore.",
+    "EduQuest — India's #1 SAT coaching in Delhi. Digital SAT 2026, adaptive testing, diagnostics, 1500+ score plans. Online & offline in Delhi NCR. Free diagnostic test.",
   keywords: [
     "SAT coaching Delhi",
     "SAT classes Delhi",
@@ -31,6 +33,7 @@ export const metadata: Metadata = {
     "best SAT institute Delhi",
     "SAT exam 2026 Delhi",
     
+
   ],
   alternates: {
     canonical: "https://eduquest.org.in/sat-coaching-classes-delhi/",
@@ -59,12 +62,62 @@ export const metadata: Metadata = {
       "India's top SAT coaching in Delhi. Digital SAT prep, diagnostics, 1500+ score plans.",
     images: ["https://eduquest.org.in/wp-content/uploads/eduquest-og.jpg"],
   },
-  robots: "index, follow",
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 /* ─────────────────────────────────────────────
    JSON-LD SCHEMAS
 ───────────────────────────────────────────── */
+
+const courseSchema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  name: "SAT Coaching in Delhi",
+  description:
+    "Comprehensive Digital SAT preparation with adaptive coaching, diagnostic testing, and 1500+ score planning for students in Delhi NCR.",
+  provider: {
+    "@type": "Organization",
+    name: "EduQuest",
+    sameAs: "https://eduquest.org.in",
+  },
+  hasCourseInstance: [
+    {
+      "@type": "CourseInstance",
+      courseMode: "online",
+      name: "Online Live SAT Coaching",
+      offers: {
+        "@type": "Offer",
+        price: "50000",
+        priceCurrency: "INR",
+        availability: "https://schema.org/InStock",
+      },
+    },
+    {
+      "@type": "CourseInstance",
+      courseMode: "onsite",
+      name: "Classroom SAT Coaching Delhi",
+      location: {
+        "@type": "Place",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Delhi",
+          addressRegion: "Delhi",
+          addressCountry: "IN",
+        },
+      },
+      offers: {
+        "@type": "Offer",
+        price: "70000",
+        priceCurrency: "INR",
+        availability: "https://schema.org/InStock",
+      },
+    },
+  ],
+};
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -90,7 +143,7 @@ const faqSchema = {
       name: "How to score 1500+ on the SAT in Delhi?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Score 1500+ by: taking a diagnostic test to identify your baseline, targeting weak skill clusters, mastering Bluebook's interface, taking 6+ full-length adaptive mocks, and aligning your score with a broader admissions strategy.",
+        text: "Delhi students scoring 1500+ at EduQuest typically start in Grade 10, take a baseline diagnostic, and attend classes at our Gurgaon centre or online. Key steps: target weak skill clusters, master Bluebook's interface, complete 6+ full-length adaptive mocks.",
       },
     },
     {
@@ -134,24 +187,27 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
   name: "EduQuest",
-  url: "https://eduquest.org.in",
-  description: "India's premier SAT, ACT, AP, UCAT and global admissions strategy firm.",
-  telephone: "+91-9958041888",
-  email: "contact@eduquest.org.in",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "F-45, First Floor, South City II, Sector 50",
-    addressLocality: "Gurugram",
-    addressRegion: "Haryana",
-    postalCode: "122018",
-    addressCountry: "IN",
+  // ... existing fields ...
+  
+  // ✅ ADD THIS
+  areaServed: ["Delhi", "Delhi NCR", "Gurgaon", "Noida", "Faridabad"],
+  
+  // ✅ ADD THIS — helps Google understand what you offer
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "SAT Coaching Programs Delhi",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Course",
+          name: "Digital SAT Coaching Delhi",
+        },
+        price: "50000",
+        priceCurrency: "INR",
+      },
+    ],
   },
-  sameAs: [
-    "https://www.facebook.com/eduquestind/",
-    "https://twitter.com/eduquest1",
-    "https://www.instagram.com/eduquest_education_",
-    "https://www.linkedin.com/company/eduquest-learning-centre/",
-  ],
 };
 
 /* ─────────────────────────────────────────────
@@ -164,6 +220,10 @@ export default function SatDelhiPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
       />
       <script
         type="application/ld+json"
@@ -196,10 +256,12 @@ export default function SatDelhiPage() {
 
       <main>
         <Hero />
+        <SatStructure />
         <Positioning />
         <SystemSection />
         <SeoBlocks />
         <Pricing />
+        <KeyAreas />
         <DiagnosticCta />
         <Admissions />
         <Testimonials />

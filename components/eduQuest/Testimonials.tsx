@@ -124,7 +124,7 @@ const testimonials = [
     scholarship: null,
     photo: 'https://eduquest.org.in/wp-content/uploads/2023/09/hardik1.jpeg',
     text: "I'm Hardik from Gurgaon, and on my first attempt at the SAT, I scored 1520. I appreciate EduQuest for their helpful guidance. Their direction through digital SAT coaching supported me to get such a high score. They gave me a lot of insightful recommendations. Additionally, Rupali maam helped me immensely in one of summer programme applications recently.",
-    youtubeId: 'dQw4w9WgXcQ',
+    youtubeId: '',
   },
   {
     name: 'Seher Taneja',
@@ -162,7 +162,7 @@ const testimonials = [
     exam: 'SAT',
     location: 'Nigeria',
     scholarship: '$20,000',
-    photo: 'https://eduquest.org.in/wp-content/uploads/2023/09/Aaisha-Sawlani.jpeg',
+    photo: 'https://eduquest.org.in/wp-content/uploads/2021/10/WhatsApp-Image-2021-10-01-at-13.40.17.jpeg',
     text: "I scored 1450 in SAT August exam. I am extremely proud of the way Eduquest has coached me. They understood the proactive side of expectations and ensured we can easily overcome the tough side of SAT. Their framework is exemplary and very robust. Thank You Eduquest.",
     youtubeId: '',
   },

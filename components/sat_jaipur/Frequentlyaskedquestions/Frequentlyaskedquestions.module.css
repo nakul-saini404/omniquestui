@@ -1,0 +1,111 @@
+/* ── SECTION ── */
+.section {
+  padding: 80px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── SECTION LABEL ── */
+.sectionLabel {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+/* ── HEADING ── */
+.heading {
+  font-family: var(--ff-head);
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  color: var(--navy);
+  line-height: 1.22;
+  margin-bottom: 18px;
+}
+
+.heading em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ── FAQ LIST ── */
+.faqList {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ── FAQ ITEM ── */
+.faqItem {
+  background: var(--white);
+  border: 1px solid var(--line2);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+/* ── FAQ QUESTION ── */
+.faqQ {
+  padding: 20px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.faqQ:hover {
+  background: rgba(212, 168, 67, 0.06);
+}
+
+.faqQ::after {
+  content: "+";
+  color: var(--gold);
+  font-size: 20px;
+  flex-shrink: 0;
+  transition: transform 0.25s;
+}
+
+.open .faqQ::after {
+  transform: rotate(45deg);
+}
+
+/* ── FAQ ANSWER ── */
+.faqA {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.open .faqA {
+  max-height: 600px;
+}
+
+.faqAInner {
+  padding: 0 24px 20px;
+  font-size: 14.5px;
+  color: var(--text2);
+  line-height: 1.7;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 24px;
+  }
+
+  .faqQ {
+    font-size: 14px;
+    padding: 16px 18px;
+  }
+
+  .faqAInner {
+    padding: 0 18px 16px;
+  }
+}
