@@ -1,0 +1,147 @@
+/* OurSystem.module.css */
+
+/* ── Section wrapper ── */
+.section {
+  padding: 80px 24px;
+  background: var(--white, #ffffff);
+}
+
+/* ── Container ── */
+.container {
+  max-width: var(--max, 1160px);
+  margin: 0 auto;
+}
+
+/* ── Section label ── */
+.sectionLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--gold, #d4a843);
+  margin-bottom: 10px;
+}
+
+/* label prefix dashes — mirrors global .label::before */
+.sectionLabel::before {
+  content: "── ";
+  opacity: 0.6;
+}
+
+/* ── Section title ── */
+.sectionTitle {
+  font-family: var(--ff-head, "Playfair Display", serif);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 700;
+  color: var(--navy, #0b1c3d);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+/* ── Gold italic em ── */
+.em {
+  color: var(--gold, #d4a843);
+  font-style: italic;
+}
+
+/* ── Section sub ── */
+.sectionSub {
+  color: var(--gray, #6b7280);
+  font-size: 16px;
+  max-width: 600px;
+  margin-bottom: 48px;
+  line-height: 1.65;
+}
+
+/* ── 4-column grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* ── Card ── */
+.card {
+  border: 1.5px solid var(--border, #e5e7eb);
+  border-radius: 12px;
+  padding: 24px;
+  background: var(--white, #ffffff);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--gold, #d4a843);
+  box-shadow: 0 4px 20px rgba(212, 168, 67, 0.12);
+}
+
+/* ── Faded number watermark ── */
+.num {
+  font-family: var(--ff-head, "Playfair Display", serif);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--border, #e5e7eb);
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+/* ── Card heading ── */
+.cardTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy, #0b1c3d);
+  margin-bottom: 8px;
+}
+
+/* ── Card body text ── */
+.cardDesc {
+  font-size: 13px;
+  color: var(--gray, #6b7280);
+  margin-bottom: 14px;
+  line-height: 1.65;
+}
+
+/* ── Tags row ── */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ── Tag pill ── */
+.tag {
+  background: var(--light-gray, #f3f4f6);
+  color: var(--navy, #0b1c3d);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 4px;
+}
+
+/* ── Reveal animation ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 60px 16px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

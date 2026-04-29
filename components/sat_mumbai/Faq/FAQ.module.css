@@ -1,0 +1,178 @@
+/* FAQ.module.css */
+
+/* ── Section ── */
+.section {
+  padding: 80px 24px;
+  background: var(--cream, #fdf8f0);
+}
+
+/* ── Container ── */
+.container {
+  max-width: var(--max, 1160px);
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.header {
+  margin-bottom: 0;
+}
+
+/* ── Section label ── */
+.sectionLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--gold, #d4a843);
+  margin-bottom: 10px;
+}
+
+.sectionLabel::before {
+  content: "── ";
+  opacity: 0.6;
+}
+
+/* ── Section title ── */
+.sectionTitle {
+  font-family: var(--ff-head, "Playfair Display", serif);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 700;
+  color: var(--navy, #0b1c3d);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.em {
+  color: var(--gold, #d4a843);
+  font-style: normal;
+}
+
+/* ── Section sub ── */
+.sectionSub {
+  color: var(--gray, #6b7280);
+  font-size: 16px;
+  max-width: 600px;
+  margin-bottom: 48px;
+  line-height: 1.65;
+}
+
+/* ── FAQ list ── */
+.faqList {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── FAQ item ── */
+.faqItem {
+  border-bottom: 1px solid var(--border, #e5e7eb);
+  /* ✅ No opacity/transform here — items must always be fully visible
+     so the answer panel can be seen when expanded */
+}
+
+/* ── Question button ── */
+.faqQ {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 20px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy, #0b1c3d);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--ff-body, "Plus Jakarta Sans", sans-serif);
+  transition: color 0.2s ease;
+}
+
+.faqQ:hover {
+  color: var(--gold, #d4a843);
+}
+
+/* ── +/− icon ── */
+.faqIcon {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  background: var(--light-gray, #f3f4f6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  transition: background 0.2s ease, color 0.2s ease;
+  color: var(--navy, #0b1c3d);
+  line-height: 1;
+  padding-bottom: 1px;
+}
+
+.faqIconOpen {
+  background: var(--gold, #d4a843);
+  color: #fff;
+}
+
+/* ── Answer panel ──
+   ✅ Uses max-height + opacity together.
+   The key fix: opacity starts at 1 (not inherited from .reveal),
+   only max-height controls visibility. */
+.faqA {
+  font-size: 15px;
+  color: var(--gray, #6b7280);
+  line-height: 1.7;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 1;           /* ✅ always opaque — never inherits reveal's opacity:0 */
+  transition: max-height 0.35s ease, padding-bottom 0.35s ease;
+  padding-bottom: 0;
+}
+
+.faqA p {
+  margin: 0;
+  opacity: 1;           /* ✅ explicit — cannot be overridden by parent */
+  color: var(--gray, #6b7280);
+}
+
+/* Open state */
+.faqAOpen {
+  max-height: 400px;
+  padding-bottom: 18px;
+}
+
+/* ── Reveal animation — only used on .header and .faqList wrappers ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .faqList {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 60px 16px;
+  }
+
+  .faqQ {
+    font-size: 15px;
+    padding: 16px 0;
+  }
+
+  .faqA {
+    font-size: 14px;
+  }
+}

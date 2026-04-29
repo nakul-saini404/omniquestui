@@ -3,7 +3,7 @@ import styles from "./Footer.module.css";
 // ── SAT Coaching Locations ────────────────────────────────────────────────────
 const satLocations = [
   { href: "/sat_delhi",      label: "Delhi/NCR" },
-  { href: "https://eduquest.org.in/sat-coaching-classes-mumbai/",     label: "Mumbai" },
+  { href: "/sat_mumbai",     label: "Mumbai" },
   { href: "https://eduquest.org.in/sat-coaching-classes-gurugram/",   label: "Gurgaon" },
   { href: "https://eduquest.org.in/sat-coaching-classes-jaipur/",     label: "Jaipur" },
   { href: "https://eduquest.org.in/sat-coaching-classes-nepal",       label: "Nepal" },
@@ -76,7 +76,9 @@ export default function Footer() {
             <div className={styles.footerColTitle}>SAT Coaching In</div>
             <div className={styles.footerColLinks}>
               {satLocations.slice(0, 12).map((l) => (
-                <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer">
+                <a key={l.label} href={l.href} 
+                // target="_blank" rel="noopener noreferrer"
+                >
                   {l.label}
                 </a>
               ))}
@@ -88,7 +90,9 @@ export default function Footer() {
             <div className={styles.footerColTitle}>&nbsp;</div>
             <div className={`${styles.footerColLinks} ${styles.footerColLinksOffset}`}>
               {satLocations.slice(12).map((l) => (
-                <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer">
+                <a key={l.label} href={l.href}
+                //  target="_blank" rel="noopener noreferrer"
+                 >
                   {l.label}
                 </a>
               ))}

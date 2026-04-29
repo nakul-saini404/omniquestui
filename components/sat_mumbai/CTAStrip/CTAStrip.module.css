@@ -1,0 +1,163 @@
+/* CTAStrip.module.css
+   Mirrors the #enroll / .cta-strip section from the HTML.
+   Tokens: --navy, --gold, --gold2 (gold-light), --white,
+           --ff-head, --ff-body, --max
+*/
+
+/* ── Outer section — matches #enroll section in HTML ── */
+.section {
+  background: var(--white, #ffffff);
+  padding: 60px 24px;
+}
+
+/* ── Container ── */
+.container {
+  max-width: var(--max, 1160px);
+  margin: 0 auto;
+}
+
+/* ── CTA strip card — matches .cta-strip ── */
+.ctaStrip {
+  background: linear-gradient(135deg, var(--navy, #0b1c3d), #1a3560);
+  border-radius: 16px;
+  padding: 52px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Radial glow — matches .cta-strip::before ── */
+.glow {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(232, 160, 48, 0.12),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* ── Badge — matches .cta-strip .badge-top ── */
+.badgeTop {
+  display: inline-block;
+  background: rgba(232, 160, 48, 0.18);
+  border: 1px solid var(--gold, #d4a843);
+  color: var(--gold2, #f5c36a);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 16px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+/* ── Heading — matches .cta-strip h2 ── */
+.heading {
+  font-family: var(--ff-head, "Playfair Display", serif);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 700;
+  color: var(--white, #ffffff);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+/* Gold italic em — matches .cta-strip h2 em */
+.em {
+  color: var(--gold, #d4a843);
+  font-style: normal;
+}
+
+/* ── Sub text — matches .cta-strip p ── */
+.sub {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  max-width: 520px;
+  margin: 0 auto 28px;
+  line-height: 1.65;
+}
+
+/* ── Button row — matches .cta-btns ── */
+.ctaBtns {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Primary button — matches .btn-primary ── */
+.btnPrimary {
+  display: inline-block;
+  background: var(--gold, #d4a843);
+  color: var(--white, #ffffff);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: 7px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.btnPrimary:hover {
+  background: #c87e20;
+  transform: translateY(-1px);
+}
+
+/* ── Secondary button — matches .btn-secondary ── */
+.btnSecondary {
+  display: inline-block;
+  background: transparent;
+  color: var(--white, #ffffff);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 13px 26px;
+  border-radius: 7px;
+  text-decoration: none;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  transition: border-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.btnSecondary:hover {
+  border-color: var(--white, #ffffff);
+}
+
+/* ── Reveal animation ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .section {
+    padding: 40px 16px;
+  }
+
+  .ctaStrip {
+    padding: 36px 22px;
+  }
+
+  .ctaBtns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    width: 100%;
+    text-align: center;
+  }
+}

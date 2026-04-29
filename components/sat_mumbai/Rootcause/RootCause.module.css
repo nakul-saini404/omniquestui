@@ -1,0 +1,130 @@
+/* ═══════════════════════════════════════════════
+   RootCause — Root Cause Analysis
+   Pixel-perfect port of sat-coaching-mumbai.html
+   Global tokens: --navy, --gold, --ff-head,
+   --ff-body, --cream. Local tokens scoped below.
+═══════════════════════════════════════════════ */
+
+.section {
+  --gray: #6b7280;
+  --border: #e5e7eb;
+}
+
+/* ── SECTION ── */
+.section {
+  padding: 80px 24px;
+  background: var(--cream);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── HEADER ── */
+.sectionLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+  font-family: var(--ff-body);
+}
+
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(28px, 3vw, 40px);
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.sectionTitle em {
+  color: var(--gold);
+  font-style: normal;
+}
+
+.sectionSub {
+  font-size: 16px;
+  color: var(--gray);
+  max-width: 600px;
+  margin-bottom: 48px;
+  line-height: 1.7;
+  font-family: var(--ff-body);
+}
+
+/* ── 3-COL GRID ── */
+.rootcauseGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── CARD ── */
+.rcCard {
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 26px;
+  background: #fff;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.rcCard:hover {
+  box-shadow: 0 8px 28px rgba(11, 26, 54, 0.09);
+  transform: translateY(-2px);
+}
+
+.rcIcon {
+  font-size: 28px;
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+.rcCard h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+  font-family: var(--ff-body);
+}
+
+.rcCard p {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.7;
+  font-family: var(--ff-body);
+}
+
+/* ── QUOTE ── */
+.rcQuote {
+  background: var(--cream);
+  border-left: 4px solid var(--gold);
+  padding: 18px 22px;
+  border-radius: 0 10px 10px 0;
+  margin-top: 32px;
+  font-size: 15px;
+  color: var(--navy);
+  font-style: italic;
+  max-width: 700px;
+  line-height: 1.7;
+  font-family: var(--ff-body);
+}
+
+.rcQuote strong {
+  font-style: normal;
+  color: var(--gold);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .rootcauseGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 56px 20px;
+  }
+}

@@ -13,7 +13,7 @@ import Testimonials from "@/components/sat-delhi/Testimonials";
 import InternalLinks from "@/components/sat-delhi/InternalLinks";
 import Faq from "@/components/sat-delhi/Faq";
 import FinalCta from "@/components/sat-delhi/FinalCta";
-import Footer from "@/components/eduQuest/Footer";
+import Footer from "../../components/sat/Footer";
 
 /* ─────────────────────────────────────────────
    SEO METADATA
@@ -30,6 +30,7 @@ export const metadata: Metadata = {
     "SAT coaching in Delhi NCR",
     "best SAT institute Delhi",
     "SAT exam 2026 Delhi",
+    
   ],
   alternates: {
     canonical: "https://eduquest.org.in/sat-coaching-classes-delhi/",
@@ -185,9 +186,9 @@ export default function SatDelhiPage() {
         color: "var(--text3)",
       }}>
         <div className="container">
-          <a href="https://eduquest.org.in/" style={{ color: "var(--text3)" }}>Home</a>
+          <a href="/eduQuest" style={{ color: "var(--text3)" }}>Home</a>
           <span style={{ margin: "0 6px" }}>›</span>
-          <a href="https://eduquest.org.in/sat/" style={{ color: "var(--text3)" }}>SAT Coaching</a>
+          <a href="/sat" style={{ color: "var(--text3)" }}>SAT Coaching</a>
           <span style={{ margin: "0 6px" }}>›</span>
           SAT Coaching in Delhi
         </div>

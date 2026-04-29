@@ -1,0 +1,194 @@
+/* ═══════════════════════════════════════════════
+   SatPattern — SAT Exam Pattern 2026
+   Pixel-perfect port of sat-coaching-mumbai.html
+   Global tokens used: --navy, --gold, --ff-head,
+   --ff-body, --cream. Local tokens scoped below.
+═══════════════════════════════════════════════ */
+
+.section {
+  --gray: #6b7280;
+  --border: #e5e7eb;
+  --light-gray: #f3f4f6;
+  --gold-light: #f5c36a;
+}
+
+/* ── SECTION ── */
+.section {
+  padding: 80px 24px;
+  background: var(--cream);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── HEADER ── */
+.sectionLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(28px, 3vw, 40px);
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.sectionTitle em {
+  color: var(--gold);
+  font-style: normal;
+}
+
+.sectionSub {
+  font-size: 16px;
+  color: var(--gray);
+  max-width: 600px;
+  margin-bottom: 48px;
+  line-height: 1.7;
+}
+
+/* ── PATTERN GRID ── */
+.patternGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 48px;
+}
+
+/* ── PATTERN CARD ── */
+.patternCard {
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.patternHead {
+  background: var(--navy);
+  padding: 18px 22px;
+  color: #fff;
+}
+
+.patternHead h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  font-family: var(--ff-body);
+}
+
+.patternHead p {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--ff-body);
+}
+
+.patternBody {
+  padding: 20px 22px;
+  background: #fff;
+}
+
+/* ── STAT ROWS ── */
+.patternStat {
+  display: flex;
+  justify-content: space-between;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--light-gray);
+  font-size: 14px;
+  font-family: var(--ff-body);
+}
+
+.patternStat:last-of-type {
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.patternStat span:first-child {
+  color: var(--gray);
+}
+
+.patternStat span:last-child {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+/* ── MODULE BOXES ── */
+.modBox {
+  background: var(--light-gray);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-top: 12px;
+}
+
+.modBox h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 4px;
+  font-family: var(--ff-body);
+}
+
+.modBox p {
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.6;
+  font-family: var(--ff-body);
+}
+
+/* ── OUTCOMES BAR ── */
+.outcomesBar {
+  background: var(--navy);
+  border-radius: 14px;
+  padding: 36px;
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.outItem {
+  text-align: center;
+}
+
+.outNum {
+  font-family: var(--ff-head);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.outLbl {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 6px;
+  font-family: var(--ff-body);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .patternGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 56px 20px;
+  }
+
+  .outcomesBar {
+    padding: 28px 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .outNum {
+    font-size: 30px;
+  }
+}

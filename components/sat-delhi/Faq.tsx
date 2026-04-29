@@ -9,10 +9,6 @@ const FAQS = [
     a: "EduQuest offers Classroom SAT coaching, Online Live Group classes, One-on-One sessions (online and hybrid), and full Hybrid programmes for students in Delhi, Noida, and Gurgaon. Both offline and digital SAT coaching in Delhi are available. All courses include a Diagnostic Test Framework, 100+ minimum hours, and unlimited doubt-clearing sessions.",
   },
   {
-    q: "How much does SAT coaching in Delhi cost at EduQuest?",
-    a: "SAT coaching at EduQuest starts at Rs. 50,000/- for Online Live Group and One-on-One sessions. Hybrid one-on-one programs start at Rs. 70,000/-. All prices are + GST. For multi-year integrated programs (Grades 8–12) combining PSAT, SAT, AP, and admissions counselling, contact EduQuest directly for customised pricing.",
-  },
-  {
     q: "How to score 1500+ on the SAT in Delhi?",
     a: "Score 1500+ by: (1) Taking a full diagnostic to find your baseline. (2) Targeting your weak skill clusters with a personalized module plan. (3) Mastering Bluebook's interface and adaptive testing strategy. (4) Taking 6+ full-length adaptive mocks. (5) Reviewing every wrong AND lucky-correct answer. (6) Aligning your SAT preparation with your university admissions strategy. EduQuest's programme in Delhi is built around this exact sequence.",
   },

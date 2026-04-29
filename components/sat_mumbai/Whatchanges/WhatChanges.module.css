@@ -1,0 +1,179 @@
+/* WhatChanges.module.css
+   Mirrors the "What Changes" / Before-After section from the HTML.
+   Tokens from global.css: --navy, --gold, --gray, --border,
+   --white, --cream, --ff-head, --ff-body, --max
+   HTML-specific values used inline as fallbacks:
+     --red: #dc2626   --green: #16a34a
+*/
+
+/* ── Section ── */
+.section {
+  padding: 80px 24px;
+  background: var(--white, #ffffff);
+}
+
+/* ── Container ── */
+.container {
+  max-width: var(--max, 1160px);
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.header {
+  margin-bottom: 40px;
+}
+
+/* ── Section label ── */
+.sectionLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--gold, #d4a843);
+  margin-bottom: 10px;
+}
+
+.sectionLabel::before {
+  content: "── ";
+  opacity: 0.6;
+}
+
+/* ── Section title ── */
+.sectionTitle {
+  font-family: var(--ff-head, "Playfair Display", serif);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 700;
+  color: var(--navy, #0b1c3d);
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+/* Gold em — matches HTML .section-title em */
+.em {
+  color: var(--gold, #d4a843);
+  font-style: normal;
+}
+
+/* ── 2-column Before / After grid ── */
+.baGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+/* ── Shared card base ── */
+.card {
+  border-radius: 12px;
+  padding: 28px;
+}
+
+/* ── Before card — matches .ba-before in HTML ── */
+.cardBefore {
+  background: #fef2f2;
+  border: 1.5px solid #fecaca;
+}
+
+/* ── After card — matches .ba-after in HTML ── */
+.cardAfter {
+  background: #f0fdf4;
+  border: 1.5px solid #bbf7d0;
+}
+
+/* ── Card heading ── */
+.cardHeading {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* suppress icon inside heading — heading already has colour */
+}
+
+.cardHeading .iconNo,
+.cardHeading .iconYes {
+  font-size: 17px;
+}
+
+/* Before heading red */
+.headingBefore {
+  color: #dc2626;
+}
+
+/* After heading green */
+.headingAfter {
+  color: #16a34a;
+}
+
+/* ── List ── */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── List item — matches .ba-item in HTML ── */
+.listItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--navy, #0b1c3d);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  line-height: 1.5;
+}
+
+.listItem:last-child {
+  border-bottom: none;
+}
+
+/* ── Icon ── */
+.icon {
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* ✗ red — matches .ba-icon-no */
+.iconNo {
+  color: #dc2626;
+}
+
+/* ✓ green — matches .ba-icon-yes */
+.iconYes {
+  color: #16a34a;
+}
+
+/* ── Reveal animation ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .baGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 60px 16px;
+  }
+
+  .card {
+    padding: 22px 18px;
+  }
+}

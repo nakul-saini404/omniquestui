@@ -40,7 +40,16 @@ const calcs = [
   { title: 'ACT Score Calculator',  href: 'https://test.eduquest.org.in/act-score-calculator/' },
   { title: 'AP Score Calculator',   href: 'https://test.eduquest.org.in/ap-score-calculator/' },
   { title: 'TMUA Score Calculator', href: 'https://test.eduquest.org.in/tmua-score-calculator/' },
-  { title: 'IELTS Score Estimator', href: 'https://test.eduquest.org.in/' },
+  { title: 'SCAT Score Estimator', href: 'https://test.eduquest.org.in/scat-score-calculator/' },
+  { title: 'PSAT Score Estimator', href: 'https://test.eduquest.org.in/psat-score-calculator/' },
+  { title: 'UCAT Score Estimator', href: 'https://test.eduquest.org.in/ucat-score-calculator/' },
+  { title: 'ESAT Score Estimator', href: 'https://test.eduquest.org.in/esat-score-calculator/' },
+  { title: 'LSAT Score Estimator', href: 'https://test.eduquest.org.in/lsat-score-calculator/' },
+  { title: 'LNAT Score Estimator', href: 'https://test.eduquest.org.in/lnat-score-calculator/' },
+  { title: 'GMAT Score Estimator', href: 'https://test.eduquest.org.in/gmat-score-calculator/' },
+  { title: 'GRE Score Estimator', href: 'https://test.eduquest.org.in/gre-score-calculator/' },
+  { title: 'CAT Score Estimator', href: 'https://test.eduquest.org.in/cat-score-calculator/' },
+  { title: 'MCAT Score Estimator', href: 'https://test.eduquest.org.in/mcat-score-calculator/' },
 ];
 
 export default function TestPrep() {

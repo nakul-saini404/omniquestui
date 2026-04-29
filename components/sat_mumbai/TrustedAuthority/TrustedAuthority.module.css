@@ -1,0 +1,258 @@
+/* TrustedAuthority.module.css
+   Mirrors the "Trusted Authority" section from the HTML source.
+   Uses global.css tokens: --navy, --gold, --cream, --gray,
+   --border, --white, --ff-head, --ff-body, --max
+*/
+
+/* ── Section ── */
+.section {
+  padding: 80px 24px;
+  /* matches HTML: style="background:var(--cream);" on this section */
+  background: var(--cream, #fdf8f0);
+}
+
+/* ── Container ── */
+.container {
+  max-width: var(--max, 1160px);
+  margin: 0 auto;
+}
+
+/* ── Header block ── */
+.header {
+  margin-bottom: 0;
+}
+
+/* ── Section label ── */
+.sectionLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--gold, #d4a843);
+  margin-bottom: 10px;
+}
+
+.sectionLabel::before {
+  content: "── ";
+  opacity: 0.6;
+}
+
+/* ── Section title ── */
+.sectionTitle {
+  font-family: var(--ff-head, "Playfair Display", serif);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 700;
+  color: var(--navy, #0b1c3d);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.em {
+  color: var(--gold, #d4a843);
+  font-style: normal;
+}
+
+/* ── Section sub ── */
+.sectionSub {
+  color: var(--gray, #6b7280);
+  font-size: 16px;
+  max-width: 600px;
+  margin-bottom: 48px;
+  line-height: 1.65;
+}
+
+/* ── Outcomes bar (navy strip with 3 stats) ── */
+.outcomesBar {
+  background: var(--navy, #0b1c3d);
+  border-radius: 14px;
+  padding: 36px;
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.outItem {
+  text-align: center;
+}
+
+.outNum {
+  font-family: var(--ff-head, "Playfair Display", serif);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--gold, #d4a843);
+  line-height: 1;
+}
+
+.outLabel {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 6px;
+}
+
+/* ── Bottom layout: testi grid (left) + photo (right) ── */
+.bottomGrid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 28px;
+  align-items: start;
+}
+
+/* ── Testimonials: 3 cards stacked vertically on left, 
+   but on wider screens we lay them in a row ──
+   HTML uses .testi-grid { grid-template-columns: repeat(3,1fr) }
+   We keep 3-col for the testi sub-grid since they sit beside the photo */
+.testiGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+/* ── Testimonial card ── */
+.testiCard {
+  background: var(--cream, #fdf8f0);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.stars {
+  color: var(--gold, #d4a843);
+  font-size: 16px;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+
+.testiText {
+  font-size: 14px;
+  color: var(--gray, #6b7280);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.testiAuthor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.testiAvatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--navy, #0b1c3d);
+  color: var(--gold, #d4a843);
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--ff-head, "Playfair Display", serif);
+}
+
+.testiName {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--navy, #0b1c3d);
+}
+
+.testiScore {
+  font-size: 12px;
+  color: var(--gray, #6b7280);
+  margin-top: 2px;
+}
+
+/* ── Student photo ── */
+.photoWrap {
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  /* sticky so it stays in view while scrolling testimonials */
+  position: sticky;
+  top: 80px;
+}
+
+.photo {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* Gradient overlay at bottom of photo */
+.photoOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(11, 28, 61, 0.88));
+  padding: 28px 20px 20px;
+}
+
+.photoBadge {
+  display: inline-block;
+  background: var(--gold, #d4a843);
+  color: var(--navy, #0b1c3d);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+.photoCaption {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Reveal animation ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .bottomGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .photoWrap {
+    position: relative;
+    top: auto;
+  }
+
+  .photo {
+    height: 320px;
+    object-position: center 20%;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 60px 16px;
+  }
+
+  .outcomesBar {
+    padding: 24px 16px;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .outNum {
+    font-size: 32px;
+  }
+}
