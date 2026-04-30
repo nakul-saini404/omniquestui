@@ -1,6 +1,6 @@
 "use client";
 
-import Hero from "@/components/sat_mumbai/Hero/Hero";
+import Hero from "@/components/sat_gurgaon/Hero/Hero";
 import Footer from "../../components/sat/Footer";
 import "./global.css";
 import Navbar from "@/components/eduQuest/Navbar";
@@ -13,7 +13,7 @@ import FeeStructure from "@/components/sat_gurgaon/FeeStructure/FeeStructure";
 import StudentTestimonials from "@/components/sat_gurgaon/StudentTestimonials/StudentTestimonials";
 import ScoreImprovement from "@/components/sat_gurgaon/ScoreImprovement/ScoreImprovement";
 import RelatedProgrammes from "@/components/sat_gurgaon/RelatedProgrammes/RelatedProgrammes";
-import FrequentlyAskedQuestions from "@/components/sat_gurgaon/FrequentlyAskedquestions/FrequentlyAskedquestions";
+import FrequentlyAskedQuestions from "@/components/sat_gurgaon/FAQ/FAQ";
 
 export default function SATGurgaon() {
   return (

@@ -1,0 +1,132 @@
+/* CityFAQ.module.css */
+
+/* ── SECTION ── */
+.section {
+  padding: 96px 24px;
+  background: var(--cream);
+}
+
+/* ── INNER WRAPPER — centers and constrains content ── */
+.inner {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* ── HEADER — centered like reference ── */
+.header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* ── SECTION LABEL ── */
+.sectionLabel {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+/* ── HEADING ── */
+.heading {
+  font-family: var(--ff-head);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--navy);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.heading em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ── FAQ LIST ── */
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── FAQ ITEM ── */
+.faqItem {
+  background: var(--white);
+  border: 1px solid var(--line2);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.faqItem:has(button[aria-expanded="true"]) {
+  border-color: var(--navy);
+  box-shadow: 0 2px 12px rgba(11, 28, 61, 0.06);
+}
+
+/* ── FAQ QUESTION BUTTON ── */
+.faqQ {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-family: var(--ff-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.faqQ:hover {
+  background: rgba(212, 168, 67, 0.06);
+}
+
+/* ── + ICON ── */
+.icon {
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--gold);
+  flex-shrink: 0;
+  line-height: 1;
+  transition: transform 0.25s ease;
+  display: inline-block;
+}
+
+/* ── FAQ ANSWER — height driven by inline style ── */
+.faqA {
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.faqAInner {
+  padding: 0 24px 20px;
+  font-size: 14.5px;
+  color: var(--text2);
+  line-height: 1.8;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .section {
+    padding: 64px 20px;
+  }
+
+  .heading {
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+  }
+
+  .faqQ {
+    font-size: 14px;
+    padding: 16px 18px;
+  }
+
+  .faqAInner {
+    padding: 0 18px 16px;
+    font-size: 14px;
+  }
+}

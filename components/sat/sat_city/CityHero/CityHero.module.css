@@ -1,0 +1,367 @@
+/* ═══════════════════════════════════════════════════
+   CityHero.module.css
+   Theme: cream background hero — matches sat_coaching_jaipur.html
+   All values use global CSS tokens. No hard-coded colors.
+═══════════════════════════════════════════════════ */
+
+/* ── Keyframes ── */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes orbDrift {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%       { transform: translateY(-16px) scale(1.03); }
+}
+
+@keyframes gridReveal {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Stagger entry classes ──
+   Elements start at opacity:0; class applied by JS triggers animation.
+─────────────────────────────────────────────────── */
+.in0,
+.in1,
+.in2,
+.in3,
+.in4 {
+  animation-name: fadeSlideUp;
+  animation-duration: 0.68s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: both;
+}
+
+.in0 { animation-delay: 0.05s; }
+.in1 { animation-delay: 0.14s; }
+.in2 { animation-delay: 0.26s; }
+.in3 { animation-delay: 0.40s; }
+.in4 { animation-delay: 0.52s; }
+
+/* Elements invisible before JS fires */
+.badge,
+.headline,
+.sub,
+.pills,
+.actions,
+.statsBar {
+  opacity: 0;
+}
+
+/* ════════════════════════════════════════════════
+   HERO SHELL — cream background (matches HTML)
+════════════════════════════════════════════════ */
+.hero {
+  position: relative;
+  background: var(--cream);
+  padding: 80px 0 100px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+
+/* ── Background orbs ── */
+.orbA,
+.orbB {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.orbA {
+  width: 580px;
+  height: 580px;
+  top: -200px;
+  right: -160px;
+  background: radial-gradient(
+    circle,
+    rgba(212, 168, 67, 0.11) 0%,
+    transparent 65%
+  );
+  animation: orbDrift 10s ease-in-out infinite;
+}
+
+.orbB {
+  width: 340px;
+  height: 340px;
+  bottom: -80px;
+  left: -60px;
+  background: radial-gradient(
+    circle,
+    rgba(11, 28, 61, 0.05) 0%,
+    transparent 70%
+  );
+  animation: orbDrift 13s ease-in-out infinite reverse;
+}
+
+/* ── Dot grid texture ── */
+.dotGrid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(
+    circle,
+    rgba(11, 28, 61, 0.06) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
+  /* Fade in & mask so it doesn't overwhelm */
+  opacity: 0;
+  animation: gridReveal 1.4s ease 0.4s forwards;
+  mask-image: linear-gradient(
+    to bottom right,
+    transparent 20%,
+    rgba(0, 0, 0, 0.5) 55%,
+    transparent 85%
+  );
+}
+
+/* ════════════════════════════════════════════════
+   INNER LAYOUT
+════════════════════════════════════════════════ */
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  padding: 0 48px;
+  margin: 0 auto;
+}
+
+/* ════════════════════════════════════════════════
+   BADGE  (pill above headline)
+════════════════════════════════════════════════ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212, 168, 67, 0.12);
+  border: 1px solid rgba(212, 168, 67, 0.3);
+  border-radius: 50px;
+  padding: 6px 16px 6px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--navy3);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.badgeDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+  box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.22);
+}
+
+/* ════════════════════════════════════════════════
+   HEADLINE
+════════════════════════════════════════════════ */
+.headline {
+  font-family: var(--ff-head);
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.18;
+  margin-bottom: 20px;
+  max-width: 760px;
+}
+
+/* Applied via dangerouslySetInnerHTML — targets <em> inside h1 */
+.headlineEm {
+  font-style: italic;
+  color: var(--gold);
+  text-decoration: underline;
+  text-decoration-color: rgba(212, 168, 67, 0.3);
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
+}
+
+/* ════════════════════════════════════════════════
+   SUB COPY
+════════════════════════════════════════════════ */
+.sub {
+  font-size: 16px;
+  color: var(--text2);
+  max-width: 580px;
+  margin-bottom: 16px;
+  line-height: 1.75;
+}
+
+/* ════════════════════════════════════════════════
+   TRUST PILLS
+════════════════════════════════════════════════ */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 36px;
+}
+
+.pill {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--navy3);
+  background: rgba(11, 28, 61, 0.05);
+  border: 1px solid var(--line2);
+  border-radius: 4px;
+  padding: 4px 11px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* ════════════════════════════════════════════════
+   CTA ACTIONS
+════════════════════════════════════════════════ */
+.actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+
+/* ════════════════════════════════════════════════
+   STATS BAR  — white card strip, matches HTML .hero-stats
+════════════════════════════════════════════════ */
+.statsBar {
+  display: flex;
+  flex-wrap: wrap;
+  background: var(--white);
+  border: 1px solid var(--line2);
+  border-radius: var(--radius);
+  overflow: hidden;
+  max-width: 600px;
+  box-shadow:
+    0 2px 16px rgba(11, 28, 61, 0.07),
+    0 0 0 1px rgba(212, 168, 67, 0.06);
+}
+
+.statCell {
+  flex: 1;
+  min-width: 140px;
+  padding: 22px 24px;
+  border-right: 1px solid var(--line);
+  text-align: center;
+  transition: background 0.2s ease;
+}
+
+.statCell:last-child {
+  border-right: none;
+}
+
+.statCell:hover {
+  background: rgba(212, 168, 67, 0.04);
+}
+
+.statValue {
+  display: block;
+  font-family: var(--ff-head);
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.statLabel {
+  font-size: 12px;
+  color: var(--text3);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ════════════════════════════════════════════════
+   CITY WATERMARK  — vertical text, bottom-right
+════════════════════════════════════════════════ */
+.cityWatermark {
+  position: absolute;
+  bottom: 48px;
+  right: 36px;
+  font-family: var(--ff-head);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(11, 28, 61, 0.1);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ════════════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .hero {
+    padding: 60px 0 72px;
+  }
+
+  .inner {
+    padding: 0 32px;
+  }
+
+  .statsBar {
+    max-width: 100%;
+  }
+
+  .cityWatermark {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    padding: 0 24px;
+  }
+
+  .headline {
+    font-size: clamp(2rem, 7vw, 2.6rem);
+  }
+
+  .statCell {
+    min-width: 42%;
+  }
+
+  /* 2-column grid on tablet */
+  .statCell:nth-child(2n) {
+    border-right: none;
+  }
+
+  .statCell:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 480px) {
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .statCell {
+    min-width: 50%;
+    padding: 16px 14px;
+  }
+
+  .statValue {
+    font-size: 1.7rem;
+  }
+
+  .orbA {
+    width: 280px;
+    height: 280px;
+    top: -80px;
+    right: -60px;
+  }
+}

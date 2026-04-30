@@ -1,0 +1,197 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   CityLongTermProgrammes.module.css
+   City-agnostic — identical structure to LongTermProgrammes.module.css.
+   Section padding/max-width handled by global .container.
+───────────────────────────────────────────────────────────────────────────── */
+
+/* ── SECTION ── */
+.section {
+  padding: 80px 0;
+}
+
+/* ── LABEL ── */
+.sectionLabel {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+/* ── HEADING ── */
+.heading {
+  font-family: var(--ff-head);
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  color: var(--navy);
+  line-height: 1.22;
+  margin-bottom: 18px;
+}
+
+.heading em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ── SUBTEXT ── */
+.subText {
+  color: var(--text2);
+  font-size: 16px;
+  max-width: 600px;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* ── TABLE ── */
+.tableWrapper {
+  overflow-x: auto;
+  margin-top: 32px;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 12px rgba(11, 28, 61, 0.06);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead tr {
+  background: var(--navy);
+  border-bottom: 2px solid var(--gold);
+}
+
+.table th {
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 16px 18px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--line);
+  color: var(--text);
+  background: var(--white);
+  vertical-align: middle;
+  transition: background 0.15s;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table tbody tr:hover td {
+  background: rgba(212, 168, 67, 0.04);
+}
+
+/* ── ACTION LINK (shared by table + mobile cards) ── */
+.actionLink {
+  display: inline-block;
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  background: rgba(212, 168, 67, 0.12);
+  border: 1.5px solid var(--gold);
+  padding: 5px 14px;
+  border-radius: var(--radius);
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+}
+
+.actionLink:hover {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+/* ── MOBILE CARDS ── */
+.mobileCards {
+  display: none;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.mobileCard {
+  background: var(--white);
+  border: 1px solid var(--line2);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.mobileCard:hover {
+  border-color: var(--gold);
+  box-shadow: 0 6px 20px rgba(212, 168, 67, 0.1);
+}
+
+.mobileCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.mobileCardName {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.mobileCardGrade {
+  font-size: 12px;
+  color: var(--gold);
+  font-weight: 600;
+  background: rgba(212, 168, 67, 0.1);
+  padding: 3px 10px;
+  border-radius: 50px;
+}
+
+.mobileCardCoverage {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── FOOTNOTE ── */
+.footnote {
+  font-size: 13px;
+  color: var(--text3);
+  margin-top: 16px;
+}
+
+.footnoteLink {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footnoteLink:hover {
+  text-decoration: underline;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .section {
+    padding: 56px 0;
+  }
+
+  /* Hide table, show cards */
+  .tableWrapper {
+    display: none;
+  }
+
+  .mobileCards {
+    display: flex;
+  }
+}

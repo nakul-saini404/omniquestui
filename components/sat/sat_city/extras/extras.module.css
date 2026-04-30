@@ -1,0 +1,216 @@
+/* extras.module.css — shared styles for all optional extra sections */
+
+.section {
+  background: var(--white);
+  padding: 96px 0;
+}
+
+.sectionAlt {
+  background: var(--cream2);
+}
+
+/* Info box */
+.infoBox {
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--navy);
+  border-radius: 8px;
+  padding: 40px 48px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.infoText {
+  flex: 1;
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+  min-width: 280px;
+}
+
+/* Table */
+.tableWrap {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid var(--line2);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table thead tr {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.table th {
+  padding: 14px 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.table td {
+  padding: 14px 20px;
+  color: var(--text2);
+  border-bottom: 1px solid var(--line);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table tbody tr:hover td {
+  background: rgba(11, 28, 61, 0.03);
+}
+
+/* Steps grid */
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.stepCard {
+  background: var(--cream);
+  border: 1px solid var(--line2);
+  border-radius: 8px;
+  padding: 28px 24px;
+}
+
+.stepNum {
+  display: block;
+  font-family: var(--ff-head);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--line2);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.stepTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.stepDesc {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.7;
+}
+
+/* Advantage grid */
+.advantageGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.advantageCard {
+  background: var(--white);
+  border: 1px solid var(--line2);
+  border-radius: 8px;
+  padding: 24px 20px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.advantageCard:hover {
+  border-color: var(--navy);
+  transform: translateY(-2px);
+}
+
+.advantageIcon {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.advantageTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.advantageDesc {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.7;
+}
+
+/* Rank table */
+.rankTable {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rankRow {
+  display: grid;
+  grid-template-columns: 36px 1fr 100px 100px;
+  align-items: center;
+  padding: 16px 20px;
+  background: var(--cream);
+  border: 1px solid var(--line2);
+  border-radius: 6px;
+  gap: 16px;
+  transition: background 0.15s;
+}
+
+.rankRowActive {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+.rankRowActive .rankCity,
+.rankRowActive .rankScore,
+.rankRowActive .rankImprovement {
+  color: var(--white) !important;
+}
+
+.rankRowActive .rankNum {
+  color: var(--gold2) !important;
+}
+
+.rankNum {
+  font-family: var(--ff-head);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--line2);
+}
+
+.rankCity {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.rankScore {
+  font-family: var(--ff-head);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  text-align: right;
+}
+
+.rankImprovement {
+  font-size: 13px;
+  font-weight: 600;
+  color: #16a34a;
+  text-align: right;
+}
+
+.rankRowActive .rankImprovement {
+  color: #86efac !important;
+}
