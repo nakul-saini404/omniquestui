@@ -18,7 +18,7 @@ export default function LocalSchoolsSection({ data }: { data: SATCityData }) {
             curricula common in {data.city}, ensuring seamless integration with students'
             existing academic workload.
           </p>
-          <a href="#contact" className="btn-primary">Talk to a Counsellor</a>
+          <a href="https://eduquest.org.in/contact-us/" className="btn-primary">Talk to a Counsellor</a>
         </div>
       </div>
     </section>

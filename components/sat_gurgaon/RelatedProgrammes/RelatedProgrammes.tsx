@@ -6,7 +6,7 @@ const programmes = [
     title: "SAT Coaching (All India)",
     desc: "Complete Digital SAT 2026 syllabus, pattern, scoring guide and 1500+ strategy.",
     link: "Explore SAT →",
-    href: "https://eduquest.org.in/sat/",
+    href: "/sat",
   },
   {
     icon: "🏆",
