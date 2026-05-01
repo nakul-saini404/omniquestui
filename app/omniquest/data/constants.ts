@@ -224,7 +224,7 @@ export const FOOTER_BOTTOM = {
   links: [
     { label: "Privacy Policy",  href: "https://eduquest.org.in/privacy-policy/" },
     { label: "Terms of Service", href: "https://eduquest.org.in/terms-of-use/" },
-    { label: "Cookie Policy",   href: "#" },
+    { label: "Refund Policies",   href: "https://eduquest.org.in/refund-policy/" },
   ],
 };
 
