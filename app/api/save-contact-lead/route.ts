@@ -146,7 +146,7 @@ export async function POST(req: NextRequest) {
             </p>
 
             <div style="text-align:center;margin-bottom:20px;">
-              <a href="https://eduquest.org.in/personality-test"
+              <a href="/personality-test"
                 style="display:inline-block;padding:14px 32px;border-radius:50px;background:linear-gradient(135deg,#c9a84c,#a07830);color:white;font-weight:700;text-decoration:none;font-size:15px;box-shadow:0 8px 24px rgba(201,168,76,.3);">
                 🧠 Take Free Personality Test
               </a>
