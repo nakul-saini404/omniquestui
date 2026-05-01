@@ -1,8 +1,9 @@
+// app/api/chat/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { openai, OPENAI_MODEL } from "@/lib/openai";
 import { supabaseAdmin } from "@/lib/supabase";
+import { transport } from "@/lib/email";
 
-// ── OmniQuest AI System Prompt ──────────────────────────────────────────────
 const SYSTEM_PROMPT = `You are OmniQuest AI — a warm, expert educational counsellor assistant for OmniQuest, a premium global education consulting company based in New Delhi, India.
 
 ## What OmniQuest Offers
@@ -34,30 +35,63 @@ const SYSTEM_PROMPT = `You are OmniQuest AI — a warm, expert educational couns
 - Personality Test: https://omniquest.in/personality-test
 - Website: https://omniquest.in`;
 
+// Send admin email for new chat sessions (first message only, non-blocking)
+async function notifyAdminOfNewChat(sessionId: string, firstUserMessage: string) {
+  try {
+    await transport.sendMail({
+      from: `"OmniQuest Chatbot" <${process.env.SMTP_USER}>`,
+      to: process.env.ADMIN_EMAIL!,
+      subject: `💬 New Chat Session Started — ${new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })}`,
+      html: `
+        <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:28px;background:#0B1C3D;color:#f1f5ff;border-radius:16px;">
+          <h2 style="color:#00C9B1;margin:0 0 16px;">💬 New Chatbot Session</h2>
+          <hr style="border-color:rgba(255,255,255,.1);margin-bottom:20px"/>
+          <table style="width:100%;border-collapse:collapse;">
+            <tr>
+              <td style="padding:8px 0;color:rgba(241,245,255,.5);font-size:13px;width:160px;">Session ID</td>
+              <td style="padding:8px 0;font-weight:600;font-size:13px;">${sessionId}</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 0;color:rgba(241,245,255,.5);font-size:13px;">First Message</td>
+              <td style="padding:8px 0;font-weight:600;font-size:13px;">${firstUserMessage}</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 0;color:rgba(241,245,255,.5);font-size:13px;">Time (IST)</td>
+              <td style="padding:8px 0;font-weight:600;font-size:13px;">${new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })}</td>
+            </tr>
+          </table>
+          <div style="margin-top:20px;padding:14px;background:rgba(0,201,177,.07);border:1px solid rgba(0,201,177,.2);border-radius:10px;font-size:12px;color:rgba(241,245,255,.5);">
+            Check Supabase → chat_sessions table for full conversation history.
+          </div>
+        </div>
+      `,
+    });
+  } catch (e) {
+    console.error("Chat admin email error (non-fatal):", e);
+  }
+}
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const { messages, sessionId } = body;
 
-    // ── Validate ────────────────────────────────────────────────────────────
     if (!messages || !Array.isArray(messages) || messages.length === 0) {
       return NextResponse.json({ error: "Invalid or empty messages array" }, { status: 400 });
     }
 
-    // Sanitize messages — only keep role and content, prevent injection
     const safeMessages = messages
       .filter((m) => m && typeof m.role === "string" && typeof m.content === "string")
       .map((m) => ({
         role: m.role as "user" | "assistant",
-        content: String(m.content).slice(0, 1000), // cap at 1000 chars per message
+        content: String(m.content).slice(0, 1000),
       }))
-      .slice(-10); // keep last 10 messages to manage token usage
+      .slice(-10);
 
     if (safeMessages.length === 0) {
       return NextResponse.json({ error: "No valid messages found" }, { status: 400 });
     }
 
-    // ── Call OpenAI ─────────────────────────────────────────────────────────
     const completion = await openai.chat.completions.create({
       model: OPENAI_MODEL,
       messages: [
@@ -65,38 +99,51 @@ export async function POST(req: NextRequest) {
         ...safeMessages,
       ],
       temperature: 0.8,
-      max_tokens: 450, // Keep chat replies concise and fast
+      max_tokens: 450,
     });
 
     const reply =
       completion.choices[0].message.content?.trim() ||
       "I'm having a moment! Please try again. 😅";
 
-    // ── Save chat session to Supabase (non-blocking) ────────────────────────
+    // Save to Supabase and optionally notify admin — both non-blocking
     if (sessionId && typeof sessionId === "string") {
+      const fullMessages = [
+        ...safeMessages,
+        { role: "assistant", content: reply },
+      ];
+
+      // Check if this is a new session (first message) before upsert
+      const isFirstMessage = safeMessages.filter(m => m.role === "user").length === 1;
+
       supabaseAdmin
         .from("chat_sessions")
         .upsert(
           {
             session_id: sessionId,
-            messages: [
-              ...safeMessages,
-              { role: "assistant", content: reply },
-            ],
+            messages: fullMessages,
+            message_count: fullMessages.length,
+            last_user_message: safeMessages.findLast(m => m.role === "user")?.content ?? "",
             updated_at: new Date().toISOString(),
+            created_at: new Date().toISOString(), // ignored on update by Supabase
           },
           { onConflict: "session_id" }
         )
         .then(({ error }) => {
           if (error) console.error("Chat session save error:", error);
         });
+
+      // Email admin only on first user message to avoid spam
+      if (isFirstMessage) {
+        const firstMsg = safeMessages.find(m => m.role === "user")?.content ?? "";
+        notifyAdminOfNewChat(sessionId, firstMsg);
+      }
     }
 
     return NextResponse.json({ reply });
   } catch (e: any) {
     console.error("Chat route error:", e);
 
-    // Handle OpenAI-specific errors gracefully
     if (e?.status === 429) {
       return NextResponse.json(
         { reply: "I'm a little overwhelmed right now — please try again in a moment! 🙏" },
@@ -112,7 +159,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Generic fallback — always return 200 so the frontend shows the message
     return NextResponse.json(
       { reply: "I'm having a moment! Please try again or reach us at omniquest.in 📞" },
       { status: 200 }

@@ -240,7 +240,7 @@ export const DECISION_CTA = {
   buttons: [
     {
       label: "Run Your Narrative Intelligence Scan",
-      href: "https://omniquestui.vercel.app/personality-test",
+      href: "/personality-test",
       primary: true,
     },
     {

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 import { createClient } from "@supabase/supabase-js";
+import { transport } from "@/lib/email";
 import {
   computeReport, computeRawScores, computeMBTIType,
   UNIVERSITY_TRACKS, getTrackForCountry, getFlowType,
@@ -30,32 +31,26 @@ export async function POST(req: NextRequest) {
     if (!answers || !studentName)
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
 
-    // ── Step 1: Compute MBTI type deterministically from quiz answers ─────────
-    const rawScores  = computeRawScores(answers);
-    const mbtiType   = computeMBTIType(rawScores);
+    // ── Step 1: Compute MBTI type deterministically ───────────────────────────
+    const rawScores = computeRawScores(answers);
+    const mbtiType  = computeMBTIType(rawScores);
 
-    // ── Step 2: Resolve flow context ──────────────────────────────────────────
-    const currentClass    = leadData?.currentClass ?? "12";
-    const flowType        = getFlowType(currentClass);
-    const isStreamMode    = flowType === "stream_recommendation";
+    // ── Step 2: Resolve flow context ─────────────────────────────────────────
+    const currentClass     = leadData?.currentClass ?? "12";
+    const flowType         = getFlowType(currentClass);
+    const isStreamMode     = flowType === "stream_recommendation";
     const isUniversityMode = !isStreamMode;
 
-    // Country/degree are OPTIONAL for Class 11/12
     const targetCountry = leadData?.targetCountry?.trim() ?? "";
     const targetDegree  = leadData?.targetDegree?.trim()  ?? "";
     const hasCountry    = targetCountry !== "";
     const hasDegree     = targetDegree  !== "";
 
-    // ── Step 3: Determine university scope ───────────────────────────────────
-    // A — Student selected country + degree → targeted list in that country
-    // B — Student selected country only → best programs in that country
-    // C — Student selected nothing → AI picks best across USA, UK, Canada, Australia, Singapore based on personality
-    const uniMode = hasCountry ? (hasDegree ? "A" : "B") : "C";
+    // ── Step 3: University scope ──────────────────────────────────────────────
+    const uniMode        = hasCountry ? (hasDegree ? "A" : "B") : "C";
     const defaultCountries = ["USA", "UK", "Canada", "Australia", "Singapore"];
+    const track          = hasCountry ? getTrackForCountry(targetCountry) : null;
 
-    const track = hasCountry ? getTrackForCountry(targetCountry) : null;
-
-    // University Track context for AI
     const relevantTracks = hasCountry
       ? UNIVERSITY_TRACKS.filter(t => t.region === targetCountry)
       : UNIVERSITY_TRACKS.filter(t => defaultCountries.includes(t.region));
@@ -323,11 +318,11 @@ Return this exact JSON:
       report = computeReport(answers, studentName, leadData) as unknown as Record<string, unknown>;
     }
 
-    // ── Force MBTI type (never let AI override) ────────────────────────────
+    // ── Force MBTI type (never let AI override) ───────────────────────────────
     report.personalityType      = mbtiType.code;
     report.personalityName      = mbtiType.name;
     report.personalityFullLabel = mbtiType.fullLabel;
-    report.personalityTypeData  = mbtiType;   // full metadata for UI
+    report.personalityTypeData  = mbtiType;
     report.studentName          = studentName;
     report.generatedAt          = new Date().toISOString();
     report.currentClass         = currentClass;
@@ -341,10 +336,12 @@ Return this exact JSON:
     };
 
     // ── Save to Supabase ──────────────────────────────────────────────────────
+    // NOTE: no updated_at here — not needed for upsert, avoids column-not-found errors
     try {
-      await supabaseAdmin.from("personality_leads").upsert(
+      const { error: dbErr } = await supabaseAdmin.from("personality_leads").upsert(
         {
           name:               studentName,
+          full_name:          studentName,
           email:              email ?? "",
           phone:              leadData?.phone          ?? "",
           city:               leadData?.city           ?? "",
@@ -362,50 +359,52 @@ Return this exact JSON:
           full_report:        report,
           quiz_answers:       answers,
           consent:            leadData?.consent ?? false,
-          created_at:         new Date().toISOString(),
         },
         { onConflict: "email" }
       );
+      if (dbErr) {
+        console.error("Supabase save error:", dbErr);
+      } else {
+        console.log("✅ Saved to Supabase:", studentName, email);
+      }
     } catch (dbErr) {
       console.error("Supabase save error (non-fatal):", dbErr);
     }
 
-    // ── Admin email ───────────────────────────────────────────────────────────
+    // ── Admin email — calls transport directly, NO internal HTTP fetch ────────
     try {
       const cm   = report.careerMatches as CareerMatch[];
       const unis = (report.universities as Array<{name:string}> | undefined) ?? [];
 
-      await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/send-email`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          to: process.env.ADMIN_EMAIL,
-          subject: `${mbtiType.emoji} ${mbtiType.fullLabel} — ${studentName} · Class ${currentClass}${targetCountry ? " · " + targetCountry : ""}`,
-          html: `
+      await transport.sendMail({
+        from:    `"OmniQuest" <${process.env.SMTP_USER}>`,
+        to:      process.env.ADMIN_EMAIL!,
+        subject: `${mbtiType.emoji} ${mbtiType.fullLabel} — ${studentName} · Class ${currentClass}${targetCountry ? " · " + targetCountry : ""}`,
+        html: `
 <div style="font-family:sans-serif;max-width:620px;margin:0 auto;background:#0b1c3d;color:white;padding:32px;border-radius:16px;">
-  <div style="text-align:center;margin-bottom:20px;padding:20px;background:linear-gradient(135deg,${mbtiType.gradient.includes("#") ? "rgba(91,138,255,.15)" : "rgba(91,138,255,.15)"});border:1px solid rgba(255,255,255,.1);border-radius:14px;">
+  <div style="text-align:center;margin-bottom:20px;padding:20px;background:rgba(91,138,255,.1);border:1px solid rgba(255,255,255,.1);border-radius:14px;">
     <div style="font-size:2.5rem;margin-bottom:6px;">${mbtiType.emoji}</div>
     <div style="font-size:1.1rem;font-weight:800;color:#d4af37;">${mbtiType.fullLabel}</div>
     <div style="font-size:13px;color:rgba(255,255,255,.5);margin-top:4px;font-style:italic;">${mbtiType.tagline}</div>
   </div>
   <table style="width:100%;border-collapse:collapse;">
     ${[
-      ["Student",          studentName],
-      ["Email",            email ?? "—"],
-      ["Phone",            leadData?.phone ?? "—"],
-      ["City",             leadData?.city  ?? "—"],
-      ["Current Class",    currentClass],
-      ["MBTI Type",        `${mbtiType.emoji} ${mbtiType.fullLabel}`],
-      ["Overall Score",    `${report.overallScore}/100`],
-      ["Flow",             isStreamMode ? "Stream Recommendation" : `University (Mode ${uniMode})`],
+      ["Student",         studentName],
+      ["Email",           email ?? "—"],
+      ["Phone",           leadData?.phone ?? "—"],
+      ["City",            leadData?.city  ?? "—"],
+      ["Current Class",   currentClass],
+      ["MBTI Type",       `${mbtiType.emoji} ${mbtiType.fullLabel}`],
+      ["Overall Score",   `${report.overallScore}/100`],
+      ["Flow",            isStreamMode ? "Stream Recommendation" : `University (Mode ${uniMode})`],
       ...(isUniversityMode ? [
-        ["Target Country",   targetCountry || "Not selected (AI suggested)"],
-        ["Target Degree",    targetDegree  || "Not selected (AI suggested)"],
-        ["Top Universities", unis.slice(0,3).map((u:{name:string})=>u.name).join(", ")],
+        ["Target Country",  targetCountry || "Not selected"],
+        ["Target Degree",   targetDegree  || "Not selected"],
+        ["Top Universities",unis.slice(0,3).map((u:{name:string})=>u.name).join(", ")],
       ] : [
         ["Recommended Stream", (report.streamRecommendation as {primary?:string})?.primary ?? "—"],
       ]),
-      ["Top Career",       cm?.[0]?.title ?? "—"],
+      ["Top Career",      cm?.[0]?.title ?? "—"],
     ].map(([k,v])=>`
       <tr>
         <td style="padding:8px 0;color:rgba(255,255,255,.45);font-size:13px;width:180px;border-bottom:1px solid rgba(255,255,255,.06);">${k}</td>
@@ -413,11 +412,12 @@ Return this exact JSON:
       </tr>`).join("")}
   </table>
   <div style="margin-top:16px;padding:12px;background:rgba(255,255,255,.04);border-radius:10px;font-size:12px;color:rgba(255,255,255,.4);">
-    Careers: ${cm?.slice(0,4).map(c=>`${c.icon} ${c.title} (${c.fit}%)`).join(" · ") ?? "—"}
+    Careers: ${cm?.slice(0,4).map(c=>`${c.icon} ${c.title} (${c.fit}%)`).join(" · ") ?? "—"}<br/>
+    Submitted: ${new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })} IST
   </div>
 </div>`,
-        }),
       });
+      console.log("✅ Admin email sent");
     } catch (emailErr) {
       console.error("Admin email error (non-fatal):", emailErr);
     }

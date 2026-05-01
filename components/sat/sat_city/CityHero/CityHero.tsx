@@ -38,13 +38,14 @@ export default function CityHero({ data }: Props) {
         <div>
 
           {/* Breadcrumb */}
-          <nav className={`${styles.breadcrumb} ${visible ? styles.in0 : ""}`}>
+          {/* <nav className={`${styles.breadcrumb} ${visible ? styles.in0 : ""}`}>
             <a href="https://eduquest.org.in">Home</a>
             {" › "}
             <a href={`https://eduquest.org.in/sat-coaching-classes-${citySlug}/`}>
-              SAT Coaching {city}
+              SAT Coaching  {" › "} {city}
             </a>
-          </nav>
+            
+          </nav> */}
 
           {/* Badge */}
           <div className={`${styles.heroBadge} ${visible ? styles.in0 : ""}`}>

@@ -191,7 +191,7 @@ export default function FloatingWidgets() {
   const [promptDismissed, setPromptDismissed] = useState(false);
 
   // 🔧 Replace with your actual WhatsApp number (country code + number, no +)
-  const WHATSAPP_NUMBER = '919999999999';
+  const WHATSAPP_NUMBER = '9958041888';
   const WHATSAPP_MESSAGE = 'Hi! I have a question about EduQuest.';
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
