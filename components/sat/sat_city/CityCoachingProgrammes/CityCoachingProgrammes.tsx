@@ -40,7 +40,7 @@ const COURSES: Course[] = [
     ],
     btnLabel: "Enquire Now →",
     btnHref: (_slug) =>
-      "https://eduquest.org.in/product/sat-in-online-live/",
+      "https://eduquest.org.in/contact-us/",
     btnVariant: "outline",
   },
   {
@@ -57,7 +57,7 @@ const COURSES: Course[] = [
     ],
     btnLabel: "Book Free Diagnostic →",
     btnHref: (slug) =>
-      `https://eduquest.org.in/product/sat-in-${slug}-one-on-one-online-live/`,
+      `https://test.eduquest.org.in/sat-score-calculator/`,
     btnVariant: "primary",
   },
   {
@@ -74,7 +74,7 @@ const COURSES: Course[] = [
     ],
     btnLabel: "Enquire Now →",
     btnHref: (slug) =>
-      `https://eduquest.org.in/product/sat-in-${slug}-hybridonline-live/`,
+      `https://eduquest.org.in/contact-us/`,
     btnVariant: "outline",
   },
 ];
@@ -82,6 +82,8 @@ const COURSES: Course[] = [
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export default function CityCoachingProgrammes({ data }: Props) {
+
+
   const { city, slug } = data;
 
   return (

@@ -31,7 +31,7 @@ export default function Hero({ city = "Jaipur", cityTagline = "Score 1500+" }: H
   }, []);
 
   return (
-    <section className={styles.hero} ref={heroRef} aria-label="Hero">
+    <section className={styles.hero} ref={heroRef} id="satHero" aria-label="Hero">
       {/* Background decorative elements */}
       <div className={styles.bgOrb1} aria-hidden="true" />
       <div className={styles.bgOrb2} aria-hidden="true" />

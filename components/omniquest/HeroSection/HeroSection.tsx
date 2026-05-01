@@ -51,7 +51,7 @@ export default function HeroSection() {
 
         {/* CTAs */}
         <div className={`animate-fade-up delay-3 ${styles.ctaRow}`}>
-          <a href="#architecture" className={styles.btnPrimary}>
+          <a href="#philosophy" className={styles.btnPrimary}>
             Enter the System
           </a>
           <a href="#pathways" className={styles.btnSecondary}>

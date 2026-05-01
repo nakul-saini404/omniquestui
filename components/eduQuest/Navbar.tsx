@@ -632,7 +632,7 @@ export default function Navbar({ onToggleDesign }: { onToggleDesign?: () => void
             <a href="https://eduquest.org.in/franchise/" className="eq-btn-outline">
               Franchise
             </a>
-            <a href="#enroll" className="eq-btn-gold">
+            <a href="https://eduquest.org.in/contact-us/" className="eq-btn-gold">
               Apply Now ▶
             </a>
             {onToggleDesign && (

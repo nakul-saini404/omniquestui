@@ -81,7 +81,7 @@ export default function CityHero({ data }: Props) {
 
           {/* CTAs */}
           <div className={`${styles.heroBtns} ${visible ? styles.in3 : ""}`}>
-            <a href="https://eduquest.org.in/contact-us/" className={styles.btnPrimary}>
+            <a href="https://test.eduquest.org.in/sat-score-calculator/" className={styles.btnPrimary}>
               {hero.ctaLabel}
             </a>
             {/* <a href="#pattern" className={styles.btnSecondary}>

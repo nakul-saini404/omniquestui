@@ -26,14 +26,14 @@ const FEES: FeeRow[] = [
     label: "Online Live Group Course",
     desc: "Live sessions, AI tests, unlimited doubt clearing",
     amount: "₹45,000/-",
-    href: (_slug) => "https://eduquest.org.in/product/sat-in-online-live/",
+    href: (_slug) => "https://eduquest.org.in/contact-us/",
   },
   {
     label: "Hybrid Group Course",
     desc: "Online + classroom, comprehensive support",
     amount: "₹70,800/-",
     href: (slug) =>
-      `https://eduquest.org.in/product/sat-in-${slug}-hybridonline-live/`,
+      `https://eduquest.org.in/contact-us/`,
   },
   {
     label: "Classroom Group Course",
@@ -46,14 +46,14 @@ const FEES: FeeRow[] = [
     desc: "Fully personalized, score-till-goal guarantee",
     amount: "₹80,000/-",
     href: (slug) =>
-      `https://eduquest.org.in/product/sat-in-${slug}-one-on-one-online-live/`,
+      `https://eduquest.org.in/contact-us/`,
   },
   {
     label: "Hybrid One-on-One",
     desc: "Premium: online + classroom + admissions support",
     amount: "₹1,18,000/-",
     href: (slug) =>
-      `https://eduquest.org.in/product/sat-in-${slug}-hybrid-one-on-oneonline-live/`,
+      `https://eduquest.org.in/contact-us/`,
   },
 ];
 

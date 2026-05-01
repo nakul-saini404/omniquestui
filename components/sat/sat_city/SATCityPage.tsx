@@ -28,7 +28,7 @@ import VisaInfoSection from "./extras/VisaInfoSection";
 import OnlineAdvantageSection from "./extras/OnlineAdvantageSection";
 import CityRankSection from "./extras/CityRankSection";
 import CityCoachingProgrammes from "./CityCoachingProgrammes/CityCoachingProgrammes";
-import CityLongTermProgrammes from "./CityLongTermProgrammes/CityLongTermProgrammes";
+// import CityLongTermProgrammes from "./CityLongTermProgrammes/CityLongTermProgrammes";
 import CityFeeStructure from "./CityFeeStructure/CityFeeStructure";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -87,7 +87,7 @@ export default function SATCityPage({ data }: Props) {
         <CitySyllabusCoverage data={data} />  {/* ← was <SyllabusCoverage /> */}
 
         <CityCoachingProgrammes data={data}/>
-        <CityLongTermProgrammes data={data} />
+        {/* <CityLongTermProgrammes data={data} /> */}
 <CityFeeStructure data={data} />
         <CityTestimonials data={data} />
 
