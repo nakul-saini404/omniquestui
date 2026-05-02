@@ -1,0 +1,135 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   UCATUniversitiesStrip.module.css
+   A slim gold-tinted strip with a looping marquee of university pills.
+   Matches the UCAT 2026 EduQuest design language.
+───────────────────────────────────────────────────────────────────────────── */
+
+/* ── Marquee keyframe ── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── STRIP wrapper ── */
+.strip {
+  background: var(--gold-pale, #fdf8ec);
+  border-top: 1px solid var(--gold-border, #e8c96a);
+  border-bottom: 1px solid var(--gold-border, #e8c96a);
+  padding: 22px 0;
+  overflow: hidden;
+}
+
+/* ── INNER — centres the label, lets marquee bleed full width ── */
+.inner {
+  /* max-width: 1180px; */
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+/* ── Label ── */
+.label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted, #5a6a85);
+  margin: 0 0 16px;
+}
+
+/* ── Marquee container — clips overflow and fades edges ── */
+.marqueeWrapper {
+  position: relative;
+  overflow: hidden;
+  /* soft fade on both sides */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+}
+
+/* ── Scrolling track — contains 2× the pills for seamless loop ── */
+.marqueeTrack {
+  display: flex;
+  gap: 10px;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+/* Pause on hover for accessibility / readability */
+.marqueeWrapper:hover .marqueeTrack {
+  animation-play-state: paused;
+}
+
+/* ── Individual pill ── */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #fff;
+  border: 1px solid var(--gold-border, #e8c96a);
+  border-radius: 50px;
+  padding: 7px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy, #0b1b3d);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Flag emoji ── */
+.flag {
+  font-size: 15px;
+  line-height: 1;
+}
+
+/* ── Screen-reader-only list ── */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+  list-style: none;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE — Mobile (≤ 600px)
+══════════════════════════════════════ */
+@media (max-width: 600px) {
+  .strip   { padding: 18px 0; }
+  .inner   { padding: 0 16px; }
+  .label   { font-size: 10px; margin-bottom: 12px; }
+  .pill    { font-size: 12px; padding: 6px 14px; }
+  /* Slightly faster on mobile so it feels active */
+  .marqueeTrack { animation-duration: 20s; }
+}
+
+/* ── Reduced motion — show static wrapped pills instead ── */
+@media (prefers-reduced-motion: reduce) {
+  .marqueeWrapper {
+    overflow: visible;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+  .marqueeTrack {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+}

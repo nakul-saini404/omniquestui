@@ -1,0 +1,460 @@
+/* EduQuestPillars.module.css */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+
+/* ── Page shell + tokens ─────────────────────────────── */
+.page {
+  --ink:          #0A0A14;
+  --paper:        #FAFAF7;
+  --cream:        #F5F0E8;
+  --cream-dark:   #EDE8DF;
+  --gold:         #C9973A;
+  --gold-light:   #E8B84B;
+  --gold-dim:     rgba(201,151,58,0.13);
+  --slate:        #2E3A52;
+  --slate-light:  #4A5568;
+  --border:       rgba(10,10,20,0.1);
+  --border-gold:  rgba(201,151,58,0.28);
+  --serif:        'DM Serif Display', Georgia, serif;
+  --sans:         'DM Sans', system-ui, sans-serif;
+  --mono:         'DM Mono', monospace;
+  --ease:         cubic-bezier(0.4,0,0.2,1);
+
+  position: relative;
+  background: var(--cream);
+  min-height: 100vh;
+  font-family: var(--sans);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* Subtle warm gradient atmosphere */
+.bgTexture {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 10% 10%, rgba(201,151,58,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 90% 85%, rgba(46,58,82,0.05)   0%, transparent 60%);
+}
+.bgTexture::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  background-size: 200px;
+  opacity: 0.45;
+}
+
+/* ── Shared ──────────────────────────────────────────── */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.1rem;
+}
+
+/* ── Hero ────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 7rem 2rem 4.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heroTitle {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0 0 1.25rem;
+  color: var(--ink);
+}
+.heroTitle span { color: var(--ink); }
+.heroTitle em   { color: var(--gold); font-style: italic; }
+
+.heroSub {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--slate-light);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ── Pillar Section ──────────────────────────────────── */
+.pillarSection {
+  position: relative;
+  z-index: 1;
+  padding: 0 80px 6rem;
+}
+
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 32px rgba(10,10,20,0.07);
+}
+
+/* ── Pillar Card ─────────────────────────────────────── */
+.pillarCard {
+  background: var(--paper);
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s var(--ease),
+              transform 0.6s var(--ease),
+              background 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.pillarCard + .pillarCard { border-left: 1px solid var(--border); }
+.pillarCard.visible { opacity: 1; transform: translateY(0); }
+.pillarCard:hover   { background: #fff; }
+
+.pillarCard::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--gold-dim) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.pillarCard:hover::before { opacity: 1; }
+
+.cardInner {
+  padding: 2.5rem 2rem 2.25rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+}
+.num {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--slate-light);
+  opacity: 0.5;
+}
+.icon {
+  font-size: 1.25rem;
+  color: var(--accent, var(--gold));
+  transition: transform 0.3s ease;
+  line-height: 1;
+}
+.pillarCard:hover .icon { transform: rotate(18deg) scale(1.2); }
+
+.rule {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0 0 1.5rem;
+}
+
+.cardLabel {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent, var(--gold));
+  margin: 0 0 0.5rem;
+}
+.cardFocus {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--ink);
+  margin: 0 0 0.9rem;
+}
+.cardDesc {
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--slate-light);
+  margin: 0;
+  flex: 1;
+}
+
+.accentBar {
+  height: 2px;
+  margin-top: 1.75rem;
+  background: var(--accent, var(--gold));
+  width: 0;
+  transition: width 0.55s var(--ease) 0.2s;
+  border-radius: 2px;
+}
+.pillarCard.visible .accentBar { width: 36%; }
+.pillarCard:hover   .accentBar { width: 100%; transition-delay: 0s; }
+
+/* ── Premium Section ─────────────────────────────────── */
+.premiumSection {
+  position: relative;
+  z-index: 1;
+  background: var(--paper);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 6rem 80px;
+}
+
+.premiumHeader {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.5rem;
+}
+
+.sectionTitle {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 0 1rem;
+  color: var(--ink);
+}
+.sectionTitle em { color: var(--gold); font-style: italic; }
+
+.sectionSub {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--slate-light);
+}
+
+/* ── Stats row ───────────────────────────────────────── */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  max-width: 900px;
+  margin: 0 auto 4.5rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(10,10,20,0.05);
+}
+
+.statBox {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: var(--cream);
+  border-right: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s var(--ease),
+              transform 0.5s var(--ease),
+              background 0.2s;
+}
+.statBox:last-child { border-right: none; }
+.statBox:hover      { background: #fff; }
+.statBox.visible    { opacity: 1; transform: translateY(0); }
+
+.statNum {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--gold);
+  margin-bottom: 0.35rem;
+}
+.statLabel {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--slate-light);
+  opacity: 0.65;
+}
+
+/* ── Dimension Grid ──────────────────────────────────── */
+.dimGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  max-width: 1100px;
+  margin: 0 auto 4rem;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(10,10,20,0.06);
+}
+
+.dimCard {
+  padding: 2.25rem 2rem;
+  background: var(--cream);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s var(--ease),
+              transform 0.55s var(--ease),
+              background 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.dimCard:nth-child(3n)        { border-right: none; }
+.dimCard:nth-last-child(-n+3) { border-bottom: none; }
+.dimCard.visible { opacity: 1; transform: translateY(0); }
+.dimCard:hover   { background: #fff; }
+
+.dimCard::after {
+  content: '';
+  position: absolute; left: 0; top: 0;
+  width: 3px; height: 0;
+  background: var(--gold);
+  border-radius: 0 2px 2px 0;
+  transition: height 0.45s var(--ease) 0.15s;
+}
+.dimCard.visible::after { height: 38%; }
+.dimCard:hover::after   { height: 100%; transition-delay: 0s; }
+
+.dimCode {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.65rem;
+}
+.dimTitle {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--ink);
+  margin: 0 0 0.55rem;
+  line-height: 1.25;
+}
+.dimShort {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--slate);
+  margin: 0 0 0.6rem;
+  line-height: 1.55;
+}
+.dimDetail {
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--slate-light);
+  margin: 0;
+}
+
+/* ── For block ───────────────────────────────────────── */
+.forBlock {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2.5rem;
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  background: var(--cream);
+  text-align: center;
+  box-shadow: 0 2px 16px rgba(10,10,20,0.05);
+}
+.forLabel {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 1.4rem;
+}
+.forList {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.forList li {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--slate-light);
+  line-height: 1.65;
+  padding-left: 1.5em;
+  position: relative;
+  text-align: left;
+}
+.forList li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 0.85rem;
+}
+
+/* ── Footer ──────────────────────────────────────────── */
+.foot {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  padding: 3.5rem 2rem;
+  background: var(--cream);
+}
+.footMark {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  padding: 0.3em 0.65em;
+  border: 1px solid var(--border-gold);
+  border-radius: 4px;
+}
+.footText {
+  font-family: var(--serif);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--slate-light);
+  letter-spacing: 0.04em;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 960px) {
+  .pillarSection,
+  .premiumSection { padding-left: 24px; padding-right: 24px; }
+
+  .grid3, .dimGrid { grid-template-columns: 1fr; border-radius: 12px; }
+  .pillarCard + .pillarCard { border-left: none; border-top: 1px solid var(--border); }
+
+  .dimCard { border-right: none !important; }
+  .dimCard:nth-last-child(-n+3) { border-bottom: 1px solid var(--border); }
+  .dimCard:last-child { border-bottom: none; }
+
+  .statsRow { grid-template-columns: repeat(2, 1fr); border-radius: 10px; }
+  .statBox:nth-child(2) { border-right: none; }
+  .statBox:nth-child(1),
+  .statBox:nth-child(2) { border-bottom: 1px solid var(--border); }
+}
+
+@media (max-width: 600px) {
+  .hero           { padding: 5rem 1.5rem 3rem; }
+  .premiumSection { padding: 4rem 1.25rem; }
+  .cardInner      { padding: 1.75rem 1.5rem; }
+  .dimCard        { padding: 1.75rem 1.5rem; }
+  .forBlock       { padding: 2rem 1.5rem; }
+  .statsRow       { grid-template-columns: 1fr 1fr; }
+}

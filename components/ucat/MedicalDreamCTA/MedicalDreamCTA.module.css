@@ -1,0 +1,312 @@
+/* ── SECTION ──────────────────────────────────────────────────── */
+/* Matches .cta-section exactly */
+.ctaSection {
+  background: linear-gradient(
+    135deg,
+    #0b1b3d 0%,
+    #162b56 50%,
+    #1a3a6b 100%
+  );
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ghost watermark — matches .cta-section::before */
+.ctaSection::before {
+  content: "UCAT 2026";
+  position: absolute;
+  right: -40px;
+  bottom: -60px;
+  font-family: var(--ff-head);
+  font-size: 160px;
+  color: rgba(255, 255, 255, 0.025);
+  font-weight: 900;
+  pointer-events: none;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* Subtle radial gold glow */
+.ctaSection::after {
+  content: "";
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(212, 168, 67, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* ── INNER — centred, max 700px — matches .cta-inner ─────────── */
+.ctaInner {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+
+  /* Entrance state */
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.ctaInner.innerVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── SECTION TAG ──────────────────────────────────────────────── */
+/* gold-light: #F5D98A from original */
+.sectionTag {
+  display: inline-block;
+  font-family: var(--ff-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #f5d98a;
+  margin-bottom: 10px;
+}
+
+/* ── HEADING ──────────────────────────────────────────────────── */
+.ctaHeading {
+  font-family: var(--ff-head);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 14px;
+  line-height: 1.15;
+}
+
+/* ── SUB COPY ─────────────────────────────────────────────────── */
+.ctaSub {
+  font-family: var(--ff-body);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.68);
+  margin-bottom: 40px;
+  line-height: 1.75;
+}
+
+/* ── FORM BLOCK ───────────────────────────────────────────────── */
+/* Matches .cta-form-block */
+.formBlock {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 36px;
+
+  /* Slight extra delay so it rises after the heading */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s ease 0.2s, transform 0.55s ease 0.2s;
+}
+
+.formBlock.formBlockVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── FORM GRID — 2 col ────────────────────────────────────────── */
+/* Matches .cta-form-grid */
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+/* ── SHARED INPUT / SELECT STYLES ────────────────────────────── */
+/* Matches .cta-form-grid input, .cta-form-grid select, .cta-full-input */
+.formInput {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-family: var(--ff-body);
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.formInput::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.formInput:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.15);
+}
+
+/* Select colour override */
+.formSelect {
+  color: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+}
+
+.formSelect option {
+  background: #0b1b3d;
+  color: #ffffff;
+}
+
+/* Full-width interest select */
+.fullInput {
+  margin-bottom: 14px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ── SUBMIT BUTTON ────────────────────────────────────────────── */
+/* Matches .cta-submit */
+.submitBtn {
+  width: 100%;
+  background: var(--gold);
+  color: var(--navy);
+  border: none;
+  padding: 16px;
+  border-radius: 10px;
+  font-family: var(--ff-body);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease, opacity 0.2s ease;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: var(--gold2);
+  transform: translateY(-1px);
+}
+
+.submitBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* ── TRUST ROW ────────────────────────────────────────────────── */
+/* Matches .cta-trust */
+.trustRow {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Matches .cta-trust-item */
+.trustItem {
+  font-family: var(--ff-body);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* ── ERROR BANNER ─────────────────────────────────────────────── */
+.errorBanner {
+  background: rgba(252, 235, 235, 0.12);
+  border: 1px solid rgba(240, 149, 155, 0.4);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-family: var(--ff-body);
+  font-size: 13px;
+  color: #fca5a5;
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+/* ── SUCCESS STATE ────────────────────────────────────────────── */
+.successState {
+  text-align: center;
+  padding: 32px 0;
+}
+
+.successIcon {
+  font-size: 3.2rem;
+  margin-bottom: 14px;
+}
+
+.successHeading {
+  font-family: var(--ff-head);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.successText {
+  font-family: var(--ff-body);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.successText strong {
+  color: #f5d98a;
+}
+
+.successBack {
+  font-family: var(--ff-body);
+  font-size: 13px;
+  color: var(--gold);
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.successBack:hover {
+  color: #f5d98a;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .ctaSection {
+    padding: 72px 0;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .formBlock {
+    padding: 28px 20px;
+  }
+
+  .trustRow {
+    gap: 12px;
+  }
+
+  .ctaSection::before {
+    font-size: 100px;
+    right: -20px;
+    bottom: -30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ctaInner {
+    padding: 0 16px;
+  }
+
+  .trustItem {
+    font-size: 11px;
+  }
+}

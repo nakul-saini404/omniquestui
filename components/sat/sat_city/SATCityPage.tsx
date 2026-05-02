@@ -34,6 +34,7 @@ import CitySatStructure from "./CitySatStructure/CitySatStructure";
 import DiagnosticCta from "@/components/sat-delhi/DiagnosticCta";
 import Admissions from "@/components/sat-delhi/Admissions";
 import CitySeoBlocks from "./CitySeoBlocks/CitySeoBlocks";
+import SATMultipurpose from "./SATMultipurpose/SATMultipurpose";
 
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -87,7 +88,7 @@ export default function SATCityPage({ data }: Props) {
         <CityHero data={data} />
         <CitySatStructure data={data} />
         <CityAbout data={data} />
-
+        <SATMultipurpose />
 
         {data.extraSections?.map((section) => {
           switch (section.id) {
@@ -115,7 +116,7 @@ export default function SATCityPage({ data }: Props) {
         <ScoreImprovement />
         <Admissions />
         <DiagnosticCta />
-        <CitySeoBlocks  data={data} />
+        <CitySeoBlocks data={data} />
         <CityTestimonials data={data} />
         {/* ── City-specific FAQs ── */}
 

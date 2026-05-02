@@ -28,7 +28,7 @@ const navItems = [
       { label: 'AP Coaching', href: 'https://eduquest.org.in/ap-coaching/' },
       { label: 'Pre-AP Coaching', href: 'https://eduquest.org.in/pre-ap-coaching-in-gurgaon/' },
       { label: 'TMUA Coaching', href: 'https://eduquest.org.in/tmua/' },
-      { label: 'UCAT Coaching', href: 'https://eduquest.org.in/ucat-exam-2025/' },
+      { label: 'UCAT Coaching', href: '/ucat' },
       { label: 'IPMAT Coaching', href: 'https://eduquest.org.in/ipmat-coaching-and-profile-building-eduquest-2026/' },
       { label: 'IELTS Coaching', href: 'https://eduquest.org.in/ielts/' },
       { label: 'PTE Coaching', href: 'https://eduquest.org.in/pte/' },

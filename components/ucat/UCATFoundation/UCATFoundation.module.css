@@ -1,0 +1,165 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   UCATFoundation.module.css
+   "Foundation" section — What is the UCAT Exam?
+   Matches the UCAT 2026 EduQuest design language exactly.
+───────────────────────────────────────────────────────────────────────────── */
+
+/* ── Reveal animation ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ── SECTION ── */
+.section {
+  padding: 80px 0;
+  background: var(--white, #ffffff);
+}
+
+/* ── CONTAINER ── */
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ══════════════════════════════════════
+   SECTION HEADER
+══════════════════════════════════════ */
+.sectionHeader {
+  margin-bottom: 48px;
+}
+
+.sectionTag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold, #c8982a);
+  margin-bottom: 10px;
+}
+
+.sectionTitle {
+  font-family: var(--ff-head, "Playfair Display", serif);
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 900;
+  color: var(--navy, #0b1b3d);
+  line-height: 1.18;
+  margin: 0 0 14px;
+}
+
+.sectionSub {
+  font-size: 16px;
+  color: var(--muted, #5a6a85);
+  max-width: 600px;
+  line-height: 1.75;
+  margin: 0;
+}
+.sectionSub em {
+  font-style: italic;
+  color: var(--navy, #0b1b3d);
+  font-weight: 600;
+}
+
+/* ══════════════════════════════════════
+   CARD GRID
+══════════════════════════════════════ */
+.whatGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* ── Individual card ── */
+.whatCard {
+  background: var(--blue-tint, #eef4fc);
+  border-radius: var(--radius, 14px);
+  padding: 28px;
+  border-left: 4px solid var(--navy, #0b1b3d);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.whatCard:hover {
+  box-shadow: 0 4px 24px rgba(11, 27, 61, 0.08);
+  transform: translateY(-2px);
+}
+
+/* ── Icon bubble ── */
+.cardIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: var(--navy, #0b1b3d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 14px;
+  flex-shrink: 0;
+}
+
+.whatCard h3 {
+  font-family: var(--ff-head, "Playfair Display", serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy, #0b1b3d);
+  margin: 0 0 8px;
+  line-height: 1.3;
+}
+
+.whatCard p {
+  font-size: 14px;
+  color: var(--muted, #5a6a85);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ══════════════════════════════════════
+   REVEAL / SCROLL ANIMATION
+══════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered delays for the four cards */
+.d1 { transition-delay: 0.05s; }
+.d2 { transition-delay: 0.15s; }
+.d3 { transition-delay: 0.25s; }
+.d4 { transition-delay: 0.35s; }
+
+/* ══════════════════════════════════════
+   RESPONSIVE — Tablet (≤ 768px)
+══════════════════════════════════════ */
+@media (max-width: 768px) {
+  .section        { padding: 64px 0; }
+  .sectionHeader  { margin-bottom: 36px; }
+  .whatGrid       { grid-template-columns: 1fr 1fr; gap: 16px; }
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE — Mobile (≤ 520px)
+══════════════════════════════════════ */
+@media (max-width: 520px) {
+  .section      { padding: 52px 0; }
+  .container    { padding: 0 16px; }
+  .whatGrid     { grid-template-columns: 1fr; }
+  .whatCard     { padding: 22px 20px; }
+  .sectionSub   { font-size: 15px; }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .revealed {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
