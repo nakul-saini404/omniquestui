@@ -16,6 +16,8 @@ import RelatedResources from "@/components/sat_mumbai/RelatedResources/RelatedRe
 import FAQ from "@/components/sat_mumbai/Faq/FAQ";
 import TrustedAuthority from "@/components/sat_mumbai/TrustedAuthority/TrustedAuthority";
 import CTAStrip from "@/components/sat_mumbai/CTAStrip/CTAStrip";
+import SatStructure from "@/components/sat-delhi/SatStructure";
+import Positioning from "@/components/sat_mumbai/Positioning/Positioning";
 
 export default function SATMumbai() {
   return (
@@ -41,13 +43,14 @@ export default function SATMumbai() {
         <Hero />
         <FeaturedSnippet />
         <SatPattern />
+        <Positioning />
         <RootCause />
-        <Roadmap />
+        {/* <Roadmap /> */}
         <SatStrategy />
         <OurSystem />
         <TrustedAuthority />
         <WhatChanges />
-        <RelatedResources />
+        {/* <RelatedResources /> */}
         <FAQ />
         <CTAStrip />
       </main>

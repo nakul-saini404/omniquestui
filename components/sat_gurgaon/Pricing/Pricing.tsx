@@ -11,7 +11,7 @@ export default function Pricing() {
           <div className={styles.left}>
             <div className="label">Course</div>
             <h2 className={styles.heading}>
-              SAT Coaching <em>Programmes</em> in Delhi
+              SAT Coaching <em>Programmes</em> in Gurgaon
             </h2>
             <p className={styles.sub}>
               Flexible formats for every student — online, offline, and hybrid.

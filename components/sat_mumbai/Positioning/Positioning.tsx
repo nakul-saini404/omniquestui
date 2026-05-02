@@ -1,21 +1,13 @@
-"use client";
-// components/sat_city/CityAbout/CityAbout.tsx
+import styles from "./Positioning.module.css";
 
-import styles from "./CityAbout.module.css";
-import type { SATCityData } from "@/constants/satCities";
-
-interface Props {
-  data: SATCityData;
-}
-
-const TRUST_PILLS = [
+const PILLS = [
   {
     icon: "🎯",
     title: "Academic Positioning",
     desc: "We integrate SAT performance into a broader strategy that strengthens your academic narrative for top university applications.",
   },
   {
-    icon: "📊",
+    icon: "📈",
     title: "Profile Strength",
     desc: "Your SAT score becomes a component of a comprehensive profile designed to stand out in competitive admissions environments.",
   },
@@ -24,36 +16,33 @@ const TRUST_PILLS = [
     title: "University Targeting Strategy",
     desc: "We align your score goals with your specific target universities to ensure your SAT preparation in Delhi is purposeful and directed.",
   },
-  // {
-  //   icon: "🗺️",
-  //   title: "US Admissions Strategy Alignment",
-  //   desc: "Your SAT score is positioned as part of a broader profile strategy — not prepared for in isolation.",
-  // },
 ];
 
-export default function CityAbout({ data }: Props) {
+export default function Positioning() {
   return (
-    <section className={styles.about}>
+    <section className={styles.positioning}>
       <div className={styles.grid}>
         <div>
-          <div className={styles.label}>About EduQuest in {data.city}</div>
+          <div className={styles.label}>The EduQuest Difference</div>
           <h2 className={styles.h2}>
-            Why {data.city} Students
+            SAT Is Not Just a Test.
             <br />
-            Choose <em>EduQuest</em>
+            {"It's a "}
+            <em>Positioning Tool.</em>
           </h2>
+          <p className={styles.sub}>
+            Most students prepare for the SAT in isolation. Top applicants use it
+            as a strategic component of their overall admissions profile.
+            EduQuest&apos;s digital SAT coaching in Mumbai is built around this
+            distinction.
+          </p>
           <blockquote className={styles.quote}>
-            {data.localContext}
+            &ldquo;A high score matters. Strategic positioning matters more.&rdquo;
           </blockquote>
-          <div className={styles.paras}>
-            {data.about.paragraphs.map((para, i) => (
-              <p key={i} className={styles.para}>{para}</p>
-            ))}
-          </div>
         </div>
 
         <div className={styles.pills}>
-          {TRUST_PILLS.map((p) => (
+          {PILLS.map((p) => (
             <div key={p.title} className={styles.pill}>
               <div className={styles.pillIcon}>{p.icon}</div>
               <div>

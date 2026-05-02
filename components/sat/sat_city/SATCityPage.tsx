@@ -30,6 +30,10 @@ import CityRankSection from "./extras/CityRankSection";
 import CityCoachingProgrammes from "./CityCoachingProgrammes/CityCoachingProgrammes";
 // import CityLongTermProgrammes from "./CityLongTermProgrammes/CityLongTermProgrammes";
 import CityFeeStructure from "./CityFeeStructure/CityFeeStructure";
+import CitySatStructure from "./CitySatStructure/CitySatStructure";
+import DiagnosticCta from "@/components/sat-delhi/DiagnosticCta";
+import Admissions from "@/components/sat-delhi/Admissions";
+import CitySeoBlocks from "./CitySeoBlocks/CitySeoBlocks";
 
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -81,19 +85,10 @@ export default function SATCityPage({ data }: Props) {
       <main>
         {/* ── City-specific sections ── */}
         <CityHero data={data} />
+        <CitySatStructure data={data} />
         <CityAbout data={data} />
 
-        {/* ── Shared sections — city-aware ── */}
-        <CitySyllabusCoverage data={data} />  {/* ← was <SyllabusCoverage /> */}
 
-        <CityCoachingProgrammes data={data}/>
-        {/* <CityLongTermProgrammes data={data} /> */}
-<CityFeeStructure data={data} />
-        <CityTestimonials data={data} />
-
-        <ScoreImprovement />
-
-        {/* ── Optional extra sections ── */}
         {data.extraSections?.map((section) => {
           switch (section.id) {
             case "LocalSchools":
@@ -111,15 +106,28 @@ export default function SATCityPage({ data }: Props) {
           }
         })}
 
-        <RelatedProgrammes />
 
+        {/* ── Shared sections — city-aware ── */}
+        <CitySyllabusCoverage data={data} />  {/* ← was <SyllabusCoverage /> */}
+
+
+        <CityCoachingProgrammes data={data} />
+        <ScoreImprovement />
+        <Admissions />
+        <DiagnosticCta />
+        <CitySeoBlocks  data={data} />
+        <CityTestimonials data={data} />
         {/* ── City-specific FAQs ── */}
+
         <CityFAQ data={data} />
 
         <CTAStrip />
+
       </main>
 
       <Footer />
     </>
   );
 }
+
+

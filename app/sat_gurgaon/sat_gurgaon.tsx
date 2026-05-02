@@ -8,12 +8,14 @@ import EduQuestDifference from "@/components/sat_gurgaon/EduQuestDifference/EduQ
 import HowWePrepareYou from "@/components/sat_gurgaon/HowWePrepareYou/HowWePrepareYou";
 import WhyEduQuest from "@/components/sat_gurgaon/WhyEduQuest/WhyEduQuest";
 import SyllabusCoverage from "@/components/sat_gurgaon/SyllabusCoverage/SyllabusCoverage";
-import CoachingProgrammes from "@/components/sat_gurgaon/CoachingProgrammes/CoachingProgrammes";
-import FeeStructure from "@/components/sat_gurgaon/FeeStructure/FeeStructure";
 import StudentTestimonials from "@/components/sat_gurgaon/StudentTestimonials/StudentTestimonials";
 import ScoreImprovement from "@/components/sat_gurgaon/ScoreImprovement/ScoreImprovement";
 import RelatedProgrammes from "@/components/sat_gurgaon/RelatedProgrammes/RelatedProgrammes";
 import FrequentlyAskedQuestions from "@/components/sat_gurgaon/FAQ/FAQ";
+import SatStructure from "@/components/sat-delhi/SatStructure";
+import Pricing from "@/components/sat_gurgaon/Pricing/Pricing";
+import FinalCta from "@/components/sat-delhi/FinalCta";
+import DiagnosticCta from "@/components/sat-delhi/DiagnosticCta";
 
 export default function SATGurgaon() {
   return (
@@ -37,16 +39,18 @@ export default function SATGurgaon() {
       </nav>    
         <main>
         <Hero/>
+        <SatStructure />
         <EduQuestDifference/>
+        <DiagnosticCta/>
         <HowWePrepareYou/>
         <WhyEduQuest/>
         <SyllabusCoverage/>
-        <CoachingProgrammes/>
-        <FeeStructure/>
+        <Pricing/>
         <StudentTestimonials/>
         <ScoreImprovement/>
         <RelatedProgrammes/>
         <FrequentlyAskedQuestions/>
+        <FinalCta/>
       </main>
       <Footer />
     </>

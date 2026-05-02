@@ -1,143 +1,141 @@
+"use client";
 // components/sat_city/CityCoachingProgrammes/CityCoachingProgrammes.tsx
-// City-aware version of CoachingProgrammes.
-// Replaces all hardcoded "Jaipur" references with data.city / data.slug.
+// Layout: 70% content left | 30% animated cycling mode words right
+// No cards — clean typographic section with feature list and CTAs
 
+import { useEffect, useRef, useState } from "react";
 import type { SATCityData } from "@/constants/satCities";
 import styles from "./CityCoachingProgrammes.module.css";
-
-// ─── Types ────────────────────────────────────────────────────────────────────
 
 interface Props {
   data: SATCityData;
 }
 
-interface Course {
-  type: string;
-  title: string;
-  popular: boolean;
-  features: string[];
-  btnLabel: string;
-  /** href is a function so we can inject the city slug */
-  btnHref: (slug: string) => string;
-  btnVariant: "primary" | "outline";
-}
+const MODES = ["Online", "Offline", "Hybrid"] as const;
 
-// ─── Static course definitions ────────────────────────────────────────────────
-// btnHref receives the city slug so each city gets its own product URL.
-
-const COURSES: Course[] = [
-  {
-    type: "Online Live",
-    title: "Group Course",
-    popular: false,
-    features: [
-      "Online Live Group Sessions",
-      "100+ Hours Minimum",
-      "Unlimited Doubt Clearing",
-      "Study Materials Provided",
-      "AI-based Test Generation",
-      "Diagnostic Test Framework",
-    ],
-    btnLabel: "Enquire Now →",
-    btnHref: (_slug) =>
-      "https://eduquest.org.in/contact-us/",
-    btnVariant: "outline",
-  },
-  {
-    type: "Personalized",
-    title: "One-on-One",
-    popular: true,
-    features: [
-      "Personal 1:1 Sessions",
-      "100+ Hours Guaranteed",
-      "Unlimited Retakes",
-      "Personalized Roadmap",
-      "Section-wise Strategy",
-      "Score-till-goal Programme",
-    ],
-    btnLabel: "Book Free Diagnostic →",
-    btnHref: (slug) =>
-      `https://test.eduquest.org.in/sat-score-calculator/`,
-    btnVariant: "primary",
-  },
-  {
-    type: "Hybrid",
-    title: "One-on-One Hybrid",
-    popular: false,
-    features: [
-      "Online + Classroom Sessions",
-      "100+ Hours Minimum",
-      "Unlimited Doubt Clearing",
-      "Profile Building Advice",
-      "University Counselling",
-      "Application Writing Support",
-    ],
-    btnLabel: "Enquire Now →",
-    btnHref: (slug) =>
-      `https://eduquest.org.in/contact-us/`,
-    btnVariant: "outline",
-  },
+const FEATURES = [
+  { label: "Minimum Hours",       value: "100+ hrs" },
+  { label: "Doubt Clearing",      value: "Unlimited" },
+  { label: "Batch Size",          value: "Max 12" },
+  { label: "Adaptive Mocks",      value: "6–15 tests" },
+  { label: "Study Materials",     value: "Included" },
+  { label: "Diagnostic Test",     value: "Free" },
 ];
 
-// ─── Component ────────────────────────────────────────────────────────────────
-
 export default function CityCoachingProgrammes({ data }: Props) {
-
-
   const { city, slug } = data;
+
+  // ── Cycling word state ───────────────────────────────────────────────────
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [exiting, setExiting]         = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    function cycle() {
+      // 1. Trigger exit animation
+      setExiting(true);
+      timerRef.current = setTimeout(() => {
+        // 2. Advance index & reset exit
+        setActiveIndex((prev) => (prev + 1) % MODES.length);
+        setExiting(false);
+        // 3. Schedule next cycle
+        timerRef.current = setTimeout(cycle, 2800);
+      }, 400); // matches CSS exit duration
+    }
+
+    timerRef.current = setTimeout(cycle, 2800);
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
 
   return (
     <section id="courses" className={styles.section}>
-      <div className="container" style={{maxWidth:"1200px"}}>
-        {/* ── Label ── */}
-        <div className={styles.sectionLabel}>Course</div>
+      <div className={styles.inner}>
 
-        {/* ── Heading — city-aware ── */}
-        <h2 className={styles.heading}>
-          SAT Coaching <em>Programmes</em> in {city}
-        </h2>
+        {/* ══════════════════════════════════════
+            LEFT — 70% content column
+        ══════════════════════════════════════ */}
+        <div className={styles.left}>
 
-        {/* ── Subtext ── */}
-        <p className={styles.sectionSub}>
-          Flexible formats for every student — online, offline, and hybrid.
-          All courses include unlimited doubt-clearing and study materials.
-        </p>
+          {/* Label */}
+          <p className={styles.label}>Programmes</p>
 
-        {/* ── Cards ── */}
-        <div className={styles.coursesGrid}>
-          {COURSES.map((course) => (
-            <div
-              key={course.title}
-              className={`${styles.courseCard} ${
-                course.popular ? styles.popular : ""
-              }`}
+          {/* Heading */}
+          <h2 className={styles.heading}>
+            SAT Coaching&nbsp;
+            <em>Programmes</em>
+            <br />
+            in&nbsp;{city}
+          </h2>
+
+          {/* Description */}
+          <p className={styles.desc}>
+            Every student gets a personalised roadmap built from a full
+            Bluebook diagnostic. Choose the format that fits your schedule
+            — all formats use the same expert faculty and adaptive mock
+            infrastructure.
+          </p>
+
+          {/* Feature grid */}
+          {/* <dl className={styles.featureGrid}>
+            {FEATURES.map(({ label, value }) => (
+              <div key={label} className={styles.featureItem}>
+                <dt className={styles.featureValue}>{value}</dt>
+                <dd className={styles.featureLabel}>{label}</dd>
+              </div>
+            ))}
+          </dl> */}
+
+          {/* CTAs */}
+          <div className={styles.ctaRow}>
+            <a
+              href="https://test.eduquest.org.in/sat-score-calculator/"
+              className={styles.btnPrimary}
             >
-              {course.popular && (
-                <div className={styles.popularBadge}>★ Most Popular</div>
-              )}
-
-              <div className={styles.courseType}>{course.type}</div>
-              <h3 className={styles.courseTitle}>{course.title}</h3>
-
-              <ul className={styles.courseFeatures}>
-                {course.features.map((f) => (
-                  <li key={f}>{f}</li>
-                ))}
-              </ul>
-
-              <a
-                href={course.btnHref(slug)}
-                className={`${styles.btn} ${
-                  course.btnVariant === "primary"
-                    ? styles.btnPrimary
-                    : styles.btnGhostLight
-                }`}
-              >
-                {course.btnLabel}
-              </a>
-            </div>
-          ))}
+              Book Free Diagnostic
+            </a>
+            <a
+              href="https://eduquest.org.in/contact-us/"
+              className={styles.btnOutline}
+            >
+              Enquire Now
+            </a>
+          </div>
         </div>
+
+        {/* ══════════════════════════════════════
+            RIGHT — 30% animated word column
+        ══════════════════════════════════════ */}
+        <div className={styles.right} aria-hidden="true">
+
+          {/* Static stack — all three words rendered, active one highlighted */}
+          <div className={styles.wordStack}>
+            {MODES.map((mode, i) => (
+              <span
+                key={mode}
+                className={[
+                  styles.word,
+                  i === activeIndex && !exiting  ? styles.wordActive  : "",
+                  i === activeIndex &&  exiting  ? styles.wordExiting : "",
+                  i !== activeIndex              ? styles.wordIdle    : "",
+                ].filter(Boolean).join(" ")}
+              >
+                {mode}
+              </span>
+            ))}
+          </div>
+
+          {/* Decorative vertical rule */}
+          <div className={styles.vRule} />
+
+          {/* Decorative counter */}
+          <p className={styles.counter}>
+            {String(activeIndex + 1).padStart(2, "0")}&nbsp;/&nbsp;
+            {String(MODES.length).padStart(2, "0")}
+          </p>
+        </div>
+
       </div>
     </section>
   );

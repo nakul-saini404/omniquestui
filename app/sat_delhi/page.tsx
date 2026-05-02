@@ -265,7 +265,7 @@ export default function SatDelhiPage() {
         <DiagnosticCta />
         <Admissions />
         <Testimonials />
-        <InternalLinks />
+        {/* <InternalLinks /> */}
         <Faq />
         <FinalCta />
       </main>

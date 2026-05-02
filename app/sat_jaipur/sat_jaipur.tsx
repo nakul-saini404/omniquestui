@@ -5,14 +5,13 @@ import "./global.css";
 import Navbar from "@/components/eduQuest/Navbar";
 import AboutEduQuest from "@/components/sat_jaipur/AboutEduQuest/AboutEduQuest";
 import SyllabusCoverage from "@/components/sat_jaipur/SyllabusCoverage/SyllabusCoverage";
-import CoachingProgrammes from "@/components/sat_jaipur/CoachingProgrammes/CoachingProgrammes";
-import FeeStructure from "@/components/sat_jaipur/FeeStructure/FeeStructure";
 import StudentTestimonials from "@/components/sat_jaipur/StudentTestimonials/StudentTestimonials";
 import ScoreImprovement from "@/components/sat_jaipur/ScoreImprovement/ScoreImprovement";
-import RelatedProgrammes from "@/components/sat_gurgaon/RelatedProgrammes/RelatedProgrammes";
 import FrequentlyAskedQuestions from "@/components/sat_jaipur/FAQ/FAQ";
 import CTAStrip from "@/components/sat_jaipur/CTAStrip/CTAStrip";
-import LongTermProgrammes from "@/components/sat_jaipur/LongTermProgrammes/LongTermProgrammes";
+import Pricing from "@/components/sat_jaipur/Pricing/Pricing";
+import DiagnosticCta from "@/components/sat-delhi/DiagnosticCta";
+import SatStructure from "@/components/sat-delhi/SatStructure";
 
 
 export default function SATJaipur() {
@@ -38,13 +37,12 @@ export default function SATJaipur() {
         <main>
         <Hero />
         <AboutEduQuest />
+        <SatStructure/>
+        <DiagnosticCta />
         <SyllabusCoverage />
-        <CoachingProgrammes />
-        <FeeStructure />
-        <LongTermProgrammes />
+        <Pricing />
         <StudentTestimonials />
         <ScoreImprovement />
-        <RelatedProgrammes />
         <FrequentlyAskedQuestions />
         <CTAStrip />
       </main>

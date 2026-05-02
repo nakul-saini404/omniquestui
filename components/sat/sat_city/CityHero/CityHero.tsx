@@ -159,9 +159,9 @@ export default function CityHero({ data }: Props) {
               <span className={`${styles.estBadge} ${styles.badgeGold}`}>✓ Hybrid Mode</span>
             </div>
 
-            {/* <a href="https://eduquest.org.in/contact-us/" className={styles.cardCta}>
-              Request a Callback
-            </a> */}
+            <a href="https://eduquest.org.in/contact-us/" className={styles.cardCta}>
+              Check Now
+            </a>
           </div>
         </div>
 

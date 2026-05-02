@@ -1,4 +1,4 @@
-.about {
+.positioning {
   background: var(--navy);
   padding: 96px 0;
   color: #fff;
@@ -8,7 +8,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
-  align-items: start;
+  align-items: center;
   max-width: var(--max);
   margin: 0 auto;
   padding: 0 24px;
@@ -33,7 +33,7 @@
   font-weight: 700;
   color: #fff;
   line-height: 1.15;
-  margin: 12px 0 20px;
+  margin: 12px 0 16px;
 }
 
 .h2 em {
@@ -41,31 +41,25 @@
   color: var(--gold);
 }
 
+.sub {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.8;
+  max-width: 480px;
+}
+
 .quote {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 3px solid var(--gold);
   border-radius: 0 var(--radius) var(--radius) 0;
-  padding: 20px 24px;
-  margin: 0 0 24px;
+  padding: 24px 28px;
+  margin-top: 28px;
   font-family: var(--ff-head);
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.75);
-  line-height: 1.6;
+  font-size: 19px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
   font-style: italic;
-}
-
-.paras {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.para {
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.6);
-  line-height: 1.8;
-  margin: 0;
 }
 
 .pills {

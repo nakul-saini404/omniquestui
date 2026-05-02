@@ -15,13 +15,13 @@ export default function DiagnosticCta() {
         </p>
         <div className={styles.btns}>
           <a
-            href="https://eduquest.org.in/contact-us/"
+            href="https://test.eduquest.org.in/"
             className={`btn-primary ${styles.btnGold}`}
           >
             📊 Take Free SAT Diagnostic Test
           </a>
           <a
-            href="https://eduquest.org.in/sat/"
+            href="/sat"
             className={`btn-outline ${styles.btnOutlineLight}`}
           >
             Explore Full SAT Programme →
