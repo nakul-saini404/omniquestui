@@ -13,6 +13,8 @@ import WhyEduQuest from '@/components/ucat/WhyEduQuest/WhyEduQuest';
 import StudentVoices from '@/components/ucat/StudentVoices/StudentVoices';
 import CommonQuestions from '@/components/ucat/CommonQuestions/CommonQuestions';
 import MedicalDreamCTA from '@/components/ucat/MedicalDreamCTA/MedicalDreamCTA';
+import UcatMythsFacts from '@/components/ucat/UcatMythsFacts/UcatMythsFacts';
+import UcatVersionDates from '@/components/ucat/UcatVersionDates/UcatVersionDates';
 
 export default function UCAT() {
   return (
@@ -27,9 +29,11 @@ export default function UCAT() {
       <UCATFoundation />
       <UcatMajorChanges />
       <ScoreStrategy />
+      <UcatMythsFacts />
       <PreparationRoadmap />
       <WhatToAvoid />
       <WhyEduQuest />
+      <UcatVersionDates />
       <StudentVoices />
       <CommonQuestions />
       <MedicalDreamCTA />

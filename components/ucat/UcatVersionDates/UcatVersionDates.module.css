@@ -1,0 +1,441 @@
+/* UcatVersionDates.module.css */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+
+/* ── Tokens ──────────────────────────────────────────── */
+.section {
+  --ink:          #0A0A14;
+  --paper:        #FAFAF7;
+  --cream:        #F5F0E8;
+  --cream-dark:   #EDE8DF;
+  --gold:         #C9973A;
+  --gold-light:   #E8B84B;
+  --gold-dim:     rgba(201, 151, 58, 0.11);
+  --gold-border:  rgba(201, 151, 58, 0.30);
+  --slate:        #2E3A52;
+  --slate-light:  #4A5568;
+  --blue:         #185FA5;
+  --blue-dim:     rgba(24, 95, 165, 0.08);
+  --blue-border:  rgba(24, 95, 165, 0.22);
+  --border:       rgba(10, 10, 20, 0.09);
+  --serif:        'DM Serif Display', Georgia, serif;
+  --sans:         'DM Sans', system-ui, sans-serif;
+  --mono:         'DM Mono', monospace;
+  --ease:         cubic-bezier(0.4, 0, 0.2, 1);
+
+  position: relative;
+  background: var(--cream);
+  padding: 6rem 80px 5.5rem;
+  font-family: var(--sans);
+  color: var(--ink);
+  overflow: hidden;
+}
+
+/* ── Background ──────────────────────────────────────── */
+.bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.bgBlob1 {
+  position: absolute; top: -200px; right: -150px;
+  width: 560px; height: 560px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,151,58,0.07) 0%, transparent 70%);
+}
+.bgBlob2 {
+  position: absolute; bottom: -150px; left: -120px;
+  width: 420px; height: 420px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(24,95,165,0.05) 0%, transparent 70%);
+}
+
+/* ── Header ──────────────────────────────────────────── */
+.header {
+  position: relative; z-index: 1;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3.5rem;
+}
+.eyebrow {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.85rem;
+}
+.title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4.5vw, 3.1rem);
+  font-weight: 400; line-height: 1.15;
+  color: var(--ink); margin: 0 0 1rem;
+}
+.title em { color: var(--gold); font-style: italic; }
+.sub {
+  font-size: 1rem; line-height: 1.75;
+  color: var(--slate-light); margin: 0;
+}
+
+/* ── Step Tag ────────────────────────────────────────── */
+.stepTag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold-border);
+  padding: 0.25em 0.8em; border-radius: 6px;
+  margin-bottom: 0.85rem;
+}
+
+/* ── Step 1 Layout ───────────────────────────────────── */
+.step1Wrap {
+  position: relative; z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 48px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto 4rem;
+}
+
+/* Left text */
+.step1Left { display: flex; flex-direction: column; }
+
+.step1Title {
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-weight: 400; line-height: 1.2;
+  color: var(--ink); margin: 0 0 1rem;
+}
+.step1Title em { color: var(--gold); font-style: italic; }
+
+.step1Body {
+  font-size: 0.95rem; line-height: 1.8;
+  color: var(--slate-light); margin: 0 0 1.5rem;
+}
+.step1Body em { color: var(--slate); font-style: normal; font-weight: 600; }
+
+.step1Pills {
+  display: flex; flex-direction: column; gap: 10px;
+}
+.pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 0.55rem 1rem;
+  border-radius: 8px; border: 1.5px solid;
+  font-size: 0.82rem; font-weight: 600;
+  font-family: var(--mono); letter-spacing: 0.03em;
+  width: fit-content;
+}
+.pill[data-color="blue"] {
+  color: var(--blue);
+  background: var(--blue-dim);
+  border-color: var(--blue-border);
+}
+.pill[data-color="gold"] {
+  color: var(--gold);
+  background: var(--gold-dim);
+  border-color: var(--gold-border);
+}
+
+/* ── Rotating Card ───────────────────────────────────── */
+.rotatingCard {
+  background: var(--paper);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 2.25rem 2rem 1.75rem;
+  box-shadow: 0 8px 40px rgba(10,10,20,0.08);
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+/* subtle top accent line that changes */
+.rotatingCard::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 20px 20px 0 0;
+}
+
+.rotatingInner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+/* fade transitions */
+.fadeIn  { animation: fadeSlideIn  0.35s var(--ease) both; }
+.fadeOut { animation: fadeSlideOut 0.35s var(--ease) both; }
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeSlideOut {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-10px); }
+}
+
+.rotatingFlag {
+  font-size: 1.6rem; line-height: 1; margin-bottom: 0.25rem;
+}
+
+.rotatingGoal {
+  font-family: var(--serif);
+  font-size: 1rem; font-style: italic;
+  color: var(--slate);
+  margin: 0 0 0.5rem;
+  line-height: 1.4;
+}
+
+.rotatingArrow {
+  font-size: 1.1rem; color: var(--gold);
+  margin-bottom: 0.25rem;
+}
+
+.rotatingTest {
+  font-family: var(--mono);
+  font-size: 1.5rem; font-weight: 700;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.5rem;
+}
+.test_gold { color: var(--gold); }
+.test_blue { color: var(--blue); }
+
+.rotatingSub {
+  font-size: 0.8rem; line-height: 1.65;
+  color: var(--slate-light); margin: 0;
+}
+
+/* Dot indicators */
+.dots {
+  display: flex; gap: 6px;
+  justify-content: center;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  margin-top: 1.25rem;
+}
+.dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+  border: none; cursor: pointer;
+  padding: 0;
+  transition: background 0.3s, transform 0.3s;
+}
+.dotActive {
+  background: var(--gold);
+  transform: scale(1.4);
+}
+
+/* ── Dates Block ─────────────────────────────────────── */
+.datesBlock {
+  position: relative; z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 40px rgba(10,10,20,0.07);
+}
+
+.datesHeader {
+  padding: 2.25rem 2.5rem 1.75rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--cream);
+}
+.datesTitle {
+  font-family: var(--serif);
+  font-size: 1.4rem; font-style: italic;
+  color: var(--ink); margin: 0.5rem 0 0.6rem;
+}
+.datesSub {
+  font-size: 0.88rem; line-height: 1.7;
+  color: var(--slate-light); margin: 0;
+  max-width: 620px;
+}
+.datesSub strong { color: var(--slate); }
+
+/* Table head */
+.tableHead {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-bottom: 2px solid var(--border);
+}
+.thEvent {
+  padding: 1rem 1.5rem;
+  font-family: var(--mono);
+  font-size: 0.58rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--slate-light);
+  border-right: 1px solid var(--border);
+}
+.thCol {
+  padding: 1rem 1.5rem;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.thAnz {
+  border-right: 1px solid var(--border);
+  background: rgba(201,151,58,0.04);
+}
+.thUk { background: rgba(24,95,165,0.03); }
+.thFlag { font-size: 0.9rem; margin-bottom: 2px; }
+.thName {
+  font-family: var(--mono);
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
+}
+.thAnz .thName { color: var(--gold); }
+.thUk  .thName { color: var(--blue); }
+.thSub {
+  font-size: 0.62rem; color: var(--slate-light); opacity: 0.65;
+  font-family: var(--mono); letter-spacing: 0.05em;
+}
+
+/* Table body — NO scroll animation, hover only */
+.tableBody { display: flex; flex-direction: column; }
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.18s var(--ease);
+  cursor: default;
+}
+.tableRow:last-child { border-bottom: none; }
+.tableRow:hover,
+.tableRow.rowActive  { background: rgba(201,151,58,0.05); }
+.tableRow.rowBestFor { background: var(--cream); }
+.tableRow.rowBestFor:hover { background: rgba(201,151,58,0.07); }
+
+.rowEvent {
+  display: flex; align-items: center; gap: 10px;
+  padding: 1.1rem 1.5rem;
+  font-size: 0.85rem; font-weight: 600;
+  color: var(--slate);
+  border-right: 1px solid var(--border);
+}
+.rowIcon { font-size: 1rem; flex-shrink: 0; }
+
+.rowCell {
+  padding: 1.1rem 1.5rem;
+  font-size: 0.85rem; font-weight: 500;
+  color: var(--slate);
+  display: flex; align-items: center; gap: 8px;
+  line-height: 1.4;
+}
+.cellAnz {
+  border-right: 1px solid var(--border);
+  background: rgba(201,151,58,0.022);
+}
+.cellUk { background: rgba(24,95,165,0.018); }
+.cellHighlight { font-weight: 700; color: var(--gold); }
+
+.earlierBadge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.5rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gold);
+  background: var(--gold-dim);
+  border: 1px solid var(--gold-border);
+  border-radius: 4px;
+  padding: 0.18em 0.5em;
+  flex-shrink: 0;
+}
+
+/* ── Important Notes ─────────────────────────────────── */
+.notesWrap {
+  position: relative; z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+}
+.notesHeader {
+  margin-bottom: 1rem;
+}
+.notesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.noteCard {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 1.5rem 1.75rem;
+  background: var(--paper);
+  border: 1.5px solid var(--border);
+  border-left: 4px solid var(--gold);
+  border-radius: 12px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.noteCard:hover {
+  box-shadow: 0 6px 24px rgba(10,10,20,0.08);
+  transform: translateY(-2px);
+}
+.noteIcon {
+  font-size: 1.3rem; flex-shrink: 0; margin-top: 2px;
+}
+.noteTitle {
+  font-family: var(--mono);
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--slate);
+  margin: 0 0 0.45rem;
+}
+.noteText {
+  font-size: 0.85rem; line-height: 1.75;
+  color: var(--slate-light); margin: 0;
+}
+
+/* ── Callout ─────────────────────────────────────────── */
+.callout {
+  position: relative; z-index: 1;
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 2rem 2.25rem;
+  background: var(--ink);
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(10,10,20,0.14);
+}
+.calloutIcon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+.calloutTitle {
+  font-family: var(--serif);
+  font-size: 1.15rem; font-style: italic;
+  color: var(--gold-light); margin: 0 0 0.5rem;
+}
+.calloutText {
+  font-size: 0.88rem; line-height: 1.75;
+  color: rgba(255,255,255,0.6); margin: 0;
+}
+.calloutText em {
+  color: rgba(255,255,255,0.88);
+  font-style: normal; font-weight: 600;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .section       { padding: 5rem 32px 4rem; }
+  .step1Wrap     { grid-template-columns: 1fr; gap: 28px; }
+  .rotatingCard  { min-height: auto; }
+  .tableHead,
+  .tableRow      { grid-template-columns: 1fr 1fr 1fr; }
+}
+@media (max-width: 720px) {
+  .section       { padding: 4rem 20px 3.5rem; }
+  .notesGrid     { grid-template-columns: 1fr; }
+  .tableHead     { display: none; }
+  .tableRow      { grid-template-columns: 1fr; }
+  .rowEvent,
+  .rowCell       { border-right: none !important; border-bottom: 1px solid var(--border); }
+  .rowCell:last-child { border-bottom: none; }
+  .cellAnz::before {
+    content: '🇦🇺 ANZ  ';
+    font-family: var(--mono); font-size: 0.6rem;
+    font-weight: 700; color: var(--gold);
+  }
+  .cellUk::before {
+    content: '🇬🇧 UK  ';
+    font-family: var(--mono); font-size: 0.6rem;
+    font-weight: 700; color: var(--blue);
+  }
+  .callout       { flex-direction: column; gap: 12px; padding: 1.5rem; }
+  .datesHeader   { padding: 1.5rem; }
+  .noteCard      { flex-direction: column; gap: 8px; }
+}

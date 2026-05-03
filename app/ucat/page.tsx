@@ -1,34 +1,138 @@
 import type { Metadata } from "next";
 import UCAT from "./ucat";
+import { faqSchema, breadcrumbSchema, courseSchema, organizationSchema, webPageSchema } from "./ucatSchemas";
 
 export const metadata: Metadata = {
   title: "UCAT 2026 Complete Guide for Indian Students | Score 2400+ | EduQuest",
   description:
     "Master UCAT 2026 with EduQuest — exam pattern, 2026 changes (Abstract Reasoning removed), score targets, prep timeline & expert coaching for UK, Australia & New Zealand medical schools.",
   keywords: [
+    // ── Core exam terms ──────────────────────────────────────────
     "UCAT 2026",
+    "UCAT exam 2026",
+    "UCAT test 2026",
+    "UCAT syllabus 2026",
+    "UCAT pattern 2026",
+    "UCAT exam date 2026",
+    "UCAT registration 2026",
+    "UCAT score 2026",
+    "UCAT score calculator",
+    "UCAT cutoff 2026",
+    "UCAT result 2026",
+    "UCAT band 1 score",
+    "UCAT 2700 scale",
+    "UCAT abstract reasoning removed",
+    "UCAT new format 2026",
+
+    // ── Section-specific ─────────────────────────────────────────
+    "UCAT verbal reasoning",
+    "UCAT decision making",
+    "UCAT quantitative reasoning",
+    "UCAT situational judgement",
+    "UCAT SJT band 1",
+    "UCAT decision making tips",
+    "UCAT quantitative reasoning practice",
+
+    // ── Coaching & preparation ───────────────────────────────────
     "UCAT coaching India",
-    "UCAT exam pattern 2026",
-    "UCAT preparation",
-    "UCAT for Indian students",
-    "UCAT UK",
-    "UCAT ANZ",
-    "UK medical school admissions",
-    "Australia medical school admissions",
-    "MBBS abroad",
-    "EduQuest UCAT",
-    "UCAT score 2400",
     "UCAT coaching Gurgaon",
-    "online UCAT coaching",
+    "UCAT coaching Delhi",
+    "UCAT coaching online",
+    "UCAT online classes India",
+    "UCAT preparation India",
+    "UCAT preparation tips",
+    "UCAT preparation strategy",
+    "UCAT mock test",
+    "UCAT practice test",
+    "UCAT free mock test",
+    "UCAT study material",
+    "UCAT preparation for Indian students",
+    "best UCAT coaching India",
+    "UCAT tutor India",
+    "EduQuest UCAT coaching",
+    "EduQuest UCAT 2026",
+
+    // ── Geography — UK ───────────────────────────────────────────
+    "UCAT UK",
+    "UCAT UK 2026",
+    "UCAT for UK medical schools",
+    "UK medical school admission India",
+    "UK MBBS for Indian students",
+    "study medicine UK from India",
+    "UCAT Oxford",
+    "UCAT Cambridge",
+    "UCAT UCL",
+    "UCAT Imperial College",
+    "UCAT King's College London",
+    "UCAT Edinburgh",
+    "UCAT Manchester",
+
+    // ── Geography — Australia ────────────────────────────────────
+    "UCAT ANZ",
+    "UCAT ANZ 2026",
+    "UCAT Australia",
+    "UCAT for Australian medical schools",
+    "Australia MBBS for Indian students",
+    "study medicine Australia India",
+    "UCAT University of Melbourne",
+    "UCAT Monash University",
+    "UCAT University of Sydney",
+    "UCAT Queensland",
+
+    // ── Geography — New Zealand ──────────────────────────────────
+    "UCAT New Zealand",
+    "UCAT NZ 2026",
+    "New Zealand medical school admission",
+    "UCAT University of Auckland",
+    "UCAT Otago",
+
+    // ── Competitor / alternatives ────────────────────────────────
+    "UCAT vs NEET",
+    "UCAT vs MCAT",
+    "UCAT vs BMAT",
+    "is UCAT hard",
+    "UCAT difficulty level",
+    "UCAT exam centres India",
+    "UCAT exam fee India",
+    "UCAT bursary India",
+
+    // ── Broader MBBS abroad ──────────────────────────────────────
+    "MBBS abroad for Indian students",
+    "MBBS UK admission 2026",
+    "MBBS Australia admission 2026",
+    "medical school abroad India",
+    "how to get into UK medical school",
+    "how to get into Australian medical school",
+    "international medical school admission",
+    "medicine abroad counselling India",
+
+    // ── Long-tail / informational ────────────────────────────────
+    "what is UCAT exam",
+    "UCAT 2026 changes",
+    "how to prepare for UCAT 2026",
+    "UCAT good score for Indian students",
+    "UCAT score for Oxford",
+    "UCAT score for Monash",
+    "UCAT 2026 registration process India",
+    "UCAT exam centres India 2026",
+    "UCAT eligibility criteria",
+    "UCAT age limit",
+    "UCAT free guide",
+    "UCAT guide for beginners",
+    "UCAT 100 day plan",
+    "UCAT 3 month preparation",
+    "UCAT last minute tips",
   ],
+
   alternates: {
     canonical: "https://eduquest.org.in/ucat/",
     languages: {
       "x-default": "https://eduquest.org.in/ucat/",
-      "en": "https://eduquest.org.in/ucat/",
+      en: "https://eduquest.org.in/ucat/",
       "en-IN": "https://eduquest.org.in/ucat/",
     },
   },
+
   openGraph: {
     title: "UCAT 2026 Complete Guide | Score 2400+ | EduQuest",
     description:
@@ -46,6 +150,7 @@ export const metadata: Metadata = {
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
     title: "UCAT 2026 Complete Guide | EduQuest",
@@ -53,6 +158,7 @@ export const metadata: Metadata = {
       "Master UCAT 2026 — exam pattern, 2026 changes, score strategy & coaching for UK/Australia/NZ medical schools.",
     images: ["https://eduquest.org.in/wp-content/uploads/eduquest-og.jpg"],
   },
+
   robots: {
     index: true,
     follow: true,
@@ -66,89 +172,10 @@ export const metadata: Metadata = {
   },
 };
 
-// ── Structured Data ───────────────────────────────────────────────────────────
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "What is the UCAT exam?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "The University Clinical Aptitude Test (UCAT) is a standardised aptitude test used by medical and dental schools across the UK, Australia and New Zealand. It tests critical thinking, logical reasoning, decision-making and situational judgement.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What are the major changes in UCAT 2026?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Abstract Reasoning has been completely removed from UCAT 2026. The scoring scale has been reduced from 3600 to 2700. The remaining sections are Verbal Reasoning, Decision Making, Quantitative Reasoning, and Situational Judgement.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What is a good UCAT score for 2026?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "On the new 2700 scale: 2400+ is elite (Oxford, Cambridge, UCL); 2100–2400 is competitive for most top UK and Australian schools; 1800–2100 is still competitive for many universities. Always aim for Band 1 or 2 in Situational Judgement.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "UCAT UK vs UCAT ANZ — which should I choose?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "If targeting only UK medical schools, take UCAT UK. For flexibility across Australia, New Zealand, and the UK, UCAT ANZ is the smarter choice — it has earlier deadlines and broader acceptance.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How long should I prepare for UCAT 2026?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "EduQuest recommends 3–6 months of structured preparation. Begin with a diagnostic test, work section-by-section, then do full mock tests in the final 6–8 weeks.",
-      },
-    },
-  ],
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home",          item: "https://eduquest.org.in/" },
-    { "@type": "ListItem", position: 2, name: "UCAT Coaching", item: "https://eduquest.org.in/ucat/" },
-  ],
-};
-
-const courseSchema = {
-  "@context": "https://schema.org",
-  "@type": "Course",
-  name: "UCAT 2026 Coaching — EduQuest",
-  description:
-    "Expert UCAT 2026 coaching for Indian students targeting UK, Australia & New Zealand medical schools.",
-  url: "https://eduquest.org.in/ucat/",
-  provider: {
-    "@type": "Organization",
-    name: "EduQuest",
-    sameAs: "https://eduquest.org.in",
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "850",
-    bestRating: "5",
-    worstRating: "1",
-  },
-};
-
-
 export default function UCATPage() {
   return (
     <>
-       <script
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
@@ -160,7 +187,14 @@ export default function UCATPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
       />
-
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
       <UCAT />
     </>
   );
