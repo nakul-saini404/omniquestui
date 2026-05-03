@@ -270,7 +270,7 @@ export default function Navbar() {
             Choose Pathway
           </a>
           <a
-            href="https://eduquest.org.in/contact-us/"
+            href="/contact-us"
             target="_blank"
             rel="noopener noreferrer"
             className="oq-btn-gold"
@@ -319,7 +319,7 @@ export default function Navbar() {
             Choose Pathway
           </a>
           <a
-            href="https://eduquest.org.in/contact-us/"
+            href="/contact-us"
             target="_blank"
             rel="noopener noreferrer"
             className="oq-btn-gold"

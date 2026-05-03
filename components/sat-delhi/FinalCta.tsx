@@ -16,7 +16,7 @@ export default function FinalCta() {
         </p>
         <div className={styles.btns}>
           <a
-            href="https://eduquest.org.in/contact-us/"
+            href="/contact-us"
             className={`btn-primary ${styles.btnGold}`}
           >
             Book Free Strategy Session
@@ -28,7 +28,7 @@ export default function FinalCta() {
             Read FAQs →
           </a>
           <a
-            href="https://eduquest.org.in/contact-us/"
+            href="/contact-us"
             className={`btn-primary ${styles.btnGold}`}
           >
             Request Callback →

@@ -25,7 +25,7 @@ const footerLinks = {
   useful: [
     { label: 'About Us', href: 'https://eduquest.org.in/about-us/' },
     { label: 'Blog', href: 'https://eduquest.org.in/blog' },
-    { label: 'Contact Us', href: 'https://eduquest.org.in/contact-us/' },
+    { label: 'Contact Us', href: '/contact-us' },
     { label: 'Franchise', href: 'https://eduquest.org.in/franchise/' },
     { label: 'Free Guide Book', href: 'https://eduquest.org.in/free-download/' },
     { label: 'Refund Policy', href: 'https://eduquest.org.in/refund-policy/' },

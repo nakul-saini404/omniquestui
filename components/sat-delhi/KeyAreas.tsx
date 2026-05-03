@@ -181,7 +181,7 @@ const KeyAreas: React.FC = () => {
             </p>
           </div>
           <a
-            href="https://eduquest.org.in/contact-us/"
+            href="/contact-us"
             className="btn-primary"
           >
             Book Free Diagnostic →

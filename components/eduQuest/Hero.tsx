@@ -327,7 +327,7 @@ export default function Hero() {
 
               {/* CTAs */}
               <div className="eq-cta-row">
-                <a href="https://eduquest.org.in/contact-us/" className="eq-btn-primary-link">
+                <a href="/contact-us" className="eq-btn-primary-link">
                   👉 Book Admission Strategy Session
                 </a>
                 <a href="https://eduquest.org.in/profile-building-programs/" className="eq-btn-secondary-link">

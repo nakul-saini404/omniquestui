@@ -1,0 +1,201 @@
+/* ─── TOKENS (mirror EduQuest design system) ──────────────────────────── */
+.section {
+  --cream: #f5f0e8;
+  --cream2: #ede7d9;
+  --navy: #0b1c3d;
+  --navy3: #1a3570;
+  --gold: #d4a843;
+  --text2: #4a5568;
+  --text3: #718096;
+  --white: #ffffff;
+  --line2: rgba(11, 28, 61, 0.18);
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "Plus Jakarta Sans", sans-serif;
+
+  /* section-alt background matches .section (no section-white/alt modifier) */
+  background: var(--cream2);
+  padding: 72px 24px;
+  font-family: var(--ff-body);
+  color: var(--navy);
+}
+
+/* ─── INNER WRAPPER ───────────────────────────────────────────────────── */
+.sectionInner {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* ─── SECTION HEADER ──────────────────────────────────────────────────── */
+.sectionHeader {
+  margin-bottom: 44px;
+}
+
+.sectionTag {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sectionTag::before {
+  content: "";
+  width: 20px;
+  height: 1.5px;
+  background: var(--gold);
+  display: block;
+  flex-shrink: 0;
+}
+
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.25;
+  margin: 0 0 12px;
+}
+
+.sectionTitle em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.goldLine {
+  width: 48px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+
+.sectionSub {
+  font-size: 14.5px;
+  color: var(--text2);
+  max-width: 600px;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ─── PROGRAMMES GRID ─────────────────────────────────────────────────── */
+.programsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+/* ─── PROGRAMME CARD ──────────────────────────────────────────────────── */
+.programCard {
+  background: var(--cream);
+  border: 1px solid var(--line2);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+  cursor: default;
+
+  /* entrance — hidden until IntersectionObserver fires */
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.programCard:hover {
+  background: var(--white);
+  border-color: var(--navy3);
+  box-shadow: 0 4px 16px rgba(11, 28, 61, 0.08);
+  transform: translateY(-2px);
+}
+
+.programCardVisible {
+  animation: cardFadeUp 0.42s ease both;
+}
+
+@keyframes cardFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── ICON SQUARE ─────────────────────────────────────────────────────── */
+.progIcon {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 8px;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.progIcon svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--gold);
+  display: block;
+}
+
+.programCard:hover .progIcon {
+  background: var(--navy3);
+  transform: scale(1.07);
+}
+
+/* ─── TEXT ────────────────────────────────────────────────────────────── */
+.progText {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.progName {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+}
+
+.progDesc {
+  font-size: 12px;
+  color: var(--text3);
+  line-height: 1.55;
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .section {
+    padding: 48px 20px;
+  }
+
+  .programsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .programsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+}

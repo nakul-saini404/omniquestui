@@ -23,7 +23,7 @@ const IMPORTANT = [
   { label: "UG Admissions Premium", href: "https://eduquest.org.in/undergraduate-admission-premium/" },
   { label: "Profile Building", href: "https://eduquest.org.in/profile-building-programs/" },
   { label: "Study Abroad", href: "https://eduquest.org.in/overseas-education-consultant-studyabroad-consultant/" },
-  { label: "Contact Us", href: "https://eduquest.org.in/contact-us/" },
+  { label: "Contact Us", href: "/contact-us" },
   { label: "Free Psychometric Test", href: "https://eduquest.org.in/personality-test/" },
   { label: "Blog", href: "https://eduquest.org.in/blog" },
 ];

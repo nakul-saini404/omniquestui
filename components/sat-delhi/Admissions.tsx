@@ -75,7 +75,7 @@ export default function Admissions() {
             </p>
             <br />
             <a
-              href="https://eduquest.org.in/contact-us/"
+              href="/contact-us"
               className={`btn-primary ${styles.btnGold}`}
             >
               Inquire About Your Program →

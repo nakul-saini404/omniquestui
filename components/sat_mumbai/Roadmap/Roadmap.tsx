@@ -52,7 +52,7 @@ export default function Roadmap() {
             </div>
             <div className={styles.roadmapCta}>
               <a
-                href="https://eduquest.org.in/contact-us/"
+                href="/contact-us"
                 className={styles.btnOutline}
               >
                 START EARLY →

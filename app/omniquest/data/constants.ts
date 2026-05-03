@@ -199,11 +199,11 @@ export const FOOTER_COLS = [
   {
     title: "Offices",
     links: [
-      { label: "Delhi / NCR",        href: "https://eduquest.org.in/contact-us/" },
-      { label: "Bangalore",          href: "https://eduquest.org.in/contact-us/" },
-      { label: "Mumbai",             href: "https://eduquest.org.in/contact-us/" },
-      { label: "Hyderabad",          href: "https://eduquest.org.in/contact-us/" },
-      { label: "Online — Pan India", href: "https://eduquest.org.in/contact-us/" },
+      { label: "Delhi / NCR",        href: "/contact-us" },
+      { label: "Bangalore",          href: "/contact-us" },
+      { label: "Mumbai",             href: "/contact-us" },
+      { label: "Hyderabad",          href: "/contact-us" },
+      { label: "Online — Pan India", href: "/contact-us" },
     ],
   },
   {
@@ -213,7 +213,7 @@ export const FOOTER_COLS = [
       { label: "Success Outcomes",   href: "https://eduquest.org.in/our-achievements/" },
       { label: "Strategic Insights", href: "https://eduquest.org.in/blog" },
       { label: "FAQs",               href: "#" },
-      { label: "Contact Us",         href: "https://eduquest.org.in/contact-us/" },
+      { label: "Contact Us",         href: "/contact-us" },
       { label: "Join Our Team",      href: "https://eduquest.org.in/franchise/" },
     ],
   },

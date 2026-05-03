@@ -828,7 +828,7 @@ export default function PersonalityTestPage() {
             <h3 style={{ fontFamily:"Syne,sans-serif", fontSize:"1.2rem", fontWeight:900, marginBottom:8 }}>Ready to Build Your Global Future?</h3>
             <p style={{ color:"rgba(255,255,255,.4)", fontSize:".84rem", marginBottom:22 }}>Personalised guidance matched to your {mbtiData.fullLabel} profile.</p>
             <div style={{ display:"flex", gap:12, justifyContent:"center", flexWrap:"wrap" }}>
-              <a href="https://eduquest.org.in/contact-us/" style={{ padding:"12px 26px", borderRadius:50, background:"linear-gradient(135deg,#00C9B1,#2563EB)", color:"white", fontWeight:700, fontSize:".88rem", textDecoration:"none" }}>
+              <a href="/contact-us" style={{ padding:"12px 26px", borderRadius:50, background:"linear-gradient(135deg,#00C9B1,#2563EB)", color:"white", fontWeight:700, fontSize:".88rem", textDecoration:"none" }}>
                 📅 Book Free Counselling
               </a>
               <button onClick={()=>{setStep("lead_form");setAnswers({});setCurrentQ(0);setReport(null);setSaveError(null);}}

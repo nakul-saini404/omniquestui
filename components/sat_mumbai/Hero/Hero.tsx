@@ -49,7 +49,7 @@ export default function Hero() {
           </div>
 
           <div className={styles.heroBtns}>
-            <a href="https://eduquest.org.in/contact-us/" className={styles.btnPrimary}>
+            <a href="/contact-us" className={styles.btnPrimary}>
               Book Free Strategy Session
             </a>
             <a href="#pattern" className={styles.btnSecondary}>
@@ -122,7 +122,7 @@ export default function Hero() {
               <span className={`${styles.badge} ${styles.badgeGold}`}>✓ Hybrid Mode</span>
             </div>
 
-            <a href="https://eduquest.org.in/contact-us/" className={styles.cardCta}>
+            <a href="/contact-us" className={styles.cardCta}>
               Request a Callback
             </a>
           </div>

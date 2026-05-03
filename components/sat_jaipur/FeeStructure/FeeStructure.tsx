@@ -64,7 +64,7 @@ export default function FeeStructure() {
 
       <p className={styles.footnote}>
         For integrated multi-year programmes (Grades 8–12),{" "}
-        <a href="https://eduquest.org.in/contact-us/">contact us</a> for
+        <a href="/contact-us">contact us</a> for
         customised fee structures.
       </p>
     </section>

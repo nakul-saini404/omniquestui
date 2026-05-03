@@ -1,0 +1,128 @@
+/* ─── TOKENS (mirror EduQuest design system) ──────────────────────────── */
+.trustBar {
+  --cream2: #ede7d9;
+  --navy: #0b1c3d;
+  --gold: #d4a843;
+  --text3: #718096;
+  --line: rgba(11, 28, 61, 0.10);
+  --line2: rgba(11, 28, 61, 0.18);
+  --ff-body: "Plus Jakarta Sans", sans-serif;
+
+  background: var(--cream2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 18px 24px;
+  font-family: var(--ff-body);
+}
+
+/* ─── LAYOUT ──────────────────────────────────────────────────────────── */
+.trustBarInner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ─── TRUST ITEM ──────────────────────────────────────────────────────── */
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  /* entrance animation — starts invisible */
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0s, transform 0s;
+}
+
+/* when the bar enters the viewport, items animate in with stagger */
+.trustItemVisible {
+  animation: trustFadeUp 0.45s ease both;
+}
+
+@keyframes trustFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── ICON SQUARE ─────────────────────────────────────────────────────── */
+.trustIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.trustItem:hover .trustIcon {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(11, 28, 61, 0.2);
+}
+
+.trustIcon svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--gold);
+}
+
+/* ─── TEXT ────────────────────────────────────────────────────────────── */
+.trustText {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.trustText strong {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+}
+
+.trustText span {
+  font-size: 11.5px;
+  color: var(--text3);
+  line-height: 1.3;
+}
+
+/* ─── DIVIDER ─────────────────────────────────────────────────────────── */
+.trustDivider {
+  width: 1px;
+  height: 36px;
+  background: var(--line2);
+  flex-shrink: 0;
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .trustDivider {
+    display: none;
+  }
+
+  .trustBarInner {
+    justify-content: center;
+    gap: 20px 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .trustBarInner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+}

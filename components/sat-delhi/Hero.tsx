@@ -55,7 +55,7 @@ export default function Hero() {
             </div>
 
             <div className={styles.ctas}>
-              <a href="https://eduquest.org.in/contact-us/" className="btn-primary">
+              <a href="/contact-us" className="btn-primary">
                 📊 Book Free SAT Diagnostic
               </a>
               <a href="#system" className="btn-outline">

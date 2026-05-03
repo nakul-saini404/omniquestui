@@ -106,7 +106,7 @@ export default function SATMultipurpose() {
               Check my SAT score target
             </a>
             <a
-              href="https://eduquest.org.in/contact-us/"
+              href="/contact-us"
               className={styles.btnOutline}
             >
               Talk to a counsellor

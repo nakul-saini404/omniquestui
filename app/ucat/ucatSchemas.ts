@@ -174,7 +174,7 @@ export const organizationSchema = {
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "Admissions",
-    url: "https://eduquest.org.in/contact-us/",
+    url: "/contact-us",
     availableLanguage: ["English", "Hindi"],
   },
   sameAs: [

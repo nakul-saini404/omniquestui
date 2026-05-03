@@ -1,0 +1,220 @@
+/* ─── TOKENS (mirror EduQuest design system) ──────────────────────────── */
+.section {
+  --cream2: #ede7d9;
+  --cream3: #e2d9c8;
+  --navy: #0b1c3d;
+  --gold: #d4a843;
+  --gold2: #e8c96a;
+  --text2: #4a5568;
+  --text3: #718096;
+  --white: #ffffff;
+  --line2: rgba(11, 28, 61, 0.18);
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "Plus Jakarta Sans", sans-serif;
+
+  /* section-alt background */
+  background: var(--cream2);
+  padding: 72px 24px;
+  font-family: var(--ff-body);
+  color: var(--navy);
+}
+
+/* ─── INNER WRAPPER ───────────────────────────────────────────────────── */
+.sectionInner {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* ─── SECTION HEADER ──────────────────────────────────────────────────── */
+.sectionHeader {
+  margin-bottom: 44px;
+}
+
+.sectionTag {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sectionTag::before {
+  content: "";
+  width: 20px;
+  height: 1.5px;
+  background: var(--gold);
+  display: block;
+  flex-shrink: 0;
+}
+
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.25;
+  margin: 0 0 12px;
+}
+
+.sectionTitle em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.goldLine {
+  width: 48px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+/* ─── TESTIMONIALS GRID ───────────────────────────────────────────────── */
+.testiGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* ─── TESTIMONIAL CARD ────────────────────────────────────────────────── */
+.testiCard {
+  background: var(--white);
+  border: 1px solid var(--line2);
+  border-radius: 12px;
+  padding: 24px;
+  position: relative;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+
+  /* entrance */
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.testiCard:hover {
+  box-shadow: 0 8px 28px rgba(11, 28, 61, 0.10);
+  transform: translateY(-3px);
+}
+
+.testiCardVisible {
+  animation: cardFadeUp 0.45s ease both;
+}
+
+@keyframes cardFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── DECORATIVE QUOTE MARK ───────────────────────────────────────────── */
+.testiQuote {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-family: var(--ff-head);
+  font-size: 3rem;
+  color: var(--cream3);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ─── STARS ───────────────────────────────────────────────────────────── */
+.testiStars {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+/* ─── TESTIMONIAL TEXT ────────────────────────────────────────────────── */
+.testiText {
+  font-size: 13.5px;
+  color: var(--text2);
+  line-height: 1.75;
+  font-style: italic;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── FOOTER ROW ──────────────────────────────────────────────────────── */
+.testiFooter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ─── AVATAR ──────────────────────────────────────────────────────────── */
+.testiAv {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  /* background & color set inline per card */
+  font-family: var(--ff-head);
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.testiCard:hover .testiAv {
+  transform: scale(1.06);
+}
+
+/* ─── NAME ────────────────────────────────────────────────────────────── */
+.testiName {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ─── SCORE BADGE ─────────────────────────────────────────────────────── */
+.testiScore {
+  display: inline-block;
+  background: rgba(212, 168, 67, 0.12);
+  color: var(--gold);
+  border: 1px solid rgba(212, 168, 67, 0.25);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* ─── META ────────────────────────────────────────────────────────────── */
+.testiMeta {
+  font-size: 11.5px;
+  color: var(--text3);
+  margin-top: 2px;
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .section {
+    padding: 48px 20px;
+  }
+
+  .testiGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+}

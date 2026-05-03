@@ -35,7 +35,7 @@ export default function Timeline() {
                 </div>
               ))}
             </div>
-            <a href="https://eduquest.org.in/contact-us/" className={styles.tlCta}>
+            <a href="/contact-us" className={styles.tlCta}>
               START EARLY →
             </a>
           </div>
@@ -59,7 +59,7 @@ export default function Timeline() {
                 </div>
               ))}
             </div>
-            <a href="https://eduquest.org.in/contact-us/" className={styles.tlCta}>
+            <a href="/contact-us" className={styles.tlCta}>
               BEGIN NOW →
             </a>
           </div>

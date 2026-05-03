@@ -48,14 +48,14 @@ const PROGRAMMES: Programme[] = [
     name: "2-Year Programme",
     suitableFor: "Grade 11 students",
     coverage: "SAT/Digital SAT, AP, TOEFL/IELTS, Olympiads & NTSE",
-    href: "https://eduquest.org.in/contact-us/",
+    href: "/contact-us",
     actionLabel: "Enquire →",
   },
   {
     name: "1-Year Programme",
     suitableFor: "Grade 12 students",
     coverage: "Digital SAT, AP, TOEFL/IELTS — intensive final preparation",
-    href: "https://eduquest.org.in/contact-us/",
+    href: "/contact-us",
     actionLabel: "Enquire →",
   },
 ];
@@ -144,7 +144,7 @@ export default function CityLongTermProgrammes({ data }: Props) {
         <p className={styles.footnote}>
           For integrated multi-year programmes (Grades 8–12),{" "}
           <a
-            href="https://eduquest.org.in/contact-us/"
+            href="/contact-us"
             className={styles.footnoteLink}
           >
             contact us

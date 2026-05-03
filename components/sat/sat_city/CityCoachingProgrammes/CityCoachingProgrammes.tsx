@@ -44,7 +44,7 @@ export default function CityCoachingProgrammes({ data }: Props) {
               Book Free Diagnostic
             </a>
             <a
-              href="https://eduquest.org.in/contact-us/"
+              href="/contact-us"
               className={styles.btnOutline}
             >
               Enquire Now

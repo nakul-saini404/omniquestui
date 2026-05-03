@@ -48,7 +48,7 @@ const CTAStrip: React.FC = () => {
           {/* CTA buttons */}
           <div className={styles.ctaBtns}>
             <a
-              href="https://eduquest.org.in/contact-us/"
+              href="/contact-us"
               className={styles.btnPrimary}
               target="_blank"
               rel="noopener noreferrer"

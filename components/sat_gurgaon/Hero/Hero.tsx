@@ -45,7 +45,7 @@ export default function Hero() {
       {/* CTAs */}
       <div className={styles.ctas}>
         <a
-          href="https://eduquest.org.in/contact-us/"
+          href="/contact-us"
           className="btn-primary"
         >
           📊 Book Free SAT Diagnostic

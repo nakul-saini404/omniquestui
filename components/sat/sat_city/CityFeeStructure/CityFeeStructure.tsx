@@ -26,34 +26,34 @@ const FEES: FeeRow[] = [
     label: "Online Live Group Course",
     desc: "Live sessions, AI tests, unlimited doubt clearing",
     amount: "₹45,000/-",
-    href: (_slug) => "https://eduquest.org.in/contact-us/",
+    href: (_slug) => "/contact-us",
   },
   {
     label: "Hybrid Group Course",
     desc: "Online + classroom, comprehensive support",
     amount: "₹70,800/-",
     href: (slug) =>
-      `https://eduquest.org.in/contact-us/`,
+      `/contact-us`,
   },
   {
     label: "Classroom Group Course",
     desc: "In-person at Gurgaon centre",
     amount: "₹55,000/-",
-    href: (_slug) => "https://eduquest.org.in/product/sat-classroom/",
+    href: (_slug) => "/contact-us",
   },
   {
     label: "One-on-One (Online Live)",
     desc: "Fully personalized, score-till-goal guarantee",
     amount: "₹80,000/-",
     href: (slug) =>
-      `https://eduquest.org.in/contact-us/`,
+      `/contact-us`,
   },
   {
     label: "Hybrid One-on-One",
     desc: "Premium: online + classroom + admissions support",
     amount: "₹1,18,000/-",
     href: (slug) =>
-      `https://eduquest.org.in/contact-us/`,
+      `/contact-us`,
   },
 ];
 
@@ -101,7 +101,7 @@ export default function CityFeeStructure({ data }: Props) {
         <p className={styles.footnote}>
           For integrated multi-year programmes (Grades 8–12),{" "}
           <a
-            href="https://eduquest.org.in/contact-us/"
+            href="/contact-us"
             className={styles.footnoteLink}
           >
             contact us

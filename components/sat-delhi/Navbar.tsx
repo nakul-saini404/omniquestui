@@ -30,7 +30,7 @@ export default function Navbar() {
         </div>
 
         <div className={styles.cta}>
-          <a href="https://eduquest.org.in/contact-us/" className="btn-primary">
+          <a href="/contact-us" className="btn-primary">
             Book Free Counselling
           </a>
         </div>
@@ -54,7 +54,7 @@ export default function Navbar() {
           </a>
         ))}
         <a
-          href="https://eduquest.org.in/contact-us/"
+          href="/contact-us"
           className="btn-primary"
           style={{ textAlign: "center" }}
           onClick={() => setOpen(false)}

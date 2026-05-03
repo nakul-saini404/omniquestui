@@ -59,7 +59,7 @@ const navItems = [
     ],
   },
   { label: 'Blog', href: 'https://eduquest.org.in/blog' },
-  { label: 'Contact', href: 'https://eduquest.org.in/contact-us/' },
+  { label: 'Contact', href: '/contact-us' },
 ];
 
 const socialLinks = [
@@ -632,7 +632,7 @@ export default function Navbar({ onToggleDesign }: { onToggleDesign?: () => void
             <a href="https://eduquest.org.in/franchise/" className="eq-btn-outline">
               Franchise
             </a>
-            <a href="https://eduquest.org.in/contact-us/" className="eq-btn-gold">
+            <a href="/contact-us" className="eq-btn-gold">
               Apply Now ▶
             </a>
             {onToggleDesign && (

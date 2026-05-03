@@ -19,12 +19,12 @@ export default function Pricing() {
               AI-based test generation.
             </p>
            
-            <a href="https://eduquest.org.in/contact-us/" className="btn-primary">
+            <a href="/contact-us" className="btn-primary">
               Enquire Now →
             </a>
             <p className={styles.note}>
               For integrated multi-year programmes (Grades 8–12),{" "}
-              <a href="https://eduquest.org.in/contact-us/">contact us</a> for
+              <a href="/contact-us">contact us</a> for
               customised fee structures.
             </p>
           </div>
