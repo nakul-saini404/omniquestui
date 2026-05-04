@@ -20,6 +20,8 @@ export type Stream =
 
 export interface StudentData {
   name: string;
+  email: string;       // ← new
+  phone: string;       // ← new
   grade: Grade;
   score: number;
   stream: Stream;

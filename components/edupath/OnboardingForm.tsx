@@ -8,19 +8,21 @@ interface Props {
 }
 
 const COUNTRIES: { value: Country; label: string }[] = [
-  { value: "USA", label: "🇺🇸 United States" },
-  { value: "UK", label: "🇬🇧 United Kingdom" },
-  { value: "Canada", label: "🇨🇦 Canada" },
-  { value: "Australia", label: "🇦🇺 Australia" },
-  { value: "Germany", label: "🇩🇪 Germany" },
-  { value: "Netherlands", label: "🇳🇱 Netherlands" },
-  { value: "Singapore", label: "🇸🇬 Singapore" },
-  { value: "Japan", label: "🇯🇵 Japan" },
-  { value: "India", label: "🇮🇳 India (Top Colleges)" },
+  { value: "USA", label: "United States" },
+  { value: "UK", label: "United Kingdom" },
+  { value: "Canada", label: "Canada" },
+  { value: "Australia", label: "Australia" },
+  { value: "Germany", label: "Germany" },
+  { value: "Netherlands", label: "Netherlands" },
+  { value: "Singapore", label: "Singapore" },
+  { value: "Japan", label: "Japan" },
+  { value: "India", label: "India (Top Colleges)" },
 ];
 
 export default function OnboardingForm({ onSubmit }: Props) {
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [grade, setGrade] = useState<string>("");
   const [score, setScore] = useState<string>("");
   const [stream, setStream] = useState<string>("");
@@ -35,19 +37,32 @@ export default function OnboardingForm({ onSubmit }: Props) {
     );
   };
 
+  const isValidEmail = (val: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+  const isValidPhone = (val: string) => /^[+\d\s\-()]{7,15}$/.test(val);
+
   const handleSubmit = async () => {
-    if (!name || !grade || !score || !stream || !field || selectedCountries.length === 0) {
+    if (!name || !email || !phone || !grade || !score || !stream || !field || selectedCountries.length === 0) {
       setError("Please fill in all fields and select at least one country.");
       return;
     }
+    if (!isValidEmail(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+    if (!isValidPhone(phone)) {
+      setError("Please enter a valid phone number.");
+      return;
+    }
+
     setError("");
     setLoading(true);
 
-    // Small artificial delay for UX
     await new Promise((r) => setTimeout(r, 1800));
 
     onSubmit({
       name: name.trim(),
+      email: email.trim(),
+      phone: phone.trim(),
       grade: parseInt(grade) as Grade,
       score: parseFloat(score),
       stream: stream as Stream,
@@ -77,9 +92,10 @@ export default function OnboardingForm({ onSubmit }: Props) {
         </div>
         <p className="ep-sub">
           AI-powered university application planner for students in grades 8–12. Fill in your
-          details and we'll build your personalised dashboard instantly.
+          details and we&apos;ll build your personalised dashboard instantly.
         </p>
 
+        {/* Name */}
         <div className="ep-field">
           <label className="ep-label">Your Full Name</label>
           <input
@@ -91,6 +107,31 @@ export default function OnboardingForm({ onSubmit }: Props) {
           />
         </div>
 
+        {/* Email + Phone */}
+        <div className="ep-grid-2">
+          <div className="ep-field">
+            <label className="ep-label">Email Address</label>
+            <input
+              className="ep-input"
+              type="email"
+              placeholder="e.g. arjun@gmail.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="ep-field">
+            <label className="ep-label">Phone Number</label>
+            <input
+              className="ep-input"
+              type="tel"
+              placeholder="e.g. +91 98765 43210"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </div>
+        </div>
+
+        {/* Grade + Score */}
         <div className="ep-grid-2">
           <div className="ep-field">
             <label className="ep-label">Current Grade</label>
@@ -117,6 +158,7 @@ export default function OnboardingForm({ onSubmit }: Props) {
           </div>
         </div>
 
+        {/* Stream */}
         <div className="ep-field">
           <label className="ep-label">Stream / Subject Focus</label>
           <select className="ep-input" value={stream} onChange={(e) => setStream(e.target.value)}>
@@ -129,6 +171,7 @@ export default function OnboardingForm({ onSubmit }: Props) {
           </select>
         </div>
 
+        {/* Countries */}
         <div className="ep-field">
           <label className="ep-label">Countries You Want to Apply To</label>
           <div className="ep-country-grid">
@@ -145,6 +188,7 @@ export default function OnboardingForm({ onSubmit }: Props) {
           </div>
         </div>
 
+        {/* Field of Study */}
         <div className="ep-field">
           <label className="ep-label">Intended Field of Study</label>
           <select className="ep-input" value={field} onChange={(e) => setField(e.target.value)}>

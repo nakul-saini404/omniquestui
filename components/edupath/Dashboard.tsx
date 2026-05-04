@@ -7,6 +7,7 @@ import { HeroSection, StatsRow, AIInsight } from "./sections/HeroSection";
 import { ScoreSection, TimelineSection } from "./sections/ScoreSection";
 import UniversityTabs from "./sections/UniversityTabs";
 import { ActionItems, ReadinessProgress } from "./sections/ActionItems";
+import ExamGuide from "./sections/ExamGuide";
 
 interface Props {
   data: StudentData;
@@ -23,7 +24,6 @@ export default function Dashboard({ data, onReset }: Props) {
   const [aiInsight, setAiInsight] = useState<string>("");
   const [insightLoading, setInsightLoading] = useState(true);
 
-  // Fetch AI insight + submit lead in parallel
   useEffect(() => {
     const fetchInsight = async () => {
       try {
@@ -38,7 +38,6 @@ export default function Dashboard({ data, onReset }: Props) {
           `Based on your Grade ${grade} profile with ${score}% in ${stream}, you're ${scoreLabel(score).toLowerCase()} positioned for ${countries[0]} applications. Focus on maintaining consistency and start your application documents early.`;
         setAiInsight(insight);
 
-        // After we have the insight, submit the lead
         await fetch("/api/edupath/submit-lead", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -67,9 +66,11 @@ export default function Dashboard({ data, onReset }: Props) {
     <div className="ep-dashboard">
       {/* TOP NAV */}
       <nav className="ep-topnav">
-       <a href="/eduQuest"><div className="ep-nav-logo">
-          Edu<span>Path</span>
-        </div></a> 
+        <a href="/eduQuest">
+          <div className="ep-nav-logo">
+            Edu<span>Path</span>
+          </div>
+        </a>
         <div className="ep-nav-student">
           <div className="ep-avatar">{name.charAt(0).toUpperCase()}</div>
           <div className="ep-nav-info">
@@ -105,6 +106,15 @@ export default function Dashboard({ data, onReset }: Props) {
           <TimelineSection grade={grade} />
         </div>
 
+        {/* ── EXAM / SCHOLARSHIP / VISA GUIDE ── */}
+        <div className="ep-sec-heading">
+          Exams, Scholarships & Visa
+          <div className="ep-heading-line" />
+        </div>
+
+       <ExamGuide countries={countries} stream={stream} grade={grade} career={field} />
+
+        {/* ── UNIVERSITIES ── */}
         <div className="ep-sec-heading">
           Recommended Universities
           <div className="ep-heading-line" />
