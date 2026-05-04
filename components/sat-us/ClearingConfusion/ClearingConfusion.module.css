@@ -1,0 +1,287 @@
+/* ============================================================
+   ClearingConfusion.module.css
+   Grid: 3 cols (≥900px) → 2 cols (≥560px) → 1 col (<560px)
+   Design: cream + deep navy + antique gold — original tokens
+   ============================================================ */
+
+.section {
+  --cream: #f5f0e8;
+  --cream2: #ede7d9;
+  --cream3: #e2d9c8;
+  --navy: #0b1c3d;
+  --navy2: #102454;
+  --navy3: #1a3570;
+  --gold: #d4a843;
+  --gold2: #e8c96a;
+  --red: #c84b31;
+  --red-bg: rgba(200, 75, 49, 0.06);
+  --red-bg-hover: rgba(200, 75, 49, 0.11);
+  --green: #2d7a4f;
+  --green-bg: rgba(45, 122, 79, 0.07);
+  --text: #0b1c3d;
+  --text2: #4a5568;
+  --text3: #718096;
+  --white: #ffffff;
+  --line: rgba(11, 28, 61, 0.1);
+  --line2: rgba(11, 28, 61, 0.16);
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "Plus Jakarta Sans", sans-serif;
+  --radius: 6px;
+  --max: 1160px;
+
+  padding: 5rem 0;
+  background: var(--cream2);
+  border-top: 1px solid var(--line2);
+  border-bottom: 1px solid var(--line2);
+  font-family: var(--ff-body);
+  color: var(--text);
+}
+
+/* ── Inner wrapper ── */
+.inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ── Header (centered) ── */
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2.75rem;
+}
+
+.eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--navy3);
+  margin-bottom: 0.6rem;
+}
+
+.title {
+  font-family: var(--ff-head);
+  font-size: clamp(1.8rem, 3.5vw, 2.55rem);
+  line-height: 1.22;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.85rem;
+}
+
+.titleAccent {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.divider {
+  width: 40px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin-bottom: 1.1rem;
+}
+
+.subtitle {
+  color: var(--text2);
+  font-size: 0.92rem;
+  max-width: 560px;
+  line-height: 1.75;
+}
+
+/* ── 3-column grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  align-items: start; /* cards don't stretch to match neighbours */
+}
+
+/* ── Card ── */
+.card {
+  background: var(--white);
+  border: 1px solid var(--line2);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+
+  /* staggered entrance */
+  opacity: 0;
+  transform: translateY(14px);
+  animation: cardIn 0.45s ease forwards;
+  animation-delay: calc(var(--card-idx) * 55ms);
+}
+
+@keyframes cardIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card:hover {
+  box-shadow: 0 8px 28px rgba(11, 28, 61, 0.09);
+  transform: translateY(-2px);
+}
+
+/* open state — green top border */
+.cardOpen {
+  border-color: rgba(45, 122, 79, 0.4);
+  border-top: 2px solid var(--green);
+}
+
+/* ── Trigger button ── */
+.trigger {
+  width: 100%;
+  background: var(--red-bg);
+  border: none;
+  border-bottom: 2px solid var(--red);
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--ff-body);
+  transition: background 0.15s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.trigger:hover {
+  background: var(--red-bg-hover);
+}
+
+/* open: remove red bottom border (green top on card takes over) */
+.cardOpen .trigger {
+  border-bottom-color: transparent;
+  background: rgba(200, 75, 49, 0.03);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
+}
+
+/* top row inside trigger: badge + chevron */
+.triggerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+/* ❌ Myth badge */
+.mythBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.mythIco {
+  font-size: 0.88rem;
+  line-height: 1;
+}
+
+.mythLabel {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+/* +/− chevron */
+.chevron {
+  color: var(--gold);
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: transform 0.25s;
+}
+
+.chevronOpen {
+  transform: rotate(0deg); /* already "−" character, no extra spin needed */
+}
+
+/* Myth text */
+.mythText {
+  font-size: 0.84rem;
+  color: var(--text2);
+  line-height: 1.6;
+  font-style: italic;
+  margin: 0;
+}
+
+/* ── Fact panel — smooth height animation ── */
+.factWrap {
+  overflow: hidden;
+  transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.factInner {
+  padding: 1rem 1rem 1.1rem;
+  background: var(--green-bg);
+}
+
+.sep {
+  width: 100%;
+  height: 1px;
+  background: var(--line);
+  margin-bottom: 0.75rem;
+}
+
+/* ✅ Fact badge */
+.factBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.factIco {
+  font-size: 0.88rem;
+  line-height: 1;
+}
+
+.factLabel {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+/* Fact text */
+.factText {
+  font-size: 0.84rem;
+  color: var(--text);
+  line-height: 1.68;
+  margin: 0;
+}
+
+/* ── Responsive ── */
+
+/* 2 columns at ≤ 900px */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 1 column at ≤ 560px */
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+
+  .mythText,
+  .factText {
+    font-size: 0.82rem;
+  }
+}

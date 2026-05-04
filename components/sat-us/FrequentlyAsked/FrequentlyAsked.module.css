@@ -1,0 +1,338 @@
+/* ============================================================
+   FrequentlyAsked.module.css
+   Layout: centered header + full-width accordion below
+   Design: cream + deep navy + antique gold
+   Fonts: Playfair Display (headings) + Plus Jakarta Sans (body)
+   ============================================================ */
+
+.section {
+  --cream: #f5f0e8;
+  --cream2: #ede7d9;
+  --navy: #0b1c3d;
+  --navy2: #102454;
+  --gold: #d4a843;
+  --gold2: #e8c96a;
+  --text: #0b1c3d;
+  --text2: #4a5568;
+  --text3: #718096;
+  --line: rgba(11, 28, 61, 0.1);
+  --line2: rgba(11, 28, 61, 0.14);
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "Plus Jakarta Sans", sans-serif;
+  --radius: 8px;
+  --max: 820px;
+
+  position: relative;
+  background: #fff;
+  border-top: 1px solid var(--line2);
+  border-bottom: 1px solid var(--line2);
+  padding: 6rem 2rem;
+  overflow: hidden;
+  font-family: var(--ff-body);
+}
+
+/* ── Background orbs ── */
+.bgOrb1,
+.bgOrb2 {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bgOrb1 {
+  width: 500px;
+  height: 500px;
+  top: -160px;
+  left: -160px;
+  background: radial-gradient(
+    circle,
+    rgba(212, 168, 67, 0.07) 0%,
+    transparent 65%
+  );
+}
+
+.bgOrb2 {
+  width: 400px;
+  height: 400px;
+  bottom: -100px;
+  right: -120px;
+  background: radial-gradient(
+    circle,
+    rgba(11, 28, 61, 0.05) 0%,
+    transparent 65%
+  );
+}
+
+/* ── Inner wrapper ── */
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 3rem;
+}
+
+/* ── Centered header ── */
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.65rem;
+}
+
+.title {
+  font-family: var(--ff-head);
+  font-size: clamp(1.75rem, 3vw, 2.45rem);
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.85rem;
+}
+
+.titleAccent {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.divider {
+  width: 38px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--text2);
+  line-height: 1.78;
+  max-width: 520px;
+}
+
+/* ── Accordion list ── */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.listItem {
+  /* stagger handled inside .item */
+}
+
+/* ── Accordion item ── */
+.item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--line2);
+  position: relative;
+
+  opacity: 0;
+  transform: translateY(12px);
+  animation: itemIn 0.45s ease forwards;
+  animation-delay: calc(var(--idx) * 60ms);
+}
+
+@keyframes itemIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.item:first-child {
+  border-top: 1px solid var(--line2);
+}
+
+/* Gold left bar on open */
+.item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--gold);
+  border-radius: 0 2px 2px 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s ease;
+}
+
+.itemOpen::before {
+  transform: scaleY(1);
+}
+
+/* ── Number accent ── */
+.itemNum {
+  font-family: var(--ff-head);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--gold);
+  opacity: 0.45;
+  padding-top: 1.2rem;
+  min-width: 26px;
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
+  user-select: none;
+  transition: opacity 0.2s;
+}
+
+.itemOpen .itemNum {
+  opacity: 1;
+}
+
+/* ── Item body ── */
+.itemBody {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── Trigger button ── */
+.trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1.2rem 0;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  text-align: left;
+  font-family: var(--ff-body);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+.triggerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── Tag pill ── */
+.tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7a5c14;
+  background: rgba(212, 168, 67, 0.12);
+  border: 1px solid rgba(212, 168, 67, 0.3);
+  padding: 0.18rem 0.6rem;
+  border-radius: 20px;
+}
+
+/* ── Question text ── */
+.question {
+  font-size: 0.93rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.5;
+  transition: color 0.2s;
+}
+
+.itemOpen .question,
+.trigger:hover .question {
+  color: var(--navy2);
+}
+
+/* ── Plus / minus icon ── */
+.iconWrap {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line2);
+  background: var(--cream2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 0.15rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.itemOpen .iconWrap {
+  border-color: var(--gold);
+  background: rgba(212, 168, 67, 0.1);
+}
+
+.iconBar {
+  position: absolute;
+  width: 10px;
+  height: 1.5px;
+  background: var(--navy);
+  border-radius: 1px;
+  transition: background 0.2s;
+}
+
+.itemOpen .iconBar {
+  background: var(--gold);
+}
+
+.iconBarV {
+  transform: rotate(90deg);
+  transition: transform 0.3s ease, background 0.2s;
+}
+
+.iconBarVOpen {
+  transform: rotate(0deg);
+}
+
+/* ── Answer panel (animated height) ── */
+.answerWrap {
+  overflow: hidden;
+  transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.answer {
+  font-size: 0.875rem;
+  color: var(--text2);
+  line-height: 1.78;
+  padding-bottom: 1.35rem;
+  padding-right: 2.5rem;
+  border-left: 2px solid rgba(212, 168, 67, 0.25);
+  padding-left: 1rem;
+  margin-left: 0.1rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 560px) {
+  .section {
+    padding: 4rem 1.25rem;
+  }
+
+  .itemNum {
+    display: none;
+  }
+
+  .answer {
+    padding-right: 0.5rem;
+  }
+}

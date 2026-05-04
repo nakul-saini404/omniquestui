@@ -3480,7 +3480,7 @@ export const SAT_FOOTER_LOCATIONS: { href: string; label: string }[] = [
   { href: "/sat_jaipur",       label: "Jaipur"      },
   { href: "/sat/nepal",        label: "Nepal"       },
   { href: "/sat/pune",         label: "Pune"        },
-  { href: "/sat/us",           label: "US"          },
+  { href: "/sat_us",           label: "USA"          },
   { href: "/sat/sharjah",      label: "Sharjah"     },
   { href: "/sat/bangalore",    label: "Bangalore"   },
   { href: "/sat/chennai",      label: "Chennai"     },

@@ -1,0 +1,253 @@
+/*
+ * Programmes.module.css
+ * Exact 1:1 port of every CSS rule from the original HTML file
+ * that applies to the Programmes section — prog cards removed.
+ * Uses: .programmes-section, .programmes-inner, .prog-head,
+ *        .prog-online-pill, .pulse-wrap, .pulse-dot, .pulse-ring,
+ *        .pill-label, .section-label, .section-title.lt,
+ *        .section-sub.lt, .divider, .prog-btns,
+ *        .btn-primary, .btn-ghost
+ */
+
+/* ─── Tokens (scoped via .programmesSection) ─── */
+.programmesSection {
+  --cream: #f5f0e8;
+  --navy: #0b1c3d;
+  --navy2: #102454;
+  --navy3: #1a3570;
+  --gold: #d4a843;
+  --gold2: #e8c96a;
+  --text: #0b1c3d;
+  --text2: #4a5568;
+  --text3: #718096;
+  --white: #ffffff;
+  --line: rgba(11, 28, 61, 0.1);
+  --line2: rgba(11, 28, 61, 0.18);
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "Plus Jakarta Sans", sans-serif;
+  --max: 1160px;
+  --radius: 6px;
+
+  /* .programmes-section */
+  background: var(--navy);
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* radial glow overlay */
+.programmesSection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 50%,
+    rgba(212, 168, 67, 0.07) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+/* .programmes-inner */
+.programmesInner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Header row ─── */
+
+/* .prog-head */
+.progHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 3.5rem;
+}
+
+/* ─── Live online pill ─── */
+
+/* .prog-online-pill */
+.progOnlinePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: rgba(212, 168, 67, 0.1);
+  border: 1.5px solid rgba(212, 168, 67, 0.35);
+  border-radius: 30px;
+  padding: 0.4rem 1rem 0.4rem 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+/* .pulse-wrap */
+.pulseWrap {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .pulse-dot */
+.pulseDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gold);
+  position: relative;
+  z-index: 1;
+  animation: dotBeat 2s ease-in-out infinite;
+}
+
+@keyframes dotBeat {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.25); }
+}
+
+/* .pulse-ring */
+.pulseRing {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(212, 168, 67, 0.8);
+  animation: ringExpand 2s ease-out infinite;
+  opacity: 0;
+}
+
+@keyframes ringExpand {
+  0%   { transform: scale(0.4); opacity: 0.9; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* .pill-label */
+.pillLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--gold2);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  font-family: var(--ff-body);
+}
+
+/* ─── Typography ─── */
+
+/* .section-label */
+.sectionLabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+  font-family: var(--ff-body);
+}
+
+/* .section-title */
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(1.8rem, 3.5vw, 2.55rem);
+  line-height: 1.22;
+  margin-bottom: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* .section-title.lt */
+.lt {
+  color: var(--white);
+}
+
+.sectionTitle em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+/* .section-sub */
+.sectionSub {
+  color: var(--text2);
+  font-size: 0.92rem;
+  max-width: 580px;
+  line-height: 1.75;
+  font-family: var(--ff-body);
+}
+
+/* .section-sub.lt */
+.sectionSub.lt {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* .divider */
+.divider {
+  width: 40px;
+  height: 3px;
+  background: var(--gold);
+  margin: 1.25rem 0;
+  border-radius: 2px;
+}
+
+/* ─── CTA buttons ─── */
+
+/* .prog-btns */
+.progBtns {
+  display: flex;
+  gap: 0.85rem;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+/* .btn-primary */
+.btnPrimary {
+  background: var(--gold);
+  color: var(--navy);
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-family: var(--ff-body);
+  transition: transform 0.2s, background 0.2s;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.btnPrimary:hover {
+  background: var(--gold2);
+  transform: translateY(-2px);
+}
+
+/* .btn-ghost */
+.btnGhost {
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  color: var(--white);
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-family: var(--ff-body);
+  transition: border-color 0.2s, background 0.2s;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.btnGhost:hover {
+  border-color: var(--gold);
+  background: rgba(212, 168, 67, 0.08);
+}
+
+/* ─── Responsive (matches original breakpoints) ─── */
+@media (max-width: 600px) {
+  .progHead {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .progBtns {
+    flex-wrap: wrap;
+  }
+}

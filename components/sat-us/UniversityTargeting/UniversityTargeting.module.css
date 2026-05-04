@@ -1,0 +1,213 @@
+/*
+ * UniversityTargeting.module.css
+ * Exact 1:1 port of every CSS rule from the original HTML file
+ * that applies to the University Targeting (#colleges) section.
+ */
+
+/* ─── Tokens (scoped via .secFull) ─── */
+.secFull {
+  --cream: #f5f0e8;
+  --cream2: #ede7d9;
+  --cream3: #e2d9c8;
+  --navy: #0b1c3d;
+  --navy2: #102454;
+  --navy3: #1a3570;
+  --gold: #d4a843;
+  --gold2: #e8c96a;
+  --text: #0b1c3d;
+  --text2: #4a5568;
+  --text3: #718096;
+  --white: #ffffff;
+  --line: rgba(11, 28, 61, 0.1);
+  --line2: rgba(11, 28, 61, 0.18);
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "Plus Jakarta Sans", sans-serif;
+  --max: 1160px;
+  --radius: 6px;
+
+  /* .sec-full */
+  padding: 5rem 0;
+  background: var(--cream2);
+  border-top: 1px solid var(--line2);
+  border-bottom: 1px solid var(--line2);
+  font-family: var(--ff-body);
+  color: var(--text);
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+/* .sec-full .inner */
+.inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ─── Typography helpers ─── */
+
+/* .section-label */
+.sectionLabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+/* .section-label.dk */
+.dk {
+  color: var(--navy3);
+}
+
+/* .section-title */
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(1.8rem, 3.5vw, 2.55rem);
+  line-height: 1.22;
+  margin-bottom: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.sectionTitle em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+/* .section-sub */
+.sectionSub {
+  color: var(--text2);
+  font-size: 0.92rem;
+  max-width: 580px;
+  line-height: 1.75;
+}
+
+/* .divider */
+.divider {
+  width: 40px;
+  height: 3px;
+  background: var(--gold);
+  margin: 1.25rem 0;
+  border-radius: 2px;
+}
+
+/* ─── College grid ─── */
+
+/* .college-grid */
+.collegeGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* .college-card */
+.collegeCard {
+  background: var(--white);
+  border: 1px solid var(--line2);
+  border-radius: var(--radius);
+  padding: 1.1rem;
+  text-align: center;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.collegeCard:hover {
+  border-color: var(--gold);
+  box-shadow: 0 6px 20px rgba(11, 28, 61, 0.07);
+}
+
+/* .college-card .score-req */
+.scoreReq {
+  font-family: var(--ff-head);
+  font-size: 1.4rem;
+  color: var(--navy);
+  font-weight: 700;
+}
+
+/* .college-card .name */
+.name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin: 0.4rem 0 0.2rem;
+  color: var(--text);
+}
+
+/* .college-card .tier */
+.tier {
+  font-size: 0.68rem;
+  color: var(--text3);
+}
+
+/* ─── Score bars ─── */
+
+.barHeading {
+  font-size: 0.92rem;
+  font-weight: 700;
+  font-family: var(--ff-head);
+  color: var(--text3);
+  margin-bottom: 1.25rem;
+}
+
+/* .score-row */
+.scoreRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+/* .score-tag */
+.scoreTag {
+  font-family: monospace;
+  font-size: 0.88rem;
+  font-weight: 700;
+  min-width: 115px;
+  color: var(--navy);
+}
+
+/* .score-bar-bg */
+.scoreBarBg {
+  flex: 1;
+  height: 7px;
+  background: var(--cream3);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* .score-bar-fill */
+.scoreBarFill {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--gold);
+  width: 0%;
+  transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* .score-desc */
+.scoreDesc {
+  font-size: 0.76rem;
+  color: var(--text3);
+  min-width: 200px;
+}
+
+/* ─── Responsive (matches original breakpoints) ─── */
+@media (max-width: 900px) {
+  .collegeGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .collegeGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .scoreRow {
+    flex-wrap: wrap;
+  }
+
+  .scoreDesc {
+    min-width: unset;
+  }
+}

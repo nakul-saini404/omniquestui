@@ -55,9 +55,7 @@ const CTAStrip: React.FC = () => {
             >
               Book Advance Strategy Session
             </a>
-            <a href="#faq" className={styles.btnSecondary}>
-              Explore Programme →
-            </a>
+           
           </div>
 
         </div>
