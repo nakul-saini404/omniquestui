@@ -25,7 +25,7 @@ const navItems = [
     children: [
       { label: 'SAT Coaching', href: '/sat' },
       { label: 'ACT Coaching', href: 'https://eduquest.org.in/act/' },
-      { label: 'AP Coaching', href: 'https://eduquest.org.in/ap-coaching/' },
+      { label: 'AP Coaching', href: '/ap-coaching' },
       { label: 'Pre-AP Coaching', href: 'https://eduquest.org.in/pre-ap-coaching-in-gurgaon/' },
       { label: 'TMUA Coaching', href: 'https://eduquest.org.in/tmua/' },
       { label: 'UCAT Coaching', href: '/ucat' },
