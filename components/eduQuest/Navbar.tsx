@@ -60,6 +60,7 @@ const navItems = [
   },
   { label: 'Blog', href: 'https://eduquest.org.in/blog' },
   { label: 'Contact', href: '/contact-us' },
+  { label: 'Dashboard', href: '/edupath' },
 ];
 
 const socialLinks = [
