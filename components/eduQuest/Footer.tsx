@@ -5,6 +5,7 @@ const footerLinks = {
     { label: 'SAT Coaching', href: '/sat' },
     { label: 'ACT Coaching', href: 'https://eduquest.org.in/sat-coaching-classes-delhi/' },
     { label: 'AP Coaching', href: '/ap-coaching' },
+    { label: 'Pre-AP Coaching', href: '/pre-ap-gurgaon' },
     { label: 'LSAT Coaching', href: 'https://eduquest.org.in/lsat-coaching-india/' },
     { label: 'UCAT Coaching', href: '/ucat' },
     { label: 'TMUA Coaching', href: 'https://eduquest.org.in/tmua/' },

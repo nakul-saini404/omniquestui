@@ -17,7 +17,8 @@ import StudentStories from '@/components/apCoaching/StudentStories/StudentStorie
 import FAQ from '@/components/apCoaching/FAQ/FAQ';
 import WhyStudentsFail from '@/components/apCoaching/WhyStudentsFail/WhyStudentsFail';
 import EduQuestInsights from '@/components/apCoaching/EduQuestInsights/EduQuestInsights';
-import FinalCTA from '@/components/sat/FinalCTA';
+import CTAStrip from '@/components/sat_mumbai/CTAStrip/CTAStrip';
+import APCreditsSection from '@/components/apCoaching/APCreditsSection/APCreditsSection';
 
 
 export default function APCOACHING() {
@@ -35,6 +36,7 @@ export default function APCOACHING() {
       <ExamFormat2026 />
       <EduQuestAdvantage />
       <ScholarshipImpact />
+      <APCreditsSection />
       <PreAP />
       <OurAchievers />
       <HowItWorks />
@@ -42,7 +44,8 @@ export default function APCOACHING() {
       <StudentStories />
       <FAQ />
       <EduQuestInsights/>
-        <FinalCTA />
+        {/* <FinalCTA /> */}
+        <CTAStrip/>
       </main>
       <Footer />
     </>

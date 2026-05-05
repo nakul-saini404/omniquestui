@@ -26,7 +26,7 @@ const navItems = [
       { label: 'SAT Coaching', href: '/sat' },
       { label: 'ACT Coaching', href: 'https://eduquest.org.in/act/' },
       { label: 'AP Coaching', href: '/ap-coaching' },
-      { label: 'Pre-AP Coaching', href: 'https://eduquest.org.in/pre-ap-coaching-in-gurgaon/' },
+      { label: 'Pre-AP Coaching', href: '/pre-ap-gurgaon' },
       { label: 'TMUA Coaching', href: 'https://eduquest.org.in/tmua/' },
       { label: 'UCAT Coaching', href: '/ucat' },
       { label: 'IPMAT Coaching', href: 'https://eduquest.org.in/ipmat-coaching-and-profile-building-eduquest-2026/' },

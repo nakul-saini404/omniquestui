@@ -1,0 +1,155 @@
+/* ── TOKENS (mirror the site's :root variables) ── */
+.section {
+  --cream: #f5f0e8;
+  --navy: #0b1c3d;
+  --navy2: #102454;
+  --gold: #d4a843;
+  --gold2: #e8c96a;
+  --text2: #4a5568;
+  --line: rgba(11, 28, 61, 0.1);
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "Plus Jakarta Sans", sans-serif;
+  --max: 1160px;
+  --radius: 6px;
+
+  background: var(--cream);
+  padding: 72px 24px;
+  font-family: var(--ff-body);
+}
+
+/* ── LAYOUT ── */
+.inner {
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+/* ── HEADER ── */
+.header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.goldLine {
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: var(--gold);
+  margin: 0 auto 20px;
+}
+
+.heading {
+  font-family: var(--ff-head);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.22;
+}
+
+/* ── FAQ WRAP ── */
+.faqWrap {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* ── FAQ ITEM ── */
+.faqItem {
+  border-bottom: 1px solid var(--line);
+}
+
+/* ── QUESTION BUTTON ── */
+.question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 20px 0;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.4;
+  user-select: none;
+  background: none;
+  border: none;
+  font-family: var(--ff-body);
+  text-align: left;
+}
+
+.question:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: var(--radius);
+}
+
+/* ── ARROW ICON ── */
+.arrow {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(212, 168, 67, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--gold);
+  font-size: 12px;
+  transition: transform 0.25s ease, background 0.2s ease, color 0.2s ease;
+  line-height: 1;
+  text-align: center;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.open .arrow {
+  transform: rotate(180deg);
+  background: var(--gold);
+  color: var(--navy);
+}
+
+/* ── ANSWER PANEL ── */
+.answer {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.72;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.28s ease, padding-bottom 0.28s ease;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+.answer > p {
+  overflow: hidden;
+}
+
+.open .answer {
+  grid-template-rows: 1fr;
+  padding-bottom: 18px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .section {
+    padding: 48px 16px;
+  }
+
+  .heading {
+    font-size: 26px;
+  }
+
+  .question {
+    font-size: 13px;
+    padding: 16px 0;
+  }
+}

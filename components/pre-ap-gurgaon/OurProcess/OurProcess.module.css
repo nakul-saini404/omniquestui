@@ -1,0 +1,231 @@
+/* ═══════════════════════════════════════════════════════════
+   OurProcess.module.css
+   Mirrors all .steps, .step, .duration-block, .dur-item,
+   .score-badge rules + shared utilities from
+   pre-ap-gurgaon.html — token-for-token.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── SECTION SHELL ── */
+.section {
+  padding: 72px 24px;
+}
+.sectionWhite {
+  background: #ffffff;
+}
+.inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── TWO-COLUMN LAYOUT ── */
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* ── SHARED HEADER UTILITIES ── */
+.sTag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 10px;
+}
+.goldLine {
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: #d4a843;
+  margin-bottom: 20px;
+}
+.sHead {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #0b1c3d;
+  line-height: 1.22;
+  margin-bottom: 14px;
+}
+.sSub {
+  font-size: 15px;
+  color: #4a5568;
+  line-height: 1.75;
+  max-width: 580px;
+  margin-bottom: 32px;
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LEFT COLUMN — STEPS
+   ═══════════════════════════════════════════════════════════ */
+
+.steps {
+  display: flex;
+  flex-direction: column;
+}
+
+.step {
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(11, 28, 61, 0.1);
+}
+.step:last-child {
+  border-bottom: none;
+}
+
+/* Numbered circle */
+.stepNum {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #0b1c3d;
+  color: #d4a843;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stepContent {
+  /* wraps h4 + p */
+}
+
+.stepTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0b1c3d;
+  margin-bottom: 6px;
+}
+
+.stepBody {
+  font-size: 13px;
+  color: #4a5568;
+  line-height: 1.65;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RIGHT COLUMN — DURATION BLOCK
+   ═══════════════════════════════════════════════════════════ */
+
+.durationBlock {
+  background: #f5f0e8; /* --cream */
+  border-radius: 10px;
+  padding: 28px;
+}
+
+.durationTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 18px;
+  color: #0b1c3d;
+  margin-bottom: 18px;
+}
+
+/* Individual duration row */
+.durItem {
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  border-left: 3px solid #d4a843;
+}
+.durItem:last-of-type {
+  margin-bottom: 0;
+}
+
+.durTime {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0b1c3d;
+}
+.durLbl {
+  font-size: 12px;
+  color: #718096;
+  margin-top: 3px;
+}
+
+/* Navy score badge */
+.scoreBadge {
+  background: #0b1c3d;
+  border-radius: 6px;
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+.scLbl {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 6px;
+}
+.scNum {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #d4a843;
+}
+
+/* Subjects-by-mode card */
+.modeCard {
+  background: #ede7d9; /* --cream2 */
+  border-radius: 10px;
+  padding: 24px;
+  margin-top: 20px;
+}
+.modeCardTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0b1c3d;
+  margin-bottom: 16px;
+}
+.modeGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.modeCol {
+  font-size: 12px;
+}
+.modeColTitle {
+  font-weight: 600;
+  color: #0b1c3d;
+  margin-bottom: 6px;
+}
+.modeColBody {
+  color: #4a5568;
+  line-height: 1.65;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .twoCol {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .sHead {
+    font-size: 26px;
+  }
+}
+@media (max-width: 600px) {
+  .section {
+    padding: 52px 20px;
+  }
+}

@@ -3,6 +3,7 @@ import styles from "./Footer.module.css";
 const TEST_PREP = [
   { label: "SAT Coaching", href: "https://eduquest.org.in/sat/" },
   { label: "SAT Coaching Delhi", href: "https://eduquest.org.in/sat-coaching-classes-delhi/" },
+  { label: 'Pre-AP Coaching', href: '/pre-ap-gurgaon' },
   { label: "ACT Coaching", href: "https://eduquest.org.in/act/" },
   { label: "AP Coaching", href: "https://eduquest.org.in/ap-coaching/" },
   { label: "IELTS", href: "https://eduquest.org.in/ielts/" },

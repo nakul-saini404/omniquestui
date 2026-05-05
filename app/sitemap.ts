@@ -9,21 +9,21 @@ const BASE_URL = "https://eduquest.org.in";
 // Real ISO dates — not new Date() — so Google sees genuine freshness signals
 // ─────────────────────────────────────────────────────────────────────────────
 const STATIC_PAGES: MetadataRoute.Sitemap = [
-  { url: `${BASE_URL}/`,            lastModified: new Date("2026-01-01"), changeFrequency: "weekly",  priority: 1.0  },
-  { url: `${BASE_URL}/sat/`,        lastModified: new Date("2026-01-01"), changeFrequency: "weekly",  priority: 0.95 },
-  { url: `${BASE_URL}/act/`,        lastModified: new Date("2026-01-01"), changeFrequency: "monthly", priority: 0.85 },
-  { url: `${BASE_URL}/ap/`,         lastModified: new Date("2026-01-01"), changeFrequency: "monthly", priority: 0.85 },
-  { url: `${BASE_URL}/ucat/`,       lastModified: new Date("2026-01-01"), changeFrequency: "monthly", priority: 0.80 },
-  { url: `${BASE_URL}/admissions/`, lastModified: new Date("2026-01-01"), changeFrequency: "monthly", priority: 0.80 },
+  { url: `${BASE_URL}/`,            lastModified: new Date("2026-03-15"), changeFrequency: "weekly",  priority: 1.0  },
+  { url: `${BASE_URL}/sat/`,        lastModified: new Date("2026-03-15"), changeFrequency: "weekly",  priority: 0.95 },
+  { url: `${BASE_URL}/act/`,        lastModified: new Date("2026-03-15"), changeFrequency: "monthly", priority: 0.85 },
+  { url: `${BASE_URL}/ap/`,         lastModified: new Date("2026-03-15"), changeFrequency: "monthly", priority: 0.85 },
+  { url: `${BASE_URL}/ucat/`,       lastModified: new Date("2026-03-15"), changeFrequency: "monthly", priority: 0.80 },
+  { url: `${BASE_URL}/admissions/`, lastModified: new Date("2026-03-15"), changeFrequency: "monthly", priority: 0.80 },
   { url: `${BASE_URL}/about/`,      lastModified: new Date("2025-06-01"), changeFrequency: "yearly",  priority: 0.60 },
   { url: `${BASE_URL}/contact/`,    lastModified: new Date("2025-06-01"), changeFrequency: "yearly",  priority: 0.60 },
-  { url: `${BASE_URL}/blog/`,       lastModified: new Date("2026-01-01"), changeFrequency: "daily",   priority: 0.75 },
+  { url: `${BASE_URL}/blog/`,       lastModified: new Date("2026-03-15"), changeFrequency: "daily",   priority: 0.75 },
 
   // Legacy hyphen URLs — keep for backlink equity until /sat/[slug] fully indexed
-  { url: `${BASE_URL}/sat-coaching-classes-delhi/`,   lastModified: new Date("2026-01-01"), changeFrequency: "monthly", priority: 0.88 },
-  { url: `${BASE_URL}/sat-coaching-classes-mumbai/`,  lastModified: new Date("2026-01-01"), changeFrequency: "monthly", priority: 0.85 },
-  { url: `${BASE_URL}/sat-coaching-classes-gurgaon/`, lastModified: new Date("2026-01-01"), changeFrequency: "monthly", priority: 0.88 },
-  { url: `${BASE_URL}/sat-coaching-classes-jaipur/`,  lastModified: new Date("2026-01-01"), changeFrequency: "monthly", priority: 0.82 },
+  { url: `${BASE_URL}/sat-coaching-classes-delhi/`,   lastModified: new Date("2026-03-15"), changeFrequency: "monthly", priority: 0.88 },
+  { url: `${BASE_URL}/sat-coaching-classes-mumbai/`,  lastModified: new Date("2026-03-15"), changeFrequency: "monthly", priority: 0.85 },
+  { url: `${BASE_URL}/sat-coaching-classes-gurgaon/`, lastModified: new Date("2026-03-15"), changeFrequency: "monthly", priority: 0.88 },
+  { url: `${BASE_URL}/sat-coaching-classes-jaipur/`,  lastModified: new Date("2026-03-15"), changeFrequency: "monthly", priority: 0.82 },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────

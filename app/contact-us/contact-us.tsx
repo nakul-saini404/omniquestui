@@ -9,7 +9,6 @@ import OurCommitment from '@/components/Contact-us/OurCommitment/OurCommitment';
 import OurOffices from '@/components/Contact-us/OurOffices/OurOffices';
 import OurProgrammes from '@/components/Contact-us/OurProgrammes/OurProgrammes';
 import OurCounsellors from '@/components/Contact-us/OurCounsellors/OurCounsellors';
-import EmailDirectory from '@/components/Contact-us/EmailDirectory/EmailDirectory';
 import StudentStories from '@/components/Contact-us/StudentStories/StudentStories';
 import CommonQuestions from '@/components/Contact-us/CommonQuestions/CommonQuestions';
 
@@ -27,7 +26,7 @@ export default function ContactUs() {
         <OurOffices />
         <OurProgrammes/>
         <OurCounsellors/>
-        <EmailDirectory/>
+        {/* <EmailDirectory/> */}
         <StudentStories/>
         <CommonQuestions/>
       </main>

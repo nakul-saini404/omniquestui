@@ -20,8 +20,8 @@ export type Stream =
 
 export interface StudentData {
   name: string;
-  email: string;       // ← new
-  phone: string;       // ← new
+  email: string;
+  phone: string;
   grade: Grade;
   score: number;
   stream: Stream;
@@ -34,9 +34,15 @@ export interface University {
   tier: "Reach" | "Target" | "Safety";
   req: number;
   sat: number | null;
+  /** Whether SAT is required, recommended, optional, or not used */
+  satRequired: "Yes" | "Recommended" | "Optional" | "No";
   deadline: string;
   cost: string;
   country?: Country;
+  /** Short description of how applications are evaluated */
+  admissionMode: string;
+  /** What score/profile is needed to win scholarship money */
+  scholarshipStrength: string;
 }
 
 export interface ChanceResult {
