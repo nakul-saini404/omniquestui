@@ -103,7 +103,12 @@ export default function Dashboard({ data, onReset }: Props) {
             satEst={satEst}
             countries={countries}
           />
-          <TimelineSection grade={grade} />
+          {/* ── UPDATED: pass countries & career so timeline is country+career specific ── */}
+          <TimelineSection
+            grade={grade}
+            countries={countries}
+            career={field}
+          />
         </div>
 
         {/* ── EXAM / SCHOLARSHIP / VISA GUIDE ── */}
@@ -112,7 +117,7 @@ export default function Dashboard({ data, onReset }: Props) {
           <div className="ep-heading-line" />
         </div>
 
-       <ExamGuide countries={countries} stream={stream} grade={grade} career={field} />
+        <ExamGuide countries={countries} stream={stream} grade={grade} career={field} />
 
         {/* ── UNIVERSITIES ── */}
         <div className="ep-sec-heading">
@@ -125,8 +130,7 @@ export default function Dashboard({ data, onReset }: Props) {
             countries={countries}
             stream={stream}
             predictedFinal={predictedFinal}
-              grade={grade}   // ← add this
-
+            grade={grade}
           />
         </div>
 
