@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useRef, useState } from "react";
-import styles from "./Foundationfirst.module.css"
+import styles from "./foundation.module.css"
 
 /* ─── Data ───────────────────────────────────────────────── */
 const POINTS = [
