@@ -19,9 +19,6 @@ export default function FinalCTA() {
           <a href="/contact-us" className={`btn-primary ${styles.ctaBtnGold}`}>
             Book Advance Strategy Session
           </a>
-          <a href="#faq" className={`btn-outline ${styles.ctaBtnOutlineLight}`}>
-            Explore Programme →
-          </a>
         </div>
       </div>
     </section>

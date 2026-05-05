@@ -1,0 +1,218 @@
+/* ============================================================
+   FAQ.module.css
+   EduQuest brand palette — dark navy base, amber accent
+   ============================================================ */
+
+.section {
+  --navy-950: #050d1a;
+  --navy-900: #0a1628;
+  --navy-800: #0f2040;
+  --navy-600: #1e3a6e;
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  --orange-500: #f97316;
+  --blue-300: #5b9be8;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --text-primary: #f8fafc;
+  --border: rgba(59, 125, 216, 0.2);
+  --radius-md: 14px;
+
+  background: var(--navy-900);
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient glow */
+.section::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(59, 125, 216, 0.07) 0%,
+    transparent 70%
+  );
+  top: -80px;
+  left: -80px;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+/* ── Layout ── */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.sectionLabel::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--amber-400);
+  flex-shrink: 0;
+}
+
+.sectionLabel span {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--amber-400);
+}
+
+.title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.highlight {
+  background: linear-gradient(135deg, var(--amber-400), var(--orange-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Accordion list ── */
+.list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Individual item ── */
+.item {
+  background: var(--navy-800);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color 0.25s ease;
+}
+
+.item.open {
+  border-color: rgba(59, 125, 216, 0.38);
+}
+
+/* ── Question button ── */
+.question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: left;
+  line-height: 1.5;
+  transition: background 0.2s ease;
+}
+
+.question:hover {
+  background: rgba(59, 125, 216, 0.06);
+}
+
+/* ── Plus/close icon ── */
+.icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--amber-400);
+  transition: transform 0.3s ease, background 0.2s ease;
+}
+
+.open .icon {
+  transform: rotate(45deg);
+  background: rgba(245, 158, 11, 0.18);
+}
+
+/* ── Answer panel ── */
+.answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+  padding: 0 24px;
+}
+
+/* Using grid-template-rows trick — no max-height needed */
+.open .answer {
+  grid-template-rows: 1fr;
+}
+
+.answer p {
+  /* The inner element must have overflow:hidden for the grid trick */
+  overflow: hidden;
+  padding: 0 0 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  color: var(--gray-400);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 767px) {
+  .section {
+    padding: 72px 0;
+  }
+
+  .question {
+    padding: 18px 20px;
+    font-size: 0.9rem;
+  }
+
+  .answer {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 479px) {
+  .section {
+    padding: 56px 0;
+  }
+
+  .question {
+    font-size: 0.85rem;
+  }
+}

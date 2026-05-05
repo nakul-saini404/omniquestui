@@ -125,6 +125,8 @@ export default function Dashboard({ data, onReset }: Props) {
             countries={countries}
             stream={stream}
             predictedFinal={predictedFinal}
+              grade={grade}   // ← add this
+
           />
         </div>
 

@@ -1,0 +1,205 @@
+/* ============================================================
+   EduQuestAdvantage.module.css
+   Pixel-faithful CSS module for the "EduQuest Advantage" /
+   "Why EduQuest" section — mirrors the HTML design system.
+   Palette: dark navy base, amber/orange accents, blue border.
+   Fonts: Syne (headings) + DM Sans (body) via Google Fonts.
+   ============================================================ */
+
+/* ── Design tokens (scoped to .whySection) ─────────────────── */
+.whySection {
+  --navy-950: #050d1a;
+  --navy-800: #0f2040;
+  --navy-700: #152952;
+  --navy-600: #1e3a6e;
+  --blue-300: #5b9be8;
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  --orange-400: #fb923c;
+  --orange-500: #f97316;
+  --gray-400: #94a3b8;
+  --text-primary: #f8fafc;
+  --border: rgba(59, 125, 216, 0.2);
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  /* section */
+  background: var(--navy-950);
+  padding: 96px 0;
+  font-family: "DM Sans", sans-serif;
+  color: var(--text-primary);
+  line-height: 1.65;
+}
+
+/* ── Container ─────────────────────────────────────────────── */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Section header block (centred) ─────────────────────────── */
+.whyHeader {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+/* ── Section label: amber line + ALL-CAPS text, centred ─────── */
+.sectionLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centred unlike ExamFormat */
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.sectionLabel::before {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--amber-400);
+  flex-shrink: 0;
+}
+
+.sectionLabel span {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--amber-400);
+}
+
+/* ── Main heading ───────────────────────────────────────────── */
+.mainTitle {
+  font-family: "Syne", sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+/* Amber → orange gradient text on "EduQuest" */
+.highlight {
+  background: linear-gradient(135deg, var(--amber-400), var(--orange-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Subtitle paragraph ─────────────────────────────────────── */
+.mainDesc {
+  color: var(--gray-400);
+  max-width: 560px;
+  margin: 0 auto;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+/* ── 3-column cards grid ─────────────────────────────────────── */
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ── Individual card ─────────────────────────────────────────── */
+.whyCard {
+  background: var(--navy-800);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.whyCard:hover {
+  border-color: rgba(59, 125, 216, 0.4);
+  transform: translateY(-4px);
+}
+
+/* ── Icon box: amber-tinted square ──────────────────────────── */
+.whyCardIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 18px;
+  flex-shrink: 0;
+}
+
+/* ── Card heading ───────────────────────────────────────────── */
+.whyCardTitle {
+  font-family: "Syne", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+/* ── Card body text ─────────────────────────────────────────── */
+.whyCardDesc {
+  font-size: 0.85rem;
+  color: var(--gray-400);
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 300;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+
+/* 1024px: 3 → 2 columns */
+@media (max-width: 1024px) {
+  .whyGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 768px: 2 → 1 column, reduced section padding */
+@media (max-width: 768px) {
+  .whySection {
+    padding: 64px 0;
+  }
+
+  .whyGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .whyHeader {
+    margin-bottom: 40px;
+  }
+
+  .mainTitle {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+
+  .whyCard {
+    padding: 24px 22px;
+  }
+}
+
+/* 480px: tighter container padding */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .whyCardIcon {
+    width: 46px;
+    height: 46px;
+    font-size: 1.2rem;
+  }
+
+  .whyCardTitle {
+    font-size: 0.98rem;
+  }
+}

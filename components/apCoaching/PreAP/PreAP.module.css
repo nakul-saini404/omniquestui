@@ -1,0 +1,282 @@
+/* ============================================================
+   PreAP.module.css
+   Pixel-faithful CSS module for the "For Grades 6–8 / Pre-AP"
+   section — mirrors every rule from the HTML source exactly.
+   Palette : dark navy base · amber/orange accents · blue border.
+   Fonts   : Syne (headings) + DM Sans (body) via Google Fonts.
+   ============================================================ */
+
+/* ── Design tokens (scoped to .preap) ──────────────────────── */
+.preap {
+  --navy-950:   #050d1a;
+  --navy-900:   #0a1628;
+  --navy-800:   #0f2040;
+  --navy-700:   #152952;
+  --blue-300:   #5b9be8;
+  --blue-400:   #3b7dd8;
+  --amber-400:  #fbbf24;
+  --amber-500:  #f59e0b;
+  --orange-500: #f97316;
+  --green-400:  #34d399;
+  --gray-300:   #cbd5e1;
+  --gray-400:   #94a3b8;
+  --text-primary: #f8fafc;
+  --border:     rgba(59, 125, 216, 0.2);
+  --radius-sm:  8px;
+  --radius-md:  14px;
+
+  /* section */
+  background: var(--navy-950);
+  padding: 96px 0;
+  font-family: "DM Sans", sans-serif;
+  color: var(--text-primary);
+  line-height: 1.65;
+}
+
+/* ── Container ─────────────────────────────────────────────── */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TWO-COLUMN GRID
+   ═══════════════════════════════════════════════════════════ */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;   /* vertically centres both columns */
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LEFT COLUMN — CONTENT
+   ═══════════════════════════════════════════════════════════ */
+.content {
+  /* flex column so children stack cleanly */
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Section label: amber line + ALL-CAPS text ──────────────── */
+.sectionLabel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.sectionLabel::before {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--amber-400);
+  flex-shrink: 0;
+}
+
+.sectionLabel span {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--amber-400);
+}
+
+/* ── Main heading ───────────────────────────────────────────── */
+.heading {
+  font-family: "Syne", sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+/* Amber → orange gradient on "Foundation" */
+.highlight {
+  background: linear-gradient(135deg, var(--amber-400), var(--orange-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Body paragraphs ────────────────────────────────────────── */
+.para {
+  color: var(--gray-400);
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+/* ── Benefits list ──────────────────────────────────────────── */
+.benefitsList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 0;
+}
+
+/* Each list item: green ✓ via ::before */
+.benefitItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--gray-300);
+  line-height: 1.5;
+}
+
+.benefitItem::before {
+  content: "✓";
+  color: var(--green-400);
+  font-weight: 700;
+  flex-shrink: 0;
+  font-size: 0.9rem;
+}
+
+/* ── Ghost button wrapper ───────────────────────────────────── */
+.btnWrap {
+  margin-top: 28px;
+}
+
+/* Ghost button — blue-tinted transparent */
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  border: 1px solid rgba(59, 125, 216, 0.25);
+  background: rgba(59, 125, 216, 0.12);
+  color: var(--blue-300);
+  transition: background 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btnGhost:hover {
+  background: rgba(59, 125, 216, 0.22);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RIGHT COLUMN — COURSE CARDS
+   ═══════════════════════════════════════════════════════════ */
+.rightCol {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Green pill badge ───────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(52, 211, 153, 0.12);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  color: var(--green-400);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+  align-self: flex-start; /* don't stretch full width */
+}
+
+/* ── 2-column course cards grid ─────────────────────────────── */
+.coursesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* ── Individual course card ─────────────────────────────────── */
+.courseCard {
+  padding: 12px 16px;
+  background: var(--navy-800);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.83rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.2s ease;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.courseCard:hover {
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+/* 📚 emoji via ::before — exact match to HTML */
+.courseCard::before {
+  content: "📚";
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════ */
+
+/* 1024px — stack both columns into single column */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;  /* matches: .what-ap__grid, .preap__grid { grid-template-columns: 1fr } */
+    gap: 48px;
+  }
+}
+
+/* 768px — course grid collapses to 1 column; section padding reduces */
+@media (max-width: 768px) {
+  .preap {
+    padding: 64px 0;  /* matches: .section { padding: 64px 0 } */
+  }
+
+  .coursesGrid {
+    grid-template-columns: 1fr;  /* matches: .preap-courses { grid-template-columns: 1fr } */
+  }
+
+  .heading {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+
+  .grid {
+    gap: 36px;
+  }
+}
+
+/* 480px — tighter container padding */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .btnGhost {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .badge {
+    font-size: 0.7rem;
+    padding: 5px 12px;
+  }
+
+  .courseCard {
+    font-size: 0.8rem;
+    padding: 10px 14px;
+  }
+}

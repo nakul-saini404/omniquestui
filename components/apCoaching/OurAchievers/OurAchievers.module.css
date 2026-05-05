@@ -1,0 +1,267 @@
+/* ============================================================
+   OurAchievers.module.css
+   Pixel-faithful CSS module for the "Our Achievers" section —
+   mirrors every rule from the HTML source exactly.
+   Palette : dark navy base · amber/orange accents · blue border.
+   Fonts   : Syne (headings, grades, initials) + DM Sans (body).
+   ============================================================ */
+
+/* ── Design tokens (scoped to .results) ─────────────────────── */
+.results {
+  --navy-950:   #050d1a;
+  --navy-900:   #0a1628;
+  --navy-800:   #0f2040;
+  --navy-700:   #152952;
+  --navy-600:   #1e3a6e;
+  --navy-500:   #2b4f8a;
+  --amber-400:  #fbbf24;
+  --amber-500:  #f59e0b;
+  --orange-500: #f97316;
+  --green-400:  #34d399;
+  --gray-400:   #94a3b8;
+  --gray-500:   #64748b;
+  --text-primary: #f8fafc;
+  --border:     rgba(59, 125, 216, 0.2);
+  --radius-sm:  8px;
+  --radius-lg:  22px;
+
+  /* section */
+  background: var(--navy-900);
+  padding: 96px 0;
+  font-family: "DM Sans", sans-serif;
+  color: var(--text-primary);
+  line-height: 1.65;
+}
+
+/* ── Container ─────────────────────────────────────────────── */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SECTION HEADER (centred)
+   ═══════════════════════════════════════════════════════════ */
+.header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* ── Section label: amber line + ALL-CAPS text, centred ─────── */
+.sectionLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.sectionLabel::before {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--amber-400);
+  flex-shrink: 0;
+}
+
+.sectionLabel span {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--amber-400);
+}
+
+/* ── Main heading ───────────────────────────────────────────── */
+.heading {
+  font-family: "Syne", sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+/* Amber → orange gradient on "Real 5/5 Scores." */
+.highlight {
+  background: linear-gradient(135deg, var(--amber-400), var(--orange-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Subheading paragraph ───────────────────────────────────── */
+.subheading {
+  color: var(--gray-400);
+  font-size: 0.95rem;
+  font-weight: 300;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ACHIEVERS GRID
+   auto-fill responsive: min 260px → fills available space
+   ═══════════════════════════════════════════════════════════ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ACHIEVER CARD
+   ═══════════════════════════════════════════════════════════ */
+.card {
+  background: var(--navy-800);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.card:hover {
+  border-color: rgba(245, 158, 11, 0.3);
+  transform: translateY(-3px);
+}
+
+/* ── Card header: photo + info ──────────────────────────────── */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+/* ── Real photo ─────────────────────────────────────────────── */
+.photo {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(245, 158, 11, 0.35);
+  flex-shrink: 0;
+  background: var(--navy-700); /* shown while loading */
+}
+
+/* ── Initials fallback placeholder ─────────────────────────── */
+.photoPlaceholder {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--navy-600), var(--navy-500));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--amber-400);
+  border: 2px solid rgba(245, 158, 11, 0.35);
+}
+
+/* ── Name + year ────────────────────────────────────────────── */
+.info {
+  min-width: 0; /* prevents text overflow in flex child */
+}
+
+.name {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 2px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.year {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SCORE ROWS
+   ═══════════════════════════════════════════════════════════ */
+.scores {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.scoreRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 10px;
+  background: var(--navy-900);
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+}
+
+/* Subject name */
+.subject {
+  color: var(--gray-400);
+}
+
+/* Grade number — amber by default */
+.grade {
+  font-weight: 700;
+  color: var(--amber-400);
+  font-family: "Syne", sans-serif;
+}
+
+/* Grade 5 = perfect → green */
+.perfect {
+  color: var(--green-400);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+   auto-fill grid handles most of the responsiveness natively;
+   we only need to reduce section padding at mobile.
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .results {
+    padding: 64px 0;
+  }
+
+  .header {
+    margin-bottom: 36px;
+  }
+
+  .heading {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+
+  /* Force 2-column minimum on small screens so cards don't
+     stretch uncomfortably wide on a single column */
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  /* Single column on very small screens */
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 20px 18px;
+  }
+
+  .photo,
+  .photoPlaceholder {
+    width: 48px;
+    height: 48px;
+    font-size: 1rem;
+  }
+}
