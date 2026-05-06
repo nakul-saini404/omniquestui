@@ -534,3 +534,129 @@
   .ep-stat-value { font-size: 22px; }
   .ep-grid-2 { grid-template-columns: 1fr; }
 }
+
+/* ── Phone field wrapper ── */
+.ep-phone-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border-radius: 10px;        /* match your ep-input border-radius */
+  overflow: visible;
+}
+
+/* ── Custom country code dropdown container ── */
+.ep-cc-dropdown {
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* The visible trigger button */
+.ep-cc-trigger {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 12px 10px;
+  height: 100%;
+  min-height: 44px;           /* match your input height */
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-right: none;
+  border-radius: 10px 0 0 10px;
+  color: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.ep-cc-trigger:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.ep-cc-flag {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+.ep-cc-code {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.ep-cc-arrow {
+  opacity: 0.6;
+  transition: transform 0.2s;
+}
+.ep-cc-arrow.open {
+  transform: rotate(180deg);
+}
+
+/* The phone number text input */
+.ep-phone-input {
+  flex: 1;
+  border-radius: 0 10px 10px 0 !important;
+  border-left: none !important;
+}
+.ep-phone-input:focus {
+  outline: none;
+  /* carry your existing ep-input focus styles */
+}
+.ep-input-error {
+  border-color: #ef4444 !important;
+}
+
+/* ── Dropdown menu ── */
+.ep-cc-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 999;
+  width: 210px;
+  max-height: 260px;
+  overflow-y: auto;
+  list-style: none;
+  margin: 0;
+  padding: 4px;
+  background: #1a1f2e;        /* adjust to match your card bg */
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+}
+
+/* Scrollbar styling */
+.ep-cc-menu::-webkit-scrollbar       { width: 4px; }
+.ep-cc-menu::-webkit-scrollbar-track { background: transparent; }
+.ep-cc-menu::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+
+/* Each row in the menu */
+.ep-cc-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.ep-cc-option:hover {
+  background: rgba(255,255,255,0.08);
+}
+.ep-cc-option.active {
+  background: rgba(99,102,241,0.25);  /* adjust to your accent colour */
+}
+
+.ep-cc-name {
+  flex: 1;
+  font-size: 0.82rem;
+  opacity: 0.9;
+}
+.ep-cc-num {
+  font-size: 0.78rem;
+  opacity: 0.55;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Inline field-level error */
+.ep-field-error {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.74rem;
+  color: #f87171;
+}

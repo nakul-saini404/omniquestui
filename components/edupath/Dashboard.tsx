@@ -103,17 +103,22 @@ export default function Dashboard({ data, onReset }: Props) {
             satEst={satEst}
             countries={countries}
           />
-          {/* ── UPDATED: pass countries & career so timeline is country+career specific ── */}
+          {/*
+            UPDATED: now passes stream so getCountryAdmissionTimeline
+            inside TimelineSection can filter timeline by stream correctly.
+            Also passes career (field) for the personalised career pill.
+          */}
           <TimelineSection
             grade={grade}
             countries={countries}
             career={field}
+            stream={stream}
           />
         </div>
 
         {/* ── EXAM / SCHOLARSHIP / VISA GUIDE ── */}
         <div className="ep-sec-heading">
-          Exams, Scholarships & Visa
+          Exams, Scholarships &amp; Visa
           <div className="ep-heading-line" />
         </div>
 

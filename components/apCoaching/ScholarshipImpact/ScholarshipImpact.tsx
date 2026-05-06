@@ -161,7 +161,7 @@ export default function ScholarshipImpact() {
         </div>
 
         {/* ── Credit Value Table ── */}
-        <div className={styles.tableWrap}>
+        {/* <div className={styles.tableWrap}>
           <h3 className={styles.tableTitle}>
             AP Subjects → Best Credits &amp; Scholarship Value
           </h3>
@@ -200,7 +200,7 @@ export default function ScholarshipImpact() {
             * Credit values vary by university. Check with your specific target
             university for exact credit policies.
           </p>
-        </div>
+        </div> */}
 
       </div>
     </section>
