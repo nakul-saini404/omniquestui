@@ -8,8 +8,9 @@ import {
   organizationSchema,
   webPageSchema,
   actSectionListSchema,
-} from "./actSchema";
-import ACTCOACHING from "./act";
+} from "./tmuaSchema";
+import ACTCOACHING from "./tmua";
+import TMUACOACHING from "./tmua";
 
 export const metadata: Metadata = {
   title: "ACT Exam Coaching for Indian Students | Score 34–36 | EduQuest",
@@ -236,7 +237,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ActCoachingPage() {
+export default function TMUACoachingPage() {
   return (
     <>
       {/* ── Structured Data ── */}
@@ -266,7 +267,7 @@ export default function ActCoachingPage() {
       />
 
       {/* ── Page Component ── */}
-      <ACTCOACHING />
+      <TMUACOACHING />
     </>
   );
 }

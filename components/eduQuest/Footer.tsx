@@ -8,7 +8,7 @@ const footerLinks = {
     { label: 'Pre-AP Coaching', href: '/pre-ap-gurgaon' },
     { label: 'LSAT Coaching', href: 'https://eduquest.org.in/lsat-coaching-india/' },
     { label: 'UCAT Coaching', href: '/ucat' },
-    { label: 'TMUA Coaching', href: 'https://eduquest.org.in/tmua/' },
+    { label: 'TMUA Coaching', href: '/tmua' },
     { label: 'IELTS Coaching', href: 'https://eduquest.org.in/ielts/' },
     { label: 'PTE Coaching', href: 'https://eduquest.org.in/pte/' },
     { label: 'TOEFL Coaching', href: 'https://eduquest.org.in/toefl/' },

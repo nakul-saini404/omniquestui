@@ -9,7 +9,7 @@ import {
 } from "@/lib/edupath-data";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// SCORE SECTION (unchanged from original)
+// SCORE SECTION
 // ─────────────────────────────────────────────────────────────────────────────
 
 export function ScoreSection({
@@ -23,7 +23,7 @@ export function ScoreSection({
   satEst: number;
   countries: Country[];
 }) {
-  const needsSAT  = countries.includes("USA");
+  const needsSAT = countries.includes("USA");
   const satPercent = Math.round((satEst / 1600) * 100);
 
   return (
@@ -33,8 +33,8 @@ export function ScoreSection({
         Score Profile
       </div>
 
-      <ScoreBar label="Current Academics" value={score}          display={`${score}%`}                   colorClass="ep-fill-blue"   />
-      <ScoreBar label="Predicted 12th %"  value={predictedFinal} display={`${predictedFinal.toFixed(0)}%`} colorClass="ep-fill-gold"   />
+      <ScoreBar label="Current Academics" value={score} display={`${score}%`} colorClass="ep-fill-blue" />
+      <ScoreBar label="Predicted 12th %" value={predictedFinal} display={`${predictedFinal.toFixed(0)}%`} colorClass="ep-fill-gold" />
 
       {needsSAT && (
         <>
@@ -47,13 +47,19 @@ export function ScoreSection({
 
       {countries.includes("UK") && (
         <div className="ep-info-pill">
-          🇬🇧 UK uses UCAS — no SAT needed. IELTS/TOEFL may be required.
+          🇬🇧 UK uses UCAS — no SAT needed. IELTS for UKVI Academic required for student visa.
         </div>
       )}
 
       {(countries.includes("Germany") || countries.includes("Netherlands")) && (
         <div className="ep-info-pill" style={{ marginTop: 8 }}>
-          🇩🇪🇳🇱 EU universities: Low/no tuition. German B2 for German programmes. IELTS for English tracks.
+          🇩🇪🇳🇱 EU universities: Low/no tuition. German B2 for German programmes. IELTS 6.5+ for English tracks.
+        </div>
+      )}
+
+      {countries.includes("India") && (
+        <div className="ep-info-pill" style={{ marginTop: 8 }}>
+          🇮🇳 India: Entrance exam scores (JEE/NEET/CUET) are what matter most alongside board %
         </div>
       )}
     </div>
@@ -105,82 +111,82 @@ const TYPE_META: Record<
   travel:   { color: "#2dd4bf", bg: "rgba(45,212,191,.12)",  border: "rgba(45,212,191,.25)",  label: "Travel"    },
 };
 
-const SCORE_PILL: Record<"green"|"amber"|"blue", { bg: string; border: string; color: string }> = {
+const SCORE_PILL: Record<"green" | "amber" | "blue", { bg: string; border: string; color: string }> = {
   green: { bg: "rgba(52,211,153,.15)",  border: "rgba(52,211,153,.3)",  color: "#34d399" },
   amber: { bg: "rgba(251,191,36,.15)",  border: "rgba(251,191,36,.3)",  color: "#fbbf24" },
   blue:  { bg: "rgba(96,165,250,.15)",  border: "rgba(96,165,250,.3)",  color: "#60a5fa" },
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
-// PER-COUNTRY ADMISSION SUMMARY  (window, mode, key requirement)
+// PER-COUNTRY ADMISSION SUMMARY
 // ─────────────────────────────────────────────────────────────────────────────
 
 interface AdmissionSummary {
-  windowLabel: string;   // e.g. "Aug – Jan"
-  mode: string;          // e.g. "Common App + Essays + Recs"
-  keyReq: string;        // e.g. "SAT 1400+, TOEFL 100+"
-  intakeLabel: string;   // e.g. "Fall (Aug–Sep)"
+  windowLabel: string;
+  mode: string;
+  keyReq: string;
+  intakeLabel: string;
 }
 
 const COUNTRY_ADMISSION_SUMMARY: Record<Country, AdmissionSummary> = {
   USA: {
     windowLabel : "Aug – Jan",
     mode        : "Common App · Essays · Recs · Test scores",
-    keyReq      : "SAT 1400+ · TOEFL 100+ or IELTS 7.0+",
+    keyReq      : "SAT 1400+  ·  TOEFL 100+ or IELTS 7.0+",
     intakeLabel : "Fall intake (Aug – Sep)",
   },
   UK: {
     windowLabel : "Sep – Jan 15",
     mode        : "UCAS · Personal Statement · Predicted grades",
-    keyReq      : "IELTS for UKVI 7.0+ · ESAT / UCAT / TMUA where applicable",
+    keyReq      : "IELTS for UKVI 7.0+  ·  ESAT / UCAT / TMUA / LNAT where applicable",
     intakeLabel : "September intake",
   },
   Canada: {
     windowLabel : "Oct – Feb",
     mode        : "Grades · Supplementary essays · IELTS / TOEFL",
-    keyReq      : "IELTS 6.5+ · 85%+ academics",
+    keyReq      : "IELTS 6.5+  ·  85%+ academics",
     intakeLabel : "September intake",
   },
   Australia: {
     windowLabel : "Aug – Jan",
     mode        : "Academic record · IELTS · Personal statement",
-    keyReq      : "IELTS 6.5–7.0+ · GTE statement for visa",
+    keyReq      : "IELTS 6.5–7.0+  ·  GTE statement for visa",
     intakeLabel : "Feb & Jul intakes",
   },
   Germany: {
     windowLabel : "Nov – Jun",
     mode        : "uni-assist · APS certificate · Motivation letter",
-    keyReq      : "APS certificate (mandatory) · German B2 or IELTS 6.5+",
+    keyReq      : "APS certificate (mandatory)  ·  German B2 or IELTS 6.5+",
     intakeLabel : "Winter (Oct) & Summer (Apr)",
   },
   Netherlands: {
     windowLabel : "Jan – May",
     mode        : "Studielink · IELTS · Motivation letter",
-    keyReq      : "IELTS 6.5+ · Numerus fixus by Jan 15",
+    keyReq      : "IELTS 6.5+  ·  Numerus fixus by Jan 15",
     intakeLabel : "September intake",
   },
   Singapore: {
     windowLabel : "Dec – Mar",
     mode        : "Direct university portal · IELTS / TOEFL · Interview",
-    keyReq      : "IELTS 6.5+ · 88–92%+ academics",
+    keyReq      : "IELTS 6.5+  ·  88–92%+ academics",
     intakeLabel : "August intake",
   },
   Japan: {
     windowLabel : "Sep – Dec",
     mode        : "Direct portal · MEXT / JASSO scholarship · Interview",
-    keyReq      : "IELTS 6.5+ or JLPT N2 · MEXT application Apr–May",
+    keyReq      : "IELTS 6.5+ or JLPT N2  ·  MEXT application Apr–May",
     intakeLabel : "April intake",
   },
   India: {
     windowLabel : "Nov – Jun",
     mode        : "JEE / NEET / CUET / IPMAT / Own entrance test",
-    keyReq      : "JEE 99%ile for IIT · NEET 650+ for AIIMS · CUET 95%ile for top DU",
+    keyReq      : "JEE 99%ile for IIT  ·  NEET 650+ for AIIMS  ·  CUET 95%ile for top DU",
     intakeLabel : "July – August intake",
   },
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
-// PROFILE REQUIREMENTS  (auto-detected from event title/description)
+// PROFILE REQUIREMENTS
 // ─────────────────────────────────────────────────────────────────────────────
 
 interface ProfileReq {
@@ -208,20 +214,36 @@ const EXAM_REQS: Record<string, ProfileReq[]> = {
     { icon: "🎯", label: "SJT Band",           note: "Band 1 or 2 is equally important as the numerical score",             score: "Band 1", scoreColor: "amber" },
   ],
   ESAT: [
-    { icon: "⚗️", label: "ESAT percentile",   note: "Top 25–30% nationally — no fixed cutoff. A-level depth required",      score: "Top 25%",scoreColor: "green" },
-    { icon: "📚", label: "Content depth",      note: "Significantly harder than CBSE 12th. Needs 4+ months prep",           score: "A-level",scoreColor: "amber" },
+    { icon: "⚗️", label: "ESAT percentile",   note: "Top 25–30% nationally — no fixed cutoff. A-level depth required",      score: "Top 25%", scoreColor: "green" },
+    { icon: "📚", label: "Content depth",      note: "Significantly harder than CBSE 12th. Needs 4+ months prep",           score: "A-level", scoreColor: "amber" },
   ],
   TMUA: [
     { icon: "🔢", label: "TMUA score",         note: "6.5+ for Cambridge; 7.0+ is exceptional. LSE benefits from 6.5+",     score: "6.5+",   scoreColor: "green" },
-    { icon: "📐", label: "Paper 2 reasoning",  note: "Mathematical reasoning — unlike CBSE. Needs dedicated prep",          score: "Paper 2",scoreColor: "amber" },
+    { icon: "📐", label: "Paper 2 reasoning",  note: "Mathematical reasoning — unlike CBSE. Needs dedicated prep",          score: "Paper 2", scoreColor: "amber" },
   ],
   JEE: [
     { icon: "📊", label: "JEE Main",           note: "99+ percentile needed for JEE Advanced eligibility (IIT entry)",      score: "99%ile", scoreColor: "green" },
-    { icon: "📊", label: "JEE Advanced rank",  note: "Top 500 → IIT Bombay CS; Top 2000 → IIT Kharagpur",                  score: "Top 500",scoreColor: "amber" },
+    { icon: "📊", label: "JEE Advanced rank",  note: "Top 500 → IIT Bombay CS; Top 2000 → IIT Kharagpur",                  score: "Top 500", scoreColor: "amber" },
   ],
   NEET: [
-    { icon: "🩺", label: "NEET score",         note: "650+ for AIIMS (top 50 rank); 550+ for govt medical colleges",        score: "650/720",scoreColor: "green" },
+    { icon: "🩺", label: "NEET score",         note: "650+ for AIIMS (top 50 rank); 550+ for govt medical colleges",        score: "650/720", scoreColor: "green" },
     { icon: "🔬", label: "Biology depth",      note: "NCERT Biology line-by-line. Physics + Chemistry 85%+",               score: "NCERT",  scoreColor: "amber" },
+  ],
+  LNAT: [
+    { icon: "⚖️", label: "LNAT score",         note: "25+ out of 42 for competitive Oxford/UCL applications",               score: "25+/42", scoreColor: "green" },
+    { icon: "📝", label: "Essay component",    note: "40-minute essay is equally weighted. Argue clearly and concisely",    score: "Essay",  scoreColor: "amber" },
+  ],
+  CLAT: [
+    { icon: "⚖️", label: "CLAT rank",          note: "Top 1000 for NLSIU Bangalore; Top 5000 for all NLUs",                score: "Top 1K", scoreColor: "green" },
+    { icon: "📰", label: "GK/Current Affairs", note: "CLAT tests extensively on GK and current legal affairs",             score: "Daily GK", scoreColor: "amber" },
+  ],
+  NATA: [
+    { icon: "🎨", label: "NATA score",         note: "100+/200 for top architecture colleges. Multiple attempts allowed",   score: "100+/200", scoreColor: "green" },
+    { icon: "✏️", label: "Drawing test",       note: "Freehand drawing is heavily tested. Practice daily",                 score: "Daily",  scoreColor: "amber" },
+  ],
+  CUET: [
+    { icon: "📊", label: "CUET percentile",    note: "95–99 percentile for SRCC/Miranda House. 90%+ for most DU colleges",  score: "95%ile", scoreColor: "green" },
+    { icon: "📚", label: "Domain subjects",    note: "Score highly in your domain subjects (Economics, Commerce, etc.)",   score: "Domain", scoreColor: "amber" },
   ],
 };
 
@@ -237,17 +259,21 @@ function profileReqsFor(ev: UniAdmissionEvent): ProfileReq[] {
   if (t.includes("tmua")  || d.includes("tmua"))  return EXAM_REQS.TMUA;
   if (t.includes("jee"))                           return EXAM_REQS.JEE;
   if (t.includes("neet"))                          return EXAM_REQS.NEET;
+  if (t.includes("lnat"))                          return EXAM_REQS.LNAT;
+  if (t.includes("clat"))                          return EXAM_REQS.CLAT;
+  if (t.includes("nata"))                          return EXAM_REQS.NATA;
+  if (t.includes("cuet"))                          return EXAM_REQS.CUET;
 
   if (ev.type === "open") return [
-    { icon: "📝", label: "Activities profile",         note: "8–10 quality activities with leadership & consistency",        score: "8–10",   scoreColor: "blue"  },
-    { icon: "👩‍🏫", label: "Teacher recommendations",  note: "Request at least 2 recs early — they need 4–6 weeks",         score: "2 recs", scoreColor: "amber" },
+    { icon: "📝", label: "Activities profile",        note: "8–10 quality activities with leadership & consistency",        score: "8–10",   scoreColor: "blue"  },
+    { icon: "👩‍🏫", label: "Teacher recommendations", note: "Request at least 2 recs early — they need 4–6 weeks",         score: "2 recs", scoreColor: "amber" },
   ];
   if (ev.type === "visa") return [
-    { icon: "🏦", label: "Bank statements",            note: "1 year tuition + living. Continuous balance — not last-minute deposits", score: "1yr+",   scoreColor: "green" },
-    { icon: "📄", label: "Documents",                  note: "Admission letter, English scores, transcripts — originals + copies",    score: "Complete",scoreColor: "amber" },
+    { icon: "🏦", label: "Bank statements",            note: "1 year tuition + living. Continuous balance — not last-minute deposits", score: "1yr+",    scoreColor: "green" },
+    { icon: "📄", label: "Documents",                  note: "Admission letter, English scores, transcripts — originals + copies",    score: "Complete", scoreColor: "amber" },
   ];
   if (ev.type === "deadline") return [
-    { icon: "✅", label: "Submission checklist",       note: "Transcripts, scores, essays, recs — verify each is received by portal", score: "100%",  scoreColor: "green" },
+    { icon: "✅", label: "Submission checklist",       note: "Transcripts, scores, essays, recs — verify each is received by portal", score: "100%",   scoreColor: "green" },
   ];
   return [];
 }
@@ -256,7 +282,6 @@ function profileReqsFor(ev: UniAdmissionEvent): ProfileReq[] {
 // SUB-COMPONENTS
 // ─────────────────────────────────────────────────────────────────────────────
 
-/** Horizontal scrollable row of month dots */
 function MonthTrack({
   events,
   onMonthClick,
@@ -291,21 +316,62 @@ function MonthTrack({
               <div
                 key={key}
                 onClick={() => type && onMonthClick(key)}
-                style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 3, cursor: type ? "pointer" : "default", userSelect: "none" }}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: 3,
+                  cursor: type ? "pointer" : "default",
+                  userSelect: "none",
+                }}
               >
-                <span style={{ fontSize: 9, color: "var(--ep-muted)", fontWeight: 500, lineHeight: 1.2, textAlign: "center" }}>
-                  {MONTHS_SHORT[m]}<br /><span style={{ fontSize: 8, opacity: .7 }}>{String(yr).slice(2)}</span>
+                <span
+                  style={{
+                    fontSize: 9,
+                    color: "var(--ep-muted)",
+                    fontWeight: 500,
+                    lineHeight: 1.2,
+                    textAlign: "center",
+                  }}
+                >
+                  {MONTHS_SHORT[m]}
+                  <br />
+                  <span style={{ fontSize: 8, opacity: 0.7 }}>{String(yr).slice(2)}</span>
                 </span>
-                <div style={{
-                  width: 24, height: 24, borderRadius: "50%", boxSizing: "border-box",
-                  border : isCurr ? "2px solid #34d399" : meta ? `1.5px solid ${meta.color}` : "0.5px solid var(--ep-border)",
-                  background: isCurr ? "rgba(16,185,129,.15)" : meta ? `${meta.color}18` : "var(--ep-surface2)",
-                  opacity: isPast && meta ? .4 : 1,
-                  outline: isCurr ? "3px solid rgba(16,185,129,.18)" : "none",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  transition: "all .12s",
-                }}>
-                  {dotColor && <div style={{ width: 6, height: 6, borderRadius: "50%", background: dotColor }} />}
+                <div
+                  style={{
+                    width: 24,
+                    height: 24,
+                    borderRadius: "50%",
+                    boxSizing: "border-box",
+                    border: isCurr
+                      ? "2px solid #34d399"
+                      : meta
+                      ? `1.5px solid ${meta.color}`
+                      : "0.5px solid var(--ep-border)",
+                    background: isCurr
+                      ? "rgba(16,185,129,.15)"
+                      : meta
+                      ? `${meta.color}18`
+                      : "var(--ep-surface2)",
+                    opacity: isPast && meta ? 0.4 : 1,
+                    outline: isCurr ? "3px solid rgba(16,185,129,.18)" : "none",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    transition: "all .12s",
+                  }}
+                >
+                  {dotColor && (
+                    <div
+                      style={{
+                        width: 6,
+                        height: 6,
+                        borderRadius: "50%",
+                        background: dotColor,
+                      }}
+                    />
+                  )}
                 </div>
               </div>
             );
@@ -316,13 +382,28 @@ function MonthTrack({
   );
 }
 
-/** Colour legend strip */
 function Legend() {
   return (
     <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 10 }}>
       {Object.entries(TYPE_META).map(([type, m]) => (
-        <div key={type} style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 10, color: "var(--ep-muted)" }}>
-          <div style={{ width: 7, height: 7, borderRadius: "50%", background: m.color }} />
+        <div
+          key={type}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 4,
+            fontSize: 10,
+            color: "var(--ep-muted)",
+          }}
+        >
+          <div
+            style={{
+              width: 7,
+              height: 7,
+              borderRadius: "50%",
+              background: m.color,
+            }}
+          />
           {m.label}
         </div>
       ))}
@@ -330,25 +411,83 @@ function Legend() {
   );
 }
 
-/** Profile strength box inside expanded event */
 function ProfileBox({ reqs }: { reqs: ProfileReq[] }) {
   if (!reqs.length) return null;
   return (
-    <div style={{ background: "var(--ep-surface2)", borderRadius: 8, padding: "9px 11px", border: "0.5px solid var(--ep-border)", marginTop: 10 }}>
-      <div style={{ fontSize: 10, fontWeight: 600, color: "var(--ep-muted)", marginBottom: 7 }}>🎯 Profile strength requirements</div>
+    <div
+      style={{
+        background: "var(--ep-surface2)",
+        borderRadius: 8,
+        padding: "9px 11px",
+        border: "0.5px solid var(--ep-border)",
+        marginTop: 10,
+      }}
+    >
+      <div
+        style={{
+          fontSize: 10,
+          fontWeight: 600,
+          color: "var(--ep-muted)",
+          marginBottom: 7,
+        }}
+      >
+        🎯 Profile strength requirements
+      </div>
       {reqs.map((r, i) => {
         const p = SCORE_PILL[r.scoreColor];
         return (
-          <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 7, paddingTop: 5, paddingBottom: 5, borderBottom: i < reqs.length - 1 ? "0.5px solid var(--ep-border)" : "none" }}>
+          <div
+            key={i}
+            style={{
+              display: "flex",
+              alignItems: "flex-start",
+              gap: 7,
+              paddingTop: 5,
+              paddingBottom: 5,
+              borderBottom:
+                i < reqs.length - 1 ? "0.5px solid var(--ep-border)" : "none",
+            }}
+          >
             <span style={{ fontSize: 13, flexShrink: 0, marginTop: 1 }}>{r.icon}</span>
             <div style={{ flex: 1 }}>
-              <div style={{ fontSize: 11, fontWeight: 600, color: "var(--ep-text)", display: "flex", alignItems: "center", gap: 5, flexWrap: "wrap" }}>
+              <div
+                style={{
+                  fontSize: 11,
+                  fontWeight: 600,
+                  color: "var(--ep-text)",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 5,
+                  flexWrap: "wrap",
+                }}
+              >
                 {r.label}
-                <span style={{ display: "inline-flex", alignItems: "center", padding: "1px 6px", borderRadius: 999, fontSize: 10, fontWeight: 700, background: p.bg, border: `0.5px solid ${p.border}`, color: p.color }}>
+                <span
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    padding: "1px 6px",
+                    borderRadius: 999,
+                    fontSize: 10,
+                    fontWeight: 700,
+                    background: p.bg,
+                    border: `0.5px solid ${p.border}`,
+                    color: p.color,
+                  }}
+                >
                   {r.score}
                 </span>
               </div>
-              <div style={{ fontSize: 11, color: "var(--ep-muted)", lineHeight: 1.5, marginTop: 2 }}>{r.note}</div>
+              <div
+                style={{
+                  fontSize: 11,
+                  color: "var(--ep-muted)",
+                  lineHeight: 1.5,
+                  marginTop: 2,
+                }}
+              >
+                {r.note}
+              </div>
             </div>
           </div>
         );
@@ -357,7 +496,6 @@ function ProfileBox({ reqs }: { reqs: ProfileReq[] }) {
   );
 }
 
-/** Single collapsible event card */
 function EventCard({
   event,
   isOpen,
@@ -371,42 +509,153 @@ function EventCard({
 }) {
   const nowMonth = new Date().getMonth();
   const nowYear  = new Date().getFullYear();
-  const isPast   = event.year < nowYear || (event.year === nowYear && event.monthIndex < nowMonth);
+  const isPast   =
+    event.year < nowYear ||
+    (event.year === nowYear && event.monthIndex < nowMonth);
   const isCurr   = event.year === nowYear && event.monthIndex === nowMonth;
   const meta     = TYPE_META[event.type] ?? TYPE_META.open;
   const reqs     = profileReqsFor(event);
 
   return (
-    <div id={cardId} style={{ borderRadius: 10, border: "0.5px solid var(--ep-border)", overflow: "hidden", opacity: isPast ? .5 : 1 }}>
-      {/* ── Header ── */}
+    <div
+      id={cardId}
+      style={{
+        borderRadius: 10,
+        border: "0.5px solid var(--ep-border)",
+        overflow: "hidden",
+        opacity: isPast ? 0.5 : 1,
+      }}
+    >
       <div
         onClick={onToggle}
-        style={{ display: "flex", alignItems: "center", gap: 9, padding: "9px 11px", cursor: "pointer", background: "var(--ep-surface2)", userSelect: "none" }}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 9,
+          padding: "9px 11px",
+          cursor: "pointer",
+          background: "var(--ep-surface2)",
+          userSelect: "none",
+        }}
       >
-        <div style={{ width: 9, height: 9, borderRadius: "50%", background: isPast ? "rgba(255,255,255,.22)" : meta.color, flexShrink: 0 }} />
-
-        <span style={{ fontSize: 10, fontWeight: 700, color: isPast ? "var(--ep-muted)" : meta.color, flexShrink: 0, minWidth: 88 }}>
+        <div
+          style={{
+            width: 9,
+            height: 9,
+            borderRadius: "50%",
+            background: isPast ? "rgba(255,255,255,.22)" : meta.color,
+            flexShrink: 0,
+          }}
+        />
+        <span
+          style={{
+            fontSize: 10,
+            fontWeight: 700,
+            color: isPast ? "var(--ep-muted)" : meta.color,
+            flexShrink: 0,
+            minWidth: 88,
+          }}
+        >
           {event.month}
         </span>
-
-        <div style={{ flex: 1, fontSize: 12, fontWeight: 600, color: "var(--ep-text)", display: "flex", alignItems: "center", gap: 5, flexWrap: "wrap" }}>
+        <div
+          style={{
+            flex: 1,
+            fontSize: 12,
+            fontWeight: 600,
+            color: "var(--ep-text)",
+            display: "flex",
+            alignItems: "center",
+            gap: 5,
+            flexWrap: "wrap",
+          }}
+        >
           {event.title}
-          {isCurr && <span style={{ fontSize: 10, padding: "1px 6px", borderRadius: 999, fontWeight: 800, background: "rgba(16,185,129,.15)", border: "0.5px solid rgba(16,185,129,.3)", color: "#34d399" }}>← Now</span>}
-          {isPast && <span style={{ fontSize: 10, color: "var(--ep-muted)", fontWeight: 400 }}>✓ Done</span>}
-          {event.urgent && !isPast && <span style={{ fontSize: 10, padding: "1px 6px", borderRadius: 999, fontWeight: 700, background: "rgba(239,68,68,.12)", border: "0.5px solid rgba(239,68,68,.25)", color: "#fca5a5" }}>⚠ Urgent</span>}
+          {isCurr && (
+            <span
+              style={{
+                fontSize: 10,
+                padding: "1px 6px",
+                borderRadius: 999,
+                fontWeight: 800,
+                background: "rgba(16,185,129,.15)",
+                border: "0.5px solid rgba(16,185,129,.3)",
+                color: "#34d399",
+              }}
+            >
+              ← Now
+            </span>
+          )}
+          {isPast && (
+            <span
+              style={{ fontSize: 10, color: "var(--ep-muted)", fontWeight: 400 }}
+            >
+              ✓ Done
+            </span>
+          )}
+          {event.urgent && !isPast && (
+            <span
+              style={{
+                fontSize: 10,
+                padding: "1px 6px",
+                borderRadius: 999,
+                fontWeight: 700,
+                background: "rgba(239,68,68,.12)",
+                border: "0.5px solid rgba(239,68,68,.25)",
+                color: "#fca5a5",
+              }}
+            >
+              ⚠ Urgent
+            </span>
+          )}
         </div>
-
-        <span style={{ fontSize: 10, padding: "2px 5px", borderRadius: 4, fontWeight: 600, textTransform: "uppercase", flexShrink: 0, background: meta.bg, border: `0.5px solid ${meta.border}`, color: meta.color }}>
+        <span
+          style={{
+            fontSize: 10,
+            padding: "2px 5px",
+            borderRadius: 4,
+            fontWeight: 600,
+            textTransform: "uppercase",
+            flexShrink: 0,
+            background: meta.bg,
+            border: `0.5px solid ${meta.border}`,
+            color: meta.color,
+          }}
+        >
           {meta.label}
         </span>
-
-        <span style={{ fontSize: 12, color: "var(--ep-muted)", flexShrink: 0, display: "inline-block", transform: isOpen ? "rotate(180deg)" : "none", transition: "transform .2s" }}>▾</span>
+        <span
+          style={{
+            fontSize: 12,
+            color: "var(--ep-muted)",
+            flexShrink: 0,
+            display: "inline-block",
+            transform: isOpen ? "rotate(180deg)" : "none",
+            transition: "transform .2s",
+          }}
+        >
+          ▾
+        </span>
       </div>
 
-      {/* ── Body ── */}
       {isOpen && (
-        <div style={{ padding: "11px 13px", background: "var(--ep-surface)", borderTop: "0.5px solid var(--ep-border)" }}>
-          <p style={{ fontSize: 12, color: "var(--ep-muted)", lineHeight: 1.6, marginBottom: 0 }}>{event.description}</p>
+        <div
+          style={{
+            padding: "11px 13px",
+            background: "var(--ep-surface)",
+            borderTop: "0.5px solid var(--ep-border)",
+          }}
+        >
+          <p
+            style={{
+              fontSize: 12,
+              color: "var(--ep-muted)",
+              lineHeight: 1.6,
+              marginBottom: 0,
+            }}
+          >
+            {event.description}
+          </p>
           {reqs.length > 0 && <ProfileBox reqs={reqs} />}
         </div>
       )}
@@ -430,21 +679,59 @@ function AdmissionSummaryHeader({ country }: { country: Country }) {
   ];
 
   return (
-    <div style={{
-      background: "var(--ep-surface2)",
-      border: "0.5px solid var(--ep-border)",
-      borderRadius: 10,
-      padding: "11px 13px",
-      marginBottom: 14,
-    }}>
-      <div style={{ fontSize: 11, fontWeight: 700, color: "var(--ep-text)", marginBottom: 9, display: "flex", alignItems: "center", gap: 6 }}>
+    <div
+      style={{
+        background: "var(--ep-surface2)",
+        border: "0.5px solid var(--ep-border)",
+        borderRadius: 10,
+        padding: "11px 13px",
+        marginBottom: 14,
+      }}
+    >
+      <div
+        style={{
+          fontSize: 11,
+          fontWeight: 700,
+          color: "var(--ep-text)",
+          marginBottom: 9,
+          display: "flex",
+          alignItems: "center",
+          gap: 6,
+        }}
+      >
         {COUNTRY_FLAGS[country]} {country} — Admission at a glance
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px 14px" }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: "6px 14px",
+        }}
+      >
         {rows.map((r) => (
-          <div key={r.label} style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-            <span style={{ fontSize: 10, color: "var(--ep-muted)", fontWeight: 500 }}>{r.icon} {r.label}</span>
-            <span style={{ fontSize: 11, color: "var(--ep-text)", fontWeight: 600, lineHeight: 1.4 }}>{r.value}</span>
+          <div
+            key={r.label}
+            style={{ display: "flex", flexDirection: "column", gap: 2 }}
+          >
+            <span
+              style={{
+                fontSize: 10,
+                color: "var(--ep-muted)",
+                fontWeight: 500,
+              }}
+            >
+              {r.icon} {r.label}
+            </span>
+            <span
+              style={{
+                fontSize: 11,
+                color: "var(--ep-text)",
+                fontWeight: 600,
+                lineHeight: 1.4,
+              }}
+            >
+              {r.value}
+            </span>
           </div>
         ))}
       </div>
@@ -453,10 +740,13 @@ function AdmissionSummaryHeader({ country }: { country: Country }) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// GENERAL TIMELINE  (grades 8–10 or no country selected)
+// GENERAL TIMELINE (grades 8–10 or no country selected)
 // ─────────────────────────────────────────────────────────────────────────────
 
-const GENERAL_TIMELINE_DATA: Record<number, { month: number; title: string; desc: string }[]> = {
+const GENERAL_TIMELINE_DATA: Record<
+  number,
+  { month: number; title: string; desc: string }[]
+> = {
   12: [
     { month: 6,  title: "Begin Applications",      desc: "Start filling Common App / UCAS / country-specific forms." },
     { month: 8,  title: "SAT / IELTS Tests",        desc: "Take standardised tests. Retake if needed." },
@@ -493,9 +783,9 @@ const GENERAL_TIMELINE_DATA: Record<number, { month: number; title: string; desc
 };
 
 function GeneralTimeline({ grade }: { grade: Grade }) {
-  const items    = GENERAL_TIMELINE_DATA[grade] ?? GENERAL_TIMELINE_DATA[12];
+  const items = GENERAL_TIMELINE_DATA[grade] ?? GENERAL_TIMELINE_DATA[12];
   const nowMonth = new Date().getMonth();
-  let   activeSet = false;
+  let activeSet = false;
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
@@ -509,23 +799,89 @@ function GeneralTimeline({ grade }: { grade: Grade }) {
           const done     = item.month < nowMonth && grade === 12;
           const isActive = !done && !activeSet ? ((activeSet = true), true) : false;
           const isOpen   = openIdx === i;
-          const dotColor = done ? "rgba(255,255,255,.2)" : isActive ? "#34d399" : "rgba(255,255,255,.35)";
+          const dotColor = done
+            ? "rgba(255,255,255,.2)"
+            : isActive
+            ? "#34d399"
+            : "rgba(255,255,255,.35)";
 
           return (
-            <div key={i} style={{ border: "0.5px solid var(--ep-border)", borderRadius: 10, overflow: "hidden", opacity: done ? .5 : 1 }}>
+            <div
+              key={i}
+              style={{
+                border: "0.5px solid var(--ep-border)",
+                borderRadius: 10,
+                overflow: "hidden",
+                opacity: done ? 0.5 : 1,
+              }}
+            >
               <div
                 onClick={() => setOpenIdx(isOpen ? null : i)}
-                style={{ display: "flex", alignItems: "center", gap: 9, padding: "9px 11px", cursor: "pointer", background: "var(--ep-surface2)", userSelect: "none" }}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 9,
+                  padding: "9px 11px",
+                  cursor: "pointer",
+                  background: "var(--ep-surface2)",
+                  userSelect: "none",
+                }}
               >
-                <div style={{ width: 9, height: 9, borderRadius: "50%", background: dotColor, border: isActive ? "2px solid #34d399" : "none", flexShrink: 0 }} />
-                <span style={{ fontSize: 10, fontWeight: 700, color: isActive ? "#34d399" : "var(--ep-muted)", minWidth: 52, flexShrink: 0 }}>
-                  {MONTHS_SHORT[item.month]}{done ? " ✓" : isActive ? " ← Now" : ""}
+                <div
+                  style={{
+                    width: 9,
+                    height: 9,
+                    borderRadius: "50%",
+                    background: dotColor,
+                    border: isActive ? "2px solid #34d399" : "none",
+                    flexShrink: 0,
+                  }}
+                />
+                <span
+                  style={{
+                    fontSize: 10,
+                    fontWeight: 700,
+                    color: isActive ? "#34d399" : "var(--ep-muted)",
+                    minWidth: 52,
+                    flexShrink: 0,
+                  }}
+                >
+                  {MONTHS_SHORT[item.month]}
+                  {done ? " ✓" : isActive ? " ← Now" : ""}
                 </span>
-                <span style={{ flex: 1, fontSize: 12, fontWeight: 600, color: "var(--ep-text)" }}>{item.title}</span>
-                <span style={{ fontSize: 12, color: "var(--ep-muted)", display: "inline-block", transform: isOpen ? "rotate(180deg)" : "none", transition: "transform .2s" }}>▾</span>
+                <span
+                  style={{
+                    flex: 1,
+                    fontSize: 12,
+                    fontWeight: 600,
+                    color: "var(--ep-text)",
+                  }}
+                >
+                  {item.title}
+                </span>
+                <span
+                  style={{
+                    fontSize: 12,
+                    color: "var(--ep-muted)",
+                    display: "inline-block",
+                    transform: isOpen ? "rotate(180deg)" : "none",
+                    transition: "transform .2s",
+                  }}
+                >
+                  ▾
+                </span>
               </div>
               {isOpen && (
-                <div style={{ padding: "10px 13px", background: "var(--ep-surface)", borderTop: "0.5px solid var(--ep-border)", fontSize: 12, color: "var(--ep-muted)", lineHeight: 1.6 }}>
+                <div
+                  style={{
+                    padding: "10px 13px",
+                    background: "var(--ep-surface)",
+                    borderTop: "0.5px solid var(--ep-border)",
+                    fontSize: 12,
+                    color: "var(--ep-muted)",
+                    lineHeight: 1.6,
+                  }}
+                >
                   {item.desc}
                 </div>
               )}
@@ -538,7 +894,7 @@ function GeneralTimeline({ grade }: { grade: Grade }) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// TIMELINE SECTION  (main export)
+// TIMELINE SECTION (main export)
 // ─────────────────────────────────────────────────────────────────────────────
 
 export function TimelineSection({
@@ -572,11 +928,19 @@ export function TimelineSection({
   }
 
   function handleMonthClick(key: string) {
-    const idx = events.findIndex((ev) => `${ev.year}-${ev.monthIndex}` === key);
+    const idx = events.findIndex(
+      (ev) => `${ev.year}-${ev.monthIndex}` === key
+    );
     if (idx === -1) return;
-    const id = `ev-${idx}`;
+    const id = `ev-sc-${idx}`;
     setOpenCards((prev) => new Set(Array.from(prev).concat(id)));
-    setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "center" }), 50);
+    setTimeout(
+      () =>
+        document
+          .getElementById(id)
+          ?.scrollIntoView({ behavior: "smooth", block: "center" }),
+      50
+    );
   }
 
   return (
@@ -588,17 +952,39 @@ export function TimelineSection({
 
       {/* Country tabs */}
       {countries.length > 1 && (
-        <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 12 }}>
+        <div
+          style={{
+            display: "flex",
+            gap: 6,
+            flexWrap: "wrap",
+            marginBottom: 12,
+          }}
+        >
           {countries.map((c) => (
             <button
               key={c}
-              onClick={() => { setActiveCountry(c); setOpenCards(new Set()); }}
+              onClick={() => {
+                setActiveCountry(c);
+                setOpenCards(new Set());
+              }}
               style={{
-                padding: "4px 12px", borderRadius: 8, fontSize: 12, fontWeight: 600, cursor: "pointer",
-                background: current === c ? "rgba(16,185,129,.15)" : "var(--ep-surface2)",
-                border: `1px solid ${current === c ? "rgba(16,185,129,.4)" : "var(--ep-border)"}`,
+                padding: "4px 12px",
+                borderRadius: 8,
+                fontSize: 12,
+                fontWeight: 600,
+                cursor: "pointer",
+                background:
+                  current === c
+                    ? "rgba(16,185,129,.15)"
+                    : "var(--ep-surface2)",
+                border: `1px solid ${
+                  current === c
+                    ? "rgba(16,185,129,.4)"
+                    : "var(--ep-border)"
+                }`,
                 color: current === c ? "#34d399" : "var(--ep-muted)",
-                fontFamily: "DM Sans, sans-serif", transition: "all .2s",
+                fontFamily: "DM Sans, sans-serif",
+                transition: "all .2s",
               }}
             >
               {COUNTRY_FLAGS[c]} {c}
@@ -607,34 +993,59 @@ export function TimelineSection({
         </div>
       )}
 
-      {/* ── Admission summary header ── */}
       <AdmissionSummaryHeader country={current} />
 
-      {/* Context pills */}
       {career && career !== "Not decided yet" && (
-        <div style={{ background: "rgba(139,92,246,.08)", border: "1px solid rgba(139,92,246,.2)", borderRadius: 8, padding: "7px 11px", marginBottom: 10, fontSize: 11, color: "#c4b5fd", fontWeight: 600 }}>
-          🎯 Timeline personalised for: {career}
+        <div
+          style={{
+            background: "rgba(139,92,246,.08)",
+            border: "1px solid rgba(139,92,246,.2)",
+            borderRadius: 8,
+            padding: "7px 11px",
+            marginBottom: 10,
+            fontSize: 11,
+            color: "#c4b5fd",
+            fontWeight: 600,
+          }}
+        >
+          🎯 Timeline filtered for: {career}
         </div>
       )}
       {stream && stream !== "Undecided" && (
-        <div style={{ background: "rgba(59,130,246,.07)", border: "1px solid rgba(59,130,246,.2)", borderRadius: 8, padding: "6px 11px", marginBottom: 12, fontSize: 11, color: "#93c5fd", fontWeight: 600 }}>
-          📚 Showing events relevant to: {stream}
+        <div
+          style={{
+            background: "rgba(59,130,246,.07)",
+            border: "1px solid rgba(59,130,246,.2)",
+            borderRadius: 8,
+            padding: "6px 11px",
+            marginBottom: 12,
+            fontSize: 11,
+            color: "#93c5fd",
+            fontWeight: 600,
+          }}
+        >
+          📚 Stream: {stream}
         </div>
       )}
 
-      {/* Legend + month track */}
       <Legend />
       <MonthTrack events={events} onMonthClick={handleMonthClick} />
 
-      {/* Event cards */}
       {events.length === 0 ? (
-        <div style={{ padding: 20, textAlign: "center", color: "var(--ep-muted)", fontSize: 13 }}>
+        <div
+          style={{
+            padding: 20,
+            textAlign: "center",
+            color: "var(--ep-muted)",
+            fontSize: 13,
+          }}
+        >
           No timeline events found for this combination.
         </div>
       ) : (
         <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
           {events.map((ev, i) => {
-            const id = `ev-${i}`;
+            const id = `ev-sc-${i}`;
             return (
               <EventCard
                 key={id}
@@ -648,11 +1059,22 @@ export function TimelineSection({
         </div>
       )}
 
-      {/* Grade note */}
       {grade < 12 && (
-        <div style={{ marginTop: 14, padding: "9px 12px", borderRadius: 8, background: "rgba(59,130,246,.07)", border: "1px solid rgba(59,130,246,.18)", fontSize: 11, color: "var(--ep-muted)" }}>
-          📌 You are in Grade {grade} — approximately {12 - grade} year{12 - grade !== 1 ? "s" : ""} before application season.
-          The timeline above is for the <strong style={{ color: "var(--ep-text)" }}>2027 intake</strong>.
+        <div
+          style={{
+            marginTop: 14,
+            padding: "9px 12px",
+            borderRadius: 8,
+            background: "rgba(59,130,246,.07)",
+            border: "1px solid rgba(59,130,246,.18)",
+            fontSize: 11,
+            color: "var(--ep-muted)",
+          }}
+        >
+          📌 You are in Grade {grade} — approximately {12 - grade} year
+          {12 - grade !== 1 ? "s" : ""} before application season. The
+          timeline above is for the{" "}
+          <strong style={{ color: "var(--ep-text)" }}>2027 intake</strong>.
         </div>
       )}
     </div>

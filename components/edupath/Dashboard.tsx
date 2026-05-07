@@ -8,6 +8,7 @@ import { ScoreSection, TimelineSection } from "./sections/ScoreSection";
 import UniversityTabs from "./sections/UniversityTabs";
 import { ActionItems, ReadinessProgress } from "./sections/ActionItems";
 import ExamGuide from "./sections/ExamGuide";
+import FieldDashboard from "./sections/FieldDashboard";
 
 interface Props {
   data: StudentData;
@@ -35,7 +36,7 @@ export default function Dashboard({ data, onReset }: Props) {
         const json = await res.json();
         const insight: string =
           json.insight ||
-          `Based on your Grade ${grade} profile with ${score}% in ${stream}, you're ${scoreLabel(score).toLowerCase()} positioned for ${countries[0]} applications. Focus on maintaining consistency and start your application documents early.`;
+          `Based on your Grade ${grade} profile with ${score}% in ${stream}, you're ${scoreLabel(score).toLowerCase()} positioned for ${countries[0]} applications in ${field}. Focus on maintaining consistency and start your application documents early.`;
         setAiInsight(insight);
 
         await fetch("/api/edupath/submit-lead", {
@@ -51,7 +52,7 @@ export default function Dashboard({ data, onReset }: Props) {
         });
       } catch {
         setAiInsight(
-          `Based on your Grade ${grade} profile with ${score}% in ${stream}, you're ${scoreLabel(score).toLowerCase()} positioned for ${countries[0]} applications. Focus on consistency and start your documents early.`
+          `Based on your Grade ${grade} profile with ${score}% in ${stream}, you're ${scoreLabel(score).toLowerCase()} positioned for ${countries[0]} applications in ${field}. Focus on consistency and start your documents early.`
         );
       } finally {
         setInsightLoading(false);
@@ -86,6 +87,7 @@ export default function Dashboard({ data, onReset }: Props) {
       </nav>
 
       <div className="ep-main">
+        {/* Hero + Stats */}
         <HeroSection data={data} predictedFinal={predictedFinal} />
         <StatsRow
           score={score}
@@ -96,6 +98,16 @@ export default function Dashboard({ data, onReset }: Props) {
         />
         <AIInsight text={aiInsight} loading={insightLoading} />
 
+        {/* ── FIELD + COUNTRY PERSONALISED ROADMAP ── */}
+        {/* This is the new section that shows field-specific exams, subjects, timeline, colleges */}
+        <FieldDashboard
+          countries={countries}
+          field={field}
+          stream={stream}
+          grade={grade}
+          score={score}
+        />
+
         <div className="ep-grid-2 ep-mb">
           <ScoreSection
             score={score}
@@ -103,11 +115,6 @@ export default function Dashboard({ data, onReset }: Props) {
             satEst={satEst}
             countries={countries}
           />
-          {/*
-            UPDATED: now passes stream so getCountryAdmissionTimeline
-            inside TimelineSection can filter timeline by stream correctly.
-            Also passes career (field) for the personalised career pill.
-          */}
           <TimelineSection
             grade={grade}
             countries={countries}
@@ -140,7 +147,13 @@ export default function Dashboard({ data, onReset }: Props) {
         </div>
 
         <div className="ep-grid-2 ep-mb">
-          <ActionItems grade={grade} score={score} countries={countries} stream={stream} field={field} />
+          <ActionItems
+            grade={grade}
+            score={score}
+            countries={countries}
+            stream={stream}
+            field={field}
+          />
           <ReadinessProgress grade={grade} score={score} />
         </div>
       </div>

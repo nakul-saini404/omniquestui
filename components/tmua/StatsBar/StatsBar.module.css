@@ -1,0 +1,71 @@
+/* ============================================================
+   StatsBar.module.css
+   Design tokens scoped to .statsBar — no :root
+   ============================================================ */
+
+.statsBar {
+  --navy: #0a2240;
+  --gold: #c9972b;
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "DM Sans", sans-serif;
+
+  background: var(--gold);
+  padding: 26px 24px;
+}
+
+.statsInner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.statItem {
+  text-align: center;
+}
+
+.statNum {
+  font-family: var(--ff-head);
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1;
+  /* subtle pop-in when counter starts */
+  animation: statPop 0.4s ease both;
+}
+
+.statLabel {
+  font-family: var(--ff-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: rgba(10, 34, 64, 0.6);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+@keyframes statPop {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .statsInner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 320px) {
+  .statsInner {
+    grid-template-columns: 1fr;
+  }
+}

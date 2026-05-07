@@ -18,6 +18,18 @@ export type Stream =
   | "Humanities"
   | "Undecided";
 
+export type FieldOfStudy =
+  | "Computer Science / AI / Data Science"
+  | "Engineering (Mechanical / Civil / EE)"
+  | "Medicine / Pre-Med"
+  | "Business / Economics"
+  | "Law / Political Science"
+  | "Design / Architecture"
+  | "Life Sciences / Biotech"
+  | "Liberal Arts / Humanities"
+  | "Media / Communications"
+  | "Not decided yet";
+
 export interface StudentData {
   name: string;
   email: string;
@@ -34,15 +46,13 @@ export interface University {
   tier: "Reach" | "Target" | "Safety";
   req: number;
   sat: number | null;
-  /** Whether SAT is required, recommended, optional, or not used */
   satRequired: "Yes" | "Recommended" | "Optional" | "No";
   deadline: string;
   cost: string;
   country?: Country;
-  /** Short description of how applications are evaluated */
   admissionMode: string;
-  /** What score/profile is needed to win scholarship money */
   scholarshipStrength: string;
+  indianStudentTip?: string;
 }
 
 export interface ChanceResult {
@@ -71,4 +81,43 @@ export interface SubmitLeadPayload {
   predictedFinal: number;
   satEst: number;
   uniCount: number;
+}
+
+// ── Field + Country specific data types ──────────────────────────────────────
+
+export interface FieldExamInfo {
+  examName: string;
+  icon: string;
+  status: "Mandatory" | "Recommended" | "Optional" | "Not Required";
+  targetScore: string;
+  note: string;
+  registrationWindow: string;
+  examDate: string;
+}
+
+export interface FieldSubjectInfo {
+  subject: string;
+  importance: "Required" | "Strongly Recommended" | "Helpful";
+  note: string;
+}
+
+export interface FieldTimelineEvent {
+  month: string;
+  year: number;
+  title: string;
+  description: string;
+  type: "exam" | "open" | "deadline" | "result" | "visa" | "travel" | "prep";
+  urgent: boolean;
+}
+
+export interface FieldCountryData {
+  country: Country;
+  field: string;
+  satNeeded: boolean;
+  satNote: string;
+  exams: FieldExamInfo[];
+  subjects: FieldSubjectInfo[];
+  timeline: FieldTimelineEvent[];
+  topColleges: string[];
+  abroadNote: string;
 }
