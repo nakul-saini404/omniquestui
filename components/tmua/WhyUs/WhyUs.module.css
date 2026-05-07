@@ -1,0 +1,221 @@
+/* ── Why Us / EduQuest Section ── */
+
+.section {
+  padding: 76px 24px;
+  background: #F5F3EE;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #C8102E;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 900;
+  color: #0A2240;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.sectionSub {
+  font-size: 15.5px;
+  color: #4a5568;
+  max-width: 620px;
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+
+/* ── Main Grid ── */
+
+.eqGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+/* ── Features List ── */
+
+.eqFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.eqFeature {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 8px;
+  border-left: 4px solid #C9972B;
+  transition: box-shadow 0.2s ease, opacity 0.55s ease, transform 0.55s ease;
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.eqFeature.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.eqFeature:hover {
+  box-shadow: 0 4px 24px rgba(10, 34, 64, 0.1);
+}
+
+.eqFeatureIcon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.eqFeatureTitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 14.5px;
+  color: #0A2240;
+  margin-bottom: 3px;
+  font-weight: 700;
+}
+
+.eqFeatureDesc {
+  font-size: 12.5px;
+  color: #4a5568;
+  line-height: 1.65;
+}
+
+/* ── Right Stats Panel ── */
+
+.eqRight {
+  background: #0A2240;
+  border-radius: 14px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.eqRight::after {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: #C9972B;
+  opacity: 0.07;
+}
+
+.eqRightTitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  color: #ffffff;
+  margin-bottom: 7px;
+  font-weight: 700;
+}
+
+.eqRightSub {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 26px;
+}
+
+/* ── Stats Grid ── */
+
+.eqStats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.eqStat {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.eqStatNum {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 34px;
+  font-weight: 900;
+  color: #C9972B;
+  line-height: 1;
+}
+
+.eqStatLabel {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 3px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ── Right Footer ── */
+
+.eqRightFooter {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.eqRightNote {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 14px;
+}
+
+.btnPrimary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 13px 26px;
+  background: #C9972B;
+  color: #0A2240;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.btnPrimary:hover {
+  background: #e8b44b;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(201, 151, 43, 0.35);
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 900px) {
+  .eqGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 580px) {
+  .section {
+    padding: 52px 16px;
+  }
+
+  .eqStats {
+    grid-template-columns: 1fr 1fr;
+  }
+}

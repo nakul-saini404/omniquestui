@@ -1,0 +1,193 @@
+/* ── Preparation / Revision Section ── */
+
+.section {
+  padding: 76px 24px;
+  background: #0A2240;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #C9972B;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.sectionSub {
+  font-size: 15.5px;
+  color: rgba(255, 255, 255, 0.58);
+  max-width: 620px;
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+
+/* ── Revision Timeline ── */
+
+.revisionTimeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+  margin-bottom: 36px;
+}
+
+.revisionTimeline::before {
+  content: '';
+  position: absolute;
+  top: 27px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #C9972B, #e8b44b, #C9972B);
+  opacity: 0.35;
+}
+
+/* ── Phase Card ── */
+
+.revPhase {
+  padding: 18px 14px 0;
+  position: relative;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.revPhase.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.revDot {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #0A2240;
+  border: 3px solid #C9972B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #C9972B;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.revPhaseTitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 15px;
+  color: #C9972B;
+  margin-bottom: 11px;
+  font-weight: 700;
+}
+
+.revPhaseList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.revPhaseItem {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.62);
+  line-height: 1.7;
+  padding: 3px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.revPhaseItem::before {
+  content: '›';
+  margin-right: 6px;
+  color: #C9972B;
+}
+
+/* ── Prep Tips ── */
+
+.prepTips {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.prepTip {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  padding: 18px;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.prepTip.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.prepTipIcon {
+  font-size: 22px;
+  margin-bottom: 9px;
+}
+
+.prepTipTitle {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+.prepTipDesc {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.52);
+  line-height: 1.65;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 900px) {
+  .revisionTimeline {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .revisionTimeline::before {
+    display: none;
+  }
+
+  .prepTips {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .section {
+    padding: 52px 16px;
+  }
+
+  .revisionTimeline {
+    grid-template-columns: 1fr;
+  }
+
+  .prepTips {
+    grid-template-columns: 1fr;
+  }
+}

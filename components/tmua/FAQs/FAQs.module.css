@@ -1,0 +1,148 @@
+/* ── FAQs Section ── */
+
+.section {
+  padding: 76px 24px;
+  background: #ffffff;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #C8102E;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 900;
+  color: #0A2240;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.sectionSub {
+  font-size: 15.5px;
+  color: #4a5568;
+  max-width: 620px;
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+
+/* ── FAQ Grid ── */
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* ── FAQ Item ── */
+
+.faqItem {
+  border: 1px solid rgba(10, 34, 64, 0.12);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.faqItem:hover {
+  box-shadow: 0 4px 20px rgba(10, 34, 64, 0.08);
+}
+
+.faqItemOpen {
+  box-shadow: 0 4px 20px rgba(10, 34, 64, 0.1);
+}
+
+/* ── FAQ Question Button ── */
+
+.faqQuestion {
+  width: 100%;
+  text-align: left;
+  background: #F5F3EE;
+  border: none;
+  cursor: pointer;
+  padding: 16px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #0A2240;
+  transition: background 0.2s ease, color 0.2s ease;
+  gap: 10px;
+}
+
+.faqQuestion:hover {
+  background: #ece9e2;
+}
+
+.faqQuestionOpen {
+  background: #0A2240;
+  color: #ffffff;
+}
+
+.faqQuestionText {
+  flex: 1;
+  line-height: 1.5;
+}
+
+/* ── FAQ Icon ── */
+
+.faqIcon {
+  font-size: 20px;
+  font-weight: 300;
+  flex-shrink: 0;
+  line-height: 1;
+  transition: transform 0.3s ease, color 0.2s ease;
+  color: #C9972B;
+}
+
+.faqIconOpen {
+  transform: rotate(45deg);
+  color: #C9972B;
+}
+
+/* ── FAQ Answer ── */
+
+.faqAnswer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.38s ease, padding 0.3s ease;
+  padding: 0 18px;
+}
+
+.faqAnswerOpen {
+  max-height: 300px;
+  padding: 14px 18px;
+}
+
+.faqAnswerText {
+  font-size: 13.5px;
+  color: #4a5568;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 900px) {
+  .faqGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 580px) {
+  .section {
+    padding: 52px 16px;
+  }
+}

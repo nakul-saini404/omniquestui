@@ -1,0 +1,205 @@
+/* ── Success Stories Section ── */
+
+.section {
+  padding: 76px 24px;
+  background: #F5F3EE;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #C8102E;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 900;
+  color: #0A2240;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.sectionSub {
+  font-size: 15.5px;
+  color: #4a5568;
+  max-width: 620px;
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+
+/* ── Cards Grid ── */
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(var(--per-view, 3), 1fr);
+  gap: 24px;
+  align-items: stretch;
+  margin-bottom: 36px;
+}
+
+/* ── Testimonial Card ── */
+
+.tCard {
+  background: #ffffff;
+  border: 1px solid rgba(10, 34, 64, 0.1);
+  border-radius: 12px;
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+  box-sizing: border-box;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  animation: fadeSlideIn 0.45s ease both;
+}
+
+.tCard:hover {
+  box-shadow: 0 12px 40px rgba(10, 34, 64, 0.12);
+  transform: translateY(-3px);
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tQuote {
+  font-size: 42px;
+  color: #C9972B;
+  line-height: 1;
+  font-family: Georgia, serif;
+  margin-bottom: -6px;
+}
+
+/* Push author to bottom always */
+.tText {
+  font-size: 13.5px;
+  color: #4a5568;
+  line-height: 1.8;
+  flex: 1;
+}
+
+.tScore {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(201, 151, 43, 0.1);
+  border: 1px solid rgba(201, 151, 43, 0.28);
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #C9972B;
+  width: fit-content;
+}
+
+.tAuthor {
+  border-top: 1px solid rgba(10, 34, 64, 0.08);
+  padding-top: 14px;
+  margin-top: auto;
+}
+
+.tName {
+  font-weight: 700;
+  font-size: 13.5px;
+  color: #0A2240;
+}
+
+.tUni {
+  font-size: 12px;
+  color: #4a5568;
+  margin-top: 3px;
+}
+
+/* ── Controls ── */
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.carouselBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #0A2240;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.15s ease;
+  flex-shrink: 0;
+}
+
+.carouselBtn:hover {
+  background: #C9972B;
+  color: #0A2240;
+  transform: scale(1.08);
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(10, 34, 64, 0.18);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s ease;
+}
+
+.dot:hover {
+  background: rgba(10, 34, 64, 0.4);
+}
+
+.dotActive {
+  background: #0A2240;
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 1024px) {
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 52px 16px;
+  }
+
+  .cardsGrid {
+    grid-template-columns: 1fr;
+  }
+}
