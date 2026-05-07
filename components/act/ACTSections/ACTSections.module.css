@@ -1,0 +1,158 @@
+/* ACTSections.module.css */
+/* Tokens: --cream, --navy, --gold, --red, --white,
+           --text2, --line, --line2, --ff-head        */
+
+.section {
+  padding: 80px 24px;
+  background: var(--navy);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Eyebrow ── */
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* ── Heading ── */
+.title {
+  font-family: var(--ff-head);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+/* ── Sub ── */
+.sub {
+  font-size: 16px;
+  color: #fbfbfb;
+  max-width: 580px;
+  margin-bottom: 48px;
+  line-height: 1.7;
+}
+
+/* ── 3-column card grid (Science removed) ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* ── Card ── */
+.card {
+  background: color-mix(in srgb, var(--white) 5%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-align: center;
+  cursor: default;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.card:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+
+.icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.name {
+  font-family: var(--ff-head);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.detail {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 4px;
+  letter-spacing: 0.3px;
+}
+
+.sub2 {
+  font-size: 12.5px;
+  color: #f0e6e6;
+  line-height: 1.5;
+}
+
+/* ── Progress bar ── */
+.bar {
+  margin-top: 14px;
+  height: 4px;
+  background: var(--line2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), color-mix(in srgb, var(--gold) 60%, var(--white)));
+  border-radius: 2px;
+}
+
+/* ── Essay note banner ── */
+.essayNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: color-mix(in srgb, var(--white) 4%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+
+.essayIcon {
+  font-size: 28px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.essayTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.essayDesc {
+  font-size: 13.5px;
+  color: #cfc8c8;
+  line-height: 1.6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 56px 16px;
+  }
+}

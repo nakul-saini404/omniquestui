@@ -3,7 +3,7 @@ import Image from 'next/image';
 const footerLinks = {
   courses: [
     { label: 'SAT Coaching', href: '/sat' },
-    { label: 'ACT Coaching', href: 'https://eduquest.org.in/sat-coaching-classes-delhi/' },
+    { label: 'ACT Coaching', href: '/act' },
     { label: 'AP Coaching', href: '/ap-coaching' },
     { label: 'Pre-AP Coaching', href: '/pre-ap-gurgaon' },
     { label: 'LSAT Coaching', href: 'https://eduquest.org.in/lsat-coaching-india/' },

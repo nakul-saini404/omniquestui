@@ -1,0 +1,181 @@
+/* OurApproach.module.css */
+/* Uses project theme tokens: --cream, --navy, --gold, --red, --white,
+   --text2, --line, --line2, --ff-head                                  */
+
+.section {
+  padding: 80px 24px;
+  background: var(--cream);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Eyebrow tag ── */
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* ── Section heading ── */
+.title {
+  font-family: var(--ff-head);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+/* ── Sub-text ── */
+.sub {
+  font-size: 16px;
+  color: var(--text2);
+  max-width: 580px;
+  margin-bottom: 56px;
+  line-height: 1.7;
+}
+
+/* ── Steps track ── */
+.stepsTrack {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+}
+
+/* Horizontal connector line */
+.connector {
+  position: absolute;
+  top: 35px; /* vertically centres through the 72 px circle */
+  left: calc(12.5% + 36px);   /* start after first circle centre */
+  width: calc(75% - 72px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--line2));
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── Single step ── */
+.step {
+  text-align: center;
+  padding: 0 16px;
+  position: relative;
+  z-index: 1;
+}
+
+/* circle wrapper keeps z-index context clean */
+.circleWrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.circle {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.step:hover .circle {
+  background: var(--navy);
+  border-color: var(--navy);
+  transform: translateY(-3px);
+}
+
+/* Gold inner glow disc */
+.circleInner {
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--gold) 18%, transparent);
+  pointer-events: none;
+  transition: background 0.2s;
+}
+
+.step:hover .circleInner {
+  background: color-mix(in srgb, var(--gold) 25%, transparent);
+}
+
+.stepNum {
+  font-family: "Space Mono", monospace, var(--ff-head);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+  position: relative;
+  z-index: 1;
+  transition: color 0.2s;
+}
+
+.step:hover .stepNum {
+  color: var(--gold);
+}
+
+/* ── Step text ── */
+.stepTitle {
+  font-family: var(--ff-head);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+  transition: color 0.2s;
+}
+
+.step:hover .stepTitle {
+  color: var(--gold);
+}
+
+.stepDesc {
+  font-size: 13.5px;
+  color: var(--text2);
+  line-height: 1.6;
+}
+
+/* ── Divider below section (optional utility) ── */
+.divider {
+  height: 1px;
+  background: var(--line);
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .stepsTrack {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 40px;
+  }
+
+  .connector {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .section {
+    padding: 56px 16px;
+  }
+
+  .stepsTrack {
+    grid-template-columns: 1fr;
+    row-gap: 36px;
+  }
+}
