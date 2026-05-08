@@ -7,6 +7,7 @@ const footerLinks = {
     { label: 'AP Coaching', href: '/ap-coaching' },
     { label: 'Pre-AP Coaching', href: '/pre-ap-gurgaon' },
     { label: 'LSAT Coaching', href: 'https://eduquest.org.in/lsat-coaching-india/' },
+    { label: 'IPMAT Coaching', href: '/ipmat-coaching-and-profile-building-eduquest-2026' },
     { label: 'UCAT Coaching', href: '/ucat' },
     { label: 'TMUA Coaching', href: '/tmua' },
     { label: 'IELTS Coaching', href: 'https://eduquest.org.in/ielts/' },
@@ -92,7 +93,7 @@ export default function Footer() {
             <div className="space-y-3 text-xs text-gray-500">
               <div>
                 <p className="text-gray-300 font-semibold mb-1">Main Office</p>
-                <p>1210, Galleria Boulevard, DLF Phase IV, Gurugram, Haryana 122009</p>
+                <p>1212 Galleria Boulevard, DLF Phase IV, Gurugram, Haryana 122009</p>
               </div>
               <div>
                 <p className="text-gray-300 font-semibold mb-1">Regional Office</p>

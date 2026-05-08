@@ -1,0 +1,318 @@
+/* SpikeSection.module.css — EduQuest IPMAT 2026 */
+
+/* ── Tokens (scoped, no :root) ── */
+.spike {
+  --navy:  #0b1c3d;
+  --navy2: #102454;
+  --navy3: #1a3570;
+  --gold:  #d4a843;
+  --gold2: #e8c96a;
+  --white: #ffffff;
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "Plus Jakarta Sans", sans-serif;
+  --radius: 6px;
+
+  padding: 88px 0;
+  background: var(--navy2);
+  font-family: var(--ff-body);
+  overflow: hidden;
+  position: relative;
+}
+
+/* subtle radial glow behind header */
+.spike::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 400px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(212, 168, 67, 0.06) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* ── Container ── */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Section header ── */
+.sectionHead {
+  margin-bottom: 0;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.sectionHeadVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.sectionLabel::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: var(--gold);
+  display: block;
+  flex-shrink: 0;
+}
+
+.sectionHeading {
+  font-family: var(--ff-head);
+  font-size: clamp(26px, 3.5vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  line-height: 1.18;
+  margin-bottom: 12px;
+}
+
+.sectionSub {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 620px;
+  line-height: 1.7;
+}
+
+/* ── Cards grid ── */
+.spikeGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-top: 44px;
+}
+
+/* ── Individual card ── */
+.spikeCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  padding: 30px 26px 34px;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+
+  /* reveal state */
+  opacity: 0;
+  transform: translateY(36px);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.spikeCardVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.spikeCard:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(212, 168, 67, 0.35);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+}
+
+/* Gold bottom-edge glow that sweeps in on hover */
+.spikeCardGlow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transform: scaleX(0.4);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.spikeCard:hover .spikeCardGlow {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Ghost number */
+.spikeCardNum {
+  font-family: var(--ff-head);
+  font-size: 52px;
+  font-weight: 700;
+  color: rgba(212, 168, 67, 0.18);
+  line-height: 1;
+  margin-bottom: 14px;
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+.spikeCard:hover .spikeCardNum {
+  color: rgba(212, 168, 67, 0.35);
+}
+
+.spikeCardTitle {
+  font-family: var(--ff-head);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.spikeCardDesc {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+}
+
+/* ── Stats strip ── */
+.spikeStats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-top: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+/* ── Stat cell ── */
+.spikeStat {
+  padding: 26px 18px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.04);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease,
+    background 0.25s ease;
+}
+
+.spikeStat:last-child {
+  border-right: none;
+}
+
+.spikeStatVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.spikeStat:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.spikeStatNum {
+  font-family: var(--ff-head);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gold);
+  display: block;
+  line-height: 1;
+}
+
+.spikeStatLabel {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-top: 6px;
+  display: block;
+}
+
+/* ── CTA ── */
+.ctaWrap {
+  text-align: center;
+  margin-top: 44px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+}
+
+.ctaWrapVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.btnGold {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--ff-body);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 13px 32px;
+  border-radius: var(--radius);
+  background: var(--gold);
+  color: var(--navy);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btnGold:hover {
+  background: var(--gold2);
+  transform: translateY(-2px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .spikeGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .spikeStats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .spikeStat:nth-child(2) {
+    border-right: none;
+  }
+
+  .spikeStat:nth-child(3),
+  .spikeStat:nth-child(4) {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+@media (max-width: 640px) {
+  .spike {
+    padding: 64px 0;
+  }
+
+  .spikeGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .spikeStats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .btnGold {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,298 @@
+/* PhilosophySection.module.css — EduQuest IPMAT 2026 */
+
+/* ── Tokens (scoped to section, no :root) ── */
+.strategyBanner {
+  --navy: #0b1c3d;
+  --navy2: #102454;
+  --navy3: #1a3570;
+  --gold: #d4a843;
+  --gold2: #e8c96a;
+  --red: #c84b31;
+  --white: #ffffff;
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "Plus Jakarta Sans", sans-serif;
+  --radius: 6px;
+
+  background: var(--navy);
+  color: var(--white);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--ff-body);
+}
+
+/* ── Decorative ring ── */
+.decorCircle {
+  position: absolute;
+  right: -100px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 500px;
+  height: 500px;
+  border: 1px solid rgba(212, 168, 67, 0.1);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ── Container ── */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Two-column grid ── */
+.strategyInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+/* ── LEFT: Text column ── */
+.strategyText {
+  opacity: 0;
+  transform: translateX(-28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.strategyTextVisible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Section label */
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.sectionLabel::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: var(--gold);
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Heading */
+.strategyHeading {
+  font-family: var(--ff-head);
+  font-size: clamp(24px, 3vw, 38px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  color: var(--white);
+}
+
+.strategyHeading em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+/* Body copy */
+.strategyBody {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+
+/* CTA buttons */
+.strategyBtns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--ff-body);
+  font-weight: 600;
+  font-size: 13.5px;
+  padding: 11px 24px;
+  border-radius: var(--radius);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+.btnGold {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.btnGold:hover {
+  background: var(--gold2);
+  transform: translateY(-1px);
+}
+
+.btnGhost {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+}
+
+.btnGhost:hover {
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateY(-1px);
+}
+
+/* ── RIGHT: Bars panel ── */
+.strategyRight {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 32px 36px;
+  opacity: 0;
+  transform: translateX(28px);
+  transition: opacity 0.65s ease 0.15s, transform 0.65s ease 0.15s;
+}
+
+.strategyRightVisible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Bars title ── */
+.barsTitle {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 24px;
+}
+
+/* ── Bar row ── */
+.barItem {
+  margin-bottom: 22px;
+}
+
+.barItem:last-child {
+  margin-bottom: 0;
+}
+
+/* Label + percentage row */
+.barMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.barLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Animated percentage number */
+.barPct {
+  font-family: var(--ff-head);
+  font-size: 20px;
+  font-weight: 700;
+  transition: color 0.3s;
+}
+
+/* Per-bar percentage colours */
+.barPct_navy  { color: rgba(255, 255, 255, 0.55); }
+.barPct_gold  { color: var(--gold); }
+.barPct_red   { color: var(--red); }
+.barPct_white { color: rgba(255, 255, 255, 0.6); }
+
+/* Track */
+.barTrack {
+  height: 9px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* Fill — starts at 0, animates to --bar-width */
+.barFill {
+  height: 100%;
+  border-radius: 5px;
+  width: 0;
+  transition: none;
+}
+
+.barFillAnimate {
+  animation: barGrow 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--bar-delay, 0ms);
+}
+
+/* Per-bar fill colours */
+.barFill_navy  { background: var(--navy3); }
+.barFill_gold  { background: var(--gold); }
+.barFill_red   { background: var(--red); }
+.barFill_white { background: rgba(255, 255, 255, 0.35); }
+
+@keyframes barGrow {
+  from { width: 0; }
+  to   { width: var(--bar-width); }
+}
+
+/* Description text below bar */
+.barDesc {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 6px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .strategyInner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .strategyText {
+    transform: translateY(24px);
+  }
+
+  .strategyTextVisible {
+    transform: translateY(0);
+  }
+
+  .strategyRight {
+    transform: translateY(24px);
+  }
+
+  .strategyRightVisible {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .strategyBanner {
+    padding: 64px 0;
+  }
+
+  .strategyRight {
+    padding: 24px 22px;
+  }
+
+  .strategyBtns {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
