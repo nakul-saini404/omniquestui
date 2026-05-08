@@ -135,6 +135,49 @@
   font-style: italic;
 }
 
+/* ── ROTATING TEXT ── */
+.rotatingText {
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+}
+
+/* Entering state — slide up + fade in */
+.rotatingTextEnter {
+  animation: rotateIn 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Exiting state — slide down + fade out */
+.rotatingTextExit {
+  animation: rotateOut 0.35s cubic-bezier(0.55, 0, 0.78, 0) both;
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) skewY(3deg);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) skewY(0deg);
+    filter: blur(0);
+  }
+}
+
+@keyframes rotateOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) skewY(0deg);
+    filter: blur(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-14px) skewY(-3deg);
+    filter: blur(2px);
+  }
+}
+
 /* Subtext */
 .heroSub {
   font-size: 15.5px;
@@ -225,7 +268,6 @@
   background: rgba(212, 168, 67, 0.1);
 }
 
-/* Animated shimmer on stat on load */
 .heroStat::before {
   content: "";
   position: absolute;
@@ -278,7 +320,6 @@
   animation: heroFadeUp 0.7s 0.18s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* Image wrapper */
 .heroImgWrap {
   position: relative;
   border-radius: 12px;
@@ -312,7 +353,6 @@
   transform: scale(1.04);
 }
 
-/* Floating score badge on image */
 .heroScoreBadge {
   position: absolute;
   bottom: 18px;

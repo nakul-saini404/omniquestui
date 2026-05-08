@@ -3,6 +3,27 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./HeroSection.module.css";
 
+/* ── Rotating text hook ── */
+const EXAM_NAMES = ["IELTS", "TOEFL", "PTE", "Duolingo"];
+
+function useRotatingText(items: string[], interval = 2200) {
+  const [index, setIndex] = useState(0);
+  const [exiting, setExiting] = useState(false);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setExiting(true);
+      setTimeout(() => {
+        setIndex((prev) => (prev + 1) % items.length);
+        setExiting(false);
+      }, 350);
+    }, interval);
+    return () => clearInterval(timer);
+  }, [items, interval]);
+
+  return { current: items[index], exiting };
+}
+
 /* ── Animated counter hook ── */
 function useCountUp(target: number, duration = 1400, start = false) {
   const [count, setCount] = useState(0);
@@ -13,7 +34,6 @@ function useCountUp(target: number, duration = 1400, start = false) {
     const step = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
-      // Ease-out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
       setCount(Math.floor(eased * target));
       if (progress < 1) requestAnimationFrame(step);
@@ -77,6 +97,7 @@ function ModuleCard({ icon, name }: ModuleProps) {
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
+  const { current: examName, exiting } = useRotatingText(EXAM_NAMES, 2200);
 
   /* Trigger stat animation on intersection */
   useEffect(() => {
@@ -123,14 +144,21 @@ export default function HeroSection() {
           <h1 className={styles.heroH1}>
             Achieve Your
             <br />
-            <em className={styles.heroH1Em}>Dream IELTS</em>
+            <em className={styles.heroH1Em}>
+              Dream{" "}
+              <span
+                className={`${styles.rotatingText} ${exiting ? styles.rotatingTextExit : styles.rotatingTextEnter}`}
+              >
+                {examName}
+              </span>
+            </em>
             <br />
             Band Score.
           </h1>
 
           {/* Subtext */}
           <p className={styles.heroSub}>
-            Comprehensive online IELTS coaching with live lectures, mock tests,
+            Comprehensive online coaching with live lectures, mock tests,
             personalised feedback, and expert mentorship — for Academic and
             General Training.
           </p>
@@ -177,7 +205,7 @@ export default function HeroSection() {
           <div className={styles.heroImgWrap}>
             <img
               src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=85"
-              alt="IELTS student studying and preparing for the exam"
+              alt="Student studying and preparing for the exam"
               className={styles.heroImg}
               onError={(e) => {
                 (e.currentTarget as HTMLImageElement).src =
@@ -190,7 +218,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* IELTS Module Cards */}
+          {/* Module Cards */}
           <div className={styles.heroModules}>
             {modules.map((m) => (
               <ModuleCard key={m.name} icon={m.icon} name={m.name} />

@@ -1,13 +1,14 @@
-/* ══════════════════════════════════════════════════
-   WHAT MAKES US DIFFERENT — WhatMakesUsDifferent.module.css
-   Dark navy section. No :root. No .container. No globals.
-   All colour tokens consumed from the project's global vars.
-══════════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════
+   WhatMakesUsDifferent.module.css
+   Dark navy section. No :root. No globals.
+   Accent colours injected via --card-accent / --tab-accent
+   passed as inline style from TSX.
+══════════════════════════════════════════════════════ */
 
 /* ── Section shell ── */
 .section {
   padding: 96px 24px;
-  background: var(--navy2);
+  background: #102454;
   position: relative;
   overflow: hidden;
 }
@@ -41,26 +42,19 @@
   width: 520px;
   height: 520px;
   border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(212, 168, 67, 0.07) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle, rgba(212, 168, 67, 0.07) 0%, transparent 70%);
   top: -120px;
   right: -100px;
   pointer-events: none;
   z-index: 0;
 }
+
 .glow2 {
   position: absolute;
   width: 400px;
   height: 400px;
   border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(26, 53, 112, 0.6) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle, rgba(26, 53, 112, 0.6) 0%, transparent 70%);
   bottom: -80px;
   left: -80px;
   pointer-events: none;
@@ -69,82 +63,173 @@
 
 /* ── Content wrapper ── */
 .inner {
-  max-width: var(--max);
+  max-width: 1160px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
 }
 
-/* ════════════════════
-   HEADER
-════════════════════ */
+/* ════════════════════════════════════
+   TAB ROW
+════════════════════════════════════ */
+.tabRow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(-14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.tabRowVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* individual tab */
+.tabBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 22px;
+  border-radius: 8px;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.55);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    color 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease,
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.tabBtn:hover {
+  color: var(--tab-accent, #d4a843);
+  border-color: var(--tab-accent, #d4a843);
+  background: rgba(255, 255, 255, 0.09);
+  transform: translateY(-2px);
+}
+
+.tabBtn[data-active="true"] {
+  background: var(--tab-accent, #d4a843);
+  border-color: var(--tab-accent, #d4a843);
+  color: #ffffff;
+  box-shadow: 0 6px 24px -4px color-mix(in srgb, var(--tab-accent, #d4a843) 55%, transparent);
+  transform: translateY(-1px);
+}
+
+/* ink fill on active */
+.tabBtnInk {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.14);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+.tabBtn[data-active="true"] .tabBtnInk {
+  transform: scaleX(1);
+}
+
+/* ════════════════════════════════════
+   SECTION HEADER
+════════════════════════════════════ */
 .header {
   text-align: center;
-  margin-bottom: 52px;
+  margin-bottom: 48px;
   opacity: 0;
   transform: translateY(22px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s ease;
 }
+
 .headerVisible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* crossfade when tab switches */
+.header[data-animating="true"] {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
 }
 
 .sectionLabel {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--ff-body);
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: #d4a843;
   margin-bottom: 14px;
 }
+
 .labelLine {
   display: inline-block;
   width: 20px;
   height: 2px;
-  background: var(--gold);
+  background: #d4a843;
   flex-shrink: 0;
 }
 
 .heading {
-  font-family: var(--ff-head);
-  font-size: clamp(26px, 3.4vw, 44px);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(24px, 3.2vw, 42px);
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: var(--white);
+  color: #ffffff;
   line-height: 1.15;
   margin-bottom: 14px;
 }
+
+/* em colour driven by inline style from TSX */
 .headingEm {
-  color: var(--gold);
   font-style: italic;
+  transition: color 0.3s ease;
 }
 
 .subtext {
-  font-family: var(--ff-body);
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 15.5px;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.52);
   max-width: 520px;
   margin: 0 auto;
   line-height: 1.75;
 }
 
-/* ════════════════════
-   GRID
-════════════════════ */
+/* ════════════════════════════════════
+   GRID — crossfade on tab switch
+════════════════════════════════════ */
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 14px;
+  transition: opacity 0.28s ease, transform 0.28s ease;
 }
 
-/* ════════════════════
+.grid[data-animating="true"] {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* ════════════════════════════════════
    USP CARD
-════════════════════ */
+════════════════════════════════════ */
 .card {
   background: rgba(255, 255, 255, 0.045);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -162,32 +247,29 @@
     transform 0.28s ease;
 }
 
-/* Scroll-in keyframe */
 @keyframes cardRise {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  to { opacity: 1; transform: translateY(0); }
 }
+
 .cardVisible {
   animation: cardRise 0.52s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .card:hover {
   background: rgba(255, 255, 255, 0.085);
-  border-color: rgba(212, 168, 67, 0.28);
+  border-color: color-mix(in srgb, var(--card-accent, #d4a843) 40%, transparent);
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
   transform: translateY(-5px);
 }
 
-/* ── Shimmer sweep ── */
+/* shimmer sweep */
 .shimmer {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     105deg,
     transparent 40%,
-    rgba(212, 168, 67, 0.07) 50%,
+    color-mix(in srgb, var(--card-accent, #d4a843) 12%, transparent) 50%,
     transparent 60%
   );
   background-size: 200% 100%;
@@ -196,11 +278,12 @@
   border-radius: inherit;
   pointer-events: none;
 }
+
 .card:hover .shimmer {
   background-position: -200% 0;
 }
 
-/* ── Top row: icon + badge number ── */
+/* top row: icon + badge */
 .cardTop {
   display: flex;
   align-items: flex-start;
@@ -208,11 +291,11 @@
   margin-bottom: 16px;
 }
 
-/* Icon wrapper */
+/* icon wrap */
 .iconWrap {
   width: 46px;
   height: 46px;
-  background: rgba(212, 168, 67, 0.13);
+  background: color-mix(in srgb, var(--card-accent, #d4a843) 18%, transparent);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -229,18 +312,20 @@
   65%  { transform: scale(1.18) rotate(8deg); opacity: 1; }
   100% { opacity: 1; transform: scale(1) rotate(0deg); }
 }
+
 .iconVisible {
   animation: iconBounce 0.48s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
+
 .card:hover .iconWrap {
-  background: rgba(212, 168, 67, 0.24);
+  background: color-mix(in srgb, var(--card-accent, #d4a843) 30%, transparent);
 }
 
-/* Continuous float on hover */
 @keyframes iconFloat {
   0%, 100% { transform: translateY(0); }
   50%       { transform: translateY(-4px); }
 }
+
 .card:hover .iconVisible {
   animation: iconFloat 1.6s ease-in-out infinite;
 }
@@ -250,12 +335,12 @@
   display: block;
 }
 
-/* Badge number */
+/* badge number */
 .badge {
-  font-family: var(--ff-head);
+  font-family: "Playfair Display", Georgia, serif;
   font-size: 28px;
   font-weight: 700;
-  color: rgba(212, 168, 67, 0.12);
+  color: color-mix(in srgb, var(--card-accent, #d4a843) 18%, transparent);
   line-height: 1;
   opacity: 0;
   transform: translateX(8px);
@@ -264,72 +349,69 @@
 }
 
 @keyframes badgeSlide {
-  0%   { opacity: 0; transform: translateX(8px); color: rgba(212,168,67,0.04); }
-  60%  { color: rgba(212, 168, 67, 0.28); }
-  100% { opacity: 1; transform: translateX(0); color: rgba(212, 168, 67, 0.14); }
+  0%   { opacity: 0; transform: translateX(8px); }
+  100% { opacity: 1; transform: translateX(0); }
 }
+
 .badgeVisible {
   animation: badgeSlide 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-/* ── Text ── */
+/* card text */
 .cardTitle {
-  font-family: var(--ff-head);
+  font-family: "Playfair Display", Georgia, serif;
   font-size: 14.5px;
   font-weight: 600;
-  color: var(--white);
+  color: #ffffff;
   margin-bottom: 8px;
   line-height: 1.32;
 }
 
 .cardBody {
-  font-family: var(--ff-body);
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 13px;
   color: rgba(255, 255, 255, 0.52);
   line-height: 1.67;
   margin: 0;
 }
 
-/* ── Bottom gold underline ── */
+/* bottom accent underline */
 .cardUnderline {
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%) scaleX(0);
   width: 80%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--card-accent, #d4a843),
+    transparent
+  );
   border-radius: 2px;
-  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateX(-50%) scaleX(0);
   transform-origin: center;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
 .card:hover .cardUnderline {
   transform: translateX(-50%) scaleX(1);
 }
 
-/* ════════════════════
+/* ════════════════════════════════════
    RESPONSIVE
-════════════════════ */
+════════════════════════════════════ */
 @media (max-width: 1100px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  .grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .section {
-    padding: 72px 16px;
-  }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .section { padding: 72px 16px; }
 }
 
 @media (max-width: 480px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-  .card {
-    padding: 20px 16px;
-  }
+  .grid { grid-template-columns: 1fr; }
+  .card { padding: 20px 16px; }
+  .tabBtn { font-size: 12px; padding: 8px 14px; }
 }

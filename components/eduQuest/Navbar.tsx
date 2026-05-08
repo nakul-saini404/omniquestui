@@ -31,7 +31,7 @@ const navItems = [
       { label: 'UCAT Coaching', href: '/ucat' },
       { label: 'IPMAT Coaching', href: '/ipmat-coaching-and-profile-building-eduquest-2026' },
       { label: 'IELTS Coaching', href: '/ielts' },
-      { label: 'DASA/CIWG', href: '/ielts' },
+      { label: 'DASA/CIWG', href: '/dasa-and-ciwg-quota' },
       { label: 'PTE Coaching', href: 'https://eduquest.org.in/pte/' },
       { label: 'TOEFL Coaching', href: 'https://eduquest.org.in/toefl/' },
     ],

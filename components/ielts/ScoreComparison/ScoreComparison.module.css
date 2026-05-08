@@ -1,0 +1,509 @@
+/* ══════════════════════════════════════════════
+   ScoreComparison.module.css
+   Uses global CSS variables — no :root, no .container
+══════════════════════════════════════════════ */
+
+/* ── Section ── */
+.section {
+  padding: 92px 0;
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle dot-grid texture */
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.045) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+/* Background accent blobs */
+.bgAccentLeft {
+  position: absolute;
+  top: -120px;
+  left: -160px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,168,67,0.10) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.bgAccentRight {
+  position: absolute;
+  bottom: -100px;
+  right: -140px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ══════════════════
+   HEADER
+══════════════════ */
+.header {
+  text-align: center;
+  margin-bottom: 48px;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  font-family: var(--ff-body);
+}
+
+.sectionLabel::before,
+.sectionLabel::after {
+  content: '';
+  width: 20px;
+  height: 2px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.heading {
+  font-family: var(--ff-head);
+  font-size: clamp(26px, 3.5vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.sub {
+  font-size: 15.5px;
+  color: rgba(255,255,255,0.55);
+  max-width: 580px;
+  line-height: 1.72;
+  font-family: var(--ff-body);
+  margin: 0 auto;
+}
+
+/* ══════════════════
+   TEST CARDS
+══════════════════ */
+.testCards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 36px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s 0.12s ease, transform 0.6s 0.12s ease;
+}
+
+.testCards.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.testCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 20px 18px 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  animation: cardIn 0.55s var(--delay, 0s) both ease;
+  overflow: hidden;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.testCard:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.18);
+  transform: translateY(-3px);
+}
+
+.testCardActive {
+  background: rgba(255,255,255,0.08);
+  border-color: var(--card-accent) !important;
+  box-shadow: 0 0 0 1px var(--card-accent), 0 8px 28px rgba(0,0,0,0.25);
+}
+
+/* Top accent line on active */
+.testCardActive::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--card-accent);
+  border-radius: 10px 10px 0 0;
+}
+
+.testCardIcon {
+  font-size: 26px;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.testCardLabel {
+  font-family: var(--ff-head);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+}
+
+.testCardRange {
+  font-family: var(--ff-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--card-accent);
+  background: rgba(255,255,255,0.06);
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.testCardBody {
+  font-family: var(--ff-body);
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+  margin: 4px 0 0;
+}
+
+/* Active indicator dot */
+.testCardDot {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--card-accent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.testCardActive .testCardDot {
+  opacity: 1;
+}
+
+/* ══════════════════
+   TABLE
+══════════════════ */
+.tableWrap {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s 0.22s ease, transform 0.65s 0.22s ease;
+  margin-bottom: 36px;
+}
+
+.tableWrap.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tableScroll {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  /* Custom scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212,168,67,0.4) transparent;
+}
+
+.tableScroll::-webkit-scrollbar {
+  height: 5px;
+}
+.tableScroll::-webkit-scrollbar-thumb {
+  background: rgba(212,168,67,0.4);
+  border-radius: 4px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--ff-body);
+  min-width: 720px;
+}
+
+/* ── Head ── */
+.table thead tr {
+  background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.thLevel,
+.thDesc {
+  padding: 14px 20px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  white-space: nowrap;
+}
+
+.thLevel { width: 110px; }
+.thDesc  { min-width: 200px; }
+
+.thScore {
+  padding: 12px 16px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.5);
+  white-space: nowrap;
+  border-left: 1px solid rgba(255,255,255,0.06);
+  transition: background 0.25s, color 0.25s;
+  vertical-align: middle;
+}
+
+.thScoreActive {
+  background: rgba(255,255,255,0.05);
+  color: var(--col-accent) !important;
+  border-top: 2px solid var(--col-accent);
+}
+
+.thIcon {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+/* ── Body rows ── */
+.tr {
+  border-bottom: 1px solid rgba(255,255,255,0.055);
+  transition: background 0.2s;
+  animation: rowIn 0.5s var(--row-delay, 0s) both ease;
+}
+
+@keyframes rowIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.tr:last-child {
+  border-bottom: none;
+}
+
+.tr:hover,
+.trHovered {
+  background: rgba(255,255,255,0.04);
+}
+
+/* Level cell */
+.tdLevel {
+  padding: 16px 20px;
+  white-space: nowrap;
+}
+
+.levelDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 9px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.levelText {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  vertical-align: middle;
+}
+
+/* Descriptor cell */
+.tdDesc {
+  padding: 16px 20px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.5;
+}
+
+/* Score cells */
+.tdScore {
+  padding: 16px 16px;
+  text-align: center;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.7);
+  border-left: 1px solid rgba(255,255,255,0.055);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  transition: background 0.25s, color 0.25s;
+}
+
+.tdScoreActive {
+  background: rgba(255,255,255,0.04);
+  color: var(--col-accent) !important;
+}
+
+/* ══════════════════
+   HIGHLIGHTS
+══════════════════ */
+.highlights {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s 0.32s ease, transform 0.6s 0.32s ease;
+}
+
+.highlights.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.highlightsLabel {
+  font-family: var(--ff-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 12px;
+}
+
+.highlightsList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.highlight {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 20px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 8px;
+  animation: highlightIn 0.5s var(--h-delay, 0s) both ease;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.highlight:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(212,168,67,0.25);
+}
+
+@keyframes highlightIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.highlightKey {
+  font-family: var(--ff-body);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.highlightVal {
+  font-family: var(--ff-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.5;
+}
+
+/* ══════════════════
+   FOOTER NOTE
+══════════════════ */
+.note {
+  margin-top: 24px;
+  font-family: var(--ff-body);
+  font-size: 12px;
+  color: rgba(255,255,255,0.25);
+  line-height: 1.7;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s 0.4s ease;
+}
+
+.note.visible {
+  opacity: 1;
+}
+
+/* ══════════════════
+   RESPONSIVE
+══════════════════ */
+@media (max-width: 900px) {
+  .testCards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .highlightsList {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .testCards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .testCard {
+    padding: 14px 14px 12px;
+  }
+
+  .testCardIcon {
+    font-size: 22px;
+  }
+
+  .testCardLabel {
+    font-size: 13.5px;
+  }
+
+  .testCardBody {
+    display: none;
+  }
+
+  .highlightsList {
+    grid-template-columns: 1fr;
+  }
+}

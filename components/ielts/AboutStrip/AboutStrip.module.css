@@ -1,50 +1,149 @@
-/* ═══════════════════════════════════════
-   ABOUT STRIP — MODULE CSS
-   Tokens consumed from global :root vars
-═══════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════
+   AboutStrip.module.css
+   Colors (no :root — all inlined or via CSS custom
+   props passed inline from TSX):
+     White        #ffffff
+     Cream        #f5f0e8
+     Navy         #0b1c3d
+     Gold         #d4a843
+     Text2        #4a5568   Text3 #718096
+     Line         rgba(11,28,61,0.1)
+     Line2        rgba(11,28,61,0.18)
+═══════════════════════════════════════════════════ */
 
-/* ── Section wrapper ── */
+/* ── SECTION SHELL ── */
 .aboutStrip {
   padding: 88px 0;
-  background: var(--white);
+  background: #ffffff;
   position: relative;
   overflow: hidden;
 }
 
-/* Subtle cream gradient wash across the bottom */
-.aboutStrip::before {
-  content: "";
+/* cream gradient wash */
+.stripWash {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   height: 180px;
-  background: linear-gradient(to top, var(--cream) 0%, transparent 100%);
+  background: linear-gradient(to top, #f5f0e8 0%, transparent 100%);
   pointer-events: none;
   z-index: 0;
 }
 
-/* ── Inner layout ── */
+/* ── INNER LAYOUT ── */
 .aboutInner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ═══════════════════════════════════════
+   TAB SWITCHER ROW
+═══════════════════════════════════════ */
+.tabRow {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 44px;
+  flex-wrap: wrap;
+
+  /* scroll-in entrance */
+  opacity: 0;
+  transform: translateY(-16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.tabRow[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── individual tab button ── */
+.tabBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 22px;
+  border-radius: 8px;
+  border: 1.5px solid rgba(11, 28, 61, 0.14);
+  background: #f5f0e8;
+  color: #4a5568;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    color 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease,
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+/* hover */
+.tabBtn:hover {
+  border-color: var(--tab-accent, #d4a843);
+  color: var(--tab-accent, #d4a843);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(11, 28, 61, 0.08);
+}
+
+/* active / selected */
+.tabBtn[data-active="true"] {
+  background: var(--tab-accent, #d4a843);
+  border-color: var(--tab-accent, #d4a843);
+  color: #ffffff;
+  box-shadow: 0 6px 22px -4px color-mix(in srgb, var(--tab-accent, #d4a843) 50%, transparent);
+  transform: translateY(-1px);
+}
+
+/* ink fill ripple on click */
+.tabBtnInk {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.18);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+.tabBtn[data-active="true"] .tabBtnInk {
+  transform: scaleX(1);
+}
+
+/* ═══════════════════════════════════════
+   CONTENT PANEL (crossfade on tab switch)
+═══════════════════════════════════════ */
+.contentPanel {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 64px;
   align-items: center;
-  position: relative;
-  z-index: 1;
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 24px;
+
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.26s ease, transform 0.26s ease;
 }
 
-/* ══════════════════════════════
+.contentPanel[data-animating="true"] {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+/* ═══════════════════════════════════════
    LEFT — TEXT BODY
-══════════════════════════════ */
+═══════════════════════════════════════ */
 .aboutBody {
   opacity: 0;
   transform: translateX(-28px);
-  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .aboutBody[data-visible="true"] {
@@ -61,7 +160,7 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: #d4a843;
   margin-bottom: 14px;
 }
 
@@ -69,31 +168,34 @@
   content: "";
   width: 20px;
   height: 2px;
-  background: var(--gold);
+  background: #d4a843;
   display: block;
   flex-shrink: 0;
 }
 
 /* ── Heading ── */
 .aboutH2 {
-  font-family: var(--ff-head);
+  font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(26px, 3vw, 40px);
   font-weight: 700;
-  color: var(--navy);
+  color: #0b1c3d;
   letter-spacing: -0.02em;
   margin-bottom: 20px;
   line-height: 1.18;
 }
 
+/* italic coloured exam-name in heading */
 .aboutH2Em {
-  color: var(--gold);
+  color: var(--heading-accent, #d4a843);
   font-style: italic;
+  transition: color 0.3s ease;
 }
 
 /* ── Body paragraphs ── */
 .aboutP {
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 15px;
-  color: var(--text2);
+  color: #4a5568;
   line-height: 1.82;
   margin-bottom: 14px;
 }
@@ -102,13 +204,8 @@
   margin-bottom: 0;
 }
 
-.highlight {
-  color: var(--navy);
-  font-weight: 700;
-}
-
 .validity {
-  color: var(--navy);
+  color: #0b1c3d;
   font-weight: 700;
   font-size: 14.5px;
 }
@@ -126,14 +223,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--cream);
-  border: 1px solid var(--line2);
+  background: #f5f0e8;
+  border: 1px solid rgba(11, 28, 61, 0.18);
   border-radius: 10px;
   padding: 12px 18px;
-  min-width: 100px;
+  min-width: 96px;
+  cursor: default;
+
   opacity: 0;
   transform: translateY(12px);
-  transition: opacity 0.45s ease, transform 0.45s ease;
+  transition: opacity 0.45s ease, transform 0.45s ease, box-shadow 0.22s ease;
 }
 
 .factPill[data-visible="true"] {
@@ -141,17 +240,23 @@
   transform: translateY(0);
 }
 
+.factPill:hover {
+  box-shadow: 0 4px 16px rgba(11, 28, 61, 0.1);
+  transform: translateY(-2px);
+}
+
 .factNum {
-  font-family: var(--ff-head);
+  font-family: "Playfair Display", Georgia, serif;
   font-size: 22px;
   font-weight: 700;
-  color: var(--navy);
+  color: var(--fact-accent, #d4a843);
   line-height: 1;
 }
 
 .factDesc {
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 10.5px;
-  color: var(--text3);
+  color: #718096;
   text-align: center;
   margin-top: 3px;
   letter-spacing: 0.03em;
@@ -159,17 +264,18 @@
 
 /* ── Partners label ── */
 .partnersLabel {
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 10.5px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text3);
+  color: #718096;
   margin-bottom: 12px;
 }
 
-/* ══════════════════════════════
-   BRITISH COUNCIL STYLE PARTNER BUTTONS
-══════════════════════════════ */
+/* ═══════════════════════════════════════
+   PARTNER BUTTONS
+═══════════════════════════════════════ */
 .partnerBtns {
   display: flex;
   flex-wrap: wrap;
@@ -183,10 +289,10 @@
   gap: 7px;
   padding: 8px 16px 8px 12px;
   border-radius: 8px;
-  border: 1.5px solid var(--accent, var(--navy));
-  background: var(--accentLight, var(--cream));
-  color: var(--accent, var(--navy));
-  font-family: var(--ff-body);
+  border: 1.5px solid var(--accent, #0b1c3d);
+  background: var(--accentLight, #f5f0e8);
+  color: var(--accent, #0b1c3d);
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 12.5px;
   font-weight: 700;
   letter-spacing: 0.015em;
@@ -194,7 +300,6 @@
   overflow: hidden;
   outline: none;
 
-  /* Entry: invisible until parent becomes visible */
   opacity: 0;
   transform: translateY(10px) scale(0.96);
   transition:
@@ -205,44 +310,34 @@
     box-shadow 0.22s ease;
 }
 
-/* Animate in when parent is visible */
-.partnerBtns .partnerBtn[data-visible="true"],
-[data-visible="true"] .partnerBtn {
+.partnerBtn[data-visible="true"] {
   opacity: 1;
   transform: translateY(0) scale(1);
-  transition-delay: inherit; /* uses inline animationDelay from JS */
 }
 
-/* Hover: fill with accent colour */
 .partnerBtn:hover {
-  background: var(--accent, var(--navy));
-  color: #fff;
+  background: var(--accent, #0b1c3d);
+  color: #ffffff;
   box-shadow:
-    0 6px 22px -4px color-mix(in srgb, var(--accent, var(--navy)) 45%, transparent),
-    0 2px 8px -2px color-mix(in srgb, var(--accent, var(--navy)) 25%, transparent);
+    0 6px 22px -4px color-mix(in srgb, var(--accent, #0b1c3d) 45%, transparent),
+    0 2px 8px -2px color-mix(in srgb, var(--accent, #0b1c3d) 25%, transparent);
   transform: translateY(-3px) scale(1.03);
 }
 
-/* Arrow nudge on hover */
 .partnerBtn:hover .partnerBtnArrow {
   transform: translate(2px, -2px);
   opacity: 1;
 }
 
-/* Active press */
 .partnerBtn:active {
   transform: translateY(-1px) scale(0.99);
 }
 
-/* ── Ripple layer ── */
+/* ripple */
 .partnerBtnRipple {
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(255, 255, 255, 0.35) 0%,
-    transparent 65%
-  );
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.35) 0%, transparent 65%);
   opacity: 0;
   transform: scale(0);
   transition: opacity 0.35s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
@@ -254,7 +349,6 @@
   transform: scale(2.2);
 }
 
-/* ── Icon ── */
 .partnerBtnIcon {
   font-size: 15px;
   line-height: 1;
@@ -265,13 +359,11 @@
   transform: scale(1.25) rotate(-6deg);
 }
 
-/* ── Label ── */
 .partnerBtnLabel {
   position: relative;
   z-index: 1;
 }
 
-/* ── Arrow ── */
 .partnerBtnArrow {
   font-size: 11px;
   opacity: 0.4;
@@ -280,15 +372,16 @@
   z-index: 1;
 }
 
-/* ══════════════════════════════
+/* ═══════════════════════════════════════
    RIGHT — IMAGE COLUMN
-══════════════════════════════ */
+═══════════════════════════════════════ */
 .aboutImgCol {
   position: relative;
   opacity: 0;
   transform: translateX(28px);
-  transition: opacity 0.65s 0.18s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.65s 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    opacity 0.65s 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s 0.18s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .aboutImgCol[data-visible="true"] {
@@ -296,17 +389,17 @@
   transform: translateX(0);
 }
 
-/* Decorative blob behind card */
+/* decorative blob */
 .imgBlob {
   position: absolute;
   top: -30px;
   right: -40px;
   width: 280px;
   height: 280px;
-  background: radial-gradient(circle, rgba(212, 168, 67, 0.12) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
+  transition: background 0.4s ease;
   animation: blobFloat 7s ease-in-out infinite alternate;
 }
 
@@ -315,7 +408,7 @@
   to   { transform: translate(-12px, 16px) scale(1.08); }
 }
 
-/* Image card */
+/* image card */
 .imgCard {
   position: relative;
   border-radius: 14px;
@@ -332,29 +425,25 @@
   height: 340px;
   object-fit: cover;
   display: block;
-  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
 }
 
 .imgCard:hover .aboutImg {
   transform: scale(1.04);
 }
 
-/* Gradient overlay at bottom */
+/* overlay gradient */
 .imgOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    170deg,
-    transparent 50%,
-    rgba(11, 28, 61, 0.52) 100%
-  );
+  background: linear-gradient(170deg, transparent 50%, rgba(11, 28, 61, 0.52) 100%);
   pointer-events: none;
 }
 
-/* Floating badge */
+/* floating badge */
 .imgBadge {
   position: absolute;
-  bottom: 20px;
+  bottom: 52px;      /* sit above the ticker strip */
   left: 20px;
   z-index: 2;
   display: flex;
@@ -366,7 +455,9 @@
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
   opacity: 0;
   transform: translateY(10px) scale(0.9);
-  transition: opacity 0.45s 0.6s ease, transform 0.45s 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition:
+    opacity 0.45s 0.6s ease,
+    transform 0.45s 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .imgBadge[data-visible="true"] {
@@ -381,101 +472,46 @@
 
 .imgBadgeNum {
   display: block;
-  font-family: var(--ff-head);
+  font-family: "Playfair Display", Georgia, serif;
   font-size: 15px;
   font-weight: 700;
-  color: var(--navy);
+  color: #0b1c3d;
   line-height: 1.1;
 }
 
 .imgBadgeSub {
   display: block;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 10.5px;
-  color: var(--text3);
+  color: #718096;
   letter-spacing: 0.03em;
 }
 
-/* ── Band scale strip ── */
-.bandStrip {
+/* coloured ticker strip at bottom of image */
+.imgTicker {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 36px;
   display: flex;
   align-items: center;
-  gap: 4px;
-  margin-top: 14px;
-  padding: 10px 14px;
-  background: var(--cream);
-  border: 1px solid var(--line2);
-  border-radius: 10px;
-  position: relative;
-  z-index: 1;
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.4s 0.55s ease, transform 0.4s 0.55s ease;
-}
-
-.bandStrip[data-visible="true"] {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.bandCell {
-  flex: 1;
-  text-align: center;
-  padding: 6px 4px;
-  border-radius: 5px;
-  background: rgba(11, 28, 61, 0.06);
-  transition: background 0.25s, transform 0.25s;
-
-  opacity: 0;
-  transform: scaleY(0.4);
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
-    background 0.22s ease;
-}
-
-[data-visible="true"] .bandCell {
-  opacity: 1;
-  transform: scaleY(1);
-}
-
-/* Highlight bands 7-9 in gold */
-.bandCell[data-active="true"] {
-  background: var(--gold);
-}
-
-.bandCell[data-active="true"]:hover {
-  background: var(--gold2);
-  transform: scaleY(1) translateY(-2px);
-}
-
-.bandNum {
-  font-family: var(--ff-head);
-  font-size: 13px;
+  padding: 0 20px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 11px;
   font-weight: 700;
-  color: var(--navy);
-  display: block;
-}
-
-.bandCell[data-active="true"] .bandNum {
-  color: var(--navy);
-}
-
-.bandLabel {
-  font-size: 9.5px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text3);
-  white-space: nowrap;
-  margin-left: 6px;
-  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.9);
+  transition: background 0.35s ease;
+  z-index: 3;
 }
 
-/* ══════════════════════════════
+/* ═══════════════════════════════════════
    RESPONSIVE
-══════════════════════════════ */
+═══════════════════════════════════════ */
 @media (max-width: 900px) {
-  .aboutInner {
+  .contentPanel {
     grid-template-columns: 1fr;
     gap: 44px;
   }
@@ -497,6 +533,15 @@
 @media (max-width: 560px) {
   .aboutStrip {
     padding: 60px 0;
+  }
+
+  .tabRow {
+    gap: 5px;
+  }
+
+  .tabBtn {
+    font-size: 12px;
+    padding: 8px 16px;
   }
 
   .partnerBtns {

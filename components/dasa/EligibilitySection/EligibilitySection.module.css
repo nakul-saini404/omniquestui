@@ -1,0 +1,295 @@
+/* ══════════════════════════════════════════════
+   EligibilitySection.module.css
+   Colors (no :root):
+     White        #ffffff
+     Cream        #f5f0e8
+     Navy         #0b1c3d   Navy2 #102454
+     Gold         #d4a843   Gold2 #e8c96a
+     GoldDark     #7a5c10
+     Text2        #4a5568
+     Line         rgba(11,28,61,0.09)
+     LineGold     rgba(212,168,67,0.3)
+══════════════════════════════════════════════ */
+
+/* ── SECTION SHELL ── */
+.eligibility {
+  padding: 72px 0;
+  background: #ffffff;
+}
+
+/* ── CONTAINER ── */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── TWO-COLUMN GRID ── */
+.eligGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.eligLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ═══════════════════════════
+   SECTION HEAD
+═══════════════════════════ */
+.sectionHead {
+  margin-bottom: 24px;
+}
+
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 14px;
+}
+
+.sectionLabel::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: #d4a843;
+  display: inline-block;
+}
+
+.sectionH2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(22px, 3vw, 38px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0b1c3d;
+  line-height: 1.18;
+  margin-bottom: 10px;
+}
+
+.sectionP {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 15px;
+  color: #4a5568;
+  line-height: 1.75;
+  max-width: 520px;
+}
+
+/* ═══════════════════════════
+   SCROLL FADE-UP
+═══════════════════════════ */
+.fadeUp {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fadeUpVisible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* ═══════════════════════════
+   TAGS
+═══════════════════════════ */
+.eligTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.eligTag {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  background: #f5f0e8;
+  color: #0b1c3d;
+  border: 1px solid rgba(11, 28, 61, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.eligTag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(11, 28, 61, 0.08);
+}
+
+.eligTagGold {
+  background: rgba(212, 168, 67, 0.12);
+  border-color: rgba(212, 168, 67, 0.3);
+  color: #7a5c10;
+}
+
+.eligTagGold:hover {
+  box-shadow: 0 4px 12px rgba(212, 168, 67, 0.18);
+}
+
+/* ═══════════════════════════
+   CARDS COLUMN
+═══════════════════════════ */
+.eligCards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── BASE CARD ── */
+.eligCard {
+  position: relative;
+  background: #f5f0e8;
+  border-radius: 10px;
+  padding: 22px 24px;
+  border: 1px solid rgba(11, 28, 61, 0.09);
+  overflow: hidden;
+  cursor: default;
+
+  /* slide-in entrance — starts hidden */
+  opacity: 0;
+  transform: translateX(32px);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease;
+}
+
+/* ── VISIBLE STATE (triggered by JS) ── */
+.eligCardVisible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── HOVER LIFT ── */
+.eligCard:hover {
+  box-shadow: 0 12px 36px rgba(11, 28, 61, 0.1);
+  transform: translateY(-3px) translateX(0);
+}
+
+/* gold left-accent bar — scales up on load */
+.eligCardAccent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, #d4a843, #e8c96a);
+  border-radius: 2px 0 0 2px;
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.eligCardVisible .eligCardAccent {
+  transform: scaleY(1);
+  transition-delay: 0.15s;
+}
+
+/* shimmer sweep on hover */
+.eligCardShimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(212, 168, 67, 0.07) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  background-position: 200% 0;
+  transition: background-position 0.6s ease;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.eligCard:hover .eligCardShimmer {
+  background-position: -100% 0;
+}
+
+/* ── CARD TOP ROW ── */
+.eligCardTop {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.eligCardIcon {
+  font-size: 22px;
+  /* gentle pop animation on card reveal */
+  transform: scale(0.6);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+  transition-delay: 0.25s;
+  display: inline-block;
+}
+
+.eligCardVisible .eligCardIcon {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.eligCardTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0b1c3d;
+  line-height: 1.35;
+
+  /* title slides in from right */
+  opacity: 0;
+  transform: translateX(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition-delay: 0.2s;
+}
+
+.eligCardVisible .eligCardTitle {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── CARD BODY ── */
+.eligCardSub {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+  color: #4a5568;
+  line-height: 1.65;
+
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition-delay: 0.3s;
+}
+
+.eligCardVisible .eligCardSub {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════
+   RESPONSIVE
+═══════════════════════════ */
+@media (max-width: 900px) {
+  .eligGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .sectionP {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .eligibility {
+    padding: 52px 0;
+  }
+}

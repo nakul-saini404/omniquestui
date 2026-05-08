@@ -5,14 +5,10 @@ import styles from './GetInTouch.module.css';
 
 /* ── Data ── */
 const interests = [
-  'IELTS Academic — Champion Pack',
-  'IELTS Academic — Self Preparation',
-  'IELTS Academic — Marathon',
-  'IELTS General — Champion Pack',
-  'IELTS General — Self Preparation',
-  'IELTS General — Marathon',
-  'PTE Coaching',
-  'TOEFL Coaching',
+  'IELTS',
+  'TOEFL',
+  'DUOLINGO',
+  'PTE',
   'Others',
 ];
 

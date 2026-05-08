@@ -17,7 +17,7 @@ interface FaqCategory {
 
 const categories: FaqCategory[] = [
   {
-    label: 'About IELTS',
+    label: 'IELTS',
     icon: '📘',
     items: [
       {
@@ -34,69 +34,89 @@ const categories: FaqCategory[] = [
       },
       {
         q: 'How long is the IELTS score valid?',
-        a: 'IELTS scores are valid for two years from the date of the test. After two years, scores are no longer considered as a reliable reflection of your current English proficiency, and you will need to retake the test if required.',
+        a: 'IELTS scores are valid for two years from the date of the test. After two years, scores are no longer considered a reliable reflection of your current English proficiency, and you will need to retake the test if required.',
+      },
+      {
+        q: 'How many times can I take IELTS in a year?',
+        a: 'There is no limit to how many times you can take IELTS. Tests are offered up to four times a month at most test centres, so you can retake as often as you need. Each attempt is independent, and institutions will typically consider your highest score.',
       },
     ],
   },
   {
-    label: 'Our Courses',
-    icon: '🎓',
+    label: 'TOEFL',
+    icon: '🌐',
     items: [
       {
-        q: 'What packages does EduQuest offer for IELTS preparation?',
-        a: 'EduQuest offers three main packages: Self Preparation Pack (180-day access, 14 full mock tests, weekend doubt-solving sessions), Champion Pack (live lectures Mon–Fri with morning and evening batches, full mock tests, and master sessions), and Marathon Packs (focused 45-day sprints for Reading, Writing, or Speaking modules).',
+        q: 'What is TOEFL and who accepts it?',
+        a: 'TOEFL (Test of English as a Foreign Language) is a standardised test measuring your ability to use and understand English at the university level. It is accepted by over 11,500 universities and institutions in more than 160 countries, making it a top choice for students applying to US and Canadian universities.',
       },
       {
-        q: 'Can I join a batch at any time, or are there fixed start dates?',
-        a: 'There are no fixed start dates at EduQuest. You can enrol any time and our structured session format ensures you catch up seamlessly regardless of when you join. Each batch is designed so that you can start from any session without missing critical content.',
+        q: 'What is the format of the TOEFL iBT?',
+        a: 'The TOEFL iBT consists of four sections: Reading (35 minutes, 20 questions), Listening (36 minutes, 28 questions), Speaking (16 minutes, 4 tasks), and Writing (29 minutes, 2 tasks). The total test duration is approximately 2 hours, and the maximum score is 120.',
       },
       {
-        q: 'Do you offer a free trial before I enrol?',
-        a: 'Yes. EduQuest offers a free 3-day trial for all packages. You can attend live sessions, access the resource platform, and experience the full learning environment before making any payment decision. Simply fill in the contact form and our team will set up your trial within 24 hours.',
+        q: 'What is a good TOEFL score for top universities?',
+        a: 'Most top universities in the US and UK require a TOEFL iBT score of 90–100. Highly competitive programmes at Ivy League universities often expect 105 or above. Our coaching is tailored to help students consistently achieve 100+ with targeted practice on all four sections.',
       },
       {
-        q: 'What is included in the Champion Pack?',
-        a: 'The Champion Pack includes: English Level Checker, live lectures Mon–Fri (beginner and advanced batches), 120-day platform access, comprehensive video library, 14 full timed mock tests with expert feedback within 48 hours, Saturday test analysis sessions, Sunday doubt-solving sessions, master classes for Band 7.5+, and a free e-book for live class reference.',
+        q: 'How is TOEFL different from IELTS?',
+        a: 'TOEFL is primarily accepted by North American institutions and uses an American English standard, while IELTS is more widely accepted in the UK, Australia, and Canada and uses British English. TOEFL is entirely computer-based, whereas IELTS offers both paper-based and computer-based formats. The TOEFL Speaking section is recorded and evaluated by AI and human raters, unlike IELTS which is assessed face-to-face.',
+      },
+      {
+        q: 'How long is a TOEFL score valid?',
+        a: 'TOEFL scores are valid for two years from the test date. ETS (the testing organisation) stores your scores for up to 10 years, but most institutions only accept scores within the two-year validity window.',
       },
     ],
   },
   {
-    label: 'Batch Timings',
-    icon: '🕗',
+    label: 'PTE',
+    icon: '💻',
     items: [
       {
-        q: 'What batch timings are available for live classes?',
-        a: 'Live lectures run Monday to Friday across three slots: Morning Batch (07:30 AM – 09:30 AM), Afternoon Batch (02:00 PM – 04:00 PM), and Evening Batch (08:30 PM – 10:30 PM). Advanced batches run 07:30 AM – 10:30 AM, 02:00 PM – 05:00 PM, and 08:00 PM – 11:00 PM.',
+        q: 'What is PTE Academic and who should take it?',
+        a: 'PTE (Pearson Test of English) Academic is a computer-based English language test accepted by thousands of universities worldwide and by the Australian, UK, and New Zealand governments for visa applications. It is known for fast results — typically delivered within 48 hours — making it popular among applicants with tight deadlines.',
       },
       {
-        q: 'Are there weekend sessions?',
-        a: 'Yes. Every Saturday includes Practice Test and Mock Test analysis sessions at 07:30 AM – 09:30 AM and 02:00 PM – 04:00 PM. Sundays are reserved for 1-hour live doubt-solving sessions with expert trainers, running from 08:00 PM – 09:00 PM.',
+        q: 'What is the format of the PTE Academic test?',
+        a: 'PTE Academic is a single 2-hour computer-based test divided into three parts: Speaking & Writing (77–93 minutes), Reading (32–41 minutes), and Listening (45–57 minutes). The test is fully AI-scored, removing the risk of human scoring bias and ensuring consistent, objective results.',
       },
       {
-        q: 'What are the demo batch timings?',
-        a: 'Demo batches run Monday to Saturday at three times: 07:30 AM – 09:30 AM, 02:00 PM – 04:00 PM, and 08:30 PM – 10:30 PM. You can pick any slot that fits your schedule and attend a live session before committing to a full package.',
+        q: 'What score do I need for Australian immigration?',
+        a: 'For Australian Skilled Migration (subclass 189/190), you typically need a minimum PTE score of 65 in each communicative skill (Listening, Reading, Speaking, Writing). Higher scores of 79+ can earn you additional points in the points-based immigration system, which can significantly improve your chances of receiving an invitation.',
+      },
+      {
+        q: 'Is PTE easier than IELTS?',
+        a: 'PTE and IELTS test the same core skills but with different formats. PTE is fully computer-based and AI-scored, which many test-takers find more objective. The speaking section involves speaking to a microphone rather than a human examiner, which some find less stressful. With the right preparation, either test can be mastered — our coaches help you choose the format that suits your strengths.',
+      },
+      {
+        q: 'How quickly can I get my PTE results?',
+        a: 'PTE Academic results are typically available within 48 hours of completing your test, and in many cases even sooner. This is significantly faster than IELTS (typically 3–5 days for computer-based and up to 13 days for paper-based), making PTE ideal if you need scores urgently.',
       },
     ],
   },
   {
-    label: 'Results & Support',
-    icon: '🏆',
+    label: 'Duolingo',
+    icon: '🦉',
     items: [
       {
-        q: 'What band scores do EduQuest students typically achieve?',
-        a: 'The majority of our students from champion batches achieve Band 7.0 to 8.0+. Our master session students have gone on to score perfect Band 9 in individual modules. Our faculty have over a decade of British Council experience and our methods are backed by thousands of successful test-takers.',
+        q: 'What is the Duolingo English Test and who accepts it?',
+        a: 'The Duolingo English Test (DET) is an affordable, convenient online English proficiency test that can be taken from home. It is accepted by over 5,000 programmes at more than 3,500 institutions worldwide, including many top universities in the US, UK, Canada, and Australia. It is particularly popular with students who prefer a flexible, on-demand testing option.',
       },
       {
-        q: 'How is speaking practice conducted for shy or introverted learners?',
-        a: 'EduQuest provides a private recorded-response model for speaking practice. You record your answers at your own pace and receive detailed expert feedback within 48 hours — no live pressure, full personalised guidance. This helps shy learners build confidence before attempting real mock speaking tests.',
+        q: 'What is the format of the Duolingo English Test?',
+        a: 'The DET is approximately 1 hour long and consists of an adaptive section (45 minutes) testing reading, writing, listening, and speaking through integrated tasks, followed by a video interview section where you record short responses to open-ended prompts. The test is fully online and proctored using AI and human review.',
       },
       {
-        q: 'Is there support if I fail to achieve my target band score?',
-        a: 'Absolutely. Students who do not meet their target score within the validity period are given access to supplementary doubt-solving sessions and can re-attend weekend analysis sessions. Our team does a detailed gap analysis to identify the weak modules and provides targeted resources to close those gaps before a retake.',
+        q: 'What is a good Duolingo English Test score?',
+        a: 'Duolingo scores range from 10 to 160. Most universities require a minimum score of 105–115 for admission, while highly competitive programmes may require 120 or above. Our coaching specifically targets the adaptive nature of the DET, helping students score 120+ through focused vocabulary, fluency, and reading comprehension practice.',
       },
       {
-        q: 'How do I get started?',
-        a: 'Simply fill in the enquiry form on our website or call us at +91-9958041888 / +91-9717738553. Our counsellor will call you within 24 hours to understand your target score, current level, and preferred batch timing — then set up your free 3-day trial immediately.',
+        q: 'How soon are Duolingo results available?',
+        a: 'Duolingo English Test results are typically available within 2 days of taking the test. Once your results are ready, you can share them directly with as many institutions as you like at no additional cost — a major advantage over IELTS and TOEFL, which charge per score report.',
+      },
+      {
+        q: 'Is the Duolingo English Test accepted for immigration purposes?',
+        a: 'Currently, the DET is primarily accepted for university admissions and is not widely accepted for immigration or visa applications. If your goal is immigration to Australia, Canada, the UK, or New Zealand, you will likely need IELTS, PTE, or TOEFL instead. Our counsellors can help you determine the right test for your specific goal.',
       },
     ],
   },
@@ -236,8 +256,8 @@ export default function IELTSFaq() {
           <div className={styles.sectionLabel}>FAQ</div>
           <h2 className={styles.heading}>Frequently Asked Questions</h2>
           <p className={styles.sub}>
-            Everything you need to know about IELTS preparation, our batches,
-            and what to expect from EduQuest.
+            Everything you need to know about IELTS, TOEFL, PTE, and Duolingo
+            preparation — and what to expect from EduQuest.
           </p>
         </div>
 
