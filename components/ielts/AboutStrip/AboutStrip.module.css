@@ -1,0 +1,519 @@
+/* ═══════════════════════════════════════
+   ABOUT STRIP — MODULE CSS
+   Tokens consumed from global :root vars
+═══════════════════════════════════════ */
+
+/* ── Section wrapper ── */
+.aboutStrip {
+  padding: 88px 0;
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle cream gradient wash across the bottom */
+.aboutStrip::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  background: linear-gradient(to top, var(--cream) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Inner layout ── */
+.aboutInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ══════════════════════════════
+   LEFT — TEXT BODY
+══════════════════════════════ */
+.aboutBody {
+  opacity: 0;
+  transform: translateX(-28px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.aboutBody[data-visible="true"] {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Section label ── */
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.sectionLabel::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: var(--gold);
+  display: block;
+  flex-shrink: 0;
+}
+
+/* ── Heading ── */
+.aboutH2 {
+  font-family: var(--ff-head);
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  line-height: 1.18;
+}
+
+.aboutH2Em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+/* ── Body paragraphs ── */
+.aboutP {
+  font-size: 15px;
+  color: var(--text2);
+  line-height: 1.82;
+  margin-bottom: 14px;
+}
+
+.aboutP:last-of-type {
+  margin-bottom: 0;
+}
+
+.highlight {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.validity {
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 14.5px;
+}
+
+/* ── Quick-fact pills ── */
+.factsRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 26px 0 28px;
+}
+
+.factPill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--cream);
+  border: 1px solid var(--line2);
+  border-radius: 10px;
+  padding: 12px 18px;
+  min-width: 100px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.factPill[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.factNum {
+  font-family: var(--ff-head);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1;
+}
+
+.factDesc {
+  font-size: 10.5px;
+  color: var(--text3);
+  text-align: center;
+  margin-top: 3px;
+  letter-spacing: 0.03em;
+}
+
+/* ── Partners label ── */
+.partnersLabel {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 12px;
+}
+
+/* ══════════════════════════════
+   BRITISH COUNCIL STYLE PARTNER BUTTONS
+══════════════════════════════ */
+.partnerBtns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.partnerBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px 8px 12px;
+  border-radius: 8px;
+  border: 1.5px solid var(--accent, var(--navy));
+  background: var(--accentLight, var(--cream));
+  color: var(--accent, var(--navy));
+  font-family: var(--ff-body);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.015em;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+
+  /* Entry: invisible until parent becomes visible */
+  opacity: 0;
+  transform: translateY(10px) scale(0.96);
+  transition:
+    opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.22s ease,
+    color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+/* Animate in when parent is visible */
+.partnerBtns .partnerBtn[data-visible="true"],
+[data-visible="true"] .partnerBtn {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: inherit; /* uses inline animationDelay from JS */
+}
+
+/* Hover: fill with accent colour */
+.partnerBtn:hover {
+  background: var(--accent, var(--navy));
+  color: #fff;
+  box-shadow:
+    0 6px 22px -4px color-mix(in srgb, var(--accent, var(--navy)) 45%, transparent),
+    0 2px 8px -2px color-mix(in srgb, var(--accent, var(--navy)) 25%, transparent);
+  transform: translateY(-3px) scale(1.03);
+}
+
+/* Arrow nudge on hover */
+.partnerBtn:hover .partnerBtnArrow {
+  transform: translate(2px, -2px);
+  opacity: 1;
+}
+
+/* Active press */
+.partnerBtn:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+/* ── Ripple layer ── */
+.partnerBtnRipple {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.35) 0%,
+    transparent 65%
+  );
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.35s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.partnerBtn:hover .partnerBtnRipple {
+  opacity: 1;
+  transform: scale(2.2);
+}
+
+/* ── Icon ── */
+.partnerBtnIcon {
+  font-size: 15px;
+  line-height: 1;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.partnerBtn:hover .partnerBtnIcon {
+  transform: scale(1.25) rotate(-6deg);
+}
+
+/* ── Label ── */
+.partnerBtnLabel {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Arrow ── */
+.partnerBtnArrow {
+  font-size: 11px;
+  opacity: 0.4;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  position: relative;
+  z-index: 1;
+}
+
+/* ══════════════════════════════
+   RIGHT — IMAGE COLUMN
+══════════════════════════════ */
+.aboutImgCol {
+  position: relative;
+  opacity: 0;
+  transform: translateX(28px);
+  transition: opacity 0.65s 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.aboutImgCol[data-visible="true"] {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Decorative blob behind card */
+.imgBlob {
+  position: absolute;
+  top: -30px;
+  right: -40px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(212, 168, 67, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: blobFloat 7s ease-in-out infinite alternate;
+}
+
+@keyframes blobFloat {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(-12px, 16px) scale(1.08); }
+}
+
+/* Image card */
+.imgCard {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow:
+    0 2px 4px rgba(11, 28, 61, 0.06),
+    0 12px 32px rgba(11, 28, 61, 0.1),
+    0 40px 80px rgba(11, 28, 61, 0.08);
+  z-index: 1;
+}
+
+.aboutImg {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.imgCard:hover .aboutImg {
+  transform: scale(1.04);
+}
+
+/* Gradient overlay at bottom */
+.imgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    170deg,
+    transparent 50%,
+    rgba(11, 28, 61, 0.52) 100%
+  );
+  pointer-events: none;
+}
+
+/* Floating badge */
+.imgBadge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 10px;
+  padding: 10px 16px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  transform: translateY(10px) scale(0.9);
+  transition: opacity 0.45s 0.6s ease, transform 0.45s 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.imgBadge[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.imgBadgeIcon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.imgBadgeNum {
+  display: block;
+  font-family: var(--ff-head);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.1;
+}
+
+.imgBadgeSub {
+  display: block;
+  font-size: 10.5px;
+  color: var(--text3);
+  letter-spacing: 0.03em;
+}
+
+/* ── Band scale strip ── */
+.bandStrip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: var(--cream);
+  border: 1px solid var(--line2);
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s 0.55s ease, transform 0.4s 0.55s ease;
+}
+
+.bandStrip[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bandCell {
+  flex: 1;
+  text-align: center;
+  padding: 6px 4px;
+  border-radius: 5px;
+  background: rgba(11, 28, 61, 0.06);
+  transition: background 0.25s, transform 0.25s;
+
+  opacity: 0;
+  transform: scaleY(0.4);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.22s ease;
+}
+
+[data-visible="true"] .bandCell {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+/* Highlight bands 7-9 in gold */
+.bandCell[data-active="true"] {
+  background: var(--gold);
+}
+
+.bandCell[data-active="true"]:hover {
+  background: var(--gold2);
+  transform: scaleY(1) translateY(-2px);
+}
+
+.bandNum {
+  font-family: var(--ff-head);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  display: block;
+}
+
+.bandCell[data-active="true"] .bandNum {
+  color: var(--navy);
+}
+
+.bandLabel {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text3);
+  white-space: nowrap;
+  margin-left: 6px;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media (max-width: 900px) {
+  .aboutInner {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .aboutImgCol {
+    order: -1;
+    transform: translateX(0) translateY(28px);
+  }
+
+  .aboutImgCol[data-visible="true"] {
+    transform: translateX(0) translateY(0);
+  }
+
+  .aboutImg {
+    height: 260px;
+  }
+}
+
+@media (max-width: 560px) {
+  .aboutStrip {
+    padding: 60px 0;
+  }
+
+  .partnerBtns {
+    gap: 6px;
+  }
+
+  .partnerBtn {
+    font-size: 11.5px;
+    padding: 7px 12px 7px 10px;
+  }
+
+  .factsRow {
+    gap: 8px;
+  }
+
+  .factPill {
+    min-width: 80px;
+    padding: 10px 12px;
+  }
+}

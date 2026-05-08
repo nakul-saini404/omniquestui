@@ -1,0 +1,815 @@
+/* ═══════════════════════════════════════
+   CHOOSE YOUR PATH — MODULE CSS
+   Consumes global CSS vars. No :root. No .container.
+═══════════════════════════════════════ */
+
+/* ── Section ── */
+.section {
+  padding: 96px 0 88px;
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Subtle grid-line texture ── */
+.bgTexture {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 64px, var(--line) 64px, var(--line) 65px),
+    repeating-linear-gradient(90deg, transparent, transparent 64px, var(--line) 64px, var(--line) 65px);
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Ambient blobs ── */
+.bgBlob1 {
+  position: absolute;
+  top: -140px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 168, 67, 0.07) 0%, transparent 68%);
+  pointer-events: none;
+  z-index: 0;
+  animation: blobDrift1 10s ease-in-out infinite alternate;
+}
+
+.bgBlob2 {
+  position: absolute;
+  bottom: -100px;
+  left: -80px;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(11, 28, 61, 0.05) 0%, transparent 68%);
+  pointer-events: none;
+  z-index: 0;
+  animation: blobDrift2 13s ease-in-out infinite alternate;
+}
+
+@keyframes blobDrift1 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(-24px, 20px) scale(1.09); }
+}
+
+@keyframes blobDrift2 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(18px, -22px) scale(1.06); }
+}
+
+/* ══════════════════════════
+   HEADER
+══════════════════════════ */
+.header {
+  text-align: center;
+  max-width: 660px;
+  margin: 0 auto;
+  padding: 0 24px 16px;
+  position: relative;
+  z-index: 1;
+
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.header[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.sectionLabel::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: var(--gold);
+  display: block;
+  flex-shrink: 0;
+}
+
+.heading {
+  font-family: var(--ff-head);
+  font-size: clamp(26px, 3.2vw, 42px);
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.headingEm {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.sub {
+  font-size: 15.5px;
+  color: var(--text2);
+  line-height: 1.72;
+}
+
+/* ── Selection prompt ── */
+.prompt {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text3);
+  letter-spacing: 0.02em;
+  margin: 20px 0 40px;
+  position: relative;
+  z-index: 1;
+  min-height: 20px;
+
+  opacity: 0;
+  transition: opacity 0.5s 0.35s ease;
+}
+
+.prompt[data-visible="true"] {
+  opacity: 1;
+}
+
+/* ══════════════════════════
+   CARDS GRID
+══════════════════════════ */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ══════════════════════════
+   PATH CARD
+══════════════════════════ */
+.pathCard {
+  position: relative;
+  background: var(--white);
+  border: 1.5px solid var(--line2);
+  border-radius: 16px;
+  padding: 32px 28px 28px;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  /* entry */
+  opacity: 0;
+  transform: translateY(36px) scale(0.97);
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.pathCard[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* hover */
+.pathCard:hover {
+  border-color: var(--card-accent, var(--navy));
+  box-shadow:
+    0 2px 6px rgba(11, 28, 61, 0.05),
+    0 16px 48px rgba(11, 28, 61, 0.1);
+  transform: translateY(-5px) scale(1);
+}
+
+/* selected state */
+.pathCard[data-selected="true"] {
+  border-color: var(--card-accent, var(--navy));
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--card-accent, var(--navy)) 18%, transparent),
+    0 20px 56px rgba(11, 28, 61, 0.12);
+  transform: translateY(-4px) scale(1);
+}
+
+.pathCard[data-selected="true"] .cardTopBar {
+  transform: scaleX(1);
+}
+
+.pathCard[data-selected="true"] .checkmark {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* ── Glow ring (selected only) ── */
+.cardGlow {
+  position: absolute;
+  inset: -2px;
+  border-radius: 17px;
+  background: transparent;
+  pointer-events: none;
+  z-index: 0;
+  transition: box-shadow 0.35s ease;
+}
+
+.pathCard[data-selected="true"] .cardGlow {
+  box-shadow: 0 0 0 2px var(--card-accent-light, rgba(11, 28, 61, 0.08));
+}
+
+/* ── Top accent bar ── */
+.cardTopBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--card-accent, var(--navy)) 0%,
+    color-mix(in srgb, var(--card-accent, var(--navy)) 60%, transparent) 100%
+  );
+  border-radius: 16px 16px 0 0;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1;
+}
+
+.pathCard:hover .cardTopBar {
+  transform: scaleX(1);
+}
+
+/* ── Checkmark ── */
+.checkmark {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--card-accent, var(--navy));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+
+  opacity: 0;
+  transform: scale(0.5) rotate(-30deg);
+  transition:
+    opacity 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.checkmark svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ── Card header ── */
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 22px;
+  position: relative;
+  z-index: 1;
+}
+
+.cardIconWrap {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  background: var(--card-accent-light, rgba(11, 28, 61, 0.06));
+  border: 1.5px solid color-mix(in srgb, var(--card-accent, var(--navy)) 18%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.pathCard:hover .cardIconWrap {
+  transform: scale(1.1) rotate(-4deg);
+  background: var(--card-accent-light, rgba(11, 28, 61, 0.1));
+}
+
+.cardIconEmoji {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.cardHeaderText {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── Version badge ── */
+.versionBadge {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.badgeAcademic {
+  background: rgba(11, 28, 61, 0.08);
+  color: var(--navy);
+}
+
+.badgeGeneral {
+  background: rgba(212, 168, 67, 0.15);
+  color: #7a5c10;
+}
+
+.cardTitle {
+  font-family: var(--ff-head);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.cardTagline {
+  font-size: 12.5px;
+  color: var(--text3);
+  line-height: 1.5;
+}
+
+/* ── Goal block ── */
+.goalBlock {
+  background: var(--cream);
+  border-left: 3px solid var(--card-accent, var(--navy));
+  border-radius: 0 8px 8px 0;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  transition: background 0.22s ease;
+}
+
+.pathCard:hover .goalBlock,
+.pathCard[data-selected="true"] .goalBlock {
+  background: var(--card-accent-light, rgba(11, 28, 61, 0.05));
+}
+
+.goalLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 5px;
+}
+
+.goalDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--card-accent, var(--navy));
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.goalText {
+  font-size: 13.5px;
+  color: var(--text2);
+  line-height: 1.65;
+}
+
+/* ── Recommended list ── */
+.recBlock {
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.recLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 10px;
+}
+
+.recList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 0;
+  margin: 0;
+}
+
+.recItem {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.5;
+
+  opacity: 0;
+  transform: translateX(-10px);
+  transition:
+    opacity 0.38s ease,
+    transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.recItem[data-visible="true"] {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.recDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+  display: inline-block;
+  transition: background 0.22s ease, transform 0.22s ease;
+}
+
+.pathCard:hover .recDot {
+  background: var(--card-accent, var(--navy));
+  transform: scale(1.3);
+}
+
+/* ── Modes block ── */
+.modesBlock {
+  margin-bottom: 22px;
+  position: relative;
+  z-index: 1;
+}
+
+.modesLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 10px;
+}
+
+.modesRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Mode chip */
+.modeChip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  border-radius: 10px;
+  border: 1.5px solid var(--line2);
+  background: var(--white);
+  flex: 1;
+  min-width: 130px;
+
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.22s ease,
+    background 0.22s ease;
+}
+
+.modeChip[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pathCard:hover .modeChip,
+.pathCard[data-selected="true"] .modeChip {
+  border-color: color-mix(in srgb, var(--card-accent, var(--navy)) 28%, transparent);
+  background: var(--card-accent-light, rgba(11, 28, 61, 0.04));
+}
+
+.modeIcon {
+  font-size: 18px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.modeLabel {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+}
+
+.modeNote {
+  display: block;
+  font-size: 10.5px;
+  color: var(--text3);
+  margin-top: 1px;
+}
+
+/* ── Band & CTA row ── */
+.bandBlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  margin-top: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.bandScoreWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.bandScore {
+  font-family: var(--ff-head);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--card-accent, var(--navy));
+  line-height: 1;
+}
+
+.bandNote {
+  font-size: 10px;
+  color: var(--text3);
+  letter-spacing: 0.04em;
+  margin-top: 3px;
+}
+
+/* ── CTA button ── */
+.ctaBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 22px;
+  border-radius: 8px;
+  border: none;
+  background: var(--card-accent, var(--navy));
+  color: #fff;
+  font-family: var(--ff-body);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  overflow: hidden;
+  letter-spacing: 0.01em;
+  transition:
+    background 0.22s ease,
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.ctaBtn:hover {
+  background: color-mix(in srgb, var(--card-accent, var(--navy)) 80%, black);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px -4px color-mix(in srgb, var(--card-accent, var(--navy)) 50%, transparent);
+}
+
+.ctaArrow {
+  font-size: 14px;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: inline-block;
+}
+
+.ctaBtn:hover .ctaArrow {
+  transform: translateX(4px);
+}
+
+/* Ripple */
+.ctaRipple {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.28) 0%, transparent 70%);
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.4s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.ctaBtn:hover .ctaRipple {
+  opacity: 1;
+  transform: scale(2.2);
+}
+
+/* ══════════════════════════
+   SHARED FACTS ROW
+══════════════════════════ */
+.factsRow {
+  max-width: var(--max);
+  margin: 40px auto 0;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.factsLabel {
+  text-align: center;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 16px;
+
+  opacity: 0;
+  transition: opacity 0.4s 0.55s ease;
+}
+
+.factsRow[data-visible="true"] .factsLabel {
+  opacity: 1;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.factItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px 12px;
+  background: var(--cream);
+  border: 1px solid var(--line2);
+  border-radius: 12px;
+
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.22s ease;
+}
+
+.factItem[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.factItem:hover {
+  box-shadow: 0 6px 20px rgba(11, 28, 61, 0.07);
+}
+
+.factIcon {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.factValue {
+  font-family: var(--ff-head);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.factLabel {
+  font-size: 10.5px;
+  color: var(--text3);
+  letter-spacing: 0.03em;
+}
+
+/* ══════════════════════════
+   CTA STRIP
+══════════════════════════ */
+.ctaStrip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  /* max-width: var(--max); */
+  margin: 32px auto 0;
+  padding: 22px 28px;
+  background: var(--navy);
+  border-radius: 14px;
+  position: relative;
+  z-index: 1;
+  /* horizontal margin so it stays within page padding */
+  margin-left: 24px;
+  margin-right: 24px;
+  max-width: calc(var(--max) - 0px);
+
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s 0.7s ease, transform 0.5s 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ctaStrip[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* override max-width override above with corrected approach */
+@supports (max-width: 1px) {
+  .ctaStrip {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+}
+
+.ctaStripText {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.ctaStripBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 11px 24px;
+  background: var(--gold);
+  color: var(--navy);
+  font-family: var(--ff-body);
+  font-size: 13.5px;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.ctaStripBtn:hover {
+  background: var(--gold2);
+  transform: translateY(-2px);
+}
+
+/* ══════════════════════════
+   RESPONSIVE
+══════════════════════════ */
+@media (max-width: 860px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+  }
+
+  .facts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ctaStrip {
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 64px 0 60px;
+  }
+
+  .facts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pathCard {
+    padding: 24px 20px 22px;
+  }
+
+  .modesRow {
+    flex-direction: column;
+  }
+
+  .modeChip {
+    min-width: unset;
+  }
+}

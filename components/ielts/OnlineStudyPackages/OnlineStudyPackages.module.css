@@ -1,0 +1,437 @@
+/* ══════════════════════════════════════════════════════
+   ONLINE STUDY PACKAGES — OnlineStudyPackages.module.css
+   No :root. No .container. No globals.
+   All colour tokens from project global vars.
+══════════════════════════════════════════════════════ */
+
+/* ── Section shell ── */
+.section {
+  padding: 96px 24px;
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle texture overlay */
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg, transparent, transparent 80px,
+      rgba(11,28,61,0.018) 80px, rgba(11,28,61,0.018) 81px
+    ),
+    repeating-linear-gradient(
+      90deg, transparent, transparent 80px,
+      rgba(11,28,61,0.018) 80px, rgba(11,28,61,0.018) 81px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ════════════════════
+   HEADER
+════════════════════ */
+.header {
+  margin-bottom: 44px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.headerVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--ff-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.labelLine {
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.heading {
+  font-family: var(--ff-head);
+  font-size: clamp(26px, 3.2vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.subtext {
+  font-family: var(--ff-body);
+  font-size: 15.5px;
+  color: var(--text2);
+  max-width: 600px;
+  line-height: 1.72;
+}
+
+/* ════════════════════
+   MAIN TABS  (Academic / General)
+════════════════════ */
+.mainTabs {
+  display: flex;
+  gap: 3px;
+  background: rgba(11, 28, 61, 0.09);
+  padding: 3px;
+  border-radius: var(--radius);
+  width: fit-content;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.mainTab {
+  padding: 10px 26px;
+  font-family: var(--ff-body);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  color: var(--text3);
+  transition: background 0.22s ease, color 0.22s ease, box-shadow 0.22s ease;
+  position: relative;
+  white-space: nowrap;
+}
+.mainTab:hover:not(.mainTabActive) {
+  color: var(--navy);
+  background: rgba(255,255,255,0.5);
+}
+.mainTabActive {
+  background: var(--white);
+  color: var(--navy);
+  box-shadow: 0 1px 6px rgba(11, 28, 61, 0.1);
+}
+
+/* Active tab underline accent */
+.mainTabActive::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+  animation: lineGrow 0.3s ease forwards;
+}
+@keyframes lineGrow {
+  from { width: 0; opacity: 0; }
+  to   { width: 24px; opacity: 1; }
+}
+
+/* ════════════════════
+   PANEL
+════════════════════ */
+.panel {
+  animation: panelFade 0.35s ease;
+}
+@keyframes panelFade {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Type label */
+.typeLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--ff-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.typeLabelLine {
+  display: inline-block;
+  width: 16px;
+  height: 2px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* ════════════════════
+   SUB-TABS
+════════════════════ */
+.subTabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.subTab {
+  padding: 8px 20px;
+  border-radius: 100px;
+  font-family: var(--ff-body);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid var(--line2);
+  background: transparent;
+  color: var(--text2);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.subTab:hover:not(.subTabActive) {
+  border-color: var(--gold);
+  color: var(--navy);
+  background: rgba(212, 168, 67, 0.08);
+  transform: translateY(-1px);
+}
+.subTabActive {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+  box-shadow: 0 4px 14px rgba(11, 28, 61, 0.18);
+}
+
+/* ════════════════════
+   CARDS GRID
+════════════════════ */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  animation: cardsEnter 0.4s ease;
+}
+.cardsMarathon {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+@keyframes cardsEnter {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ════════════════════
+   PACKAGE CARD
+════════════════════ */
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  opacity: 0;
+  transform: translateY(28px) scale(0.98);
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+@keyframes cardRise {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.cardVisible {
+  animation: cardRise 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.card:hover {
+  box-shadow: 0 20px 56px rgba(11, 28, 61, 0.13);
+  transform: translateY(-6px);
+  border-color: rgba(212, 168, 67, 0.32);
+}
+
+/* Featured card */
+.cardFeatured {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px rgba(212, 168, 67, 0.22);
+}
+.cardFeatured:hover {
+  box-shadow: 0 20px 56px rgba(11, 28, 61, 0.16), 0 0 0 2px rgba(212, 168, 67, 0.4);
+}
+
+/* Animated rotating glow for featured */
+.featuredGlow {
+  position: absolute;
+  inset: -2px;
+  border-radius: 13px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg 70deg,
+    rgba(212, 168, 67, 0.35) 90deg 110deg,
+    transparent 130deg 360deg
+  );
+  animation: rotateBorder 4s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+/* Mask so glow only shows at the border, not filling the card */
+.featuredGlow::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: var(--white);
+  border-radius: 11px;
+}
+@keyframes rotateBorder {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Card Head ── */
+.cardHead {
+  padding: 26px 26px 22px;
+  background: var(--navy);
+  position: relative;
+  z-index: 1;
+}
+.cardHeadFeatured {
+  background: linear-gradient(135deg, var(--navy) 55%, var(--navy3));
+}
+
+.tag {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--gold);
+  color: var(--navy);
+  font-family: var(--ff-body);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  animation: tagPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
+}
+@keyframes tagPop {
+  from { opacity: 0; transform: scale(0.6); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.cardTitle {
+  font-family: var(--ff-head);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+.cardSub {
+  font-family: var(--ff-body);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+.validity {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-family: var(--ff-body);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--gold);
+  background: rgba(212, 168, 67, 0.12);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(212, 168, 67, 0.28);
+}
+
+/* ── Card Body ── */
+.cardBody {
+  padding: 24px 26px 26px;
+  position: relative;
+  z-index: 1;
+  background: var(--white);
+}
+
+/* ── Features list ── */
+.features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+}
+
+.featureItem {
+  font-family: var(--ff-body);
+  font-size: 13.5px;
+  color: var(--text2);
+  padding-left: 22px;
+  position: relative;
+  line-height: 1.55;
+  opacity: 0;
+  transform: translateX(-8px);
+}
+
+@keyframes featureSlide {
+  to { opacity: 1; transform: translateX(0); }
+}
+.featureVisible {
+  animation: featureSlide 0.38s ease forwards;
+}
+
+.check {
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+/* ════════════════════
+   RESPONSIVE
+════════════════════ */
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .cardsMarathon {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 72px 16px;
+  }
+  .mainTabs {
+    width: 100%;
+  }
+  .mainTab {
+    flex: 1;
+    text-align: center;
+    padding: 9px 10px;
+    font-size: 12px;
+  }
+  .cardHead {
+    padding: 22px 20px 18px;
+  }
+  .cardBody {
+    padding: 20px 20px 22px;
+  }
+}

@@ -1,0 +1,335 @@
+/* ══════════════════════════════════════════════════
+   WHAT MAKES US DIFFERENT — WhatMakesUsDifferent.module.css
+   Dark navy section. No :root. No .container. No globals.
+   All colour tokens consumed from the project's global vars.
+══════════════════════════════════════════════════ */
+
+/* ── Section shell ── */
+.section {
+  padding: 96px 24px;
+  background: var(--navy2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fine grid texture */
+.bgGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 80px,
+      rgba(255, 255, 255, 0.013) 80px,
+      rgba(255, 255, 255, 0.013) 81px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 80px,
+      rgba(255, 255, 255, 0.013) 80px,
+      rgba(255, 255, 255, 0.013) 81px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ambient glow blobs */
+.glow1 {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(212, 168, 67, 0.07) 0%,
+    transparent 70%
+  );
+  top: -120px;
+  right: -100px;
+  pointer-events: none;
+  z-index: 0;
+}
+.glow2 {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(26, 53, 112, 0.6) 0%,
+    transparent 70%
+  );
+  bottom: -80px;
+  left: -80px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Content wrapper ── */
+.inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ════════════════════
+   HEADER
+════════════════════ */
+.header {
+  text-align: center;
+  margin-bottom: 52px;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.headerVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--ff-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.labelLine {
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.heading {
+  font-family: var(--ff-head);
+  font-size: clamp(26px, 3.4vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+.headingEm {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.subtext {
+  font-family: var(--ff-body);
+  font-size: 15.5px;
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+/* ════════════════════
+   GRID
+════════════════════ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+/* ════════════════════
+   USP CARD
+════════════════════ */
+.card {
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 24px 20px 22px;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    background 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    transform 0.28s ease;
+}
+
+/* Scroll-in keyframe */
+@keyframes cardRise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.cardVisible {
+  animation: cardRise 0.52s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.card:hover {
+  background: rgba(255, 255, 255, 0.085);
+  border-color: rgba(212, 168, 67, 0.28);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+  transform: translateY(-5px);
+}
+
+/* ── Shimmer sweep ── */
+.shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(212, 168, 67, 0.07) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  background-position: 200% 0;
+  transition: background-position 0.55s ease;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.card:hover .shimmer {
+  background-position: -200% 0;
+}
+
+/* ── Top row: icon + badge number ── */
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+/* Icon wrapper */
+.iconWrap {
+  width: 46px;
+  height: 46px;
+  background: rgba(212, 168, 67, 0.13);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+  flex-shrink: 0;
+  opacity: 0;
+  transform: scale(0.55) rotate(-20deg);
+  transition: background 0.25s ease;
+}
+
+@keyframes iconBounce {
+  0%   { opacity: 0; transform: scale(0.55) rotate(-20deg); }
+  65%  { transform: scale(1.18) rotate(8deg); opacity: 1; }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+.iconVisible {
+  animation: iconBounce 0.48s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+.card:hover .iconWrap {
+  background: rgba(212, 168, 67, 0.24);
+}
+
+/* Continuous float on hover */
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-4px); }
+}
+.card:hover .iconVisible {
+  animation: iconFloat 1.6s ease-in-out infinite;
+}
+
+.iconEmoji {
+  line-height: 1;
+  display: block;
+}
+
+/* Badge number */
+.badge {
+  font-family: var(--ff-head);
+  font-size: 28px;
+  font-weight: 700;
+  color: rgba(212, 168, 67, 0.12);
+  line-height: 1;
+  opacity: 0;
+  transform: translateX(8px);
+  display: block;
+  letter-spacing: -0.03em;
+}
+
+@keyframes badgeSlide {
+  0%   { opacity: 0; transform: translateX(8px); color: rgba(212,168,67,0.04); }
+  60%  { color: rgba(212, 168, 67, 0.28); }
+  100% { opacity: 1; transform: translateX(0); color: rgba(212, 168, 67, 0.14); }
+}
+.badgeVisible {
+  animation: badgeSlide 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ── Text ── */
+.cardTitle {
+  font-family: var(--ff-head);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 8px;
+  line-height: 1.32;
+}
+
+.cardBody {
+  font-family: var(--ff-body);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.52);
+  line-height: 1.67;
+  margin: 0;
+}
+
+/* ── Bottom gold underline ── */
+.cardUnderline {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  border-radius: 2px;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: center;
+}
+.card:hover .cardUnderline {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* ════════════════════
+   RESPONSIVE
+════════════════════ */
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .section {
+    padding: 72px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    padding: 20px 16px;
+  }
+}

@@ -10,10 +10,12 @@ const footerLinks = {
     { label: 'IPMAT Coaching', href: '/ipmat-coaching-and-profile-building-eduquest-2026' },
     { label: 'UCAT Coaching', href: '/ucat' },
     { label: 'TMUA Coaching', href: '/tmua' },
-    { label: 'IELTS Coaching', href: 'https://eduquest.org.in/ielts/' },
+    { label: 'IELTS Coaching', href: '/ielts' },
+    { label: 'DASA/CIWG', href: '/ielts' },
     { label: 'PTE Coaching', href: 'https://eduquest.org.in/pte/' },
     { label: 'TOEFL Coaching', href: 'https://eduquest.org.in/toefl/' },
-    { label: 'SAT Coaching Classes Dubai', href: 'https://eduquest.org.in/sat-test-preparation-online-course-dubai/' },
+    // { label: 'SAT Coaching Classes Dubai', href: 'https://eduquest.org.in/sat-test-preparation-online-course-dubai/' },
+   
   ],
   tuition: [
     { label: 'Olympiads', href: 'https://eduquest.org.in/olympiad/' },
