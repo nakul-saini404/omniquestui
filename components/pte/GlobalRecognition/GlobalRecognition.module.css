@@ -1,0 +1,195 @@
+/* ═══════════════════════════
+   Fonts — add to your global CSS or _app.tsx:
+   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+═══════════════════════════ */
+
+/* ── Local tokens (no :root) ── */
+.acceptsSection {
+  --navy:     #0b1c3d;
+  --gold:     #d4a843;
+  --gold-lt:  #f5f0e8;
+  --muted:    #4a5568;
+  --border:   rgba(11, 28, 61, 0.10);
+  --white:    #ffffff;
+  --radius:   10px;
+  --max:      1160px;
+  --ff-serif: "Playfair Display", Georgia, serif;
+  --ff-sans:  "Plus Jakarta Sans", sans-serif;
+
+  padding: 88px 0;
+  background: #fafaf8;
+}
+
+/* ── Container ── */
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Section Head ── */
+.sectionHead {
+  margin-bottom: 48px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.sectionHead.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sectionHead.center {
+  text-align: center;
+}
+
+.sectionHead.center p {
+  margin: 0 auto;
+}
+
+.sectionHead h2 {
+  font-family: var(--ff-serif);
+  font-size: clamp(24px, 3.2vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  line-height: 1.18;
+  margin-bottom: 10px;
+}
+
+.sectionHead p {
+  font-size: 15.5px;
+  color: var(--muted);
+  max-width: 620px;
+  line-height: 1.7;
+}
+
+/* ── Section Label ── */
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  font-family: var(--ff-sans);
+}
+
+.sectionLabel::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: var(--gold);
+}
+
+/* ── Cards Grid ── */
+.acceptsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.acceptCard {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.acceptCard.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.acceptCard:hover {
+  box-shadow: 0 8px 28px rgba(11, 28, 61, 0.08);
+}
+
+.acceptFlag {
+  font-size: 28px;
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+.acceptCard h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+  font-family: var(--ff-sans);
+}
+
+.acceptCard p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-family: var(--ff-sans);
+}
+
+/* ── Bullet List ── */
+.acceptList {
+  list-style: none;
+  margin-top: 10px;
+  padding: 0;
+}
+
+.acceptList li {
+  font-size: 13px;
+  color: var(--muted);
+  padding: 4px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: var(--ff-sans);
+  line-height: 1.5;
+}
+
+.acceptList li::before {
+  content: "✓";
+  color: var(--gold);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── Note Banner ── */
+.acceptsNote {
+  margin-top: 28px;
+  padding: 20px 24px;
+  background: var(--gold-lt);
+  border-radius: var(--radius);
+  border-left: 4px solid var(--gold);
+  font-size: 14px;
+  color: var(--navy);
+  line-height: 1.7;
+  font-family: var(--ff-sans);
+}
+
+.acceptsNote strong {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .acceptsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .acceptsSection {
+    padding: 60px 0;
+  }
+
+  .acceptsGrid {
+    grid-template-columns: 1fr;
+  }
+}

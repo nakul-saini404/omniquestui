@@ -1,0 +1,210 @@
+/* ═══════════════════════════
+   Fonts — add to your global CSS or _app.tsx:
+   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+═══════════════════════════ */
+
+/* ── Local tokens (no :root) ── */
+.whyEq {
+  --navy:     #0b1c3d;
+  --gold:     #d4a843;
+  --muted:    #4a5568;
+  --border:   rgba(11, 28, 61, 0.10);
+  --white:    #ffffff;
+  --radius:   10px;
+  --max:      1160px;
+  --ff-serif: "Playfair Display", Georgia, serif;
+  --ff-sans:  "Plus Jakarta Sans", sans-serif;
+
+  padding: 88px 0;
+  background: var(--white);
+}
+
+/* ── Container ── */
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Section Head ── */
+.sectionHead {
+  margin-bottom: 48px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.sectionHead.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sectionHead.center {
+  text-align: center;
+}
+
+.sectionHead.center p {
+  margin: 0 auto;
+}
+
+.sectionHead h2 {
+  font-family: var(--ff-serif);
+  font-size: clamp(24px, 3.2vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  line-height: 1.18;
+  margin-bottom: 10px;
+}
+
+.sectionHead p {
+  font-size: 15.5px;
+  color: var(--muted);
+  max-width: 620px;
+  line-height: 1.7;
+}
+
+/* ── Section Label ── */
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  font-family: var(--ff-sans);
+}
+
+.sectionLabel::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: var(--gold);
+}
+
+/* ── Feature Cards Grid ── */
+.whyEqGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.eqCard {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 22px;
+  display: flex;
+  gap: 18px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.eqCard.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.eqCard:hover {
+  box-shadow: 0 6px 22px rgba(11, 28, 61, 0.07);
+}
+
+/* ── Icon ── */
+.eqIcon {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  background: rgba(212, 168, 67, 0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.eqIcon svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── Card Body ── */
+.eqBody h3 {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+  font-family: var(--ff-sans);
+}
+
+.eqBody p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-family: var(--ff-sans);
+}
+
+/* ── Stats Strip ── */
+.eqStats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.eqStat {
+  background: var(--navy);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.eqStat.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.eqStatNum {
+  font-family: var(--ff-serif);
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.eqStatLbl {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.60);
+  margin-top: 4px;
+  font-family: var(--ff-sans);
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .eqStats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .whyEq {
+    padding: 60px 0;
+  }
+
+  .whyEqGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .eqStats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
