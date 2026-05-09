@@ -1,0 +1,209 @@
+/* ═══════════════════════════
+   WHY EDUQUEST — WhyEduQuest.module.css
+   Fonts: Playfair Display + Plus Jakarta Sans
+═══════════════════════════ */
+
+/* ── Section ── */
+.whyUs {
+  padding: 88px 0;
+  background: #f5f0e8;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: #0b1c3d;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Two-column grid ── */
+.whyGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* ── Section Head ── */
+.sectionHead {
+  margin-bottom: 48px;
+}
+
+.sectionHead h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(24px, 3.2vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0b1c3d;
+  line-height: 1.18;
+  margin-bottom: 10px;
+}
+
+.sectionHead p {
+  font-size: 15.5px;
+  color: #4a5568;
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+/* ── Section Label ── */
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 14px;
+}
+
+.sectionLabel::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: #d4a843;
+}
+
+/* ── Fade-up ── */
+.fadeUp {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fadeUp.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Why Body ── */
+.whyBody {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Why Item ── */
+.whyItem {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  opacity: 0;
+  transform: translateX(-16px);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.whyItem.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Why Icon ── */
+.whyIcon {
+  width: 44px;
+  height: 44px;
+  background: #0b1c3d;
+  border-radius: 8px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: background 0.2s ease;
+}
+
+.whyItem:hover .whyIcon {
+  background: #102454;
+}
+
+/* ── Why Text ── */
+.whyText h4 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: #0b1c3d;
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+
+.whyText p {
+  font-size: 13.5px;
+  color: #4a5568;
+  line-height: 1.65;
+}
+
+/* ── cardUp keyframe ── */
+@keyframes cardUp {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Stats Grid ── */
+.whyStats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ── Stat Card ── */
+.whyStat {
+  background: #ffffff;
+  border: 1px solid rgba(11, 28, 61, 0.1);
+  border-radius: 10px;
+  padding: 24px 20px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px) scale(0.97);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.whyStat.visible {
+  animation: cardUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.whyStat:hover {
+  box-shadow: 0 8px 28px rgba(11, 28, 61, 0.1);
+  transform: translateY(-4px);
+}
+
+/* ── Stat Number ── */
+.whyStatNum {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #d4a843;
+  display: block;
+  line-height: 1;
+}
+
+/* ── Stat Label ── */
+.whyStatLabel {
+  font-size: 12px;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-top: 6px;
+  display: block;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .whyUs {
+    padding: 56px 0;
+  }
+
+  .whyGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .whyStats {
+    grid-template-columns: 1fr 1fr;
+  }
+}

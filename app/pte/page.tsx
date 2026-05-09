@@ -11,8 +11,9 @@ import {
   organizationSchema,
   webPageSchema,
   testSectionListSchema,
-} from "./dasaSchema";
-import DasaCOACHING from "./dasa";
+} from "./pteSchema";
+import DasaCOACHING from "./pte";
+import PTECOACHING from "./pte";
 
 export const metadata: Metadata = {
   title: "Best IELTS, TOEFL, PTE & Duolingo Coaching in Gurgaon | EduQuest",
@@ -326,7 +327,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function DasaCoachingPage() {
+export default function PTECoachingPage() {
   return (
     <>
       {/* ── Structured Data ── */}
@@ -368,7 +369,7 @@ export default function DasaCoachingPage() {
       />
 
       {/* ── Page Component ── */}
-      <DasaCOACHING />
+      <PTECOACHING />
     </>
   );
 }

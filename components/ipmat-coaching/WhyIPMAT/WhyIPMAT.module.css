@@ -1,0 +1,725 @@
+/* WhyIPMAT.module.css
+   EduQuest design system — no :root variables, all values hardcoded.
+   Fonts: "Playfair Display" (headings), "Plus Jakarta Sans" (body)
+   Colors:
+     cream   #f5f0e8   cream2  #ede7d9   cream3  #e2d9c8
+     navy    #0b1c3d   navy2   #102454   navy3   #1a3570
+     gold    #d4a843   gold2   #e8c96a
+     text2   #4a5568   text3   #718096
+*/
+
+/* ─────────────────────────────────────────
+   SECTION SHELL
+───────────────────────────────────────── */
+.section {
+  padding: 96px 0;
+  background: #ffffff;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ─────────────────────────────────────────
+   HEADER
+───────────────────────────────────────── */
+.header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 14px;
+}
+
+.sectionLabel::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: #d4a843;
+  display: block;
+}
+
+.heading {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0b1c3d;
+  line-height: 1.16;
+  margin-bottom: 16px;
+}
+
+.headingEm {
+  color: #d4a843;
+  font-style: italic;
+}
+
+.subheading {
+  font-size: 16px;
+  color: #4a5568;
+  max-width: 620px;
+  margin: 0 auto 32px;
+  line-height: 1.75;
+}
+
+/* ─────────────────────────────────────────
+   TAB SWITCHER
+───────────────────────────────────────── */
+.tabGroup {
+  display: inline-flex;
+  gap: 3px;
+  background: rgba(11, 28, 61, 0.07);
+  padding: 3px;
+  border-radius: 6px;
+}
+
+.tab {
+  padding: 10px 24px;
+  font-size: 13.5px;
+  font-weight: 600;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  color: #718096;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  color: #0b1c3d;
+}
+
+.tabActive {
+  background: #ffffff;
+  color: #0b1c3d;
+  box-shadow: 0 1px 6px rgba(11, 28, 61, 0.1);
+}
+
+/* ─────────────────────────────────────────
+   STATS ROW
+───────────────────────────────────────── */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  border: 1px solid rgba(11, 28, 61, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 56px;
+}
+
+.statCard {
+  padding: 28px 20px;
+  text-align: center;
+  background: #f5f0e8;
+  transition: background 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.statCard:not(:last-child) {
+  border-right: 1px solid rgba(11, 28, 61, 0.1);
+}
+
+.statCard:hover {
+  background: #ede7d9;
+}
+
+.statValue {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #0b1c3d;
+  line-height: 1;
+  display: block;
+}
+
+.statSuffix {
+  font-size: 18px;
+  font-weight: 600;
+  color: #d4a843;
+}
+
+.statLabel {
+  font-size: 12px;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  display: block;
+  line-height: 1.4;
+}
+
+/* ─────────────────────────────────────────
+   REASONS GRID
+───────────────────────────────────────── */
+.reasonsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 56px;
+}
+
+.reasonCard {
+  background: #f5f0e8;
+  border: 1px solid rgba(11, 28, 61, 0.1);
+  border-radius: 8px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: box-shadow 0.25s, transform 0.25s, background 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.reasonCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: transparent;
+  transition: background 0.25s;
+}
+
+.reasonCard:hover {
+  box-shadow: 0 12px 40px rgba(11, 28, 61, 0.12);
+  transform: translateY(-4px);
+  background: #ffffff;
+}
+
+.reasonCard:hover::before {
+  background: #d4a843;
+}
+
+.reasonTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.reasonIcon {
+  width: 52px;
+  height: 52px;
+  background: #ffffff;
+  border: 1px solid rgba(11, 28, 61, 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  transition: background 0.25s;
+  flex-shrink: 0;
+}
+
+.reasonCard:hover .reasonIcon {
+  background: #d4a843;
+}
+
+.reasonTag {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #d4a843;
+  background: rgba(212, 168, 67, 0.12);
+  border: 1px solid rgba(212, 168, 67, 0.25);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.reasonTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0b1c3d;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.reasonDesc {
+  font-size: 14px;
+  color: #4a5568;
+  line-height: 1.7;
+  flex: 1;
+  margin-bottom: 18px;
+}
+
+.reasonHighlight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0b1c3d;
+  background: rgba(11, 28, 61, 0.05);
+  border-radius: 4px;
+  padding: 8px 12px;
+  border-left: 3px solid #d4a843;
+  margin-top: auto;
+}
+
+.highlightDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d4a843;
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────
+   COMPARISON TABLE
+───────────────────────────────────────── */
+.comparisonWrap {
+  margin-bottom: 56px;
+}
+
+.compTable {
+  border: 1px solid rgba(11, 28, 61, 0.12);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.compRow {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  align-items: stretch;
+}
+
+.compRowAlt {
+  background: #f5f0e8;
+}
+
+.compHeaderRow {
+  background: #0b1c3d;
+}
+
+.compAspect {
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  border-right: 1px solid rgba(11, 28, 61, 0.1);
+}
+
+.compHeaderRow .compAspect {
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.compAspectText {
+  font-size: 14px;
+  font-weight: 500;
+  color: #4a5568;
+}
+
+.compHeaderRow .compAspect,
+.compCell {
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+}
+
+.compCell {
+  border-right: 1px solid rgba(11, 28, 61, 0.08);
+}
+
+.compCell:last-child {
+  border-right: none;
+}
+
+.compIpmat {
+  background: rgba(212, 168, 67, 0.06);
+}
+
+.compHeaderRow .compIpmat {
+  background: rgba(212, 168, 67, 0.12);
+}
+
+.compBadgeIpmat {
+  font-size: 12px;
+  font-weight: 700;
+  color: #d4a843;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.compBadgeCat {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.compWinner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #0b1c3d;
+}
+
+.compNeutral {
+  font-size: 13.5px;
+  color: #718096;
+}
+
+.winIcon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #d4a843;
+  color: #0b1c3d;
+  font-size: 10px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.compNote {
+  background: #ede7d9;
+  border: 1px solid rgba(11, 28, 61, 0.12);
+  border-left: 4px solid #d4a843;
+  border-radius: 6px;
+  padding: 18px 22px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.compNoteIcon {
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.compNote p {
+  font-size: 14px;
+  color: #4a5568;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.compNote strong {
+  color: #0b1c3d;
+}
+
+/* ─────────────────────────────────────────
+   INSTITUTES
+───────────────────────────────────────── */
+.institutesWrap {
+  background: #0b1c3d;
+  border-radius: 10px;
+  padding: 48px 44px;
+  margin-bottom: 56px;
+}
+
+.institutesHeader {
+  margin-bottom: 32px;
+}
+
+.institutesTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.institutesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.instituteCard {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 20px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.instituteCard:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(212, 168, 67, 0.4);
+  transform: translateY(-2px);
+}
+
+.instituteIcon {
+  font-size: 22px;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: rgba(212, 168, 67, 0.15);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.instituteInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.instituteName {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.instituteSeats {
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.instituteTag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #d4a843;
+  background: rgba(212, 168, 67, 0.12);
+  border: 1px solid rgba(212, 168, 67, 0.25);
+  padding: 3px 9px;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────
+   BOTTOM CTA ROW
+───────────────────────────────────────── */
+.ctaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+  background: #f5f0e8;
+  border: 1px solid rgba(11, 28, 61, 0.1);
+  border-radius: 10px;
+  padding: 40px 44px;
+  flex-wrap: wrap;
+}
+
+.ctaText {
+  flex: 1;
+  min-width: 0;
+}
+
+.ctaHeading {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #0b1c3d;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.ctaEm {
+  color: #d4a843;
+  font-style: italic;
+}
+
+.ctaDesc {
+  font-size: 15px;
+  color: #4a5568;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.btnGold {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 13px 28px;
+  border-radius: 6px;
+  background: #d4a843;
+  color: #0b1c3d;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  white-space: nowrap;
+}
+
+.btnGold:hover {
+  background: #e8c96a;
+  transform: translateY(-1px);
+}
+
+.btnOutline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 26px;
+  border-radius: 6px;
+  background: transparent;
+  color: #0b1c3d;
+  text-decoration: none;
+  border: 1.5px solid rgba(11, 28, 61, 0.2);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  white-space: nowrap;
+}
+
+.btnOutline:hover {
+  border-color: #0b1c3d;
+  background: #ede7d9;
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .reasonsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .institutesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .statsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .statCard:nth-child(2) {
+    border-right: none;
+  }
+
+  .statCard:nth-child(1),
+  .statCard:nth-child(2) {
+    border-bottom: 1px solid rgba(11, 28, 61, 0.1);
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .reasonsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .compRow {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .compAspect {
+    display: none;
+  }
+
+  .compHeaderRow .compAspect {
+    display: none;
+  }
+
+  .institutesWrap {
+    padding: 32px 24px;
+  }
+
+  .institutesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaRow {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px 24px;
+  }
+
+  .ctaButtons {
+    width: 100%;
+  }
+
+  .btnGold,
+  .btnOutline {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .tabGroup {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .tab {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 540px) {
+  .statsRow {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .statValue {
+    font-size: 28px;
+  }
+
+  .compRow {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .heading {
+    font-size: 26px;
+  }
+
+  .institutesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .instituteCard {
+    flex-wrap: wrap;
+  }
+}

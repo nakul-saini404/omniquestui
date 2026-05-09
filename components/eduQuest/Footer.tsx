@@ -12,7 +12,7 @@ const footerLinks = {
     { label: 'TMUA Coaching', href: '/tmua' },
     { label: 'IELTS Coaching', href: '/ielts' },
     { label: 'DASA/CIWG', href: '/dasa-and-ciwg-quota' },
-    { label: 'PTE Coaching', href: 'https://eduquest.org.in/pte/' },
+    { label: 'PTE Coaching', href: '/pte' },
     { label: 'TOEFL Coaching', href: 'https://eduquest.org.in/toefl/' },
     // { label: 'SAT Coaching Classes Dubai', href: 'https://eduquest.org.in/sat-test-preparation-online-course-dubai/' },
    

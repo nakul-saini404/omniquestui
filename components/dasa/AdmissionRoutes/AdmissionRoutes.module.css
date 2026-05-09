@@ -1,0 +1,1025 @@
+/* AdmissionRoutes.module.css
+   EduQuest design system — no :root variables, all values hardcoded.
+   Fonts  : "Playfair Display" (headings)  |  "Plus Jakarta Sans" (body)
+   Palette:
+     cream   #f5f0e8   cream2  #ede7d9   cream3  #e2d9c8
+     navy    #0b1c3d   navy2   #102454   navy3   #1a3570
+     gold    #d4a843   gold2   #e8c96a
+     red     #c84b31
+     text2   #4a5568   text3   #718096
+     green   #1a6b2e
+*/
+
+/* ─────────────────────────────────────────
+   SECTION SHELL
+───────────────────────────────────────── */
+.section {
+  padding: 96px 0;
+  background: #ede7d9;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ─────────────────────────────────────────
+   HEADER
+───────────────────────────────────────── */
+.header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 14px;
+}
+
+.sectionLabel::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: #d4a843;
+  display: block;
+  flex-shrink: 0;
+}
+
+.heading {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(26px, 3.8vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0b1c3d;
+  line-height: 1.16;
+  margin-bottom: 14px;
+}
+
+.headingEm {
+  color: #d4a843;
+  font-style: italic;
+}
+
+.subheading {
+  font-size: 15.5px;
+  color: #4a5568;
+  max-width: 620px;
+  margin: 0 auto 24px;
+  line-height: 1.75;
+}
+
+/* ─────────────────────────────────────────
+   ELIGIBILITY PILLS
+───────────────────────────────────────── */
+.eligPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.eligPill {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12.5px;
+  font-weight: 600;
+  background: rgba(212, 168, 67, 0.13);
+  color: #7a5c10;
+  border: 1px solid rgba(212, 168, 67, 0.3);
+}
+
+/* ─────────────────────────────────────────
+   STAT STRIP
+───────────────────────────────────────── */
+.statStrip {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  background: #0b1c3d;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.statItem {
+  flex: 1;
+  padding: 28px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.statNum {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #d4a843;
+  line-height: 1;
+  display: block;
+}
+
+.statLabel {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.48);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-weight: 600;
+  display: block;
+  line-height: 1.4;
+}
+
+.statDivider {
+  width: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────
+   TAB BAR
+───────────────────────────────────────── */
+.tabBar {
+  display: flex;
+  gap: 3px;
+  background: rgba(11, 28, 61, 0.08);
+  padding: 3px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.tabBtn {
+  flex: 1;
+  min-width: 140px;
+  padding: 11px 18px;
+  font-size: 13.5px;
+  font-weight: 600;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  cursor: pointer;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: #718096;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.tabBtn:hover {
+  color: #0b1c3d;
+}
+
+.tabBtnActive {
+  background: #ffffff;
+  color: #0b1c3d;
+  box-shadow: 0 1px 6px rgba(11, 28, 61, 0.1);
+}
+
+/* ─────────────────────────────────────────
+   OVERVIEW GRID (Route Cards)
+───────────────────────────────────────── */
+.overviewGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 52px;
+}
+
+.routeCard {
+  background: #ffffff;
+  border: 1px solid rgba(11, 28, 61, 0.09);
+  border-radius: 10px;
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+}
+
+.routeCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, #d4a843, #e8c96a);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s ease;
+}
+
+.routeCard:hover {
+  box-shadow: 0 12px 40px rgba(11, 28, 61, 0.1);
+  transform: translateY(-4px);
+  border-color: rgba(212, 168, 67, 0.3);
+}
+
+.routeCard:hover::before {
+  transform: scaleY(1);
+}
+
+.routeCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  gap: 10px;
+}
+
+.routeIcon {
+  font-size: 28px;
+  display: block;
+  line-height: 1;
+}
+
+.routeBadge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: rgba(212, 168, 67, 0.13);
+  color: #7a5c10;
+  border: 1px solid rgba(212, 168, 67, 0.25);
+  white-space: nowrap;
+}
+
+.routeTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 16.5px;
+  font-weight: 700;
+  color: #0b1c3d;
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.routeDesc {
+  font-size: 13.5px;
+  color: #4a5568;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────
+   INSTITUTE PANEL (DASA / ISA tabs)
+───────────────────────────────────────── */
+.instWrap {
+  margin-bottom: 52px;
+}
+
+.instPanel {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(11, 28, 61, 0.1);
+  box-shadow: 0 8px 40px rgba(11, 28, 61, 0.08);
+}
+
+.instHead {
+  padding: 32px 36px;
+  position: relative;
+}
+
+.instHead::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #d4a843, #e8c96a, transparent);
+}
+
+.instHeadDasa {
+  background: #0b1c3d;
+}
+
+.instHeadIsa {
+  background: #102454;
+}
+
+.instHeadInner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.instSchemeTag {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 6px;
+}
+
+.instSchemeTagGold {
+  color: #d4a843;
+}
+
+.instName {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+  line-height: 1.1;
+}
+
+.instScheme {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.52);
+  margin: 0;
+}
+
+.instPortalBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+.instPortalBtn:hover {
+  background: rgba(212, 168, 67, 0.2);
+  border-color: rgba(212, 168, 67, 0.4);
+}
+
+.instBody {
+  background: #ffffff;
+  padding: 32px 36px;
+}
+
+/* Detail rows */
+.detailGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 24px;
+  border: 1px solid rgba(11, 28, 61, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.detailRow {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 16px;
+  align-items: start;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(11, 28, 61, 0.06);
+  transition: background 0.15s;
+}
+
+.detailRow:last-child {
+  border-bottom: none;
+}
+
+.detailRow:hover {
+  background: #f5f0e8;
+}
+
+.detailKey {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #d4a843;
+  padding-top: 2px;
+  flex-shrink: 0;
+}
+
+.detailVal {
+  font-size: 14px;
+  color: #4a5568;
+  line-height: 1.55;
+}
+
+/* CIWG Callout inside panel */
+.ciwgCallout {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #f5f0e8;
+  border: 1px solid rgba(11, 28, 61, 0.1);
+  border-left: 4px solid #d4a843;
+  border-radius: 0 8px 8px 0;
+  padding: 18px 20px;
+}
+
+.campusCallout {
+  border-left-color: #1a3570;
+}
+
+.ciwgCalloutIcon {
+  font-size: 24px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ciwgCalloutTitle {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0b1c3d;
+  margin-bottom: 6px;
+}
+
+.ciwgCalloutText {
+  font-size: 13.5px;
+  color: #4a5568;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────
+   COMPARISON TABLE
+───────────────────────────────────────── */
+.compareWrap {
+  margin-bottom: 52px;
+}
+
+.tableScroll {
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(11, 28, 61, 0.08);
+  margin-bottom: 18px;
+}
+
+.compTable {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid rgba(11, 28, 61, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  min-width: 640px;
+}
+
+/* thead */
+.compTable thead tr {
+  background: #0b1c3d;
+}
+
+.thAspect {
+  padding: 18px 24px;
+  text-align: left;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #d4a843;
+  width: 200px;
+}
+
+.th {
+  padding: 18px 24px;
+  text-align: left;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.thDasa {
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.thIsa {
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(212, 168, 67, 0.06);
+}
+
+.thBadgeDasa,
+.thBadgeIsa {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+.thBadgeDasa {
+  background: rgba(11, 28, 61, 0.5);
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.thBadgeIsa {
+  background: rgba(212, 168, 67, 0.18);
+  color: #e8c96a;
+  border: 1px solid rgba(212, 168, 67, 0.3);
+}
+
+/* tbody */
+.trEven {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(11, 28, 61, 0.06);
+  transition: background 0.15s;
+}
+
+.trOdd {
+  background: #f5f0e8;
+  border-bottom: 1px solid rgba(11, 28, 61, 0.06);
+  transition: background 0.15s;
+}
+
+.trEven:hover,
+.trOdd:hover {
+  background: #ede7d9;
+}
+
+.tdAspect {
+  padding: 18px 24px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0b1c3d;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  vertical-align: top;
+  border-right: 1px solid rgba(11, 28, 61, 0.06);
+}
+
+.td {
+  padding: 18px 24px;
+  font-size: 13.5px;
+  color: #4a5568;
+  vertical-align: top;
+  line-height: 1.6;
+  border-right: 1px solid rgba(11, 28, 61, 0.06);
+}
+
+.td:last-child {
+  border-right: none;
+}
+
+.tdHighlight {
+  color: #1a6b2e;
+  font-weight: 600;
+}
+
+.tdHighlightIsa {
+  color: #1a6b2e;
+  font-weight: 600;
+}
+
+/* Compare note */
+.compareNote {
+  background: #0b1c3d;
+  border-radius: 8px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.compareNoteIcon {
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.compareNoteText {
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.compareNoteText strong {
+  color: #d4a843;
+}
+
+/* ─────────────────────────────────────────
+   CIWG CLARIFICATION BANNER
+───────────────────────────────────────── */
+.ciwgBanner {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(11, 28, 61, 0.1);
+  margin-bottom: 52px;
+  box-shadow: 0 8px 32px rgba(11, 28, 61, 0.08);
+}
+
+.ciwgBannerLeft {
+  background: #0b1c3d;
+  padding: 40px 36px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ciwgBannerLeft::before {
+  content: "?";
+  position: absolute;
+  right: -14px;
+  top: -24px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 180px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.04);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.ciwgQ {
+  position: relative;
+  z-index: 1;
+}
+
+.ciwgQText {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 17px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.ciwgQStrong {
+  color: #d4a843;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.ciwgBannerRight {
+  background: #ffffff;
+  padding: 36px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.ciwgAnswer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ciwgYes {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #1a6b2e;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.ciwgAnswerText {
+  font-size: 14.5px;
+  color: #4a5568;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.ciwgAnswerText strong {
+  color: #0b1c3d;
+}
+
+.ciwgNote {
+  background: #e2d9c8;
+  border-left: 3px solid #d4a843;
+  border-radius: 0 6px 6px 0;
+  padding: 13px 16px;
+  font-size: 13.5px;
+  color: #4a5568;
+  line-height: 1.65;
+}
+
+.ciwgNote strong {
+  color: #0b1c3d;
+}
+
+.ciwgChecks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ciwgCheckItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: #4a5568;
+  line-height: 1.55;
+}
+
+.ciwgCheckIcon {
+  width: 20px;
+  height: 20px;
+  background: rgba(26, 107, 46, 0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  color: #1a6b2e;
+  flex-shrink: 0;
+  margin-top: 1px;
+  line-height: 1;
+}
+
+.ciwgCheckText {
+  flex: 1;
+}
+
+/* ─────────────────────────────────────────
+   BOTTOM CTA ROW
+───────────────────────────────────────── */
+.ctaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  background: #0b1c3d;
+  border-radius: 12px;
+  padding: 48px 52px;
+  flex-wrap: wrap;
+}
+
+.ctaLeft {
+  flex: 1;
+  min-width: 0;
+}
+
+.ctaLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 12px;
+}
+
+.ctaLabel::before {
+  content: "";
+  width: 18px;
+  height: 2px;
+  background: #d4a843;
+  display: block;
+  flex-shrink: 0;
+}
+
+.ctaTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+.ctaTitleEm {
+  color: #d4a843;
+  font-style: italic;
+}
+
+.ctaDesc {
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 480px;
+}
+
+.ctaActions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.btnGold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 13px 28px;
+  border-radius: 6px;
+  background: #d4a843;
+  color: #0b1c3d;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  white-space: nowrap;
+}
+
+.btnGold:hover {
+  background: #e8c96a;
+  transform: translateY(-1px);
+}
+
+.btnOutline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 6px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  white-space: nowrap;
+}
+
+.btnOutline:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .overviewGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .statStrip {
+    flex-wrap: wrap;
+  }
+
+  .statItem {
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 900px) {
+  .ciwgBanner {
+    grid-template-columns: 1fr;
+  }
+
+  .ciwgBannerLeft {
+    padding: 32px 28px;
+  }
+
+  .ciwgBannerLeft::before {
+    font-size: 120px;
+  }
+
+  .ctaRow {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 36px 32px;
+  }
+
+  .ctaActions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .btnGold,
+  .btnOutline {
+    flex: 1;
+  }
+
+  .instHead {
+    padding: 24px 24px;
+  }
+
+  .instBody {
+    padding: 24px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .overviewGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .tabBar {
+    gap: 2px;
+  }
+
+  .tabBtn {
+    min-width: unset;
+    font-size: 12.5px;
+    padding: 10px 12px;
+  }
+
+  .detailRow {
+    grid-template-columns: 120px 1fr;
+    gap: 10px;
+    padding: 13px 16px;
+  }
+
+  .statStrip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .statDivider {
+    display: none;
+  }
+
+  .statItem {
+    border-right: 1px solid rgba(255, 255, 255, 0.07);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .ctaRow {
+    padding: 28px 22px;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 540px) {
+  .tabBar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tabBtn {
+    font-size: 12px;
+    padding: 9px 10px;
+  }
+
+  .detailRow {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .detailKey {
+    padding-top: 0;
+  }
+
+  .instHeadInner {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .instPortalBtn {
+    align-self: flex-start;
+  }
+
+  .btnGold,
+  .btnOutline {
+    width: 100%;
+  }
+
+  .ctaActions {
+    flex-direction: column;
+  }
+
+  .ciwgAnswer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

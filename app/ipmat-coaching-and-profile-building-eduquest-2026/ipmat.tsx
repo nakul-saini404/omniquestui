@@ -14,6 +14,8 @@ import RoadmapSection from '@/components/ipmat-coaching/RoadmapSection/RoadmapSe
 import StudentSuccess from '@/components/ipmat-coaching/StudentSuccess/StudentSuccess';
 import GetStartedToday from '@/components/ipmat-coaching/GetStartedToday/GetStartedToday';
 import FAQ from '@/components/ipmat-coaching/FAQ/FAQ';
+import WhyIPMAT from '@/components/ipmat-coaching/WhyIPMAT/WhyIPMAT';
+import WhyStudentsFail from '@/components/ipmat-coaching/WhyStudentsFail/WhyStudentsFail';
 
 export default function IPMATCOACHING() {
   return (
@@ -25,6 +27,8 @@ export default function IPMATCOACHING() {
         <HeroSection />
         <WhyChooseSection />
         <PhilosophySection />
+        <WhyIPMAT />
+        <WhyStudentsFail />
         <CurriculumSection />
         <SpikeSection />
         <ImportantDatesSection />

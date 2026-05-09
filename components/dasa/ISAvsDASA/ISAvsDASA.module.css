@@ -1,0 +1,184 @@
+/* ═══════════════════════════
+   ISA vs DASA — ISAvsDASA.module.css
+   Fonts: Playfair Display + Plus Jakarta Sans
+═══════════════════════════ */
+
+/* ── Section ── */
+.comparison {
+  padding: 88px 0;
+  background: #ede7d9;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: #0b1c3d;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Section Head ── */
+.sectionHead {
+  margin-bottom: 48px;
+}
+
+.sectionHead h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(24px, 3.2vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0b1c3d;
+  line-height: 1.18;
+  margin-bottom: 10px;
+}
+
+.sectionHead p {
+  font-size: 15.5px;
+  color: #4a5568;
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+.center {
+  text-align: center;
+}
+
+.center p {
+  margin: 0 auto;
+}
+
+/* ── Section Label ── */
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 14px;
+}
+
+.sectionLabel::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: #d4a843;
+}
+
+/* ── Fade-up Animation ── */
+.fadeUp {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fadeUp.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Table Wrapper ── */
+.tableWrap {
+  overflow-x: auto;
+  margin-top: 12px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(11, 28, 61, 0.08);
+}
+
+/* ── Comparison Table ── */
+.compTable {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid rgba(11, 28, 61, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* ── Table Head ── */
+.compTable thead tr {
+  background: #0b1c3d;
+}
+
+.compTable thead th {
+  padding: 18px 24px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.compTable thead th:first-child {
+  color: #d4a843;
+}
+
+/* ── Table Body ── */
+.compTable tbody tr {
+  border-bottom: 1px solid rgba(11, 28, 61, 0.07);
+  transition: background 0.2s ease;
+}
+
+.compTable tbody tr:last-child {
+  border-bottom: none;
+}
+
+.compTable tbody tr:hover {
+  background: #f5f0e8;
+}
+
+.compTable td {
+  padding: 20px 24px;
+  font-size: 14px;
+  color: #4a5568;
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.compTable td:first-child {
+  color: #0b1c3d;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── Tags ── */
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tagDasa {
+  background: rgba(11, 28, 61, 0.08);
+  color: #0b1c3d;
+}
+
+.tagIsa {
+  background: rgba(212, 168, 67, 0.15);
+  color: #7a5c10;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .comparison {
+    padding: 56px 0;
+  }
+
+  .compTable thead th,
+  .compTable td {
+    padding: 14px 16px;
+    font-size: 13px;
+  }
+
+  .compTable td:first-child {
+    font-size: 12px;
+  }
+}
