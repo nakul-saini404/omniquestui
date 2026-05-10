@@ -49,8 +49,8 @@ export default function HeroSection() {
             >
               📚 Book Free Consultation
             </a>
-            <a href="#about" className={styles.btnOutline}>
-              Learn More ↓
+            <a href="https://test.eduquest.org.in/tmua-score-calculator/" className={styles.btnOutline}>
+              Calculate Your TMUA Score
             </a>
           </div>
         </div>

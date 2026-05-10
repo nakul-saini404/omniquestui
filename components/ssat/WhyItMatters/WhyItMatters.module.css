@@ -1,0 +1,147 @@
+/* =============================================
+   WhyItMatters.module.css
+   "Why It Matters" / Importance section — SSAT
+   No :root; all tokens scoped to .importanceSection
+   ============================================= */
+
+/* ── Local design tokens ── */
+.importanceSection {
+  --navy: #0b1c3d;
+  --navy2: #102454;
+  --gold: #d4a843;
+  --gold2: #e8c96a;
+  --white: #ffffff;
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "Plus Jakarta Sans", sans-serif;
+
+  background: var(--navy);
+  color: var(--white);
+  padding: 80px 0;
+  font-family: var(--ff-body);
+}
+
+/* ── Container ── */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Section head ── */
+.sectionHead {
+  margin-bottom: 52px;
+}
+
+/* ── Section label pill ── */
+.sectionLabel {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  padding: 4px 12px;
+  background: rgba(212, 168, 67, 0.15);
+  border-radius: 50px;
+  border: 1px solid rgba(212, 168, 67, 0.3);
+  font-family: var(--ff-body);
+}
+
+/* ── Section title ── */
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.sectionTitle em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ── Section subtitle ── */
+.sectionSub {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 560px;
+  line-height: 1.7;
+  font-family: var(--ff-body);
+}
+
+/* ── 3-column card grid ── */
+.impGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── Individual importance card ── */
+.impCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  padding: 32px 28px;
+  transition: background 0.25s ease, transform 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gold top-bar accent */
+.impCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold2));
+}
+
+.impCard:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-3px);
+}
+
+/* ── Card parts ── */
+.impIcon {
+  font-size: 36px;
+  margin-bottom: 16px;
+  display: block;
+  line-height: 1;
+}
+
+.impTitle {
+  font-family: var(--ff-head);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.impText {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+  font-family: var(--ff-body);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .impGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .importanceSection {
+    padding: 56px 0;
+  }
+
+  .sectionTitle {
+    font-size: 26px;
+  }
+}

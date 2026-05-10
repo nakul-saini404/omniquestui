@@ -1,0 +1,326 @@
+/* =============================================
+   TestDates.module.css
+   "Test Dates 2025–26" section — SSAT EduQuest
+   No :root; all tokens scoped to .datesSection
+   ============================================= */
+
+/* ── Local design tokens ── */
+.datesSection {
+  --cream: #f5f0e8;
+  --cream2: #ede7d9;
+  --navy: #0b1c3d;
+  --navy3: #1a3570;
+  --gold: #d4a843;
+  --red: #c84b31;
+  --text2: #4a5568;
+  --text3: #718096;
+  --white: #ffffff;
+  --line: rgba(11, 28, 61, 0.1);
+  --line2: rgba(11, 28, 61, 0.18);
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "Plus Jakarta Sans", sans-serif;
+
+  background: var(--cream);
+  padding: 80px 0;
+  font-family: var(--ff-body);
+  color: var(--navy);
+}
+
+/* ── Container ── */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Section head ── */
+.sectionHead {
+  margin-bottom: 52px;
+}
+
+/* ── Section label pill ── */
+.sectionLabel {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  padding: 4px 12px;
+  background: rgba(212, 168, 67, 0.1);
+  border-radius: 50px;
+  border: 1px solid rgba(212, 168, 67, 0.2);
+  font-family: var(--ff-body);
+}
+
+/* ── Section title ── */
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.sectionTitle em {
+  font-style: italic;
+  color: var(--red);
+}
+
+/* ── Section subtitle ── */
+.sectionSub {
+  font-size: 16px;
+  color: var(--text2);
+  max-width: 560px;
+  line-height: 1.7;
+  font-family: var(--ff-body);
+}
+
+/* ═══════════════════════════════════════════
+   TWO-COLUMN LAYOUT
+═══════════════════════════════════════════ */
+
+.datesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ═══════════════════════════════════════════
+   LEFT COLUMN — STANDARD TEST DATES
+═══════════════════════════════════════════ */
+
+.dateTable {
+  background: var(--white);
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.dateTableHeader {
+  background: var(--navy);
+  color: var(--white);
+  padding: 16px 20px;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--ff-body);
+}
+
+.dateRow {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line);
+  font-size: 13.5px;
+  transition: background 0.15s ease;
+}
+
+.dateRow:last-child {
+  border-bottom: none;
+}
+
+.dateRow:hover {
+  background: var(--cream);
+}
+
+.dateDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.dateName {
+  font-weight: 500;
+  color: var(--navy);
+  font-family: var(--ff-body);
+}
+
+/* ── Date badges ── */
+.dateBadge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 50px;
+  white-space: nowrap;
+  font-family: var(--ff-body);
+}
+
+.badgeCenter {
+  background: rgba(26, 53, 112, 0.1);
+  color: var(--navy3);
+}
+
+.badgeHome {
+  background: rgba(212, 168, 67, 0.15);
+  color: #a07800;
+}
+
+/* ── Registration tip box ── */
+.tipBox {
+  margin-top: 16px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px 20px;
+  font-size: 13.5px;
+  color: var(--text2);
+  line-height: 1.7;
+  font-family: var(--ff-body);
+}
+
+.tipBoxLabel {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* ═══════════════════════════════════════════
+   RIGHT COLUMN — HOME TESTING
+═══════════════════════════════════════════ */
+
+.homeDates {
+  background: var(--white);
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.homeDatesHeader {
+  background: var(--gold);
+  color: var(--navy);
+  padding: 16px 20px;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--ff-body);
+}
+
+.homeDateItem {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-family: var(--ff-body);
+}
+
+.homeDateItem:last-child {
+  border-bottom: none;
+}
+
+.homeDateCal {
+  font-size: 20px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.homeDateText {
+  font-weight: 600;
+  color: var(--navy);
+  font-family: var(--ff-body);
+}
+
+.homeDateSub {
+  font-size: 12px;
+  color: var(--text3);
+  margin-top: 2px;
+  font-family: var(--ff-body);
+}
+
+/* ── Timing info block ── */
+.timingInfo {
+  margin-top: 20px;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 10px;
+  padding: 20px 24px;
+}
+
+.timingRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 13.5px;
+  font-family: var(--ff-body);
+  gap: 12px;
+}
+
+.timingRow:last-child {
+  border-bottom: none;
+}
+
+.timingKey {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.timingVal {
+  font-weight: 600;
+  color: var(--gold);
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* ── Flex testing note box ── */
+.flexBox {
+  margin-top: 16px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px 20px;
+  font-size: 13.5px;
+  color: var(--text2);
+  line-height: 1.7;
+  font-family: var(--ff-body);
+}
+
+.flexBoxLabel {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .datesGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .datesSection {
+    padding: 56px 0;
+  }
+
+  .sectionTitle {
+    font-size: 26px;
+  }
+
+  .dateRow {
+    padding: 12px 16px;
+    gap: 8px;
+  }
+
+  .timingRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .timingVal {
+    text-align: left;
+  }
+}

@@ -3,17 +3,20 @@ import Image from 'next/image';
 const footerLinks = {
   courses: [
     { label: 'SAT Coaching', href: '/sat' },
+      { label: 'LSAT Coaching', href: '/lsat' },
+      { label: 'SSAT Coaching', href: '/ssat' },
+      { label: 'PSAT Coaching', href: '/psat' },
     { label: 'ACT Coaching', href: '/act' },
     { label: 'AP Coaching', href: '/ap-coaching' },
     { label: 'Pre-AP Coaching', href: '/pre-ap-gurgaon' },
-    { label: 'LSAT Coaching', href: 'https://eduquest.org.in/lsat-coaching-india/' },
     { label: 'IPMAT Coaching', href: '/ipmat-coaching-and-profile-building-eduquest-2026' },
+      { label: 'MCAT Coaching', href: '/mcat' },
     { label: 'UCAT Coaching', href: '/ucat' },
     { label: 'TMUA Coaching', href: '/tmua' },
     { label: 'IELTS Coaching', href: '/ielts' },
     { label: 'DASA/CIWG', href: '/dasa-and-ciwg-quota' },
     { label: 'PTE Coaching', href: '/pte' },
-    { label: 'TOEFL Coaching', href: 'https://eduquest.org.in/toefl/' },
+    { label: 'TOEFL Coaching', href: '/toefl' },
     // { label: 'SAT Coaching Classes Dubai', href: 'https://eduquest.org.in/sat-test-preparation-online-course-dubai/' },
    
   ],

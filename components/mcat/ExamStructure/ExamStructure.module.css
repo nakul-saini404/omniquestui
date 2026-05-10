@@ -1,0 +1,257 @@
+/* ══════════════════════════════════════════════
+   ANIMATIONS
+══════════════════════════════════════════════ */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
+
+/* ══════════════════════════════════════════════
+   SCROLL REVEAL  (used on BOTH columns)
+══════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* ══════════════════════════════════════════════
+   SECTION WRAPPER
+══════════════════════════════════════════════ */
+.section {
+  padding: 90px 24px;
+  background-color: #f5f0e8;
+  box-sizing: border-box;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.sectionInner {
+  max-width: 1160px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* ══════════════════════════════════════════════
+   TWO-COLUMN GRID
+══════════════════════════════════════════════ */
+.examGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* ══════════════════════════════════════════════
+   LEFT — VISUAL WRAPPER
+   (reveal/visible handles show/hide — no opacity here)
+══════════════════════════════════════════════ */
+.examVisual {
+  position: relative;
+}
+
+/* ── Dark score card ── */
+.examCardMain {
+  background: #0b1c3d;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 36px;
+  position: relative;
+  box-sizing: border-box;
+}
+.examCardMain::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(11, 122, 110, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Large score number */
+.examScoreDisplay {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: #e8c96a;
+  line-height: 1;
+  margin: 0 0 4px 0;
+}
+
+.examScoreSub {
+  font-size: 0.78rem;
+  color: rgba(245, 240, 232, 0.45);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+/* Score progress bars */
+.examBarWrap {
+  margin-bottom: 14px;
+}
+
+.examBarLabel {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: rgba(245, 240, 232, 0.6);
+  margin-bottom: 6px;
+}
+
+.examBarTrack {
+  height: 6px;
+  background: rgba(245, 240, 232, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.examBarFill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #0b7a6e, #0fa896);
+  transition: width 1.4s ease;
+}
+
+/* Floating badge */
+.examFloatBadge {
+  position: absolute;
+  bottom: -20px;
+  right: -16px;
+  background: #d4a843;
+  color: #0b1c3d;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  box-shadow: 0 8px 24px rgba(212, 168, 67, 0.35);
+  animation: float 3s ease infinite;
+  white-space: nowrap;
+}
+
+/* ══════════════════════════════════════════════
+   RIGHT — TEXT CONTENT
+══════════════════════════════════════════════ */
+
+.secBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  border-radius: 100px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  background: rgba(11, 122, 110, 0.08);
+  border: 1px solid rgba(11, 122, 110, 0.22);
+  color: #0b7a6e;
+}
+
+.secTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: #0b1c3d;
+  margin: 0 0 14px 0;
+  padding: 0;
+}
+.secTitle em {
+  font-style: italic;
+  color: #d4a843;
+}
+
+.divider {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, #d4a843, #e8c96a);
+  border-radius: 2px;
+  margin: 20px 0;
+}
+
+.secSub {
+  font-size: 0.95rem;
+  color: #4a5568;
+  line-height: 1.75;
+  max-width: 560px;
+  margin: 0;
+  padding: 0;
+}
+
+/* ══════════════════════════════════════════════
+   SECTION LIST
+══════════════════════════════════════════════ */
+.examList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 28px 0 0 0;
+  padding: 0;
+}
+
+.examListItem {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.examListIcon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.iconNavy { background: rgba(11,  28,  61,  0.08); }
+.iconGold  { background: rgba(212, 168, 67,  0.12); }
+.iconTeal  { background: rgba(11,  122, 110, 0.10); }
+.iconRed   { background: rgba(200, 75,  49,  0.10); }
+
+.examListHead {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0b1c3d;
+  margin: 0 0 2px 0;
+}
+
+.examListBody {
+  font-size: 0.8rem;
+  color: #4a5568;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════ */
+@media (max-width: 960px) {
+  .examGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 60px 16px;
+  }
+  .examFloatBadge {
+    right: 0;
+    bottom: -16px;
+    font-size: 0.75rem;
+    padding: 10px 14px;
+  }
+}

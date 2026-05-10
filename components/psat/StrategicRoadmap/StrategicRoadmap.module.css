@@ -1,0 +1,205 @@
+/* ─── ANIMATIONS ──────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 201, 177, 0.35); }
+  70%       { box-shadow: 0 0 0 14px rgba(0, 201, 177, 0); }
+}
+
+@keyframes pulsegold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.35); }
+  70%       { box-shadow: 0 0 0 14px rgba(212, 175, 55, 0); }
+}
+
+/* ─── SECTION ─────────────────────────────────────────── */
+.section {
+  padding: 80px 24px;
+  background: linear-gradient(170deg, #0C1535, #080E28);
+}
+
+.sectionInner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ─── HEADER ──────────────────────────────────────────── */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 52px;
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.sectionHeader.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.sectionBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  border-radius: 100px;
+  background: rgba(0, 201, 177, 0.08);
+  border: 1px solid rgba(0, 201, 177, 0.2);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #00C9B1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: #F1F5FF;
+  margin-bottom: 14px;
+}
+
+.titleAccent {
+  background: linear-gradient(135deg, #00C9B1, #2355C8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sectionSub {
+  font-size: 0.95rem;
+  color: rgba(241, 245, 255, 0.5);
+  line-height: 1.8;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* ─── TIMELINE TRACK ──────────────────────────────────── */
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  position: relative;
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.65s ease 0.1s, transform 0.65s ease 0.1s;
+}
+
+.timeline.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* horizontal connector line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 32px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00C9B1, transparent);
+  pointer-events: none;
+}
+
+/* ─── TIMELINE ITEM ───────────────────────────────────── */
+.tlItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 8px;
+  text-align: center;
+}
+
+/* ─── DOT — default teal ──────────────────────────────── */
+.tlDot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00C9B1, #2355C8);
+  border: 3px solid #080E28;
+  margin-bottom: 20px;
+  z-index: 1;
+  flex-shrink: 0;
+  animation: pulse 2.5s infinite;
+}
+
+/* ─── DOT — gold variant (Class 11) ──────────────────── */
+.tlDotGold {
+  background: linear-gradient(135deg, #D4AF37, #F0CC55);
+  border-color: #080E28;
+  animation: pulsegold 2.5s infinite;
+}
+
+/* ─── CLASS LABEL ─────────────────────────────────────── */
+.tlClass {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #00C9B1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.tlClassGold {
+  color: #D4AF37;
+}
+
+/* ─── STAGE TITLE ─────────────────────────────────────── */
+.tlTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #F1F5FF;
+  margin-bottom: 6px;
+}
+
+/* ─── BULLET ITEMS ────────────────────────────────────── */
+.tlItems {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tlItemText {
+  font-size: 0.72rem;
+  color: rgba(241, 245, 255, 0.5);
+  line-height: 1.4;
+}
+
+.tlItemTextGold {
+  color: #D4AF37;
+  font-weight: 600;
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 860px) {
+  .timeline {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .timeline::before {
+    display: none;
+  }
+
+  .tlDot {
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 60px 16px;
+  }
+
+  .timeline {
+    grid-template-columns: 1fr;
+  }
+}

@@ -169,6 +169,10 @@ export default function WhatIsAP() {
               ✦ EduQuest students average{" "}
               <strong>4.6 / 5</strong> across all AP subjects. 98% score 4 or 5.
             </div>
+
+              <a href="https://test.eduquest.org.in/ap-score-calculator/" className={`${styles.btn} ${styles.btnPrimary} `}>
+              Calculate Your AP Score
+            </a>
           </div>
 
         </div>

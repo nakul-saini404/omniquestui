@@ -1,0 +1,480 @@
+/* ═══════════════════════════════════════════════════════════
+   HeroLSAT.module.css
+   Design tokens (no :root):
+     cream  : #f5f0e8   navy  : #0b1c3d   gold  : #d4a843
+     navy2  : #102454   gold2 : #e8c96a   navy3 : #1a3570
+     ff-head: "Playfair Display", Georgia, serif
+     ff-body: "Plus Jakarta Sans", sans-serif
+═══════════════════════════════════════════════════════════ */
+
+/* ─── KEYFRAMES ─────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.45; }
+}
+
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes slideRight {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+/* ─── SECTION ───────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  background: #0b1c3d;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding-top: 68px;          /* navbar clearance */
+}
+
+/* ─── BACKGROUND LAYERS ─────────────────────────────────── */
+.gridLines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(245, 240, 232, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 240, 232, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: 0;
+}
+
+.geoGlow1 {
+  position: absolute;
+  top: -120px;
+  right: -80px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 168, 67, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.geoGlow2 {
+  position: absolute;
+  bottom: -100px;
+  left: -60px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200, 75, 49, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ornament {
+  position: absolute;
+  top: 80px;
+  right: 10%;
+  width: 320px;
+  height: 320px;
+  border: 1px solid rgba(212, 168, 67, 0.14);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: rotateSlow 40s linear infinite;
+}
+
+.ornament::before {
+  content: '';
+  position: absolute;
+  inset: 24px;
+  border: 1px solid rgba(212, 168, 67, 0.09);
+  border-radius: 50%;
+}
+
+.ornament::after {
+  content: '';
+  position: absolute;
+  inset: 56px;
+  border: 1px solid rgba(212, 168, 67, 0.06);
+  border-radius: 50%;
+}
+
+/* ─── LAYOUT ────────────────────────────────────────────── */
+.inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+/* ─── LEFT — COPY ───────────────────────────────────────── */
+.copy {
+  display: flex;
+  flex-direction: column;
+}
+
+/* badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  background: rgba(212, 168, 67, 0.12);
+  border: 1px solid rgba(212, 168, 67, 0.3);
+  border-radius: 100px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #e8c96a;
+  margin-bottom: 24px;
+  width: fit-content;
+  animation: fadeIn 0.8s ease both;
+}
+
+.badgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d4a843;
+  flex-shrink: 0;
+  animation: pulse 1.8s ease infinite;
+}
+
+/* headline */
+.title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.08;
+  color: #f5f0e8;
+  margin-bottom: 22px;
+  animation: fadeUp 0.9s 0.1s ease both;
+}
+
+.titleLine {
+  display: block;
+}
+
+.titleEm {
+  font-style: italic;
+  color: #e8c96a;
+}
+
+/* animated underline word */
+.underlineWord {
+  position: relative;
+  display: inline-block;
+}
+
+.underlineWord::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, #d4a843, #e8c96a);
+  border-radius: 2px;
+  transition: width 1.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.underlineVisible::after {
+  width: 100%;
+}
+
+/* sub */
+.sub {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 1rem;
+  color: rgba(245, 240, 232, 0.62);
+  line-height: 1.78;
+  max-width: 500px;
+  margin-bottom: 36px;
+  animation: fadeUp 0.9s 0.2s ease both;
+}
+
+/* CTAs */
+.actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+  animation: fadeUp 0.9s 0.3s ease both;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: #d4a843;
+  color: #0b1c3d;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btnPrimary:hover {
+  background: #e8c96a;
+  transform: translateY(-2px);
+}
+
+.btnOutline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: transparent;
+  color: #f5f0e8;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid rgba(245, 240, 232, 0.25);
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.btnOutline:hover {
+  border-color: rgba(245, 240, 232, 0.5);
+  background: rgba(245, 240, 232, 0.06);
+}
+
+/* stats strip */
+.statsStrip {
+  display: flex;
+  gap: 32px;
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(245, 240, 232, 0.1);
+  flex-wrap: wrap;
+  animation: fadeUp 0.9s 0.4s ease both;
+}
+
+.stat {}
+
+.statNum {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #e8c96a;
+  line-height: 1;
+}
+
+.statLabel {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.72rem;
+  color: rgba(245, 240, 232, 0.45);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 5px;
+}
+
+/* ─── RIGHT — PANEL ─────────────────────────────────────── */
+.panel {
+  background: rgba(245, 240, 232, 0.05);
+  border: 1px solid rgba(245, 240, 232, 0.1);
+  border-radius: 18px;
+  padding: 32px 28px;
+  backdrop-filter: blur(6px);
+  animation: fadeUp 0.9s 0.35s ease both;
+}
+
+.panelTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f5f0e8;
+  margin-bottom: 4px;
+}
+
+.panelSub {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.75rem;
+  color: rgba(245, 240, 232, 0.4);
+  margin-bottom: 24px;
+}
+
+/* ─── SVG RING ───────────────────────────────────────────── */
+.ringWrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.ring {
+  position: relative;
+  width: 140px;
+  height: 140px;
+}
+
+.ringBg {
+  stroke: rgba(245, 240, 232, 0.08);
+}
+
+.ringFill {
+  stroke: #d4a843;
+}
+
+.ringText {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.ringNum {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f5f0e8;
+  line-height: 1;
+}
+
+.ringCap {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.62rem;
+  color: rgba(245, 240, 232, 0.4);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ─── SCORE BARS ─────────────────────────────────────────── */
+.barsWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.barRow {}
+
+.barMeta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.barLabel {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.72rem;
+  color: rgba(245, 240, 232, 0.55);
+}
+
+.barPct {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.72rem;
+  color: rgba(245, 240, 232, 0.55);
+}
+
+.barTrack {
+  height: 5px;
+  background: rgba(245, 240, 232, 0.07);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #d4a843, #e8c96a);
+  transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── METRICS GRID ───────────────────────────────────────── */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.metric {
+  background: rgba(245, 240, 232, 0.04);
+  border: 1px solid rgba(245, 240, 232, 0.08);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.metricVal {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #e8c96a;
+  line-height: 1;
+}
+
+.metricLbl {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.65rem;
+  color: rgba(245, 240, 232, 0.4);
+  margin-top: 4px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .panel {
+    display: none;   /* hide panel on tablet/mobile */
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding-top: 60px;
+  }
+
+  .inner {
+    padding: 60px 16px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .statsStrip {
+    gap: 20px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .btnPrimary,
+  .btnOutline {
+    text-align: center;
+    justify-content: center;
+  }
+}

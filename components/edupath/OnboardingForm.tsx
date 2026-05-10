@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from "react";
 import type { StudentData, Country, Grade, Stream } from "@/types/edupath";
-import styles from "./OnboardingForm.module.css";
 
 interface Props {
   onSubmit: (data: StudentData) => void;
@@ -38,6 +37,7 @@ const COUNTRY_CODES = [
   { code: "+34",  flag: "🇪🇸", name: "Spain" },
 ];
 
+// ── Field options with stream alignment hints ─────────────────────────────────
 const FIELD_OPTIONS: {
   value: string;
   label: string;
@@ -106,23 +106,16 @@ const FIELD_OPTIONS: {
   },
 ];
 
+// ── Stream-field alignment warning ───────────────────────────────────────────
 function getStreamFieldWarning(stream: string, field: string): string | null {
   if (!stream || !field || field === "Not decided yet") return null;
   const f = field.toLowerCase();
   const s = stream.toLowerCase();
 
-  if (
-    (f.includes("medicine") || f.includes("biotech") || f.includes("life sciences")) &&
-    s.includes("pcm") &&
-    !s.includes("pcb")
-  ) {
+  if ((f.includes("medicine") || f.includes("biotech") || f.includes("life sciences")) && s.includes("pcm") && !s.includes("pcb")) {
     return "⚠️ Medicine, Biotech, and Life Sciences programs typically require Biology (PCB stream). Consider switching to PCB or confirming your school's curriculum.";
   }
-  if (
-    (f.includes("engineering") || f.includes("computer") || f.includes("ai")) &&
-    s.includes("pcb") &&
-    !s.includes("pcm")
-  ) {
+  if ((f.includes("engineering") || f.includes("computer") || f.includes("ai")) && s.includes("pcb") && !s.includes("pcm")) {
     return "⚠️ Engineering and CS programs require Mathematics (PCM stream). If you're in PCB, you may need to confirm whether Maths is available as an additional subject.";
   }
   if (f.includes("architecture") && !s.includes("pcm") && !s.includes("undecided")) {
@@ -148,6 +141,7 @@ export default function OnboardingForm({ onSubmit }: Props) {
 
   const ccRef = useRef<HTMLDivElement>(null);
 
+  // Close dropdown on outside click
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (ccRef.current && !ccRef.current.contains(e.target as Node)) {
@@ -164,7 +158,8 @@ export default function OnboardingForm({ onSubmit }: Props) {
     );
   };
 
-  const isValidEmail = (val: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+  const isValidEmail = (val: string) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
   const getDigits = (val: string) => val.replace(/\D/g, "");
 
   const handlePhoneChange = (val: string) => {
@@ -181,7 +176,16 @@ export default function OnboardingForm({ onSubmit }: Props) {
   };
 
   const handleSubmit = async () => {
-    if (!name || !email || !phone || !grade || !score || !stream || !field || selectedCountries.length === 0) {
+    if (
+      !name ||
+      !email ||
+      !phone ||
+      !grade ||
+      !score ||
+      !stream ||
+      !field ||
+      selectedCountries.length === 0
+    ) {
       setError("Please fill in all fields and select at least one country.");
       return;
     }
@@ -210,51 +214,46 @@ export default function OnboardingForm({ onSubmit }: Props) {
     });
   };
 
-  const streamFieldWarning   = getStreamFieldWarning(stream, field);
-  const selectedFieldOption  = FIELD_OPTIONS.find((o) => o.value === field);
+  // Derive the stream-field warning
+  const streamFieldWarning = getStreamFieldWarning(stream, field);
 
-  /* ── Loading screen ── */
+  // Derive field hint for currently selected field
+  const selectedFieldOption = FIELD_OPTIONS.find((o) => o.value === field);
+
   if (loading) {
     return (
-      <div className={styles.loadingWrapper}>
-        <div className={styles.spinner} />
-        <div className={styles.loadingText}>
+      <div className="ep-loading">
+        <div className="ep-spinner" />
+        <div className="ep-loading-text">
           Building your personalised dashboard
-          <span className={styles.dots} />
+          <span className="ep-dots" />
         </div>
-        <div className={styles.loadingSub}>
-          Analysing your profile —{" "}
-          {field !== "Not decided yet" ? field : "all fields"} in{" "}
+        <div className="ep-loading-sub">
+          Analysing your profile — {field !== "Not decided yet" ? field : "all fields"} in{" "}
           {selectedCountries.join(", ") || "your countries"}
         </div>
       </div>
     );
   }
 
-  /* ── Form ── */
   return (
-    <div className={styles.onboarding}>
-      <div className={styles.card} style={{maxWidth:"1560px"}}>
-
-        {/* Logo */}
-        <div className={styles.logo}>
-          <a href="/eduQuest">
-            Edu<span className={styles.logoAccent}>Path</span>
-          </a>
+    <div className="ep-onboarding">
+      <div className="ep-card">
+        <div className="ep-logo">
+          Edu<span>Path</span>
         </div>
-
-        <p className={styles.sub}>
+        <p className="ep-sub">
           AI-powered university application planner for students in grades 8–12.
           Fill in your details and we&apos;ll build your personalised dashboard
           with country-specific exams, timelines, subjects, and universities
           for your chosen field.
         </p>
 
-        {/* Name */}
-        <div className={styles.field}>
-          <label className={styles.label}>Your Full Name</label>
+        {/* ── Name ── */}
+        <div className="ep-field">
+          <label className="ep-label">Your Full Name</label>
           <input
-            className={styles.input}
+            className="ep-input"
             type="text"
             placeholder="e.g. Arjun Sharma"
             value={name}
@@ -262,12 +261,12 @@ export default function OnboardingForm({ onSubmit }: Props) {
           />
         </div>
 
-        {/* Email + Phone */}
-        <div className={styles.grid2}>
-          <div className={styles.field}>
-            <label className={styles.label}>Email Address</label>
+        {/* ── Email + Phone ── */}
+        <div className="ep-grid-2">
+          <div className="ep-field">
+            <label className="ep-label">Email Address</label>
             <input
-              className={styles.input}
+              className="ep-input"
               type="email"
               placeholder="e.g. arjun@gmail.com"
               value={email}
@@ -275,21 +274,22 @@ export default function OnboardingForm({ onSubmit }: Props) {
             />
           </div>
 
-          <div className={styles.field}>
-            <label className={styles.label}>Phone Number</label>
-            <div className={styles.phoneWrapper}>
-              <div className={styles.ccDropdown} ref={ccRef}>
+          <div className="ep-field">
+            <label className="ep-label">Phone Number</label>
+            <div className="ep-phone-wrapper">
+              {/* Country Code Picker */}
+              <div className="ep-cc-dropdown" ref={ccRef}>
                 <button
                   type="button"
-                  className={styles.ccTrigger}
+                  className="ep-cc-trigger"
                   onClick={() => setCcOpen((o) => !o)}
                   aria-haspopup="listbox"
                   aria-expanded={ccOpen}
                 >
-                  <span className={styles.ccFlag}>{selectedCC.flag}</span>
-                  <span className={styles.ccCode}>{selectedCC.code}</span>
+                  <span className="ep-cc-flag">{selectedCC.flag}</span>
+                  <span className="ep-cc-code">{selectedCC.code}</span>
                   <svg
-                    className={`${styles.ccArrow}${ccOpen ? ` ${styles.ccArrowOpen}` : ""}`}
+                    className={`ep-cc-arrow${ccOpen ? " open" : ""}`}
                     width="10"
                     height="10"
                     viewBox="0 0 10 10"
@@ -306,26 +306,32 @@ export default function OnboardingForm({ onSubmit }: Props) {
                 </button>
 
                 {ccOpen && (
-                  <ul className={styles.ccMenu} role="listbox">
+                  <ul className="ep-cc-menu" role="listbox">
                     {COUNTRY_CODES.map((cc, i) => (
                       <li
                         key={`${cc.name}-${i}`}
                         role="option"
                         aria-selected={selectedCC.name === cc.name}
-                        className={`${styles.ccOption}${selectedCC.name === cc.name ? ` ${styles.ccOptionActive}` : ""}`}
-                        onClick={() => { setSelectedCC(cc); setCcOpen(false); }}
+                        className={`ep-cc-option${
+                          selectedCC.name === cc.name ? " active" : ""
+                        }`}
+                        onClick={() => {
+                          setSelectedCC(cc);
+                          setCcOpen(false);
+                        }}
                       >
-                        <span className={styles.ccFlag}>{cc.flag}</span>
-                        <span className={styles.ccName}>{cc.name}</span>
-                        <span className={styles.ccNum}>{cc.code}</span>
+                        <span className="ep-cc-flag">{cc.flag}</span>
+                        <span className="ep-cc-name">{cc.name}</span>
+                        <span className="ep-cc-num">{cc.code}</span>
                       </li>
                     ))}
                   </ul>
                 )}
               </div>
 
+              {/* Phone digits */}
               <input
-                className={`${styles.input} ${styles.phoneInput}${phoneError ? ` ${styles.inputError}` : ""}`}
+                className={`ep-input ep-phone-input${phoneError ? " ep-input-error" : ""}`}
                 type="tel"
                 placeholder="10-digit number"
                 value={phone}
@@ -334,29 +340,33 @@ export default function OnboardingForm({ onSubmit }: Props) {
                 aria-label="Phone number"
               />
             </div>
-            {phoneError && <span className={styles.fieldError}>{phoneError}</span>}
+            {phoneError && (
+              <span className="ep-field-error">{phoneError}</span>
+            )}
           </div>
         </div>
 
-        {/* Grade + Score */}
-        <div className={styles.grid2}>
-          <div className={styles.field}>
-            <label className={styles.label}>Current Grade</label>
+        {/* ── Grade + Score ── */}
+        <div className="ep-grid-2">
+          <div className="ep-field">
+            <label className="ep-label">Current Grade</label>
             <select
-              className={styles.input}
+              className="ep-input"
               value={grade}
               onChange={(e) => setGrade(e.target.value)}
             >
               <option value="">Select grade</option>
               {[8, 9, 10, 11, 12].map((g) => (
-                <option key={g} value={g}>{g}th Grade</option>
+                <option key={g} value={g}>
+                  {g}th Grade
+                </option>
               ))}
             </select>
           </div>
-          <div className={styles.field}>
-            <label className={styles.label}>Current % / GPA</label>
+          <div className="ep-field">
+            <label className="ep-label">Current % / GPA</label>
             <input
-              className={styles.input}
+              className="ep-input"
               type="number"
               placeholder="e.g. 88"
               min={40}
@@ -367,61 +377,93 @@ export default function OnboardingForm({ onSubmit }: Props) {
           </div>
         </div>
 
-        {/* Stream */}
-        <div className={styles.field}>
-          <label className={styles.label}>Stream / Subject Focus</label>
+        {/* ── Stream ── */}
+        <div className="ep-field">
+          <label className="ep-label">Stream / Subject Focus</label>
           <select
-            className={styles.input}
+            className="ep-input"
             value={stream}
             onChange={(e) => setStream(e.target.value)}
           >
             <option value="">Select stream</option>
-            <option value="Science (PCM)">Science — PCM (Engineering / Tech / CS)</option>
-            <option value="Science (PCB)">Science — PCB (Medicine / Biology)</option>
+            <option value="Science (PCM)">
+              Science — PCM (Engineering / Tech / CS)
+            </option>
+            <option value="Science (PCB)">
+              Science — PCB (Medicine / Biology)
+            </option>
             <option value="Commerce">Commerce (Business / Finance)</option>
-            <option value="Humanities">Humanities / Arts / Social Sciences</option>
+            <option value="Humanities">
+              Humanities / Arts / Social Sciences
+            </option>
             <option value="Undecided">Undecided / Exploring</option>
           </select>
         </div>
 
-        {/* Field of Study */}
-        <div className={styles.field}>
-          <label className={styles.label}>Intended Field of Study</label>
+        {/* ── Field of Study ── */}
+        <div className="ep-field">
+          <label className="ep-label">Intended Field of Study</label>
           <select
-            className={styles.input}
+            className="ep-input"
             value={field}
             onChange={(e) => setField(e.target.value)}
           >
             <option value="">Select field</option>
             {FIELD_OPTIONS.map((opt) => (
-              <option key={opt.value} value={opt.value}>{opt.label}</option>
+              <option key={opt.value} value={opt.value}>
+                {opt.label}
+              </option>
             ))}
           </select>
 
           {/* Field hint */}
           {selectedFieldOption && field && field !== "Not decided yet" && (
-            <div className={styles.hintBox}>
+            <div
+              style={{
+                marginTop: 6,
+                padding: "7px 10px",
+                borderRadius: 8,
+                background: "rgba(99,102,241,.08)",
+                border: "1px solid rgba(99,102,241,.2)",
+                fontSize: 11,
+                color: "#c4b5fd",
+                lineHeight: 1.5,
+              }}
+            >
               💡 {selectedFieldOption.hint}
             </div>
           )}
 
           {/* Stream-field mismatch warning */}
           {streamFieldWarning && (
-            <div className={styles.warningBox}>
+            <div
+              style={{
+                marginTop: 6,
+                padding: "7px 10px",
+                borderRadius: 8,
+                background: "rgba(245,158,11,.08)",
+                border: "1px solid rgba(245,158,11,.2)",
+                fontSize: 11,
+                color: "#fcd34d",
+                lineHeight: 1.55,
+              }}
+            >
               {streamFieldWarning}
             </div>
           )}
         </div>
 
-        {/* Countries */}
-        <div className={styles.field}>
-          <label className={styles.label}>Countries You Want to Apply To</label>
-          <div className={styles.countryGrid}>
+        {/* ── Countries ── */}
+        <div className="ep-field">
+          <label className="ep-label">Countries You Want to Apply To</label>
+          <div className="ep-country-grid">
             {COUNTRIES.map((c) => (
               <button
                 key={c.value}
                 type="button"
-                className={`${styles.cpill}${selectedCountries.includes(c.value) ? ` ${styles.cpillActive}` : ""}`}
+                className={`ep-cpill${
+                  selectedCountries.includes(c.value) ? " active" : ""
+                }`}
                 onClick={() => toggleCountry(c.value)}
               >
                 {c.label}
@@ -431,9 +473,20 @@ export default function OnboardingForm({ onSubmit }: Props) {
 
           {/* Country-specific hints */}
           {selectedCountries.length > 0 && field && field !== "Not decided yet" && (
-            <div className={styles.countryHintBox}>
+            <div
+              style={{
+                marginTop: 8,
+                padding: "8px 11px",
+                borderRadius: 8,
+                background: "rgba(16,185,129,.07)",
+                border: "1px solid rgba(16,185,129,.2)",
+                fontSize: 11,
+                color: "#6ee7b7",
+                lineHeight: 1.6,
+              }}
+            >
               {selectedCountries.includes("India") && (
-                <div className={styles.countryHintRow}>
+                <div>
                   🇮🇳 <strong>India:</strong>{" "}
                   {field.toLowerCase().includes("engineering") || field.toLowerCase().includes("computer")
                     ? "JEE Main + Advanced for IITs/NITs. BITSAT for BITS Pilani."
@@ -450,7 +503,7 @@ export default function OnboardingForm({ onSubmit }: Props) {
                 </div>
               )}
               {selectedCountries.includes("UK") && (
-                <div className={styles.countryHintRow}>
+                <div style={{ marginTop: selectedCountries.includes("India") ? 4 : 0 }}>
                   🇬🇧 <strong>UK:</strong>{" "}
                   {field.toLowerCase().includes("medicine")
                     ? "UCAT (Jul–Sep) + UCAS Medicine deadline: October 15 — much earlier than other programs."
@@ -465,13 +518,13 @@ export default function OnboardingForm({ onSubmit }: Props) {
                 </div>
               )}
               {selectedCountries.includes("USA") && (
-                <div className={styles.countryHintRow}>
+                <div style={{ marginTop: selectedCountries.includes("India") || selectedCountries.includes("UK") ? 4 : 0 }}>
                   🇺🇸 <strong>USA:</strong> SAT 1400+ strongly recommended. Common App opens August 1.
                   TOEFL 100+ or IELTS 7.0+ required.
                 </div>
               )}
               {selectedCountries.includes("Germany") && (
-                <div className={styles.countryHintRow}>
+                <div style={{ marginTop: 4 }}>
                   🇩🇪 <strong>Germany:</strong> APS Certificate is MANDATORY — apply at aps-india.de
                   immediately (takes 4–8 weeks). Near-zero tuition at public universities.
                 </div>
@@ -480,20 +533,29 @@ export default function OnboardingForm({ onSubmit }: Props) {
           )}
         </div>
 
-        {error && <div className={styles.error}>{error}</div>}
+        {error && <div className="ep-error">{error}</div>}
 
-        <button className={styles.btnPrimary} onClick={handleSubmit}>
+        <button className="ep-btn-primary" onClick={handleSubmit}>
           ✦ Generate My AI Dashboard
         </button>
 
-        <p className={styles.footNote}>
+        <p
+          style={{
+            fontSize: 11,
+            color: "var(--ep-text-muted)",
+            textAlign: "center",
+            marginTop: 12,
+            lineHeight: 1.5,
+          }}
+        >
           Your dashboard will show exams, subjects, timeline, and universities
           specific to <strong>{field || "your chosen field"}</strong> in{" "}
           <strong>
             {selectedCountries.length > 0
               ? selectedCountries.join(", ")
               : "your selected countries"}
-          </strong>.
+          </strong>
+          .
         </p>
       </div>
     </div>

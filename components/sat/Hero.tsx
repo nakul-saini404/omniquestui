@@ -117,8 +117,8 @@ export default function Hero() {
                   </div>
                 ))}
               </div>
-              <a href="/contact-us" className="btn-primary" style={{ width: "100%", textAlign: "center", display: "block" }}>
-                Request a Callback
+              <a href="https://test.eduquest.org.in/sat-score-calculator/" className="btn-primary" style={{ width: "100%", textAlign: "center", display: "block" }}>
+                Calculate Your Score
               </a>
             </div>
           </div>

@@ -1,0 +1,305 @@
+/* ══════════════════════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════════════════════ */
+.revealLeft {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.6s 0.1s ease, transform 0.6s 0.1s ease;
+}
+.revealLeft.in {
+  opacity: 1;
+  transform: none;
+}
+
+.revealRight {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.6s 0.18s ease, transform 0.6s 0.18s ease;
+}
+.revealRight.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ══════════════════════════════════════════════
+   SECTION WRAPPER
+══════════════════════════════════════════════ */
+.hero {
+  background: #0b1c3d;
+  color: #ffffff;
+  padding: 80px 0 88px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Grid Texture Overlay ── */
+.gridTex {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 80px,
+      rgba(255, 255, 255, 0.012) 80px,
+      rgba(255, 255, 255, 0.012) 81px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 80px,
+      rgba(255, 255, 255, 0.012) 80px,
+      rgba(255, 255, 255, 0.012) 81px
+    );
+}
+
+/* ── Layout Container ── */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.heroInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ══════════════════════════════════════════════
+   LEFT COLUMN
+══════════════════════════════════════════════ */
+
+/* ── Badge ── */
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212, 168, 67, 0.15);
+  border: 1px solid rgba(212, 168, 67, 0.35);
+  color: #d4a843;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 22px;
+}
+
+/* ── Headline ── */
+.heroH1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(28px, 3.8vw, 50px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.heroH1 em {
+  color: #d4a843;
+  font-style: italic;
+}
+
+/* ── Sub-heading ── */
+.heroSub {
+  font-size: 15.5px;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 500px;
+  margin-bottom: 32px;
+  line-height: 1.75;
+}
+
+/* ── CTA Buttons ── */
+.heroActions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 44px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 600;
+  font-size: 13.5px;
+  padding: 10px 22px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btnGold {
+  background: #d4a843;
+  color: #0b1c3d;
+}
+.btnGold:hover {
+  background: #e8c96a;
+  transform: translateY(-2px);
+}
+
+.btnGhost {
+  background: transparent;
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+}
+.btnGhost:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ── Stats Bar ── */
+.heroStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.heroStat {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 18px 14px;
+  text-align: center;
+}
+
+.heroStatNum {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #d4a843;
+  display: block;
+  line-height: 1;
+}
+
+.heroStatLbl {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-top: 4px;
+  display: block;
+}
+
+/* ══════════════════════════════════════════════
+   RIGHT COLUMN
+══════════════════════════════════════════════ */
+
+/* ── Image Card ── */
+.heroImgWrap {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.45);
+  position: relative;
+}
+
+.heroImg {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.heroImgTicker {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1a4a8a;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+}
+
+/* ── Feature Mini-Cards ── */
+.heroCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.heroCard {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 16px 14px;
+  text-align: center;
+  transition: all 0.25s ease;
+  cursor: default;
+}
+
+.heroCard:hover {
+  background: rgba(26, 74, 138, 0.25);
+  border-color: rgba(26, 74, 138, 0.5);
+  transform: translateY(-3px);
+}
+
+.heroCardIcon {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.heroCardName {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.heroCardTag {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 3px;
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .heroInner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .heroSub {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 60px 0 72px;
+  }
+
+  .heroActions {
+    flex-direction: column;
+  }
+
+  .btn {
+    justify-content: center;
+  }
+
+  .heroStats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .heroCards {
+    grid-template-columns: 1fr 1fr;
+  }
+}

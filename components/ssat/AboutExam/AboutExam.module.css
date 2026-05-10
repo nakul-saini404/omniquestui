@@ -1,0 +1,188 @@
+/* =============================================
+   AboutExam.module.css
+   "About the Exam" section — SSAT EduQuest
+   No :root usage; all tokens are local vars
+   ============================================= */
+
+/* ── Local design tokens ── */
+.aboutSection {
+  --cream: #f5f0e8;
+  --cream2: #ede7d9;
+  --navy: #0b1c3d;
+  --navy2: #102454;
+  --navy3: #1a3570;
+  --gold: #d4a843;
+  --gold2: #e8c96a;
+  --red: #c84b31;
+  --text2: #4a5568;
+  --text3: #718096;
+  --white: #ffffff;
+  --line: rgba(11, 28, 61, 0.1);
+  --line2: rgba(11, 28, 61, 0.18);
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "Plus Jakarta Sans", sans-serif;
+  --radius: 6px;
+
+  padding: 80px 0;
+  background: var(--white);
+  font-family: var(--ff-body);
+  color: var(--navy);
+}
+
+/* ── Container ── */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Two-column grid ── */
+.whatGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* ── Left prose column ── */
+.whatProse {
+  /* intentionally no extra spacing — children handle it */
+}
+
+.whatProse p {
+  font-size: 15.5px;
+  color: var(--text2);
+  line-height: 1.8;
+  margin-bottom: 18px;
+  font-family: var(--ff-body);
+}
+
+.whatProse h3 {
+  font-family: var(--ff-head);
+  font-size: 22px;
+  color: var(--navy);
+  margin: 28px 0 12px;
+  font-weight: 600;
+}
+
+/* ── Section label pill ── */
+.sectionLabel {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  padding: 4px 12px;
+  background: rgba(212, 168, 67, 0.1);
+  border-radius: 50px;
+  border: 1px solid rgba(212, 168, 67, 0.2);
+  font-family: var(--ff-body);
+}
+
+/* ── Section title ── */
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.sectionTitle em {
+  font-style: italic;
+  color: var(--red);
+}
+
+/* ── Highlight box ── */
+.highlightBox {
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin-top: 28px;
+}
+
+.highlightBox p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+.highlightBox strong {
+  color: var(--gold);
+}
+
+/* ── Right cards column ── */
+.whatCards {
+  display: grid;
+  gap: 16px;
+}
+
+/* ── Individual info card ── */
+.infoCard {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 22px 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: box-shadow 0.2s ease;
+  cursor: default;
+}
+
+.infoCard:hover {
+  box-shadow: 0 4px 20px rgba(11, 28, 61, 0.08);
+}
+
+.infoIcon {
+  font-size: 22px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  line-height: 1;
+}
+
+.infoCardBody {
+  /* wrapper for title + text */
+}
+
+.infoCardTitle {
+  font-weight: 700;
+  font-size: 14.5px;
+  color: var(--navy);
+  margin-bottom: 4px;
+  font-family: var(--ff-body);
+}
+
+.infoCardText {
+  font-size: 13.5px;
+  color: var(--text2);
+  line-height: 1.6;
+  font-family: var(--ff-body);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .whatGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .aboutSection {
+    padding: 56px 0;
+  }
+
+  .sectionTitle {
+    font-size: 26px;
+  }
+
+  .whatProse h3 {
+    font-size: 19px;
+  }
+}

@@ -1,0 +1,208 @@
+/* ══════════════════════════════════════════════
+   YOUR JOURNEY — YourJourney.module.css
+   No :root usage — all tokens inlined as literals
+══════════════════════════════════════════════ */
+
+/* ── Section wrapper ── */
+.process {
+  background: #ede7d9;
+  padding: 90px 24px;
+}
+
+.sectionInner {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* ── Reveal animation ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ══════════════════════════════════════════════
+   SECTION HEADER
+══════════════════════════════════════════════ */
+.secHeaderCenter {
+  text-align: center;
+}
+
+.secHeaderCenter .secSub {
+  margin: 0 auto;
+}
+
+.secBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  border-radius: 100px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.secBadgeNavy {
+  background: rgba(11, 28, 61, 0.07);
+  border: 1px solid rgba(11, 28, 61, 0.18);
+  color: #1a3570;
+}
+
+.secTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: #0b1c3d;
+  margin-bottom: 14px;
+}
+
+.secTitle em {
+  font-style: italic;
+  color: #d4a843;
+}
+
+.secSub {
+  font-size: 0.95rem;
+  color: #4a5568;
+  line-height: 1.75;
+  max-width: 560px;
+}
+
+.divider {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, #d4a843, #e8c96a);
+  border-radius: 2px;
+  margin: 20px auto;
+}
+
+/* ══════════════════════════════════════════════
+   PROCESS STEPS
+══════════════════════════════════════════════ */
+.processSteps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 52px;
+  position: relative;
+}
+
+/* Horizontal connector line between step circles */
+.processSteps::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: rgba(11, 28, 61, 0.18);
+}
+
+/* ── Individual step ── */
+.processStep {
+  text-align: center;
+  position: relative;
+}
+
+/* ── Step circle ── */
+.processStepNum {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #0b1c3d;
+  color: #f5f0e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 auto 16px;
+  position: relative;
+  z-index: 1;
+  /* ring that masks the connector line behind the circle */
+  box-shadow: 0 0 0 6px #ede7d9;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
+}
+
+/* Active step — gold circle */
+.processStep.active .processStepNum {
+  background: #d4a843;
+  color: #0b1c3d;
+}
+
+/* Hover lift on any step */
+.processStep:hover .processStepNum {
+  transform: translateY(-4px);
+  box-shadow: 0 0 0 6px #ede7d9, 0 8px 20px rgba(11, 28, 61, 0.15);
+}
+
+/* ── Step labels ── */
+.processStepTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0b1c3d;
+  margin-bottom: 6px;
+}
+
+.processStepBody {
+  font-size: 0.76rem;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════ */
+@media (max-width: 760px) {
+  .process {
+    padding: 60px 16px;
+  }
+
+  /* Switch to vertical timeline on mobile */
+  .processSteps {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /* Replace horizontal line with a vertical one */
+  .processSteps::before {
+    top: 0;
+    bottom: 0;
+    left: 27px;
+    right: auto;
+    width: 1px;
+    height: auto;
+  }
+
+  .processStep {
+    text-align: left;
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    column-gap: 20px;
+    align-items: start;
+  }
+
+  .processStepNum {
+    margin: 0;
+    grid-row: 1 / 3;
+  }
+
+  .processStepTitle {
+    align-self: end;
+  }
+
+  .processStepBody {
+    grid-column: 2;
+  }
+}

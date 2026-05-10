@@ -1,0 +1,197 @@
+/* =============================================
+   RootCauseAnalysis.module.css
+   "Root Cause Analysis" section — SSAT EduQuest
+   No :root; all tokens scoped to .failSection
+   ============================================= */
+
+/* ── Local design tokens ── */
+.failSection {
+  --cream: #f5f0e8;
+  --navy: #0b1c3d;
+  --gold: #d4a843;
+  --red: #c84b31;
+  --text2: #4a5568;
+  --white: #ffffff;
+  --line: rgba(11, 28, 61, 0.1);
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "Plus Jakarta Sans", sans-serif;
+
+  background: var(--white);
+  padding: 80px 0;
+  font-family: var(--ff-body);
+  color: var(--navy);
+}
+
+/* ── Container ── */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Section head ── */
+.sectionHead {
+  margin-bottom: 52px;
+}
+
+/* ── Section label pill ── */
+.sectionLabel {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  padding: 4px 12px;
+  background: rgba(212, 168, 67, 0.1);
+  border-radius: 50px;
+  border: 1px solid rgba(212, 168, 67, 0.2);
+  font-family: var(--ff-body);
+}
+
+/* ── Section title ── */
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.sectionTitle em {
+  font-style: italic;
+  color: var(--red);
+}
+
+/* ── Section subtitle ── */
+.sectionSub {
+  font-size: 16px;
+  color: var(--text2);
+  max-width: 560px;
+  line-height: 1.7;
+  font-family: var(--ff-body);
+}
+
+/* ═══════════════════════════════════════════
+   FAIL CARD GRID  (3 columns)
+═══════════════════════════════════════════ */
+
+.failGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+/* ── Individual fail card ── */
+.failCard {
+  border-radius: 12px;
+  padding: 28px;
+  border-left: 4px solid var(--red);
+  border-top: 1px solid rgba(200, 75, 49, 0.15);
+  border-right: 1px solid rgba(200, 75, 49, 0.1);
+  border-bottom: 1px solid rgba(200, 75, 49, 0.1);
+  background: rgba(200, 75, 49, 0.04);
+  transition: transform 0.2s ease;
+}
+
+.failCard:hover {
+  transform: translateY(-3px);
+}
+
+.failIcon {
+  font-size: 32px;
+  margin-bottom: 14px;
+  display: block;
+  line-height: 1;
+}
+
+.failTitle {
+  font-family: var(--ff-head);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.failText {
+  font-size: 13.5px;
+  color: var(--text2);
+  line-height: 1.7;
+  font-family: var(--ff-body);
+}
+
+/* ═══════════════════════════════════════════
+   PULL-QUOTE BLOCK
+═══════════════════════════════════════════ */
+
+.failQuote {
+  background: var(--navy);
+  border-radius: 12px;
+  padding: 36px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative opening quotation mark */
+.failQuote::before {
+  content: "\201C";
+  font-family: var(--ff-head);
+  font-size: 80px;
+  color: rgba(212, 168, 67, 0.2);
+  position: absolute;
+  top: 10px;
+  left: 30px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.failQuoteText {
+  font-family: var(--ff-head);
+  font-size: 20px;
+  font-style: italic;
+  color: var(--white);
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+.failQuoteText strong {
+  color: var(--gold);
+  font-style: normal;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .failGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .failSection {
+    padding: 56px 0;
+  }
+
+  .sectionTitle {
+    font-size: 26px;
+  }
+
+  .failQuote {
+    padding: 28px 24px;
+  }
+
+  .failQuoteText {
+    font-size: 17px;
+  }
+
+  .failQuote::before {
+    font-size: 56px;
+    top: 6px;
+    left: 16px;
+  }
+}

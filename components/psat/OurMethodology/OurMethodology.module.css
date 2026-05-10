@@ -1,0 +1,352 @@
+/* ─── ANIMATIONS ──────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes barGrow {
+  from { width: 0; }
+}
+
+/* ─── SECTION ─────────────────────────────────────────── */
+.section {
+  padding: 80px 24px;
+  background: linear-gradient(170deg, #080E28, #05091A);
+}
+
+.sectionInner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ─── TWO-COLUMN GRID ─────────────────────────────────── */
+.approachGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 52px;
+  align-items: start;
+}
+
+/* ════════════════════════════════════════════════════════
+   LEFT COLUMN
+════════════════════════════════════════════════════════ */
+
+/* ─── BADGE ───────────────────────────────────────────── */
+.sectionBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  border-radius: 100px;
+  background: rgba(0, 201, 177, 0.08);
+  border: 1px solid rgba(0, 201, 177, 0.2);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #00C9B1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.sectionBadge.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ─── HEADING ─────────────────────────────────────────── */
+.sectionTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: #F1F5FF;
+  margin-bottom: 14px;
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.65s ease 0.08s, transform 0.65s ease 0.08s;
+}
+
+.sectionTitle.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.titleAccent {
+  background: linear-gradient(135deg, #00C9B1, #2355C8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── SUBTITLE ────────────────────────────────────────── */
+.sectionSub {
+  font-size: 0.95rem;
+  color: rgba(241, 245, 255, 0.5);
+  line-height: 1.8;
+  margin-bottom: 36px;
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.65s ease 0.16s, transform 0.65s ease 0.16s;
+}
+
+.sectionSub.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ─── STEPS TIMELINE ──────────────────────────────────── */
+.approachSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.step {
+  display: flex;
+  gap: 0;
+  position: relative;
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.step.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ─── STEP LINE (number + connector) ─────────────────── */
+.stepLine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 52px;
+  flex-shrink: 0;
+}
+
+.stepNum {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00C9B1, #2355C8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 900;
+  color: white;
+  flex-shrink: 0;
+  z-index: 1;
+  box-shadow: 0 0 0 4px #080E28;
+}
+
+.stepConnector {
+  flex: 1;
+  width: 2px;
+  background: rgba(0, 201, 177, 0.15);
+  min-height: 30px;
+}
+
+/* ─── STEP BODY ───────────────────────────────────────── */
+.stepBody {
+  padding: 0 0 28px 4px;
+  flex: 1;
+}
+
+.stepTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #F1F5FF;
+  margin-bottom: 6px;
+  padding-top: 6px;
+}
+
+.stepDesc {
+  font-size: 0.82rem;
+  color: rgba(241, 245, 255, 0.5);
+  line-height: 1.7;
+}
+
+/* ════════════════════════════════════════════════════════
+   RIGHT COLUMN
+════════════════════════════════════════════════════════ */
+
+/* ─── SCORE IMPROVEMENT VISUAL ────────────────────────── */
+.approachVisual {
+  background: #0C1535;
+  border: 1px solid rgba(241, 245, 255, 0.1);
+  border-radius: 24px;
+  padding: 32px;
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.65s ease 0.1s, transform 0.65s ease 0.1s;
+}
+
+.approachVisual.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.avTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #F1F5FF;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* ─── SCORE IMPROVE LIST ──────────────────────────────── */
+.scoreImprove {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.siItem {}
+
+.siLabel {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: rgba(241, 245, 255, 0.5);
+  margin-bottom: 6px;
+}
+
+.siBefore {
+  font-weight: 700;
+}
+
+.siAfter {
+  font-weight: 700;
+  color: #00C9B1;
+}
+
+.siTrack {
+  height: 8px;
+  background: rgba(241, 245, 255, 0.08);
+  border-radius: 99px;
+  overflow: hidden;
+  position: relative;
+}
+
+.siBeforeBar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 99px;
+}
+
+.siAfterBar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: linear-gradient(135deg, #00C9B1, #2355C8);
+  border-radius: 99px;
+  width: 0;
+  transition: width 1.6s ease;
+}
+
+.siAfterBar.animated {
+  /* width is applied inline when animated */
+}
+
+.siBadge {
+  margin-top: 6px;
+  font-size: 0.68rem;
+  color: #00C9B1;
+  font-weight: 700;
+}
+
+/* ─── PROGRAMS GRID ───────────────────────────────────── */
+.programsWrap {
+  margin-top: 20px;
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.65s ease 0.2s, transform 0.65s ease 0.2s;
+}
+
+.programsWrap.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.programsLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(241, 245, 255, 0.4);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.programsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.progCard {
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: rgba(0, 201, 177, 0.06);
+  border: 1px solid rgba(0, 201, 177, 0.18);
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.progCard:hover {
+  border-color: rgba(0, 201, 177, 0.35);
+  background: rgba(0, 201, 177, 0.1);
+}
+
+.progName {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #F1F5FF;
+  margin-bottom: 4px;
+}
+
+.progDesc {
+  font-size: 0.75rem;
+  color: rgba(241, 245, 255, 0.5);
+  line-height: 1.6;
+}
+
+.progTag {
+  margin-top: 8px;
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 50px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #D4AF37;
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 900px) {
+  .approachGrid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 60px 16px;
+  }
+
+  .programsGrid {
+    grid-template-columns: 1fr;
+  }
+}

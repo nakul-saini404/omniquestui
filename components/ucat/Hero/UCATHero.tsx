@@ -90,10 +90,11 @@ export default function UCATHero() {
             </button>
             <button
               className={styles.btnOutline}
-              onClick={scrollToEnroll}
-              aria-label="Download free UCAT guide"
+              aria-label="Ucat Calculator"
             >
-              ⬇ Download Free Guide
+               <a href="https://test.eduquest.org.in/ucat-score-calculator/" >
+            Calculate Your UCAT Score
+          </a>
             </button>
           </div>
 

@@ -343,8 +343,8 @@ export default function HeroSection() {
             >
               📞 Book Free Demo
             </a>
-            <a href="#features" className={styles.btnOutline}>
-              Explore Course →
+            <a href="https://test.eduquest.org.in/act-score-calculator/" className={styles.btnOutline}>
+              Calculate Your Act Score
             </a>
           </div>
 
