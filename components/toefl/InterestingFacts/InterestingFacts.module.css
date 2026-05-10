@@ -1,0 +1,232 @@
+
+/* ══════════════════════════════════════════════
+   SCROLL REVEAL — header & bonus banner
+══════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ══════════════════════════════════════════════
+   SECTION WRAPPER
+══════════════════════════════════════════════ */
+.facts {
+  padding: 80px 0;
+  background: #ede7d9;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ══════════════════════════════════════════════
+   SECTION HEADER
+══════════════════════════════════════════════ */
+.header {
+  text-align: center;
+}
+
+/* ── Gold label with leading rule ── */
+.secLabel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 14px;
+}
+.secLabel::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: #d4a843;
+  flex-shrink: 0;
+}
+
+.heading {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(22px, 3vw, 38px);
+  font-weight: 700;
+  color: #0b1c3d;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+.heading em {
+  color: #1a4a8a;
+  font-style: italic;
+}
+
+.subheading {
+  font-size: 15.5px;
+  color: #4a5568;
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+/* ══════════════════════════════════════════════
+   FACTS GRID
+══════════════════════════════════════════════ */
+.factsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 48px;
+}
+
+/* ── Individual Fact Card ── */
+.factCard {
+  background: #ffffff;
+  border: 1px solid rgba(11, 28, 61, 0.09);
+  border-radius: 10px;
+  padding: 24px 22px;
+  position: relative;
+  overflow: hidden;
+
+  /* Entry state */
+  opacity: 0;
+  transform: translateY(24px) scale(0.97);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s,
+    border-color 0.25s;
+}
+.factCard.in {
+  opacity: 1;
+  transform: none;
+}
+.factCard:hover {
+  box-shadow: 0 14px 40px rgba(11, 28, 61, 0.1);
+  border-color: rgba(26, 74, 138, 0.3);
+  transform: translateY(-4px);
+}
+
+/* ── Left Blue Accent Bar ── */
+.factCardAccent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, #1a4a8a, #2a6aaa);
+  border-radius: 2px 0 0 2px;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.45s 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.factCard.in .factCardAccent {
+  transform: scaleY(1);
+}
+
+/* ── Shimmer Sweep on Hover ── */
+.factCardShimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(26, 74, 138, 0.06) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  background-position: 200% 0;
+  transition: background-position 0.6s ease;
+  pointer-events: none;
+  border-radius: inherit;
+}
+.factCard:hover .factCardShimmer {
+  background-position: -200% 0;
+}
+
+/* ── Card Content ── */
+.factNum {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: rgba(26, 74, 138, 0.12);
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: -0.03em;
+}
+
+.factTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0b1c3d;
+  margin-bottom: 8px;
+}
+
+.factBody {
+  font-size: 13px;
+  color: #4a5568;
+  line-height: 1.65;
+}
+
+/* ══════════════════════════════════════════════
+   BONUS BANNER
+══════════════════════════════════════════════ */
+.factBonus {
+  margin-top: 32px;
+  padding: 24px 28px;
+  background: #0b1c3d;
+  border-radius: 10px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.factBonusIcon {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.factBonusText {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.factBonusText strong {
+  color: #d4a843;
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════ */
+@media (max-width: 720px) {
+  .factsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .facts {
+    padding: 60px 0;
+  }
+
+  .factsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .factBonus {
+    flex-direction: column;
+    text-align: center;
+  }
+}

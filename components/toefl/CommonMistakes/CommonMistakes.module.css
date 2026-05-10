@@ -1,0 +1,250 @@
+/* ═══════════════════════════════════════════
+   CommonMistakes.module.css
+   Colors:
+     Navy   #0b1c3d | Navy2 #102454
+     Gold   #d4a843 | Gold2 #e8c96a
+     Orange #e05c1e | OrangeLight #e8a96a
+═══════════════════════════════════════════ */
+
+/* ── Layout ── */
+.fail {
+  padding: 88px 0;
+  background: #102454;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Grid texture overlay ── */
+.gridTex {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 80px,
+      rgba(255, 255, 255, 0.012) 80px,
+      rgba(255, 255, 255, 0.012) 81px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 80px,
+      rgba(255, 255, 255, 0.012) 80px,
+      rgba(255, 255, 255, 0.012) 81px
+    );
+}
+
+/* ── Section label ── */
+.secLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 14px;
+}
+
+.secLabel::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: #d4a843;
+}
+
+/* ── Header wrapper ── */
+.headerWrap {
+  text-align: center;
+}
+
+/* ── Heading ── */
+.heading {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(24px, 3.2vw, 42px);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.heading em {
+  color: #d4a843;
+  font-style: italic;
+}
+
+/* ── Subtitle ── */
+.failSub {
+  font-size: 15.5px;
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 540px;
+  margin: 0 auto 52px;
+  line-height: 1.75;
+  text-align: center;
+}
+
+/* ── Cards grid ── */
+.failGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+/* ── Individual card ── */
+.failCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 24px 20px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(-24px);
+  transition:
+    background 0.28s,
+    border-color 0.28s,
+    box-shadow 0.28s,
+    transform 0.28s ease,
+    opacity 0.5s ease;
+}
+
+.failCard.in {
+  opacity: 1;
+  transform: none;
+}
+
+.failCard:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(212, 168, 67, 0.28);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px);
+}
+
+/* ── Warning accent bar ── */
+.failCardWarning {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, #e05c1e, #e8a96a);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.45s 0.15s ease;
+}
+
+.failCard.in .failCardWarning {
+  transform: scaleY(1);
+}
+
+/* ── Card icon ── */
+.failIcon {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+/* ── Card title ── */
+.cardTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 8px;
+  line-height: 1.32;
+}
+
+/* ── Card body ── */
+.cardBody {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.67;
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── CTA row ── */
+.failCtaRow {
+  margin-top: 48px;
+  text-align: center;
+  padding: 32px;
+  background: rgba(212, 168, 67, 0.1);
+  border: 1px solid rgba(212, 168, 67, 0.2);
+  border-radius: 12px;
+}
+
+.ctaText {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 16px;
+  line-height: 1.7;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Gold button ── */
+.btnGold {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 13.5px;
+  padding: 10px 22px;
+  border-radius: 6px;
+  text-decoration: none;
+  background: #d4a843;
+  color: #0b1c3d;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btnGold:hover {
+  background: #e8c96a;
+  transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .failGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .failGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .failCtaRow {
+    padding: 24px 16px;
+  }
+}

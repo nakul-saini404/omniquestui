@@ -1,0 +1,249 @@
+/* ══════════════════════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════════════════════ */
+.revealLeft {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.6s 0.1s ease, transform 0.6s 0.1s ease;
+}
+.revealLeft.in {
+  opacity: 1;
+  transform: none;
+}
+
+.revealRight {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.6s 0.18s ease, transform 0.6s 0.18s ease;
+}
+.revealRight.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ══════════════════════════════════════════════
+   SECTION WRAPPER
+══════════════════════════════════════════════ */
+.about {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.aboutInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+/* ══════════════════════════════════════════════
+   LEFT COLUMN — TEXT
+══════════════════════════════════════════════ */
+
+/* ── Section Label ── */
+.secLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 14px;
+}
+.secLabel::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: #d4a843;
+  flex-shrink: 0;
+}
+
+/* ── Heading ── */
+.aboutH2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(22px, 3vw, 38px);
+  font-weight: 700;
+  color: #0b1c3d;
+  letter-spacing: -0.02em;
+  line-height: 1.18;
+  margin-bottom: 14px;
+}
+.aboutH2 em {
+  color: #1a4a8a;
+  font-style: italic;
+}
+
+/* ── Body Paragraphs ── */
+.aboutP {
+  font-size: 15px;
+  color: #4a5568;
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+
+/* ── Feature Cards ── */
+.aboutFeatures {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.aboutFeat {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 8px;
+  background: #f5f0e8;
+  border: 1px solid rgba(11, 28, 61, 0.08);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.aboutFeat:hover {
+  box-shadow: 0 8px 24px rgba(11, 28, 61, 0.08);
+  transform: translateY(-2px);
+}
+
+.aboutFeatIcon {
+  font-size: 22px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.aboutFeatTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0b1c3d;
+  margin-bottom: 4px;
+}
+
+.aboutFeatBody {
+  font-size: 13px;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════════════
+   RIGHT COLUMN — IMAGE
+══════════════════════════════════════════════ */
+.aboutImgWrap {
+  position: relative;
+}
+
+/* ── Animated Blob ── */
+.aboutImgBlob {
+  position: absolute;
+  top: -30px;
+  right: -40px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(26, 74, 138, 0.12) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  animation: blobFloat 7s ease-in-out infinite alternate;
+}
+
+@keyframes blobFloat {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(-12px, 16px) scale(1.08);
+  }
+}
+
+/* ── Image Card ── */
+.aboutImgCard {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(11, 28, 61, 0.12);
+  position: relative;
+}
+
+.aboutImg {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.aboutImgCard:hover .aboutImg {
+  transform: scale(1.04);
+}
+
+/* ── Dark Gradient Overlay ── */
+.aboutImgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(170deg, transparent 50%, rgba(11, 28, 61, 0.5) 100%);
+  pointer-events: none;
+}
+
+/* ── Floating Badge ── */
+.aboutImgBadge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 10px;
+  padding: 10px 16px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+}
+
+.aboutImgBadgeIcon {
+  font-size: 22px;
+}
+
+.aboutImgBadgeNum {
+  display: block;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0b1c3d;
+}
+
+.aboutImgBadgeSub {
+  display: block;
+  font-size: 10.5px;
+  color: #718096;
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .aboutInner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .aboutImgBlob {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .about {
+    padding: 60px 0;
+  }
+
+  .aboutImg {
+    height: 260px;
+  }
+}
