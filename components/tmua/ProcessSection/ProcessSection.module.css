@@ -1,0 +1,255 @@
+/* ============================================================
+   ProcessSection.module.css
+   Cream background — tokens scoped to .process, no :root
+
+   Animation pattern: base .regStep is fully visible (SSR safe).
+   .regStepVisible is added client-side after mount, triggering
+   the fadeUp keyframe via --step-index custom property stagger.
+   ============================================================ */
+
+.process {
+  --navy:      #0a2240;
+  --navy-light:#1a3a5c;
+  --gold:      #c9972b;
+  --gold2:     #e8b44b;
+  --red:       #c8102e;
+  --white:     #ffffff;
+  --cream:     #f5f3ee;
+  --text2:     #4a5568;
+  --line:      rgba(10, 34, 64, 0.12);
+  --ff-head:   "Playfair Display", Georgia, serif;
+  --ff-body:   "DM Sans", sans-serif;
+  --shadow:    0 4px 24px rgba(10, 34, 64, 0.09);
+  --shadow-lg: 0 12px 40px rgba(10, 34, 64, 0.15);
+
+  background: var(--cream);
+  padding: 76px 24px;
+}
+
+/* ── Container ── */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* ── Tag ── */
+.tag {
+  display: inline-block;
+  font-family: var(--ff-body);
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* ── Heading + sub ── */
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.sectionSub {
+  font-family: var(--ff-body);
+  font-size: 15.5px;
+  color: var(--text2);
+  max-width: 640px;
+  margin-bottom: 48px;
+  line-height: 1.8;
+}
+
+/* ════════════════════════════════════════
+   STEP TRACKER
+════════════════════════════════════════ */
+
+.regSteps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  position: relative;
+  margin-bottom: 44px;
+}
+
+/* Horizontal connector line behind step circles */
+.connector {
+  position: absolute;
+  top: 24px; /* vertically centred on the 50px circle */
+  left: calc(12.5% + 1px);   /* starts at centre of first circle */
+  right: calc(12.5% + 1px);  /* ends at centre of last circle */
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--navy));
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── Individual step card — SSR-safe base (no opacity:0) ── */
+.regStep {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 26px 18px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  transition: box-shadow 0.22s, transform 0.22s;
+}
+
+.regStep:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+/* Client-only animation class — added after mount */
+.regStepVisible {
+  animation: fadeUp 0.5s ease both;
+  animation-delay: calc(var(--step-index, 0) * 90ms);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Step number circle */
+.stepNum {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--ff-head);
+  font-size: 19px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+  border: 3px solid var(--gold);
+  position: relative;
+  z-index: 2;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.regStep:hover .stepNum {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--navy);
+}
+
+.stepTitle {
+  font-family: var(--ff-head);
+  font-size: 15px;
+  color: var(--navy);
+  margin: 0 0 7px 0;
+}
+
+.stepBody {
+  font-family: var(--ff-body);
+  font-size: 12.5px;
+  color: var(--text2);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ════════════════════════════════════════
+   SCORING + UNIVERSITIES CARDS
+════════════════════════════════════════ */
+
+.scoringGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.scoringCard {
+  background: var(--navy);
+  border-radius: 10px;
+  padding: 28px;
+}
+
+.scoringCardTitle {
+  font-family: var(--ff-head);
+  font-size: 18px;
+  color: var(--gold);
+  font-weight: 700;
+  margin: 0 0 16px 0;
+}
+
+/* Arrow list */
+.scoringList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.scoringItem {
+  font-family: var(--ff-body);
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  padding: 2px 0;
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.scoringItem::before {
+  content: "→";
+  color: var(--gold);
+  flex-shrink: 0;
+  font-size: 13px;
+}
+
+/* Sub-group labels inside university card */
+.uniGroupLabel {
+  font-family: var(--ff-body);
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(201, 151, 43, 0.9);
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.uniGroupLabelSpaced {
+  margin-top: 14px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .regSteps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .connector {
+    display: none;
+  }
+
+  .scoringGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .process {
+    padding: 52px 16px;
+  }
+
+  .regSteps {
+    grid-template-columns: 1fr;
+  }
+}

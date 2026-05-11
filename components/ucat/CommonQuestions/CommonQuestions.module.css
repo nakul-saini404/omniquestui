@@ -1,0 +1,199 @@
+/* ── SECTION ──────────────────────────────────────────────────── */
+/* Matches .section (no .alt) → plain white */
+.section {
+  padding: 80px 0;
+  background: var(--white);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── SECTION HEADER — centred ─────────────────────────────────── */
+.sectionHeader {
+  margin-bottom: 48px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.sectionHeader.headerVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sectionTag {
+  display: inline-block;
+  font-family: var(--ff-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1.18;
+  margin-bottom: 14px;
+}
+
+.sectionSub {
+  font-family: var(--ff-body);
+  font-size: 16px;
+  color: var(--text2);
+  line-height: 1.75;
+  margin: 0 auto;
+  max-width: 520px;
+}
+
+/* ── FAQ WRAP ─────────────────────────────────────────────────── */
+.faqWrap {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* ── FAQ ITEM ─────────────────────────────────────────────────── */
+.faqItem {
+  /* border-bottom matches original --border: #D4DCE8 */
+  border-bottom: 1px solid #d4dce8;
+
+  /* Entrance state */
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.faqItem.itemVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── BUTTON ───────────────────────────────────────────────────── */
+.faqBtn {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 22px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.15s ease;
+  border-radius: 4px;
+}
+
+.faqBtn:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* Subtle gold left-border highlight when open */
+.faqBtnOpen {
+  padding-left: 12px;
+  border-left: 3px solid var(--gold);
+  transition: padding-left 0.2s ease, border-left 0.2s ease;
+}
+
+/* ── QUESTION TEXT ────────────────────────────────────────────── */
+.faqQ {
+  font-family: var(--ff-body);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.4;
+  flex: 1;
+  transition: color 0.2s ease;
+}
+
+.faqBtnOpen .faqQ {
+  color: var(--navy);
+}
+
+/* ── ICON CIRCLE ──────────────────────────────────────────────── */
+.faqIcon {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 50%;
+  /* gold-pale + gold-border from original */
+  background: #fdf8ec;
+  border: 1px solid #e8c96a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  /* gold from original */
+  color: var(--gold);
+  flex-shrink: 0;
+  line-height: 1;
+  font-weight: 400;
+  transition: transform 0.28s ease, background 0.2s ease;
+}
+
+/* Rotate + to × when open */
+.faqIconOpen {
+  transform: rotate(45deg);
+  background: var(--gold);
+  color: var(--white);
+}
+
+/* ── ANSWER WRAPPER — smooth height transition ────────────────── */
+.faqAnswerWrap {
+  max-height: 0;
+  overflow: hidden;
+  /* Smooth expand/collapse — height driven by JS */
+  transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── ANSWER TEXT ──────────────────────────────────────────────── */
+.faqAnswer {
+  font-family: var(--ff-body);
+  font-size: 14px;
+  /* muted: #5A6A85 */
+  color: #5a6a85;
+  line-height: 1.75;
+  padding-bottom: 22px;
+  /* Slight indent to align under the question text */
+  padding-right: 44px;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .faqQ {
+    font-size: 15px;
+  }
+
+  .faqAnswer {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .faqBtn {
+    padding: 18px 0;
+  }
+
+  .faqQ {
+    font-size: 14px;
+  }
+}

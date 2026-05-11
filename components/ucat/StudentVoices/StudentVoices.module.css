@@ -1,0 +1,215 @@
+/* ── SECTION ──────────────────────────────────────────────────── */
+/* Matches .section.alt → background: #F7F9FC */
+.section {
+  padding: 80px 0;
+  background: #f7f9fc;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── SECTION HEADER ───────────────────────────────────────────── */
+.sectionHeader {
+  margin-bottom: 48px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.sectionHeader.headerVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sectionTag {
+  display: inline-block;
+  font-family: var(--ff-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1.18;
+  margin-bottom: 14px;
+}
+
+.sectionSub {
+  font-family: var(--ff-body);
+  font-size: 16px;
+  color: var(--text2);
+  max-width: 600px;
+  line-height: 1.75;
+}
+
+/* ── GRID ─────────────────────────────────────────────────────── */
+.testiGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+/* ── CARD BASE ────────────────────────────────────────────────── */
+.testiCard {
+  position: relative;
+  background: var(--white);
+  border: 1.5px solid var(--line2);
+  border-radius: var(--radius);
+  padding: 26px;
+  overflow: hidden;
+
+  /* Entrance state */
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease,
+    box-shadow 0.22s ease;
+}
+
+.testiCard.cardVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.testiCard:hover {
+  box-shadow: 0 8px 36px rgba(11, 28, 61, 0.1);
+  transform: translateY(-3px);
+}
+
+/* ── BIG DECORATIVE QUOTE MARK ────────────────────────────────── */
+/* Matches original HTML ::before — large serif " in top-right */
+.bigQuote {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  font-family: var(--ff-head);
+  font-size: 64px;
+  /* gold-light from original: #F5D98A */
+  color: #f5d98a;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+
+  /* Fade in slightly after the card with a gentle scale */
+  opacity: 0;
+  transform: scale(0.7) translateY(-6px);
+  transition:
+    opacity 0.45s ease 0.25s,
+    transform 0.45s ease 0.25s;
+}
+
+.testiCard.cardVisible .bigQuote {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* ── STARS ────────────────────────────────────────────────────── */
+.stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 12px;
+}
+
+.star {
+  /* gold token */
+  color: var(--gold);
+  font-size: 15px;
+  letter-spacing: 2px;
+  display: inline-block;
+
+  /* Each star pops in sequentially — nth-child via CSS */
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* When card visible, stars animate in one by one */
+.testiCard.cardVisible .star:nth-child(1) { opacity: 1; transform: scale(1); transition-delay: 0.18s; }
+.testiCard.cardVisible .star:nth-child(2) { opacity: 1; transform: scale(1); transition-delay: 0.24s; }
+.testiCard.cardVisible .star:nth-child(3) { opacity: 1; transform: scale(1); transition-delay: 0.30s; }
+.testiCard.cardVisible .star:nth-child(4) { opacity: 1; transform: scale(1); transition-delay: 0.36s; }
+.testiCard.cardVisible .star:nth-child(5) { opacity: 1; transform: scale(1); transition-delay: 0.42s; }
+
+/* ── QUOTE TEXT ───────────────────────────────────────────────── */
+.testiText {
+  font-family: var(--ff-body);
+  font-size: 14px;
+  /* muted: #5A6A85 from original */
+  color: #5a6a85;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  font-style: italic;
+}
+
+/* ── AUTHOR ROW ───────────────────────────────────────────────── */
+.testiAuthor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Avatar circle — navy-mid: #162B56 from original */
+.testiAv {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #162b56;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ff-body);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  flex-shrink: 0;
+  letter-spacing: 0.5px;
+}
+
+.testiName {
+  font-family: var(--ff-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+
+.testiLoc {
+  font-family: var(--ff-body);
+  font-size: 12px;
+  color: #5a6a85;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .testiGrid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .testiGrid {
+    max-width: 100%;
+  }
+}

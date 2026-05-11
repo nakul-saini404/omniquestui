@@ -1,0 +1,301 @@
+/* ACTTestDates.module.css */
+/* Tokens: --cream, --navy, --gold, --red, --white,
+           --text2, --line, --line2, --ff-head        */
+
+.section {
+  padding: 80px 24px;
+  background: var(--cream);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Eyebrow ── */
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* ── Heading ── */
+.title {
+  font-family: var(--ff-head);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+/* ── Sub ── */
+.sub {
+  font-size: 16px;
+  color: var(--text2);
+  max-width: 580px;
+  margin-bottom: 40px;
+  line-height: 1.7;
+}
+
+/* ── Table wrapper — horizontal scroll on mobile ── */
+.tableWrap {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  margin-bottom: 24px;
+}
+
+/* ── Table ── */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 620px;
+}
+
+/* ── Header ── */
+.th {
+  background: var(--navy);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 14px 20px;
+  text-align: left;
+  border-bottom: 2px solid var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  white-space: nowrap;
+}
+
+.thFirst {
+  border-left: 4px solid var(--gold);
+}
+
+/* ── Body rows ── */
+.row {
+  transition: background 0.15s;
+}
+
+.row:not(:last-child) td {
+  border-bottom: 1px solid var(--line2);
+}
+
+.row:last-child td {
+  border-bottom: none;
+}
+
+/* ── Cells ── */
+.td {
+  padding: 16px 20px;
+  font-size: 14px;
+  color: var(--text2);
+  vertical-align: middle;
+}
+
+.tdBold {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* ── Test date cell ── */
+.tdDate {
+  padding: 16px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  vertical-align: middle;
+  white-space: nowrap;
+  border-left: 4px solid var(--line2);
+}
+
+/* ── Footer attribution ── */
+.footer {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text2);
+  padding: 16px 20px;
+  background: color-mix(in srgb, var(--navy) 6%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.footerIcon {
+  font-size: 16px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.link {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.link:hover {
+  opacity: 0.75;
+}
+
+/* ── Responsive ── */
+@media (max-width: 560px) {
+  .section {
+    padding: 56px 16px;
+  }
+}/* ACTTestDates.module.css */
+/* Tokens: --cream, --navy, --gold, --red, --white,
+           --text2, --line, --line2, --ff-head        */
+
+.section {
+  padding: 80px 24px;
+  background: var(--cream);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Eyebrow ── */
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* ── Heading ── */
+.title {
+  font-family: var(--ff-head);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+/* ── Sub ── */
+.sub {
+  font-size: 16px;
+  color: var(--text2);
+  max-width: 580px;
+  margin-bottom: 40px;
+  line-height: 1.7;
+}
+
+/* ── Table wrapper — horizontal scroll on mobile ── */
+.tableWrap {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  margin-bottom: 16px;
+}
+
+/* ── Table ── */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 620px;
+}
+
+/* ── Header ── */
+.th {
+  background: var(--navy);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 14px 20px;
+  text-align: left;
+  border-bottom: 2px solid var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  white-space: nowrap;
+}
+
+.thFirst {
+  border-left: 4px solid var(--gold);
+}
+
+/* ── Body rows ── */
+.row {
+  transition: background 0.15s;
+}
+
+.row:not(:last-child) td {
+  border-bottom: 1px solid var(--line2);
+}
+
+.row:last-child td {
+  border-bottom: none;
+}
+
+/* ── Cells ── */
+.td {
+  padding: 16px 20px;
+  font-size: 14px;
+  color: var(--text2);
+  vertical-align: middle;
+}
+
+.tdBold {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* ── Test date cell ── */
+.tdDate {
+  padding: 16px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  vertical-align: middle;
+  white-space: nowrap;
+  border-left: 4px solid var(--line2);
+}
+
+/* ── Footnotes ── */
+.footnote {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+/* ── Link ── */
+.link {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.link:hover {
+  opacity: 0.75;
+}
+
+/* ── Responsive ── */
+@media (max-width: 560px) {
+  .section {
+    padding: 56px 16px;
+  }
+}

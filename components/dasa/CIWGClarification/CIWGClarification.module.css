@@ -1,0 +1,211 @@
+/* ═══════════════════════════
+   CIWG CLARIFICATION — CIWGClarification.module.css
+   Fonts: Playfair Display + Plus Jakarta Sans
+═══════════════════════════ */
+
+/* ── Section ── */
+.ciwg {
+  padding: 88px 0;
+  background: #ffffff;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: #0b1c3d;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Section Head ── */
+.sectionHead {
+  margin-bottom: 48px;
+}
+
+.sectionHead h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(24px, 3.2vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0b1c3d;
+  line-height: 1.18;
+  margin-bottom: 10px;
+}
+
+.center {
+  text-align: center;
+}
+
+/* ── Section Label ── */
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 14px;
+}
+
+.sectionLabel::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: #d4a843;
+}
+
+/* ── Fade-up Animation ── */
+.fadeUp {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fadeUp.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Inner Grid ── */
+.ciwgInner {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* ── Question Block ── */
+.ciwgQ {
+  background: #0b1c3d;
+  border-radius: 12px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ciwgQ::before {
+  content: "?";
+  position: absolute;
+  right: -10px;
+  top: -20px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 160px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.04);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.ciwgQ p {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 18px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.ciwgQ p strong {
+  color: #d4a843;
+  font-style: normal;
+}
+
+/* ── Answer Block ── */
+.ciwgAnswer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ciwgAnswerHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.ciwgYes {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #1a6b2e;
+}
+
+.ciwgAnswer p {
+  font-size: 15px;
+  color: #4a5568;
+  line-height: 1.8;
+}
+
+.ciwgAnswer p strong {
+  color: #0b1c3d;
+}
+
+/* ── Note Box ── */
+.ciwgNote {
+  background: #e2d9c8;
+  border-left: 3px solid #d4a843;
+  border-radius: 0 6px 6px 0;
+  padding: 14px 18px;
+  font-size: 13.5px;
+  color: #4a5568;
+  line-height: 1.65;
+}
+
+.ciwgNote strong {
+  color: #0b1c3d;
+}
+
+/* ── Checklist ── */
+.ciwgChecklist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.ciwgCheck {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: #4a5568;
+  line-height: 1.55;
+}
+
+.ciwgCheckIcon {
+  width: 20px;
+  height: 20px;
+  background: rgba(26, 107, 46, 0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: #1a6b2e;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .ciwg {
+    padding: 56px 0;
+  }
+
+  .ciwgInner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .ciwgQ p {
+    font-size: 16px;
+  }
+
+  .ciwgYes {
+    font-size: 28px;
+  }
+}

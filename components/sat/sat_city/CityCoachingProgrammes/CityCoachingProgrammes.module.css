@@ -1,0 +1,264 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   CityCoachingProgrammes.module.css
+   Layout: 70 / 30 split — content left, animated "Online" word right
+───────────────────────────────────────────────────────────────────────────── */
+
+/* ── Zoom pulse keyframes ── */
+@keyframes zoomPulse {
+  0%   { transform: translateX(8px) scale(1);    opacity: 1;    }
+  40%  { transform: translateX(8px) scale(0.72); opacity: 0.35; }
+  60%  { transform: translateX(8px) scale(0.72); opacity: 0.35; }
+  100% { transform: translateX(8px) scale(1);    opacity: 1;    }
+}
+
+/* ── SECTION ── */
+.section {
+  padding: 96px 0;
+  background: var(--white, #fff);
+  overflow: hidden;
+}
+
+/* ── INNER WRAPPER — 70 / 30 split ── */
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 70fr 30fr;
+  gap: 0;
+  align-items: center;
+  min-height: 480px;
+}
+
+/* ══════════════════════════════════════
+   LEFT COLUMN — 70%
+══════════════════════════════════════ */
+.left {
+  padding-right: 56px;
+  border-right: 1px solid var(--line2, #e8e4dc);
+}
+
+.label {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold, #d4a843);
+  font-weight: 700;
+  margin: 0 0 18px;
+}
+
+.heading {
+  font-family: var(--ff-head, "Georgia", serif);
+  font-size: clamp(1.9rem, 3.2vw, 2.8rem);
+  color: var(--navy, #0a1628);
+  line-height: 1.18;
+  margin: 0 0 20px;
+  font-weight: 800;
+}
+.heading em {
+  font-style: italic;
+  color: var(--gold, #d4a843);
+}
+
+.desc {
+  font-size: clamp(15px, 1.4vw, 16px);
+  color: var(--text2, #4a4a5a);
+  line-height: 1.72;
+  max-width: 520px;
+  margin: 0 0 36px;
+}
+
+/* ── Feature grid (kept for opt-in) ── */
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin: 0 0 40px;
+  border-top: 1px solid var(--line2, #e8e4dc);
+  border-left: 1px solid var(--line2, #e8e4dc);
+}
+.featureItem {
+  padding: 18px 20px;
+  border-right: 1px solid var(--line2, #e8e4dc);
+  border-bottom: 1px solid var(--line2, #e8e4dc);
+}
+.featureValue {
+  font-family: var(--ff-head, "Georgia", serif);
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  font-weight: 800;
+  color: var(--navy, #0a1628);
+  letter-spacing: -0.01em;
+  margin: 0 0 4px;
+}
+.featureLabel {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text3, #8a8a9a);
+  font-weight: 600;
+}
+
+/* ── CTA Row ── */
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.btnPrimary,
+.btnOutline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 28px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--ff-body, sans-serif);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.btnPrimary {
+  background: var(--gold, #d4a843);
+  color: var(--navy, #0a1628);
+}
+.btnPrimary:hover {
+  background: var(--gold2, #c49a38);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(212, 168, 67, 0.32);
+}
+
+.btnOutline {
+  background: transparent;
+  border: 1.5px solid var(--line2, #e8e4dc);
+  color: var(--navy, #0a1628);
+}
+.btnOutline:hover {
+  border-color: var(--gold, #d4a843);
+  color: var(--gold, #d4a843);
+  background: rgba(212, 168, 67, 0.05);
+}
+
+/* ══════════════════════════════════════
+   RIGHT COLUMN — 30%
+══════════════════════════════════════ */
+.right {
+  padding-left: 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+  min-height: 320px;
+}
+
+/* Vertical rule decoration */
+.vRule {
+  position: absolute;
+  left: 0;
+  top: 10%;
+  height: 80%;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--line2, #e8e4dc) 20%,
+    var(--line2, #e8e4dc) 80%,
+    transparent
+  );
+}
+
+/* ── Word stack ── */
+.wordStack {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── The single animated word ── */
+.word {
+  display: block;
+  font-family: var(--ff-head, "Georgia", serif);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  user-select: none;
+  color: var(--gold, #d4a843);
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+
+  /* zoom-out then zoom-in, loops forever */
+  animation: zoomPulse 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform-origin: left center;
+}
+
+/* ── Counter ── */
+.counter {
+  margin-top: 32px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--text3, #8a8a9a);
+  font-weight: 600;
+  font-family: var(--ff-body, sans-serif);
+  text-transform: uppercase;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE — Tablet (≤ 960px)
+══════════════════════════════════════ */
+@media (max-width: 960px) {
+  .inner {
+    grid-template-columns: 1fr;
+    min-height: unset;
+    gap: 48px;
+  }
+  .left {
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--line2, #e8e4dc);
+    padding-bottom: 40px;
+  }
+  .right {
+    padding-left: 0;
+    flex-direction: row;
+    align-items: center;
+    min-height: unset;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .vRule { display: none; }
+  .word  { font-size: clamp(2rem, 5vw, 2.8rem); }
+  .counter { margin-top: 0; }
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE — Mobile (≤ 600px)
+══════════════════════════════════════ */
+@media (max-width: 600px) {
+  .section { padding: 64px 0; }
+  .inner   { padding: 0 16px; gap: 36px; }
+  .word    { font-size: clamp(1.7rem, 7vw, 2.4rem); }
+  .ctaRow  { flex-direction: column; align-items: stretch; }
+  .btnPrimary,
+  .btnOutline { text-align: center; width: 100%; }
+  .featureGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE — Extra small (≤ 380px)
+══════════════════════════════════════ */
+@media (max-width: 380px) {
+  .word    { font-size: 1.6rem; }
+  .heading { font-size: 1.65rem; }
+  .featureGrid { grid-template-columns: 1fr 1fr; }
+  .featureItem { padding: 14px 12px; }
+  .featureValue { font-size: 1rem; }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .word { animation: none; transform: translateX(8px) scale(1); opacity: 1; }
+}

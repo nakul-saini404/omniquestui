@@ -1,0 +1,359 @@
+/* ── HERO SECTION ────────────────────────────────────────────────── */
+.hero {
+  background: linear-gradient(
+    135deg,
+    var(--navy)  0%,
+    #162B56      50%,
+    #1A3A6B      100%
+  );
+  padding: 90px 0 70px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* decorative orbs via pseudo-like divs (handled in JSX) */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -120px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200, 152, 42, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200, 152, 42, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── LAYOUT ──────────────────────────────────────────────────────── */
+.heroInner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 56px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── FADE ANIMATIONS ─────────────────────────────────────────────── */
+.heroLeft {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.55s ease 0.1s, transform 0.55s ease 0.1s;
+}
+.heroCard {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.55s ease 0.3s, transform 0.55s ease 0.3s;
+}
+.fadeIn {
+  opacity: 1;
+  transform: none;
+}
+.fadeInDelay {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── BADGE ───────────────────────────────────────────────────────── */
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(200, 152, 42, 0.18);
+  border: 1px solid rgba(200, 152, 42, 0.5);
+  color: #F5D98A;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 24px;
+  letter-spacing: 0.8px;
+}
+
+/* ── HEADLINE ────────────────────────────────────────────────────── */
+.heroH1 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: clamp(36px, 4.5vw, 58px);
+  color: #fff;
+  margin-bottom: 20px;
+  font-weight: 900;
+  line-height: 1.12;
+}
+.em {
+  color: var(--gold, #d4a843);
+  font-style: normal;
+}
+
+/* ── SUBTITLE ────────────────────────────────────────────────────── */
+.heroSub {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.72);
+  margin-bottom: 36px;
+  line-height: 1.75;
+  max-width: 560px;
+}
+
+/* ── CTAS ────────────────────────────────────────────────────────── */
+.heroCtas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.btnGold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold, #d4a843);
+  color: var(--navy, #0b1c3d);
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s, transform 0.15s;
+}
+.btnGold:hover {
+  background: #B8880F;
+  transform: translateY(-1px);
+}
+
+.btnOutline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  padding: 13px 28px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btnOutline:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ── STATS ───────────────────────────────────────────────────────── */
+.heroStats {
+  display: flex;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 36px;
+}
+
+.heroStat {
+  flex: 1;
+  text-align: center;
+  padding: 0 16px;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+.heroStat:last-child {
+  border-right: none;
+}
+
+.num {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--gold, #d4a843);
+  line-height: 1;
+}
+.lbl {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 5px;
+}
+
+/* ── CARD ────────────────────────────────────────────────────────── */
+.heroCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 32px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.cardTitle {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold, #d4a843);
+  margin-bottom: 20px;
+}
+
+/* ── CARD FORM ───────────────────────────────────────────────────── */
+.heroCardForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.heroInput,
+.heroSelect {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 13px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+.heroInput::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+.heroInput:focus,
+.heroSelect:focus {
+  border-color: var(--gold, #d4a843);
+}
+.heroSelect {
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.45)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+.heroSelect option {
+  background: var(--navy, #0b1c3d);
+  color: #fff;
+}
+
+.cardCta {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold, #d4a843);
+  color: var(--navy, #0b1c3d);
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s, transform 0.15s;
+}
+.cardCta:hover:not(:disabled) {
+  background: #B8880F;
+  transform: translateY(-1px);
+}
+.cardCta:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── TRUST LINE ──────────────────────────────────────────────────── */
+.heroCardTrust {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* ── SUCCESS STATE ───────────────────────────────────────────────── */
+.successState {
+  text-align: center;
+  padding: 20px 0;
+}
+.successIcon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+.successTitle {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.successText {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.75;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .heroInner {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+  .heroCard {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 64px 0 56px;
+  }
+  .heroInner {
+    padding: 0 20px;
+  }
+  .heroH1 {
+    font-size: 32px;
+  }
+  .heroSub {
+    font-size: 15px;
+  }
+  .heroCtas {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .btnGold,
+  .btnOutline {
+    width: 100%;
+    justify-content: center;
+  }
+  .heroStats {
+    flex-wrap: wrap;
+  }
+  .heroStat {
+    flex: 0 0 50%;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 12px 0;
+  }
+  .heroStat:nth-child(odd) {
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .heroStat:last-child,
+  .heroStat:nth-last-child(2):nth-child(odd) {
+    border-bottom: none;
+  }
+  .heroCard {
+    padding: 24px 18px;
+  }
+}

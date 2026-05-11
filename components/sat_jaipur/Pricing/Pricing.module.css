@@ -1,0 +1,117 @@
+.section {
+  background: var(--cream2);
+  padding: 96px 0;
+}
+
+/* ── Split layout ── */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  margin-top: 48px;
+}
+
+/* ── Left ── */
+.heading {
+  font-family: var(--ff-head);
+  font-size: clamp(28px, 3vw, 40px);
+  color: var(--navy);
+  margin: 12px 0 16px;
+  line-height: 1.2;
+}
+
+.sub {
+  font-size: 15px;
+  color: var(--text2);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 480px;
+}
+
+.bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bullets li {
+  font-size: 14px;
+  color: var(--text2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bullets li::before {
+  content: "✓";
+  color: var(--gold);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.note {
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--text3);
+}
+
+.note a {
+  color: var(--red);
+  font-weight: 600;
+}
+
+/* ── Right: word animation ── */
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wordBox {
+  position: relative;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.word {
+  position: absolute;
+  font-family: var(--ff-head);
+  font-size: clamp(52px, 7vw, 90px);
+  font-weight: 900;
+  color: var(--navy);
+  letter-spacing: -2px;
+  text-align: center;
+  opacity: 0;
+  animation: wordCycle 4.5s infinite;
+}
+
+/* Each word is visible for 1.5s out of every 4.5s cycle */
+@keyframes wordCycle {
+  0%        { opacity: 0; transform: translateY(12px); }
+  8%        { opacity: 1; transform: translateY(0); }
+  28%       { opacity: 1; transform: translateY(0); }
+  38%       { opacity: 0; transform: translateY(-12px); }
+  100%      { opacity: 0; transform: translateY(-12px); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .right {
+    order: -1;
+  }
+
+  .wordBox {
+    height: 120px;
+  }
+}

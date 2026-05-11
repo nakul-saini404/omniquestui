@@ -1,0 +1,265 @@
+/* ── SECTION ──────────────────────────────────────────────────── */
+/* Matches .section (white) from the original HTML */
+.section {
+  padding: 80px 0;
+  background: var(--white);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── TWO-COLUMN LAYOUT ────────────────────────────────────────── */
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* ── COLUMN FADE-IN ───────────────────────────────────────────── */
+.col {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.col.colVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── SECTION HEADER TEXT ──────────────────────────────────────── */
+.sectionTag {
+  display: inline-block;
+  font-family: var(--ff-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1.18;
+  margin-bottom: 14px;
+}
+
+.sectionSub {
+  font-family: var(--ff-body);
+  font-size: 16px;
+  color: var(--text2);
+  max-width: 520px;
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TIMELINE
+═══════════════════════════════════════════════════════════════ */
+
+.timelineWrap {
+  position: relative;
+  padding-left: 52px;
+  margin-top: 28px;
+}
+
+/* The vertical line — drawn as a growing pseudo-element */
+.timelineWrap::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 10px;
+  bottom: 12px;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    var(--gold) 0%,
+    rgba(11, 28, 61, 0.12) 100%
+  );
+  transform-origin: top center;
+  transform: scaleY(0);
+  transition: transform 1.1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+}
+
+/* When the parent column becomes visible, grow the line */
+.col.colVisible .timelineWrap::before {
+  transform: scaleY(1);
+}
+
+/* ── TIMELINE ITEM ────────────────────────────────────────────── */
+.tlItem {
+  position: relative;
+  margin-bottom: 36px;
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  opacity: 0;
+  transform: translateX(-16px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.tlItem:last-child {
+  margin-bottom: 0;
+}
+
+.tlItem.tlItemVisible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── DOT ──────────────────────────────────────────────────────── */
+.tlDot {
+  position: absolute;
+  left: -40px;
+  top: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 3px solid var(--white);
+  box-shadow: 0 0 0 3px var(--gold);
+  flex-shrink: 0;
+  /* Pulse ring animation — plays when item is visible */
+  transition: transform 0.2s ease;
+}
+
+.tlItem.tlItemVisible .tlDot {
+  animation: dotPulse 2.4s ease-out forwards;
+  animation-delay: inherit;
+}
+
+@keyframes dotPulse {
+  0%   { box-shadow: 0 0 0 3px var(--gold); }
+  40%  { box-shadow: 0 0 0 7px rgba(200, 152, 42, 0.25); }
+  80%  { box-shadow: 0 0 0 11px rgba(200, 152, 42, 0.07); }
+  100% { box-shadow: 0 0 0 3px var(--gold); }
+}
+
+/* ── CONTENT ──────────────────────────────────────────────────── */
+.tlContent {
+  flex: 1;
+}
+
+.tlMonth {
+  font-family: var(--ff-body);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.tlTitle {
+  font-family: var(--ff-body);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.tlDesc {
+  font-family: var(--ff-body);
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CHALLENGE CARDS (right column)
+═══════════════════════════════════════════════════════════════ */
+
+.diffGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.diffCard {
+  border-radius: var(--radius);
+  padding: 22px;
+  border: 1.5px solid var(--line2);
+  background: var(--white);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.45s ease, transform 0.45s ease, box-shadow 0.2s ease;
+}
+
+.diffCard.diffCardVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.diffCard:hover {
+  box-shadow: 0 8px 32px rgba(11, 28, 61, 0.1);
+  transform: translateY(-2px);
+}
+
+.dLabel {
+  font-family: var(--ff-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.diffHeading {
+  font-family: var(--ff-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.diffBody {
+  font-family: var(--ff-body);
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.65;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .twoCol {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .timelineWrap {
+    padding-left: 44px;
+  }
+
+  .tlDot {
+    left: -34px;
+  }
+
+  .timelineWrap::before {
+    left: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .sectionTitle {
+    font-size: 24px;
+  }
+}

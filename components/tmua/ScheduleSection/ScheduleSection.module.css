@@ -1,0 +1,168 @@
+/* ============================================================
+   ScheduleSection.module.css
+   White background — tokens scoped to .schedule, no :root
+   ============================================================ */
+
+.schedule {
+  --navy:    #0a2240;
+  --gold:    #c9972b;
+  --gold2:   #e8b44b;
+  --red:     #c8102e;
+  --white:   #ffffff;
+  --cream:   #f5f3ee;
+  --text2:   #4a5568;
+  --line:    rgba(10, 34, 64, 0.12);
+  --line2:   rgba(10, 34, 64, 0.07);
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "DM Sans", sans-serif;
+  --shadow:  0 4px 24px rgba(10, 34, 64, 0.08);
+  --shadow-lg: 0 12px 40px rgba(10, 34, 64, 0.13);
+
+  background: var(--white);
+  padding: 76px 24px;
+}
+
+/* ── Container ── */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* ── Tag ── */
+.tag {
+  display: inline-block;
+  font-family: var(--ff-body);
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* ── Heading + sub ── */
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.sectionSub {
+  font-family: var(--ff-body);
+  font-size: 15.5px;
+  color: var(--text2);
+  max-width: 640px;
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+
+/* ── Two-column table grid ── */
+.datesTables {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+/* ── Block (label + table) ── */
+.dtBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.dtBlockTitle {
+  font-family: var(--ff-head);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 0 0;
+  padding-bottom: 9px;
+  border-bottom: 2px solid var(--gold);
+  margin-bottom: 14px;
+}
+
+/* ── Table ── */
+.dtTable {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: var(--ff-body);
+  /* rounded corners need overflow:hidden on a wrapper — apply shadow there */
+  box-shadow: var(--shadow);
+}
+
+/* thead */
+.dtTable thead {
+  background: var(--navy);
+}
+
+.dtTable thead th {
+  color: var(--white);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 13px 16px;
+  text-align: left;
+  border-bottom: 2px solid var(--gold);
+}
+
+.dtTable thead th:first-child {
+  border-left: 3px solid var(--gold);
+}
+
+/* tbody */
+.dtTable tbody tr {
+  transition: background 0.15s;
+}
+
+.dtTable tbody tr:hover {
+  background: rgba(10, 34, 64, 0.03);
+}
+
+.dtTable tbody tr:not(:last-child) td {
+  border-bottom: 1px solid var(--line2);
+}
+
+.dtTable td {
+  padding: 13px 16px;
+  font-size: 13.5px;
+  color: var(--text2);
+  line-height: 1.5;
+}
+
+.dtTable td:first-child {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* Gold accent on date / deadline cells */
+.highlight {
+  color: var(--gold) !important;
+  font-weight: 700 !important;
+}
+
+/* ── Responsive ── */
+@media (max-width: 760px) {
+  .datesTables {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .schedule {
+    padding: 52px 16px;
+  }
+
+  .dtTable td,
+  .dtTable thead th {
+    padding: 10px 12px;
+    font-size: 12.5px;
+  }
+}

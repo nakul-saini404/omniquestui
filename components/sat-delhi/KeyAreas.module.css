@@ -1,0 +1,184 @@
+/*
+  KeyAreas.module.css
+  ════════════════════════════════════════════════════════════════
+  All colour / typography / radius tokens come from global.css.
+  This file only owns: layout, component shapes, and motion.
+  ════════════════════════════════════════════════════════════════
+*/
+
+/* ── Section shell ──────────────────────────────────────────── */
+.section {
+  background: var(--cream2);
+  padding: 96px 0;
+}
+
+/* ── Max-width wrapper ──────────────────────────────────────── */
+.inner {
+  max-width: var(--max);
+}
+
+/* ── 2 × 2 card grid ───────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+/* ── Area card ──────────────────────────────────────────────── */
+.card {
+  background: var(--white);
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: border-color 0.22s, box-shadow 0.22s;
+  animation: cardReveal 0.55s ease both;
+}
+
+.card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 4px 24px rgba(212, 168, 67, 0.1);
+}
+
+@keyframes cardReveal {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Top row: icon + weight tag */
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+/* Weight tag: nudge font size down slightly from global .tag default */
+.weightTag {
+  font-size: 10.5px !important;
+  letter-spacing: 0.06em;
+}
+
+/* Card title */
+.cardTitle {
+  font-family: var(--ff-head);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 10px;
+  line-height: 1.25;
+}
+
+/* Card body text */
+.cardBody {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.72;
+  margin-bottom: 18px;
+  flex: 1;
+}
+
+/* Topic chip row */
+.topicRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: auto;
+}
+
+.topicChip {
+  background: var(--cream2);
+  border: 1px solid var(--line2);
+  color: var(--navy);
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+
+.topicChip:hover {
+  background: var(--cream3);
+}
+
+/* ── Insight strip ──────────────────────────────────────────── */
+.insightStrip {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  background: var(--navy);
+  border-radius: 12px;
+  padding: 26px 30px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.insightBar {
+  width: 3px;
+  align-self: stretch;
+  background: var(--gold);
+  border-radius: 2px;
+  flex-shrink: 0;
+  min-height: 40px;
+}
+
+.insightBody {
+  flex: 1;
+  min-width: 200px;
+}
+
+.insightTitle {
+  font-family: var(--ff-head);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0 0 8px;
+}
+
+.insightText {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* btn-primary inside dark strip — no override needed,
+   global .btn-primary works on any background */
+
+/* ════════════════════════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════════════════════════ */
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .insightStrip {
+    padding: 22px 20px;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 72px 0; }
+
+  .insightStrip {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .insightBar {
+    width: 100%;
+    height: 3px;
+    min-height: unset;
+    align-self: auto;
+  }
+}

@@ -1,0 +1,443 @@
+/* ============================================================
+   StudentStories.module.css
+   Design: luxury-editorial, cream + deep-navy + antique-gold
+   Fonts: Playfair Display (headings) + Plus Jakarta Sans (body)
+   ============================================================ */
+
+/* ── Variables ── */
+.section {
+  --cream: #f5f0e8;
+  --cream2: #ede7d9;
+  --cream3: #e2d9c8;
+  --navy: #0b1c3d;
+  --navy2: #102454;
+  --gold: #d4a843;
+  --gold2: #e8c96a;
+  --gold-faint: rgba(212, 168, 67, 0.08);
+  --gold-border: rgba(212, 168, 67, 0.28);
+  --text: #0b1c3d;
+  --text2: #4a5568;
+  --text3: #718096;
+  --line: rgba(11, 28, 61, 0.1);
+  --line2: rgba(11, 28, 61, 0.16);
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "Plus Jakarta Sans", sans-serif;
+  --radius: 8px;
+  --max: 1140px;
+
+  position: relative;
+  background: var(--cream2);
+  border-top: 1px solid var(--line2);
+  border-bottom: 1px solid var(--line2);
+  padding: 6rem 2rem;
+  overflow: hidden;
+  font-family: var(--ff-body);
+}
+
+/* ── Decorative background glyphs ── */
+.bgGlyph1,
+.bgGlyph2 {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bgGlyph1 {
+  width: 560px;
+  height: 560px;
+  top: -120px;
+  right: -160px;
+  background: radial-gradient(
+    circle,
+    rgba(212, 168, 67, 0.07) 0%,
+    transparent 70%
+  );
+}
+
+.bgGlyph2 {
+  width: 400px;
+  height: 400px;
+  bottom: -80px;
+  left: -100px;
+  background: radial-gradient(
+    circle,
+    rgba(11, 28, 61, 0.06) 0%,
+    transparent 70%
+  );
+}
+
+/* ── Inner wrapper ── */
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.header {
+  margin-bottom: 3rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+.title {
+  font-family: var(--ff-head);
+  font-size: clamp(1.8rem, 3.5vw, 2.55rem);
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.85rem;
+}
+
+.titleAccent {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.divider {
+  width: 40px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin-bottom: 1.1rem;
+}
+
+.subtitle {
+  font-size: 0.92rem;
+  color: var(--text2);
+  line-height: 1.75;
+  max-width: 520px;
+}
+
+.subtitle strong {
+  color: var(--navy);
+}
+
+/* ── Stat strip ── */
+.statStrip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line2);
+  border: 1px solid var(--line2);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.stat {
+  background: var(--cream);
+  padding: 1.3rem 1.25rem;
+  text-align: center;
+}
+
+.statNum {
+  font-family: var(--ff-head);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.66rem;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-weight: 600;
+  margin-top: 0.35rem;
+}
+
+/* ── Cards grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+/* ── Card ── */
+.card {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--line2);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.5rem 1.5rem;
+  overflow: hidden;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  cursor: default;
+
+  /* staggered entrance */
+  opacity: 0;
+  transform: translateY(18px);
+  animation: cardIn 0.55s ease forwards;
+  animation-delay: calc(var(--i) * 80ms);
+}
+
+@keyframes cardIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card:hover,
+.cardActive {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(11, 28, 61, 0.1);
+}
+
+/* Top gold rule on hover */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    var(--gold2),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.card:hover::before,
+.cardActive::before {
+  opacity: 1;
+}
+
+/* ── Score badge (top-right) ── */
+.scoreBadge {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+}
+
+.scoreNum {
+  font-family: var(--ff-head);
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--navy);
+}
+
+.improvement {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #2d7a4f;
+  background: rgba(45, 122, 79, 0.1);
+  border: 1px solid rgba(45, 122, 79, 0.25);
+  border-radius: 20px;
+  padding: 0.1rem 0.45rem;
+  letter-spacing: 0.03em;
+}
+
+/* ── Stars ── */
+.stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 0.7rem;
+  color: var(--gold);
+}
+
+.starIcon {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+/* ── Quote ── */
+.quote {
+  position: relative;
+  font-size: 0.84rem;
+  color: var(--text2);
+  line-height: 1.72;
+  font-style: italic;
+  margin-bottom: 1.25rem;
+  padding-right: 3.5rem; /* space for score badge */
+}
+
+.openQuote {
+  font-family: var(--ff-head);
+  font-size: 2.8rem;
+  line-height: 0;
+  vertical-align: -0.55rem;
+  color: var(--gold);
+  opacity: 0.35;
+  margin-right: 1px;
+}
+
+/* ── Author ── */
+.author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.avatar {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ff-head);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.03em;
+}
+
+.authorInfo {
+  min-width: 0;
+}
+
+.authorName {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.authorSchool {
+  font-size: 0.71rem;
+  color: var(--text3);
+  margin-top: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Hover shimmer line ── */
+.shimmer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--gold2) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+}
+
+.card:hover .shimmer,
+.cardActive .shimmer {
+  transform: translateX(100%);
+}
+
+/* ── CTA row ── */
+.cta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 0.78rem 2rem;
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-decoration: none;
+  font-family: var(--ff-body);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.ctaBtn:hover {
+  background: var(--gold2);
+  transform: translateY(-2px);
+}
+
+.ctaBtnGhost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1.5px solid var(--line2);
+  color: var(--navy);
+  background: transparent;
+  padding: 0.78rem 2rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  font-size: 0.88rem;
+  text-decoration: none;
+  font-family: var(--ff-body);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.ctaBtnGhost:hover {
+  border-color: var(--gold);
+  background: var(--gold-faint);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .statStrip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .section {
+    padding: 4rem 1.25rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .statStrip {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .quote {
+    padding-right: 0;
+  }
+
+  .scoreBadge {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+}

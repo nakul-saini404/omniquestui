@@ -1,0 +1,301 @@
+.hero {
+  padding: 72px 0 80px;
+  background: var(--cream);
+  overflow: hidden;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  right: -120px;
+  top: -80px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 168, 67, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 60px;
+  align-items: center;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.eyebrowLine {
+  width: 28px;
+  height: 2px;
+  background: var(--red);
+}
+
+.eyebrowText {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.h1 {
+  font-family: var(--ff-head);
+  font-size: clamp(38px, 4.5vw, 60px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  color: var(--navy);
+  margin-bottom: 20px;
+}
+
+.h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.sub {
+  font-size: 16px;
+  color: var(--text2);
+  line-height: 1.85;
+  margin-bottom: 12px;
+  max-width: 500px;
+}
+
+.micro {
+  font-size: 13px;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 32px;
+  letter-spacing: 0.04em;
+}
+
+.snippet {
+  background: var(--navy);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin: 24px 0 32px;
+  border-left: 4px solid var(--gold);
+}
+
+.snippet strong {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.snippet p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.stats {
+  display: flex;
+  gap: 28px;
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.statNum {
+  font-family: var(--ff-head);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.statNum span {
+  color: var(--red);
+}
+
+.statLbl {
+  font-size: 11px;
+  color: var(--text3);
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+/* ── Card ── */
+.card {
+  background: var(--white);
+  border: 1px solid var(--line2);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(11, 28, 61, 0.1);
+}
+
+.cardHeader {
+  background: var(--navy);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.cardIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.cardHeaderText h3 {
+  font-family: var(--ff-head);
+  font-size: 17px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.cardHeaderText p {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 2px;
+}
+
+.cardBody {
+  padding: 24px;
+}
+
+.cardLabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--red);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.cardItems {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.cardItems li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.55;
+}
+
+.cardItems li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--red);
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form input,
+.form select {
+  background: var(--cream2);
+  border: 1px solid var(--line2);
+  color: var(--navy);
+  padding: 11px 14px;
+  border-radius: var(--radius);
+  font-family: var(--ff-body);
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.form input:focus,
+.form select:focus {
+  border-color: var(--red);
+}
+
+.form input::placeholder {
+  color: var(--text3);
+}
+
+.form select option {
+  background: #fff;
+}
+
+.formBtn {
+  width: 100%;
+  text-align: center;
+  margin-top: 4px;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+.grid {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  width: 100%;
+  max-width: 720px;
+  text-align: center;
+}
+
+.eyebrow {
+  justify-content: center;   /* add this */
+  /* keep all other existing props */
+}
+
+.sub {
+  max-width: 100%;           /* was 500px */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctas {
+  justify-content: center;   /* add this */
+}
+
+.stats {
+  justify-content: center;   /* add this */
+}
+
+.snippet {
+  text-align: left;          /* keeps snippet text left-aligned inside */
+}

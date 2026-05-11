@@ -1,0 +1,372 @@
+/* ── TOKENS ── */
+.section {
+  --navy: #0b1c3d;
+  --navy2: #102454;
+  --cream: #f5f0e8;
+  --cream2: #ede7d9;
+  --gold: #d4a843;
+  --gold2: #e8c96a;
+  --text2: #4a5568;
+  --text3: #718096;
+  --white: #ffffff;
+  --line: rgba(11, 28, 61, 0.1);
+  --line2: rgba(11, 28, 61, 0.15);
+  --shadow: 0 4px 24px rgba(11, 28, 61, 0.08);
+  --shadow-hover: 0 14px 44px rgba(11, 28, 61, 0.15);
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "Plus Jakarta Sans", sans-serif;
+  --card-w: calc(100% / 3); /* 3 cards visible */
+
+  background: var(--cream);
+  padding: 80px 0 72px;
+  font-family: var(--ff-body);
+  overflow: hidden;
+}
+
+/* ── HEADER ── */
+.header {
+  text-align: center;
+  padding: 0 24px;
+  margin-bottom: 48px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.eyebrow::before,
+.eyebrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.45;
+}
+.eyebrow::before { right: calc(100% + 10px); }
+.eyebrow::after  { left:  calc(100% + 10px); }
+
+.heading {
+  font-family: var(--ff-head);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.heading em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.sub {
+  font-size: 15px;
+  color: var(--text2);
+  line-height: 1.75;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ── CAROUSEL OUTER ── */
+.carouselOuter {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0 72px; /* space for nav buttons */
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+/* ── VIEWPORT (clips overflow) ── */
+.viewport {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* ── TRACK ── */
+.track {
+  display: flex;
+  transition: transform 0.52s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  cursor: grab;
+  user-select: none;
+}
+
+.track:active {
+  cursor: grabbing;
+}
+
+/* ── SLIDE ── */
+.slide {
+  flex: 0 0 var(--card-w);
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+/* ── CARD ── */
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--line2);
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+  box-shadow: var(--shadow);
+  transition: transform 0.24s ease, box-shadow 0.24s ease,
+    border-color 0.24s ease;
+  position: relative;
+}
+
+/* gold top bar reveal on hover */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(212, 168, 67, 0.3);
+}
+
+/* ── IMAGE ── */
+.imageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--cream2);
+  flex-shrink: 0;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.42s ease;
+  display: block;
+}
+
+.card:hover .image {
+  transform: scale(1.06);
+}
+
+/* ── BADGE ── */
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 3px 10px;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+/* ── BODY ── */
+.body {
+  padding: 20px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.date {
+  font-size: 11px;
+  color: var(--text3);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.title {
+  font-family: var(--ff-head);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.excerpt {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.7;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+/* ── READ MORE ── */
+.readMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gold);
+  margin-top: 4px;
+  transition: gap 0.2s ease;
+}
+
+.card:hover .readMore {
+  gap: 9px;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.card:hover .arrow {
+  transform: translateX(3px);
+}
+
+/* ── NAV BUTTONS ── */
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--line2);
+  background: var(--white);
+  color: var(--navy);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(11, 28, 61, 0.1);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.navBtn:hover:not(:disabled) {
+  background: var(--navy);
+  color: var(--gold);
+  box-shadow: 0 4px 20px rgba(11, 28, 61, 0.18);
+}
+
+.navBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.navPrev { left: 8px; }
+.navNext { right: 8px; }
+
+/* ── DOTS ── */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--line2);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease, transform 0.2s ease, width 0.25s ease;
+}
+
+.dotActive {
+  background: var(--gold);
+  width: 24px;
+  border-radius: 4px;
+  transform: none;
+}
+
+/* ── PROGRESS BAR ── */
+.progressBar {
+  max-width: 200px;
+  height: 3px;
+  background: var(--line2);
+  border-radius: 2px;
+  margin: 16px auto 0;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--gold2));
+  border-radius: 2px;
+  transition: width 0.52s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .section {
+    --card-w: 50%;
+  }
+  .carouselOuter {
+    padding: 0 56px;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    --card-w: 100%;
+    padding: 56px 0 56px;
+  }
+  .heading {
+    font-size: 26px;
+  }
+  .carouselOuter {
+    padding: 0 44px;
+  }
+  .navBtn {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+  }
+  .eyebrow::before,
+  .eyebrow::after {
+    display: none;
+  }
+}

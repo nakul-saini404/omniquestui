@@ -1,0 +1,205 @@
+/* ================================================================
+   WhyItMatters.module.css
+   "Benefits of Pre-AP Coaching" section — EduQuest brand
+   Palette: white bg · navy text · gold accent
+   Fonts: Playfair Display (headings) · Plus Jakarta Sans (body)
+   ================================================================ */
+
+.section {
+  --cream:   #f5f0e8;
+  --navy:    #0b1c3d;
+  --navy2:   #102454;
+  --gold:    #d4a843;
+  --gold2:   #e8c96a;
+  --text2:   #4a5568;
+  --text3:   #718096;
+  --line2:   rgba(11, 28, 61, 0.18);
+  --line:    rgba(11, 28, 61, 0.1);
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "Plus Jakarta Sans", sans-serif;
+  --max:     1160px;
+  --radius:  6px;
+
+  background: #ffffff;
+  padding: 80px 24px;
+  font-family: var(--ff-body);
+}
+
+/* ── Section header ──────────────────────────────────────── */
+.header {
+  max-width: var(--max);
+  margin: 0 auto 52px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.headerVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.goldLine {
+  width: 44px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin: 0 auto 20px;
+}
+
+.heading {
+  font-family: var(--ff-head);
+  font-size: clamp(1.7rem, 2.8vw, 2.1rem);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.22;
+  margin-bottom: 14px;
+}
+
+.headingAccent {
+  color: var(--gold);
+}
+
+.sub {
+  font-size: 15px;
+  color: var(--text2);
+  line-height: 1.75;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ── Benefits grid ───────────────────────────────────────── */
+.grid {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* ── Benefit card ────────────────────────────────────────── */
+.card {
+  background: #ffffff;
+  border: 1px solid var(--line2);
+  border-radius: 10px;
+  padding: 28px 22px 24px;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    opacity 0.5s ease,
+    translate 0.5s ease;
+
+  /* Entry state */
+  opacity: 0;
+  translate: 0 22px;
+}
+
+.cardVisible {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(11, 28, 61, 0.1);
+}
+
+/* Gold top bar */
+.cardTopBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gold);
+}
+
+/* Large ghost number */
+.cardNum {
+  font-family: var(--ff-head);
+  font-size: 44px;
+  font-weight: 700;
+  color: rgba(212, 168, 67, 0.14);
+  line-height: 1;
+  margin-bottom: 10px;
+  user-select: none;
+}
+
+.cardTitle {
+  font-family: var(--ff-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.35;
+  margin-bottom: 12px;
+}
+
+.cardDesc {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.72;
+  margin: 0 0 14px;
+
+  /* Clamp to 4 lines to keep cards uniform height */
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardTag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(212, 168, 67, 0.12);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 56px 20px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Reduced motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .card {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    translate: none !important;
+  }
+}

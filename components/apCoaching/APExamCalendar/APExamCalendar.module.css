@@ -1,0 +1,283 @@
+/* ============================================================
+   APExamCalendar.module.css
+   EduQuest brand palette — dark navy base, amber accent, blue highlight
+   ============================================================ */
+
+/* Design tokens scoped to the section */
+.section {
+  --navy-950: #050d1a;
+  --navy-900: #0a1628;
+  --navy-800: #0f2040;
+  --navy-700: #152952;
+  --blue-300: #5b9be8;
+  --blue-400: #3b7dd8;
+  --amber-300: #fcd34d;
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  --orange-500: #f97316;
+  --green-400: #34d399;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --border: rgba(59, 125, 216, 0.2);
+  --radius-md: 14px;
+  --radius-sm: 8px;
+
+  background: var(--navy-950);
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle ambient glow */
+.section::before {
+  content: '';
+  position: absolute;
+  width: 700px;
+  height: 500px;
+  background: radial-gradient(
+    ellipse,
+    rgba(59, 125, 216, 0.07) 0%,
+    transparent 70%
+  );
+  top: 0;
+  right: -100px;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+/* ── Layout ── */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Section label ── */
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.sectionLabel::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--amber-400);
+  flex-shrink: 0;
+}
+
+.sectionLabel span {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--amber-400);
+}
+
+/* ── Title ── */
+.title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #f8fafc;
+  margin-bottom: 12px;
+}
+
+.highlight {
+  background: linear-gradient(135deg, var(--amber-400), var(--orange-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Subtitle ── */
+.subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--gray-400);
+  max-width: 600px;
+  line-height: 1.65;
+}
+
+/* ── Table wrapper (enables horizontal scroll on small screens) ── */
+.tableWrap {
+  overflow-x: auto;
+  margin-top: 40px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  /* Hide native scrollbar on WebKit but keep functionality */
+  scrollbar-width: thin;
+  scrollbar-color: var(--navy-700) transparent;
+}
+
+.tableWrap::-webkit-scrollbar {
+  height: 5px;
+}
+.tableWrap::-webkit-scrollbar-track {
+  background: transparent;
+}
+.tableWrap::-webkit-scrollbar-thumb {
+  background: var(--navy-700);
+  border-radius: 4px;
+}
+
+/* ── Table ── */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  min-width: 620px; /* keeps table readable before scroll kicks in */
+}
+
+/* ── Table head ── */
+.table thead tr {
+  background: var(--navy-800);
+}
+
+.table th {
+  text-align: left;
+  padding: 14px 20px;
+  color: var(--gray-400);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+/* ── Table body rows ── */
+.row td {
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(59, 125, 216, 0.08);
+  color: var(--gray-300);
+  vertical-align: middle;
+  transition: background 0.15s;
+}
+
+.row:last-child td {
+  border-bottom: none;
+}
+
+.row:hover td {
+  background: rgba(59, 125, 216, 0.045);
+}
+
+/* ── Specific cells ── */
+.weekCell {
+  color: var(--gray-500) !important;
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.examCell strong {
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.dateCell {
+  color: var(--amber-400) !important;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ── Format badge ── */
+.format {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.73rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.formatDigital {
+  background: rgba(59, 125, 216, 0.12);
+  color: var(--blue-300);
+  border: 1px solid rgba(59, 125, 216, 0.28);
+}
+
+.formatPaper {
+  background: rgba(100, 116, 139, 0.1);
+  color: var(--gray-400);
+  border: 1px solid rgba(100, 116, 139, 0.2);
+}
+
+/* ── Status badge ── */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.73rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.statusOpen {
+  background: rgba(52, 211, 153, 0.1);
+  color: var(--green-400);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+}
+
+.statusUpcoming {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--amber-400);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+/* ── Footnote ── */
+.footnote {
+  font-size: 0.78rem;
+  color: var(--gray-500);
+  margin-top: 16px;
+  line-height: 1.6;
+}
+
+.footnoteLink {
+  color: var(--blue-300);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footnoteLink:hover {
+  color: var(--amber-400);
+  text-decoration: underline;
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+@media (max-width: 767px) {
+  .section {
+    padding: 72px 0;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  /* Shrink padding on small screens so more columns are visible */
+  .table th,
+  .row td {
+    padding: 12px 14px;
+  }
+}
+
+@media (max-width: 479px) {
+  .section {
+    padding: 56px 0;
+  }
+}

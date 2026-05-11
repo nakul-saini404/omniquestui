@@ -1,0 +1,294 @@
+/* ═══════════════════════════
+   WHY STUDENTS FAIL — WhyStudentsFail.module.css
+   Fonts: Playfair Display + Plus Jakarta Sans
+   Theme: deep navy section, red-accented danger cards, gold fixes
+═══════════════════════════ */
+
+/* ── Section ── */
+.section {
+  padding: 96px 0;
+  background: #0b1c3d;
+  position: relative;
+  overflow: hidden;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* ── Noise / texture overlay ── */
+.noiseOverlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 80px,
+      rgba(255, 255, 255, 0.013) 80px,
+      rgba(255, 255, 255, 0.013) 81px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 80px,
+      rgba(255, 255, 255, 0.013) 80px,
+      rgba(255, 255, 255, 0.013) 81px
+    );
+  pointer-events: none;
+}
+
+/* ── Container ── */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Section Head ── */
+.sectionHead {
+  margin-bottom: 56px;
+  max-width: 680px;
+}
+
+.sectionHead h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(26px, 3.4vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.sectionHead h2 em {
+  color: #c84b31;
+  font-style: italic;
+}
+
+.sectionHead p {
+  font-size: 15.5px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.75;
+  max-width: 560px;
+}
+
+/* ── Section Label ── */
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c84b31;
+  margin-bottom: 14px;
+}
+
+.sectionLabel::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: #c84b31;
+}
+
+/* ── Fade-up ── */
+.fadeUp {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fadeUp.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Cards Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ── Card ── */
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 28px 24px 24px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(28px) scale(0.97);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(200, 75, 49, 0.4);
+  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(200, 75, 49, 0.15);
+}
+
+/* ── Red top-bar accent ── */
+.cardAccent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #c84b31, rgba(200, 75, 49, 0.3));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card:hover .cardAccent {
+  transform: scaleX(1);
+}
+
+/* ── Card Top Row ── */
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.cardNumber {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #c84b31;
+  letter-spacing: 0.06em;
+  opacity: 0.8;
+}
+
+.cardIcon {
+  font-size: 24px;
+  line-height: 1;
+}
+
+/* ── Card Title ── */
+.cardTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+/* ── Card Description ── */
+.cardDesc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+/* ── Fix Box ── */
+.fixBox {
+  background: rgba(212, 168, 67, 0.08);
+  border: 1px solid rgba(212, 168, 67, 0.2);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.fixLabel {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 5px;
+}
+
+.fixText {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.65;
+}
+
+/* ── CTA Strip ── */
+.ctaStrip {
+  margin-top: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 28px 36px;
+  background: rgba(200, 75, 49, 0.1);
+  border: 1px solid rgba(200, 75, 49, 0.25);
+  border-radius: 12px;
+  flex-wrap: wrap;
+}
+
+.ctaText {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.65;
+  max-width: 640px;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 11px 24px;
+  background: #c84b31;
+  color: #ffffff;
+  border-radius: 6px;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ctaBtn:hover {
+  background: #b03e27;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(200, 75, 49, 0.4);
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaStrip {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+  }
+
+  .ctaBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}

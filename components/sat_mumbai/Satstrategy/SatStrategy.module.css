@@ -1,0 +1,162 @@
+/* ═══════════════════════════════════════════════
+   SatStrategy — SAT Strategy 2026
+   Pixel-perfect port of sat-coaching-mumbai.html
+   Global tokens: --navy, --gold, --ff-head,
+   --ff-body, --cream. Local tokens scoped below.
+═══════════════════════════════════════════════ */
+
+.section {
+  --gray: #6b7280;
+  --border: #e5e7eb;
+}
+
+/* ── SECTION ── */
+.section {
+  padding: 80px 24px;
+  background: var(--cream);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── HEADER ── */
+.sectionLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+  font-family: var(--ff-body);
+}
+
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(28px, 3vw, 40px);
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.sectionTitle em {
+  color: var(--gold);
+  font-style: normal;
+}
+
+.sectionSub {
+  font-size: 16px;
+  color: var(--gray);
+  max-width: 600px;
+  margin-bottom: 48px;
+  line-height: 1.7;
+  font-family: var(--ff-body);
+}
+
+/* ── TWO-COL GRID ── */
+.stepsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── STEP ROW ── */
+.step {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+.step:last-of-type {
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── STEP NUMBER ── */
+.stepNum {
+  width: 44px;
+  height: 44px;
+  background: var(--navy);
+  color: var(--gold);
+  font-family: var(--ff-head);
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── STEP BODY ── */
+.stepBody h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+  font-family: var(--ff-body);
+  line-height: 1.3;
+}
+
+.stepBody p {
+  font-size: 15px;
+  color: var(--gray);
+  line-height: 1.7;
+  font-family: var(--ff-body);
+}
+
+/* ── HIGHLIGHT CARD ── */
+.highlightCard {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+  margin-top: 8px;
+}
+
+.highlightRow {
+  font-size: 13px;
+  margin-bottom: 8px;
+  line-height: 1.65;
+  font-family: var(--ff-body);
+}
+
+.highlightRow strong {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.highlightRow span {
+  color: var(--gray);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .stepsGrid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 56px 20px;
+  }
+
+  .step {
+    gap: 16px;
+  }
+
+  .stepNum {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+  }
+}

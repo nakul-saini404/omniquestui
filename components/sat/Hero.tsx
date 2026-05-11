@@ -55,7 +55,7 @@ export default function Hero() {
             </div>
 
             <div className={styles.heroCtas}>
-              <a href="https://eduquest.org.in/contact-us/" className="btn-primary">
+              <a href="/contact-us" className="btn-primary">
                 Book Free Strategy Session
               </a>
               <a href="#pattern" className="btn-outline">
@@ -117,8 +117,8 @@ export default function Hero() {
                   </div>
                 ))}
               </div>
-              <a href="https://eduquest.org.in/contact-us/" className="btn-primary" style={{ width: "100%", textAlign: "center", display: "block" }}>
-                Request a Callback
+              <a href="https://test.eduquest.org.in/sat-score-calculator/" className="btn-primary" style={{ width: "100%", textAlign: "center", display: "block" }}>
+                Calculate Your Score
               </a>
             </div>
           </div>

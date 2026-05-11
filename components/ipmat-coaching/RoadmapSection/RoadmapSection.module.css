@@ -1,0 +1,335 @@
+/* RoadmapSection.module.css — EduQuest IPMAT 2026 */
+
+/* ── Tokens (scoped, no :root) ── */
+.roadmap {
+  --cream:  #f5f0e8;
+  --navy:   #0b1c3d;
+  --navy2:  #102454;
+  --gold:   #d4a843;
+  --gold2:  #e8c96a;
+  --white:  #ffffff;
+  --text2:  #4a5568;
+  --line:   rgba(11, 28, 61, 0.1);
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "Plus Jakarta Sans", sans-serif;
+  --radius: 6px;
+
+  padding: 72px 0 80px;
+  background: var(--white);
+  font-family: var(--ff-body);
+  overflow: hidden;
+}
+
+/* ── Container ── */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Section header ── */
+.sectionHead {
+  margin-bottom: 36px;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.sectionHeadVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.sectionLabel::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: var(--gold);
+  display: block;
+  flex-shrink: 0;
+}
+
+.sectionHeading {
+  font-family: var(--ff-head);
+  font-size: clamp(24px, 3.2vw, 38px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  line-height: 1.18;
+  margin-bottom: 10px;
+}
+
+.sectionSub {
+  font-size: 15px;
+  color: var(--text2);
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+/* ── Phase cards grid ── */
+.phasesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-bottom: 28px;
+}
+
+/* ── Phase card ── */
+.phaseCard {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.55s ease, transform 0.55s ease, box-shadow 0.25s ease;
+}
+
+.phaseCardVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.phaseCard:hover {
+  box-shadow: 0 12px 36px rgba(11, 28, 61, 0.1);
+}
+
+/* Phase header */
+.phaseHeader {
+  padding: 22px 28px;
+}
+
+.phaseHeader_navy {
+  background: var(--navy);
+}
+
+.phaseHeader_gold {
+  background: var(--gold);
+}
+
+.phaseLabel {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.phaseHeader_navy .phaseLabel {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.phaseHeader_gold .phaseLabel {
+  color: rgba(11, 28, 61, 0.5);
+}
+
+.phaseTitle {
+  font-family: var(--ff-head);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.phaseHeader_navy .phaseTitle {
+  color: var(--white);
+}
+
+.phaseHeader_gold .phaseTitle {
+  color: var(--navy);
+}
+
+/* Phase body */
+.phaseBody {
+  background: var(--cream);
+  padding: 22px 28px;
+}
+
+.phaseItems {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Each list item fades + slides in */
+.phaseItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--text2);
+  line-height: 1.55;
+  opacity: 0;
+  transform: translateX(-12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.phaseItemVisible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Checkmark bubble */
+.phaseItem::before {
+  content: "✓";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 700;
+  margin-top: 1px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.phaseItem_navy::before {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.phaseItem_gold::before {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+/* ── Support grid ── */
+.supportGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.supportCard {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 18px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease;
+}
+
+.supportCardVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.supportCard:hover {
+  background: var(--white);
+  box-shadow: 0 6px 22px rgba(11, 28, 61, 0.08);
+}
+
+.supportTitle {
+  font-family: var(--ff-head);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 7px;
+}
+
+.supportDesc {
+  font-size: 12.5px;
+  color: var(--text2);
+  line-height: 1.6;
+}
+
+/* ── Target institutions ── */
+.tagsWrap {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.tagsWrapVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.iimTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.iimTag {
+  padding: 6px 16px;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 20px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  opacity: 0;
+  transform: scale(0.88) translateY(8px);
+  transition: opacity 0.4s ease, transform 0.4s ease, background 0.2s ease;
+}
+
+.iimTagVisible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.iimTag:hover {
+  background: var(--navy2);
+  transform: scale(1) translateY(-2px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .supportGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .roadmap {
+    padding: 56px 0 64px;
+  }
+
+  .phasesGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .supportGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .phaseHeader {
+    padding: 18px 20px;
+  }
+
+  .phaseBody {
+    padding: 18px 20px;
+  }
+}
+
+@media (max-width: 420px) {
+  .supportGrid {
+    grid-template-columns: 1fr;
+  }
+}

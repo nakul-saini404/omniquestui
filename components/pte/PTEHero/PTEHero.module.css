@@ -1,0 +1,335 @@
+/* ═══════════════════════════════════════════
+   PTEHero.module.css
+   Fonts: Playfair Display (serif) + Plus Jakarta Sans (sans)
+   Palette: navy #0b1c3d · gold #d4a843 · white #ffffff
+   No :root — all tokens expressed directly
+═══════════════════════════════════════════ */
+
+/* ── Section shell ── */
+.hero {
+  position: relative;
+  padding: 100px 0 84px;
+  background: #0b1c3d;
+  overflow: hidden;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* ── Atmospheric glows ── */
+.glowRight {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 60% 80% at 82% 50%,
+    rgba(212, 168, 67, 0.11) 0%,
+    transparent 68%
+  );
+}
+
+.glowLeft {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 40% 60% at 10% 80%,
+    rgba(212, 168, 67, 0.06) 0%,
+    transparent 60%
+  );
+}
+
+/* ── Layout container ── */
+.container {
+  position: relative;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 64px;
+  align-items: center;
+}
+
+/* ═══════════════════════════════════════════
+   LEFT COLUMN
+═══════════════════════════════════════════ */
+
+/* Eyebrow */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.1s forwards;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: #d4a843;
+  flex-shrink: 0;
+}
+
+/* Heading */
+.heading {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(34px, 5vw, 58px);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.08;
+  letter-spacing: -0.022em;
+  margin: 0 0 22px;
+  opacity: 0;
+  animation: fadeUp 0.65s ease 0.2s forwards;
+}
+
+.accent {
+  color: #d4a843;
+  font-style: normal;
+}
+
+/* Sub-copy */
+.sub {
+  font-size: 15.5px;
+  color: rgba(255, 255, 255, 0.70);
+  line-height: 1.78;
+  max-width: 520px;
+  margin: 0 0 34px;
+  opacity: 0;
+  animation: fadeUp 0.65s ease 0.30s forwards;
+}
+
+/* Stats row */
+.stats {
+  display: flex;
+  gap: 36px;
+  padding-top: 28px;
+  margin-bottom: 36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  opacity: 0;
+  animation: fadeUp 0.65s ease 0.40s forwards;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.statNum {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #d4a843;
+  line-height: 1;
+}
+
+.statLbl {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.50);
+  line-height: 1.4;
+}
+
+/* CTA buttons */
+.btns {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.65s ease 0.50s forwards;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 6px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 2px solid transparent;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btnGold {
+  background: #d4a843;
+  color: #0b1c3d;
+  border-color: #d4a843;
+}
+
+.btnGold:hover {
+  background: #c49a36;
+  border-color: #c49a36;
+}
+
+.btnOutline {
+  background: transparent;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.btnOutline:hover {
+  background: #ffffff;
+  color: #0b1c3d;
+  border-color: #ffffff;
+}
+
+/* ═══════════════════════════════════════════
+   RIGHT COLUMN — Score card
+═══════════════════════════════════════════ */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 14px;
+  padding: 32px 28px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.35s forwards;
+}
+
+.cardTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Score rows */
+.scoreList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.scoreRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.scoreLabel {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.60);
+  width: 68px;
+  flex-shrink: 0;
+}
+
+.scoreBar {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.scoreFill {
+  height: 100%;
+  border-radius: 3px;
+  background: #d4a843;
+  transform-origin: left center;
+  animation: growBar 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.7s both;
+}
+
+.scoreVal {
+  font-size: 13px;
+  font-weight: 700;
+  color: #d4a843;
+  min-width: 28px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* Card footnote */
+.cardNote {
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.40);
+  line-height: 1.65;
+}
+
+.cardNote strong {
+  color: rgba(255, 255, 255, 0.70);
+}
+
+/* ═══════════════════════════════════════════
+   KEYFRAMES
+═══════════════════════════════════════════ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes growBar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 960px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .card {
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 72px 0 64px;
+  }
+
+  .stats {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .btns {
+    flex-direction: column;
+  }
+
+  .btn {
+    justify-content: center;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+}

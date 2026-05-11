@@ -16,11 +16,8 @@ export default function FinalCTA() {
           <strong>Top 80</strong> university framework, anything is possible.
         </p>
         <div className={`${styles.ctaBtns} reveal`}>
-          <a href="https://eduquest.org.in/contact-us/" className={`btn-primary ${styles.ctaBtnGold}`}>
+          <a href="/contact-us" className={`btn-primary ${styles.ctaBtnGold}`}>
             Book Advance Strategy Session
-          </a>
-          <a href="#faq" className={`btn-outline ${styles.ctaBtnOutlineLight}`}>
-            Explore Programme →
           </a>
         </div>
       </div>

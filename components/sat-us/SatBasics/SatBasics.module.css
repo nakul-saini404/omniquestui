@@ -1,0 +1,430 @@
+/*
+  SatBasics.module.css
+  ─────────────────────────────────────────────────────────────────────────
+  Two sections, exactly matching the HTML source colour tokens:
+
+  Section 1 (SAT Basics)   → background: var(--cream)   #f5f0e8
+  Section 2 (SAT Structure)→ background: var(--white)   #ffffff
+
+  All tokens map 1-to-1 to the HTML's :root variables:
+    --navy   #0b1c3d     heading / info-box h4 / divider
+    --navy3  #1a3570     section-label.dk
+    --gold   #d4a843     accent, divider, meta-pills, chevron
+    --gold2  #e8c96a     hover states
+    --text   #0b1c3d     body headings
+    --text2  #4a5568     body copy
+    --text3  #718096     sub-copy
+    --line   rgba(11,28,61,0.1)
+    --line2  rgba(11,28,61,0.18)
+    --white  #ffffff
+    --cream  #f5f0e8
+    --ff-head "Playfair Display", Georgia, serif
+    --ff-body "Plus Jakarta Sans", sans-serif
+    --radius  6px
+    --max     1160px
+  ─────────────────────────────────────────────────────────────────────────
+*/
+
+/* ══════════════════════════════════════════════════════════════════════════
+   SHARED REVEAL ANIMATION
+   Sections start hidden; .visible class applied via IntersectionObserver
+══════════════════════════════════════════════════════════════════════════ */
+
+.basics,
+.structure {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.basics.visible,
+.structure.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   SECTION 1 — SAT Basics for US Families
+   Matches: .sec .sec-border  (cream bg, top border)
+══════════════════════════════════════════════════════════════════════════ */
+
+.basics {
+  background: var(--cream);
+  position: relative;
+  font-family: var(--ff-body);
+}
+
+/* Matches .sec-border → border-top: 1px solid var(--line2) */
+.topRule {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: var(--line2);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   SECTION 2 — Digital SAT Structure 2026
+   Matches: .sec-white  (white bg, top + bottom border)
+══════════════════════════════════════════════════════════════════════════ */
+
+.structure {
+  background: var(--white);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-family: var(--ff-body);
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   SHARED INNER WRAPPER
+   Matches: .sec → padding:5rem 2rem; max-width:var(--max); margin:0 auto
+══════════════════════════════════════════════════════════════════════════ */
+
+.secInner {
+  padding: 5rem 2rem;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   TYPOGRAPHY — shared header block
+══════════════════════════════════════════════════════════════════════════ */
+
+.header {
+  margin-bottom: 2rem;
+}
+
+/* Matches .section-label → gold */
+.sectionLabel {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+/* Matches .section-label.dk → navy3 */
+.sectionLabelDk {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--navy3);
+  margin-bottom: 0.6rem;
+}
+
+/* Matches .section-title */
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(1.8rem, 3.5vw, 2.55rem);
+  font-weight: 700;
+  line-height: 1.22;
+  color: var(--text);
+  margin-bottom: 0.85rem;
+}
+
+/* Matches .section-title em */
+.em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+/* Matches .divider */
+.divider {
+  width: 40px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin: 1.25rem 0;
+}
+
+/* Matches .section-sub */
+.sectionSub {
+  color: var(--text2);
+  font-size: 0.92rem;
+  max-width: 580px;
+  line-height: 1.75;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   INFO BOX
+   Matches: .info-box
+══════════════════════════════════════════════════════════════════════════ */
+
+.infoBox {
+  display: flex;
+  align-items: stretch;
+  background: rgba(212, 168, 67, 0.07);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin-top: 2rem;
+  overflow: hidden;
+  transition: background 0.22s, box-shadow 0.22s;
+}
+
+.infoBox:hover {
+  background: rgba(212, 168, 67, 0.11);
+  box-shadow: 0 4px 20px rgba(11, 28, 61, 0.06);
+}
+
+/* Left gold bar — matches border-left: 4px solid var(--gold) */
+.infoBoxBar {
+  width: 4px;
+  flex-shrink: 0;
+  background: var(--gold);
+}
+
+.infoBoxBody {
+  padding: 1.3rem 1.5rem;
+}
+
+/* Matches .info-box h4 */
+.infoBoxTitle {
+  font-family: var(--ff-head);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+}
+
+/* Matches .info-box p */
+.infoBoxText {
+  font-size: 0.84rem;
+  color: var(--text2);
+  line-height: 1.7;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   FEATURE CARDS GRID
+   Matches: .cards-4 + .card
+══════════════════════════════════════════════════════════════════════════ */
+
+/* Matches .cards-4 → repeat(4,1fr), gap:1rem, margin-top:2.5rem */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Matches .card */
+.card {
+  background: var(--white);
+  border: 1px solid var(--line2);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  /* staggered fade-up handled via animationDelay on element + keyframe below */
+  animation: cardIn 0.5s ease both;
+}
+
+/* Matches .card:hover */
+.card:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(11, 28, 61, 0.08);
+}
+
+/* Gold sweep across top — extra polish beyond HTML */
+.cardTopLine {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold2), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  border-radius: 0;
+}
+
+.card:hover .cardTopLine {
+  transform: scaleX(1);
+}
+
+/* Matches .card-icon */
+.cardIcon {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1;
+}
+
+/* Matches .card h3 */
+.cardTitle {
+  font-family: var(--ff-head);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.45rem;
+}
+
+/* Matches .card p */
+.cardBody {
+  font-size: 0.84rem;
+  color: var(--text2);
+  line-height: 1.65;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   SAT BLOCKS GRID
+   Matches: .sat-grid + .sat-block
+══════════════════════════════════════════════════════════════════════════ */
+
+/* Matches .sat-grid → 1fr 1fr, gap:1.5rem, margin-top:2.5rem */
+.satGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+/* Matches .sat-block */
+.satBlock {
+  background: var(--white);
+  border: 1px solid var(--line2);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  animation: cardIn 0.55s ease both;
+}
+
+.satBlock:hover {
+  border-color: rgba(212, 168, 67, 0.55);
+  box-shadow: 0 6px 24px rgba(11, 28, 61, 0.07);
+  transform: translateY(-2px);
+}
+
+/* Matches .sat-block::before → height:3px gold bar at top */
+.satBlockBar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gold);
+  transition: background 0.2s;
+}
+
+.satBlock:hover .satBlockBar {
+  background: linear-gradient(90deg, var(--gold), var(--gold2));
+}
+
+/* Matches .sat-block h3 */
+.satBlockTitle {
+  font-family: var(--ff-head);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Matches .sat-meta */
+.satMeta {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+/* Matches .meta-pill */
+.metaPill {
+  background: rgba(212, 168, 67, 0.1);
+  border: 1px solid rgba(212, 168, 67, 0.3);
+  color: #7a5c14;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.22rem 0.65rem;
+  border-radius: 20px;
+  letter-spacing: 0.03em;
+  transition: background 0.2s;
+}
+
+.satBlock:hover .metaPill {
+  background: rgba(212, 168, 67, 0.16);
+}
+
+/* Matches .topic-list */
+.topicList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Matches .topic-list li */
+.topicItem {
+  font-size: 0.83rem;
+  color: var(--text2);
+  padding: 0.32rem 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  line-height: 1.55;
+  transition: color 0.18s;
+}
+
+.topicItem:last-child {
+  border-bottom: none;
+}
+
+.topicItem:hover {
+  color: var(--text);
+}
+
+/* Matches .topic-list li::before → › gold chevron */
+.topicChevron {
+  color: var(--gold);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE — mirrors HTML @media exactly
+══════════════════════════════════════════════════════════════════════════ */
+
+/* @media(max-width:900px) — cards-4 → 2 cols, sat-grid → 2 cols (unchanged) */
+@media (max-width: 900px) {
+  .cardsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* @media(max-width:600px) — all single col */
+@media (max-width: 600px) {
+  .secInner {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .cardsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .satGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionTitle {
+    font-size: clamp(1.6rem, 6vw, 2rem);
+  }
+}

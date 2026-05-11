@@ -1,0 +1,143 @@
+/* FAQ.module.css */
+/* Tokens: --cream, --navy, --gold, --red, --white,
+           --text2, --line, --line2, --ff-head        */
+
+.section {
+  padding: 80px 24px;
+  background: var(--cream);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Eyebrow ── */
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* ── Heading ── */
+.title {
+  font-family: var(--ff-head);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 48px;
+}
+
+.em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+/* ── Accordion list ── */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Single item ── */
+.item {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.item:hover {
+  border-color: color-mix(in srgb, var(--gold) 35%, transparent);
+}
+
+.itemOpen {
+  border-color: color-mix(in srgb, var(--gold) 45%, transparent);
+}
+
+/* ── Question button ── */
+.question {
+  width: 100%;
+  padding: 20px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+  user-select: none;
+  transition: color 0.2s;
+}
+
+.question:hover {
+  color: var(--gold);
+}
+
+.itemOpen .question {
+  color: var(--navy);
+}
+
+/* ── +/× icon ── */
+.icon {
+  color: var(--gold);
+  font-size: 22px;
+  line-height: 1;
+  flex-shrink: 0;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.iconOpen {
+  transform: rotate(45deg);
+}
+
+/* ── Answer panel — max-height accordion ── */
+.answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  padding: 0 24px;
+}
+
+.answerOpen {
+  max-height: 300px;
+  padding: 0 24px 20px;
+}
+
+.answerText {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.75;
+  border-top: 1px solid var(--line2);
+  padding-top: 16px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 560px) {
+  .section {
+    padding: 56px 16px;
+  }
+
+  .question {
+    padding: 16px 18px;
+    font-size: 14px;
+  }
+
+  .answer,
+  .answerOpen {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}

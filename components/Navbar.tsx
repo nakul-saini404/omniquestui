@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const NAV_LINKS = [
   { label: "System",       href: "#what" },
-  { label: "Architecture", href: "#architecture" },
+  // { label: "Architecture", href: "#pathways=" },
   { label: "Pathways",     href: "#pathways" },
   { label: "Philosophy",   href: "#philosophy" },
   { label: "Outcomes",     href: "#outcomes" },
@@ -270,7 +270,7 @@ export default function Navbar() {
             Choose Pathway
           </a>
           <a
-            href="https://eduquest.org.in/contact-us/"
+            href="/contact-us"
             target="_blank"
             rel="noopener noreferrer"
             className="oq-btn-gold"
@@ -319,7 +319,7 @@ export default function Navbar() {
             Choose Pathway
           </a>
           <a
-            href="https://eduquest.org.in/contact-us/"
+            href="/contact-us"
             target="_blank"
             rel="noopener noreferrer"
             className="oq-btn-gold"

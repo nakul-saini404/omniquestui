@@ -1,0 +1,236 @@
+/* ============================================================
+   HowItWorks.module.css
+   EduQuest brand palette — dark navy base, amber accent, blue highlight
+   ============================================================ */
+
+/* Design tokens (scoped locally; mirrors :root vars from the global sheet) */
+.section {
+  --navy-950: #050d1a;
+  --navy-900: #0a1628;
+  --navy-800: #0f2040;
+  --navy-600: #1e3a6e;
+  --blue-300: #5b9be8;
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  --orange-500: #f97316;
+  --gray-400: #94a3b8;
+  --border: rgba(59, 125, 216, 0.2);
+  --radius-lg: 22px;
+  --radius-md: 14px;
+
+  background: var(--navy-950);
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle ambient glow behind the section */
+.section::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(59, 125, 216, 0.08) 0%,
+    transparent 70%
+  );
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+/* ── Layout ── */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.sectionLabel::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--amber-400);
+}
+
+.sectionLabel span {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--amber-400);
+}
+
+.title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #f8fafc;
+}
+
+.highlight {
+  background: linear-gradient(135deg, var(--amber-400), var(--orange-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Steps grid ── */
+.grid {
+  display: grid;
+  /* 4 columns on wide, drops to 3 → 2 → 1 */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  position: relative;
+}
+
+/* ── Individual step card ── */
+.step {
+  background: var(--navy-800);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  text-align: center;
+  position: relative;
+
+  /* Entrance animation state */
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Triggered by IntersectionObserver */
+.step.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.step:hover {
+  border-color: rgba(59, 125, 216, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(59, 125, 216, 0.12);
+  transform: translateY(-4px);
+}
+
+/* ── Horizontal connector between steps ── */
+.connector {
+  display: none; /* shown only on wide screens via media query */
+  position: absolute;
+  top: 36px; /* vertically centred on the step number circle */
+  right: -12px; /* sits in the gap between cards */
+  width: 24px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(245, 158, 11, 0.6),
+    rgba(59, 125, 216, 0.3)
+  );
+  z-index: 2;
+}
+
+/* ── Step number bubble ── */
+.stepNum {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--amber-500), var(--orange-500));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #fff;
+  margin: 0 auto 14px;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.4);
+  flex-shrink: 0;
+}
+
+/* ── Emoji icon ── */
+.stepIcon {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+/* ── Step title ── */
+.stepTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+/* ── Step description ── */
+.stepDesc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  color: var(--gray-400);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+@media (min-width: 1024px) {
+  /* Show connectors only when 4-column layout is active */
+  .connector {
+    display: block;
+  }
+}
+
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 72px 0;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .step {
+    padding: 22px 18px;
+  }
+}
+
+@media (max-width: 479px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    margin-bottom: 40px;
+  }
+}

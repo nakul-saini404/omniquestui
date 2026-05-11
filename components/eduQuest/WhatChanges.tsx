@@ -172,7 +172,7 @@ export default function WhatChanges() {
               className={`eq-check-btn${showCards ? ' active' : ''}`}
               onClick={() => setShowCards(prev => !prev)}
             >
-              {showCards ? 'Hide Changes' : 'Check Changes'}
+              {showCards ? 'Hide Changes' : 'Learn More'}
               <span className="eq-btn-arrow">▼</span>
             </button>
           </div>
@@ -231,7 +231,7 @@ export default function WhatChanges() {
               className={`eq-check-btn${showMore ? ' active' : ''}`}
               onClick={() => setShowMore(prev => !prev)}
             >
-              {showMore ? 'View Less' : 'View More'}
+              {showMore ? 'View Less' : 'Learn More'}
               <span className="eq-btn-arrow">▼</span>
             </button>
           </div>

@@ -1,0 +1,231 @@
+/* ============================================================
+   StudentStories.module.css
+   EduQuest brand palette — dark navy base, amber accent
+   ============================================================ */
+
+.section {
+  --navy-950: #050d1a;
+  --navy-900: #0a1628;
+  --navy-800: #0f2040;
+  --navy-600: #1e3a6e;
+  --navy-500: #2b4f8a;
+  --amber-300: #fcd34d;
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  --orange-500: #f97316;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --border: rgba(59, 125, 216, 0.2);
+  --radius-lg: 22px;
+  --radius-md: 14px;
+
+  background: var(--navy-900);
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient glow */
+.section::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(245, 158, 11, 0.06) 0%,
+    transparent 70%
+  );
+  bottom: -100px;
+  right: -80px;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+/* ── Layout ── */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.sectionLabel::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--amber-400);
+  flex-shrink: 0;
+}
+
+.sectionLabel span {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--amber-400);
+}
+
+.title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #f8fafc;
+  margin-bottom: 10px;
+}
+
+.highlight {
+  background: linear-gradient(135deg, var(--amber-400), var(--orange-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--gray-400);
+  margin: 0 auto;
+}
+
+/* ── Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ── Card ── */
+.card {
+  background: var(--navy-800);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: border-color 0.25s ease, transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.card:hover {
+  border-color: rgba(59, 125, 216, 0.38);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Stars ── */
+.stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 14px;
+  font-size: 0.9rem;
+}
+
+.starFilled {
+  color: var(--amber-400);
+}
+
+.starEmpty {
+  color: rgba(245, 158, 11, 0.2);
+}
+
+/* ── Quote text ── */
+.text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  color: var(--gray-300);
+  line-height: 1.7;
+  font-style: italic;
+  flex: 1;
+  margin: 0 0 20px;
+}
+
+/* ── Author row ── */
+.author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+
+/* ── Avatar circle ── */
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy-600), var(--navy-500));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--amber-400);
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+}
+
+.name {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #f8fafc;
+}
+
+.detail {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  margin-top: 2px;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 72px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .card {
+    padding: 22px 20px;
+  }
+}
+
+@media (max-width: 479px) {
+  .section {
+    padding: 56px 0;
+  }
+}

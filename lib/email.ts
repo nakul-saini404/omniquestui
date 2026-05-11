@@ -158,7 +158,7 @@ export async function sendUserConfirmEmail(data: UserConfirmEmailData) {
         </p>
 
         <div style="text-align:center;">
-          <a href="https://eduquest.org.in/contact-us/" style="display:inline-block;padding:14px 32px;border-radius:50px;background:linear-gradient(135deg,#00C9B1,#2563EB);color:white;font-weight:700;text-decoration:none;font-size:15px;box-shadow:0 8px 24px rgba(0,201,177,.3);">
+          <a href="/contact-us" style="display:inline-block;padding:14px 32px;border-radius:50px;background:linear-gradient(135deg,#00C9B1,#2563EB);color:white;font-weight:700;text-decoration:none;font-size:15px;box-shadow:0 8px 24px rgba(0,201,177,.3);">
             📅 Book Free Counselling Session
           </a>
         </div>

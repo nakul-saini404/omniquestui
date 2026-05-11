@@ -26,6 +26,7 @@ import { TestimonialsSection } from '@/components/eduQuest/Testimonials';
 import JsonLd   from "@/components/JsonLd/JsonLd";
 import { EDUQUEST_FAQ }      from "@/app/data/faq";
 import { buildFAQSchema } from "@/lib/schemas/faqSchema";
+import EduQuestPillars from '@/components/eduQuest/EduQuestPillars';
 
 
 export default function Home() {
@@ -41,6 +42,7 @@ export default function Home() {
         <Hero />
         <Problem />
         <AdmissionsTimeline />
+        <EduQuestPillars />
         {/* <FindYourStartingPoint /> */}
         <NarrativeArchitectureModel />
         <TestPrep />

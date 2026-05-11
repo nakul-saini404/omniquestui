@@ -1,0 +1,344 @@
+/* ═══════════════════════════════════════════════════
+   SyllabusCoverage.module.css
+   All values reference global CSS tokens — no
+   hard-coded colors, fonts, or radii.
+═══════════════════════════════════════════════════ */
+
+/* ── Keyframe ── */
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Trigger class — applied by JS on scroll-enter ── */
+.in {
+  animation: riseIn 0.62s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Elements invisible until .in is applied */
+.sectionLabel,
+.heading,
+.subText,
+.examBar,
+.card,
+.footNote {
+  opacity: 0;
+}
+
+/* ════════════════════════════════════════════════
+   SECTION SHELL
+════════════════════════════════════════════════ */
+.section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.inner {
+  max-width: 1200px;
+  padding: 0 48px;
+  margin: 0 auto;
+}
+
+/* ════════════════════════════════════════════════
+   HEADER
+════════════════════════════════════════════════ */
+.sectionLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.sectionLabel::before {
+  content: "── ";
+  opacity: 0.55;
+}
+
+.heading {
+  font-family: var(--ff-head);
+  font-size: clamp(1.85rem, 3vw, 2.75rem);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.subText {
+  font-size: 16px;
+  color: var(--text2);
+  line-height: 1.75;
+  max-width: 620px;
+  margin-bottom: 0;
+}
+
+/* ════════════════════════════════════════════════
+   EXAM-AT-A-GLANCE BAR
+════════════════════════════════════════════════ */
+.examBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 20px;
+  margin: 28px 0 0;
+  padding: 14px 20px;
+  background: var(--navy);
+  border-radius: var(--radius);
+  font-size: 13px;
+}
+
+.examBarLabel {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.examFact {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.examNum {
+  font-family: var(--ff-head);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.examFactLabel {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* separator dots between facts */
+.examFact + .examFact::before {
+  content: "·";
+  color: rgba(255, 255, 255, 0.2);
+  margin-right: 14px;
+  font-size: 14px;
+}
+
+.examBarNote {
+  margin-left: auto;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.38);
+  font-style: italic;
+  white-space: nowrap;
+}
+
+/* ════════════════════════════════════════════════
+   SYLLABUS GRID
+════════════════════════════════════════════════ */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 28px;
+}
+
+/* ── Card base ── */
+.card {
+  background: var(--white);
+  border: 1px solid var(--line2);
+  border-radius: var(--radius);
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(11, 28, 61, 0.08);
+}
+
+/* ── Colour variants — top accent stripe ── */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.card--blue::before {
+  background: linear-gradient(90deg, var(--navy3), var(--navy2));
+}
+
+.card--blue:hover {
+  border-color: var(--navy3);
+  box-shadow: 0 12px 32px rgba(11, 28, 61, 0.1);
+}
+
+.card--gold::before {
+  background: linear-gradient(90deg, var(--gold), var(--gold2));
+}
+
+.card--gold:hover {
+  border-color: var(--gold);
+  box-shadow: 0 12px 32px rgba(212, 168, 67, 0.13);
+}
+
+/* ── Card header ── */
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding-bottom: 16px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.cardIcon {
+  font-size: 28px;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.cardTitle {
+  font-family: var(--ff-body);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.cardMeta {
+  font-size: 12px;
+  color: var(--text3);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+/* ── Topic list ── */
+.topicList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.topicItem {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.topicBullet {
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.45;
+  flex-shrink: 0;
+}
+
+.topicText {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.6;
+}
+
+.topicLabel {
+  font-weight: 700;
+  color: var(--navy);
+  font-family: var(--ff-body);
+}
+
+.topicDetail {
+  color: var(--text3);
+}
+
+/* ── Adaptive badge ── */
+.adaptiveBadge {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ════════════════════════════════════════════════
+   FOOTNOTE
+════════════════════════════════════════════════ */
+.footNote {
+  margin-top: 22px;
+  font-size: 13.5px;
+  color: var(--text3);
+  line-height: 1.6;
+}
+
+.footNote strong {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+/* ════════════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .section {
+    padding: 56px 0;
+  }
+
+  .inner {
+    padding: 0 24px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .examBar {
+    gap: 8px 14px;
+  }
+
+  .examBarNote {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 20px 18px;
+  }
+
+  .cardHeader {
+    gap: 10px;
+  }
+
+  .cardIcon {
+    font-size: 22px;
+  }
+
+  .heading {
+    font-size: clamp(1.65rem, 6vw, 2rem);
+  }
+}

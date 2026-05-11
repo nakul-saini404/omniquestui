@@ -19,7 +19,7 @@ export default function Nav() {
         </ul>
 
         <div className={styles.navCta}>
-          <a href="https://eduquest.org.in/contact-us/" className="btn-primary">
+          <a href="/contact-us" className="btn-primary">
             Free Consultation
           </a>
         </div>

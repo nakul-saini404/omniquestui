@@ -1,0 +1,264 @@
+/* ─── TOKENS (mirror EduQuest design system) ──────────────────────────── */
+.section {
+  --cream: #f5f0e8;
+  --cream2: #ede7d9;
+  --cream3: #e2d9c8;
+  --navy: #0b1c3d;
+  --navy3: #1a3570;
+  --gold: #d4a843;
+  --text: #0b1c3d;
+  --text2: #4a5568;
+  --text3: #718096;
+  --white: #ffffff;
+  --line: rgba(11, 28, 61, 0.10);
+  --line2: rgba(11, 28, 61, 0.18);
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "Plus Jakarta Sans", sans-serif;
+  --radius: 6px;
+
+  background: var(--white);
+  padding: 72px 24px;
+  font-family: var(--ff-body);
+  color: var(--text);
+}
+
+/* ─── INNER WRAPPER ───────────────────────────────────────────────────── */
+.sectionInner {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* ─── SECTION HEADER ──────────────────────────────────────────────────── */
+.sectionHeader {
+  margin-bottom: 44px;
+}
+
+.sectionTag {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sectionTag::before {
+  content: "";
+  width: 20px;
+  height: 1.5px;
+  background: var(--gold);
+  display: block;
+  flex-shrink: 0;
+}
+
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.25;
+  margin: 0 0 12px;
+}
+
+.sectionTitle em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.goldLine {
+  width: 48px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+
+.sectionSub {
+  font-size: 14.5px;
+  color: var(--text2);
+  max-width: 600px;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ─── CARDS GRID ──────────────────────────────────────────────────────── */
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* ─── CONTACT CARD ────────────────────────────────────────────────────── */
+.contactCard {
+  background: var(--white);
+  border: 1px solid var(--line2);
+  border-radius: 12px;
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+
+  /* entrance */
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.contactCardVisible {
+  animation: cardFadeUp 0.45s ease both;
+}
+
+@keyframes cardFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* left gold accent bar */
+.contactCard::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--gold);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.contactCard:hover {
+  box-shadow: 0 8px 32px rgba(11, 28, 61, 0.10);
+  transform: translateY(-3px);
+}
+
+.contactCard:hover::after {
+  opacity: 1;
+}
+
+/* ─── CARD ICON ───────────────────────────────────────────────────────── */
+.ccIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: var(--cream);
+  border: 1px solid var(--line2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  color: var(--navy);
+  transition: background 0.2s ease;
+}
+
+.ccIcon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.contactCard:hover .ccIcon {
+  background: var(--cream2);
+}
+
+/* ─── CARD TEXT ───────────────────────────────────────────────────────── */
+.ccLabel {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.9px;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.ccTitle {
+  font-family: var(--ff-head);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+/* ─── CARD BODY ───────────────────────────────────────────────────────── */
+.ccBody {
+  font-size: 13.5px;
+  color: var(--text2);
+  line-height: 1.7;
+}
+
+.ccBody a {
+  color: var(--navy3);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.ccBody a:hover {
+  color: var(--gold);
+}
+
+/* sub-text inside card body */
+.ccBody :global(.sub),
+.ccBody p.sub {
+  margin-top: 8px;
+  font-size: 12.5px;
+  color: var(--text3);
+  line-height: 1.55;
+}
+
+/* WhatsApp inline button */
+.ccBody :global(.whatsapp-btn) {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--cream);
+  border: 1px solid var(--line2);
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.ccBody :global(.whatsapp-btn):hover {
+  background: var(--cream2);
+  border-color: var(--navy3);
+}
+
+/* ─── BADGE ───────────────────────────────────────────────────────────── */
+.ccBadge {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--navy);
+  background: var(--cream2);
+  border: 1px solid var(--line2);
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .section {
+    padding: 48px 20px;
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+}

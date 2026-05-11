@@ -1,0 +1,176 @@
+/* ─── TOKENS (mirror EduQuest design system) ──────────────────────────── */
+.section {
+  --navy: #0b1c3d;
+  --gold: #d4a843;
+  --gold2: #e8c96a;
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "Plus Jakarta Sans", sans-serif;
+
+  background: var(--navy);
+  padding: 72px 24px;
+  font-family: var(--ff-body);
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle radial glow matching the hero/navy sections */
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(212, 168, 67, 0.08) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+/* ─── INNER WRAPPER ───────────────────────────────────────────────────── */
+.sectionInner {
+  max-width: 1160px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── HEADER ──────────────────────────────────────────────────────────── */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.sectionTag {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.sectionTag::before {
+  content: "";
+  width: 20px;
+  height: 1.5px;
+  background: var(--gold);
+  display: block;
+  flex-shrink: 0;
+}
+
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  margin: 0 0 12px;
+}
+
+.sectionTitle em {
+  color: var(--gold2);
+  font-style: italic;
+}
+
+.goldLine {
+  width: 48px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin: 12px auto 0;
+}
+
+/* ─── PROMISE GRID ────────────────────────────────────────────────────── */
+.promiseGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ─── PROMISE ITEM ────────────────────────────────────────────────────── */
+.promiseItem {
+  padding: 30px 24px;
+  background: rgba(255, 255, 255, 0.03);
+  text-align: center;
+  transition: background 0.25s ease;
+
+  /* entrance */
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.promiseItem:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.promiseItemVisible {
+  animation: promiseFadeUp 0.45s ease both;
+}
+
+@keyframes promiseFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── ICON ────────────────────────────────────────────────────────────── */
+.promiseIcon {
+  font-size: 28px;
+  margin-bottom: 10px;
+  line-height: 1;
+  display: block;
+  /* subtle scale-in on hover */
+  transition: transform 0.2s ease;
+}
+
+.promiseItem:hover .promiseIcon {
+  transform: scale(1.15);
+}
+
+/* ─── NUMBER ──────────────────────────────────────────────────────────── */
+.promiseNum {
+  font-family: var(--ff-head);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+/* ─── LABEL ───────────────────────────────────────────────────────────── */
+.promiseLabel {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.03em;
+  line-height: 1.45;
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .section {
+    padding: 48px 20px;
+  }
+
+  .promiseGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 400px) {
+  .promiseGrid {
+    grid-template-columns: 1fr;
+  }
+}

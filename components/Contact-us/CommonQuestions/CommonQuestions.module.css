@@ -1,0 +1,305 @@
+/* ─── TOKENS (mirror EduQuest design system) ──────────────────────────── */
+.section {
+  --cream: #f5f0e8;
+  --cream2: #ede7d9;
+  --navy: #0b1c3d;
+  --navy2: #102454;
+  --navy3: #1a3570;
+  --gold: #d4a843;
+  --text2: #4a5568;
+  --text3: #718096;
+  --white: #ffffff;
+  --line: rgba(11, 28, 61, 0.10);
+  --line2: rgba(11, 28, 61, 0.18);
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "Plus Jakarta Sans", sans-serif;
+  --radius: 6px;
+
+  background: var(--white);
+  padding: 72px 24px;
+  font-family: var(--ff-body);
+  color: var(--navy);
+}
+
+/* ─── INNER WRAPPER ───────────────────────────────────────────────────── */
+.sectionInner {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* ─── TWO-COLUMN LAYOUT ───────────────────────────────────────────────── */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+
+  /* entrance */
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0s, transform 0s;
+}
+
+.layoutVisible {
+  animation: layoutFadeUp 0.5s ease both;
+}
+
+@keyframes layoutFadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── LEFT COLUMN ─────────────────────────────────────────────────────── */
+.leftCol {
+  position: sticky;
+  top: 100px;
+}
+
+.sectionTag {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sectionTag::before {
+  content: "";
+  width: 20px;
+  height: 1.5px;
+  background: var(--gold);
+  display: block;
+  flex-shrink: 0;
+}
+
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.25;
+  margin: 0 0 12px;
+}
+
+.sectionTitle em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.goldLine {
+  width: 48px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin-bottom: 14px;
+}
+
+.sectionSub {
+  font-size: 14.5px;
+  color: var(--text2);
+  max-width: 420px;
+  line-height: 1.75;
+  margin: 0 0 24px;
+}
+
+/* ─── CTA BUTTONS ─────────────────────────────────────────────────────── */
+.ctaGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 14px 30px;
+  border-radius: 7px;
+  font-size: 14.5px;
+  font-weight: 600;
+  font-family: var(--ff-body);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.btnPrimary {
+  background: var(--navy);
+  color: var(--white);
+  border: 1.5px solid var(--navy);
+}
+
+.btnPrimary:hover {
+  background: var(--navy2);
+  border-color: var(--navy2);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(11, 28, 61, 0.22);
+}
+
+.btnOutline {
+  background: transparent;
+  color: var(--navy);
+  border: 1.5px solid var(--navy);
+}
+
+.btnOutline:hover {
+  background: var(--navy);
+  color: var(--white);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(11, 28, 61, 0.18);
+}
+
+/* ─── FAQ LIST ────────────────────────────────────────────────────────── */
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ─── FAQ ITEM ────────────────────────────────────────────────────────── */
+.faqItem {
+  background: var(--white);
+  border: 1px solid var(--line2);
+  border-radius: 9px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faqItem:hover {
+  border-color: rgba(11, 28, 61, 0.28);
+}
+
+.faqItemOpen {
+  box-shadow: 0 4px 16px rgba(11, 28, 61, 0.07);
+}
+
+/* ─── FAQ QUESTION BUTTON ─────────────────────────────────────────────── */
+.faqQ {
+  width: 100%;
+  padding: 16px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  font-family: var(--ff-body);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  user-select: none;
+  background: transparent;
+  border: none;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.faqQ:hover {
+  background: var(--cream);
+}
+
+/* ─── ARROW ───────────────────────────────────────────────────────────── */
+.faqArrow {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--cream2);
+  border: 1px solid var(--line2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 14px;
+  color: var(--navy3);
+  line-height: 1;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.faqArrowOpen {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+  transform: rotate(45deg);
+}
+
+/* ─── FAQ ANSWER PANEL ────────────────────────────────────────────────── */
+.faqA {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.32s ease;
+}
+
+.faqAOpen {
+  max-height: 300px;
+}
+
+.faqAInner {
+  padding: 0 20px 16px;
+  font-size: 13.5px;
+  color: var(--text2);
+  line-height: 1.75;
+  border-top: 1px solid var(--line);
+}
+
+/* ─── INLINE LINKS inside answer text ────────────────────────────────── */
+.inlineLink {
+  color: var(--navy3);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.inlineLink:hover {
+  color: var(--gold);
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .leftCol {
+    position: static;
+  }
+
+  .sectionSub {
+    max-width: 100%;
+  }
+
+  .ctaGroup {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 48px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .ctaGroup {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

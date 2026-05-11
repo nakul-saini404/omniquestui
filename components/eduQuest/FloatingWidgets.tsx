@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { X, MessageCircle } from 'lucide-react';
 import Image from 'next/image';
+import {  useRef, useEffect } from 'react';
 
 /* ── WhatsApp SVG Icon ───────────────────────────────────────────────────── */
 function WhatsAppIcon() {
@@ -28,14 +29,45 @@ function WhatsAppIcon() {
 
 /* ── Chat Window ─────────────────────────────────────────────────────────── */
 function ChatWindow({ onClose }: { onClose: () => void }) {
-  const [form, setForm] = useState({ name: '', email: '', phone: '+91' });
-  const [submitted, setSubmitted] = useState(false);
+  const [messages, setMessages] = useState<{ role: 'user' | 'bot'; text: string }[]>([
+    { role: 'bot', text: 'Hi! I\'m Kritika from EduQuest. How can I help you today?' },
+  ]);
+  const [input, setInput] = useState('');
+  const [loading, setLoading] = useState(false);
+  const bottomRef = useRef<HTMLDivElement>(null);
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    // 🔧 Replace with your actual form submission logic (API call, email, etc.)
-    console.log('Chat form submitted:', form);
-    setSubmitted(true);
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
+
+  async function sendMessage() {
+    if (!input.trim()) return;
+
+    const userMsg = input.trim();
+    setInput('');
+    setMessages((prev) => [...prev, { role: 'user', text: userMsg }]);
+    setLoading(true);
+
+    try {
+      const res = await fetch('http://127.0.0.1:5000/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userMsg }),
+      });
+      const data = await res.json();
+      setMessages((prev) => [...prev, { role: 'bot', text: data.reply }]);
+    } catch {
+      setMessages((prev) => [...prev, { role: 'bot', text: 'Sorry, I am unable to connect right now.' }]);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  function handleKeyDown(e: React.KeyboardEvent) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
   }
 
   return (
@@ -53,31 +85,13 @@ function ChatWindow({ onClose }: { onClose: () => void }) {
         className="relative p-4 text-white flex items-center justify-between rounded-t-2xl overflow-hidden flex-shrink-0"
         style={{ background: 'linear-gradient(135deg, #ec4899 0%, #ff95e6 100%)' }}
       >
-        {/* Decorative dots */}
-        {[
-          { left: '37%', top: '19%', delay: '1.5s', dur: '2.1s' },
-          { left: '97%', top: '63%', delay: '0.25s', dur: '2.1s' },
-          { left: '27%', top: '47%', delay: '1.45s', dur: '3.3s' },
-        ].map((d, i) => (
-          <span
-            key={i}
-            className="absolute w-1 h-1 rounded-full bg-white/20 animate-pulse pointer-events-none"
-            style={{ left: d.left, top: d.top, animationDelay: d.delay, animationDuration: d.dur }}
-          />
-        ))}
-
-        {/* Avatar + name */}
         <div className="flex items-center gap-3 relative z-10 min-w-0 flex-1">
-          <div
-            className="w-10 h-10 rounded-full p-0.5 flex-shrink-0"
-            style={{ background: 'linear-gradient(45deg, #ec4899, #ffaeff)' }}
-          >
+          <div className="w-10 h-10 rounded-full p-0.5 flex-shrink-0"
+            style={{ background: 'linear-gradient(45deg, #ec4899, #ffaeff)' }}>
             <div className="w-full h-full bg-white rounded-full flex items-center justify-center">
               <Image
                 src="https://storage.files-vault.com/uploads/1771241332-Yp12oCHwxC.png"
-                alt="Agent"
-                width={28}
-                height={28}
+                alt="Agent" width={28} height={28}
                 className="w-7 h-7 rounded-full object-cover"
               />
             </div>
@@ -90,96 +104,65 @@ function ChatWindow({ onClose }: { onClose: () => void }) {
             </div>
           </div>
         </div>
-
-        {/* Close */}
-        <button
-          onClick={onClose}
+        <button onClick={onClose}
           className="relative z-10 p-1.5 hover:bg-white/20 rounded-full transition-all duration-200 hover:scale-110 flex-shrink-0"
-          aria-label="Close chat"
-        >
+          aria-label="Close chat">
           <X size={18} />
         </button>
       </div>
 
-      {/* ── Body ── */}
-      <div className="flex-1 overflow-y-auto p-4 bg-gray-50">
-        {submitted ? (
-          <div className="flex flex-col items-center justify-center h-full text-center gap-3">
-            <div className="w-14 h-14 rounded-full bg-pink-100 flex items-center justify-center text-2xl">
-              🎉
-            </div>
-            <p className="font-bold text-gray-800 text-base">Thanks, {form.name}!</p>
-            <p className="text-sm text-gray-500 leading-relaxed">
-              We have received your message. Kritika will get back to you shortly.
-            </p>
-          </div>
-        ) : (
-          <div className="space-y-4">
-            {/* Welcome bubble */}
+      {/* ── Messages ── */}
+      <div className="flex-1 overflow-y-auto p-4 bg-gray-50 space-y-3">
+        {messages.map((msg, i) => (
+          <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
             <div
-              className="bg-white p-3 rounded-lg shadow-sm text-sm flex items-center gap-2"
-              style={{ borderLeft: '3px solid #ec4899' }}
+              className="max-w-[75%] px-3 py-2 rounded-xl text-sm leading-relaxed"
+              style={{
+                background: msg.role === 'user' ? '#ec4899' : '#fff',
+                color: msg.role === 'user' ? '#fff' : '#374151',
+                boxShadow: '0 1px 4px rgba(0,0,0,0.08)',
+                borderRadius: msg.role === 'user' ? '18px 18px 4px 18px' : '18px 18px 18px 4px',
+              }}
             >
-              <span className="text-xl">👋</span>
-              <span className="font-medium" style={{ color: '#ec4899' }}>Welcome!</span>
+              {msg.text}
             </div>
+          </div>
+        ))}
 
-            <p className="text-sm text-gray-600">
-              Please provide your details to start the conversation:
-            </p>
-
-            {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-3">
-              {/* Name */}
-              <div>
-                <label className="text-xs text-gray-600 mb-1 block font-medium">Name</label>
-                <input
-                  type="text"
-                  placeholder="Your name"
-                  required
-                  value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm outline-none transition-all focus:border-pink-400 focus:ring-1 focus:ring-pink-200"
-                />
-              </div>
-
-              {/* Email */}
-              <div>
-                <label className="text-xs text-gray-600 mb-1 block font-medium">Email</label>
-                <input
-                  type="email"
-                  placeholder="your@email.com"
-                  required
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm outline-none transition-all focus:border-pink-400 focus:ring-1 focus:ring-pink-200"
-                />
-              </div>
-
-              {/* Phone */}
-              <div>
-                <label className="text-xs text-gray-600 mb-1 block font-medium">Phone</label>
-                <input
-                  type="tel"
-                  placeholder="+91 98765 43210"
-                  required
-                  value={form.phone}
-                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm outline-none transition-all focus:border-pink-400 focus:ring-1 focus:ring-pink-200"
-                />
-              </div>
-
-              {/* Submit */}
-              <button
-                type="submit"
-                className="w-full py-2.5 text-white rounded-md text-sm font-semibold transition-opacity hover:opacity-90 mt-1"
-                style={{ backgroundColor: '#ec4899' }}
-              >
-                Start Chat
-              </button>
-            </form>
+        {loading && (
+          <div className="flex justify-start">
+            <div className="bg-white px-4 py-2 rounded-xl shadow-sm flex gap-1 items-center">
+              {[0, 1, 2].map((i) => (
+                <span key={i} className="w-2 h-2 bg-pink-400 rounded-full animate-bounce"
+                  style={{ animationDelay: `${i * 0.15}s` }} />
+              ))}
+            </div>
           </div>
         )}
+        <div ref={bottomRef} />
+      </div>
+
+      {/* ── Input ── */}
+      <div className="p-3 bg-white border-t border-gray-100 flex gap-2">
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={handleKeyDown}
+          placeholder="Type a message..."
+          className="flex-1 px-3 py-2 border border-gray-200 rounded-full text-sm outline-none focus:border-pink-400 focus:ring-1 focus:ring-pink-200 transition-all"
+        />
+        <button
+          onClick={sendMessage}
+          disabled={loading || !input.trim()}
+          className="w-9 h-9 rounded-full flex items-center justify-center text-white flex-shrink-0 transition-opacity disabled:opacity-50"
+          style={{ background: 'linear-gradient(135deg, #ec4899, #ff7bcc)' }}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <line x1="22" y1="2" x2="11" y2="13" />
+            <polygon points="22 2 15 22 11 13 2 9 22 2" />
+          </svg>
+        </button>
       </div>
     </div>
   );
@@ -191,7 +174,7 @@ export default function FloatingWidgets() {
   const [promptDismissed, setPromptDismissed] = useState(false);
 
   // 🔧 Replace with your actual WhatsApp number (country code + number, no +)
-  const WHATSAPP_NUMBER = '919999999999';
+  const WHATSAPP_NUMBER = '9958041888';
   const WHATSAPP_MESSAGE = 'Hi! I have a question about EduQuest.';
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 

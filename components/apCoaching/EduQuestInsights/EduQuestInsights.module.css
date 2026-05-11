@@ -1,0 +1,420 @@
+/* ================================================================
+   EduQuestInsights.module.css
+   Design: Dark navy base · Amber/orange accent · Electric blue
+   Fonts: Syne (headings) + DM Sans (body) — matches EduQuest brand
+   ================================================================ */
+
+/* ── Design tokens ────────────────────────────────────────── */
+.section {
+  --navy-950: #050d1a;
+  --navy-900: #0a1628;
+  --navy-800: #0f2040;
+  --navy-700: #152952;
+  --navy-600: #1e3a6e;
+  --blue-400: #3b7dd8;
+  --blue-300: #5b9be8;
+  --amber-500: #f59e0b;
+  --amber-400: #fbbf24;
+  --amber-300: #fcd34d;
+  --orange-500: #f97316;
+  --orange-400: #fb923c;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --border: rgba(59, 125, 216, 0.2);
+  --border-hover: rgba(59, 125, 216, 0.42);
+  --glass: rgba(15, 32, 64, 0.6);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  position: relative;
+  background: var(--navy-950);
+  padding: 96px 0;
+  overflow: hidden;
+  font-family: "DM Sans", "Segoe UI", sans-serif;
+  color: #f8fafc;
+}
+
+/* ── Ambient background ───────────────────────────────────── */
+.bgGlow1 {
+  position: absolute;
+  width: 640px;
+  height: 640px;
+  background: radial-gradient(
+    circle,
+    rgba(59, 125, 216, 0.11) 0%,
+    transparent 70%
+  );
+  top: -160px;
+  left: -180px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.bgGlow2 {
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(
+    circle,
+    rgba(245, 158, 11, 0.08) 0%,
+    transparent 70%
+  );
+  bottom: -80px;
+  right: 5%;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.bgGrid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.028;
+  background-image: linear-gradient(
+      rgba(59, 125, 216, 1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(59, 125, 216, 1) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+/* ── Layout ───────────────────────────────────────────────── */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Header ───────────────────────────────────────────────── */
+.header {
+  text-align: center;
+  margin-bottom: 56px;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.headerVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.sectionLabelLine {
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--amber-400);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.sectionLabelText {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--amber-400);
+}
+
+.heading {
+  font-family: "Syne", "Georgia", serif;
+  font-size: clamp(1.9rem, 3.5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+  color: #f8fafc;
+}
+
+.headingAccent {
+  background: linear-gradient(135deg, var(--amber-400), var(--orange-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subheading {
+  font-size: 1rem;
+  color: var(--gray-400);
+  max-width: 520px;
+  margin: 0 auto;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+/* ── Grid ─────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 639px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Card ─────────────────────────────────────────────────── */
+.card {
+  position: relative;
+  background: var(--navy-800);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+
+  /* Entry animation */
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.cardVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover {
+  border-color: rgba(59, 125, 216, 0.45);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+  transform: translateY(-5px);
+}
+
+/* Hover glow overlay */
+.cardGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 70% 50% at 50% 0%,
+    rgba(59, 125, 216, 0.06) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.card:hover .cardGlow {
+  opacity: 1;
+}
+
+/* ── Card thumbnail ───────────────────────────────────────── */
+.cardThumb {
+  position: relative;
+  width: 100%;
+  height: 184px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--navy-700);
+}
+
+.cardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.card:hover .cardImg {
+  transform: scale(1.04);
+}
+
+.cardImgPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--navy-700) 0%,
+    var(--navy-600) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.8rem;
+}
+
+/* Tag chip — floats over thumbnail */
+.cardTag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: inline-flex;
+  align-items: center;
+  background: rgba(59, 125, 216, 0.88);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+  border: 1px solid rgba(91, 155, 232, 0.4);
+}
+
+/* ── Card body ────────────────────────────────────────────── */
+.cardBody {
+  padding: 22px 22px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cardTitle {
+  font-family: "Syne", "Georgia", serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.38;
+  color: #f8fafc;
+  transition: color 0.2s ease;
+  margin: 0;
+}
+
+.card:hover .cardTitle {
+  color: var(--blue-300);
+}
+
+.cardExcerpt {
+  font-size: 0.82rem;
+  color: var(--gray-400);
+  line-height: 1.68;
+  flex: 1;
+  margin: 0;
+
+  /* Clamp to 3 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Card footer ──────────────────────────────────────────── */
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid rgba(59, 125, 216, 0.12);
+  margin-top: auto;
+}
+
+.cardDate {
+  font-size: 0.72rem;
+  color: var(--gray-500);
+  font-style: normal;
+}
+
+.cardReadMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--amber-400);
+  transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.card:hover .cardReadMore {
+  color: var(--amber-300);
+  gap: 8px;
+}
+
+.cardArrow {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.card:hover .cardArrow {
+  transform: translateX(3px);
+}
+
+/* ── View all CTA ─────────────────────────────────────────── */
+.ctaRow {
+  text-align: center;
+  margin-top: 44px;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: var(--radius-md);
+  background: rgba(59, 125, 216, 0.1);
+  border: 1px solid rgba(59, 125, 216, 0.28);
+  color: var(--blue-300);
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.2s ease;
+}
+
+.ctaBtn:hover {
+  background: rgba(59, 125, 216, 0.2);
+  border-color: rgba(59, 125, 216, 0.5);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.ctaBtnArrow {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.ctaBtn:hover .ctaBtnArrow {
+  transform: translateX(4px);
+}
+
+/* ── Reduced-motion fallback ──────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .card,
+  .cardImg,
+  .cardArrow,
+  .ctaBtnArrow {
+    transition: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

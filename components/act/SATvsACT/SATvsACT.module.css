@@ -1,0 +1,153 @@
+/* SATvsACT.module.css */
+/* Tokens: --cream, --navy, --gold, --red, --white,
+           --text2, --line, --line2, --ff-head        */
+
+.section {
+  padding: 80px 24px;
+  background: color-mix(in srgb, var(--navy) 92%, var(--white));
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Eyebrow ── */
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* ── Heading ── */
+.title {
+  font-family: var(--ff-head);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+/* ── Sub ── */
+.sub {
+  font-size: 16px;
+  color: #fbfbfb;
+  max-width: 580px;
+  margin-bottom: 40px;
+  line-height: 1.7;
+}
+
+/* ── Table wrapper — enables horizontal scroll on mobile ── */
+.tableWrap {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  margin-bottom: 24px;
+}
+
+/* ── Table ── */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  min-width: 520px;
+}
+
+/* ── Header row ── */
+.th,
+.thFactor {
+  background: color-mix(in srgb, var(--navy) 80%, var(--white) 20%);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.thGold {
+  color: var(--gold);
+}
+
+/* ── Body cells ── */
+.td,
+.tdFactor {
+  padding: 14px 20px;
+  font-size: 14px;
+  color: #fdfdfd;
+  border-bottom: 1px solid var(--line2);
+  vertical-align: middle;
+  line-height: 1.5;
+}
+
+.table tbody tr:last-child .td,
+.table tbody tr:last-child .tdFactor {
+  border-bottom: none;
+}
+
+/* Factor column — slightly brighter */
+.tdFactor {
+  color: var(--white);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ACT column highlight */
+.tdGold {
+  color: color-mix(in srgb, var(--gold) 85%, var(--white));
+}
+
+/* Alternating row tint */
+.rowEven .td,
+.rowEven .tdFactor {
+  background: color-mix(in srgb, var(--white) 3%, transparent);
+}
+
+/* ── Insight banner ── */
+.insight {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px 24px;
+  background: color-mix(in srgb, var(--gold) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent);
+  border-radius: 12px;
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.65;
+}
+
+.insightIcon {
+  font-size: 20px;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.insightLabel {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .section {
+    padding: 56px 16px;
+  }
+}

@@ -3,15 +3,22 @@ import Image from 'next/image';
 const footerLinks = {
   courses: [
     { label: 'SAT Coaching', href: '/sat' },
-    { label: 'ACT Coaching', href: 'https://eduquest.org.in/sat-coaching-classes-delhi/' },
-    { label: 'AP Coaching', href: 'https://eduquest.org.in/online-ap-prep-classes/' },
-    { label: 'LSAT Coaching', href: 'https://eduquest.org.in/lsat-coaching-india/' },
-    { label: 'UCAT Coaching', href: 'https://eduquest.org.in/ucat-exam-2025/' },
-    { label: 'TMUA Coaching', href: 'https://eduquest.org.in/tmua/' },
-    { label: 'IELTS Coaching', href: 'https://eduquest.org.in/ielts/' },
-    { label: 'PTE Coaching', href: 'https://eduquest.org.in/pte/' },
-    { label: 'TOEFL Coaching', href: 'https://eduquest.org.in/toefl/' },
-    { label: 'SAT Coaching Classes Dubai', href: 'https://eduquest.org.in/sat-test-preparation-online-course-dubai/' },
+      { label: 'LSAT Coaching', href: '/lsat' },
+      { label: 'SSAT Coaching', href: '/ssat' },
+      { label: 'PSAT Coaching', href: '/psat' },
+    { label: 'ACT Coaching', href: '/act' },
+    { label: 'AP Coaching', href: '/ap-coaching' },
+    { label: 'Pre-AP Coaching', href: '/pre-ap-gurgaon' },
+    { label: 'IPMAT Coaching', href: '/ipmat-coaching-and-profile-building-eduquest-2026' },
+      { label: 'MCAT Coaching', href: '/mcat' },
+    { label: 'UCAT Coaching', href: '/ucat' },
+    { label: 'TMUA Coaching', href: '/tmua' },
+    { label: 'IELTS Coaching', href: '/ielts' },
+    { label: 'DASA/CIWG', href: '/dasa-and-ciwg-quota' },
+    { label: 'PTE Coaching', href: '/pte' },
+    { label: 'TOEFL Coaching', href: '/toefl' },
+    // { label: 'SAT Coaching Classes Dubai', href: 'https://eduquest.org.in/sat-test-preparation-online-course-dubai/' },
+   
   ],
   tuition: [
     { label: 'Olympiads', href: 'https://eduquest.org.in/olympiad/' },
@@ -25,7 +32,7 @@ const footerLinks = {
   useful: [
     { label: 'About Us', href: 'https://eduquest.org.in/about-us/' },
     { label: 'Blog', href: 'https://eduquest.org.in/blog' },
-    { label: 'Contact Us', href: 'https://eduquest.org.in/contact-us/' },
+    { label: 'Contact Us', href: '/contact-us' },
     { label: 'Franchise', href: 'https://eduquest.org.in/franchise/' },
     { label: 'Free Guide Book', href: 'https://eduquest.org.in/free-download/' },
     { label: 'Refund Policy', href: 'https://eduquest.org.in/refund-policy/' },
@@ -91,7 +98,7 @@ export default function Footer() {
             <div className="space-y-3 text-xs text-gray-500">
               <div>
                 <p className="text-gray-300 font-semibold mb-1">Main Office</p>
-                <p>1210, Galleria Boulevard, DLF Phase IV, Gurugram, Haryana 122009</p>
+                <p>1212 Galleria Boulevard, DLF Phase IV, Gurugram, Haryana 122009</p>
               </div>
               <div>
                 <p className="text-gray-300 font-semibold mb-1">Regional Office</p>

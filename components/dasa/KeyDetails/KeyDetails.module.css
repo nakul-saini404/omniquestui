@@ -1,0 +1,222 @@
+/* ═══════════════════════════
+   KEY DETAILS — KeyDetails.module.css
+   Fonts: Playfair Display + Plus Jakarta Sans
+═══════════════════════════ */
+
+/* ── Layout ── */
+.institutes {
+  padding: 88px 0;
+  background: #ffffff;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: #0b1c3d;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Section Head ── */
+.sectionHead {
+  margin-bottom: 48px;
+}
+
+.sectionHead h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(24px, 3.2vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0b1c3d;
+  line-height: 1.18;
+  margin-bottom: 10px;
+}
+
+.sectionHead p {
+  font-size: 15.5px;
+  color: #4a5568;
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+.center {
+  text-align: center;
+}
+
+.center p {
+  margin: 0 auto;
+}
+
+/* ── Section Label ── */
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 14px;
+}
+
+.sectionLabel::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: #d4a843;
+}
+
+/* ── Fade-up Animation ── */
+.fadeUp {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fadeUp.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Institute Grid ── */
+.instGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+/* ── Institute Panel ── */
+.instPanel {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(11, 28, 61, 0.1);
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+.instPanel.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.instPanel:hover {
+  box-shadow: 0 16px 48px rgba(11, 28, 61, 0.1);
+}
+
+/* ── Institute Header ── */
+.instHead {
+  background: #0b1c3d;
+  padding: 24px 28px;
+  position: relative;
+}
+
+.instHead::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #d4a843, #e8c96a, transparent);
+}
+
+.instHead h3 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.scheme {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ── Institute Body ── */
+.instBody {
+  padding: 24px 28px;
+  background: #ffffff;
+}
+
+/* ── Detail List ── */
+.instDetailList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.instDetailRow {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(11, 28, 61, 0.06);
+}
+
+.instDetailRow:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.instDetailKey {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #d4a843;
+  min-width: 130px;
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+
+.instDetailVal {
+  font-size: 13.5px;
+  color: #4a5568;
+  line-height: 1.55;
+}
+
+.instDetailVal strong {
+  color: #0b1c3d;
+}
+
+/* ── Institute Link ── */
+.instLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding: 9px 18px;
+  background: #0b1c3d;
+  color: #ffffff;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.instLink:hover {
+  background: #102454;
+  transform: translateY(-1px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .instGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .institutes {
+    padding: 56px 0;
+  }
+
+  .instDetailKey {
+    min-width: 100px;
+  }
+}

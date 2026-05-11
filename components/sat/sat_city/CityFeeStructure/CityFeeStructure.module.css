@@ -1,0 +1,150 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   CityFeeStructure.module.css
+   City-agnostic — identical structure to FeeStructure.module.css.
+   Section padding/max-width handled by global .container.
+───────────────────────────────────────────────────────────────────────────── */
+
+/* ── SECTION ── */
+.section {
+  padding: 80px 0;
+}
+
+/* ── SECTION LABEL ── */
+.sectionLabel {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+/* ── HEADING ── */
+.heading {
+  font-family: var(--ff-head);
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  color: var(--navy);
+  line-height: 1.22;
+  margin-bottom: 18px;
+}
+
+.heading em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ── SECTION SUB ── */
+.sectionSub {
+  color: var(--text2);
+  font-size: 16px;
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+/* ── PRICING LIST ── */
+.pricingList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+/* ── PRICE ROW ── */
+.priceRow {
+  background: var(--white);
+  border: 1px solid var(--line2);
+  border-radius: 10px;
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.priceRow:hover {
+  border-color: var(--gold);
+  box-shadow: 0 4px 16px rgba(212, 168, 67, 0.1);
+}
+
+/* ── PRICE ROW LABEL ── */
+.priceRowLabel {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+/* ── PRICE ROW DESC ── */
+.priceRowDesc {
+  font-size: 13px;
+  color: var(--text3);
+  margin-top: 2px;
+}
+
+/* ── PRICE ROW RIGHT ── */
+.priceRowRight {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* ── PRICE ROW AMOUNT ── */
+.priceRowAmount {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+/* ── PRICE ROW LINK ── */
+.priceRowLink {
+  color: var(--navy);
+  font-size: 13px;
+  text-decoration: none;
+  font-weight: 700;
+  background: rgba(212, 168, 67, 0.12);
+  border: 1.5px solid var(--gold);
+  padding: 6px 16px;
+  border-radius: var(--radius);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.priceRowLink:hover {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+/* ── FOOTNOTE ── */
+.footnote {
+  font-size: 13px;
+  color: var(--text3);
+  margin-top: 16px;
+}
+
+.footnoteLink {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footnoteLink:hover {
+  text-decoration: underline;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .priceRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .priceRowRight {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

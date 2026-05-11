@@ -1,0 +1,237 @@
+/* =============================================
+   FAQ.module.css
+   "FAQ" section — SSAT EduQuest
+   No :root; all tokens scoped to .faqSection
+   ============================================= */
+
+/* ── Local design tokens ── */
+.faqSection {
+  --cream: #f5f0e8;
+  --navy: #0b1c3d;
+  --gold: #d4a843;
+  --red: #c84b31;
+  --text2: #4a5568;
+  --white: #ffffff;
+  --line: rgba(11, 28, 61, 0.1);
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "Plus Jakarta Sans", sans-serif;
+
+  background: var(--cream);
+  padding: 80px 0;
+  font-family: var(--ff-body);
+  color: var(--navy);
+}
+
+/* ── Container ── */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ═══════════════════════════════════════════
+   TWO-COLUMN LAYOUT
+═══════════════════════════════════════════ */
+
+.faqLayout {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: 60px;
+  align-items: start;
+}
+
+/* ── Left column ── */
+.faqLeft {
+  /* wrapper only */
+}
+
+/* ── Section label pill ── */
+.sectionLabel {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  padding: 4px 12px;
+  background: rgba(212, 168, 67, 0.1);
+  border-radius: 50px;
+  border: 1px solid rgba(212, 168, 67, 0.2);
+  font-family: var(--ff-body);
+}
+
+/* ── Section title ── */
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.sectionTitle em {
+  font-style: italic;
+  color: var(--red);
+}
+
+/* ── Section subtitle ── */
+.sectionSub {
+  font-size: 16px;
+  color: var(--text2);
+  max-width: 560px;
+  line-height: 1.7;
+  font-family: var(--ff-body);
+}
+
+/* ── CTA navy card ── */
+.ctaCard {
+  margin-top: 36px;
+  background: var(--navy);
+  border-radius: 12px;
+  padding: 28px;
+  color: var(--white);
+}
+
+.ctaCardEyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--gold);
+  margin-bottom: 14px;
+  font-family: var(--ff-body);
+}
+
+.ctaCardText {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  margin-bottom: 18px;
+  font-family: var(--ff-body);
+}
+
+.ctaCardBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 24px;
+  background: var(--gold);
+  color: var(--navy);
+  border-radius: 6px;
+  font-family: var(--ff-body);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.ctaCardBtn:hover {
+  background: #e8c96a;
+  transform: translateY(-1px);
+}
+
+/* ═══════════════════════════════════════════
+   FAQ LIST  (right column)
+═══════════════════════════════════════════ */
+
+.faqList {
+  display: grid;
+  gap: 12px;
+}
+
+/* ── FAQ item wrapper ── */
+.faqItem {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* ── Question button ── */
+.faqQuestion {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 20px 24px;
+  text-align: left;
+  font-family: var(--ff-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  transition: background 0.2s ease;
+}
+
+.faqQuestion:hover {
+  background: var(--cream);
+}
+
+/* ── Plus / cross icon ── */
+.faqIcon {
+  font-size: 18px;
+  color: var(--gold);
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+  line-height: 1;
+  display: inline-block;
+}
+
+.faqIconOpen {
+  transform: rotate(45deg);
+}
+
+/* ── Answer panel (animated height) ── */
+.faqAnswer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faqAnswerOpen {
+  max-height: 500px;
+}
+
+.faqAnswerInner {
+  padding: 0 24px 20px;
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.75;
+  border-top: 1px solid var(--line);
+  font-family: var(--ff-body);
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .faqLayout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .faqSection {
+    padding: 56px 0;
+  }
+
+  .sectionTitle {
+    font-size: 26px;
+  }
+
+  .faqQuestion {
+    font-size: 14px;
+    padding: 16px 18px;
+  }
+
+  .faqAnswerInner {
+    padding: 0 18px 16px;
+  }
+}

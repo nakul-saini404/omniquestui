@@ -1,0 +1,178 @@
+/* ── Practice / Sample Questions Section ── */
+
+.section {
+  padding: 76px 24px;
+  background: #ffffff;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #C8102E;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 900;
+  color: #0A2240;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.sectionSub {
+  font-size: 15.5px;
+  color: #4a5568;
+  max-width: 620px;
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+
+/* ── Tabs ── */
+
+.sampleTabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 28px;
+  border: 1px solid rgba(10, 34, 64, 0.12);
+  border-radius: 6px;
+  overflow: hidden;
+  width: fit-content;
+}
+
+.sampleTab {
+  padding: 11px 22px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #4a5568;
+  cursor: pointer;
+  background: #F5F3EE;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background 0.2s, color 0.2s;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.sampleTab.active {
+  background: #0A2240;
+  color: #ffffff;
+}
+
+/* ── Panels ── */
+
+.samplePanel {
+  display: none;
+}
+
+.samplePanel.panelActive {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+/* ── Question Card ── */
+
+.qCard {
+  background: #F5F3EE;
+  border: 1px solid rgba(10, 34, 64, 0.12);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.qHeader {
+  background: #0A2240;
+  padding: 14px 18px;
+}
+
+.qHeaderTitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 15px;
+  color: #C9972B;
+  font-weight: 700;
+  margin: 0;
+}
+
+.qBody {
+  padding: 18px;
+}
+
+.qText {
+  font-size: 13.5px;
+  color: #4a5568;
+  line-height: 1.75;
+  margin-bottom: 10px;
+}
+
+/* ── Math block ── */
+
+.math {
+  font-family: 'Courier New', monospace;
+  background: rgba(10, 34, 64, 0.05);
+  padding: 9px 13px;
+  border-radius: 4px;
+  font-size: 12.5px;
+  color: #0A2240;
+  margin: 9px 0;
+  border-left: 3px solid #C9972B;
+}
+
+/* ── Tip block ── */
+
+.qTip {
+  display: flex;
+  gap: 9px;
+  background: rgba(201, 151, 43, 0.1);
+  border: 1px solid rgba(201, 151, 43, 0.25);
+  border-radius: 5px;
+  padding: 11px;
+  margin-top: 10px;
+}
+
+.qTipLabel {
+  font-weight: 700;
+  color: #C9972B;
+  white-space: nowrap;
+  font-size: 12.5px;
+  flex-shrink: 0;
+}
+
+.qTipText {
+  font-size: 12.5px;
+  color: #4a5568;
+  line-height: 1.65;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 900px) {
+  .samplePanel.panelActive {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 580px) {
+  .section {
+    padding: 52px 16px;
+  }
+
+  .sampleTabs {
+    width: 100%;
+  }
+
+  .sampleTab {
+    flex: 1;
+    text-align: center;
+    padding: 11px 12px;
+    font-size: 11px;
+  }
+}

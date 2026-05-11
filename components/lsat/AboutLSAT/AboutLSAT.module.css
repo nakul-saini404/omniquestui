@@ -1,0 +1,594 @@
+/* ═══════════════════════════════════════════════════════════
+   AboutLSAT.module.css
+   Design tokens (no :root):
+     cream  : #f5f0e8   cream2 : #ede7d9   cream3 : #e2d9c8
+     navy   : #0b1c3d   navy2  : #102454   navy3  : #1a3570
+     gold   : #d4a843   gold2  : #e8c96a
+     red    : #c84b31
+     text   : #0b1c3d   text2  : #4a5568   text3  : #718096
+     ff-head: "Playfair Display", Georgia, serif
+     ff-body: "Plus Jakarta Sans", sans-serif
+═══════════════════════════════════════════════════════════ */
+
+/* ─── KEYFRAMES ─────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+/* ─── SECTION ───────────────────────────────────────────── */
+.section {
+  background: #f5f0e8;
+  padding: 100px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle cream texture overlay */
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 80% 20%, rgba(212,168,67,0.06) 0%, transparent 50%),
+    radial-gradient(circle at 10% 80%, rgba(11,28,61,0.04) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── STATS RIBBON ──────────────────────────────────────── */
+.statsRibbon {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(11, 28, 61, 0.1);
+  border: 1px solid rgba(11, 28, 61, 0.12);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 72px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.statsRibbon.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.ribbonStat {
+  background: #ffffff;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transition: background 0.2s;
+}
+
+.ribbonStat:hover {
+  background: #ede7d9;
+}
+
+.ribbonNum {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #0b1c3d;
+  line-height: 1;
+}
+
+.ribbonLabel {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #718096;
+}
+
+/* ─── TWO-COLUMN GRID ───────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+/* ─── REVEAL STATES ─────────────────────────────────────── */
+.visualCol,
+.copyCol {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.visualCol { transition-delay: 0.05s; }
+.copyCol   { transition-delay: 0.15s; }
+
+.visualCol.visible,
+.copyCol.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ─── LEFT — VISUAL COLUMN ──────────────────────────────── */
+.visualCol {
+  position: relative;
+}
+
+/* ─── SCORE CARD ─────────────────────────────────────────── */
+.scoreCard {
+  background: #0b1c3d;
+  border-radius: 20px;
+  padding: 36px 32px 28px;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 24px 64px rgba(11, 28, 61, 0.22),
+    0 4px 16px rgba(11, 28, 61, 0.14);
+}
+
+.cardGlow {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,168,67,0.14) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* top row */
+.cardTopRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.scoreLabel {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(245, 240, 232, 0.4);
+  margin-bottom: 6px;
+}
+
+.scoreDisplay {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 4rem;
+  font-weight: 900;
+  color: #e8c96a;
+  line-height: 1;
+}
+
+.scalePill {
+  background: rgba(212, 168, 67, 0.12);
+  border: 1px solid rgba(212, 168, 67, 0.25);
+  color: #d4a843;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 100px;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+}
+
+/* divider */
+.cardDivider {
+  height: 1px;
+  background: rgba(245, 240, 232, 0.07);
+  margin-bottom: 22px;
+}
+
+/* bars */
+.barsWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.barRow {}
+
+.barMeta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.barLabel {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.73rem;
+  color: rgba(245, 240, 232, 0.55);
+  font-weight: 500;
+}
+
+.barPct {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.73rem;
+  color: rgba(245, 240, 232, 0.55);
+  font-weight: 600;
+}
+
+.barTrack {
+  height: 5px;
+  background: rgba(245, 240, 232, 0.07);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* card footer */
+.cardFooter {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(245, 240, 232, 0.45);
+  background: rgba(245, 240, 232, 0.05);
+  border: 1px solid rgba(245, 240, 232, 0.09);
+  padding: 4px 10px;
+  border-radius: 100px;
+  text-transform: uppercase;
+}
+
+/* ─── FLOATING BADGE ─────────────────────────────────────── */
+.floatBadge {
+  position: absolute;
+  bottom: -18px;
+  right: -18px;
+  background: #d4a843;
+  color: #0b1c3d;
+  padding: 14px 18px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 12px 32px rgba(212, 168, 67, 0.38);
+  animation: floatY 3.2s ease-in-out infinite;
+  z-index: 2;
+}
+
+.floatBadgeIcon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.floatBadgeNum {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.floatBadgeSub {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  opacity: 0.7;
+  margin-top: 2px;
+  letter-spacing: 0.04em;
+}
+
+/* ─── CORNER RING ────────────────────────────────────────── */
+.cornerRing {
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  width: 160px;
+  height: 160px;
+  border: 1px solid rgba(11, 28, 61, 0.1);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: rotateSlow 28s linear infinite;
+  z-index: 0;
+}
+
+.cornerRing::before {
+  content: '';
+  position: absolute;
+  inset: 20px;
+  border: 1px solid rgba(11, 28, 61, 0.06);
+  border-radius: 50%;
+}
+
+/* ─── RIGHT — COPY COLUMN ───────────────────────────────── */
+.copyCol {
+  display: flex;
+  flex-direction: column;
+}
+
+/* section badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  border-radius: 100px;
+  background: rgba(11, 28, 61, 0.07);
+  border: 1px solid rgba(11, 28, 61, 0.14);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #1a3570;
+  margin-bottom: 16px;
+  width: fit-content;
+}
+
+/* heading */
+.heading {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: #0b1c3d;
+  margin-bottom: 16px;
+}
+
+.headingEm {
+  font-style: italic;
+  color: #d4a843;
+}
+
+/* gold divider */
+.divider {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, #d4a843, #e8c96a);
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+
+/* body copy */
+.body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.95rem;
+  color: #4a5568;
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+.strongGold {
+  color: #0b1c3d;
+  font-weight: 700;
+}
+
+/* ─── FEATURE LIST ───────────────────────────────────────── */
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 36px;
+}
+
+.featureItem {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(11, 28, 61, 0.08);
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.featureItem:first-child {
+  border-top: 1px solid rgba(11, 28, 61, 0.08);
+}
+
+.featureItem.featVisible {
+  opacity: 1;
+  transform: none;
+}
+
+.featureItem:hover .featureIcon {
+  transform: scale(1.08);
+}
+
+/* icon */
+.featureIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.featureBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.featureRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 5px;
+  flex-wrap: wrap;
+}
+
+.featureTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0b1c3d;
+}
+
+.featureTag {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #d4a843;
+  background: rgba(212, 168, 67, 0.1);
+  border: 1px solid rgba(212, 168, 67, 0.2);
+  padding: 3px 9px;
+  border-radius: 100px;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.featureText {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.8rem;
+  color: #4a5568;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ─── CTA ROW ────────────────────────────────────────────── */
+.ctaRow {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 13px 26px;
+  background: #0b1c3d;
+  color: #f5f0e8;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.83rem;
+  font-weight: 700;
+  border-radius: 6px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btnPrimary:hover {
+  background: #1a3570;
+  transform: translateY(-2px);
+}
+
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 13px 26px;
+  background: transparent;
+  color: #0b1c3d;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.83rem;
+  font-weight: 600;
+  border: 1.5px solid rgba(11, 28, 61, 0.2);
+  border-radius: 6px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.btnGhost:hover {
+  border-color: rgba(11, 28, 61, 0.45);
+  background: rgba(11, 28, 61, 0.04);
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .statsRibbon {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .visualCol {
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .section {
+    padding: 72px 16px;
+  }
+
+  .statsRibbon {
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 48px;
+  }
+
+  .ribbonNum {
+    font-size: 1.2rem;
+  }
+
+  .scoreDisplay {
+    font-size: 3rem;
+  }
+
+  .heading {
+    font-size: 1.7rem;
+  }
+
+  .floatBadge {
+    bottom: -14px;
+    right: -10px;
+    padding: 10px 14px;
+  }
+
+  .ctaRow {
+    flex-direction: column;
+  }
+
+  .btnPrimary,
+  .btnGhost {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .featureTag {
+    display: none;
+  }
+}

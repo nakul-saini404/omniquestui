@@ -1,0 +1,238 @@
+/* ============================================================
+   ExamStructureSection.module.css
+   Light cream background section — tokens scoped to .examSection, no :root
+   ============================================================ */
+
+.examSection {
+  --navy:    #0a2240;
+  --gold:    #c9972b;
+  --gold2:   #e8b44b;
+  --red:     #c8102e;
+  --cream:   #f5f3ee;
+  --white:   #ffffff;
+  --text2:   #4a5568;
+  --line:    rgba(10, 34, 64, 0.12);
+  --line2:   rgba(10, 34, 64, 0.07);
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "DM Sans", sans-serif;
+  --shadow:  0 4px 24px rgba(10, 34, 64, 0.10);
+  --shadow-lg: 0 12px 40px rgba(10, 34, 64, 0.14);
+
+  background: var(--cream);
+  padding: 76px 24px;
+}
+
+/* ── Container ── */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* ── Tag ── */
+.tag {
+  display: inline-block;
+  font-family: var(--ff-body);
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* ── Heading + sub ── */
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.sectionSub {
+  font-family: var(--ff-body);
+  font-size: 15.5px;
+  color: var(--text2);
+  max-width: 640px;
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+
+/* ── Two-column paper grid ── */
+.patternGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 28px;
+}
+
+/* ── Paper card ── */
+.paperCard {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.22s, transform 0.22s;
+}
+
+.paperCard:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+/* Card header */
+.paperHeader {
+  background: var(--navy);
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.paperBadge {
+  background: var(--gold);
+  color: var(--navy);
+  font-family: var(--ff-body);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.paperTitle {
+  font-family: var(--ff-head);
+  font-size: 17px;
+  color: var(--white);
+  margin: 0;
+  font-weight: 700;
+}
+
+/* Card body */
+.paperBody {
+  padding: 22px;
+}
+
+.paperBody p {
+  font-family: var(--ff-body);
+  font-size: 13.5px;
+  color: var(--text2);
+  margin-bottom: 10px;
+  line-height: 1.72;
+}
+
+.paperBody p:last-child {
+  margin-bottom: 0;
+}
+
+.paperBody strong {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+/* ── Critical note bar ── */
+.noteBar {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(200, 16, 46, 0.06);
+  border: 1px solid rgba(200, 16, 46, 0.18);
+  border-radius: 6px;
+  padding: 13px 18px;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+.noteIcon {
+  font-size: 16px;
+  line-height: 1.6;
+  flex-shrink: 0;
+}
+
+.noteText {
+  font-family: var(--ff-body);
+  font-size: 13.5px;
+  color: var(--text2);
+  line-height: 1.65;
+}
+
+.noteText strong {
+  color: var(--red);
+  font-weight: 700;
+}
+
+/* ── Syllabus block ── */
+.syllabusSection {
+  margin-top: 44px;
+}
+
+.syllabusHeading {
+  font-family: var(--ff-head);
+  font-size: 21px;
+  font-weight: 900;
+  color: var(--navy);
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+/* 4-column syllabus grid */
+.syllabusGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.syllabusItem {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 16px 14px;
+  text-align: center;
+  transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s;
+}
+
+.syllabusItem:hover {
+  border-color: var(--gold);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.syllabusIcon {
+  font-size: 22px;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.syllabusLabel {
+  font-family: var(--ff-body);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .patternGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .syllabusGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .examSection {
+    padding: 52px 16px;
+  }
+
+  .syllabusGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}

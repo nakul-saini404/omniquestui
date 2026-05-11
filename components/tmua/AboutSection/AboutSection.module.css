@@ -1,0 +1,148 @@
+/* ============================================================
+   AboutSection.module.css
+   Design tokens scoped to .about — no :root
+   ============================================================ */
+
+.about {
+  --navy: #0a2240;
+  --gold: #c9972b;
+  --red: #c8102e;
+  --cream: #f5f3ee;
+  --white: #ffffff;
+  --text: #1a1a2e;
+  --text2: #4a5568;
+  --line: rgba(10, 34, 64, 0.12);
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "DM Sans", sans-serif;
+  --shadow: 0 4px 24px rgba(10, 34, 64, 0.1);
+
+  padding: 76px 24px;
+  background: var(--cream);
+}
+
+/* ── Container ── */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* ── Tag + Title ── */
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-family: var(--ff-body);
+}
+
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 32px;
+}
+
+/* ── Two-column grid ── */
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* ── Body copy ── */
+.aboutBody {
+  font-family: var(--ff-body);
+  font-size: 15px;
+  color: var(--text2);
+  line-height: 1.85;
+}
+
+.aboutBody p {
+  margin-bottom: 15px;
+}
+
+.aboutBody strong {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+/* ── Callout box ── */
+.aboutCallout {
+  background: var(--navy);
+  border-radius: 10px;
+  padding: 26px;
+  margin-top: 6px;
+}
+
+.aboutCalloutTitle {
+  font-family: var(--ff-head);
+  font-size: 17px;
+  color: var(--gold);
+  margin-bottom: 11px;
+  font-weight: 700;
+}
+
+.aboutCallout p {
+  font-family: var(--ff-body);
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+}
+
+/* ── Highlight cards column ── */
+.aboutHighlights {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.highlightCard {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--gold);
+  border-radius: 6px;
+  padding: 18px 18px 18px 22px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.highlightCard:hover {
+  box-shadow: var(--shadow);
+  transform: translateX(3px);
+}
+
+.highlightCard h4 {
+  font-family: var(--ff-head);
+  font-size: 15px;
+  color: var(--navy);
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+
+.highlightCard p {
+  font-family: var(--ff-body);
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .aboutGrid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 52px 16px;
+  }
+}

@@ -1,0 +1,261 @@
+/* ══════════════════════════════════════════════
+   SCROLL REVEAL — header fade-up
+══════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Card rise-in keyframe (matches original wCardRise) ── */
+@keyframes wCardRise {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ══════════════════════════════════════════════
+   SECTION WRAPPER
+══════════════════════════════════════════════ */
+.whyToefl {
+  padding: 88px 0;
+  background: #0b1c3d;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Grid Texture Overlay ── */
+.gridTex {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 80px,
+      rgba(255, 255, 255, 0.012) 80px,
+      rgba(255, 255, 255, 0.012) 81px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 80px,
+      rgba(255, 255, 255, 0.012) 80px,
+      rgba(255, 255, 255, 0.012) 81px
+    );
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ══════════════════════════════════════════════
+   SECTION HEADER
+══════════════════════════════════════════════ */
+.header {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Gold label with leading rule ── */
+.secLabel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 14px;
+}
+.secLabel::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: #d4a843;
+  flex-shrink: 0;
+}
+
+.heading {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(24px, 3.2vw, 42px);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+  line-height: 1.15;
+}
+.heading em {
+  color: #d4a843;
+  font-style: italic;
+}
+
+.subheading {
+  font-size: 15.5px;
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 520px;
+  margin: 0 auto 52px;
+  line-height: 1.75;
+  text-align: center;
+}
+
+/* ══════════════════════════════════════════════
+   CARDS GRID
+══════════════════════════════════════════════ */
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Individual Why Card ── */
+.whyCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 26px 22px;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+
+  /* Entry state */
+  opacity: 0;
+  transform: translateY(22px);
+  transition: background 0.28s, border-color 0.28s, box-shadow 0.28s,
+    transform 0.28s;
+}
+.whyCard.in {
+  animation: wCardRise 0.52s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.whyCard:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(212, 168, 67, 0.28);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+  transform: translateY(-5px);
+}
+
+/* ── Gold Shimmer Sweep ── */
+.whyCardShimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(212, 168, 67, 0.07) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  background-position: 200% 0;
+  transition: background-position 0.55s ease;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.whyCard:hover .whyCardShimmer {
+  background-position: -200% 0;
+}
+
+/* ── Top Row: Icon + Number ── */
+.whyCardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.whyIcon {
+  width: 46px;
+  height: 46px;
+  background: rgba(212, 168, 67, 0.13);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+  flex-shrink: 0;
+  transition: background 0.25s;
+}
+.whyCard:hover .whyIcon {
+  background: rgba(212, 168, 67, 0.24);
+}
+
+.whyCardNum {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: rgba(212, 168, 67, 0.14);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+/* ── Card Body ── */
+.whyCardTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 8px;
+  line-height: 1.32;
+}
+
+.whyCardBody {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.52);
+  line-height: 1.67;
+  margin: 0;
+}
+
+/* ── Bottom Gold Underline (expands on hover) ── */
+.whyCardUnderline {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4a843, transparent);
+  border-radius: 2px;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.whyCard:hover .whyCardUnderline {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .whyGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .whyToefl {
+    padding: 60px 0;
+  }
+
+  .whyGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .subheading {
+    margin-bottom: 36px;
+  }
+}

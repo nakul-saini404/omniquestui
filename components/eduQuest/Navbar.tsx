@@ -24,15 +24,20 @@ const navItems = [
     href: '#',
     children: [
       { label: 'SAT Coaching', href: '/sat' },
-      { label: 'ACT Coaching', href: 'https://eduquest.org.in/act/' },
-      { label: 'AP Coaching', href: 'https://eduquest.org.in/ap-coaching/' },
-      { label: 'Pre-AP Coaching', href: 'https://eduquest.org.in/pre-ap-coaching-in-gurgaon/' },
-      { label: 'TMUA Coaching', href: 'https://eduquest.org.in/tmua/' },
-      { label: 'UCAT Coaching', href: 'https://eduquest.org.in/ucat-exam-2025/' },
-      { label: 'IPMAT Coaching', href: 'https://eduquest.org.in/ipmat-coaching-and-profile-building-eduquest-2026/' },
-      { label: 'IELTS Coaching', href: 'https://eduquest.org.in/ielts/' },
-      { label: 'PTE Coaching', href: 'https://eduquest.org.in/pte/' },
-      { label: 'TOEFL Coaching', href: 'https://eduquest.org.in/toefl/' },
+      { label: 'LSAT Coaching', href: '/lsat' },
+      { label: 'SSAT Coaching', href: '/ssat' },
+      { label: 'PSAT Coaching', href: '/psat' },
+      { label: 'ACT Coaching', href: '/act' },
+      { label: 'AP Coaching', href: '/ap-coaching' },
+      { label: 'Pre-AP Coaching', href: '/pre-ap-gurgaon' },
+      { label: 'TMUA Coaching', href: '/tmua' },
+      { label: 'UCAT Coaching', href: '/ucat' },
+      { label: 'MCAT Coaching', href: '/mcat' },
+      { label: 'IPMAT Coaching', href: '/ipmat-coaching-and-profile-building-eduquest-2026' },
+      { label: 'IELTS Coaching', href: '/ielts' },
+      { label: 'DASA/CIWG', href: '/dasa-and-ciwg-quota' },
+      { label: 'PTE Coaching', href: '/pte' },
+      { label: 'TOEFL Coaching', href: '/toefl' },
     ],
   },
   {
@@ -59,7 +64,8 @@ const navItems = [
     ],
   },
   { label: 'Blog', href: 'https://eduquest.org.in/blog' },
-  { label: 'Contact', href: 'https://eduquest.org.in/contact-us/' },
+  { label: 'Contact', href: '/contact-us' },
+  { label: 'Dashboard', href: '/edupath' },
 ];
 
 const socialLinks = [
@@ -632,7 +638,7 @@ export default function Navbar({ onToggleDesign }: { onToggleDesign?: () => void
             <a href="https://eduquest.org.in/franchise/" className="eq-btn-outline">
               Franchise
             </a>
-            <a href="#enroll" className="eq-btn-gold">
+            <a href="/contact-us" className="eq-btn-gold">
               Apply Now ▶
             </a>
             {onToggleDesign && (

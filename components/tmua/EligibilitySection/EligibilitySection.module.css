@@ -1,0 +1,139 @@
+/* ============================================================
+   EligibilitySection.module.css
+   Dark navy background — tokens scoped to .who, no :root
+
+   KEY FIX: .whoCard base has NO opacity:0 — that caused the
+   SSR/client DOM mismatch and the removeChild crash.
+   Animation is gated behind .whoCardAnimated which is only
+   added after mount (client-side), keeping server HTML identical.
+   ============================================================ */
+
+.who {
+  --navy:    #0a2240;
+  --gold:    #c9972b;
+  --white:   #ffffff;
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "DM Sans", sans-serif;
+  --shadow-card: 0 8px 32px rgba(10, 34, 64, 0.28);
+
+  background: var(--navy);
+  padding: 76px 24px;
+}
+
+/* ── Container ── */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* ── Tag ── */
+.tag {
+  display: inline-block;
+  font-family: var(--ff-body);
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* ── Heading + sub ── */
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.sectionSub {
+  font-family: var(--ff-body);
+  font-size: 15.5px;
+  color: rgba(255, 255, 255, 0.58);
+  max-width: 640px;
+  margin-bottom: 44px;
+  line-height: 1.8;
+}
+
+/* ── 3-column card grid ── */
+.whoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ── Card base — FULLY VISIBLE by default (SSR safe) ── */
+.whoCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-top: 3px solid var(--gold);
+  border-radius: 8px;
+  padding: 26px;
+  transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+  /* No opacity:0 here — that breaks SSR hydration */
+}
+
+.whoCard:hover {
+  background: rgba(255, 255, 255, 0.09);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+/* ── Animation class — only applied after mount (client-only) ── */
+/* Uses --card-index CSS custom property set inline in TSX */
+.whoCardAnimated {
+  animation: fadeUp 0.55s ease both;
+  animation-delay: calc(var(--card-index, 0) * 70ms);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Card internals ── */
+.whoCardIcon {
+  font-size: 30px;
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+.whoCardTitle {
+  font-family: var(--ff-head);
+  font-size: 16px;
+  color: var(--white);
+  margin: 0 0 9px 0;
+}
+
+.whoCardBody {
+  font-family: var(--ff-body);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.58);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .whoGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .who {
+    padding: 52px 16px;
+  }
+
+  .whoGrid {
+    grid-template-columns: 1fr;
+  }
+}

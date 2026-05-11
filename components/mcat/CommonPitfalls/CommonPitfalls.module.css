@@ -1,0 +1,264 @@
+/* ══════════════════════════════════════════════
+   DESIGN TOKENS (inline — no :root)
+══════════════════════════════════════════════ */
+
+/* ── Scroll Reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ══════════════════════════════════════════════
+   SECTION WRAPPER
+══════════════════════════════════════════════ */
+.fail {
+  background: #f5f0e8;
+  padding: 90px 24px;
+}
+
+.sectionInner {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* ══════════════════════════════════════════════
+   SECTION HEADER
+══════════════════════════════════════════════ */
+.secHeaderCenter {
+  text-align: center;
+}
+
+.secBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  border-radius: 100px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.secBadgeRed {
+  background: rgba(200, 75, 49, 0.08);
+  border: 1px solid rgba(200, 75, 49, 0.2);
+  color: #c84b31;
+}
+
+.secTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: #0b1c3d;
+  margin-bottom: 14px;
+}
+
+.secTitle em {
+  font-style: italic;
+  color: #d4a843;
+}
+
+.divider {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, #d4a843, #e8c96a);
+  border-radius: 2px;
+  margin: 20px 0;
+}
+
+.dividerCenter {
+  margin: 20px auto;
+}
+
+.secSub {
+  font-size: 0.95rem;
+  color: #4a5568;
+  line-height: 1.75;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* ══════════════════════════════════════════════
+   PITFALL CARDS GRID
+══════════════════════════════════════════════ */
+.failGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 52px;
+}
+
+.failCard {
+  background: #ffffff;
+  border: 1px solid rgba(11, 28, 61, 0.1);
+  border-radius: 12px;
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.failCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #c84b31, #e05c3f);
+}
+
+.failCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 36px rgba(11, 28, 61, 0.1);
+}
+
+.failCardNum {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: rgba(200, 75, 49, 0.15);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.failCardIcon {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.failCardTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0b1c3d;
+  margin-bottom: 8px;
+}
+
+.failCardBody {
+  font-size: 0.8rem;
+  color: #4a5568;
+  line-height: 1.7;
+}
+
+/* ══════════════════════════════════════════════
+   CALLOUT BANNER
+══════════════════════════════════════════════ */
+.failCallout {
+  margin-top: 28px;
+  background: linear-gradient(135deg, #0b1c3d, #1a3570);
+  border-radius: 14px;
+  padding: 36px 40px;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.failCallout::before {
+  content: "";
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(212, 168, 67, 0.1) 0%,
+    transparent 70%
+  );
+}
+
+.failCalloutText {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.failCalloutTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #f5f0e8;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.failCalloutTitle em {
+  color: #e8c96a;
+  font-style: italic;
+}
+
+.failCalloutBody {
+  font-size: 0.88rem;
+  color: rgba(245, 240, 232, 0.6);
+  line-height: 1.7;
+}
+
+.failCalloutCta {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ══════════════════════════════════════════════
+   BUTTON
+══════════════════════════════════════════════ */
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: #d4a843;
+  color: #0b1c3d;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.btnPrimary:hover {
+  background: #e8c96a;
+  transform: translateY(-2px);
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════ */
+@media (max-width: 960px) {
+  .failGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .failCallout {
+    flex-direction: column;
+    gap: 24px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .fail {
+    padding: 60px 16px;
+  }
+
+  .failGrid {
+    grid-template-columns: 1fr;
+  }
+}

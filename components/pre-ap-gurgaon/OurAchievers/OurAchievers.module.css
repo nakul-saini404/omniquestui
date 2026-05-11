@@ -1,0 +1,234 @@
+/* ═══════════════════════════════════════════════════════════
+   OurAchievers.module.css
+   Marquee-style scrolling gallery of achiever cards with
+   image + name + scores overlay. EduQuest navy/gold palette.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── SECTION SHELL ── */
+.section {
+  padding: 72px 0;
+  background: #0b1c3d;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Subtle top/bottom gold rule */
+.section::before,
+.section::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 168, 67, 0.4),
+    transparent
+  );
+}
+.section::before {
+  top: 0;
+}
+.section::after {
+  bottom: 0;
+}
+
+/* ── INNER (header only, not track) ── */
+.inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── HEADER ── */
+.hdrCenter {
+  text-align: center;
+  margin-bottom: 52px;
+}
+.sTag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 10px;
+}
+.goldLineCenter {
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: #d4a843;
+  margin: 0 auto 20px;
+}
+.sHead {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.22;
+  margin-bottom: 10px;
+}
+.sSub {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.75;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ── MARQUEE TRACK ── */
+.marqueeOuter {
+  /* Fade edges */
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+}
+
+.marqueeTrack {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: marquee 42s linear infinite;
+}
+
+.marqueeTrack:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ── ACHIEVER CARD ── */
+.card {
+  position: relative;
+  width: 240px;
+  height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+  border: 1px solid rgba(212, 168, 67, 0.18);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(212, 168, 67, 0.6);
+}
+
+/* Image fills card */
+.cardImg {
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .cardImg {
+  transform: scale(1.06);
+}
+
+/* Gradient overlay */
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 35%,
+    rgba(11, 28, 61, 0.55) 60%,
+    rgba(11, 28, 61, 0.97) 100%
+  );
+}
+
+/* Text content pinned to bottom */
+.cardContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+}
+
+.cardName {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.cardScores {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.6;
+}
+
+.cardYear {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #d4a843;
+  background: rgba(212, 168, 67, 0.15);
+  border: 1px solid rgba(212, 168, 67, 0.3);
+  padding: 2px 9px;
+  border-radius: 20px;
+}
+
+/* Cards without a caption (first 6 images — no label on site) */
+.cardNoCaption .cardContent {
+  display: none;
+}
+
+/* ── SCROLL REVEAL for header ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .sHead {
+    font-size: 26px;
+  }
+  .card {
+    width: 200px;
+    height: 252px;
+  }
+}
+@media (max-width: 600px) {
+  .section {
+    padding: 52px 0;
+  }
+  .card {
+    width: 170px;
+    height: 214px;
+  }
+}

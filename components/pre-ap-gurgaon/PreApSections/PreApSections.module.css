@@ -1,0 +1,347 @@
+/* ── DESIGN TOKENS (mirrors HTML :root) ── */
+.section {
+  padding: 72px 24px;
+}
+.sectionCream2 {
+  background: #ede7d9;
+}
+.sectionWhite {
+  background: #ffffff;
+}
+.inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── SHARED HEADER UTILITIES ── */
+.sTag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 10px;
+}
+.goldLine {
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: #d4a843;
+  margin-bottom: 20px;
+}
+.goldLineCenter {
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: #d4a843;
+  margin: 0 auto 20px;
+}
+.sHead {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #0b1c3d;
+  line-height: 1.22;
+  margin-bottom: 14px;
+}
+.sSub {
+  font-size: 15px;
+  color: #4a5568;
+  line-height: 1.75;
+  max-width: 580px;
+}
+.hdr {
+  margin-bottom: 44px;
+}
+.hdrCenter {
+  margin-bottom: 44px;
+  text-align: center;
+}
+.hdrCenter .sSub {
+  margin: 0 auto;
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SECTION 1 — THE HARD TRUTH
+   "Why Most Students Struggle in AP Exams"
+   ═══════════════════════════════════════════════════════════ */
+
+/* Two-column intro layout */
+.failIntro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-bottom: 48px;
+}
+
+/* Red stat block */
+.failStatBlock {
+  background: #c84b31;
+  border-radius: 10px;
+  padding: 32px;
+  text-align: center;
+}
+.bigNum {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 64px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+}
+.bigLbl {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+/* Score distribution card */
+.scoreDistCard {
+  margin-top: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 24px;
+  border: 1px solid rgba(11, 28, 61, 0.18);
+}
+.scoreDistTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 16px;
+  color: #0b1c3d;
+  margin-bottom: 16px;
+}
+.scoreDistRows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.scoreRow {
+  /* wrapper per row */
+}
+.scoreRowMeta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #4a5568;
+  margin-bottom: 4px;
+}
+.scoreRowPct {
+  font-weight: 600;
+  color: #0b1c3d;
+}
+.scoreRowPctRed {
+  font-weight: 600;
+  color: #c84b31;
+}
+.scoreBar {
+  height: 6px;
+  background: rgba(11, 28, 61, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.scoreBarFill {
+  height: 100%;
+  border-radius: 3px;
+}
+.fillGold {
+  background: #d4a843;
+}
+.fillGold2 {
+  background: #e8c96a;
+}
+.fillGrey {
+  background: #aaa;
+}
+.fillRed {
+  background: #c84b31;
+}
+.scoreDistSource {
+  font-size: 11px;
+  color: #718096;
+  margin-top: 12px;
+}
+
+/* Right intro col */
+.failIntroRight {
+  align-self: start;
+}
+.failIntroText {
+  font-size: 14px;
+  color: #4a5568;
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+.failAvgBlock {
+  background: #0b1c3d;
+  border-radius: 8px;
+  padding: 20px 22px;
+}
+.failAvgTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 16px;
+  color: #d4a843;
+  margin-bottom: 12px;
+}
+.failAvgDesc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.65;
+}
+
+/* 2×4 fail cards grid */
+.failReasons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.failCard {
+  background: #ffffff;
+  border: 1px solid rgba(11, 28, 61, 0.18);
+  border-radius: 10px;
+  padding: 22px 20px;
+  border-left: 4px solid #c84b31;
+}
+.failCardHead {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.failIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(200, 75, 49, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 16px;
+}
+.failCardTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0b1c3d;
+  margin: 4px 0 0;
+  line-height: 1.35;
+}
+.failCardBody {
+  font-size: 13px;
+  color: #4a5568;
+  line-height: 1.65;
+}
+
+/* Solution banner */
+.failSolution {
+  background: #0b1c3d;
+  border-radius: 10px;
+  padding: 28px 32px;
+  margin-top: 36px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.failSolutionIcon {
+  font-size: 36px;
+  flex-shrink: 0;
+}
+.failSolutionTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 18px;
+  color: #d4a843;
+  margin-bottom: 8px;
+}
+.failSolutionText {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.65;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SECTION 2 — ALL TRACKS
+   "Subjects We Coach"
+   ═══════════════════════════════════════════════════════════ */
+
+.subjectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+}
+.subjCard {
+  background: #ffffff;
+  border: 1px solid rgba(11, 28, 61, 0.18);
+  border-radius: 8px;
+  padding: 20px 14px;
+  text-align: center;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.subjCard:hover {
+  border-color: #d4a843;
+  transform: translateY(-2px);
+}
+.subjIcon {
+  font-size: 24px;
+  margin-bottom: 10px;
+  display: block;
+}
+.subjName {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0b1c3d;
+  line-height: 1.4;
+}
+.subjType {
+  font-size: 11px;
+  color: #718096;
+  margin-top: 4px;
+  font-weight: 500;
+}
+.subjBadge {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #d4a843;
+  background: rgba(212, 168, 67, 0.12);
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .failIntro {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .failReasons {
+    grid-template-columns: 1fr;
+  }
+  .sHead {
+    font-size: 26px;
+  }
+}
+@media (max-width: 600px) {
+  .section {
+    padding: 52px 20px;
+  }
+  .failSolution {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}

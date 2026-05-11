@@ -1,0 +1,224 @@
+/* ================================================================
+   FoundationFirst.module.css
+   "What is Pre-AP Coaching?" section — EduQuest brand
+   Palette: cream bg · navy text · gold accent
+   Fonts: Playfair Display (headings) · Plus Jakarta Sans (body)
+   ================================================================ */
+
+.section {
+  --cream:   #f5f0e8;
+  --cream2:  #ede7d9;
+  --navy:    #0b1c3d;
+  --navy2:   #102454;
+  --gold:    #d4a843;
+  --gold2:   #e8c96a;
+  --text2:   #4a5568;
+  --text3:   #718096;
+  --line2:   rgba(11, 28, 61, 0.18);
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "Plus Jakarta Sans", sans-serif;
+  --max:     1160px;
+  --radius:  6px;
+
+  background: var(--cream);
+  padding: 80px 24px;
+  font-family: var(--ff-body);
+}
+
+/* ── Inner two-column grid ───────────────────────────────── */
+.inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* ── Column reveal animation ─────────────────────────────── */
+.col {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.colVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Tag label ───────────────────────────────────────────── */
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+/* ── Gold rule ───────────────────────────────────────────── */
+.goldLine {
+  width: 44px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+
+/* ── Section heading ─────────────────────────────────────── */
+.heading {
+  font-family: var(--ff-head);
+  font-size: clamp(1.7rem, 2.8vw, 2.1rem);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.22;
+  margin-bottom: 16px;
+}
+
+.headingAccent {
+  color: var(--gold);
+}
+
+/* ── Intro paragraph ─────────────────────────────────────── */
+.intro {
+  font-size: 15px;
+  color: var(--text2);
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+
+/* ── Bullet points ───────────────────────────────────────── */
+.points {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.point {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  opacity: 0;
+  transform: translateX(-14px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+/* Each point becomes visible once parent column is revealed */
+.colVisible .point {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.pointDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+.point p {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── Info card ───────────────────────────────────────────── */
+.card {
+  background: var(--navy);
+  border-radius: 10px;
+  padding: 36px 32px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(11, 28, 61, 0.18);
+}
+
+/* Subtle top-left glow inside card */
+.cardAccent {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 168, 67, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cardHeading {
+  font-family: var(--ff-head);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(212, 168, 67, 0.2);
+}
+
+/* ── Difference list ─────────────────────────────────────── */
+.diffList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.diffItem {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.65;
+  opacity: 0;
+  transform: translateX(12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.colVisible .diffItem {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.diffArrow {
+  color: var(--gold);
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 56px 20px;
+  }
+  .card {
+    padding: 28px 22px;
+  }
+}
+
+/* ── Reduced motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .col,
+  .point,
+  .diffItem {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

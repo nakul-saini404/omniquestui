@@ -1,0 +1,221 @@
+/* ═══════════════════════════════════════════
+   Advantages.module.css
+   Fonts : Playfair Display (serif) + Plus Jakarta Sans (sans)
+   Palette: navy #0b1c3d · gold #d4a843 · muted #4a5568 · white #ffffff
+   No :root — all tokens written directly into each rule
+═══════════════════════════════════════════ */
+
+/* ── Section shell ── */
+.section {
+  padding: 88px 0;
+  background: #ffffff;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: #0b1c3d;
+}
+
+/* ── Layout container ── */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ═══════════════════════════════════════════
+   SECTION HEAD
+═══════════════════════════════════════════ */
+.sectionHead {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 14px;
+}
+
+.sectionLabel::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: #d4a843;
+  flex-shrink: 0;
+}
+
+.heading {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(24px, 3.2vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0b1c3d;
+  line-height: 1.18;
+  margin: 0 0 10px;
+}
+
+.subtext {
+  font-size: 15.5px;
+  color: #4a5568;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════
+   FADE-UP — scroll reveal
+═══════════════════════════════════════════ */
+.fadeUp {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fadeUp.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════
+   GRID
+═══════════════════════════════════════════ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ═══════════════════════════════════════════
+   CARD
+═══════════════════════════════════════════ */
+.card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid rgba(11, 28, 61, 0.10);
+  border-radius: 10px;
+  padding: 28px 24px 30px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  /* Scroll-reveal start state */
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover {
+  box-shadow: 0 10px 32px rgba(11, 28, 61, 0.09);
+  border-color: rgba(212, 168, 67, 0.30);
+}
+
+/* ── Accent bar — slides up from bottom on hover ── */
+.accentBar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: #d4a843;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: 0 0 10px 10px;
+}
+
+.card:hover .accentBar {
+  transform: scaleX(1);
+}
+
+/* ── Decorative number ── */
+.num {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #d4a843;
+  opacity: 0.25;
+  line-height: 1;
+  display: block;
+  margin-bottom: 14px;
+  transition: opacity 0.25s ease;
+}
+
+.card:hover .num {
+  opacity: 0.55;
+}
+
+/* ── Thin divider between num and text ── */
+.divider {
+  width: 32px;
+  height: 2px;
+  background: rgba(212, 168, 67, 0.30);
+  border-radius: 1px;
+  margin-bottom: 18px;
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.25s ease;
+}
+
+.card:hover .divider {
+  width: 52px;
+  background: #d4a843;
+}
+
+/* ── Text body ── */
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cardTitle {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0b1c3d;
+  line-height: 1.40;
+  margin: 0;
+}
+
+.cardDesc {
+  font-size: 13.5px;
+  color: #4a5568;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .section {
+    padding: 56px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionHead {
+    margin-bottom: 36px;
+  }
+}

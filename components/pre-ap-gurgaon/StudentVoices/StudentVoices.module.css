@@ -1,0 +1,161 @@
+/* ═══════════════════════════════════════════════════════════
+   StudentVoices.module.css
+   Mirrors all .testi-* rules + shared utilities from
+   pre-ap-gurgaon.html — token-for-token.
+   Avatar letter <div> is replaced with a circular <Image>.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── SECTION SHELL ── */
+.section {
+  padding: 72px 24px;
+}
+.sectionWhite {
+  background: #ffffff;
+}
+.inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── SHARED HEADER UTILITIES ── */
+.sTag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 10px;
+}
+.goldLineCenter {
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: #d4a843;
+  margin: 0 auto 20px;
+}
+.sHead {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #0b1c3d;
+  line-height: 1.22;
+  margin-bottom: 14px;
+}
+.hdrCenter {
+  margin-bottom: 44px;
+  text-align: center;
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TESTIMONIAL GRID
+   ═══════════════════════════════════════════════════════════ */
+.testiGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+/* ── Card shell ── */
+.testiCard {
+  background: #f5f0e8;                   /* --cream */
+  border: 1px solid rgba(11, 28, 61, 0.18); /* --line2 */
+  border-radius: 10px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Star row ── */
+.testiStars {
+  color: #d4a843;
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+/* ── Quote paragraph — opening " via ::before ── */
+.testiQuote {
+  font-size: 14px;
+  color: #0b1c3d;
+  line-height: 1.72;
+  font-style: italic;
+  margin-bottom: 18px;
+  position: relative;
+  padding-left: 16px;
+  flex: 1;             /* pushes author row to the bottom */
+}
+.testiQuote::before {
+  content: "\201C";   /* left double quotation mark */
+  position: absolute;
+  left: 0;
+  top: -4px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 32px;
+  color: #d4a843;
+  line-height: 1;
+}
+
+/* ── Author row ── */
+.testiAuthor {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: auto;
+}
+
+/* ── Circular avatar image wrapper ── */
+.testiAvatarWrap {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #0b1c3d;   /* navy fallback while image loads */
+}
+
+/* Next/Image fills the wrapper — pass fill + sizes props */
+.testiAvatarImg {
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* ── Author text ── */
+.testiName {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0b1c3d;
+}
+.testiMeta {
+  font-size: 11px;
+  color: #718096;
+  margin-top: 2px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .sHead {
+    font-size: 26px;
+  }
+}
+@media (max-width: 600px) {
+  .section {
+    padding: 52px 20px;
+  }
+  .testiGrid {
+    grid-template-columns: 1fr;
+  }
+}

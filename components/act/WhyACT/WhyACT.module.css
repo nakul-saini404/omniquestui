@@ -1,0 +1,298 @@
+/*
+  WhyACT.module.css
+  EduQuest ACT — "Why Choose ACT" Section
+  ─────────────────────────────────────────────────────────────
+  Color theme matches Hero.module.css / Hero.tsx exactly:
+    --cream   #f9f5ee   (page background)
+    --white   #ffffff
+    --navy    #0b1c3d   (headings, card bg)
+    --navy2   #112350
+    --navy3   #1a3266
+    --gold    #d4a843   (accent)
+    --gold-bg rgba(212,168,67,0.12)
+    --red     #c0392b   (eyebrow)
+    --text2   #4a5568   (body)
+    --text3   #9aa3b0   (muted)
+    --line    rgba(11,28,61,0.1)
+    --line2   rgba(11,28,61,0.08)
+    --radius  8px
+    --ff-head 'Playfair Display', Georgia, serif
+
+  All tokens scoped to .section — zero :root pollution.
+*/
+
+/* ─── Keyframes ─────────────────────────────────────────────── */
+@keyframes wFadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes wCardIn {
+  from { opacity: 0; transform: translateY(28px) scale(0.975); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
+}
+
+/* ─── Section wrapper — tokens live here ────────────────────── */
+.section {
+  /* ── Design tokens (Hero.module.css palette) ── */
+  --cream:    #f9f5ee;
+  --cream2:   #f0ebe0;
+  --white:    #ffffff;
+  --navy:     #0b1c3d;
+  --navy2:    #112350;
+  --navy3:    #1a3266;
+  --gold:     #d4a843;
+  --gold-bg:  rgba(212, 168, 67, 0.12);
+  --gold-hov: rgba(212, 168, 67, 0.3);
+  --red:      #c0392b;
+  --text2:    #4a5568;
+  --text3:    #9aa3b0;
+  --line:     rgba(11, 28, 61, 0.10);
+  --line2:    rgba(11, 28, 61, 0.08);
+  --radius:   8px;
+  --ff-head:  'Playfair Display', Georgia, serif;
+
+  background: var(--cream);
+  padding: 88px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle ambient blob — mirrors hero::before */
+.section::before {
+  content: "";
+  position: absolute;
+  right: -120px;
+  top: -80px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 168, 67, 0.10) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ─── Max-width container ───────────────────────────────────── */
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Header block ──────────────────────────────────────────── */
+.header {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0s, transform 0s;
+}
+
+.fadeIn {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* ── Eyebrow (red line + red label — exact Hero.tsx pattern) ── */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.eyebrowLine {
+  width: 28px;
+  height: 2px;
+  background: var(--red);
+  flex-shrink: 0;
+}
+
+.eyebrowText {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+/* ── Section title ── */
+.title {
+  font-family: var(--ff-head);
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.4px;
+  color: var(--navy);
+  margin-bottom: 18px;
+}
+
+/* Gold italic accent — mirrors .heroH1 em */
+.accent {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ── Sub paragraph ── */
+.sub {
+  font-size: 16px;
+  color: var(--text2);
+  line-height: 1.82;
+  max-width: 600px;
+  margin-bottom: 0;
+}
+
+/* ─── 3-column card grid ────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 52px;
+}
+
+/* ─── Card ──────────────────────────────────────────────────── */
+.card {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--line2);
+  border-radius: 12px;
+  padding: 28px;
+  overflow: hidden;
+  cursor: default;
+
+  /* entrance — invisible until .cardVisible */
+  opacity: 0;
+  transform: translateY(28px) scale(0.975);
+  transition:
+    border-color  0.22s ease,
+    transform     0.22s ease,
+    box-shadow    0.22s ease;
+}
+
+/* Scroll-triggered entrance animation */
+.cardVisible {
+  animation: wCardIn 0.5s ease both;
+}
+
+/* Hover — lift + gold border */
+.card:hover {
+  border-color: var(--gold-hov);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(11, 28, 61, 0.12);
+}
+
+/* Bottom gold shimmer bar — appears on hover */
+.cardBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity 0.22s ease;
+}
+
+.card:hover .cardBar {
+  opacity: 1;
+}
+
+/* Top-right navy corner glow on hover */
+.card::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(11, 28, 61, 0.05) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* ── Icon pill — gold background (matches .heroCardIcon) ── */
+.cardIconWrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: var(--gold-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover .cardIconWrap {
+  background: var(--gold);
+  transform: scale(1.08) translateY(-2px);
+}
+
+.cardIcon {
+  font-size: 22px;
+  line-height: 1;
+  display: block;
+}
+
+/* ── Card title ── */
+.cardTitle {
+  font-family: var(--ff-head);
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 10px;
+  line-height: 1.28;
+  letter-spacing: -0.1px;
+}
+
+/* ── Card body ── */
+.cardDesc {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.68;
+  margin: 0;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 60px 16px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 36px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .sub {
+    font-size: 14px;
+  }
+
+  .card {
+    padding: 22px 18px;
+  }
+
+  .cardTitle {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,155 @@
+/* RelatedResources.module.css
+   Mirrors the "Related Resources" section from the HTML.
+   Tokens from global.css: --navy, --gold, --gray, --border,
+   --white, --cream, --ff-head, --ff-body, --max
+*/
+
+/* ── Section ── */
+.section {
+  padding: 80px 24px;
+  background: var(--cream, #fdf8f0);
+}
+
+/* ── Container ── */
+.container {
+  max-width: var(--max, 1160px);
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.header {
+  margin-bottom: 0;
+}
+
+/* ── Section label — matches .section-label ── */
+.sectionLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--gold, #d4a843);
+  margin-bottom: 10px;
+}
+
+.sectionLabel::before {
+  content: "── ";
+  opacity: 0.6;
+}
+
+/* ── Section title — matches .section-title ── */
+.sectionTitle {
+  font-family: var(--ff-head, "Playfair Display", serif);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 700;
+  color: var(--navy, #0b1c3d);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+/* Gold em — matches .section-title em */
+.em {
+  color: var(--gold, #d4a843);
+  font-style: normal;
+}
+
+/* ── Section sub — matches .section-sub ── */
+.sectionSub {
+  color: var(--gray, #6b7280);
+  font-size: 16px;
+  max-width: 600px;
+  margin-bottom: 48px;
+  line-height: 1.65;
+}
+
+/* ── 4-column grid — matches .res-grid ── */
+.resGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* ── Resource card — matches .res-card ── */
+.resCard {
+  border: 1.5px solid var(--border, #e5e7eb);
+  border-radius: 12px;
+  padding: 22px;
+  background: var(--white, #ffffff);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover — matches .res-card:hover */
+.resCard:hover {
+  border-color: var(--gold, #d4a843);
+  box-shadow: 0 4px 20px rgba(232, 160, 48, 0.12);
+}
+
+/* ── Icon — matches .res-icon ── */
+.resIcon {
+  font-size: 24px;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+/* ── Card title — matches .res-card h3 ── */
+.resTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy, #0b1c3d);
+  margin-bottom: 8px;
+  line-height: 1.3;
+  font-family: var(--ff-body, "Plus Jakarta Sans", sans-serif);
+}
+
+/* ── Card description — matches .res-card p ── */
+.resDesc {
+  font-size: 13px;
+  color: var(--gray, #6b7280);
+  margin-bottom: 14px;
+  line-height: 1.65;
+  flex: 1;
+}
+
+/* ── CTA link — matches .res-link ── */
+.resLink {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold, #d4a843);
+  text-decoration: none;
+  margin-top: auto;
+  transition: color 0.2s ease;
+}
+
+.resLink:hover {
+  color: #c87e20;
+}
+
+/* ── Reveal animation ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Responsive — mirrors HTML breakpoints ── */
+@media (max-width: 900px) {
+  .resGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 60px 16px;
+  }
+
+  .resGrid {
+    grid-template-columns: 1fr;
+  }
+}

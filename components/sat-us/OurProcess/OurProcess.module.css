@@ -1,0 +1,168 @@
+/*
+ * OurProcess.module.css
+ * Exact 1:1 port of every CSS rule from the original HTML file
+ * that applies to the Our Process / Steps section.
+ * Uses: .sec, .sec-border, .section-label, .dk, .section-title,
+ *        .divider, .steps, .step, .step-num
+ */
+
+/* ─── Tokens (scoped via .sec) ─── */
+.sec {
+  --cream: #f5f0e8;
+  --cream2: #ede7d9;
+  --cream3: #e2d9c8;
+  --navy: #0b1c3d;
+  --navy2: #102454;
+  --navy3: #1a3570;
+  --gold: #d4a843;
+  --gold2: #e8c96a;
+  --text: #0b1c3d;
+  --text2: #4a5568;
+  --text3: #718096;
+  --white: #ffffff;
+  --line: rgba(11, 28, 61, 0.1);
+  --line2: rgba(11, 28, 61, 0.18);
+  --ff-head: "Playfair Display", Georgia, serif;
+  --ff-body: "Plus Jakarta Sans", sans-serif;
+  --max: 1160px;
+  --radius: 6px;
+
+  /* .sec */
+  padding: 5rem 2rem;
+  max-width: var(--max);
+  margin: 0 auto;
+  font-family: var(--ff-body);
+  color: var(--text);
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+/* .sec-border */
+.secBorder {
+  border-top: 1px solid var(--line2);
+}
+
+/* ─── Typography helpers ─── */
+
+/* .section-label */
+.sectionLabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+/* .section-label.dk */
+.dk {
+  color: var(--navy3);
+}
+
+/* .section-title */
+.sectionTitle {
+  font-family: var(--ff-head);
+  font-size: clamp(1.8rem, 3.5vw, 2.55rem);
+  line-height: 1.22;
+  margin-bottom: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.sectionTitle em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+/* .divider */
+.divider {
+  width: 40px;
+  height: 3px;
+  background: var(--gold);
+  margin: 1.25rem 0;
+  border-radius: 2px;
+}
+
+/* ─── Steps ─── */
+
+/* .steps */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  margin-top: 2.5rem;
+  position: relative;
+}
+
+/* horizontal connector line */
+.steps::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: var(--line2);
+}
+
+/* .step */
+.step {
+  text-align: center;
+  padding: 0 0.6rem;
+  position: relative;
+}
+
+/* .step-num */
+.stepNum {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--navy);
+  margin: 0 auto 1rem;
+  z-index: 1;
+  position: relative;
+  font-family: var(--ff-head);
+}
+
+/* .step h4 */
+.step h4 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: var(--text);
+  font-family: var(--ff-head);
+}
+
+/* .step p */
+.step p {
+  font-size: 0.74rem;
+  color: var(--text3);
+  line-height: 1.5;
+}
+
+/* ─── Responsive (matches original breakpoints) ─── */
+@media (max-width: 900px) {
+  .steps {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .steps {
+    grid-template-columns: 1fr;
+    row-gap: 1.75rem;
+  }
+
+  /* hide the connector line on mobile */
+  .steps::before {
+    display: none;
+  }
+}

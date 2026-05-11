@@ -1,0 +1,184 @@
+/* ═══════════════════════════════════════════
+   Roadmap.module.css
+   Navy #0b1c3d · Gold #d4a843 · Blue #1a4a8a
+═══════════════════════════════════════════ */
+
+.success {
+  padding: 88px 0;
+  background: #0b1c3d;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Grid texture */
+.gridTex {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(255,255,255,.012) 80px, rgba(255,255,255,.012) 81px),
+    repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,.012) 80px, rgba(255,255,255,.012) 81px);
+}
+
+/* ── Header ── */
+.headerWrap { text-align: center; }
+
+.secLabel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 14px;
+}
+.secLabel::before { content: ""; width: 20px; height: 2px; background: #d4a843; }
+
+.heading {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(24px, 3.2vw, 42px);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.heading em { color: #d4a843; font-style: italic; }
+
+.sub {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 480px;
+  margin: 0 auto 60px;
+  line-height: 1.7;
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.in { opacity: 1; transform: none; }
+
+/* ── Timeline shell ── */
+.timeline {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* vertical spine */
+.spine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, #1a4a8a, #d4a843);
+  transform: translateX(-50%);
+}
+
+/* ── Row ── */
+.tlItem {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+/* left-side card (default) */
+.tlItem .tlCard  { grid-column: 1; text-align: right; padding-right: 32px; }
+.tlItem .tlDot   { grid-column: 2; }
+.tlItem .tlEmpty { grid-column: 3; }
+
+/* right-side card */
+.tlRight .tlEmpty { grid-column: 1; }
+.tlRight .tlDot   { grid-column: 2; }
+.tlRight .tlCard  { grid-column: 3; text-align: left; padding-left: 32px; padding-right: 0; }
+
+/* ── Card ── */
+.tlCard {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 18px 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s ease, transform 0.55s ease, background 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+.tlCard.in { opacity: 1; transform: none; }
+.tlCard:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(212, 168, 67, 0.28);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.tlStep {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 5px;
+}
+
+.tlTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+
+.tlBody {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.62;
+}
+
+/* ── Dot ── */
+.tlDot {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #d4a843;
+  border: 3px solid #0b1c3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin: 0 auto;
+  box-shadow: 0 0 0 4px rgba(212, 168, 67, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+.tlDot:hover { transform: scale(1.15); box-shadow: 0 0 0 8px rgba(212, 168, 67, 0.15); }
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .spine { left: 20px; }
+  .tlItem,
+  .tlRight { grid-template-columns: 44px 1fr; }
+
+  .tlItem .tlDot,
+  .tlRight .tlDot   { grid-column: 1; grid-row: 1; }
+
+  .tlItem .tlCard,
+  .tlRight .tlCard  { grid-column: 2; grid-row: 1; text-align: left; padding-left: 20px; padding-right: 0; }
+
+  .tlItem .tlEmpty,
+  .tlRight .tlEmpty { display: none; }
+}

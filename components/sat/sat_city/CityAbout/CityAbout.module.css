@@ -1,0 +1,122 @@
+.about {
+  background: var(--navy);
+  padding: 96px 0;
+  color: #fff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.label::before {
+  content: "── ";
+  opacity: 0.6;
+}
+
+.h2 {
+  font-family: var(--ff-head);
+  font-size: clamp(32px, 3.5vw, 52px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.15;
+  margin: 12px 0 20px;
+}
+
+.h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.quote {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 20px 24px;
+  margin: 0 0 24px;
+  font-family: var(--ff-head);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.paras {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.para {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.pills {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pill {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 22px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: border-color 0.2s;
+}
+
+.pill:hover {
+  border-color: rgba(212, 168, 67, 0.3);
+}
+
+.pillIcon {
+  width: 40px;
+  height: 40px;
+  background: rgba(212, 168, 67, 0.12);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.pillTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.pillDesc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.55;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

@@ -111,7 +111,7 @@ export default function Strategy() {
                 ))}
               </div>
               <a
-                href="https://eduquest.org.in/contact-us/"
+                href="/contact-us"
                 className="btn-primary"
                 style={{ width: "100%", textAlign: "center", marginTop: "16px", display: "block" }}
               >

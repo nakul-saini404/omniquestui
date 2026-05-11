@@ -210,7 +210,7 @@
 //             </p>
 //             {/* ✅ Navigation preserved — external link to EduQuest contact */}
 //             <a
-//               href="https://eduquest.org.in/contact-us/"
+//               href="/contact-us"
 //               target="_blank"
 //               rel="noopener noreferrer"
 //               className="btn btn-primary"
@@ -709,11 +709,11 @@
 //             <div>
 //               <div className="footer-col-title">Locations</div>
 //               <ul className="footer-links">
-//                 <li><a href="https://eduquest.org.in/contact-us/" target="_blank" rel="noopener noreferrer">Delhi / NCR</a></li>
-//                 <li><a href="https://eduquest.org.in/contact-us/" target="_blank" rel="noopener noreferrer">Bangalore</a></li>
-//                 <li><a href="https://eduquest.org.in/contact-us/" target="_blank" rel="noopener noreferrer">Mumbai</a></li>
-//                 <li><a href="https://eduquest.org.in/contact-us/" target="_blank" rel="noopener noreferrer">Hyderabad</a></li>
-//                 <li><a href="https://eduquest.org.in/contact-us/" target="_blank" rel="noopener noreferrer">Online (Pan-India)</a></li>
+//                 <li><a href="/contact-us" target="_blank" rel="noopener noreferrer">Delhi / NCR</a></li>
+//                 <li><a href="/contact-us" target="_blank" rel="noopener noreferrer">Bangalore</a></li>
+//                 <li><a href="/contact-us" target="_blank" rel="noopener noreferrer">Mumbai</a></li>
+//                 <li><a href="/contact-us" target="_blank" rel="noopener noreferrer">Hyderabad</a></li>
+//                 <li><a href="/contact-us" target="_blank" rel="noopener noreferrer">Online (Pan-India)</a></li>
 //               </ul>
 //             </div>
 
@@ -725,7 +725,7 @@
 //                 <li><a href="https://eduquest.org.in/our-achievements/" target="_blank" rel="noopener noreferrer">Results &amp; Stories</a></li>
 //                 <li><a href="https://eduquest.org.in/blog" target="_blank" rel="noopener noreferrer">Blog / Resources</a></li>
 //                 <li><a href="#faq">FAQs</a></li>
-//                 <li><a href="https://eduquest.org.in/contact-us/" target="_blank" rel="noopener noreferrer">Contact Us</a></li>
+//                 <li><a href="/contact-us" target="_blank" rel="noopener noreferrer">Contact Us</a></li>
 //                 <li><a href="https://eduquest.org.in/franchise/" target="_blank" rel="noopener noreferrer">Careers</a></li>
 //               </ul>
 //             </div>

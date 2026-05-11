@@ -1,0 +1,114 @@
+/* ═══════════════════════════════════════════════════════════
+   WhyChooseUs.module.css
+   Mirrors all .why-grid, .why-card rules + shared utilities
+   from pre-ap-gurgaon.html — token-for-token.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── SECTION SHELL ── */
+.section {
+  padding: 72px 24px;
+}
+.sectionCream2 {
+  background: #ede7d9;
+}
+.inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── SHARED HEADER UTILITIES ── */
+.sTag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 10px;
+}
+.goldLineCenter {
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: #d4a843;
+  margin: 0 auto 20px;
+}
+.sHead {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #0b1c3d;
+  line-height: 1.22;
+  margin-bottom: 14px;
+}
+.sSub {
+  font-size: 15px;
+  color: #4a5568;
+  line-height: 1.75;
+  max-width: 580px;
+}
+.hdrCenter {
+  margin-bottom: 44px;
+  text-align: center;
+}
+.hdrCenter .sSub {
+  margin: 0 auto;
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   WHY-GRID + CARDS
+   ═══════════════════════════════════════════════════════════ */
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.whyCard {
+  background: #f5f0e8; /* --cream */
+  border-radius: 8px;
+  padding: 24px 20px;
+  border-left: 3px solid #d4a843;
+  transition: transform 0.2s;
+}
+.whyCard:hover {
+  transform: translateY(-2px);
+}
+
+.whyCardTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0b1c3d;
+  margin-bottom: 8px;
+}
+
+.whyCardBody {
+  font-size: 13px;
+  color: #4a5568;
+  line-height: 1.65;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .sHead {
+    font-size: 26px;
+  }
+}
+@media (max-width: 600px) {
+  .section {
+    padding: 52px 20px;
+  }
+}

@@ -1,0 +1,152 @@
+/* ── HERO WRAPPER ── */
+.hero {
+  padding: 80px 48px 100px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ── BADGE ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212, 168, 67, 0.12);
+  border: 1px solid rgba(212, 168, 67, 0.3);
+  border-radius: 50px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--navy3);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+/* ── HEADING ── */
+.h1 {
+  font-family: var(--ff-head);
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  color: var(--navy);
+  line-height: 1.18;
+  margin-bottom: 20px;
+  max-width: 760px;
+}
+
+.h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ── SUBTEXT ── */
+.sub {
+  font-size: 16px;
+  color: var(--text2);
+  max-width: 580px;
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+/* ── NOTE ── */
+.note {
+  font-size: 14px;
+  color: var(--navy3);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* ── WHY BLOCK ── */
+.why {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text2);
+  margin-bottom: 36px;
+  max-width: 580px;
+  line-height: 1.75;
+}
+
+.why strong {
+  color: var(--navy);
+  display: block;
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+
+/* ── CTAs ── */
+.ctas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+
+/* ── STATS BAR ── */
+.statsBar {
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+  background: var(--white);
+  border: 1px solid var(--line2);
+  border-radius: var(--radius);
+  overflow: hidden;
+  max-width: 600px;
+  box-shadow: 0 2px 16px rgba(11, 28, 61, 0.07);
+}
+
+/* ── STAT CELL ── */
+.stat {
+  flex: 1;
+  min-width: 140px;
+  padding: 22px 24px;
+  border-right: 1px solid var(--line);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat:last-child {
+  border-right: none;
+}
+
+.statNum {
+  font-family: var(--ff-head);
+  font-size: 2.1rem;
+  color: var(--gold);
+  display: block;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 12px;
+  color: var(--text3);
+  letter-spacing: 0.04em;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .hero {
+    padding: 48px 24px 64px;
+  }
+
+  .h1 {
+    font-size: clamp(1.8rem, 6vw, 2.4rem);
+  }
+
+  .ctas {
+    flex-direction: column;
+  }
+
+  .statsBar {
+    max-width: 100%;
+  }
+
+  .stat {
+    min-width: 100px;
+    padding: 16px 12px;
+  }
+
+  .statNum {
+    font-size: 1.6rem;
+  }
+}

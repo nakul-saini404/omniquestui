@@ -1,0 +1,248 @@
+/* ══════════════════════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════════════════════ */
+.revealLeft {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.6s 0.1s ease, transform 0.6s 0.1s ease;
+}
+.revealLeft.in {
+  opacity: 1;
+  transform: none;
+}
+
+.revealRight {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.6s 0.18s ease, transform 0.6s 0.18s ease;
+}
+.revealRight.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ══════════════════════════════════════════════
+   SECTION WRAPPER
+══════════════════════════════════════════════ */
+.whyEq {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.whyEqInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* ══════════════════════════════════════════════
+   LEFT COLUMN — IMAGE
+══════════════════════════════════════════════ */
+.whyEqImg {
+  position: relative;
+}
+
+/* ── Animated Gold Blob ── */
+.whyEqImgBlob {
+  position: absolute;
+  top: -30px;
+  left: -40px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(212, 168, 67, 0.12) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  animation: blobFloat 8s ease-in-out infinite alternate;
+}
+
+@keyframes blobFloat {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(-12px, 16px) scale(1.08);
+  }
+}
+
+/* ── Image Card ── */
+.whyEqImgCard {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(11, 28, 61, 0.12);
+  position: relative;
+  z-index: 1;
+}
+
+.whyEqImgPhoto {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.whyEqImgCard:hover .whyEqImgPhoto {
+  transform: scale(1.04);
+}
+
+/* ── Dark Gradient Overlay ── */
+.whyEqImgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    170deg,
+    transparent 50%,
+    rgba(11, 28, 61, 0.5) 100%
+  );
+  pointer-events: none;
+}
+
+/* ── Floating Score Badge ── */
+.eqBadge {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 10px;
+  padding: 10px 16px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.eqBadgeNum {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0b1c3d;
+}
+
+.eqBadgeLbl {
+  font-size: 10px;
+  color: #718096;
+}
+
+/* ══════════════════════════════════════════════
+   RIGHT COLUMN — CONTENT
+══════════════════════════════════════════════ */
+
+/* ── Gold Section Label ── */
+.secLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 14px;
+}
+.secLabel::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: #d4a843;
+  flex-shrink: 0;
+}
+
+/* ── Heading ── */
+.heading {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(22px, 3vw, 38px);
+  font-weight: 700;
+  color: #0b1c3d;
+  letter-spacing: -0.02em;
+  line-height: 1.18;
+  margin-bottom: 14px;
+}
+.heading em {
+  color: #d4a843;
+  font-style: italic;
+}
+
+/* ── Intro Paragraph ── */
+.intro {
+  font-size: 15px;
+  color: #4a5568;
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+
+/* ── Feature List ── */
+.eqList {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.eqItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: 8px;
+  background: #f5f0e8;
+  border: 1px solid rgba(11, 28, 61, 0.08);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.eqItem:hover {
+  box-shadow: 0 6px 20px rgba(11, 28, 61, 0.08);
+  transform: translateY(-2px);
+}
+
+.eqItemIcon {
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.eqItemTitle {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0b1c3d;
+  margin-bottom: 3px;
+}
+
+.eqItemBody {
+  font-size: 12.5px;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .whyEqInner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .whyEqImgBlob {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .whyEq {
+    padding: 60px 0;
+  }
+
+  .whyEqImgPhoto {
+    height: 260px;
+  }
+}

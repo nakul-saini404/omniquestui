@@ -9,23 +9,64 @@ const interests = [
   'TMUA', 'UCAT', 'LSAT', 'PSAT', 'Others',
 ];
 
-export default function Contact() {
-  const [form, setForm] = useState({ interest: '', name: '', mobile: '', email: '', city: '' });
-  const [done, setDone] = useState(false);
+interface FormState {
+  interest: string;
+  name:     string;
+  mobile:   string;
+  email:    string;
+  city:     string;
+}
 
-  const submit = (e: React.FormEvent) => {
+export default function Contact() {
+  const [form, setForm]       = useState<FormState>({ interest: '', name: '', mobile: '', email: '', city: '' });
+  const [done, setDone]       = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError]     = useState('');
+
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setDone(true);
+    setError('');
+    setLoading(true);
+
+    try {
+      const res = await fetch('/api/save-contact-lead', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name:     form.name,
+          email:    form.email,
+          mobile:   form.mobile,
+          city:     form.city,
+          interest: form.interest,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error ?? 'Something went wrong');
+      }
+
+      setDone(true);
+    } catch (err: any) {
+      console.error('Contact form error:', err);
+      setError('Something went wrong. Please try again or call us directly.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const reset = () => {
+    setDone(false);
+    setError('');
+    setForm({ interest: '', name: '', mobile: '', email: '', city: '' });
   };
 
   return (
     <>
-        <style
-        dangerouslySetInnerHTML={{
-          __html: `
-            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+      <style dangerouslySetInnerHTML={{ __html: `
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
-        /* ── Section ── */
         .ct-section {
           background: linear-gradient(135deg, #0a1628 0%, #1a3460 50%, #112240 100%);
           padding: 80px 24px;
@@ -33,8 +74,6 @@ export default function Contact() {
           position: relative;
           overflow: hidden;
         }
-
-        /* Decorative radial glow */
         .ct-section::before {
           content: '';
           position: absolute;
@@ -45,15 +84,12 @@ export default function Contact() {
           background: radial-gradient(circle, rgba(201,168,76,0.08), transparent 70%);
           pointer-events: none;
         }
-
-        /* Subtle dot-grid texture */
         .ct-section::after {
           content: '';
           position: absolute; inset: 0;
           background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
           pointer-events: none;
         }
-
         .ct-inner {
           max-width: 1320px;
           margin: 0 auto;
@@ -64,10 +100,6 @@ export default function Contact() {
           gap: 60px;
           align-items: center;
         }
-
-        /* ════════════════════════
-           LEFT — INFO COLUMN
-        ════════════════════════ */
         .ct-badge {
           display: inline-flex; align-items: center; gap: 8px;
           background: rgba(201,168,76,0.15);
@@ -76,9 +108,7 @@ export default function Contact() {
           font-size: 0.75rem; font-weight: 600;
           letter-spacing: 0.08em; text-transform: uppercase;
           color: #c9a84c; margin-bottom: 20px;
-          display: inline-block;
         }
-
         .ct-heading {
           font-family: 'Playfair Display', serif;
           font-size: clamp(2rem, 3.5vw, 3rem);
@@ -87,14 +117,11 @@ export default function Contact() {
           letter-spacing: -0.02em;
         }
         .ct-heading em { font-style: normal; color: #c9a84c; }
-
         .ct-sub {
           font-size: 1.1rem;
           color: rgba(255,255,255,0.75);
           line-height: 1.7; margin-bottom: 32px;
         }
-
-        /* Trust checklist */
         .ct-checklist {
           list-style: none; padding: 0; margin: 0 0 36px 0;
           display: flex; flex-direction: column; gap: 10px;
@@ -107,8 +134,6 @@ export default function Contact() {
           color: #c9a84c; font-weight: 700; font-size: 0.9rem;
           flex-shrink: 0; margin-top: 1px;
         }
-
-        /* Contact info links */
         .ct-contacts { display: flex; flex-direction: column; gap: 10px; }
         .ct-contact-row {
           display: flex; align-items: center; gap: 10px;
@@ -129,17 +154,12 @@ export default function Contact() {
           background: rgba(201,168,76,0.15);
           border-color: rgba(201,168,76,0.3);
         }
-
-        /* ════════════════════════
-           RIGHT — FORM CARD
-        ════════════════════════ */
         .ct-form-card {
           background: #ffffff;
           border-radius: 16px;
           padding: 36px 32px;
           box-shadow: 0 24px 80px rgba(0,0,0,0.35);
         }
-
         .ct-form-title {
           font-family: 'Playfair Display', serif;
           font-size: 1.4rem; font-weight: 700;
@@ -148,8 +168,6 @@ export default function Contact() {
         .ct-form-sub {
           font-size: 0.8rem; color: #6b7280; margin-bottom: 22px;
         }
-
-        /* Form fields */
         .ct-field { margin-bottom: 14px; }
         .ct-field label {
           display: block;
@@ -175,8 +193,6 @@ export default function Contact() {
           border-color: #c9a84c;
           box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
         }
-
-        /* Submit button */
         .ct-submit {
           width: 100%;
           padding: 13px;
@@ -185,21 +201,31 @@ export default function Contact() {
           font-family: 'DM Sans', sans-serif;
           font-size: 0.95rem; font-weight: 700;
           cursor: pointer;
-          transition: background 0.25s, transform 0.2s;
+          transition: background 0.25s, transform 0.2s, opacity 0.2s;
           margin-top: 4px;
         }
-        .ct-submit:hover {
+        .ct-submit:hover:not(:disabled) {
           background: #c9a84c;
           color: #0a1628;
           transform: translateY(-1px);
         }
-
+        .ct-submit:disabled {
+          opacity: 0.65;
+          cursor: not-allowed;
+        }
         .ct-privacy {
           font-size: 0.7rem; color: #9ca3af;
           text-align: center; margin-top: 10px;
         }
-
-        /* Success state */
+        .ct-error {
+          background: #fef2f2;
+          border: 1px solid #fecaca;
+          border-radius: 8px;
+          padding: 10px 14px;
+          font-size: 0.82rem;
+          color: #dc2626;
+          margin-bottom: 14px;
+        }
         .ct-success {
           text-align: center; padding: 40px 0;
         }
@@ -217,13 +243,8 @@ export default function Contact() {
           text-decoration: underline;
           font-family: 'DM Sans', sans-serif;
         }
-
-        /* ── Responsive ── */
         @media (max-width: 1024px) {
-          .ct-inner {
-            grid-template-columns: 1fr;
-            gap: 48px;
-          }
+          .ct-inner { grid-template-columns: 1fr; gap: 48px; }
           .ct-form-card { max-width: 520px; }
         }
         @media (max-width: 640px) {
@@ -231,9 +252,7 @@ export default function Contact() {
           .ct-form-card { padding: 28px 20px; }
           .ct-heading { font-size: clamp(1.7rem, 6vw, 2.4rem); }
         }
-          `
-        }}
-      />
+      `}} />
 
       <section className="ct-section" id="contact">
         <div className="ct-inner">
@@ -259,7 +278,7 @@ export default function Contact() {
                 'Proven track record — SAT 1590–1600, ACT 36',
                 '$8M+ in scholarships secured for our students',
                 'Guidance for 2,000+ universities worldwide',
-              ].map((item) => (
+              ].map(item => (
                 <li key={item}>
                   <span className="ct-check">✓</span>
                   <span>{item}</span>
@@ -293,8 +312,8 @@ export default function Contact() {
               <div className="ct-success">
                 <div className="ct-success-icon">✅</div>
                 <h3>Callback Requested!</h3>
-                <p>Our team will contact you within 1–2 business days.</p>
-                <button className="ct-success-back" onClick={() => setDone(false)}>
+                <p>Our team will contact you within 1–2 business days.<br />A confirmation has been sent to <strong>{form.email}</strong>.</p>
+                <button className="ct-success-back" onClick={reset}>
                   Submit another request
                 </button>
               </div>
@@ -303,16 +322,20 @@ export default function Contact() {
                 <div className="ct-form-title">Score Faster. Higher. Better.</div>
                 <div className="ct-form-sub">Get a free callback from our admissions expert</div>
 
+                {error && (
+                  <div className="ct-error">⚠️ {error}</div>
+                )}
+
                 <form onSubmit={submit}>
                   <div className="ct-field">
                     <label>I&apos;m Interested In</label>
                     <select
                       required
                       value={form.interest}
-                      onChange={(e) => setForm({ ...form, interest: e.target.value })}
+                      onChange={e => setForm({ ...form, interest: e.target.value })}
                     >
                       <option value="">Select a program...</option>
-                      {interests.map((i) => <option key={i} value={i}>{i}</option>)}
+                      {interests.map(i => <option key={i} value={i}>{i}</option>)}
                     </select>
                   </div>
 
@@ -321,7 +344,7 @@ export default function Contact() {
                     <input
                       type="text" required placeholder="Your name"
                       value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      onChange={e => setForm({ ...form, name: e.target.value })}
                     />
                   </div>
 
@@ -330,7 +353,7 @@ export default function Contact() {
                     <input
                       type="tel" required placeholder="+91 XXXXX XXXXX"
                       value={form.mobile}
-                      onChange={(e) => setForm({ ...form, mobile: e.target.value })}
+                      onChange={e => setForm({ ...form, mobile: e.target.value })}
                     />
                   </div>
 
@@ -339,7 +362,7 @@ export default function Contact() {
                     <input
                       type="email" required placeholder="your@email.com"
                       value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      onChange={e => setForm({ ...form, email: e.target.value })}
                     />
                   </div>
 
@@ -348,12 +371,12 @@ export default function Contact() {
                     <input
                       type="text" required placeholder="Your city"
                       value={form.city}
-                      onChange={(e) => setForm({ ...form, city: e.target.value })}
+                      onChange={e => setForm({ ...form, city: e.target.value })}
                     />
                   </div>
 
-                  <button type="submit" className="ct-submit">
-                    Request A Callback →
+                  <button type="submit" className="ct-submit" disabled={loading}>
+                    {loading ? '⏳ Submitting…' : 'Request A Callback →'}
                   </button>
                   <p className="ct-privacy">🔒 Your information is 100% secure. No spam ever.</p>
                 </form>

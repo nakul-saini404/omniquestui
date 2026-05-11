@@ -1,0 +1,209 @@
+/* ══════════════════════════════════════════════
+   CURRICULUM — Curriculum.module.css
+   No :root usage — all tokens inlined as literals
+══════════════════════════════════════════════ */
+
+/* ── Section wrapper ── */
+.curriculum {
+  background: #f5f0e8;
+  padding: 90px 24px;
+}
+
+.sectionInner {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* ── Reveal animation ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ══════════════════════════════════════════════
+   SECTION HEADER
+══════════════════════════════════════════════ */
+.secBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  border-radius: 100px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.secBadgeNavy {
+  background: rgba(11, 28, 61, 0.07);
+  border: 1px solid rgba(11, 28, 61, 0.18);
+  color: #1a3570;
+}
+
+.secTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: #0b1c3d;
+  margin-bottom: 14px;
+}
+
+.secTitle em {
+  font-style: italic;
+  color: #d4a843;
+}
+
+.secSub {
+  font-size: 0.95rem;
+  color: #4a5568;
+  line-height: 1.75;
+  max-width: 560px;
+}
+
+.divider {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, #d4a843, #e8c96a);
+  border-radius: 2px;
+  margin: 20px 0;
+}
+
+/* ══════════════════════════════════════════════
+   TABS
+══════════════════════════════════════════════ */
+.curriculumTabs {
+  display: flex;
+  gap: 4px;
+  background: #ede7d9;
+  padding: 4px;
+  border-radius: 8px;
+  margin: 36px 0 28px;
+  width: fit-content;
+}
+
+.tabBtn {
+  padding: 8px 20px;
+  border: none;
+  background: transparent;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #4a5568;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.04em;
+}
+
+.tabBtn:hover {
+  color: #0b1c3d;
+}
+
+.tabBtn.active {
+  background: #0b1c3d;
+  color: #f5f0e8;
+}
+
+/* ══════════════════════════════════════════════
+   CURRICULUM PANEL
+══════════════════════════════════════════════ */
+.curriculumPanel {
+  display: none;
+}
+
+.curriculumPanel.active {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  animation: fadeIn 0.3s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ══════════════════════════════════════════════
+   CURRICULUM ITEM
+══════════════════════════════════════════════ */
+.currItem {
+  background: #ffffff;
+  border: 1px solid rgba(11, 28, 61, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.currItem:hover {
+  box-shadow: 0 6px 20px rgba(11, 28, 61, 0.08);
+  border-color: rgba(11, 28, 61, 0.18);
+}
+
+.currNum {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #0b1c3d;
+  color: #f5f0e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.currContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.currTitle {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0b1c3d;
+  margin-bottom: 4px;
+}
+
+.currBody {
+  font-size: 0.76rem;
+  color: #4a5568;
+  line-height: 1.55;
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════ */
+@media (max-width: 700px) {
+  .curriculum {
+    padding: 60px 16px;
+  }
+
+  .curriculumTabs {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .tabBtn {
+    flex: 1;
+    text-align: center;
+    padding: 8px 12px;
+  }
+
+  .curriculumPanel.active {
+    grid-template-columns: 1fr;
+  }
+}
