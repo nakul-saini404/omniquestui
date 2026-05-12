@@ -13,6 +13,20 @@ export default function Chatbot() {
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // Helper to safely render simple markdown (bold and linebreaks)
+  const formatText = (text: string) => {
+    return text.split('\n').map((line, i) => (
+      <span key={i} style={{ display: "block", minHeight: line ? "auto" : "1em" }}>
+        {line.split(/(\*\*.*?\*\*)/g).map((part, j) => {
+          if (part.startsWith('**') && part.endsWith('**')) {
+            return <strong key={j} style={{ color: "var(--navy)", fontWeight: 700 }}>{part.slice(2, -2)}</strong>;
+          }
+          return <span key={j}>{part}</span>;
+        })}
+      </span>
+    ));
+  };
+
   // Greeting animation sequence
   useEffect(() => {
     if (!open) { setPhase("idle"); return; }
@@ -72,12 +86,12 @@ export default function Chatbot() {
             {/* Animated avatar */}
             <div style={{ position: "relative" }}>
               <div style={{ width: 48, height: 48, borderRadius: "50%", background: "rgba(255,255,255,.12)", border: "2px solid rgba(0,201,177,.5)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.5rem", animation: open ? "avatarPop .5s cubic-bezier(.34,1.56,.64,1) both" : "none" }}>
-                🧑‍🏫
+                👦🏻
               </div>
               <div style={{ position: "absolute", bottom: 2, right: 2, width: 12, height: 12, borderRadius: "50%", background: "#22c55e", border: "2px solid var(--navy)" }} />
             </div>
             <div style={{ flex: 1 }}>
-              <div style={{ color: "white", fontWeight: 700, fontFamily: "var(--font-head)", fontSize: ".95rem" }}>OmniQuest AI</div>
+              <div style={{ color: "white", fontWeight: 700, fontFamily: "var(--font-head)", fontSize: ".95rem" }}>EduQuest AI Guide</div>
               <div style={{ color: "rgba(255,255,255,.55)", fontSize: ".72rem", display: "flex", alignItems: "center", gap: 5 }}>
                 <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#22c55e", display: "inline-block", animation: "blink 2s ease-in-out infinite" }} />
                 Powered by Omniquest · Online
@@ -94,10 +108,10 @@ export default function Chatbot() {
             {/* Hello animation */}
             {(phase === "hello" || phase === "help" || phase === "chat") && (
               <div style={{ display: "flex", alignItems: "flex-end", gap: 8, animation: "messageSlide .4s ease both" }}>
-                <div style={{ width: 30, height: 30, borderRadius: "50%", background: "var(--sky)", border: "1.5px solid var(--teal)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: ".95rem", flexShrink: 0 }}>🧑‍🏫</div>
+                <div style={{ width: 34, height: 34, borderRadius: "50%", background: "var(--sky)", border: "1.5px solid var(--teal)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.2rem", flexShrink: 0, animation: "avatarPop .4s cubic-bezier(.34,1.56,.64,1) both" }}>👦🏻</div>
                 <div className="chat-bubble-bot">
-                  <span style={{ display: "inline-block", animation: "wave 1.5s ease-in-out", fontSize: "1.2rem" }}>👋</span>
-                  <strong style={{ marginLeft: 6 }}>Hello! Great to meet you!</strong>
+                  <span style={{ display: "inline-block", animation: "wave 1.5s ease-in-out", fontSize: "1.2rem", marginRight: 6 }}>👋</span>
+                  <strong>Hello! Welcome to EduQuest!</strong>
                 </div>
               </div>
             )}
@@ -105,9 +119,9 @@ export default function Chatbot() {
             {/* How can I help */}
             {(phase === "help" || phase === "chat") && (
               <div style={{ display: "flex", alignItems: "flex-end", gap: 8, animation: "messageSlide .4s ease .1s both" }}>
-                <div style={{ width: 30, height: 30, borderRadius: "50%", background: "var(--sky)", border: "1.5px solid var(--teal)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: ".95rem", flexShrink: 0 }}>🧑‍🏫</div>
+                <div style={{ width: 34, height: 34, borderRadius: "50%", background: "var(--sky)", border: "1.5px solid var(--teal)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.2rem", flexShrink: 0 }}>👦🏻</div>
                 <div className="chat-bubble-bot">
-                  I'm your OmniQuest AI guide 🎓 Ask me about <strong>SAT, GMAT, MBA admissions, study abroad</strong>, or our AI skill programs — I'm here to help!
+                  I'm your EduQuest AI guide 🎓 Ask me about <strong>SAT, GMAT, MBA admissions, study abroad</strong>, or our programs — I'm here to help!
                 </div>
               </div>
             )}
@@ -130,10 +144,10 @@ export default function Chatbot() {
             {phase === "chat" && messages.map((m, i) => (
               <div key={i} style={{ display: "flex", alignItems: "flex-end", gap: 8, justifyContent: m.role === "user" ? "flex-end" : "flex-start", animation: "messageSlide .35s ease both" }}>
                 {m.role === "assistant" && (
-                  <div style={{ width: 30, height: 30, borderRadius: "50%", background: "var(--sky)", border: "1.5px solid var(--teal)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: ".95rem", flexShrink: 0 }}>🧑‍🏫</div>
+                  <div style={{ width: 34, height: 34, borderRadius: "50%", background: "var(--sky)", border: "1.5px solid var(--teal)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.2rem", flexShrink: 0 }}>👦🏻</div>
                 )}
-                <div className={m.role === "user" ? "chat-bubble-user" : "chat-bubble-bot"} style={{ whiteSpace: "pre-wrap" }}>
-                  {m.content}
+                <div className={m.role === "user" ? "chat-bubble-user" : "chat-bubble-bot"} style={{ lineHeight: 1.6, color: m.role === "user" ? "#fff" : "var(--navy)" }}>
+                  {m.role === "user" ? m.content : formatText(m.content)}
                 </div>
               </div>
             ))}
@@ -141,8 +155,9 @@ export default function Chatbot() {
             {/* Typing */}
             {loading && (
               <div style={{ display: "flex", alignItems: "flex-end", gap: 8 }}>
-                <div style={{ width: 30, height: 30, borderRadius: "50%", background: "var(--sky)", border: "1.5px solid var(--teal)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: ".95rem" }}>🧑‍🏫</div>
-                <div className="chat-bubble-bot" style={{ display: "flex", gap: 4, padding: "12px 16px" }}>
+                <div style={{ width: 34, height: 34, borderRadius: "50%", background: "var(--sky)", border: "1.5px solid var(--teal)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.2rem", animation: "avatarPop .8s infinite alternate" }}>🤔</div>
+                <div className="chat-bubble-bot" style={{ display: "flex", gap: 4, padding: "12px 16px", alignItems: "center" }}>
+                  <span style={{ fontSize: "0.8rem", color: "var(--teal)", fontWeight: 600, marginRight: 4 }}>Let me think</span>
                   <div className="typing-dot" /><div className="typing-dot" /><div className="typing-dot" />
                 </div>
               </div>
@@ -168,7 +183,7 @@ export default function Chatbot() {
 
           {/* Powered by */}
           <div style={{ padding: "6px", textAlign: "center", fontSize: ".65rem", color: "var(--grey-400)", borderTop: "1px solid var(--grey-100)", background: "white", flexShrink: 0 }}>
-            ⚡ Powered by OmniQuest AI · xAI
+            ⚡ Powered by EduQuest AI · xAI
           </div>
         </div>
       )}

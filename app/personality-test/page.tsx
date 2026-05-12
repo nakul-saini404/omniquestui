@@ -356,7 +356,7 @@ export default function PersonalityTestPage() {
   ══════════════════════════════════════════════════════════════ */
   return (
     <div style={{ minHeight: "100vh", background: "#080B14", color: "white", fontFamily: "'DM Sans', sans-serif" }}>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
         @keyframes fadeUp  { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
@@ -383,7 +383,7 @@ export default function PersonalityTestPage() {
         .stream-card { padding:20px; border-radius:16px; cursor:pointer; border:2px solid rgba(255,255,255,.08); background:rgba(255,255,255,.03); transition:all .25s; text-align:center; }
         .stream-card:hover { border-color:rgba(212,175,55,.4); background:rgba(212,175,55,.08); transform:translateY(-2px); }
         .stream-card.primary { border-color:rgba(212,175,55,.7); background:linear-gradient(135deg,rgba(212,175,55,.15),rgba(212,175,55,.05)); }
-      `}</style>
+      `}} />
 
       {/* ════════════════════════════════════════
           STEP 1 — LEAD FORM

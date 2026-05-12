@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { X, MessageCircle } from 'lucide-react';
 import Image from 'next/image';
-import {  useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 
 /* ── WhatsApp SVG Icon ───────────────────────────────────────────────────── */
 function WhatsAppIcon() {
@@ -29,9 +29,16 @@ function WhatsAppIcon() {
 
 /* ── Chat Window ─────────────────────────────────────────────────────────── */
 function ChatWindow({ onClose }: { onClose: () => void }) {
+  const [mountTime] = useState(Date.now());
+  const [showSplash, setShowSplash] = useState(true);
   const [messages, setMessages] = useState<{ role: 'user' | 'bot'; text: string }[]>([
     { role: 'bot', text: 'Hi! I\'m Kritika from EduQuest. How can I help you today?' },
   ]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowSplash(false), 2500);
+    return () => clearTimeout(timer);
+  }, []);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -45,17 +52,24 @@ function ChatWindow({ onClose }: { onClose: () => void }) {
 
     const userMsg = input.trim();
     setInput('');
-    setMessages((prev) => [...prev, { role: 'user', text: userMsg }]);
+    const updatedMessages = [...messages, { role: 'user' as const, text: userMsg }];
+    setMessages(updatedMessages);
     setLoading(true);
 
     try {
-      const res = await fetch('http://127.0.0.1:5000/chat', {
+      // Map state messages to the format expected by /api/chat (role: user/assistant, content: string)
+      const payloadMessages = updatedMessages.map(m => ({
+        role: m.role === 'bot' ? 'assistant' : 'user',
+        content: m.text
+      }));
+
+      const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: userMsg }),
+        body: JSON.stringify({ messages: payloadMessages }),
       });
       const data = await res.json();
-      setMessages((prev) => [...prev, { role: 'bot', text: data.reply }]);
+      setMessages((prev) => [...prev, { role: 'bot', text: data.reply || "I am having a moment. Please try again." }]);
     } catch {
       setMessages((prev) => [...prev, { role: 'bot', text: 'Sorry, I am unable to connect right now.' }]);
     } finally {
@@ -69,6 +83,19 @@ function ChatWindow({ onClose }: { onClose: () => void }) {
       sendMessage();
     }
   }
+
+  const formatText = (text: string) => {
+    return text.split('\n').map((line, i) => (
+      <span key={i} style={{ display: "block", minHeight: line ? "auto" : "1em" }}>
+        {line.split(/(\*\*.*?\*\*)/g).map((part, j) => {
+          if (part.startsWith('**') && part.endsWith('**')) {
+            return <strong key={j} style={{ color: "#111827", fontWeight: 700 }}>{part.slice(2, -2)}</strong>;
+          }
+          return <span key={j}>{part}</span>;
+        })}
+      </span>
+    ));
+  };
 
   return (
     <div
@@ -112,9 +139,29 @@ function ChatWindow({ onClose }: { onClose: () => void }) {
       </div>
 
       {/* ── Messages ── */}
-      <div className="flex-1 overflow-y-auto p-4 bg-gray-50 space-y-3">
+      <div className="flex-1 overflow-y-auto p-4 bg-gray-50 space-y-3 relative">
+        {showSplash && (
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-white" style={{ animation: 'splash-fade-out 0.4s ease-in 2.1s forwards' }}>
+            <img 
+              src={`/hello.gif?t=${mountTime}`} 
+              alt="Welcome" 
+              className="w-40 h-40 object-contain drop-shadow-2xl" 
+              style={{ animation: 'splash-pop 0.6s cubic-bezier(0.34,1.56,0.64,1) both' }} 
+            />
+          </div>
+        )}
         {messages.map((msg, i) => (
-          <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+          <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start items-end gap-2'}`} style={{ animation: 'fade-in 0.3s ease-out' }}>
+            {msg.role === 'bot' && (
+              <div className="w-10 h-10 flex items-center justify-center flex-shrink-0" style={{ animation: 'avatarPop 0.4s cubic-bezier(0.34,1.56,0.64,1) both' }}>
+                <img 
+                  src="https://storage.files-vault.com/uploads/1771241332-Yp12oCHwxC.png" 
+                  alt="Kritika" 
+                  className="w-8 h-8 rounded-full object-cover shadow-sm mb-1" 
+                  onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '👧🏻'; }} 
+                />
+              </div>
+            )}
             <div
               className="max-w-[75%] px-3 py-2 rounded-xl text-sm leading-relaxed"
               style={{
@@ -122,18 +169,26 @@ function ChatWindow({ onClose }: { onClose: () => void }) {
                 color: msg.role === 'user' ? '#fff' : '#374151',
                 boxShadow: '0 1px 4px rgba(0,0,0,0.08)',
                 borderRadius: msg.role === 'user' ? '18px 18px 4px 18px' : '18px 18px 18px 4px',
+                whiteSpace: 'pre-wrap',
               }}
             >
-              {msg.text}
+              {msg.role === 'user' ? msg.text : formatText(msg.text)}
             </div>
           </div>
         ))}
 
         {loading && (
-          <div className="flex justify-start">
-            <div className="bg-white px-4 py-2 rounded-xl shadow-sm flex gap-1 items-center">
+          <div className="flex justify-start items-end gap-2">
+            <div className="w-10 h-10 flex items-center justify-center flex-shrink-0" style={{ animation: 'avatarPop 0.8s infinite alternate' }}>
+               {/* 🔧 Local image path to bypass firewall blocks. Add thinking.gif to your public/ folder */}
+              <img src="/thinking.gif" alt="Thinking" className="w-10 h-10 object-contain drop-shadow-sm"
+                 onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '🤔'; }} 
+              />
+            </div>
+            <div className="bg-white px-4 py-3 rounded-xl shadow-sm flex gap-1.5 items-center" style={{ borderRadius: '18px 18px 18px 4px' }}>
+              <span className="text-xs text-pink-500 font-semibold mr-1 tracking-wide uppercase">Thinking</span>
               {[0, 1, 2].map((i) => (
-                <span key={i} className="w-2 h-2 bg-pink-400 rounded-full animate-bounce"
+                <span key={i} className="w-1.5 h-1.5 bg-pink-400 rounded-full animate-bounce"
                   style={{ animationDelay: `${i * 0.15}s` }} />
               ))}
             </div>
@@ -208,9 +263,12 @@ export default function FloatingWidgets() {
         {/* Prompt tooltip — only when chat is closed and not dismissed */}
         {!chatOpen && !promptDismissed && (
           <div className="relative bg-white rounded-xl shadow-xl border border-gray-100 px-4 py-3 max-w-xs min-w-48 animate-fade-in">
-            <p className="text-sm text-gray-700 pr-5 leading-snug">
-              Hi there, have a question? Text us here.
-            </p>
+            <div className="flex items-center gap-3">
+              <img src="/hello.gif" alt="Hi" className="w-10 h-10 object-contain drop-shadow-sm" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+              <p className="text-sm text-gray-700 pr-5 leading-snug">
+                Hi there, have a question? Text us here.
+              </p>
+            </div>
             <button
               onClick={() => setPromptDismissed(true)}
               className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 transition-colors"
@@ -265,7 +323,7 @@ export default function FloatingWidgets() {
         </div>
       </div>
 
-        <style
+      <style
         dangerouslySetInnerHTML={{
           __html: `
            @keyframes shimmer {
@@ -280,11 +338,31 @@ export default function FloatingWidgets() {
           from { opacity: 0; transform: scale(0.85) translateY(16px); transform-origin: bottom right; }
           to   { opacity: 1; transform: scale(1)    translateY(0);    transform-origin: bottom right; }
         }
+        @keyframes avatarPop {
+          from { opacity: 0; transform: scale(0.5) translateY(10px); }
+          to   { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        @keyframes wave {
+          0% { transform: rotate(0deg); }
+          25% { transform: rotate(20deg); }
+          50% { transform: rotate(-10deg); }
+          75% { transform: rotate(20deg); }
+          100% { transform: rotate(0deg); }
+        }
         .animate-fade-in { animation: fade-in 0.25s ease-out; }
+        @keyframes splash-pop {
+          0% { opacity: 0; transform: scale(0.5) translateY(20px); }
+          60% { opacity: 1; transform: scale(1.1) translateY(0); }
+          100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        @keyframes splash-fade-out {
+          from { opacity: 1; }
+          to { opacity: 0; visibility: hidden; }
+        }
           `
         }}
       />
-       
+
     </>
   );
 }

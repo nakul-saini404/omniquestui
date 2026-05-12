@@ -164,7 +164,7 @@ export function TestimonialsSection() {
 
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap');
         *, *::before, *::after { box-sizing: border-box; }
 
@@ -244,7 +244,7 @@ export function TestimonialsSection() {
         .pf-arr:hover { background:${T.slate}; color:${T.white}; border-color:${T.slate}; }
         .pf-arr:disabled { opacity:.3; cursor:default; }
         .pf-arr:active:not(:disabled) { transform:scale(.92); }
-      `}</style>
+      `}} />
 
       {modal && <YouTubeModal videoId={modal} onClose={() => setModal(null)} />}
 

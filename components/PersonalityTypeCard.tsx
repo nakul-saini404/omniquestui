@@ -22,10 +22,10 @@ export default function PersonalityTypeCard({ personalityType, studentName, over
 
   return (
     <div style={{ textAlign: "center", marginBottom: 32 }}>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
         @keyframes glow  { 0%,100%{opacity:.6} 50%{opacity:1} }
-      `}</style>
+      `}} />
 
       {/* AI Report badge */}
       <div style={{

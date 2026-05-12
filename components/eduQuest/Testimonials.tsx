@@ -229,7 +229,7 @@ export function TimelineSection() {
 
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,700&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
 
         /* ── Reset / box-sizing ── */
@@ -564,7 +564,7 @@ export function TimelineSection() {
           .tl-footer-wrap { padding: 0 10px 16px; }
           .tl-search-btn span { display: none; } /* hide "Search" text, keep icon */
         }
-      `}</style>
+      `}} />
 
       <section className="tl-section" id="timeline">
         <div className="tl-inner">
@@ -713,7 +713,7 @@ export function TestimonialsSection() {
 
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
         /* ── Reset ── */
@@ -1010,7 +1010,7 @@ export function TestimonialsSection() {
           .ts-inner { padding: 0 10px; }
           .ts-badge-score { white-space: normal; }
         }
-      `}</style>
+      `}} />
 
       {videoModal && <YouTubeModal videoId={videoModal} onClose={() => setVideoModal(null)} />}
 
