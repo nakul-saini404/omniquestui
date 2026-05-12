@@ -9,7 +9,7 @@ const navItems = [
   { label: 'EduQuest × Aptech', href: 'https://eduquest.org.in/eduquest-aptech/' },
   {
     label: 'Profile Building',
-    href: 'https://eduquest.org.in/profile-building-programs/',
+    href: '/eduquest-guide',
     children: [
       { label: 'EduQuest Guide', href: '/eduquest-guide' },
     
