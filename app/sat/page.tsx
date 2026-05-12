@@ -5,8 +5,28 @@ export const metadata: Metadata = {
   title: "SAT Coaching 2026 | Score 1500+ | EduQuest India's #1 SAT Prep",
   description:
     "EduQuest — India's top SAT coaching. Digital SAT syllabus 2026, adaptive testing strategy, section-wise prep, 1500+ score plans. Online + offline in Delhi, Gurgaon, Bangalore.",
-  keywords:
-    "SAT coaching India, SAT exam 2026, SAT syllabus 2026, digital SAT, SAT coaching Delhi, how to score 1500, SAT question types, SAT adaptive testing, SAT preparation",
+  keywords: [
+    "SAT coaching India",
+    "SAT exam 2026",
+    "SAT syllabus 2026",
+    "digital SAT",
+    "SAT coaching Delhi",
+    "how to score 1500",
+    "SAT question types",
+    "SAT adaptive testing",
+    "SAT preparation",
+    "SAT coaching Gurgaon",
+    "SAT coaching online",
+    "SAT mock test",
+    "SAT practice test",
+    "EduQuest SAT",
+    "best SAT coaching India",
+    "SAT score improvement",
+    "SAT Reading Writing",
+    "SAT Math",
+    "Digital SAT 2026",
+    "College Board SAT",
+  ],
   openGraph: {
     title: "SAT Coaching 2026 | Score 1500+ | EduQuest India's #1 SAT Prep",
     description:
@@ -15,6 +35,21 @@ export const metadata: Metadata = {
     siteName: "EduQuest",
     locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: "https://eduquest.org.in/wp-content/uploads/eduquest-og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "EduQuest SAT Coaching India — Score 1500+",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SAT Coaching 2026 | Score 1500+ | EduQuest India",
+    description:
+      "India's top SAT coaching. Digital SAT 2026, adaptive testing, 1500+ score plans. Online + offline in Delhi, Gurgaon, Bangalore.",
+    images: ["https://eduquest.org.in/wp-content/uploads/eduquest-og.jpg"],
   },
   alternates: {
     canonical: "https://eduquest.org.in/sat/",
@@ -22,6 +57,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
   },
 };
 

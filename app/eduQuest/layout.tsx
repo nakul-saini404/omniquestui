@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title: "EduQuest — Best Study Abroad & SAT Coaching in India",
     description:
       "Profile-first admissions strategy for Ivy League & Top 50 universities. SAT · ACT · AP coaching. Limited intake of 15–20 students. $8M+ scholarships won.",
-    url: "https://omniquestui.vercel.app/eduQuest",
+    url: "https://eduquest.org.in/",
     siteName: "EduQuest",
     locale: "en_IN",
     type: "website",
@@ -51,16 +51,10 @@ export const metadata: Metadata = {
 };
 
 
-export default function RootLayout({
+export default function EduQuestLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html lang="en">
-      <body className="antialiased">
-        {children}
-      </body>
-    </html>
-  );
+  return <>{children}</>;
 }

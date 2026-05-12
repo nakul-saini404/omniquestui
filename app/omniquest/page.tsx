@@ -13,13 +13,13 @@ export const metadata: Metadata = {
     "OmniQuest EduQuest MBA Wizards",
   ],
   alternates: {
-    canonical: "https://omniquestui.vercel.app/omniquest",
+    canonical: "https://app.eduquest.org.in/omniquest",
   },
   openGraph: {
     title: "OmniQuest — India's #1 Global Admissions Strategy Firm",
     description:
       "One unified intelligence system. Three pathways. Global outcomes. EduQuest · MBA Wizards · Aptech.",
-    url: "https://omniquestui.vercel.app/omniquest",
+    url: "https://app.eduquest.org.in/omniquest",
     siteName: "OmniQuest",
     locale: "en_IN",
     type: "website",
