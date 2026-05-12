@@ -32,6 +32,8 @@ export default function UCATHero() {
     email:    "",
     interest: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 60);
@@ -44,9 +46,40 @@ export default function UCATHero() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
-  function handleSubmit() {
+  async function handleSubmit(e?: React.MouseEvent) {
+    if (e) e.preventDefault();
     if (!form.name || !form.phone || !form.email) return;
-    setSubmitted(true);
+
+    setError("");
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/save-contact-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name:     form.name,
+          email:    form.email,
+          mobile:   form.phone,
+          city:     "",
+          interest: form.interest,
+          pageName: "UCAT Coaching Hero",
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error ?? "Something went wrong");
+      }
+
+      setSubmitted(true);
+    } catch (err: unknown) {
+      console.error("Hero form error:", err);
+      setError("Something went wrong. Please try again or call us directly.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   function scrollToEnroll() {
@@ -161,12 +194,18 @@ export default function UCATHero() {
                   ))}
                 </select>
 
+                {error && (
+                  <div style={{ color: "#ef4444", fontSize: "0.85rem", marginBottom: "12px", background: "#fef2f2", padding: "8px 12px", borderRadius: "6px", border: "1px solid #fecaca" }}>
+                    ⚠️ {error}
+                  </div>
+                )}
+
                 <button
                   className={styles.cardCta}
                   onClick={handleSubmit}
-                  disabled={!form.name || !form.phone || !form.email}
+                  disabled={!form.name || !form.phone || !form.email || loading}
                 >
-                  Request Free Callback →
+                  {loading ? "⏳ Submitting…" : "Request Free Callback →"}
                 </button>
               </div>
 

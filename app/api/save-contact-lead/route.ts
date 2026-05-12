@@ -5,12 +5,13 @@ import { transport } from "@/lib/email";
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, mobile, city, interest } = await req.json() as {
+    const { name, email, mobile, city, interest, pageName } = await req.json() as {
       name:     string;
       email:    string;
       mobile:   string;
       city?:    string;
       interest?: string;
+      pageName?: string;
     };
 
     // ── Validate ──────────────────────────────────────────────────────────────
@@ -32,7 +33,7 @@ export async function POST(req: NextRequest) {
           phone:            mobile,
           city:             city    || null,
           program_interest: interest || null,
-          source:           "contact_form",
+          source:           pageName || "contact_form",
           consent:          true,
         },
         { onConflict: "email" }
@@ -50,7 +51,7 @@ export async function POST(req: NextRequest) {
       await transport.sendMail({
         from:    `"OmniQuest Leads" <${process.env.SMTP_USER}>`,
         to:      process.env.ADMIN_EMAIL!,
-        subject: `📋 New Contact Form: ${name} — ${interest ?? "General Enquiry"}`,
+        subject: `📋 New Lead from ${pageName || "Contact Form"}: ${name} — ${interest ?? "General Enquiry"}`,
         html: `
           <div style="font-family:sans-serif;max-width:620px;margin:0 auto;padding:28px;background:#0B1C3D;color:#f1f5ff;border-radius:16px;">
             <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
@@ -95,7 +96,7 @@ export async function POST(req: NextRequest) {
 
             <div style="margin-top:24px;padding:16px;background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.2);border-radius:12px;">
               <p style="font-size:12px;color:rgba(241,245,255,.5);margin:0;line-height:1.6;">
-                📌 Source: <strong style="color:rgba(241,245,255,.7);">Contact Form</strong><br/>
+                📌 Source: <strong style="color:rgba(241,245,255,.7);">${pageName || "Contact Form"}</strong><br/>
                 Submitted at: <strong style="color:rgba(241,245,255,.7);">${new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })} IST</strong>
               </p>
             </div>
@@ -113,7 +114,7 @@ export async function POST(req: NextRequest) {
       await transport.sendMail({
         from:    `"OmniQuest" <${process.env.SMTP_USER}>`,
         to:      email,
-        subject: `✅ We've received your request, ${firstName}!`,
+        subject: `✅ We've received your ${pageName ? pageName + " " : ""}request, ${firstName}!`,
         html: `
           <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:28px;background:#0B1C3D;color:#f1f5ff;border-radius:16px;">
             <div style="text-align:center;margin-bottom:28px;">

@@ -331,32 +331,7 @@ export default function PersonalityTestPage() {
       const data = await res.json();
       if (!data.report) throw new Error("No report returned");
 
-      // Save to Supabase + send emails
-      try {
-        const saveRes = await fetch("/api/submit-lead", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            leadData: {
-              fullName:      leadData.fullName,
-              email:         leadData.email,
-              phone:         leadData.phone,
-              city:          leadData.city,
-              age:           leadData.age,
-              currentClass:  leadData.currentClass,
-              consent:       leadData.consent,
-              targetCountry: leadData.targetCountry,
-              targetDegree:  leadData.targetDegree,
-            },
-            answers: ans,
-            report: data.report,
-          }),
-        });
-        if (!saveRes.ok) setSaveError("Report generated but could not save to database.");
-      } catch {
-        setSaveError("Report generated but database save failed. Contact: writeto.eduquest@gmail.com");
-      }
-
+      // Show report immediately — saving & emails happen in background on the server
       setReport(data.report as Report);
       setStep("report");
       setTimeout(() => reportRef.current?.scrollIntoView({ behavior: "smooth" }), 100);

@@ -304,12 +304,12 @@ Return this exact JSON:
         messages: [
           {
             role: "system",
-            content: "You are a world-class educational psychologist and global admissions expert. Respond with ONLY valid JSON — no markdown, no code blocks, no text outside the JSON object.",
+            content: "You are a world-class educational psychologist and global admissions expert. Respond with ONLY valid JSON — no markdown, no code blocks, no text outside the JSON object. Be concise — keep descriptions to 1-2 sentences max.",
           },
           { role: "user", content: prompt },
         ],
         temperature: 0.72,
-        max_tokens: 7000,
+        max_tokens: 4500,
         response_format: { type: "json_object" },
       });
       report = JSON.parse(completion.choices[0].message.content ?? "{}");
@@ -335,52 +335,51 @@ Return this exact JSON:
       name:  "EduQuest Admissions Team",
     };
 
-    // ── Save to Supabase ──────────────────────────────────────────────────────
-    // NOTE: no updated_at here — not needed for upsert, avoids column-not-found errors
-    try {
-      const { error: dbErr } = await supabaseAdmin.from("personality_leads").upsert(
-        {
-          name:               studentName,
-          full_name:          studentName,
-          email:              email ?? "",
-          phone:              leadData?.phone          ?? "",
-          city:               leadData?.city           ?? "",
-          age:                leadData?.age ? Number(leadData.age) : null,
-          current_class:      currentClass,
-          target_country:     targetCountry || null,
-          target_degree:      targetDegree  || null,
-          flow_type:          flowType,
-          university_mode:    uniMode,
-          personality_type:   mbtiType.code,
-          personality_name:   mbtiType.name,
-          overall_score:      report.overallScore as number,
-          top_career:         (report.careerMatches as CareerMatch[])?.[0]?.title ?? null,
-          stream_recommendation: (report.streamRecommendation as {primary?:string})?.primary ?? null,
-          full_report:        report,
-          quiz_answers:       answers,
-          consent:            leadData?.consent ?? false,
-        },
-        { onConflict: "email" }
-      );
-      if (dbErr) {
-        console.error("Supabase save error:", dbErr);
-      } else {
-        console.log("✅ Saved to Supabase:", studentName, email);
+    // ── Fire-and-forget: Save to Supabase + send admin email in background ────
+    // These run AFTER the response is sent — user sees report instantly
+    const backgroundTasks = async () => {
+      // Save to Supabase
+      try {
+        const { error: dbErr } = await supabaseAdmin.from("personality_leads").upsert(
+          {
+            name:               studentName,
+            full_name:          studentName,
+            email:              email ?? "",
+            phone:              leadData?.phone          ?? "",
+            city:               leadData?.city           ?? "",
+            age:                leadData?.age ? Number(leadData.age) : null,
+            current_class:      currentClass,
+            target_country:     targetCountry || null,
+            target_degree:      targetDegree  || null,
+            flow_type:          flowType,
+            university_mode:    uniMode,
+            personality_type:   mbtiType.code,
+            personality_name:   mbtiType.name,
+            overall_score:      report.overallScore as number,
+            top_career:         (report.careerMatches as CareerMatch[])?.[0]?.title ?? null,
+            stream_recommendation: (report.streamRecommendation as {primary?:string})?.primary ?? null,
+            full_report:        report,
+            quiz_answers:       answers,
+            consent:            leadData?.consent ?? false,
+          },
+          { onConflict: "email" }
+        );
+        if (dbErr) console.error("Supabase save error:", dbErr);
+        else console.log("✅ Saved to Supabase:", studentName, email);
+      } catch (dbErr) {
+        console.error("Supabase save error (non-fatal):", dbErr);
       }
-    } catch (dbErr) {
-      console.error("Supabase save error (non-fatal):", dbErr);
-    }
 
-    // ── Admin email — calls transport directly, NO internal HTTP fetch ────────
-    try {
-      const cm   = report.careerMatches as CareerMatch[];
-      const unis = (report.universities as Array<{name:string}> | undefined) ?? [];
+      // Send admin email
+      try {
+        const cm   = report.careerMatches as CareerMatch[];
+        const unis = (report.universities as Array<{name:string}> | undefined) ?? [];
 
-      await transport.sendMail({
-        from:    `"OmniQuest" <${process.env.SMTP_USER}>`,
-        to:      process.env.ADMIN_EMAIL!,
-        subject: `${mbtiType.emoji} ${mbtiType.fullLabel} — ${studentName} · Class ${currentClass}${targetCountry ? " · " + targetCountry : ""}`,
-        html: `
+        await transport.sendMail({
+          from:    `"OmniQuest" <${process.env.SMTP_USER}>`,
+          to:      process.env.ADMIN_EMAIL!,
+          subject: `${mbtiType.emoji} ${mbtiType.fullLabel} — ${studentName} · Class ${currentClass}${targetCountry ? " · " + targetCountry : ""}`,
+          html: `
 <div style="font-family:sans-serif;max-width:620px;margin:0 auto;background:#0b1c3d;color:white;padding:32px;border-radius:16px;">
   <div style="text-align:center;margin-bottom:20px;padding:20px;background:rgba(91,138,255,.1);border:1px solid rgba(255,255,255,.1);border-radius:14px;">
     <div style="font-size:2.5rem;margin-bottom:6px;">${mbtiType.emoji}</div>
@@ -416,11 +415,15 @@ Return this exact JSON:
     Submitted: ${new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })} IST
   </div>
 </div>`,
-      });
-      console.log("✅ Admin email sent");
-    } catch (emailErr) {
-      console.error("Admin email error (non-fatal):", emailErr);
-    }
+        });
+        console.log("✅ Admin email sent");
+      } catch (emailErr) {
+        console.error("Admin email error (non-fatal):", emailErr);
+      }
+    };
+
+    // Fire background tasks — don't await, don't block the response
+    backgroundTasks().catch(err => console.error("Background task error:", err));
 
     return NextResponse.json({ report });
 

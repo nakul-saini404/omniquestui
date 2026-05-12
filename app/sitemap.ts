@@ -2,33 +2,58 @@
 import type { MetadataRoute } from "next";
 import { SAT_CITIES, type CitySlug } from "@/constants/satCities";
 
-const BASE_URL = "https://eduquest.org.in";
+const BASE_URL = "https://app.eduquest.org.in";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// STATIC PAGES
-// Real ISO dates — not new Date() — so Google sees genuine freshness signals
+// STATIC PAGES — Every real page in the app/ directory
+// Use real ISO dates so Google sees genuine freshness signals
 // ─────────────────────────────────────────────────────────────────────────────
 const STATIC_PAGES: MetadataRoute.Sitemap = [
-  { url: `${BASE_URL}/`,            lastModified: new Date("2026-03-15"), changeFrequency: "weekly",  priority: 1.0  },
-  { url: `${BASE_URL}/sat/`,        lastModified: new Date("2026-03-15"), changeFrequency: "weekly",  priority: 0.95 },
-  { url: `${BASE_URL}/act/`,        lastModified: new Date("2026-03-15"), changeFrequency: "monthly", priority: 0.85 },
-  { url: `${BASE_URL}/ap/`,         lastModified: new Date("2026-03-15"), changeFrequency: "monthly", priority: 0.85 },
-  { url: `${BASE_URL}/ucat/`,       lastModified: new Date("2026-03-15"), changeFrequency: "monthly", priority: 0.80 },
-  { url: `${BASE_URL}/admissions/`, lastModified: new Date("2026-03-15"), changeFrequency: "monthly", priority: 0.80 },
-  { url: `${BASE_URL}/about/`,      lastModified: new Date("2025-06-01"), changeFrequency: "yearly",  priority: 0.60 },
-  { url: `${BASE_URL}/contact/`,    lastModified: new Date("2025-06-01"), changeFrequency: "yearly",  priority: 0.60 },
-  { url: `${BASE_URL}/blog/`,       lastModified: new Date("2026-03-15"), changeFrequency: "daily",   priority: 0.75 },
+  // ── Homepage & brand pages ────────────────────────────────────────────────
+  { url: `${BASE_URL}/`,                                                   lastModified: new Date("2026-05-12"), changeFrequency: "weekly",   priority: 1.0  },
+  { url: `${BASE_URL}/omniquest`,                                          lastModified: new Date("2026-05-12"), changeFrequency: "weekly",   priority: 0.95 },
+  { url: `${BASE_URL}/eduQuest`,                                           lastModified: new Date("2026-05-12"), changeFrequency: "weekly",   priority: 0.95 },
 
-  // Legacy hyphen URLs — keep for backlink equity until /sat/[slug] fully indexed
-  { url: `${BASE_URL}/sat-coaching-classes-delhi/`,   lastModified: new Date("2026-03-15"), changeFrequency: "monthly", priority: 0.88 },
-  { url: `${BASE_URL}/sat-coaching-classes-mumbai/`,  lastModified: new Date("2026-03-15"), changeFrequency: "monthly", priority: 0.85 },
-  { url: `${BASE_URL}/sat-coaching-classes-gurgaon/`, lastModified: new Date("2026-03-15"), changeFrequency: "monthly", priority: 0.88 },
-  { url: `${BASE_URL}/sat-coaching-classes-jaipur/`,  lastModified: new Date("2026-03-15"), changeFrequency: "monthly", priority: 0.82 },
+  // ── Core test coaching pages ──────────────────────────────────────────────
+  { url: `${BASE_URL}/sat`,                                                lastModified: new Date("2026-05-12"), changeFrequency: "weekly",   priority: 0.95 },
+  { url: `${BASE_URL}/act`,                                                lastModified: new Date("2026-05-12"), changeFrequency: "monthly",  priority: 0.90 },
+  { url: `${BASE_URL}/ap-coaching`,                                        lastModified: new Date("2026-05-12"), changeFrequency: "monthly",  priority: 0.88 },
+  { url: `${BASE_URL}/pre-ap-gurgaon`,                                     lastModified: new Date("2026-05-12"), changeFrequency: "monthly",  priority: 0.82 },
+  { url: `${BASE_URL}/psat`,                                               lastModified: new Date("2026-05-12"), changeFrequency: "monthly",  priority: 0.85 },
+  { url: `${BASE_URL}/ssat`,                                               lastModified: new Date("2026-05-12"), changeFrequency: "monthly",  priority: 0.82 },
+
+  // ── English proficiency tests ─────────────────────────────────────────────
+  { url: `${BASE_URL}/ielts`,                                              lastModified: new Date("2026-05-12"), changeFrequency: "monthly",  priority: 0.90 },
+  { url: `${BASE_URL}/toefl`,                                              lastModified: new Date("2026-05-12"), changeFrequency: "monthly",  priority: 0.88 },
+  { url: `${BASE_URL}/pte`,                                                lastModified: new Date("2026-05-12"), changeFrequency: "monthly",  priority: 0.88 },
+
+  // ── Medical & law entrance exams ──────────────────────────────────────────
+  { url: `${BASE_URL}/ucat`,                                               lastModified: new Date("2026-05-12"), changeFrequency: "monthly",  priority: 0.85 },
+  { url: `${BASE_URL}/mcat`,                                               lastModified: new Date("2026-05-12"), changeFrequency: "monthly",  priority: 0.82 },
+  { url: `${BASE_URL}/lsat`,                                               lastModified: new Date("2026-05-12"), changeFrequency: "monthly",  priority: 0.82 },
+  { url: `${BASE_URL}/tmua`,                                               lastModified: new Date("2026-05-12"), changeFrequency: "monthly",  priority: 0.80 },
+
+  // ── Admissions & profile building ─────────────────────────────────────────
+  { url: `${BASE_URL}/dasa-and-ciwg-quota`,                                lastModified: new Date("2026-05-12"), changeFrequency: "monthly",  priority: 0.85 },
+  { url: `${BASE_URL}/ipmat-coaching-and-profile-building-eduquest-2026`,   lastModified: new Date("2026-05-12"), changeFrequency: "monthly",  priority: 0.82 },
+  { url: `${BASE_URL}/eduquest-guide`,                                     lastModified: new Date("2026-05-12"), changeFrequency: "monthly",  priority: 0.85 },
+
+  // ── SAT city-specific standalone pages ────────────────────────────────────
+  { url: `${BASE_URL}/sat_delhi`,                                          lastModified: new Date("2026-05-12"), changeFrequency: "monthly",  priority: 0.88 },
+  { url: `${BASE_URL}/sat_gurgaon`,                                        lastModified: new Date("2026-05-12"), changeFrequency: "monthly",  priority: 0.88 },
+  { url: `${BASE_URL}/sat_mumbai`,                                         lastModified: new Date("2026-05-12"), changeFrequency: "monthly",  priority: 0.85 },
+  { url: `${BASE_URL}/sat_jaipur`,                                         lastModified: new Date("2026-05-12"), changeFrequency: "monthly",  priority: 0.82 },
+  { url: `${BASE_URL}/sat_us`,                                             lastModified: new Date("2026-05-12"), changeFrequency: "monthly",  priority: 0.85 },
+
+  // ── Tools & interactive pages ─────────────────────────────────────────────
+  { url: `${BASE_URL}/personality-test`,                                   lastModified: new Date("2026-05-12"), changeFrequency: "monthly",  priority: 0.78 },
+
+  // ── Contact ───────────────────────────────────────────────────────────────
+  { url: `${BASE_URL}/contact-us`,                                         lastModified: new Date("2026-05-12"), changeFrequency: "yearly",   priority: 0.65 },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
-// PER-CITY PRIORITY TABLE
-// /sat/[slug] = canonical priority | legacy = canonical − 0.03
+// PER-CITY PRIORITY TABLE — /sat/[city] dynamic routes
 // ─────────────────────────────────────────────────────────────────────────────
 const CITY_PRIORITY: Record<CitySlug, number> = {
   delhi:          0.92,
@@ -58,27 +83,14 @@ const CITY_PRIORITY: Record<CitySlug, number> = {
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
-// /sat/[slug]/ — CANONICAL routes (higher priority)
+// /sat/[city]/ — Dynamic SAT city routes from constants/satCities
 // ─────────────────────────────────────────────────────────────────────────────
 function generateSATDynamicRoutes(): MetadataRoute.Sitemap {
   return (Object.keys(SAT_CITIES) as CitySlug[]).map((slug) => ({
-    url: `${BASE_URL}/sat/${slug}/`,
+    url: `${BASE_URL}/sat/${slug}`,
     lastModified: new Date(SAT_CITIES[slug].lastUpdated),
     changeFrequency: "monthly" as const,
     priority: CITY_PRIORITY[slug] ?? 0.75,
-  }));
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// /sat-coaching-classes-[slug]/ — LEGACY routes (lower priority)
-// Each must also have <link rel="canonical"> → /sat/[slug]/
-// ─────────────────────────────────────────────────────────────────────────────
-function generateSATLegacyCityPages(): MetadataRoute.Sitemap {
-  return (Object.keys(SAT_CITIES) as CitySlug[]).map((slug) => ({
-    url: `${BASE_URL}/sat-coaching-classes-${slug}/`,
-    lastModified: new Date(SAT_CITIES[slug].lastUpdated),
-    changeFrequency: "monthly" as const,
-    priority: Math.max((CITY_PRIORITY[slug] ?? 0.75) - 0.03, 0.1),
   }));
 }
 
@@ -88,7 +100,6 @@ function generateSATLegacyCityPages(): MetadataRoute.Sitemap {
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...STATIC_PAGES,
-    ...generateSATDynamicRoutes(),   // canonical — higher priority
-    ...generateSATLegacyCityPages(), // legacy    — lower priority
+    ...generateSATDynamicRoutes(),
   ];
 }

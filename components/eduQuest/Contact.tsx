@@ -38,6 +38,7 @@ export default function Contact() {
           mobile:   form.mobile,
           city:     form.city,
           interest: form.interest,
+          pageName: 'EduQuest',
         }),
       });
 
