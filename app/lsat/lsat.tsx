@@ -12,6 +12,8 @@ import Curriculum from '@/components/lsat/Curriculum/Curriculum';
 import YourJourney from '@/components/lsat/YourJourney/YourJourney';
 import StudentStories from '@/components/lsat/StudentStories/StudentStories';
 import FAQ from '@/components/lsat/FAQ/FAQ';
+import LSATDates from '@/components/lsat/LSATDates/LSATDates';
+import ExamCenters from '@/components/lsat/ExamCenters/ExamCenters';
 
 
 
@@ -28,6 +30,8 @@ export default function LSATCOACHING() {
         <WhyEduQuest />
         <Curriculum />
         <YourJourney />
+        <LSATDates />
+        <ExamCenters />
         <StudentStories />
         <FAQ />
         <CTAStrip />

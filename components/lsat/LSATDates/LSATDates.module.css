@@ -1,0 +1,268 @@
+/* ═══════════════════════════════════════════
+   LSATDates.module.css
+   Navy #0b1c3d · Blue #1a4a8a · Gold #d4a843
+   Cream #f5f0e8 · Cream2 #ede7d9
+═══════════════════════════════════════════ */
+
+.section {
+  padding: 88px 0;
+  background: #f5f0e8;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.in { opacity: 1; transform: none; }
+
+/* ── Header ── */
+.headerWrap { text-align: center; }
+
+.secLabel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 14px;
+}
+.secLabel::before { content: ""; width: 20px; height: 2px; background: #d4a843; }
+
+.heading {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 700;
+  color: #0b1c3d;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.heading em { color: #1a4a8a; font-style: italic; }
+
+.sub {
+  font-size: 15px;
+  color: #4a5568;
+  max-width: 580px;
+  margin: 0 auto 36px;
+  line-height: 1.72;
+}
+
+/* ── Notice banner ── */
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(26, 74, 138, 0.08);
+  border: 1px solid rgba(26, 74, 138, 0.2);
+  border-left: 3px solid #1a4a8a;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 32px;
+}
+.noticeIcon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.notice p { font-size: 13.5px; color: #0b1c3d; line-height: 1.65; }
+.notice strong { color: #1a4a8a; }
+
+/* ── Tabs ── */
+.tabsWrap { margin-bottom: 20px; }
+
+.tabs {
+  display: inline-flex;
+  background: #ffffff;
+  border: 1px solid rgba(11, 28, 61, 0.1);
+  border-radius: 8px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.tab {
+  padding: 9px 22px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #4a5568;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+.tab:hover { background: #f5f0e8; color: #0b1c3d; }
+.tabActive {
+  background: #0b1c3d;
+  color: #ffffff;
+}
+.tabActive:hover { background: #0b1c3d; color: #ffffff; }
+
+/* ── Table wrapper ── */
+.tblWrap {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(11, 28, 61, 0.1);
+  margin-bottom: 20px;
+}
+
+.tableScroll { overflow-x: auto; }
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+.table thead { background: #0b1c3d; }
+.table thead th {
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid rgba(11, 28, 61, 0.07);
+  background: #ffffff;
+  transition: background 0.18s;
+}
+.table tbody tr:last-child { border-bottom: none; }
+.table tbody tr:hover { background: #f5f0e8; }
+
+.table tbody td {
+  padding: 16px 18px;
+  font-size: 13.5px;
+  color: #4a5568;
+  vertical-align: middle;
+}
+
+/* Administration cell */
+.tdAdmin { font-weight: 700; color: #0b1c3d; }
+.adminLink {
+  color: #1a4a8a;
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.18s;
+}
+.adminLink:hover { color: #d4a843; text-decoration: underline; }
+
+/* Date chips */
+.dateList { display: flex; flex-direction: column; gap: 4px; }
+.dateChip {
+  display: inline-block;
+  background: rgba(26, 74, 138, 0.08);
+  color: #1a4a8a;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* Deadline badge */
+.deadlineBadge {
+  display: inline-block;
+  background: rgba(224, 92, 30, 0.1);
+  color: #c04a10;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* Score release badge */
+.scoreBadge {
+  display: inline-block;
+  background: rgba(26, 107, 46, 0.1);
+  color: #1a6b2e;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* Register button */
+.registerBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 16px;
+  border-radius: 6px;
+  background: #1a4a8a;
+  color: #ffffff;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.2s;
+}
+.registerBtn:hover { background: #2a6aaa; transform: translateY(-1px); }
+
+/* ── Footnotes ── */
+.footnotes {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 40px;
+}
+.footnotes p {
+  font-size: 12.5px;
+  color: #718096;
+  line-height: 1.65;
+}
+.fnMark {
+  font-weight: 700;
+  color: #1a4a8a;
+  margin-right: 4px;
+}
+
+/* ── CTA ── */
+.cta {
+  text-align: center;
+  padding: 28px 32px;
+  background: #0b1c3d;
+  border-radius: 10px;
+}
+.cta p {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: 6px;
+  background: #d4a843;
+  color: #0b1c3d;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn:hover { background: #e8c96a; transform: translateY(-2px); }
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .tabs { width: 100%; }
+  .tab { flex: 1; text-align: center; padding: 9px 12px; }
+  .cta { padding: 24px 16px; }
+}
