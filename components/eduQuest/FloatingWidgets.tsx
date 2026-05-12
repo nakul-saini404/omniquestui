@@ -158,7 +158,15 @@ function ChatWindow({ onClose }: { onClose: () => void }) {
                   src="https://storage.files-vault.com/uploads/1771241332-Yp12oCHwxC.png" 
                   alt="Kritika" 
                   className="w-8 h-8 rounded-full object-cover shadow-sm mb-1" 
-                  onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '👧🏻'; }} 
+                  onError={(e) => { 
+                    e.currentTarget.style.display = 'none'; 
+                    if (!e.currentTarget.parentElement!.querySelector('.fallback-emoji')) {
+                      const span = document.createElement('span');
+                      span.className = 'fallback-emoji text-lg';
+                      span.textContent = '👧🏻';
+                      e.currentTarget.parentElement!.appendChild(span);
+                    }
+                  }} 
                 />
               </div>
             )}
@@ -182,7 +190,15 @@ function ChatWindow({ onClose }: { onClose: () => void }) {
             <div className="w-10 h-10 flex items-center justify-center flex-shrink-0" style={{ animation: 'avatarPop 0.8s infinite alternate' }}>
                {/* 🔧 Local image path to bypass firewall blocks. Add thinking.gif to your public/ folder */}
               <img src="/thinking.gif" alt="Thinking" className="w-10 h-10 object-contain drop-shadow-sm"
-                 onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '🤔'; }} 
+                 onError={(e) => { 
+                   e.currentTarget.style.display = 'none'; 
+                   if (!e.currentTarget.parentElement!.querySelector('.fallback-emoji')) {
+                     const span = document.createElement('span');
+                     span.className = 'fallback-emoji text-xl';
+                     span.textContent = '🤔';
+                     e.currentTarget.parentElement!.appendChild(span);
+                   }
+                 }} 
               />
             </div>
             <div className="bg-white px-4 py-3 rounded-xl shadow-sm flex gap-1.5 items-center" style={{ borderRadius: '18px 18px 18px 4px' }}>

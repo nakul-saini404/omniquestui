@@ -1,0 +1,312 @@
+/* ── MeetOurLeaders.module.css ── */
+/* No :root used — all values are inline or scoped to .section */
+
+.section {
+    padding: 80px 0;
+    background: #ede7d9;
+    overflow: hidden;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ── Section Header ── */
+.sectionHead {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.sectionLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d4a843;
+    margin-bottom: 14px;
+}
+
+.sectionLabel::before {
+    content: "";
+    width: 20px;
+    height: 2px;
+    background: #d4a843;
+}
+
+.sectionHead h2 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(22px, 3vw, 38px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #0b1c3d;
+    line-height: 1.18;
+    margin-bottom: 10px;
+}
+
+.sectionHead p {
+    font-size: 15px;
+    color: #4a5568;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ── Carousel Viewport ── */
+.carouselViewport {
+    position: relative;
+    margin-top: 8px;
+}
+
+.carouselTrackWrap {
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+.carouselTrack {
+    display: flex;
+    transition: transform 0.52s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* ── Slide: 3 per view (JS adjusts) ── */
+.leaderSlide {
+    flex: 0 0 calc(100% / 3);
+    padding: 0 8px;
+    box-sizing: border-box;
+}
+
+/* ── Card ── */
+.leaderCard {
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid rgba(11, 28, 61, 0.1);
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.leaderCard:hover {
+    box-shadow: 0 16px 44px rgba(11, 28, 61, 0.12);
+    transform: translateY(-3px);
+}
+
+/* ── Photo — compact ── */
+.leaderPhotoWrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 2.6;
+    overflow: hidden;
+    background: #e2d9c8;
+}
+
+.leaderPhoto {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.leaderCard:hover .leaderPhoto {
+    transform: scale(1.04);
+}
+
+.leaderPhotoWrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(11, 28, 61, 0.6) 0%, transparent 52%);
+    pointer-events: none;
+}
+
+/* ── Placeholder ── */
+.leaderPhotoPlaceholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0b1c3d, #102454);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Playfair Display", serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: rgba(212, 168, 67, 0.5);
+}
+
+/* ── Name/Role overlay ── */
+.leaderPhotoInfo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px 14px;
+    z-index: 1;
+}
+
+.leaderName {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 2px;
+    line-height: 1.2;
+}
+
+.leaderRole {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #d4a843;
+}
+
+/* ── Card Body ── */
+.leaderBody {
+    padding: 14px 14px 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.leaderDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+
+.leaderDetail {
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+    font-size: 11.5px;
+    color: #4a5568;
+    line-height: 1.45;
+}
+
+.leaderDetail::before {
+    content: "▸";
+    color: #d4a843;
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-size: 9px;
+}
+
+.leaderLinkedin {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #0b1c3d;
+    border: 1px solid rgba(11, 28, 61, 0.18);
+    border-radius: 5px;
+    padding: 4px 10px;
+    align-self: flex-start;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.leaderLinkedin:hover {
+    background: #f5f0e8;
+    border-color: #0b1c3d;
+}
+
+/* ── Controls ── */
+.carouselControls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 32px;
+}
+
+.carouselBtn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(11, 28, 61, 0.2);
+    background: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0b1c3d;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    flex-shrink: 0;
+}
+
+.carouselBtn:hover {
+    background: #0b1c3d;
+    border-color: #0b1c3d;
+    color: #fff;
+    transform: scale(1.08);
+}
+
+.carouselBtn:disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.carouselDots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.carouselDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(11, 28, 61, 0.2);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.25s, transform 0.25s, width 0.25s;
+}
+
+.carouselDot.active {
+    background: #d4a843;
+    width: 22px;
+    border-radius: 4px;
+}
+
+.carouselCount {
+    font-size: 12px;
+    font-weight: 600;
+    color: #718096;
+    min-width: 38px;
+    text-align: center;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .leaderSlide {
+        flex: 0 0 50%;
+    }
+}
+
+@media (max-width: 560px) {
+    .leaderSlide {
+        flex: 0 0 100%;
+        padding: 0 4px;
+    }
+
+    .section {
+        padding: 52px 0;
+    }
+}

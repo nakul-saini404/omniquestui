@@ -1,0 +1,184 @@
+/* ════════════════════════════════
+   OUR FOUNDATION — MISSION & VISION
+   Fonts required in layout/globals:
+   Playfair Display + Plus Jakarta Sans
+════════════════════════════════ */
+
+/* ── Section wrapper ── */
+.mvSection {
+    padding: 88px 0;
+    background: #fff;
+}
+
+/* ── Container ── */
+.container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ── Section Header ── */
+.sectionHead {
+    margin-bottom: 48px;
+    text-align: center;
+}
+
+.sectionHead h2 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(24px, 3.2vw, 40px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #0b1c3d;
+    line-height: 1.18;
+    margin-bottom: 10px;
+}
+
+.sectionHead p {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 15.5px;
+    color: #4a5568;
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+/* ── Section Label (pill with leading bar) ── */
+.sectionLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d4a843;
+    margin-bottom: 14px;
+}
+
+.sectionLabel::before {
+    content: "";
+    width: 20px;
+    height: 2px;
+    background: #d4a843;
+}
+
+/* ── Fade-up animation ── */
+.fadeUp {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Grid ── */
+.mvGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 12px;
+}
+
+/* ── Card shell ── */
+.mvCard {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(11, 28, 61, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.mvCard:hover {
+    box-shadow: 0 16px 48px rgba(11, 28, 61, 0.1);
+}
+
+/* ── Card Header ── */
+.mvCardHead {
+    padding: 28px 32px 24px;
+    position: relative;
+}
+
+/* Gold gradient underline on header */
+.mvCardHead::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #d4a843, #e8c96a, transparent);
+}
+
+/* Mission header background */
+.mission .mvCardHead {
+    background: #0b1c3d;
+}
+
+/* Vision header background */
+.vision .mvCardHead {
+    background: #102454;
+}
+
+.mvCardHead h3 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.mvCardTag {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+    margin-bottom: 6px;
+}
+
+/* ── Card Body ── */
+.mvCardBody {
+    padding: 28px 32px;
+    background: #fff;
+}
+
+.mvCardBody p {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 14.5px;
+    color: #4a5568;
+    line-height: 1.8;
+}
+
+.mvCardBody p+p {
+    margin-top: 12px;
+}
+
+.mvCardBody strong {
+    color: #0b1c3d;
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+    .mvGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .mvSection {
+        padding: 60px 0;
+    }
+
+    .mvCardHead {
+        padding: 22px 24px 20px;
+    }
+
+    .mvCardBody {
+        padding: 22px 24px;
+    }
+}

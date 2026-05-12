@@ -13,6 +13,7 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/`,                                                   lastModified: new Date("2026-05-12"), changeFrequency: "weekly",   priority: 1.0  },
   { url: `${BASE_URL}/omniquest`,                                          lastModified: new Date("2026-05-12"), changeFrequency: "weekly",   priority: 0.95 },
   { url: `${BASE_URL}/eduQuest`,                                           lastModified: new Date("2026-05-12"), changeFrequency: "weekly",   priority: 0.95 },
+  { url: `${BASE_URL}/about-us`,                                           lastModified: new Date("2026-05-12"), changeFrequency: "monthly",  priority: 0.90 },
 
   // ── Core test coaching pages ──────────────────────────────────────────────
   { url: `${BASE_URL}/sat`,                                                lastModified: new Date("2026-05-12"), changeFrequency: "weekly",   priority: 0.95 },

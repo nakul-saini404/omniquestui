@@ -1,0 +1,170 @@
+/* ── OurPedagogy.module.css ── */
+
+.section {
+    padding: 72px 0;
+    background: #0b1c3d;
+    position: relative;
+    overflow: hidden;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Subtle grid overlay */
+.section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        repeating-linear-gradient(0deg,
+            transparent,
+            transparent 80px,
+            rgba(255, 255, 255, 0.013) 80px,
+            rgba(255, 255, 255, 0.013) 81px),
+        repeating-linear-gradient(90deg,
+            transparent,
+            transparent 80px,
+            rgba(255, 255, 255, 0.013) 80px,
+            rgba(255, 255, 255, 0.013) 81px);
+    pointer-events: none;
+}
+
+/* Radial glow top-right */
+.section::after {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(212, 168, 67, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Two-column layout ── */
+.inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* ── Left: heading block ── */
+.left {
+    display: flex;
+    flex-direction: column;
+}
+
+.sectionLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d4a843;
+    margin-bottom: 16px;
+}
+
+.sectionLabel::before {
+    content: "";
+    width: 20px;
+    height: 2px;
+    background: #d4a843;
+    flex-shrink: 0;
+}
+
+.heading {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(22px, 2.6vw, 34px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.heading em {
+    color: #d4a843;
+    font-style: italic;
+}
+
+.description {
+    font-size: 14.5px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.8;
+}
+
+/* ── Right: items list ── */
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    cursor: default;
+}
+
+.item:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(212, 168, 67, 0.28);
+    transform: translateX(3px);
+}
+
+.itemIcon {
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    line-height: 1;
+}
+
+.itemText {
+    font-size: 13.5px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
+.itemTitle {
+    color: #fff;
+    display: block;
+    margin-bottom: 2px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+    .inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .section {
+        padding: 56px 0;
+    }
+}
+
+@media (max-width: 560px) {
+    .section {
+        padding: 48px 0;
+    }
+
+    .item {
+        padding: 12px 14px;
+    }
+}
