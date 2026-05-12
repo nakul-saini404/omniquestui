@@ -1,0 +1,175 @@
+/* ═══════════════════════════════════════════
+   ProfileBuildingHero.module.css
+   Tokens (hardcoded — no :root):
+     Navy   #0b1c3d
+     Blue   #1a4a8a
+     Gold   #d4a843
+     Gold-light #e8c96a
+     White  #ffffff
+═══════════════════════════════════════════ */
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+.revealDelay1 {
+  transition-delay: 0.1s;
+}
+
+.revealDelay2 {
+  transition-delay: 0.2s;
+}
+
+.revealDelay3 {
+  transition-delay: 0.3s;
+}
+
+/* ── Hero section ── */
+.hero {
+  background: #0b1c3d;
+  padding: 100px 24px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 0%,
+    rgba(26, 74, 138, 0.5) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* ── Label ── */
+.heroLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 20px;
+}
+
+.heroLabel::before,
+.heroLabel::after {
+  content: '';
+  width: 24px;
+  height: 2px;
+  background: #d4a843;
+}
+
+/* ── Heading ── */
+.heroHeading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(34px, 5vw, 64px);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.heroHeading em {
+  color: #d4a843;
+  font-style: italic;
+}
+
+/* ── Subtitle ── */
+.heroSub {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 620px;
+  margin: 0 auto 40px;
+  line-height: 1.75;
+}
+
+/* ── Badges row ── */
+.heroBadges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 48px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ── CTA row ── */
+.heroCtaRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+/* ── Primary button ── */
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 14px 30px;
+  border-radius: 8px;
+  background: #d4a843;
+  color: #0b1c3d;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btnPrimary:hover {
+  background: #e8c96a;
+  transform: translateY(-2px);
+}
+
+/* ── Outline button ── */
+.btnOutline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 14px 30px;
+  border-radius: 8px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.btnOutline:hover {
+  border-color: #d4a843;
+  background: rgba(212, 168, 67, 0.1);
+  transform: translateY(-2px);
+}

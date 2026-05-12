@@ -11,12 +11,8 @@ const navItems = [
     label: 'Profile Building',
     href: 'https://eduquest.org.in/profile-building-programs/',
     children: [
-      { label: 'EduQuest Guide', href: 'https://eduquest.org.in/eduquest-guide/' },
-      { label: 'Class 6–8', href: 'https://eduquest.org.in/mentoring-services-for-class-6-to-class-8-students/' },
-      { label: 'Class 9', href: 'https://eduquest.org.in/build-a-strong-profile-for-class-9-students/' },
-      { label: 'Class 10', href: 'https://eduquest.org.in/mentoring-services-for-class-10-students/' },
-      { label: 'Class 11', href: 'https://eduquest.org.in/mentoring-services-for-class-11/' },
-      { label: 'Class 12', href: 'https://eduquest.org.in/mentoring-services-for-class-12/' },
+      { label: 'EduQuest Guide', href: '/eduquest-guide' },
+    
     ],
   },
   {

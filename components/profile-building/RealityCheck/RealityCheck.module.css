@@ -1,0 +1,293 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   RealityCheck.module.css
+   Tokens scoped to .section — no :root used.
+   Design tokens: Navy #0b1c3d · Blue #1a4a8a · Gold #d4a843
+   Cream #f5f0e8 · White #ffffff · Coral #e76f51
+═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Section shell ──────────────────────────────────────────────────────── */
+.section {
+  background: #0b1c3d;
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  bottom: -120px;
+  left: -80px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(200, 75, 49, 0.15),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* ── Container ──────────────────────────────────────────────────────────── */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Two-column layout ──────────────────────────────────────────────────── */
+.layout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* ── Left intro ─────────────────────────────────────────────────────────── */
+.intro {
+  position: sticky;
+  top: 88px;
+}
+
+.secLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 14px;
+}
+
+.secLabel::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: #d4a843;
+  flex-shrink: 0;
+}
+
+.heading {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(24px, 3vw, 38px);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.heading em {
+  color: #e76f51;
+  font-style: italic;
+}
+
+.sub {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.75;
+  max-width: 100%;
+  margin-bottom: 32px;
+}
+
+/* ── Filter tabs ────────────────────────────────────────────────────────── */
+.tabs {
+  display: flex;
+  gap: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border: none;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+  text-transform: uppercase;
+}
+
+.tab:hover:not(.tabActive) {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.tabActive {
+  background: #d4a843;
+  color: #0b1c3d;
+}
+
+/* ── Right accordion list ───────────────────────────────────────────────── */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Accordion item ─────────────────────────────────────────────────────── */
+.item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.item:hover {
+  border-color: rgba(212, 168, 67, 0.3);
+}
+
+.itemStudent {
+  border-left: 3px solid #e76f51;
+}
+
+.itemParent {
+  border-left: 3px solid #d4a843;
+}
+
+.itemOpen {
+  border-color: rgba(212, 168, 67, 0.35);
+}
+
+/* ── Item header (button) ───────────────────────────────────────────────── */
+.itemHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  cursor: pointer;
+  user-select: none;
+  width: 100%;
+  background: transparent;
+  border: none;
+  text-align: left;
+}
+
+/* ── Badge ──────────────────────────────────────────────────────────────── */
+.badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.badgeStudent {
+  background: rgba(231, 111, 81, 0.15);
+}
+
+.badgeParent {
+  background: rgba(212, 168, 67, 0.12);
+}
+
+/* ── Item title ─────────────────────────────────────────────────────────── */
+.itemTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  flex: 1;
+  line-height: 1.3;
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+}
+
+/* ── Chevron ────────────────────────────────────────────────────────────── */
+.chevron {
+  font-size: 18px;
+  color: #d4a843;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+  display: inline-block;
+  line-height: 1;
+}
+
+.chevronOpen {
+  transform: rotate(90deg);
+}
+
+/* ── Collapsible body ───────────────────────────────────────────────────── */
+.body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.bodyOpen {
+  max-height: 300px;
+}
+
+.bodyInner {
+  padding: 0 20px 18px 68px;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.75;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 14px;
+}
+
+.bodyInner strong {
+  color: #d4a843;
+  font-weight: 700;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 860px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .intro {
+    position: static;
+    text-align: center;
+  }
+
+  .secLabel {
+    justify-content: center;
+  }
+
+  .tabs {
+    justify-content: center;
+  }
+
+  .bodyInner {
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .itemHeader {
+    padding: 14px 16px;
+    gap: 10px;
+  }
+
+  .itemTitle {
+    font-size: 13px;
+  }
+
+  .tab {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+}

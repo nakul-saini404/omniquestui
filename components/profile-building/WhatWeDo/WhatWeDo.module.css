@@ -1,0 +1,235 @@
+/* ═══════════════════════════════════════════
+   WhatWeDo.module.css
+   Tokens (hardcoded — no :root):
+     Navy      #0b1c3d
+     Blue      #1a4a8a
+     Gold      #d4a843
+     Gold-light #e8c96a
+     Cream     #f5f0e8
+     White     #ffffff
+     Text      #4a5568
+     Shadow    0 4px 24px rgba(11,28,61,0.10)
+     Shadow-lg 0 12px 48px rgba(11,28,61,0.16)
+═══════════════════════════════════════════ */
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Section wrapper ── */
+.section {
+  padding: 88px 0;
+  background: #ffffff;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Header block ── */
+.headerWrap {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 56px;
+}
+
+.secLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 14px;
+}
+
+.secLabel::before {
+  content: '';
+  width: 20px;
+  height: 2px;
+  background: #d4a843;
+}
+
+.secHeading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(24px, 3vw, 42px);
+  font-weight: 700;
+  color: #0b1c3d;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.secHeading em {
+  color: #1a4a8a;
+  font-style: italic;
+}
+
+.secSub {
+  font-size: 15px;
+  color: #4a5568;
+  max-width: 600px;
+  line-height: 1.75;
+  margin: 0 auto;
+}
+
+/* ═══════════════════════ CAROUSEL ═══════════════════════ */
+.carouselWrap {
+  position: relative;
+}
+
+/* Overflow hidden clip */
+.carouselViewport {
+  overflow: hidden;
+}
+
+/* The sliding track — width set inline by JS as N * (100/3)% per card */
+.carouselTrack {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  /* gap replicated via card padding so transform math stays simple */
+  gap: 0;
+}
+
+/* ── Individual card ── */
+.card {
+  /* Each card takes exactly 1/3 of the viewport — gap handled inside */
+  flex: 0 0 calc(100% / 3);
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+
+.cardInner {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 28px 28px 24px;
+  border: 1px solid rgba(11, 28, 61, 0.07);
+  box-shadow: 0 4px 24px rgba(11, 28, 61, 0.10);
+  transition: transform 0.25s, box-shadow 0.25s;
+  height: 100%;
+}
+
+.cardInner:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 48px rgba(11, 28, 61, 0.16);
+}
+
+.cardIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(26, 74, 138, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+.cardTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0b1c3d;
+  margin-bottom: 8px;
+}
+
+.cardDesc {
+  font-size: 13.5px;
+  color: #4a5568;
+  line-height: 1.7;
+}
+
+/* ═══════════════════════ CONTROLS ═══════════════════════ */
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 36px;
+}
+
+.arrowBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(11, 28, 61, 0.15);
+  background: #ffffff;
+  color: #0b1c3d;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(11, 28, 61, 0.08);
+  flex-shrink: 0;
+}
+
+.arrowBtn:hover:not(:disabled) {
+  background: #0b1c3d;
+  border-color: #0b1c3d;
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+.arrowBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Dot indicators */
+.dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(11, 28, 61, 0.15);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, width 0.25s;
+}
+
+.dot.activeDot {
+  background: #d4a843;
+  width: 24px;
+  border-radius: 4px;
+  transform: none;
+}
+
+/* ═══════════════════════ RESPONSIVE ═══════════════════════ */
+@media (max-width: 860px) {
+  .card {
+    flex: 0 0 50%;
+  }
+}
+
+@media (max-width: 560px) {
+  .card {
+    flex: 0 0 100%;
+    padding: 0 4px;
+  }
+
+  .section {
+    padding: 64px 0;
+  }
+}

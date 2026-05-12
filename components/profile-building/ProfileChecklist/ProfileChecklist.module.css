@@ -1,0 +1,545 @@
+/* ═══════════════════════════════════════════
+   ProfileChecklist.module.css
+   Tokens (hardcoded — no :root):
+     Navy        #0b1c3d
+     Blue        #1a4a8a
+     Gold        #d4a843
+     Cream       #f5f0e8
+     Cream2      #ede7d9
+     White       #ffffff
+     Text        #4a5568
+     Text-dark   #2d3748
+     Red-bad     #c0392b
+     Green-good  #1a7a4a
+     Green-mid   #4caf7d
+     Shadow      0 4px 24px rgba(11,28,61,0.10)
+     Shadow-lg   0 12px 48px rgba(11,28,61,0.16)
+═══════════════════════════════════════════ */
+
+/* ── Reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+.revealDelay1 { transition-delay: 0.12s; }
+.revealDelay2 { transition-delay: 0.24s; }
+
+/* ── Shared layout ── */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Shared header ── */
+.header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 48px;
+}
+
+.secLabel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d4a843;
+  margin-bottom: 14px;
+}
+.secLabel::before {
+  content: '';
+  width: 20px;
+  height: 2px;
+  background: #d4a843;
+}
+
+.secLabelLight {
+  color: #d4a843;
+}
+.secLabelLight::before {
+  background: #d4a843;
+}
+
+.secHeading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(24px, 3vw, 42px);
+  font-weight: 700;
+  color: #0b1c3d;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+.secHeading em {
+  color: #1a4a8a;
+  font-style: italic;
+}
+
+.secHeadingLight {
+  color: #ffffff;
+}
+.secHeadingLight em {
+  color: inherit;
+}
+
+.emRed {
+  color: #e76f51 !important;
+  font-style: italic;
+}
+
+.secSub {
+  font-size: 15px;
+  color: #4a5568;
+  line-height: 1.75;
+}
+.secSubLight {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ══════════════════════════════════════════
+   SECTION 1 — Brand Evolution Table
+══════════════════════════════════════════ */
+.tableSection {
+  background: #ede7d9;
+  padding: 96px 0;
+}
+
+.tableWrap {
+  overflow-x: auto;
+  border-radius: 14px;
+  box-shadow: 0 12px 48px rgba(11, 28, 61, 0.16);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+  background: #ffffff;
+}
+
+/* thead */
+.table thead tr {
+  background: #0b1c3d;
+}
+.table thead th {
+  padding: 16px 20px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  vertical-align: top;
+  line-height: 1.4;
+}
+
+.thGrade  { color: #d4a843; }
+.thBad    { color: #ff9b9b; }
+.thGood   { color: #90ee90; }
+.thWhat   { color: rgba(255, 255, 255, 0.55); }
+
+.thSub {
+  display: block;
+  font-size: 10px;
+  opacity: 0.6;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+  margin-top: 3px;
+}
+
+/* tbody */
+.tr {
+  border-bottom: 1px solid rgba(11, 28, 61, 0.06);
+  transition: background 0.18s;
+}
+.tr:last-child {
+  border-bottom: none;
+}
+.tr:hover {
+  background: #f5f0e8;
+}
+
+.table td {
+  padding: 18px 20px;
+  font-size: 13.5px;
+  vertical-align: top;
+  line-height: 1.65;
+}
+
+.tdGrade {
+  width: 90px;
+}
+
+.gradeBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.tdBad {
+  color: #c0392b;
+  background: rgba(231, 76, 60, 0.03);
+}
+
+.tdGood {
+  color: #1a7a4a;
+  background: rgba(26, 107, 46, 0.03);
+  font-weight: 600;
+}
+
+.tdWhat {
+  color: #4a5568;
+  font-style: italic;
+  font-size: 13px;
+}
+
+/* ══════════════════════════════════════════
+   SECTION 2 — The Trap
+══════════════════════════════════════════ */
+.trapSection {
+  background: #0b1c3d;
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+.trapSection::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(231, 111, 81, 0.2), transparent 70%);
+  pointer-events: none;
+}
+
+/* Trap grid */
+.trapGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 56px;
+}
+
+.trapCol {
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.trapColHead {
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.trapColHeadBad {
+  background: rgba(231, 111, 81, 0.15);
+  color: #e76f51;
+  border: 1px solid rgba(231, 111, 81, 0.2);
+}
+
+.trapColHeadGood {
+  background: rgba(26, 107, 46, 0.15);
+  color: #4caf7d;
+  border: 1px solid rgba(26, 107, 46, 0.2);
+}
+
+.trapColBody {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: none;
+  border-radius: 0 0 14px 14px;
+}
+
+.trapRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.trapRow:last-child {
+  border-bottom: none;
+}
+
+.trapIcon {
+  font-size: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.trapText {
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+.trapTextBad  { color: rgba(255, 255, 255, 0.5); }
+.trapTextGood { color: rgba(255, 255, 255, 0.85); font-weight: 600; }
+
+/* Activities */
+.actHeader {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.actSubtitle {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+  text-align: center;
+  max-width: 640px;
+  margin: 8px auto 0;
+}
+
+.actStrong {
+  color: #ffffff;
+}
+
+.actGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.actCard {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  transition: transform 0.2s, background 0.2s;
+}
+.actCard:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.actCardName {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.actCardDetail {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.actCardBold {
+  font-style: normal;
+  color: #d4a843;
+  font-weight: 700;
+}
+
+/* ══════════════════════════════════════════
+   SECTION 3 — The Shift
+══════════════════════════════════════════ */
+.shiftSection {
+  background: #f5f0e8;
+  padding: 88px 0;
+}
+
+/* Shift pairs */
+.shiftGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.shiftPair {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 16px;
+  align-items: center;
+}
+
+.shiftCard {
+  border-radius: 14px;
+  padding: 24px;
+  overflow: hidden;
+}
+
+.shiftCardBad {
+  background: #ffffff;
+  border-top: 3px solid #e76f51;
+  box-shadow: 0 4px 24px rgba(11, 28, 61, 0.08);
+}
+
+.shiftCardGood {
+  background: #0b1c3d;
+  border-top: 3px solid #4caf7d;
+  box-shadow: 0 4px 24px rgba(11, 28, 61, 0.14);
+}
+
+.shiftLabel {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: block;
+}
+.shiftLabelBad  { color: #e76f51; }
+.shiftLabelGood { color: #4caf7d; }
+
+.shiftQ {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0;
+}
+.shiftQBad  { color: #0b1c3d; }
+.shiftQGood { color: #ffffff; }
+
+.shiftArrow {
+  font-size: 22px;
+  color: #d4a843;
+  font-weight: 700;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* Strong profile box */
+.spBox {
+  background: #0b1c3d;
+  border-radius: 16px;
+  padding: 36px 40px;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.spLeft {
+  flex: 1;
+  min-width: 260px;
+}
+
+.spTitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #d4a843;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.spDesc {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.75;
+}
+
+.spRight {
+  flex: 1;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.spBad {
+  background: rgba(231, 111, 81, 0.1);
+  border: 1px solid rgba(231, 111, 81, 0.2);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.55;
+}
+
+.spBadSub {
+  font-size: 11.5px;
+  opacity: 0.6;
+  margin-top: 4px;
+  display: block;
+}
+
+.spGood {
+  background: rgba(76, 175, 125, 0.1);
+  border: 1px solid rgba(76, 175, 125, 0.25);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  line-height: 1.65;
+}
+
+.spEm {
+  color: #d4a843;
+  font-style: italic;
+}
+
+.spGoodSub {
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 6px;
+  display: block;
+  font-weight: 400;
+}
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .trapGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .shiftPair {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .shiftArrow {
+    transform: rotate(90deg);
+    text-align: center;
+  }
+
+  .spBox {
+    flex-direction: column;
+    padding: 24px;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tableSection,
+  .trapSection,
+  .shiftSection {
+    padding: 64px 0;
+  }
+
+  .shiftQ {
+    font-size: 15px;
+  }
+
+  .spBox {
+    padding: 20px;
+  }
+}
