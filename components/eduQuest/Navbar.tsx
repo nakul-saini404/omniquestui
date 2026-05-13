@@ -563,7 +563,7 @@ export default function Navbar({ onToggleDesign }: { onToggleDesign?: () => void
         }
 
         /* On medium screens (900–1200): show nav, hide some CTAs */
-        @media (max-width: 1200px) and (min-width: 900px) {
+        @media (max-width: 1450px) and (min-width: 900px) {
           .eq-row2-actions .eq-btn-outline:nth-child(2),
           .eq-row2-actions .eq-btn-outline:nth-child(3) { display: none; }
           .eq-nav-menu > li > a { padding: 0 clamp(4px, 0.65vw, 10px); font-size: clamp(0.67rem, 0.76vw, 0.78rem); }

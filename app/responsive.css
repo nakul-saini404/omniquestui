@@ -20,7 +20,7 @@ ul { list-style: none; }
 /* ── CONTAINER ── */
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1450px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -154,7 +154,7 @@ ul { list-style: none; }
 }
 
 .hero-inner {
-  max-width: 1200px;
+  max-width: 1450px;
   margin: 0 auto;
   padding: 80px 24px;
   display: grid;
@@ -598,7 +598,7 @@ ul { list-style: none; }
 /* ══════════════════════════════════════════════
    BREAKPOINT: ≤ 1200px — Large tablet / small laptop
    ══════════════════════════════════════════════ */
-@media (max-width: 1200px) {
+@media (max-width: 1450px) {
   .hero-inner      { gap: 48px; padding: 60px 24px; }
   .metrics-grid    { grid-template-columns: repeat(2, 1fr); }
   .footer-grid     { grid-template-columns: 1fr 1fr; gap: 36px; }

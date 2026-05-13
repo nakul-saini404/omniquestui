@@ -51,6 +51,7 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
 
   // ── Online Home Tuition ─────────────────────────────────────────────────────
   { url: `${BASE_URL}/online-home-tuition`,                                lastModified: new Date("2026-05-13"), changeFrequency: "monthly",  priority: 0.88 },
+  { url: `${BASE_URL}/online-tuition-classes-india`,                       lastModified: new Date("2026-05-13"), changeFrequency: "monthly",  priority: 0.88 },
 
   // ── Contact ───────────────────────────────────────────────────────────────
   { url: `${BASE_URL}/contact-us`,                                         lastModified: new Date("2026-05-12"), changeFrequency: "yearly",   priority: 0.65 },

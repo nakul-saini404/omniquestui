@@ -59,7 +59,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
-  max-width: 1200px;
+  max-width: 1450px;
   margin: 0 auto;
   border: 1px solid var(--sa-line);
   border-radius: 4px;
