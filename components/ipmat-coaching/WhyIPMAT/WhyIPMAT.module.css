@@ -35,7 +35,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -53,7 +53,7 @@
 
 .heading {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: #0b1c3d;
@@ -67,7 +67,7 @@
 }
 
 .subheading {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: #4a5568;
   max-width: 620px;
   margin: 0 auto 32px;
@@ -157,7 +157,7 @@
 }
 
 .statLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: #718096;
   text-transform: uppercase;
   letter-spacing: 0.07em;
@@ -248,7 +248,7 @@
 
 .reasonTitle {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #0b1c3d;
   margin-bottom: 10px;
@@ -256,7 +256,7 @@
 }
 
 .reasonDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   line-height: 1.7;
   flex: 1;
@@ -325,7 +325,7 @@
 }
 
 .compAspectText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 500;
   color: #4a5568;
 }
@@ -416,7 +416,7 @@
 }
 
 .compNote p {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   line-height: 1.7;
   margin: 0;
@@ -442,7 +442,7 @@
 
 .institutesTitle {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #ffffff;
   margin: 0;
@@ -493,7 +493,7 @@
 }
 
 .instituteName {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #ffffff;
   white-space: nowrap;
@@ -542,7 +542,7 @@
 
 .ctaHeading {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #0b1c3d;
   margin-bottom: 8px;
@@ -555,7 +555,7 @@
 }
 
 .ctaDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   line-height: 1.65;
   margin: 0;
@@ -712,7 +712,7 @@
   }
 
   .heading {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
   }
 
   .institutesGrid {

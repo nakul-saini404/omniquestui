@@ -61,7 +61,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -82,7 +82,7 @@
 /* Heading */
 .heading {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 800;
   color: #ffffff;
   line-height: 1.08;
@@ -99,7 +99,7 @@
 
 /* Sub-copy */
 .sub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.70);
   line-height: 1.78;
   max-width: 520px;
@@ -207,7 +207,7 @@
 
 .cardTitle {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #ffffff;
   margin: 0 0 22px;
@@ -229,7 +229,7 @@
 }
 
 .scoreLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: rgba(255, 255, 255, 0.60);
   width: 68px;
   flex-shrink: 0;

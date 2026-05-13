@@ -24,7 +24,7 @@
 }
 
 .brandDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   line-height: 1.75;
 }
 
@@ -47,7 +47,7 @@
 }
 
 .colTitle {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -62,7 +62,7 @@
 }
 
 .colLinks a {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.4);
   transition: 0.2s;
 }

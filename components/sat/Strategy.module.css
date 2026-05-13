@@ -43,14 +43,14 @@
 }
 
 .stratTitle {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 6px;
 }
 
 .stratDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.65;
 }
@@ -73,14 +73,14 @@
 }
 
 .stratCard h4 {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 6px;
 }
 
 .stratCard p {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.65;
 }
@@ -117,7 +117,7 @@
 }
 
 .pricingLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.14em;
   color: var(--gold);
@@ -134,7 +134,7 @@
 .pricingRow {
   display: flex;
   justify-content: space-between;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   padding: 8px 0;
 }
 

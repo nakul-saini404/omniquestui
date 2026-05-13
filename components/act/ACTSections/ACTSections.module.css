@@ -17,7 +17,7 @@
 /* ── Eyebrow ── */
 .tag {
   display: inline-block;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--red);
@@ -28,7 +28,7 @@
 /* ── Heading ── */
 .title {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 900;
   color: var(--white);
   line-height: 1.15;
@@ -42,7 +42,7 @@
 
 /* ── Sub ── */
 .sub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #fbfbfb;
   max-width: 580px;
   margin-bottom: 48px;
@@ -81,7 +81,7 @@
 
 .name {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--white);
   margin-bottom: 6px;
@@ -96,7 +96,7 @@
 }
 
 .sub2 {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #f0e6e6;
   line-height: 1.5;
 }
@@ -134,14 +134,14 @@
 }
 
 .essayTitle {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--white);
   margin-bottom: 4px;
 }
 
 .essayDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #cfc8c8;
   line-height: 1.6;
 }

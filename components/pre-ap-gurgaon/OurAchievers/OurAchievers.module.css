@@ -65,14 +65,14 @@
 }
 .sHead {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #ffffff;
   line-height: 1.22;
   margin-bottom: 10px;
 }
 .sSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.55);
   line-height: 1.75;
   max-width: 520px;
@@ -170,7 +170,7 @@
 
 .cardName {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #ffffff;
   line-height: 1.3;

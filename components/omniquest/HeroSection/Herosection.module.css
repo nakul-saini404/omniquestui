@@ -53,7 +53,7 @@
   align-items: center;
   gap: 8px;
   font-family: var(--font-body);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -91,7 +91,7 @@
 
 /* ── Sub paragraph ── */
 .sub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 300;
   color: var(--text2);
   max-width: 680px;
@@ -101,7 +101,7 @@
 
 /* ── Sub-subtext ── */
 .subtext {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text3);
   max-width: 600px;
   margin: 0 auto 48px;
@@ -189,7 +189,7 @@
 }
 
 .statLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 400;
   color: var(--text3);
   letter-spacing: 0.05em;
@@ -228,7 +228,7 @@
     padding-top: 80px;
   }
   .eyebrow {
-    font-size: clamp(15px, 1.5vw, 17px);
+    font-size: 15px;
     padding: 6px 14px;
     margin-bottom: 28px;
   }

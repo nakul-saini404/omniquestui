@@ -47,7 +47,7 @@
 /* ── Heading + sub ── */
 .sectionTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 900;
   color: var(--navy);
   line-height: 1.2;
@@ -56,7 +56,7 @@
 
 .sectionSub {
   font-family: var(--ff-body);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   max-width: 640px;
   margin-bottom: 48px;
@@ -149,14 +149,14 @@
 
 .stepTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: var(--navy);
   margin: 0 0 7px 0;
 }
 
 .stepBody {
   font-family: var(--ff-body);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.65;
   margin: 0;
@@ -180,7 +180,7 @@
 
 .scoringCardTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: var(--gold);
   font-weight: 700;
   margin: 0 0 16px 0;
@@ -198,7 +198,7 @@
 
 .scoringItem {
   font-family: var(--ff-body);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.8;
   padding: 2px 0;
@@ -211,13 +211,13 @@
   content: "→";
   color: var(--gold);
   flex-shrink: 0;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
 }
 
 /* Sub-group labels inside university card */
 .uniGroupLabel {
   font-family: var(--ff-body);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: rgba(201, 151, 43, 0.9);
   margin: 0 0 8px 0;

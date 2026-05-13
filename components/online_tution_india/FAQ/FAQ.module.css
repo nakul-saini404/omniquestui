@@ -1,0 +1,222 @@
+.section {
+    background: #ede7d9;
+    padding: 96px 0;
+}
+
+.container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ── Two-column layout ── */
+.layout {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 64px;
+    align-items: start;
+}
+
+/* ── Left: Intro ── */
+.intro {
+    position: sticky;
+    top: 88px;
+}
+
+.sectionLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d4a843;
+    margin-bottom: 14px;
+}
+
+.sectionLabel::before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: #d4a843;
+    display: inline-block;
+}
+
+.heading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #0b1c3d;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 16px;
+}
+
+.heading em {
+    color: #1a4a8a;
+    font-style: italic;
+}
+
+.introText {
+    font-size: 15px;
+    color: #4a5568;
+    line-height: 1.75;
+    margin-bottom: 28px;
+}
+
+/* ── Contact box ── */
+.contactBox {
+    background: #0b1c3d;
+    border-radius: 14px;
+    padding: 24px;
+}
+
+.contactBoxText {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.65;
+    margin-bottom: 16px;
+}
+
+.contactBoxLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 6px;
+    background: #d4a843;
+    color: #0b1c3d;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.contactBoxLink:hover {
+    background: #e8c96a;
+}
+
+/* ── Right: Accordion list ── */
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ── FAQ item ── */
+.item {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid rgba(11, 28, 61, 0.07);
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+    box-shadow: 0 4px 24px rgba(11, 28, 61, 0.10);
+}
+
+.item:hover {
+    border-color: rgba(212, 168, 67, 0.3);
+}
+
+.itemOpen {
+    border-color: rgba(212, 168, 67, 0.4);
+}
+
+/* ── Question button ── */
+.question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 20px;
+    cursor: pointer;
+    user-select: none;
+    background: transparent;
+    border: none;
+    text-align: left;
+    font-family: inherit;
+}
+
+.qNum {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18px;
+    font-weight: 900;
+    color: rgba(11, 28, 61, 0.12);
+    flex-shrink: 0;
+    width: 28px;
+    line-height: 1;
+}
+
+.qText {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0b1c3d;
+    flex: 1;
+    line-height: 1.35;
+}
+
+.chevron {
+    font-size: 14px;
+    color: #d4a843;
+    font-weight: 700;
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.chevronOpen {
+    transform: rotate(90deg);
+}
+
+/* ── Answer ── */
+.answerWrapper {
+    overflow: hidden;
+    transition: max-height 0.38s ease;
+}
+
+.answerInner {
+    padding: 0 20px 18px 62px;
+    font-size: 13.5px;
+    color: #4a5568;
+    line-height: 1.75;
+    border-top: 1px solid rgba(11, 28, 61, 0.06);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .intro {
+        position: static;
+        text-align: center;
+    }
+
+    .sectionLabel {
+        justify-content: center;
+    }
+
+    .sectionLabel::before {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .section {
+        padding: 64px 0;
+    }
+
+    .answerInner {
+        padding: 0 16px 16px 16px;
+    }
+
+    .question {
+        padding: 16px;
+    }
+
+    .qNum {
+        display: none;
+    }
+}

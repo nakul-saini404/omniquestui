@@ -36,7 +36,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -55,7 +55,7 @@
 
 .heading {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: #0b1c3d;
@@ -69,7 +69,7 @@
 }
 
 .subheading {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: #4a5568;
   max-width: 640px;
   margin: 0 auto 32px;
@@ -148,7 +148,7 @@
 }
 
 .failBigLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: rgba(255, 255, 255, 0.75);
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -175,7 +175,7 @@
 }
 
 .failBannerText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.72);
   line-height: 1.75;
   margin: 0;
@@ -203,7 +203,7 @@
 }
 
 .failMiniLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: rgba(255, 255, 255, 0.45);
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -293,7 +293,7 @@
 
 .mistakeTitle {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #0b1c3d;
   line-height: 1.25;
@@ -358,7 +358,7 @@
 }
 
 .mistakeDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   line-height: 1.75;
   margin-bottom: 22px;
@@ -385,7 +385,7 @@
 }
 
 .mistakeStatLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: #4a5568;
   line-height: 1.5;
 }
@@ -416,7 +416,7 @@
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -440,7 +440,7 @@
 }
 
 .mistakeMFText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   line-height: 1.65;
   margin: 0;
@@ -520,7 +520,7 @@
 }
 
 .mythText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   line-height: 1.68;
   margin: 0;
@@ -528,7 +528,7 @@
 }
 
 .factText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #0b1c3d;
   line-height: 1.68;
   margin: 0;
@@ -539,7 +539,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #d4a843;
   font-weight: 700;
   background: #ffffff;
@@ -564,7 +564,7 @@
 }
 
 .warningIntroText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   margin: 0;
   line-height: 1.7;
@@ -693,7 +693,7 @@
 }
 
 .warningFooter p {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.7;
   margin: 0;
@@ -721,7 +721,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -740,7 +740,7 @@
 
 .solutionTitle {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #ffffff;
   line-height: 1.25;
@@ -753,7 +753,7 @@
 }
 
 .solutionDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.65);
   line-height: 1.75;
   margin: 0;
@@ -788,7 +788,7 @@
 }
 
 .solutionCheckText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.82);
   font-weight: 500;
   line-height: 1.4;

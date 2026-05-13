@@ -50,7 +50,7 @@
 }
 
 .whatProse p {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.8;
   margin-bottom: 18px;
@@ -59,7 +59,7 @@
 
 .whatProse h3 {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: var(--navy);
   margin: 28px 0 12px;
   font-weight: 600;
@@ -68,7 +68,7 @@
 /* ── Section label pill ── */
 .sectionLabel {
   display: inline-block;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -84,7 +84,7 @@
 /* ── Section title ── */
 .sectionTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   line-height: 1.2;
@@ -106,7 +106,7 @@
 }
 
 .highlightBox p {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.75);
   line-height: 1.7;
   margin-bottom: 0;
@@ -152,14 +152,14 @@
 
 .infoCardTitle {
   font-weight: 700;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: var(--navy);
   margin-bottom: 4px;
   font-family: var(--ff-body);
 }
 
 .infoCardText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.6;
   font-family: var(--ff-body);
@@ -179,10 +179,10 @@
   }
 
   .sectionTitle {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
   }
 
   .whatProse h3 {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
   }
 }

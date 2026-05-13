@@ -10,6 +10,8 @@ import BestOnlineTuitionSection from '@/components/online_tution_india/BestOnlin
 import PopularTopics from '@/components/online_tution_india/PopularTopics/PopularTopics';
 import SpecialEnglishClasses from '@/components/online_tution_india/SpecialEnglishClasses/SpecialEnglishClasses';
 import WhyEduQuest from '@/components/online_tution_india/WhyEduQuest/WhyEduQuest';
+import MythsFacts from '@/components/online_tution_india/MythsFacts/MythsFacts';
+import FAQ from '@/components/online_tution_india/FAQ/FAQ';
 
 export default function ONLINETUITIONINDIA() {
   return (
@@ -26,6 +28,8 @@ export default function ONLINETUITIONINDIA() {
         <PopularTopics />
         <SpecialEnglishClasses />
         <WhyEduQuest />
+        <MythsFacts />
+        <FAQ />
         <CTAStrip />
       </main>
       <Footer />

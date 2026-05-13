@@ -102,7 +102,7 @@
 
 .ribbonLabel {
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -172,7 +172,7 @@
 
 .scoreLabel {
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -226,7 +226,7 @@
 
 .barLabel {
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: rgba(245, 240, 232, 0.55);
   font-weight: 500;
 }
@@ -302,7 +302,7 @@
 
 .floatBadgeSub {
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 600;
   opacity: 0.7;
   margin-top: 2px;
@@ -359,7 +359,7 @@
 /* heading */
 .heading {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 900;
   line-height: 1.1;
   color: #0b1c3d;
@@ -383,7 +383,7 @@
 /* body copy */
 .body {
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   line-height: 1.8;
   margin-bottom: 32px;
@@ -455,7 +455,7 @@
 
 .featureTitle {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #0b1c3d;
 }
@@ -476,7 +476,7 @@
 
 .featureText {
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   line-height: 1.65;
   margin: 0;
@@ -569,7 +569,7 @@
   }
 
   .heading {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
   }
 
   .floatBadge {

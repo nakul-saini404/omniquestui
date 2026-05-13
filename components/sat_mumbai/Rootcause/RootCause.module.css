@@ -23,7 +23,7 @@
 
 /* ── HEADER ── */
 .sectionLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 1.4px;
   text-transform: uppercase;
@@ -34,7 +34,7 @@
 
 .sectionTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: var(--navy);
   line-height: 1.2;
   margin-bottom: 16px;
@@ -46,7 +46,7 @@
 }
 
 .sectionSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--gray);
   max-width: 600px;
   margin-bottom: 48px;
@@ -82,7 +82,7 @@
 }
 
 .rcCard h3 {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 10px;
@@ -90,7 +90,7 @@
 }
 
 .rcCard p {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--gray);
   line-height: 1.7;
   font-family: var(--ff-body);

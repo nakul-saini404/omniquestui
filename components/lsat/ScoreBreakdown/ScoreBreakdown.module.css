@@ -72,7 +72,7 @@
 
 .secTitle {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 900;
   line-height: 1.1;
   color: #0b1c3d;
@@ -85,7 +85,7 @@
 }
 
 .secSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   line-height: 1.75;
   max-width: 560px;
@@ -167,7 +167,7 @@
 /* ── Card text ── */
 .scoreCardName {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #0b1c3d;
   margin-bottom: 4px;
@@ -186,7 +186,7 @@
 .rangeNavy { color: #1a3570; }
 
 .scoreCardDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   line-height: 1.65;
   margin-bottom: 16px;
@@ -238,14 +238,14 @@
 
 .lsatCalloutTitle {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #c84b31;
   margin-bottom: 6px;
 }
 
 .lsatCalloutBody {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   line-height: 1.7;
   margin: 0;

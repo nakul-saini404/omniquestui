@@ -53,7 +53,7 @@
 
 .secTitle {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 900;
   line-height: 1.1;
   color: #0b1c3d;

@@ -76,7 +76,7 @@
 /* ── Sub text — matches .cta-strip p ── */
 .sub {
   color: rgba(255, 255, 255, 0.7);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   max-width: 520px;
   margin: 0 auto 28px;
   line-height: 1.65;

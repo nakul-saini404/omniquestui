@@ -45,7 +45,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -64,7 +64,7 @@
 
 .heading {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 12px;
@@ -72,7 +72,7 @@
 }
 
 .sub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   margin-bottom: 26px;
   line-height: 1.7;
@@ -118,7 +118,7 @@
 
 .detailText strong {
   display: block;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 600;
   color: var(--navy);
   text-transform: uppercase;
@@ -128,7 +128,7 @@
 
 .detailText span,
 .detailLink {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.5;
   font-family: var(--ff-body);
@@ -149,7 +149,7 @@
 }
 
 .alsoAvailable p {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   margin: 0;
   font-family: var(--ff-body);
@@ -173,7 +173,7 @@
 
 .formTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 600;
   color: var(--navy);
   margin-bottom: 22px;
@@ -215,7 +215,7 @@
 }
 
 .label {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 600;
   color: var(--navy);
   text-transform: uppercase;
@@ -230,7 +230,7 @@
   border: 1.5px solid var(--line2);
   border-radius: var(--radius);
   font-family: var(--ff-body);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--navy);
   background: var(--white);
   transition: border-color 0.2s, box-shadow 0.2s;
@@ -298,7 +298,7 @@
   border: none;
   border-radius: var(--radius);
   font-family: var(--ff-body);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
@@ -370,13 +370,13 @@
 
 .successTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
 }
 
 .successText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.7;
   font-family: var(--ff-body);
@@ -439,6 +439,6 @@
   }
 
   .heading {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
   }
 }

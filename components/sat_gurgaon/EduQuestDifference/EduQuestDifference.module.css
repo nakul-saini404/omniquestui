@@ -7,7 +7,7 @@
 
 /* ── SECTION LABEL ── */
 .sectionLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--gold);
@@ -18,7 +18,7 @@
 /* ── HEADING ── */
 .heading {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: var(--navy);
   line-height: 1.22;
   margin-bottom: 18px;
@@ -32,7 +32,7 @@
 /* ── SECTION SUB ── */
 .sectionSub {
   color: var(--text2);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   max-width: 600px;
   line-height: 1.7;
 }
@@ -78,14 +78,14 @@
 }
 
 .featureTitle {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 8px;
 }
 
 .featureDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.65;
 }

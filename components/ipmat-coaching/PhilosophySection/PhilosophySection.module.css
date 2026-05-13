@@ -66,7 +66,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -86,7 +86,7 @@
 /* Heading */
 .strategyHeading {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 14px;
@@ -100,7 +100,7 @@
 
 /* Body copy */
 .strategyBody {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.68);
   line-height: 1.75;
   margin-bottom: 28px;
@@ -168,7 +168,7 @@
 
 /* ── Bars title ── */
 .barsTitle {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -194,7 +194,7 @@
 }
 
 .barLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.75);
   text-transform: uppercase;
@@ -249,7 +249,7 @@
 
 /* Description text below bar */
 .barDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.4);
   margin-top: 6px;
 }

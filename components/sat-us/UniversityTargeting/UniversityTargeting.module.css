@@ -47,7 +47,7 @@
 
 /* .section-label */
 .sectionLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -63,7 +63,7 @@
 /* .section-title */
 .sectionTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   line-height: 1.22;
   margin-bottom: 0.85rem;
   font-weight: 700;
@@ -78,7 +78,7 @@
 /* .section-sub */
 .sectionSub {
   color: var(--text2);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   max-width: 580px;
   line-height: 1.75;
 }
@@ -127,7 +127,7 @@
 
 /* .college-card .name */
 .name {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   margin: 0.4rem 0 0.2rem;
   color: var(--text);
@@ -142,7 +142,7 @@
 /* ─── Score bars ─── */
 
 .barHeading {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   font-family: var(--ff-head);
   color: var(--text3);
@@ -186,7 +186,7 @@
 
 /* .score-desc */
 .scoreDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text3);
   min-width: 200px;
 }

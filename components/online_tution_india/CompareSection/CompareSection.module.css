@@ -56,7 +56,7 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -94,7 +94,7 @@
    Sub-paragraph
 ───────────────────────────────────────────── */
 .secSub {
-    font-size: clamp(15px, 1.5vw, 17px);
+    font-size: 15px;
     color: #4a5568;
     line-height: 1.75;
     margin: 0 auto;
@@ -145,7 +145,7 @@
 
 .colTitle {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
     font-weight: 700;
     line-height: 1.2;
 }
@@ -159,7 +159,7 @@
 }
 
 .colSub {
-    font-size: clamp(15px, 1.5vw, 17px);
+    font-size: 15px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -200,20 +200,20 @@
 }
 
 .compareRowIcon {
-    font-size: clamp(15px, 1.5vw, 17px);
+    font-size: 15px;
     flex-shrink: 0;
     margin-top: 1px;
 }
 
 .compareRowText {
-    font-size: clamp(15px, 1.5vw, 17px);
+    font-size: 15px;
     color: #2d3748;
     line-height: 1.6;
 }
 
 .compareRowText strong {
     display: block;
-    font-size: clamp(15px, 1.5vw, 17px);
+    font-size: 15px;
     font-weight: 700;
     color: #0b1c3d;
     margin-bottom: 2px;

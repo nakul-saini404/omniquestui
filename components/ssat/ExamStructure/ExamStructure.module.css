@@ -42,7 +42,7 @@
 /* ── Section label pill ── */
 .sectionLabel {
   display: inline-block;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -58,7 +58,7 @@
 /* ── Section title ── */
 .sectionTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   line-height: 1.2;
@@ -72,7 +72,7 @@
 
 /* ── Section subtitle ── */
 .sectionSub {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: var(--text2);
   max-width: 560px;
   line-height: 1.7;
@@ -166,7 +166,7 @@
 
 .examCardTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: var(--navy);
   margin-bottom: 12px;
   font-weight: 600;
@@ -181,7 +181,7 @@
 .examMetaRow {
   display: flex;
   justify-content: space-between;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   padding: 7px 0;
   border-bottom: 1px solid var(--line);
 }
@@ -231,14 +231,14 @@
 
 .noteBox h4 {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: var(--navy);
   margin-bottom: 8px;
   font-weight: 600;
 }
 
 .noteBox p {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.7;
   font-family: var(--ff-body);
@@ -271,7 +271,7 @@
   }
 
   .sectionTitle {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
   }
 
   .tabBtn {

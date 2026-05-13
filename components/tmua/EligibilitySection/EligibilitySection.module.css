@@ -41,7 +41,7 @@
 /* ── Heading + sub ── */
 .sectionTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 900;
   color: var(--white);
   line-height: 1.2;
@@ -50,7 +50,7 @@
 
 .sectionSub {
   font-family: var(--ff-body);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.58);
   max-width: 640px;
   margin-bottom: 44px;
@@ -108,14 +108,14 @@
 
 .whoCardTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: var(--white);
   margin: 0 0 9px 0;
 }
 
 .whoCardBody {
   font-family: var(--ff-body);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.58);
   line-height: 1.75;
   margin: 0;

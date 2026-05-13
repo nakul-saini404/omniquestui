@@ -18,7 +18,7 @@
 }
 
 .sub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.8;
   margin-bottom: 48px;
@@ -55,25 +55,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   flex-shrink: 0;
 }
 
 .itemTitle {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 4px;
 }
 
 .itemDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.55;
 }
 
 .itemsNote {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.75;
   margin-top: 8px;
@@ -88,13 +88,13 @@
 
 .highlight h3 {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: #fff;
   margin-bottom: 16px;
 }
 
 .highlight p {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.6);
   line-height: 1.75;
   margin-bottom: 24px;

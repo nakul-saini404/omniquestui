@@ -23,7 +23,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -34,7 +34,7 @@
 
 .heading {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #0b1c3d;
   letter-spacing: -0.02em;
@@ -44,7 +44,7 @@
 .heading em { color: #1a4a8a; font-style: italic; }
 
 .sub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   max-width: 480px;
   margin: 0 auto 52px;
@@ -104,7 +104,7 @@
 }
 
 .qText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 700;
   color: #0b1c3d;
   flex: 1;
@@ -130,7 +130,7 @@
 
 .answerText {
   padding: 0 20px 18px 58px;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   line-height: 1.72;
 }
@@ -143,7 +143,7 @@
   border-radius: 10px;
 }
 .cta p {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 16px;
   line-height: 1.6;

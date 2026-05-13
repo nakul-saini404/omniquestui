@@ -75,7 +75,7 @@
 }
 
 .sectionLabel span {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -84,7 +84,7 @@
 
 .title {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 800;
   line-height: 1.15;
   color: #f8fafc;
@@ -100,7 +100,7 @@
 
 .subtitle {
   font-family: 'DM Sans', sans-serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: var(--gray-400);
   margin: 0 auto;
 }
@@ -150,7 +150,7 @@
 /* ── Quote text ── */
 .text {
   font-family: 'DM Sans', sans-serif;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--gray-300);
   line-height: 1.7;
   font-style: italic;
@@ -188,7 +188,7 @@
 .name {
   font-family: 'DM Sans', sans-serif;
   font-weight: 600;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: #f8fafc;
 }
 

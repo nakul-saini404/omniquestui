@@ -35,7 +35,7 @@
 }
 
 .snippetBox p {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.82);
 }
@@ -71,14 +71,14 @@
 }
 
 .factTitle {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #fff;
   margin-bottom: 3px;
 }
 
 .factDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.55);
   line-height: 1.55;
 }
@@ -99,7 +99,7 @@
 }
 
 .testimonialLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.14em;
   color: var(--gold);
@@ -138,7 +138,7 @@
 }
 
 .testimonialName {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: var(--gold);
   font-weight: 700;
   margin-top: 4px;

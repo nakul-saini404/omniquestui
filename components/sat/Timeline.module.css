@@ -37,7 +37,7 @@
 
 .tlCard h3 {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   margin-bottom: 6px;
 }
@@ -58,7 +58,7 @@
 .tlItem {
   display: flex;
   gap: 10px;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.85);
 }

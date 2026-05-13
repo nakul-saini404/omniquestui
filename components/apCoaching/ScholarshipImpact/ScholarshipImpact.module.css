@@ -103,7 +103,7 @@
 /* ── Banner heading ─────────────────────────────────────────── */
 .bannerTitle {
   font-family: "Syne", sans-serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 800;
   line-height: 1.25;
   margin-bottom: 16px;
@@ -124,7 +124,7 @@
   color: var(--gray-400);
   max-width: 600px;
   margin: 0 auto 32px;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 300;
   line-height: 1.65;
   position: relative;
@@ -213,7 +213,7 @@
 }
 
 .statLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: var(--gray-400);
   margin-top: 4px;
   line-height: 1.5;
@@ -233,7 +233,7 @@
 
 .tableTitle {
   font-family: "Syne", sans-serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   margin-bottom: 8px;
   color: var(--text-primary);
@@ -242,7 +242,7 @@
 
 .tableSubtitle {
   color: var(--gray-400);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   margin-bottom: 24px;
   font-weight: 300;
 }
@@ -269,7 +269,7 @@
   color: var(--gray-400);
   font-weight: 600;
   border-bottom: 1px solid var(--border);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-family: "DM Sans", sans-serif;
@@ -358,6 +358,6 @@
   }
 
   .tableTitle {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
   }
 }

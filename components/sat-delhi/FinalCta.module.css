@@ -62,7 +62,7 @@
 }
 
 .desc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.55);
   line-height: 1.8;
   margin-bottom: 36px;

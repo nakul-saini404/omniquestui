@@ -64,7 +64,7 @@
 
 .sectionTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #ffffff;
   line-height: 1.25;
@@ -152,7 +152,7 @@
 
 /* ─── LABEL ───────────────────────────────────────────────────────────── */
 .promiseLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: rgba(255, 255, 255, 0.55);
   letter-spacing: 0.03em;
   line-height: 1.45;

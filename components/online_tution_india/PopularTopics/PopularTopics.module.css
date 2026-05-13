@@ -42,7 +42,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -75,7 +75,7 @@
 
 /* p tag and description font size — 15px */
 .secSub {
-    font-size: clamp(15px, 1.5vw, 17px);
+    font-size: 15px;
     color: var(--text);
     line-height: 1.75;
     margin: 0 auto;
@@ -160,7 +160,7 @@
 }
 
 .cardTitle {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
     font-weight: 700;
     color: var(--navy);
     margin-bottom: 5px;
@@ -169,7 +169,7 @@
 
 /* p tag / description — 15px as required */
 .cardDescription {
-    font-size: clamp(15px, 1.5vw, 17px);
+    font-size: 15px;
     color: var(--text);
     line-height: 1.55;
     margin: 0 0 8px;

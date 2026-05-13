@@ -18,7 +18,7 @@
 }
 
 .howBuildSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   margin-bottom: 48px;
   max-width: 500px;
@@ -53,14 +53,14 @@
 }
 
 .howStep h4 {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 10px;
 }
 
 .howStep p {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.65;
   margin-bottom: 16px;

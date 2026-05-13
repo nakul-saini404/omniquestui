@@ -24,7 +24,7 @@
 
 .infoText {
   flex: 1;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.8);
   min-width: 280px;
@@ -96,14 +96,14 @@
 }
 
 .stepTitle {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 8px;
 }
 
 .stepDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.7;
 }
@@ -135,14 +135,14 @@
 }
 
 .advantageTitle {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 8px;
 }
 
 .advantageDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.7;
 }

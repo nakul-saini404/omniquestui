@@ -14,7 +14,7 @@
 
 /* ── Section label ── */
 .sectionLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 1.4px;
   text-transform: uppercase;
@@ -31,7 +31,7 @@
 /* ── Section title ── */
 .sectionTitle {
   font-family: var(--ff-head, "Playfair Display", serif);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy, #0b1c3d);
   line-height: 1.2;
@@ -47,7 +47,7 @@
 /* ── Section sub ── */
 .sectionSub {
   color: var(--gray, #6b7280);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   max-width: 600px;
   margin-bottom: 48px;
   line-height: 1.65;
@@ -86,7 +86,7 @@
 
 /* ── Card heading ── */
 .cardTitle {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy, #0b1c3d);
   margin-bottom: 8px;
@@ -94,7 +94,7 @@
 
 /* ── Card body text ── */
 .cardDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--gray, #6b7280);
   margin-bottom: 14px;
   line-height: 1.65;

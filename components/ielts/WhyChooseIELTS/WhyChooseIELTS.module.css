@@ -80,7 +80,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -160,7 +160,7 @@
 
 .heading {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--navy);
@@ -175,7 +175,7 @@
 
 .subtext {
   font-family: var(--ff-body);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   max-width: 560px;
   line-height: 1.72;
@@ -301,7 +301,7 @@
 
 .cardTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 600;
   color: var(--navy);
   margin-bottom: 8px;
@@ -310,7 +310,7 @@
 
 .cardBody {
   font-family: var(--ff-body);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.67;
   margin: 0;
@@ -391,7 +391,7 @@
 .floatLabel {
   display: block;
   font-family: var(--ff-body);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 600;
   color: var(--text2);
   text-transform: uppercase;

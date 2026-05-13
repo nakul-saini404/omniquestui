@@ -55,7 +55,7 @@
 /* ─── HEADING ─────────────────────────────────────────── */
 .heading {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 900;
   line-height: 1.1;
   color: #F1F5FF;
@@ -74,7 +74,7 @@
   color: rgba(241, 245, 255, 0.5);
   line-height: 1.85;
   margin-bottom: 16px;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
 }
 
 .highlightGold {
@@ -98,7 +98,7 @@
 
 .hlTitle {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 800;
   color: #D4AF37;
   letter-spacing: 0.1em;
@@ -108,7 +108,7 @@
 
 .hlBody {
   color: rgba(241, 245, 255, 0.65);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   line-height: 1.7;
   margin: 0;
 }
@@ -187,7 +187,7 @@
 
 .ptypeName {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 800;
   color: #F1F5FF;
 }
@@ -212,7 +212,7 @@
 
 /* ─── CARD DESCRIPTION ────────────────────────────────── */
 .ptypeDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(241, 245, 255, 0.5);
   line-height: 1.65;
 }
@@ -225,7 +225,7 @@
 /* ─── SCORE ROW ───────────────────────────────────────── */
 .ptypeScore {
   margin-top: 10px;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 700;
   color: #D4AF37;
 }

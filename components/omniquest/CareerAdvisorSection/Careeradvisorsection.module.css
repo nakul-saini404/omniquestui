@@ -40,7 +40,7 @@
   }
   .eyebrowLine { width: 32px; height: 1px; background: #d4af37; }
   .eyebrow {
-    font-size: clamp(15px, 1.5vw, 17px);
+    font-size: 15px;
     font-weight: 700;
     letter-spacing: 0.14em;
     color: #d4af37;
@@ -67,7 +67,7 @@
   }
   
   .body {
-    font-size: clamp(15px, 1.5vw, 17px);
+    font-size: 15px;
     color: rgba(255, 255, 255, 0.48);
     line-height: 1.8;
     max-width: 400px;
@@ -92,14 +92,14 @@
   
   .cardTitle {
     font-family: var(--font-head);
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
     font-weight: 800;
     color: white;
     margin-bottom: 8px;
   }
   
   .cardSubtitle {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
     color: rgba(255, 255, 255, 0.38);
     margin-bottom: 28px;
     line-height: 1.65;

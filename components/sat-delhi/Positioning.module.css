@@ -15,7 +15,7 @@
 }
 
 .label {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -42,7 +42,7 @@
 }
 
 .sub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.6);
   line-height: 1.8;
   max-width: 480px;
@@ -96,14 +96,14 @@
 }
 
 .pillTitle {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #fff;
   margin-bottom: 5px;
 }
 
 .pillDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.5);
   line-height: 1.55;
 }

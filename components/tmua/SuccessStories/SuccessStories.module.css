@@ -22,7 +22,7 @@
 
 .sectionTitle {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 900;
   color: #0A2240;
   line-height: 1.2;
@@ -30,7 +30,7 @@
 }
 
 .sectionSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   max-width: 620px;
   margin-bottom: 40px;
@@ -89,7 +89,7 @@
 
 /* Push author to bottom always */
 .tText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   line-height: 1.8;
   flex: 1;
@@ -117,7 +117,7 @@
 
 .tName {
   font-weight: 700;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: #0A2240;
 }
 

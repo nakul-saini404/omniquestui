@@ -20,7 +20,7 @@
 
 .navLogo {
   font-family: var(--ff-head);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 800;
   color: var(--navy);
   flex-shrink: 0;
@@ -38,7 +38,7 @@
 }
 
 .navLinks a {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 500;
   color: var(--text2);
   transition: 0.2s;

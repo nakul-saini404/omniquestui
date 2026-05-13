@@ -54,7 +54,7 @@
 
 /* ── Body ── */
 .body {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.8;
   margin-bottom: 40px;

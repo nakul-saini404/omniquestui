@@ -50,7 +50,7 @@
 .eyebrow {
   display: inline-block;
   font-family: var(--mono);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -82,7 +82,7 @@
 .heroTitle em   { color: var(--gold); font-style: italic; }
 
 .heroSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 400;
   line-height: 1.75;
   color: var(--slate-light);
@@ -170,7 +170,7 @@
 
 .cardLabel {
   font-family: var(--mono);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent, var(--gold));
@@ -186,7 +186,7 @@
   margin: 0 0 0.9rem;
 }
 .cardDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 400;
   line-height: 1.8;
   color: var(--slate-light);
@@ -223,7 +223,7 @@
 
 .sectionTitle {
   font-family: var(--serif);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 400;
   line-height: 1.2;
   margin: 0 0 1rem;
@@ -232,7 +232,7 @@
 .sectionTitle em { color: var(--gold); font-style: italic; }
 
 .sectionSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 400;
   line-height: 1.75;
   color: var(--slate-light);
@@ -277,7 +277,7 @@
 .statLabel {
   display: block;
   font-family: var(--mono);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--slate-light);
@@ -338,7 +338,7 @@
 }
 .dimTitle {
   font-family: var(--serif);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-style: italic;
   color: var(--ink);
   margin: 0 0 0.55rem;
@@ -372,7 +372,7 @@
 }
 .forLabel {
   font-family: var(--mono);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -426,7 +426,7 @@
 }
 .footText {
   font-family: var(--serif);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-style: italic;
   color: var(--slate-light);
   letter-spacing: 0.04em;

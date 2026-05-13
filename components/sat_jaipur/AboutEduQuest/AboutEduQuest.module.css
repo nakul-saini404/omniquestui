@@ -58,7 +58,7 @@
 
 /* ── Shared label ── */
 .sectionLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -74,7 +74,7 @@
 /* ── Shared heading ── */
 .heading {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   line-height: 1.2;
@@ -88,7 +88,7 @@
 
 /* ── Shared sub-text ── */
 .subText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.75;
   max-width: 640px;
@@ -152,7 +152,7 @@
 }
 
 .featureTitle {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 8px;
@@ -160,7 +160,7 @@
 }
 
 .featureDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.65;
   margin: 0;
@@ -224,7 +224,7 @@
 }
 
 .stepTitle {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 10px;
@@ -232,7 +232,7 @@
 }
 
 .stepDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.65;
   margin: 0;
@@ -302,7 +302,7 @@
 }
 
 .diffHeading {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 10px;
@@ -313,7 +313,7 @@
 }
 
 .diffBody {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.75;
   margin: 0;

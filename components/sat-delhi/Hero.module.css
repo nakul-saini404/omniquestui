@@ -38,7 +38,7 @@
 }
 
 .eyebrowText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -61,7 +61,7 @@
 }
 
 .sub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.85;
   margin-bottom: 12px;
@@ -95,7 +95,7 @@
 }
 
 .snippet p {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   line-height: 1.75;
   color: rgba(255, 255, 255, 0.8);
 }
@@ -164,13 +164,13 @@
 
 .cardHeaderText h3 {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: #fff;
   font-weight: 700;
 }
 
 .cardHeaderText p {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: rgba(255, 255, 255, 0.5);
   margin-top: 2px;
 }
@@ -180,7 +180,7 @@
 }
 
 .cardLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--red);
@@ -199,7 +199,7 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.55;
 }

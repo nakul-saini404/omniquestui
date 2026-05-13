@@ -62,7 +62,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -91,7 +91,7 @@
 }
 
 .secSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.6);
   max-width: 560px;
   margin: 0 auto 0;
@@ -195,7 +195,7 @@
 /* ── Panel heading ── */
 .panelTitle {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #ffffff;
   line-height: 1.2;
@@ -203,7 +203,7 @@
 }
 
 .panelDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.63);
   line-height: 1.78;
   margin-bottom: 24px;
@@ -231,19 +231,19 @@
 }
 
 .itemIcon {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   flex-shrink: 0;
   margin-top: 2px;
 }
 .itemTitle {
   display: block;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 2px;
 }
 .itemDetail {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.5);
   line-height: 1.55;
 }
@@ -267,6 +267,6 @@
     padding: 64px 0;
   }
   .panelTitle {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
   }
 }

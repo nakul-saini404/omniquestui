@@ -103,7 +103,7 @@
 
 /* Sub-text */
 .heroSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.7);
   max-width: 520px;
   margin-bottom: 32px;
@@ -181,7 +181,7 @@
 }
 
 .heroStatLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
   letter-spacing: 0.07em;
@@ -272,13 +272,13 @@
 
 .heroImgBadgeText strong {
   display: block;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 700;
   color: var(--white);
 }
 
 .heroImgBadgeText span {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.55);
 }
 

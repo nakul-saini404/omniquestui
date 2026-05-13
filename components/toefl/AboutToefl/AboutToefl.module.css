@@ -51,7 +51,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -83,7 +83,7 @@
 
 /* ── Body Paragraphs ── */
 .aboutP {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   line-height: 1.8;
   margin-bottom: 14px;
@@ -119,14 +119,14 @@
 }
 
 .aboutFeatTitle {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #0b1c3d;
   margin-bottom: 4px;
 }
 
 .aboutFeatBody {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   line-height: 1.6;
 }
@@ -220,7 +220,7 @@
 
 .aboutImgBadgeSub {
   display: block;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #718096;
 }
 

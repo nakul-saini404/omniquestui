@@ -45,7 +45,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -64,7 +64,7 @@
 
 .sectionHeading {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--navy);
@@ -73,7 +73,7 @@
 }
 
 .sectionSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   max-width: 580px;
   line-height: 1.7;
@@ -179,7 +179,7 @@
 /* ── Module title ── */
 .currModuleTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 600;
   color: var(--navy);
   margin-bottom: 14px;
@@ -197,7 +197,7 @@
 }
 
 .currModuleItem {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   padding-left: 16px;
   position: relative;
@@ -232,7 +232,7 @@
 }
 
 .progLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 600;
   color: var(--navy);
   text-transform: uppercase;

@@ -71,7 +71,7 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -109,7 +109,7 @@
    Sub-paragraph  (light on dark bg)
 ───────────────────────────────────────────── */
 .secSub {
-    font-size: clamp(15px, 1.5vw, 17px);
+    font-size: 15px;
     color: rgba(255, 255, 255, 0.6);
     line-height: 1.75;
     margin: 0 auto;
@@ -184,7 +184,7 @@
    Card heading
 ───────────────────────────────────────────── */
 .cardTitle {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
     font-weight: 700;
     color: #ffffff;
     margin-bottom: 8px;
@@ -195,7 +195,7 @@
    Card body text
 ───────────────────────────────────────────── */
 .cardBody {
-    font-size: clamp(15px, 1.5vw, 17px);
+    font-size: 15px;
     color: rgba(255, 255, 255, 0.55);
     line-height: 1.7;
 }

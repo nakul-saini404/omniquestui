@@ -43,7 +43,7 @@
 /* ── Heading + sub ── */
 .sectionTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 900;
   color: var(--navy);
   line-height: 1.2;
@@ -52,7 +52,7 @@
 
 .sectionSub {
   font-family: var(--ff-body);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   max-width: 640px;
   margin-bottom: 40px;
@@ -75,7 +75,7 @@
 
 .dtBlockTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   margin: 0 0 0 0;
@@ -103,7 +103,7 @@
 
 .dtTable thead th {
   color: var(--white);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.6px;
   text-transform: uppercase;
@@ -163,6 +163,6 @@
   .dtTable td,
   .dtTable thead th {
     padding: 10px 12px;
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
   }
 }

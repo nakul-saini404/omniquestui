@@ -22,7 +22,7 @@
 
 .sectionTitle {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 900;
   color: #0A2240;
   line-height: 1.2;
@@ -30,7 +30,7 @@
 }
 
 .sectionSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   max-width: 620px;
   margin-bottom: 40px;
@@ -127,7 +127,7 @@
 }
 
 .faqAnswerText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   line-height: 1.75;
   margin: 0;

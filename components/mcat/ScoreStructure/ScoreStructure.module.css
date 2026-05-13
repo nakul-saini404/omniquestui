@@ -52,7 +52,7 @@
 
 .secTitle {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 900;
   line-height: 1.1;
   color: #0b1c3d;
@@ -73,7 +73,7 @@
 }
 
 .secSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   line-height: 1.75;
   max-width: 560px;
@@ -142,7 +142,7 @@
 /* ── Card text ── */
 .scoreCardName {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #0b1c3d;
   margin: 0 0 3px 0;
@@ -172,7 +172,7 @@
 .rangeNavy   { color: #1a3570; }
 
 .scoreCardDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   line-height: 1.6;
   margin: 0 0 14px 0;
@@ -233,14 +233,14 @@
 
 .mcatCalloutTitle {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #0b7a6e;
   margin-bottom: 6px;
 }
 
 .mcatCalloutBody {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   line-height: 1.7;
   margin: 0;

@@ -28,7 +28,7 @@
 
 .sectionLabel span {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -41,7 +41,7 @@
 
 .heading {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 800;
   color: #f8fafc;
   line-height: 1.18;
@@ -57,7 +57,7 @@
 
 .subheading {
   color: #94a3b8;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
@@ -176,7 +176,7 @@
   right: 14px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(59, 125, 216, 0.0);
   transition: color 0.18s ease, transform 0.18s ease;
   line-height: 1;
@@ -202,7 +202,7 @@
 
 .listItemName {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #cbd5e1;
   line-height: 1.3;
@@ -214,7 +214,7 @@
 }
 
 .listItemCredits {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 600;
   color: #5b9cf6;
   background: rgba(59, 125, 216, 0.12);
@@ -247,7 +247,7 @@
 }
 
 .diffLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: #475569;
 }
 
@@ -297,7 +297,7 @@
 
 .panelLabel {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -307,7 +307,7 @@
 
 .panelTitle {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 800;
   color: #f8fafc;
   margin: 0 0 12px;
@@ -366,7 +366,7 @@
   align-items: center;
   gap: 9px;
   font-family: 'Syne', sans-serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -383,7 +383,7 @@
 }
 
 .panelText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #94a3b8;
   line-height: 1.7;
   margin: 0;
@@ -408,7 +408,7 @@
 
 .formatLabel {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #5b9cf6;
 }
@@ -433,7 +433,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #94a3b8;
   background: rgba(255, 255, 255, 0.025);
   border: 1px solid rgba(59, 125, 216, 0.1);
@@ -480,7 +480,7 @@
 }
 
 .scoringLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: #64748b;
 }
 
@@ -514,7 +514,7 @@
 }
 
 .tipText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #94a3b8;
   line-height: 1.6;
 }
@@ -603,6 +603,6 @@
   }
 
   .panelTitle {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
   }
 }

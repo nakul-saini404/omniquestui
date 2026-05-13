@@ -72,7 +72,7 @@
 
 .secTitle {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 900;
   line-height: 1.1;
   color: #f5f0e8;
@@ -93,7 +93,7 @@
 }
 
 .secSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(245, 240, 232, 0.6);
   line-height: 1.75;
   max-width: 560px;
@@ -142,14 +142,14 @@
 
 .whyCardTitle {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #f5f0e8;
   margin-bottom: 8px;
 }
 
 .whyCardBody {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(245, 240, 232, 0.5);
   line-height: 1.7;
   margin: 0;
@@ -184,7 +184,7 @@
 }
 
 .whyStatLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: rgba(245, 240, 232, 0.45);
   text-transform: uppercase;
   letter-spacing: 0.1em;

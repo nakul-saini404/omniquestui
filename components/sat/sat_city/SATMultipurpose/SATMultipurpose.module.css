@@ -40,7 +40,7 @@
 }
 
 .label {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--gold, #d4a843);
@@ -50,7 +50,7 @@
 
 .heading {
   font-family: var(--ff-head, "Georgia", serif);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: var(--navy, #0a1628);
   line-height: 1.18;
   margin: 0 0 18px;
@@ -62,7 +62,7 @@
 }
 
 .desc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2, #4a4a5a);
   line-height: 1.72;
   max-width: 480px;
@@ -194,7 +194,7 @@
 
 .cardHeadline {
   font-family: var(--ff-head, "Georgia", serif);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy, #0a1628);
   margin: 0 0 10px;
@@ -202,7 +202,7 @@
 }
 
 .cardBody {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2, #4a4a5a);
   line-height: 1.7;
   margin: 0 0 14px;
@@ -242,7 +242,7 @@
   line-height: 1;
 }
 .statLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: var(--text3, #8a8a9a);
   line-height: 1.4;
   max-width: 180px;

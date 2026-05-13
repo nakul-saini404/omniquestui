@@ -48,7 +48,7 @@
 /* ── Section label pill ── */
 .sectionLabel {
   display: inline-block;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -64,7 +64,7 @@
 /* ── Section title ── */
 .sectionTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   line-height: 1.2;
@@ -78,7 +78,7 @@
 
 /* ── Section subtitle ── */
 .sectionSub {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: var(--text2);
   max-width: 560px;
   line-height: 1.7;
@@ -95,7 +95,7 @@
 }
 
 .ctaCardEyebrow {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.07em;
@@ -105,7 +105,7 @@
 }
 
 .ctaCardText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.7;
   margin-bottom: 18px;
@@ -223,7 +223,7 @@
   }
 
   .sectionTitle {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
   }
 
   .faqQuestion {

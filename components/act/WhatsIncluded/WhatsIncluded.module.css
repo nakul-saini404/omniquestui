@@ -106,7 +106,7 @@
 }
 
 .eyebrowText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -116,7 +116,7 @@
 /* ── Section title ── */
 .title {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 800;
   line-height: 1.12;
   letter-spacing: -0.4px;
@@ -131,7 +131,7 @@
 
 /* ── Sub text ── */
 .sub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.8;
   max-width: 480px;
@@ -204,7 +204,7 @@
 }
 
 .featureTitle {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   line-height: 1.35;
@@ -212,7 +212,7 @@
 }
 
 .featureDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.62;
 }
@@ -257,7 +257,7 @@
 }
 
 .scoreLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: var(--text3);
   margin-top: 10px;
   letter-spacing: 2.5px;
@@ -307,7 +307,7 @@
 }
 
 .tierCardLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: var(--text3);
   text-transform: uppercase;
   letter-spacing: 1.2px;
@@ -368,11 +368,11 @@
   }
 
   .title {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
   }
 
   .sub {
-    font-size: clamp(15px, 1.5vw, 17px);
+    font-size: 15px;
   }
 
   .featureItem {
@@ -380,7 +380,7 @@
   }
 
   .featureTitle {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
   }
 
   .visual {

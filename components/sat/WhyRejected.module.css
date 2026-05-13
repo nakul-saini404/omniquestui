@@ -19,7 +19,7 @@
 }
 
 .rejectedSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.55);
   margin-bottom: 48px;
   max-width: 540px;
@@ -51,14 +51,14 @@
 
 .rejTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #fff;
   margin-bottom: 8px;
 }
 
 .rejDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.5);
   line-height: 1.7;
 }

@@ -50,7 +50,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -98,7 +98,7 @@
 }
 
 .secSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   line-height: 1.75;
 }
@@ -134,7 +134,7 @@
 .table thead th {
   padding: 16px 20px;
   text-align: left;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -150,7 +150,7 @@
 
 .thSub {
   display: block;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   opacity: 0.6;
   text-transform: none;
   letter-spacing: 0;
@@ -249,7 +249,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -292,7 +292,7 @@
 }
 
 .trapText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   line-height: 1.6;
 }
 .trapTextBad  { color: rgba(255, 255, 255, 0.5); }
@@ -305,7 +305,7 @@
 }
 
 .actSubtitle {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: rgba(255, 255, 255, 0.65);
   line-height: 1.7;
   text-align: center;
@@ -336,7 +336,7 @@
 }
 
 .actCardName {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 8px;
@@ -397,7 +397,7 @@
 }
 
 .shiftLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -418,7 +418,7 @@
 .shiftQGood { color: #ffffff; }
 
 .shiftArrow {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #d4a843;
   font-weight: 700;
   text-align: center;
@@ -443,7 +443,7 @@
 
 .spTitle {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #d4a843;
   margin-bottom: 10px;
@@ -451,7 +451,7 @@
 }
 
 .spDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.6);
   line-height: 1.75;
 }
@@ -475,7 +475,7 @@
 }
 
 .spBadSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   opacity: 0.6;
   margin-top: 4px;
   display: block;
@@ -498,7 +498,7 @@
 }
 
 .spGoodSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.5);
   margin-top: 6px;
   display: block;

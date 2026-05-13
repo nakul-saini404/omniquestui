@@ -84,7 +84,7 @@
 }
 
 .examScoreSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(245, 240, 232, 0.45);
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -99,7 +99,7 @@
 .examBarLabel {
   display: flex;
   justify-content: space-between;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: rgba(245, 240, 232, 0.6);
   margin-bottom: 6px;
 }
@@ -145,7 +145,7 @@
   gap: 6px;
   padding: 4px 14px;
   border-radius: 100px;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -157,7 +157,7 @@
 
 .secTitle {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 900;
   line-height: 1.1;
   color: #0b1c3d;
@@ -178,7 +178,7 @@
 }
 
 .secSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   line-height: 1.75;
   max-width: 560px;
@@ -221,14 +221,14 @@
 .iconRed   { background: rgba(200, 75,  49,  0.10); }
 
 .examListHead {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #0b1c3d;
   margin: 0 0 2px 0;
 }
 
 .examListBody {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   line-height: 1.6;
   margin: 0;

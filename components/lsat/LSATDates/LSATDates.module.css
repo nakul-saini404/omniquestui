@@ -33,7 +33,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -44,7 +44,7 @@
 
 .heading {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #0b1c3d;
   letter-spacing: -0.02em;
@@ -54,7 +54,7 @@
 .heading em { color: #1a4a8a; font-style: italic; }
 
 .sub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   max-width: 580px;
   margin: 0 auto 36px;
@@ -74,7 +74,7 @@
   margin-bottom: 32px;
 }
 .noticeIcon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
-.notice p { font-size: clamp(15px, 1.5vw, 17px); color: #0b1c3d; line-height: 1.65; }
+.notice p { font-size: 15px; color: #0b1c3d; line-height: 1.65; }
 .notice strong { color: #1a4a8a; }
 
 /* ── Tabs ── */
@@ -128,7 +128,7 @@
 .table thead th {
   padding: 14px 18px;
   text-align: left;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -146,7 +146,7 @@
 
 .table tbody td {
   padding: 16px 18px;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   vertical-align: middle;
 }
@@ -222,7 +222,7 @@
   margin-bottom: 40px;
 }
 .footnotes p {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #718096;
   line-height: 1.65;
 }
@@ -240,7 +240,7 @@
   border-radius: 10px;
 }
 .cta p {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 16px;
   line-height: 1.6;

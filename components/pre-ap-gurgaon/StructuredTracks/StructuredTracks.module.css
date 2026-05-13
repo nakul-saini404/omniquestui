@@ -20,7 +20,7 @@
 /* ── HEADER UTILITIES ── */
 .sTag {
   display: inline-block;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: 1.3px;
   text-transform: uppercase;
@@ -36,14 +36,14 @@
 }
 .sHead {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #0b1c3d;
   line-height: 1.22;
   margin-bottom: 14px;
 }
 .sSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   line-height: 1.75;
   max-width: 580px;
@@ -109,7 +109,7 @@
 
 /* Pill badge inside header */
 .progBadge {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -125,7 +125,7 @@
 /* Programme title */
 .progTitle {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: #ffffff;
   line-height: 1.3;
 }
@@ -137,7 +137,7 @@
 
 /* Short description paragraph */
 .progDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #4a5568;
   line-height: 1.65;
   margin-bottom: 16px;
@@ -145,7 +145,7 @@
 
 /* Feature detail row */
 .progDetail {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #718096;
   display: flex;
   gap: 8px;

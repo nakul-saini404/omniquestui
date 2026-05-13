@@ -99,7 +99,7 @@
 /* Matches .section-label → gold */
 .sectionLabel {
   display: block;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -110,7 +110,7 @@
 /* Matches .section-label.dk → navy3 */
 .sectionLabelDk {
   display: block;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -121,7 +121,7 @@
 /* Matches .section-title */
 .sectionTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   line-height: 1.22;
   color: var(--text);
@@ -146,7 +146,7 @@
 /* Matches .section-sub */
 .sectionSub {
   color: var(--text2);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   max-width: 580px;
   line-height: 1.75;
 }
@@ -186,7 +186,7 @@
 /* Matches .info-box h4 */
 .infoBoxTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 0.4rem;
@@ -195,7 +195,7 @@
 
 /* Matches .info-box p */
 .infoBoxText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.7;
 }
@@ -260,7 +260,7 @@
 /* Matches .card h3 */
 .cardTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--text);
   margin-bottom: 0.45rem;
@@ -268,7 +268,7 @@
 
 /* Matches .card p */
 .cardBody {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.65;
 }
@@ -326,7 +326,7 @@
 /* Matches .sat-block h3 */
 .satBlockTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--text);
   margin-bottom: 1rem;
@@ -369,7 +369,7 @@
 
 /* Matches .topic-list li */
 .topicItem {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   padding: 0.32rem 0;
   border-bottom: 1px solid var(--line);
@@ -425,6 +425,6 @@
   }
 
   .sectionTitle {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
   }
 }

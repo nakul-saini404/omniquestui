@@ -96,7 +96,7 @@
 
 .featureItem {
   font-family:   'DM Mono', monospace;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color:         rgba(240,237,230,0.38);
   padding:       0.42rem 0;
   border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -113,7 +113,7 @@
 /* ── CTA link (HTML .ptrio-cta) ─────────────────────────────────────────── */
 .cta {
   font-family:    'DM Mono', monospace;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color:          #C9A84C;

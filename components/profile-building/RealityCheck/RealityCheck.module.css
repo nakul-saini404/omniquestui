@@ -55,7 +55,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -73,7 +73,7 @@
 
 .heading {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #ffffff;
   letter-spacing: -0.02em;
@@ -87,7 +87,7 @@
 }
 
 .sub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.6);
   line-height: 1.75;
   max-width: 100%;
@@ -197,7 +197,7 @@
 
 /* ── Item title ─────────────────────────────────────────────────────────── */
 .itemTitle {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #ffffff;
   flex: 1;
@@ -232,7 +232,7 @@
 
 .bodyInner {
   padding: 0 20px 18px 68px;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.6);
   line-height: 1.75;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -283,7 +283,7 @@
   }
 
   .itemTitle {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
   }
 
   .tab {

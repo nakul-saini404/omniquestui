@@ -84,7 +84,7 @@
   align-items: center;
   gap: 8px;
   font-family: var(--ff-body);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -110,7 +110,7 @@
 /* Heading */
 .heading {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 900;
   line-height: 1.12;
   letter-spacing: -0.025em;
@@ -139,7 +139,7 @@
 
 /* Sub-copy */
 .sub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   line-height: 1.75;
   color: rgba(255, 255, 255, 0.68);
   margin: 0 0 30px;
@@ -165,7 +165,7 @@
   display: flex;
   align-items: flex-start;
   gap: 11px;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.78);
   line-height: 1.55;
 }
@@ -198,7 +198,7 @@
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   transition: color 0.22s;
@@ -265,7 +265,7 @@
 
 .formTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   margin: 0 0 4px;
@@ -273,7 +273,7 @@
 }
 
 .formSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text3);
   margin: 0;
 }
@@ -311,7 +311,7 @@
 
 .label {
   display: block;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.07em;
@@ -377,7 +377,7 @@
   border: 2px solid var(--navy);
   border-radius: var(--radius);
   font-family: var(--ff-body);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.02em;
   cursor: pointer;
@@ -453,14 +453,14 @@
 
 .successTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   margin: 0 0 10px;
 }
 
 .successText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.65;
   margin: 0 0 22px;
@@ -519,7 +519,7 @@
   }
 
   .heading {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
   }
 }
 

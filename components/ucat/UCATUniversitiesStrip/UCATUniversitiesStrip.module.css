@@ -29,7 +29,7 @@
 
 /* ── Label ── */
 .label {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -113,7 +113,7 @@
 @media (max-width: 600px) {
   .strip   { padding: 18px 0; }
   .inner   { padding: 0 16px; }
-  .label   { font-size: clamp(17px, 2vw, 20px); margin-bottom: 12px; }
+  .label   { font-size: 20px; margin-bottom: 12px; }
   .pill    { font-size: 12px; padding: 6px 14px; }
   /* Slightly faster on mobile so it feels active */
   .marqueeTrack { animation-duration: 20s; }

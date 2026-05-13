@@ -77,7 +77,7 @@
 }
 
 .sectionLabel span {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -87,7 +87,7 @@
 /* ── Main heading ───────────────────────────────────────────── */
 .heading {
   font-family: "Syne", sans-serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 16px;
@@ -107,7 +107,7 @@
 .para {
   color: var(--gray-400);
   margin-bottom: 16px;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 300;
   line-height: 1.65;
 }
@@ -127,7 +127,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--gray-300);
   line-height: 1.5;
 }
@@ -137,7 +137,7 @@
   color: var(--green-400);
   font-weight: 700;
   flex-shrink: 0;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
 }
 
 /* ── Ghost button wrapper ───────────────────────────────────── */
@@ -251,7 +251,7 @@
   }
 
   .heading {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
   }
 
   .grid {

@@ -107,7 +107,7 @@
 ════════════════════════════════════════════════ */
 .heroSub {
   color: rgba(255,255,255,0.75);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   max-width: 560px;
   margin-bottom: 10px;
   line-height: 1.75;
@@ -214,13 +214,13 @@
 
 .estTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: var(--navy);
   margin-bottom: 6px;
 }
 
 .estSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: #6b7280;
   margin-bottom: 20px;
 }
@@ -232,7 +232,7 @@
   align-items: center;
   margin-bottom: 10px;
 }
-.scoreLabel { font-size: clamp(17px, 2vw, 20px); color: #6b7280; }
+.scoreLabel { font-size: 20px; color: #6b7280; }
 .scoreVal   { font-weight: 700; color: var(--navy); font-size: 15px; }
 
 .scoreBarTrack {
@@ -265,8 +265,8 @@
   align-items: center;
   margin-bottom: 16px;
 }
-.estTotal span  { color: rgba(255,255,255,0.7); font-size: clamp(15px, 1.5vw, 17px); }
-.estTotalSub    { font-family: var(--ff-head); font-size: clamp(15px, 1.5vw, 17px); color: var(--gold); }
+.estTotal span  { color: rgba(255,255,255,0.7); font-size: 15px; }
+.estTotalSub    { font-family: var(--ff-head); font-size: 15px; color: var(--gold); }
 .estTotalMain   { font-family: var(--ff-head); font-size: 28px; color: var(--gold); }
 
 /* badges */

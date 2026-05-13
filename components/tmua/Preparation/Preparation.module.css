@@ -22,7 +22,7 @@
 
 .sectionTitle {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 900;
   color: #ffffff;
   line-height: 1.2;
@@ -30,7 +30,7 @@
 }
 
 .sectionSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.58);
   max-width: 620px;
   margin-bottom: 40px;
@@ -93,7 +93,7 @@
 
 .revPhaseTitle {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: #C9972B;
   margin-bottom: 11px;
   font-weight: 700;
@@ -106,7 +106,7 @@
 }
 
 .revPhaseItem {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.62);
   line-height: 1.7;
   padding: 3px 0;
@@ -149,14 +149,14 @@
 }
 
 .prepTipTitle {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 5px;
 }
 
 .prepTipDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.52);
   line-height: 1.65;
 }

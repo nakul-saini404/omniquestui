@@ -56,7 +56,7 @@
 
 .sectionTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   line-height: 1.25;
@@ -77,7 +77,7 @@
 }
 
 .sectionSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   max-width: 600px;
   line-height: 1.75;
@@ -169,7 +169,7 @@
 
 /* ─── CARD TEXT ───────────────────────────────────────────────────────── */
 .ccLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.9px;
@@ -179,7 +179,7 @@
 
 .ccTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 8px;
@@ -187,7 +187,7 @@
 
 /* ─── CARD BODY ───────────────────────────────────────────────────────── */
 .ccBody {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.7;
 }
@@ -207,7 +207,7 @@
 .ccBody :global(.sub),
 .ccBody p.sub {
   margin-top: 8px;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text3);
   line-height: 1.55;
 }
@@ -221,7 +221,7 @@
   border: 1px solid var(--line2);
   padding: 6px 12px;
   border-radius: var(--radius);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 600;
   color: var(--navy);
   text-decoration: none;

@@ -47,7 +47,7 @@
 }
 
 .sectionHead p {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
     color: #4a5568;
     line-height: 1.7;
     margin: 0;
@@ -67,7 +67,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -194,7 +194,7 @@
 
 .resultCardName {
     font-family: "Playfair Display", Georgia, serif;
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
     font-weight: 700;
     color: #0b1c3d;
     line-height: 1.3;

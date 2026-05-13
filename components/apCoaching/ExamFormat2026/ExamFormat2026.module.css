@@ -60,7 +60,7 @@
 }
 
 .sectionLabel span {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -70,7 +70,7 @@
 /* ── Main heading ───────────────────────────────────────────── */
 .mainTitle {
   font-family: "Syne", sans-serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 12px;
@@ -80,7 +80,7 @@
 .mainDesc {
   color: var(--gray-400);
   max-width: 620px;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 300;
   margin-bottom: 0;
 }
@@ -122,7 +122,7 @@
 
 .formatCardTitle {
   font-family: "Syne", sans-serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   margin-bottom: 8px;
   color: var(--text-primary);
@@ -130,7 +130,7 @@
 
 .formatCardSubtitle {
   color: var(--gray-400);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   margin-bottom: 24px;
   line-height: 1.5;
 }
@@ -185,7 +185,7 @@
 
 .structureTitle {
   font-family: "Syne", sans-serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   margin-bottom: 32px;
   color: var(--text-primary);
@@ -251,7 +251,7 @@
 
 .timelineHeading {
   font-family: "Syne", sans-serif;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   margin-bottom: 4px;
   color: var(--text-primary);
@@ -259,7 +259,7 @@
 }
 
 .timelineText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--gray-400);
   margin: 0;
   line-height: 1.65;
@@ -283,11 +283,11 @@
   }
 
   .mainTitle {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
   }
 
   .structureTitle {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
   }
 
   .timelineItem {

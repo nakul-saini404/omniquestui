@@ -41,7 +41,7 @@
 }
 
 .authLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: var(--text3);
   margin-top: 4px;
   letter-spacing: 0.06em;
@@ -69,7 +69,7 @@
 }
 
 .testiText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.75;
   font-style: italic;
@@ -96,7 +96,7 @@
 }
 
 .testiName {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
 }
@@ -135,7 +135,7 @@
 }
 
 .baColLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -156,7 +156,7 @@
   gap: 10px;
   padding: 11px 0;
   border-bottom: 1px solid var(--line);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
 }
 
 .afterCol .baItem {
@@ -218,21 +218,21 @@
 }
 
 .ilCard h4 {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 4px;
 }
 
 .ilCard p {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text3);
   line-height: 1.55;
 }
 
 .ilArrow {
   margin-top: 8px;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--red);
   font-weight: 700;
 }

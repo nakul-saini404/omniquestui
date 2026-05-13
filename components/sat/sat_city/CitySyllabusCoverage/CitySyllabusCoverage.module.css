@@ -49,7 +49,7 @@
    HEADER
 ════════════════════════════════════════════════ */
 .sectionLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -64,7 +64,7 @@
 
 .heading {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   line-height: 1.2;
@@ -77,7 +77,7 @@
 }
 
 .subText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.75;
   max-width: 640px;
@@ -102,7 +102,7 @@
   padding: 14px 20px;
   background: var(--navy);
   border-radius: var(--radius);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
 }
 
 .examBarLabel {
@@ -127,7 +127,7 @@
 }
 
 .examFactLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: rgba(255, 255, 255, 0.55);
 }
 
@@ -136,7 +136,7 @@
   content: "·";
   color: rgba(255, 255, 255, 0.2);
   margin-right: 14px;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
 }
 
 .examBarNote {
@@ -225,7 +225,7 @@
 
 .cardTitle {
   font-family: var(--ff-body);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 4px;
@@ -263,7 +263,7 @@
 }
 
 .topicText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.6;
 }
@@ -346,6 +346,6 @@
   }
 
   .heading {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: 20px;
   }
 }

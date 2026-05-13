@@ -81,7 +81,7 @@
 /* ── HEADING ──────────────────────────────────────────────────── */
 .ctaHeading {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 900;
   color: #ffffff;
   margin-bottom: 14px;
@@ -91,7 +91,7 @@
 /* ── SUB COPY ─────────────────────────────────────────────────── */
 .ctaSub {
   font-family: var(--ff-body);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.68);
   margin-bottom: 40px;
   line-height: 1.75;
@@ -179,7 +179,7 @@
   padding: 16px;
   border-radius: 10px;
   font-family: var(--ff-body);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.3px;
   cursor: pointer;
@@ -209,7 +209,7 @@
 /* Matches .cta-trust-item */
 .trustItem {
   font-family: var(--ff-body);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.55);
   display: flex;
   align-items: center;
@@ -242,7 +242,7 @@
 
 .successHeading {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 8px;
@@ -250,7 +250,7 @@
 
 .successText {
   font-family: var(--ff-body);
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.65);
   line-height: 1.7;
   margin-bottom: 20px;
@@ -321,6 +321,6 @@
   }
 
   .trustItem {
-    font-size: clamp(15px, 1.5vw, 17px);
+    font-size: 15px;
   }
 }

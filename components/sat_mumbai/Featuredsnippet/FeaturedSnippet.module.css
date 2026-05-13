@@ -27,7 +27,7 @@
 
 /* ── HEADER ── */
 .sectionLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 1.4px;
   text-transform: uppercase;
@@ -37,7 +37,7 @@
 
 .sectionTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: var(--navy);
   margin-bottom: 32px;
   line-height: 1.2;
@@ -58,7 +58,7 @@
 
 /* ── INTRO PARA ── */
 .introPara {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--gray);
   margin-bottom: 24px;
   line-height: 1.75;
@@ -89,14 +89,14 @@
 }
 
 .infoBlockHead h3 {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   font-family: var(--ff-body);
 }
 
 .infoBlock p {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--gray);
   line-height: 1.65;
 }
@@ -149,7 +149,7 @@
 }
 
 .testiText {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--gray);
   line-height: 1.7;
   margin-bottom: 16px;
@@ -179,7 +179,7 @@
 
 .testiName {
   font-weight: 600;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: var(--navy);
   font-family: var(--ff-body);
 }
@@ -200,7 +200,7 @@
 }
 
 .mumbaiHighlight h3 {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 10px;
@@ -208,7 +208,7 @@
 }
 
 .mumbaiSub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--gray);
   margin-bottom: 0;
   line-height: 1.65;

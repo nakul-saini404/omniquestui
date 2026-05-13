@@ -67,7 +67,7 @@
 }
 
 .heroLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: rgba(255, 255, 255, 0.4);
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -90,14 +90,14 @@
 
 .heroSubtitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: rgba(255, 255, 255, 0.55);
   font-weight: 400;
   margin-bottom: 22px;
 }
 
 .heroDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.68);
   margin-bottom: 34px;
   line-height: 1.85;
@@ -171,7 +171,7 @@
 
 .heroCardTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: var(--gold);
   font-weight: 700;
   margin-bottom: 18px;
@@ -192,7 +192,7 @@
 }
 
 .heroStatLabel {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   color: rgba(255, 255, 255, 0.5);
 }
 

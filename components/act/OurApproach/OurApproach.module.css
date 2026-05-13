@@ -15,7 +15,7 @@
 /* ── Eyebrow tag ── */
 .tag {
   display: inline-block;
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--red);
@@ -26,7 +26,7 @@
 /* ── Section heading ── */
 .title {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 900;
   color: var(--navy);
   line-height: 1.15;
@@ -40,7 +40,7 @@
 
 /* ── Sub-text ── */
 .sub {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   max-width: 580px;
   margin-bottom: 56px;
@@ -133,7 +133,7 @@
 /* ── Step text ── */
 .stepTitle {
   font-family: var(--ff-head);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 8px;
@@ -145,7 +145,7 @@
 }
 
 .stepDesc {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: 15px;
   color: var(--text2);
   line-height: 1.6;
 }
