@@ -23,7 +23,7 @@
 
 /* ── Section label — matches .section-label ── */
 .sectionLabel {
-  font-size: 12px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 1.4px;
   text-transform: uppercase;
@@ -39,7 +39,7 @@
 /* ── Section title — matches .section-title ── */
 .sectionTitle {
   font-family: var(--ff-head, "Playfair Display", serif);
-  font-size: clamp(28px, 3vw, 40px);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: var(--navy, #0b1c3d);
   line-height: 1.2;
@@ -55,7 +55,7 @@
 /* ── Section sub — matches .section-sub ── */
 .sectionSub {
   color: var(--gray, #6b7280);
-  font-size: 16px;
+  font-size: clamp(15px, 1.5vw, 17px);
   max-width: 600px;
   margin-bottom: 48px;
   line-height: 1.65;
@@ -94,7 +94,7 @@
 
 /* ── Card title — matches .res-card h3 ── */
 .resTitle {
-  font-size: 15px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: var(--navy, #0b1c3d);
   margin-bottom: 8px;
@@ -104,7 +104,7 @@
 
 /* ── Card description — matches .res-card p ── */
 .resDesc {
-  font-size: 13px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--gray, #6b7280);
   margin-bottom: 14px;
   line-height: 1.65;
@@ -113,7 +113,7 @@
 
 /* ── CTA link — matches .res-link ── */
 .resLink {
-  font-size: 13px;
+  font-size: clamp(15px, 1.5vw, 17px);
   font-weight: 600;
   color: var(--gold, #d4a843);
   text-decoration: none;

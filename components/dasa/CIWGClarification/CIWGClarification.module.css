@@ -12,7 +12,7 @@
 }
 
 .container {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -41,7 +41,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 11px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -100,7 +100,7 @@
 
 .ciwgQ p {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 18px;
+  font-size: clamp(15px, 1.5vw, 17px);
   font-style: italic;
   color: rgba(255, 255, 255, 0.75);
   line-height: 1.6;
@@ -135,7 +135,7 @@
 }
 
 .ciwgAnswer p {
-  font-size: 15px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: #4a5568;
   line-height: 1.8;
 }
@@ -202,7 +202,7 @@
   }
 
   .ciwgQ p {
-    font-size: 16px;
+    font-size: clamp(15px, 1.5vw, 17px);
   }
 
   .ciwgYes {

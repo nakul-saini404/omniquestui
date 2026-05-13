@@ -37,7 +37,7 @@
 
 /* ── INNER (header only, not track) ── */
 .inner {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -65,14 +65,14 @@
 }
 .sHead {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 32px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: #ffffff;
   line-height: 1.22;
   margin-bottom: 10px;
 }
 .sSub {
-  font-size: 15px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(255, 255, 255, 0.55);
   line-height: 1.75;
   max-width: 520px;
@@ -170,7 +170,7 @@
 
 .cardName {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 15px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: #ffffff;
   line-height: 1.3;

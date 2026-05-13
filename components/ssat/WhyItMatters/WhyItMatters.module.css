@@ -22,7 +22,7 @@
 
 /* ── Container ── */
 .container {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -35,7 +35,7 @@
 /* ── Section label pill ── */
 .sectionLabel {
   display: inline-block;
-  font-size: 11.5px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -51,7 +51,7 @@
 /* ── Section title ── */
 .sectionTitle {
   font-family: var(--ff-head);
-  font-size: clamp(28px, 3.5vw, 40px);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: var(--white);
   line-height: 1.2;
@@ -65,7 +65,7 @@
 
 /* ── Section subtitle ── */
 .sectionSub {
-  font-size: 16px;
+  font-size: clamp(17px, 2vw, 20px);
   color: rgba(255, 255, 255, 0.65);
   max-width: 560px;
   line-height: 1.7;
@@ -116,14 +116,14 @@
 
 .impTitle {
   font-family: var(--ff-head);
-  font-size: 18px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 600;
   color: var(--white);
   margin-bottom: 10px;
 }
 
 .impText {
-  font-size: 14px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(255, 255, 255, 0.65);
   line-height: 1.7;
   font-family: var(--ff-body);
@@ -142,6 +142,6 @@
   }
 
   .sectionTitle {
-    font-size: 26px;
+    font-size: clamp(17px, 2vw, 20px);
   }
 }

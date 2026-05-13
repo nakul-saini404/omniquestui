@@ -39,7 +39,7 @@
 /* ─── INNER LAYOUT ────────────────────────────────────── */
 .heroInner {
   position: relative;
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 420px;
@@ -93,7 +93,7 @@
 
 /* ─── SUBTITLE ────────────────────────────────────────── */
 .heroSub {
-  font-size: 1rem;
+  font-size: clamp(17px, 2vw, 20px);
   color: rgba(241, 245, 255, 0.5);
   line-height: 1.8;
   max-width: 480px;
@@ -177,7 +177,7 @@
 }
 
 .statLabel {
-  font-size: 0.72rem;
+  font-size: clamp(17px, 2vw, 20px);
   color: rgba(241, 245, 255, 0.25);
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -220,7 +220,7 @@
 /* ─── CARD TITLE ──────────────────────────────────────── */
 .cardTitle {
   font-family: 'Syne', sans-serif;
-  font-size: 1.1rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 800;
   color: #F1F5FF;
   text-align: center;
@@ -249,7 +249,7 @@
 }
 
 .bandLabel {
-  font-size: 0.78rem;
+  font-size: clamp(17px, 2vw, 20px);
   color: rgba(241, 245, 255, 0.5);
   flex: 1;
 }

@@ -44,7 +44,7 @@
 
 /* ── Layout ── */
 .container {
-  max-width: 1180px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 24px;
   position: relative;
@@ -73,7 +73,7 @@
 }
 
 .sectionLabel span {
-  font-size: 0.78rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -82,7 +82,7 @@
 
 .title {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 800;
   line-height: 1.15;
   color: #f8fafc;
@@ -177,7 +177,7 @@
 /* ── Step title ── */
 .stepTitle {
   font-family: 'Syne', sans-serif;
-  font-size: 0.95rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: #f8fafc;
   margin-bottom: 8px;
@@ -187,7 +187,7 @@
 /* ── Step description ── */
 .stepDesc {
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.82rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--gray-400);
   line-height: 1.6;
   margin: 0;

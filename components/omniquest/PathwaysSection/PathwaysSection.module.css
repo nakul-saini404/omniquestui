@@ -14,7 +14,7 @@
 
 /* ── Header (left-aligned split layout, HTML .pathways-header) ───────────── */
 .header {
-  max-width:       1200px;
+  max-width: 1600px;
   margin:          0 auto 4rem;
   display:         flex;
   flex-direction:  column;
@@ -27,7 +27,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap:                   1px;                    /* exact HTML gap */
   background:            rgba(255,255,255,0.07); /* 1px gap colour */
-  max-width:             1200px;
+  max-width: 1600px;
   margin:                0 auto;
 }
 
@@ -96,7 +96,7 @@
 
 .featureItem {
   font-family:   'DM Mono', monospace;
-  font-size:     0.67rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   color:         rgba(240,237,230,0.38);
   padding:       0.42rem 0;
   border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -113,7 +113,7 @@
 /* ── CTA link (HTML .ptrio-cta) ─────────────────────────────────────────── */
 .cta {
   font-family:    'DM Mono', monospace;
-  font-size:      0.67rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color:          #C9A84C;

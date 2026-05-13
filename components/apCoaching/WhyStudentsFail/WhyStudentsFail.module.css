@@ -83,7 +83,7 @@
 
 /* ── Layout ─────────────────────────────────────────────── */
 .container {
-  max-width: 1100px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 24px;
   position: relative;
@@ -112,7 +112,7 @@
 }
 
 .sectionLabel span {
-  font-size: 0.75rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -121,7 +121,7 @@
 
 .title {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(1.7rem, 3.2vw, 2.9rem);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 800;
   line-height: 1.18;
   color: var(--text-primary);
@@ -141,7 +141,7 @@
 
 .subtitle {
   font-family: 'DM Sans', sans-serif;
-  font-size: 1rem;
+  font-size: clamp(17px, 2vw, 20px);
   color: var(--gray-400);
   max-width: 680px;
   margin: 0 auto;
@@ -193,7 +193,7 @@
 
 .statLabel {
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.78rem;
+  font-size: clamp(17px, 2vw, 20px);
   color: var(--gray-400);
   text-align: center;
   max-width: 160px;
@@ -215,7 +215,7 @@
   align-items: center;
   gap: 8px;
   font-family: 'Syne', sans-serif;
-  font-size: 0.72rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -239,7 +239,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.65rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 800;
   flex-shrink: 0;
 }
@@ -386,7 +386,7 @@
 
 .fixTitle {
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.9rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 600;
   color: var(--amber-400);
   margin: 0 0 5px;
@@ -434,7 +434,7 @@
 
 .ctaText {
   font-family: 'DM Sans', sans-serif;
-  font-size: 1.05rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   font-weight: 500;
   color: var(--gray-300);
   max-width: 520px;

@@ -54,7 +54,7 @@
 }
 
 .eyebrow {
-  font-size: 0.68rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -64,7 +64,7 @@
 
 .title {
   font-family: var(--ff-head);
-  font-size: clamp(1.8rem, 3.5vw, 2.55rem);
+  font-size: clamp(17px, 2vw, 20px);
   line-height: 1.22;
   font-weight: 700;
   color: var(--text);
@@ -86,7 +86,7 @@
 
 .subtitle {
   color: var(--text2);
-  font-size: 0.92rem;
+  font-size: clamp(17px, 2vw, 20px);
   max-width: 560px;
   line-height: 1.75;
 }
@@ -184,7 +184,7 @@
 }
 
 .mythLabel {
-  font-size: 0.66rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -207,7 +207,7 @@
 
 /* Myth text */
 .mythText {
-  font-size: 0.84rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--text2);
   line-height: 1.6;
   font-style: italic;
@@ -246,7 +246,7 @@
 }
 
 .factLabel {
-  font-size: 0.66rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -255,7 +255,7 @@
 
 /* Fact text */
 .factText {
-  font-size: 0.84rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--text);
   line-height: 1.68;
   margin: 0;
@@ -282,6 +282,6 @@
 
   .mythText,
   .factText {
-    font-size: 0.82rem;
+    font-size: clamp(15px, 1.5vw, 17px);
   }
 }

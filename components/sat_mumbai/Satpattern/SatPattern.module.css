@@ -19,13 +19,13 @@
 }
 
 .container {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
 /* ── HEADER ── */
 .sectionLabel {
-  font-size: 12px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 1.4px;
   text-transform: uppercase;
@@ -35,7 +35,7 @@
 
 .sectionTitle {
   font-family: var(--ff-head);
-  font-size: clamp(28px, 3vw, 40px);
+  font-size: clamp(17px, 2vw, 20px);
   color: var(--navy);
   line-height: 1.2;
   margin-bottom: 16px;
@@ -47,7 +47,7 @@
 }
 
 .sectionSub {
-  font-size: 16px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--gray);
   max-width: 600px;
   margin-bottom: 48px;
@@ -76,14 +76,14 @@
 }
 
 .patternHead h3 {
-  font-size: 17px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   margin-bottom: 4px;
   font-family: var(--ff-body);
 }
 
 .patternHead p {
-  font-size: 12px;
+  font-size: clamp(17px, 2vw, 20px);
   color: rgba(255, 255, 255, 0.6);
   font-family: var(--ff-body);
 }
@@ -99,7 +99,7 @@
   justify-content: space-between;
   padding: 9px 0;
   border-bottom: 1px solid var(--light-gray);
-  font-size: 14px;
+  font-size: clamp(15px, 1.5vw, 17px);
   font-family: var(--ff-body);
 }
 
@@ -125,7 +125,7 @@
 }
 
 .modBox h4 {
-  font-size: 13px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 600;
   color: var(--navy);
   margin-bottom: 4px;
@@ -133,7 +133,7 @@
 }
 
 .modBox p {
-  font-size: 13px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--gray);
   line-height: 1.6;
   font-family: var(--ff-body);

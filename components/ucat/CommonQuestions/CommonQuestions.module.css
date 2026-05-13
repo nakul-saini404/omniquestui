@@ -39,7 +39,7 @@
 
 .sectionTitle {
   font-family: var(--ff-head);
-  font-size: clamp(26px, 3.5vw, 38px);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 900;
   color: var(--navy);
   line-height: 1.18;
@@ -48,7 +48,7 @@
 
 .sectionSub {
   font-family: var(--ff-body);
-  font-size: 16px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--text2);
   line-height: 1.75;
   margin: 0 auto;
@@ -109,7 +109,7 @@
 /* ── QUESTION TEXT ────────────────────────────────────────────── */
 .faqQ {
   font-family: var(--ff-body);
-  font-size: 16px;
+  font-size: clamp(15px, 1.5vw, 17px);
   font-weight: 600;
   color: var(--navy);
   line-height: 1.4;
@@ -160,7 +160,7 @@
 /* ── ANSWER TEXT ──────────────────────────────────────────────── */
 .faqAnswer {
   font-family: var(--ff-body);
-  font-size: 14px;
+  font-size: clamp(15px, 1.5vw, 17px);
   /* muted: #5A6A85 */
   color: #5a6a85;
   line-height: 1.75;

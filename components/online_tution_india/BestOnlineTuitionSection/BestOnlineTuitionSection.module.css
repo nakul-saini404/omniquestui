@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* ─────────────────────────────────────────────
+   Scroll reveal
+───────────────────────────────────────────── */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.in {
+    opacity: 1;
+    transform: none;
+}
+
+.revealD1 {
+    transition-delay: 0.1s;
+}
+
+/* ─────────────────────────────────────────────
+   Section
+───────────────────────────────────────────── */
+.section {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: #f5f0e8;
+    padding: 96px 0;
+}
+
+/* ─────────────────────────────────────────────
+   Container — max 1600px, centred, fluid padding
+───────────────────────────────────────────── */
+.container {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 clamp(16px, 4vw, 80px);
+}
+
+/* ─────────────────────────────────────────────
+   Two-column layout: fixed 360px left + 1fr right
+───────────────────────────────────────────── */
+.layout {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 56px;
+    align-items: start;
+}
+
+/* ─────────────────────────────────────────────
+   Left column — intro
+───────────────────────────────────────────── */
+.intro {
+    /* intentionally empty, matches .best-intro{} */
+}
+
+/* ─────────────────────────────────────────────
+   Section label
+───────────────────────────────────────────── */
+.secLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: clamp(17px, 2vw, 20px);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d4a843;
+    margin-bottom: 14px;
+}
+
+.secLabelLine {
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background: #d4a843;
+    flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────────
+   Heading
+───────────────────────────────────────────── */
+.secHeading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(24px, 3vw, 42px);
+    font-weight: 700;
+    color: #0b1c3d;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 14px;
+}
+
+.secHeading em {
+    color: #1a4a8a;
+    font-style: italic;
+}
+
+/* ─────────────────────────────────────────────
+   Sub-paragraph
+───────────────────────────────────────────── */
+.secSub {
+    font-size: clamp(15px, 1.5vw, 17px);
+    color: #4a5568;
+    line-height: 1.75;
+    /* max-width: 100% in the original — let it fill the column */
+}
+
+/* ─────────────────────────────────────────────
+   Checklist
+───────────────────────────────────────────── */
+.checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.checkItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    background: #ffffff;
+    border-radius: 10px;
+    border: 1px solid rgba(11, 28, 61, 0.07);
+    box-shadow: 0 4px 24px rgba(11, 28, 61, 0.1);
+}
+
+.checkIcon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.checkText strong {
+    display: block;
+    font-size: clamp(15px, 1.5vw, 17px);
+    font-weight: 700;
+    color: #0b1c3d;
+    margin-bottom: 2px;
+}
+
+.checkText span {
+    font-size: clamp(15px, 1.5vw, 17px);
+    color: #4a5568;
+    line-height: 1.55;
+}
+
+/* ─────────────────────────────────────────────
+   Right column — 2×3 numbered cards grid
+───────────────────────────────────────────── */
+.cardsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+/* ─────────────────────────────────────────────
+   Individual card
+───────────────────────────────────────────── */
+.card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 26px;
+    border: 1px solid rgba(11, 28, 61, 0.07);
+    box-shadow: 0 4px 24px rgba(11, 28, 61, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 48px rgba(11, 28, 61, 0.16);
+}
+
+/* Gold top accent bar */
+.cardAccent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #d4a843;
+}
+
+/* Large ghost number */
+.cardNum {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 44px;
+    font-weight: 900;
+    color: rgba(11, 28, 61, 0.06);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.cardTitle {
+    font-size: clamp(17px, 2vw, 20px);
+    font-weight: 700;
+    color: #0b1c3d;
+    margin-bottom: 8px;
+}
+
+.cardBody {
+    font-size: clamp(15px, 1.5vw, 17px);
+    color: #4a5568;
+    line-height: 1.65;
+}
+
+/* ─────────────────────────────────────────────
+   Responsive
+───────────────────────────────────────────── */
+
+/* ≤ 1024px — stack layout to single column */
+@media (max-width: 1024px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ≤ 860px — cards collapse to single column */
+@media (max-width: 860px) {
+    .cardsGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ≤ 480px — tighter section padding */
+@media (max-width: 480px) {
+    .section {
+        padding: 64px 0;
+    }
+}

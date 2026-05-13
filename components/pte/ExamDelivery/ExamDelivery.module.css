@@ -59,7 +59,7 @@
 }
 
 .sectionHead p {
-  font-size: 15.5px;
+  font-size: clamp(17px, 2vw, 20px);
   color: var(--muted);
   max-width: 620px;
   line-height: 1.7;
@@ -70,7 +70,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 11px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -143,7 +143,7 @@
 }
 
 .howStep h4 {
-  font-size: 13px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 6px;
@@ -151,7 +151,7 @@
 }
 
 .howStep p {
-  font-size: 12px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--muted);
   line-height: 1.6;
   font-family: var(--ff-sans);
@@ -184,7 +184,7 @@
 }
 
 .howDetailCard h4 {
-  font-size: 14px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 8px;
@@ -192,7 +192,7 @@
 }
 
 .howDetailCard p {
-  font-size: 13px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--muted);
   line-height: 1.7;
   font-family: var(--ff-sans);

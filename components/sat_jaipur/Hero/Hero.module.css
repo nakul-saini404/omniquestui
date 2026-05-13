@@ -155,7 +155,7 @@
 /* ── Headline ── */
 .headline {
   font-family: var(--ff-head);
-  font-size: clamp(2.25rem, 5.2vw, 3.8rem);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   line-height: 1.14;
   color: var(--navy);
@@ -188,7 +188,7 @@
 
 /* ── Sub copy ── */
 .sub {
-  font-size: 16px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--text2);
   line-height: 1.75;
   max-width: 580px;
@@ -270,7 +270,7 @@
 }
 
 .statLabel {
-  font-size: 11px;
+  font-size: clamp(17px, 2vw, 20px);
   color: var(--text3);
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -287,7 +287,7 @@
   }
 
   .headline {
-    font-size: clamp(2rem, 7vw, 2.6rem);
+    font-size: clamp(17px, 2vw, 20px);
   }
 
   .statsBar {

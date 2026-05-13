@@ -10,7 +10,7 @@
 }
 
 .sectionInner {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -35,7 +35,7 @@
   gap: 6px;
   padding: 4px 14px;
   border-radius: 100px;
-  font-size: 0.65rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -50,7 +50,7 @@
 
 .secTitle {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 900;
   line-height: 1.1;
   color: #0b1c3d;
@@ -63,7 +63,7 @@
 }
 
 .secSub {
-  font-size: 0.95rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: #4a5568;
   line-height: 1.75;
   max-width: 560px;
@@ -172,14 +172,14 @@
 }
 
 .currTitle {
-  font-size: 0.88rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: #0b1c3d;
   margin-bottom: 4px;
 }
 
 .currBody {
-  font-size: 0.76rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: #4a5568;
   line-height: 1.55;
 }

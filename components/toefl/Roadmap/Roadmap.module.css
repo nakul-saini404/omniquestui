@@ -11,7 +11,7 @@
 }
 
 .container {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 24px;
   position: relative;
@@ -36,7 +36,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-size: 11px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -47,7 +47,7 @@
 
 .heading {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(24px, 3.2vw, 42px);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: #ffffff;
   letter-spacing: -0.02em;
@@ -57,7 +57,7 @@
 .heading em { color: #d4a843; font-style: italic; }
 
 .sub {
-  font-size: 15px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(255, 255, 255, 0.55);
   max-width: 480px;
   margin: 0 auto 60px;
@@ -136,7 +136,7 @@
 
 .tlTitle {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 14.5px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 5px;
@@ -144,7 +144,7 @@
 }
 
 .tlBody {
-  font-size: 12.5px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(255, 255, 255, 0.5);
   line-height: 1.62;
 }

@@ -180,7 +180,7 @@
 
 /* Subtext */
 .heroSub {
-  font-size: 15.5px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(255, 255, 255, 0.7);
   max-width: 500px;
   margin-bottom: 32px;
@@ -303,7 +303,7 @@
 }
 
 .heroStatLabel {
-  font-size: 10px;
+  font-size: clamp(17px, 2vw, 20px);
   color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
   letter-spacing: 0.07em;
@@ -378,7 +378,7 @@
 }
 
 .heroScoreBadge span {
-  font-size: 18px;
+  font-size: clamp(15px, 1.5vw, 17px);
   font-family: var(--ff-head);
 }
 
@@ -434,7 +434,7 @@
 }
 
 .heroModuleName {
-  font-size: 11.5px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 600;
   color: rgba(255, 255, 255, 0.85);
   text-transform: uppercase;

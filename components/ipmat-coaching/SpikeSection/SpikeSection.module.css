@@ -38,7 +38,7 @@
 
 /* ── Container ── */
 .container {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 24px;
   position: relative;
@@ -62,7 +62,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 11px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -81,7 +81,7 @@
 
 .sectionHeading {
   font-family: var(--ff-head);
-  font-size: clamp(26px, 3.5vw, 42px);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--white);
@@ -90,7 +90,7 @@
 }
 
 .sectionSub {
-  font-size: 16px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(255, 255, 255, 0.6);
   max-width: 620px;
   line-height: 1.7;
@@ -173,7 +173,7 @@
 
 .spikeCardTitle {
   font-family: var(--ff-head);
-  font-size: 18px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 600;
   color: var(--white);
   margin-bottom: 10px;
@@ -181,7 +181,7 @@
 }
 
 .spikeCardDesc {
-  font-size: 13.5px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(255, 255, 255, 0.6);
   line-height: 1.7;
 }
@@ -234,7 +234,7 @@
 }
 
 .spikeStatLabel {
-  font-size: 11px;
+  font-size: clamp(17px, 2vw, 20px);
   color: rgba(255, 255, 255, 0.4);
   text-transform: uppercase;
   letter-spacing: 0.07em;

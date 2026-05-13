@@ -6,7 +6,7 @@
 }
 
 .container {
-  max-width: 1180px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -22,7 +22,7 @@
 
 .sectionTitle {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(26px, 3.5vw, 40px);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 900;
   color: #0A2240;
   line-height: 1.2;
@@ -30,7 +30,7 @@
 }
 
 .sectionSub {
-  font-size: 15.5px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: #4a5568;
   max-width: 620px;
   margin-bottom: 40px;
@@ -83,14 +83,14 @@
 
 .eqFeatureTitle {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 14.5px;
+  font-size: clamp(17px, 2vw, 20px);
   color: #0A2240;
   margin-bottom: 3px;
   font-weight: 700;
 }
 
 .eqFeatureDesc {
-  font-size: 12.5px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: #4a5568;
   line-height: 1.65;
 }
@@ -119,14 +119,14 @@
 
 .eqRightTitle {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 22px;
+  font-size: clamp(17px, 2vw, 20px);
   color: #ffffff;
   margin-bottom: 7px;
   font-weight: 700;
 }
 
 .eqRightSub {
-  font-size: 13.5px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(255, 255, 255, 0.55);
   margin-bottom: 26px;
 }
@@ -156,7 +156,7 @@
 }
 
 .eqStatLabel {
-  font-size: 11px;
+  font-size: clamp(17px, 2vw, 20px);
   color: rgba(255, 255, 255, 0.45);
   margin-top: 3px;
   text-transform: uppercase;

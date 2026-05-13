@@ -73,7 +73,7 @@
 }
 
 .diffName {
-  font-size: 13px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 600;
   color: var(--navy);
 }
@@ -118,7 +118,7 @@
 
 .adaptiveBox h4 {
   font-family: var(--ff-head);
-  font-size: 18px;
+  font-size: clamp(17px, 2vw, 20px);
   color: var(--gold);
   margin-bottom: 14px;
 }

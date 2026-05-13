@@ -1,0 +1,224 @@
+/* ─────────────────────────────────────────────
+   Google Fonts import  (Playfair Display)
+   Put this in your global CSS / layout if you
+   already have a <link> tag; otherwise this
+   @import handles it at component level.
+───────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* ─────────────────────────────────────────────
+   Scroll-reveal
+   JS adds .in to trigger the transition.
+───────────────────────────────────────────── */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.in {
+    opacity: 1;
+    transform: none;
+}
+
+.revealD1 {
+    transition-delay: 0.1s;
+}
+
+/* ─────────────────────────────────────────────
+   Hero section
+───────────────────────────────────────────── */
+.hero {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: #0b1c3d;
+    padding: 100px 24px 88px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Radial gradient overlay — pure CSS, no extra DOM node needed */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%,
+            rgba(26, 74, 138, 0.5) 0%,
+            transparent 70%);
+    pointer-events: none;
+}
+
+/* ─────────────────────────────────────────────
+   Label  "ONLINE TUITION CLASSES · INDIA"
+   with gold decorative lines on both sides
+───────────────────────────────────────────── */
+.heroLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: clamp(17px, 2vw, 20px);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d4a843;
+    margin-bottom: 20px;
+}
+
+/* The two gold lines rendered as <span> elements in JSX */
+.heroLabelLine {
+    display: inline-block;
+    width: 24px;
+    height: 2px;
+    background: #d4a843;
+    flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────────
+   H1
+───────────────────────────────────────────── */
+.heroH1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(32px, 5vw, 62px);
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.heroH1 em {
+    color: #d4a843;
+    font-style: italic;
+}
+
+/* ─────────────────────────────────────────────
+   Sub-heading paragraph
+───────────────────────────────────────────── */
+.heroSub {
+    font-size: clamp(17px, 2vw, 20px);
+    color: rgba(255, 255, 255, 0.65);
+    max-width: 640px;
+    margin: 0 auto 40px;
+    line-height: 1.75;
+}
+
+/* ─────────────────────────────────────────────
+   Badge row
+───────────────────────────────────────────── */
+.heroBadges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 48px;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    white-space: nowrap;
+}
+
+/* ─────────────────────────────────────────────
+   CTA button row
+───────────────────────────────────────────── */
+.heroCtaRow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+}
+
+/* Primary – gold fill */
+.btnPrimary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 30px;
+    border-radius: 8px;
+    background: #d4a843;
+    color: #0b1c3d;
+    text-decoration: none;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.btnPrimary:hover {
+    background: #e8c96a;
+    transform: translateY(-2px);
+}
+
+/* Outline – transparent with white border */
+.btnOutline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 30px;
+    border-radius: 8px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    text-decoration: none;
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.btnOutline:hover {
+    border-color: #d4a843;
+    background: rgba(212, 168, 67, 0.1);
+    transform: translateY(-2px);
+}
+
+/* ─────────────────────────────────────────────
+   Responsive
+───────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .hero {
+        padding: 80px 20px 72px;
+    }
+
+    .heroSub {
+        font-size: clamp(15px, 1.5vw, 17px);
+    }
+
+    .badge {
+        font-size: 12px;
+        padding: 5px 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 72px 20px 64px;
+    }
+
+    .heroCtaRow {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btnPrimary,
+    .btnOutline {
+        justify-content: center;
+    }
+}

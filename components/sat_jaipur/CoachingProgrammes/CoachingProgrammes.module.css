@@ -1,13 +1,13 @@
 /* ── SECTION ── */
 .section {
   padding: 80px 48px;
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
 /* ── SECTION LABEL ── */
 .sectionLabel {
-  font-size: 11px;
+  font-size: clamp(17px, 2vw, 20px);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--gold);
@@ -18,7 +18,7 @@
 /* ── HEADING ── */
 .heading {
   font-family: var(--ff-head);
-  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  font-size: clamp(17px, 2vw, 20px);
   color: var(--navy);
   line-height: 1.22;
   margin-bottom: 18px;
@@ -32,7 +32,7 @@
 /* ── SECTION SUB ── */
 .sectionSub {
   color: var(--text2);
-  font-size: 16px;
+  font-size: clamp(15px, 1.5vw, 17px);
   max-width: 600px;
   line-height: 1.7;
 }
@@ -96,7 +96,7 @@
 
 /* ── COURSE TITLE ── */
 .courseCard h3 {
-  font-size: 20px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 20px;

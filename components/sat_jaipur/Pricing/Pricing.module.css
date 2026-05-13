@@ -15,14 +15,14 @@
 /* ── Left ── */
 .heading {
   font-family: var(--ff-head);
-  font-size: clamp(28px, 3vw, 40px);
+  font-size: clamp(17px, 2vw, 20px);
   color: var(--navy);
   margin: 12px 0 16px;
   line-height: 1.2;
 }
 
 .sub {
-  font-size: 15px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--text2);
   line-height: 1.7;
   margin-bottom: 24px;

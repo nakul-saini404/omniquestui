@@ -69,7 +69,7 @@
 /* Card title */
 .cardTitle {
   font-family: var(--ff-head);
-  font-size: 17px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: var(--navy);
   margin: 0 0 10px;
@@ -78,7 +78,7 @@
 
 /* Card body text */
 .cardBody {
-  font-size: 14px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--text2);
   line-height: 1.72;
   margin-bottom: 18px;
@@ -137,14 +137,14 @@
 
 .insightTitle {
   font-family: var(--ff-head);
-  font-size: 17px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: var(--white);
   margin: 0 0 8px;
 }
 
 .insightText {
-  font-size: 14px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(255, 255, 255, 0.68);
   line-height: 1.7;
   margin: 0;

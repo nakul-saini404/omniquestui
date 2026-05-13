@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* ─────────────────────────────────────────────
+   Scroll reveal
+───────────────────────────────────────────── */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.in {
+    opacity: 1;
+    transform: none;
+}
+
+.revealD1 {
+    transition-delay: 0.1s;
+}
+
+/* ─────────────────────────────────────────────
+   Section wrapper
+───────────────────────────────────────────── */
+.section {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: #ede7d9;
+    padding: 88px 0;
+}
+
+/* ─────────────────────────────────────────────
+   Container
+───────────────────────────────────────────── */
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ─────────────────────────────────────────────
+   Two-column grid
+───────────────────────────────────────────── */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+}
+
+/* ─────────────────────────────────────────────
+   Section label  "ONLINE TUITION CLASSES"
+   Gold line on the left rendered as a <span>
+───────────────────────────────────────────── */
+.secLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: clamp(17px, 2vw, 20px);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d4a843;
+    margin-bottom: 14px;
+}
+
+.secLabelLine {
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background: #d4a843;
+    flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────────
+   Heading
+───────────────────────────────────────────── */
+.secHeading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(24px, 3vw, 42px);
+    font-weight: 700;
+    color: #0b1c3d;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 14px;
+}
+
+.secHeading em {
+    color: #1a4a8a;
+    font-style: italic;
+}
+
+/* ─────────────────────────────────────────────
+   Sub-paragraph
+───────────────────────────────────────────── */
+.secSub {
+    font-size: clamp(15px, 1.5vw, 17px);
+    color: #4a5568;
+    max-width: 100%;
+    line-height: 1.75;
+}
+
+/* ─────────────────────────────────────────────
+   Stats 2×2 grid
+───────────────────────────────────────────── */
+.statsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.statBox {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px 22px;
+    border: 1px solid rgba(11, 28, 61, 0.07);
+    box-shadow: 0 4px 24px rgba(11, 28, 61, 0.1);
+}
+
+.statNum {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: #0b1c3d;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.statNum span {
+    color: #d4a843;
+}
+
+.statLabel {
+    font-size: clamp(17px, 2vw, 20px);
+    color: #4a5568;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* ─────────────────────────────────────────────
+   Right column — visual
+───────────────────────────────────────────── */
+.visualCol {
+    position: relative;
+}
+
+/* ─────────────────────────────────────────────
+   Big card (navy)
+───────────────────────────────────────────── */
+.bigCard {
+    background: #0b1c3d;
+    border-radius: 20px;
+    padding: 40px 36px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Gold radial glow in top-right corner */
+.bigCard::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+            rgba(212, 168, 67, 0.15),
+            transparent 70%);
+    pointer-events: none;
+}
+
+.bigCardIcon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.bigCardHeading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(17px, 2vw, 20px);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.bigCardBody {
+    font-size: clamp(15px, 1.5vw, 17px);
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.75;
+}
+
+/* ─────────────────────────────────────────────
+   Tag pills inside big card
+───────────────────────────────────────────── */
+.bigCardTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.tbcTag {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
+}
+
+/* ─────────────────────────────────────────────
+   Responsive
+───────────────────────────────────────────── */
+
+/* ≤ 860px — stack columns, hide visual card */
+@media (max-width: 860px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .visualCol {
+        display: none;
+    }
+}
+
+/* ≤ 640px — stats stay 2-column */
+@media (max-width: 640px) {
+    .statsGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ≤ 480px — tighter section padding */
+@media (max-width: 480px) {
+    .section {
+        padding: 64px 0;
+    }
+
+    .statNum {
+        font-size: 28px;
+    }
+}

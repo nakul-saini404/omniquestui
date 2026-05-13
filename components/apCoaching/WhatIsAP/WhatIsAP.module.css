@@ -42,7 +42,7 @@
 
 /* ── Inner container ── */
 .container {
-  max-width: 1180px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -75,7 +75,7 @@
   flex-shrink: 0;
 }
 .sectionLabel span {
-  font-size: 0.78rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -85,7 +85,7 @@
 /* Heading */
 .heading {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 800;
   line-height: 1.15;
   margin-bottom: 20px;
@@ -96,7 +96,7 @@
 
 /* Body paragraphs */
 .body {
-  font-size: 1.02rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--gray-400);
   font-weight: 300;
   line-height: 1.7;
@@ -155,14 +155,14 @@
 
 .benefitTitle {
   font-family: 'Syne', sans-serif;
-  font-size: 0.95rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 600;
   margin: 0 0 3px;
   color: var(--text-primary);
 }
 
 .benefitDesc {
-  font-size: 0.82rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--gray-400);
   margin: 0;
   line-height: 1.5;
@@ -180,7 +180,7 @@
 
 .scoreCardTitle {
   font-family: 'Syne', sans-serif;
-  font-size: 1rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 600;
   color: var(--gray-400);
   margin-bottom: 24px;
@@ -226,7 +226,7 @@
 }
 
 .scoreLabel {
-  font-size: 0.8rem;
+  font-size: clamp(17px, 2vw, 20px);
   color: var(--gray-400);
   width: 190px;
   flex-shrink: 0;
@@ -275,7 +275,7 @@
     width: 22px;
   }
   .scoreLabel {
-    font-size: 0.74rem;
+    font-size: clamp(17px, 2vw, 20px);
   }
   .benefit {
     padding: 14px 14px;

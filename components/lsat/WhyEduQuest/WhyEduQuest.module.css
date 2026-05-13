@@ -30,7 +30,7 @@
 }
 
 .sectionInner {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -78,7 +78,7 @@
 
 .secTitle {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 900;
   line-height: 1.1;
   color: #f5f0e8;
@@ -91,7 +91,7 @@
 }
 
 .secSub {
-  font-size: 0.95rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(245, 240, 232, 0.6);
   line-height: 1.75;
   max-width: 560px;
@@ -150,14 +150,14 @@
 
 .whyCardTitle {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 1rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: #f5f0e8;
   margin-bottom: 8px;
 }
 
 .whyCardBody {
-  font-size: 0.8rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(245, 240, 232, 0.5);
   line-height: 1.7;
 }
@@ -190,7 +190,7 @@
 }
 
 .whyStatLabel {
-  font-size: 0.72rem;
+  font-size: clamp(17px, 2vw, 20px);
   color: rgba(245, 240, 232, 0.45);
   text-transform: uppercase;
   letter-spacing: 0.1em;

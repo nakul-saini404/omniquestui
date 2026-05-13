@@ -8,14 +8,14 @@
 }
 
 .inner {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
 /* ── Eyebrow ── */
 .tag {
   display: inline-block;
-  font-size: 11px;
+  font-size: clamp(15px, 1.5vw, 17px);
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--red);
@@ -26,7 +26,7 @@
 /* ── Heading ── */
 .title {
   font-family: var(--ff-head);
-  font-size: clamp(28px, 4vw, 44px);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 900;
   color: var(--navy);
   line-height: 1.15;
@@ -40,7 +40,7 @@
 
 /* ── Sub ── */
 .sub {
-  font-size: 16px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--text2);
   max-width: 580px;
   margin-bottom: 40px;
@@ -67,7 +67,7 @@
 .th {
   background: var(--navy);
   color: var(--white);
-  font-size: 12px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   padding: 14px 20px;
   text-align: left;
@@ -163,14 +163,14 @@
 }
 
 .inner {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
 /* ── Eyebrow ── */
 .tag {
   display: inline-block;
-  font-size: 11px;
+  font-size: clamp(15px, 1.5vw, 17px);
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--red);
@@ -181,7 +181,7 @@
 /* ── Heading ── */
 .title {
   font-family: var(--ff-head);
-  font-size: clamp(28px, 4vw, 44px);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 900;
   color: var(--navy);
   line-height: 1.15;
@@ -195,7 +195,7 @@
 
 /* ── Sub ── */
 .sub {
-  font-size: 16px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--text2);
   max-width: 580px;
   margin-bottom: 40px;
@@ -222,7 +222,7 @@
 .th {
   background: var(--navy);
   color: var(--white);
-  font-size: 12px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   padding: 14px 20px;
   text-align: left;

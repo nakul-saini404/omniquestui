@@ -59,13 +59,13 @@ ul {
 
 /* ── SHARED UTILITIES ── */
 .container {
-  max-width: 1560px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
 .label {
-  font-size: 11px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -145,7 +145,7 @@ section {
 }
 
 .section-head p {
-  font-size: 15px;
+  font-size: clamp(17px, 2vw, 20px);
   color: var(--text2);
   line-height: 1.8;
 }

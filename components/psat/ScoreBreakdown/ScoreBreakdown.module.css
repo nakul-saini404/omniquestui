@@ -11,7 +11,7 @@
 }
 
 .sectionInner {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -47,7 +47,7 @@
 
 .sectionTitle {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 900;
   line-height: 1.1;
   color: #F1F5FF;
@@ -62,7 +62,7 @@
 }
 
 .sectionSub {
-  font-size: 0.95rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(241, 245, 255, 0.5);
   line-height: 1.8;
   max-width: 560px;
@@ -117,7 +117,7 @@
 /* ─── CARD NAME ───────────────────────────────────────── */
 .scoreCardName {
   font-family: 'Syne', sans-serif;
-  font-size: 1rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 800;
   color: #F1F5FF;
   margin-bottom: 6px;
@@ -131,7 +131,7 @@
 */
 .scoreCardRange {
   font-family: 'Syne', sans-serif;
-  font-size: 1.5rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   font-weight: 900;
   margin-bottom: 8px;
   /* colour is provided entirely by the variant class below */
@@ -160,7 +160,7 @@
 
 /* ─── CARD DESCRIPTION ────────────────────────────────── */
 .scoreCardDesc {
-  font-size: 0.8rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(241, 245, 255, 0.5);
   line-height: 1.65;
 }
@@ -220,14 +220,14 @@
 
 .nmsqtTitle {
   font-family: 'Syne', sans-serif;
-  font-size: 1.1rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 800;
   color: #D4AF37;
   margin-bottom: 8px;
 }
 
 .nmsqtBody {
-  font-size: 0.85rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(241, 245, 255, 0.65);
   line-height: 1.7;
   margin: 0;

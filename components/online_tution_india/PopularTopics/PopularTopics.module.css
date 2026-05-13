@@ -1,0 +1,227 @@
+/* ─────────────────────────────────────────────
+   Design Tokens (matching EduQuest brand)
+───────────────────────────────────────────── */
+.section {
+    --navy: #0b1c3d;
+    --blue: #1a4a8a;
+    --blue-light: #2a6aaa;
+    --gold: #d4a843;
+    --gold-light: #e8c96a;
+    --cream: #f5f0e8;
+    --cream2: #ede7d9;
+    --text: #4a5568;
+    --text-dark: #2d3748;
+    --white: #ffffff;
+    --shadow: 0 4px 24px rgba(11, 28, 61, 0.1);
+    --shadow-lg: 0 12px 48px rgba(11, 28, 61, 0.16);
+
+    background: var(--cream2);
+    padding: 88px 0;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* ─────────────────────────────────────────────
+   Container — max width 1600px
+───────────────────────────────────────────── */
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ─────────────────────────────────────────────
+   Header block
+───────────────────────────────────────────── */
+.header {
+    max-width: 680px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.secLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: clamp(17px, 2vw, 20px);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+}
+
+.secLabelLine {
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background: var(--gold);
+    flex-shrink: 0;
+}
+
+.secHeading {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(24px, 3vw, 42px);
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 14px;
+}
+
+.headingEm {
+    color: var(--blue);
+    font-style: italic;
+}
+
+/* p tag and description font size — 15px */
+.secSub {
+    font-size: clamp(15px, 1.5vw, 17px);
+    color: var(--text);
+    line-height: 1.75;
+    margin: 0 auto;
+}
+
+/* ─────────────────────────────────────────────
+   Tabs
+───────────────────────────────────────────── */
+.tabsWrapper {
+    margin-bottom: 40px;
+}
+
+.tabs {
+    display: flex;
+    gap: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(11, 28, 61, 0.12);
+    width: fit-content;
+}
+
+.tab {
+    padding: 11px 24px;
+    font-size: 13px;
+    font-weight: 700;
+    border: none;
+    border-right: 1px solid rgba(11, 28, 61, 0.08);
+    background: var(--white);
+    color: var(--text);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    outline: none;
+}
+
+.tab:last-child {
+    border-right: none;
+}
+
+.tab:hover:not(.tabActive) {
+    background: var(--cream);
+    color: var(--navy);
+}
+
+.tabActive {
+    background: var(--navy);
+    color: var(--gold);
+}
+
+/* ─────────────────────────────────────────────
+   Cards Grid
+───────────────────────────────────────────── */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+/* ─────────────────────────────────────────────
+   Topic Card
+───────────────────────────────────────────── */
+.card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 20px 22px;
+    border: 1px solid rgba(11, 28, 61, 0.07);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    cursor: default;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(212, 168, 67, 0.3);
+}
+
+.cardIcon {
+    font-size: 24px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.cardTitle {
+    font-size: clamp(17px, 2vw, 20px);
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 5px;
+    line-height: 1.3;
+}
+
+/* p tag / description — 15px as required */
+.cardDescription {
+    font-size: clamp(15px, 1.5vw, 17px);
+    color: var(--text);
+    line-height: 1.55;
+    margin: 0 0 8px;
+}
+
+.gradeTag {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--blue);
+    background: rgba(26, 74, 138, 0.08);
+    padding: 3px 10px;
+    border-radius: 4px;
+}
+
+/* ─────────────────────────────────────────────
+   Responsive
+───────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .section {
+        padding: 64px 0;
+    }
+
+    .tabs {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .tab {
+        flex: 1 1 auto;
+        border-right: none;
+        border-bottom: 1px solid rgba(11, 28, 61, 0.08);
+    }
+
+    .tab:last-child {
+        border-bottom: none;
+    }
+
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .secHeading {
+        font-size: clamp(22px, 6vw, 32px);
+    }
+}

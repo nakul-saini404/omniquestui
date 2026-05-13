@@ -57,7 +57,7 @@
 
 .cardHeadTitle {
   font-family: var(--ff-head);
-  font-size: 18px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: var(--white);
   margin: 0 0 4px;
@@ -65,7 +65,7 @@
 }
 
 .cardHeadSub {
-  font-size: 12px;
+  font-size: clamp(17px, 2vw, 20px);
   color: rgba(255, 255, 255, 0.52);
   margin: 0;
 }
@@ -83,7 +83,7 @@
   gap: 16px;
   padding: 10px 0;
   border-bottom: 1px solid var(--line);
-  font-size: 14px;
+  font-size: clamp(15px, 1.5vw, 17px);
 }
 
 .statRow:last-child {
@@ -118,7 +118,7 @@
 
 .adaptiveColTitle {
   font-family: var(--ff-head);
-  font-size: 17px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: var(--navy);
   margin: 0 0 18px;
@@ -175,7 +175,7 @@
 }
 
 .stepBody {
-  font-size: 13.5px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--text2);
   line-height: 1.65;
   padding-top: 10px;
@@ -345,18 +345,18 @@
   }
 
   .cardHeadTitle {
-    font-size: 16px;
+    font-size: clamp(17px, 2vw, 20px);
   }
 
   .statRow {
-    font-size: 13px;
+    font-size: clamp(15px, 1.5vw, 17px);
     flex-direction: column;
     gap: 2px;
   }
 
   .statLabel {
     min-width: unset;
-    font-size: 12px;
+    font-size: clamp(17px, 2vw, 20px);
   }
 
   .statValue {

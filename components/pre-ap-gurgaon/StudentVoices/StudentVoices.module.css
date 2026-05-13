@@ -13,7 +13,7 @@
   background: #ffffff;
 }
 .inner {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -21,7 +21,7 @@
 /* ── SHARED HEADER UTILITIES ── */
 .sTag {
   display: inline-block;
-  font-size: 11px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 600;
   letter-spacing: 1.3px;
   text-transform: uppercase;
@@ -37,7 +37,7 @@
 }
 .sHead {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 32px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: #0b1c3d;
   line-height: 1.22;
@@ -81,14 +81,14 @@
 /* ── Star row ── */
 .testiStars {
   color: #d4a843;
-  font-size: 13px;
+  font-size: clamp(15px, 1.5vw, 17px);
   letter-spacing: 2px;
   margin-bottom: 14px;
 }
 
 /* ── Quote paragraph — opening " via ::before ── */
 .testiQuote {
-  font-size: 14px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: #0b1c3d;
   line-height: 1.72;
   font-style: italic;
@@ -135,7 +135,7 @@
 
 /* ── Author text ── */
 .testiName {
-  font-size: 13px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 600;
   color: #0b1c3d;
 }

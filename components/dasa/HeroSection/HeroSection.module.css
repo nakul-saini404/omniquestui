@@ -41,7 +41,7 @@
 
 /* ── CONTAINER ── */
 .container {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -92,7 +92,7 @@
 /* ── SUB-HEADING ── */
 .heroSub {
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 15.5px;
+  font-size: clamp(17px, 2vw, 20px);
   color: rgba(255, 255, 255, 0.7);
   max-width: 500px;
   margin-bottom: 32px;
@@ -172,7 +172,7 @@
 
 .heroStatLabel {
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 10px;
+  font-size: clamp(17px, 2vw, 20px);
   color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
   letter-spacing: 0.07em;
@@ -234,7 +234,7 @@
 
 .heroInstName {
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 12px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: #ffffff;
   text-transform: uppercase;

@@ -13,7 +13,7 @@
 
 /* ── Shared ── */
 .container {
-    max-width: 1450px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 24px;
 }
@@ -22,7 +22,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 11px;
+    font-size: clamp(17px, 2vw, 20px);
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -87,7 +87,7 @@
 }
 
 .aboutText p {
-    font-size: 14.5px;
+    font-size: clamp(15px, 1.5vw, 17px);
     color: #4a5568;
     line-height: 1.85;
     margin-bottom: 14px;
@@ -166,7 +166,7 @@
 /* Left col */
 .whyLeft h3 {
     font-family: "Playfair Display", Georgia, serif;
-    font-size: clamp(22px, 2.6vw, 34px);
+    font-size: clamp(17px, 2vw, 20px);
     font-weight: 700;
     color: #fff;
     line-height: 1.2;
@@ -180,7 +180,7 @@
 }
 
 .whyLeft p {
-    font-size: 14.5px;
+    font-size: clamp(15px, 1.5vw, 17px);
     color: rgba(255, 255, 255, 0.6);
     line-height: 1.8;
     margin: 0;
@@ -191,7 +191,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 11px;
+    font-size: clamp(17px, 2vw, 20px);
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -234,14 +234,14 @@
 }
 
 .whyItemIcon {
-    font-size: 18px;
+    font-size: clamp(15px, 1.5vw, 17px);
     flex-shrink: 0;
     margin-top: 1px;
     line-height: 1;
 }
 
 .whyItemText {
-    font-size: 13.5px;
+    font-size: clamp(15px, 1.5vw, 17px);
     color: rgba(255, 255, 255, 0.7);
     line-height: 1.6;
 }

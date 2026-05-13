@@ -37,7 +37,7 @@
 }
 
 .links a {
-  font-size: 13px;
+  font-size: clamp(15px, 1.5vw, 17px);
   font-weight: 500;
   color: var(--text2);
   transition: 0.2s;
@@ -87,7 +87,7 @@
 }
 
 .mobileLinks a {
-  font-size: 14px;
+  font-size: clamp(15px, 1.5vw, 17px);
   font-weight: 500;
   color: var(--text2);
 }

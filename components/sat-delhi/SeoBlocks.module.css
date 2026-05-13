@@ -5,7 +5,7 @@
 
 .heading {
   font-family: var(--ff-head);
-  font-size: clamp(30px, 3vw, 46px);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: var(--navy);
   line-height: 1.15;
@@ -34,14 +34,14 @@
 
 .block h3 {
   font-family: var(--ff-head);
-  font-size: 20px;
+  font-size: clamp(17px, 2vw, 20px);
   color: var(--navy);
   margin-bottom: 12px;
   font-weight: 700;
 }
 
 .block p {
-  font-size: 14px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--text2);
   line-height: 1.75;
 }

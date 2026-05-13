@@ -15,7 +15,7 @@
 }
 
 .sectionInner {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -59,7 +59,7 @@
 /* ─── HEADING ─────────────────────────────────────────── */
 .sectionTitle {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 900;
   line-height: 1.1;
   color: #F1F5FF;
@@ -83,7 +83,7 @@
 
 /* ─── SUBTITLE ────────────────────────────────────────── */
 .sectionSub {
-  font-size: 0.95rem;
+  font-size: clamp(17px, 2vw, 20px);
   color: rgba(241, 245, 255, 0.5);
   line-height: 1.8;
   margin-bottom: 36px;
@@ -159,7 +159,7 @@
 
 .stepTitle {
   font-family: 'Syne', sans-serif;
-  font-size: 0.95rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 800;
   color: #F1F5FF;
   margin-bottom: 6px;
@@ -167,7 +167,7 @@
 }
 
 .stepDesc {
-  font-size: 0.82rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(241, 245, 255, 0.5);
   line-height: 1.7;
 }
@@ -194,7 +194,7 @@
 
 .avTitle {
   font-family: 'Syne', sans-serif;
-  font-size: 1rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 800;
   color: #F1F5FF;
   margin-bottom: 24px;
@@ -213,7 +213,7 @@
 .siLabel {
   display: flex;
   justify-content: space-between;
-  font-size: 0.78rem;
+  font-size: clamp(17px, 2vw, 20px);
   color: rgba(241, 245, 255, 0.5);
   margin-bottom: 6px;
 }
@@ -280,7 +280,7 @@
 }
 
 .programsLabel {
-  font-size: 0.72rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: rgba(241, 245, 255, 0.4);
   letter-spacing: 0.1em;
@@ -309,14 +309,14 @@
 
 .progName {
   font-family: 'Syne', sans-serif;
-  font-size: 0.88rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 800;
   color: #F1F5FF;
   margin-bottom: 4px;
 }
 
 .progDesc {
-  font-size: 0.75rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(241, 245, 255, 0.5);
   line-height: 1.6;
 }

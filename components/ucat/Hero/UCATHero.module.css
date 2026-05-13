@@ -37,7 +37,7 @@
 
 /* ── LAYOUT ──────────────────────────────────────────────────────── */
 .heroInner {
-  max-width: 1180px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 24px;
   display: grid;
@@ -100,7 +100,7 @@
 
 /* ── SUBTITLE ────────────────────────────────────────────────────── */
 .heroSub {
-  font-size: 17px;
+  font-size: clamp(17px, 2vw, 20px);
   color: rgba(255, 255, 255, 0.72);
   margin-bottom: 36px;
   line-height: 1.75;
@@ -198,7 +198,7 @@
 
 .cardTitle {
   font-family: inherit;
-  font-size: 13px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -293,13 +293,13 @@
 }
 .successTitle {
   font-family: 'Playfair Display', 'Georgia', serif;
-  font-size: 22px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: #fff;
   margin-bottom: 12px;
 }
 .successText {
-  font-size: 14px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(255, 255, 255, 0.65);
   line-height: 1.75;
 }
@@ -326,7 +326,7 @@
     font-size: 32px;
   }
   .heroSub {
-    font-size: 15px;
+    font-size: clamp(15px, 1.5vw, 17px);
   }
   .heroCtas {
     flex-direction: column;

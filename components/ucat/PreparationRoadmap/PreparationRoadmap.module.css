@@ -36,7 +36,7 @@
 .sectionTag {
   display: inline-block;
   font-family: var(--ff-body);
-  font-size: 11px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -46,7 +46,7 @@
 
 .sectionTitle {
   font-family: var(--ff-head);
-  font-size: clamp(24px, 3vw, 36px);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 900;
   color: var(--navy);
   line-height: 1.18;
@@ -55,7 +55,7 @@
 
 .sectionSub {
   font-family: var(--ff-body);
-  font-size: 16px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--text2);
   max-width: 520px;
   line-height: 1.75;
@@ -161,7 +161,7 @@
 
 .tlTitle {
   font-family: var(--ff-body);
-  font-size: 16px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 600;
   color: var(--navy);
   margin-bottom: 6px;
@@ -169,7 +169,7 @@
 
 .tlDesc {
   font-family: var(--ff-body);
-  font-size: 14px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--text2);
   line-height: 1.7;
 }
@@ -206,7 +206,7 @@
 
 .dLabel {
   font-family: var(--ff-body);
-  font-size: 11px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -215,7 +215,7 @@
 
 .diffHeading {
   font-family: var(--ff-body);
-  font-size: 15px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 600;
   color: var(--navy);
   margin-bottom: 6px;
@@ -223,7 +223,7 @@
 
 .diffBody {
   font-family: var(--ff-body);
-  font-size: 13px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--text2);
   line-height: 1.65;
 }
@@ -260,6 +260,6 @@
   }
 
   .sectionTitle {
-    font-size: 24px;
+    font-size: clamp(17px, 2vw, 20px);
   }
 }

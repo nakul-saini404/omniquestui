@@ -52,7 +52,7 @@
 }
 
 .container {
-    max-width: 1450px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 24px;
     position: relative;
@@ -73,7 +73,7 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    font-size: 11px;
+    font-size: clamp(15px, 1.5vw, 17px);
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -92,7 +92,7 @@
 /* ── Heading ── */
 .heading {
     font-family: "Playfair Display", Georgia, serif;
-    font-size: clamp(30px, 5vw, 58px);
+    font-size: clamp(17px, 2vw, 20px);
     font-weight: 700;
     color: #fff;
     line-height: 1.1;
@@ -108,7 +108,7 @@
 
 /* ── Sub text ── */
 .sub {
-    font-size: 16.5px;
+    font-size: clamp(15px, 1.5vw, 17px);
     color: rgba(255, 255, 255, 0.65);
     line-height: 1.75;
     max-width: 620px;
@@ -140,7 +140,7 @@
 }
 
 .statLabel {
-    font-size: 11.5px;
+    font-size: clamp(17px, 2vw, 20px);
     color: rgba(255, 255, 255, 0.5);
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -179,7 +179,7 @@
 }
 
 .ctaArrow {
-    font-size: 16px;
+    font-size: clamp(15px, 1.5vw, 17px);
     transition: transform 0.2s;
 }
 
@@ -308,7 +308,7 @@
 }
 
 .container {
-    max-width: 1450px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 24px;
     position: relative;
@@ -329,7 +329,7 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    font-size: 11px;
+    font-size: clamp(15px, 1.5vw, 17px);
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -348,7 +348,7 @@
 /* ── Heading ── */
 .heading {
     font-family: "Playfair Display", Georgia, serif;
-    font-size: clamp(30px, 5vw, 58px);
+    font-size: clamp(17px, 2vw, 20px);
     font-weight: 700;
     color: #fff;
     line-height: 1.1;
@@ -364,7 +364,7 @@
 
 /* ── Sub text ── */
 .sub {
-    font-size: 16.5px;
+    font-size: clamp(15px, 1.5vw, 17px);
     color: rgba(255, 255, 255, 0.65);
     line-height: 1.75;
     max-width: 620px;
@@ -396,7 +396,7 @@
 }
 
 .statLabel {
-    font-size: 11.5px;
+    font-size: clamp(17px, 2vw, 20px);
     color: rgba(255, 255, 255, 0.5);
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -435,7 +435,7 @@
 }
 
 .ctaArrow {
-    font-size: 16px;
+    font-size: clamp(15px, 1.5vw, 17px);
     transition: transform 0.2s;
 }
 

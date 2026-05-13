@@ -72,7 +72,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 11px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -92,7 +92,7 @@
 
 .heading {
   font-family: var(--ff-head);
-  font-size: clamp(26px, 3.5vw, 44px);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: -0.025em;
   color: var(--white);
@@ -101,7 +101,7 @@
 }
 
 .sub {
-  font-size: 15.5px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(255,255,255,0.55);
   max-width: 580px;
   line-height: 1.72;
@@ -179,7 +179,7 @@
 
 .testCardLabel {
   font-family: var(--ff-head);
-  font-size: 15px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: var(--white);
   line-height: 1;
@@ -199,7 +199,7 @@
 
 .testCardBody {
   font-family: var(--ff-body);
-  font-size: 12px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(255,255,255,0.45);
   line-height: 1.6;
   margin: 4px 0 0;
@@ -271,7 +271,7 @@
 .thDesc {
   padding: 14px 20px;
   text-align: left;
-  font-size: 11px;
+  font-size: clamp(15px, 1.5vw, 17px);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -345,7 +345,7 @@
 }
 
 .levelText {
-  font-size: 13px;
+  font-size: clamp(15px, 1.5vw, 17px);
   font-weight: 700;
   color: var(--white);
   vertical-align: middle;
@@ -354,7 +354,7 @@
 /* Descriptor cell */
 .tdDesc {
   padding: 16px 20px;
-  font-size: 13px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(255,255,255,0.45);
   line-height: 1.5;
 }
@@ -393,7 +393,7 @@
 
 .highlightsLabel {
   font-family: var(--ff-body);
-  font-size: 11px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -496,7 +496,7 @@
   }
 
   .testCardLabel {
-    font-size: 13.5px;
+    font-size: clamp(17px, 2vw, 20px);
   }
 
   .testCardBody {

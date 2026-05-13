@@ -22,7 +22,7 @@
 }
 
 .sectionInner {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -54,7 +54,7 @@
 
 .secTitle {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 900;
   line-height: 1.1;
   color: #0b1c3d;
@@ -79,7 +79,7 @@
 }
 
 .secSub {
-  font-size: 0.95rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: #4a5568;
   line-height: 1.75;
   max-width: 560px;
@@ -137,14 +137,14 @@
 
 .failCardTitle {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 1rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: #0b1c3d;
   margin-bottom: 8px;
 }
 
 .failCardBody {
-  font-size: 0.8rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: #4a5568;
   line-height: 1.7;
 }
@@ -187,7 +187,7 @@
 
 .failCalloutTitle {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 1.5rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 900;
   color: #f5f0e8;
   margin-bottom: 10px;
@@ -200,7 +200,7 @@
 }
 
 .failCalloutBody {
-  font-size: 0.88rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(245, 240, 232, 0.6);
   line-height: 1.7;
 }

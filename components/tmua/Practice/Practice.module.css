@@ -6,7 +6,7 @@
 }
 
 .container {
-  max-width: 1180px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -22,7 +22,7 @@
 
 .sectionTitle {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(26px, 3.5vw, 40px);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 900;
   color: #0A2240;
   line-height: 1.2;
@@ -30,7 +30,7 @@
 }
 
 .sectionSub {
-  font-size: 15.5px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: #4a5568;
   max-width: 620px;
   margin-bottom: 40px;
@@ -96,7 +96,7 @@
 
 .qHeaderTitle {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 15px;
+  font-size: clamp(17px, 2vw, 20px);
   color: #C9972B;
   font-weight: 700;
   margin: 0;
@@ -107,7 +107,7 @@
 }
 
 .qText {
-  font-size: 13.5px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: #4a5568;
   line-height: 1.75;
   margin-bottom: 10px;
@@ -142,12 +142,12 @@
   font-weight: 700;
   color: #C9972B;
   white-space: nowrap;
-  font-size: 12.5px;
+  font-size: clamp(17px, 2vw, 20px);
   flex-shrink: 0;
 }
 
 .qTipText {
-  font-size: 12.5px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: #4a5568;
   line-height: 1.65;
 }

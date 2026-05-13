@@ -5,7 +5,7 @@
 }
 
 .sectionInner {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -41,7 +41,7 @@
 
 .sectionTitle {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 900;
   line-height: 1.1;
   color: #F1F5FF;
@@ -56,7 +56,7 @@
 }
 
 .sectionSub {
-  font-size: 0.95rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(241, 245, 255, 0.5);
   line-height: 1.8;
   max-width: 560px;
@@ -121,7 +121,7 @@
 /* ─── TITLE ───────────────────────────────────────────── */
 .whyTitle {
   font-family: 'Syne', sans-serif;
-  font-size: 0.95rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 800;
   color: #F1F5FF;
   margin-bottom: 8px;
@@ -129,7 +129,7 @@
 
 /* ─── DESCRIPTION ─────────────────────────────────────── */
 .whyDesc {
-  font-size: 0.82rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(241, 245, 255, 0.5);
   line-height: 1.7;
 }

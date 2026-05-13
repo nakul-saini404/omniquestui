@@ -11,7 +11,7 @@
 
 /* ── LABEL ── */
 .sectionLabel {
-  font-size: 11px;
+  font-size: clamp(17px, 2vw, 20px);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--gold);
@@ -22,7 +22,7 @@
 /* ── HEADING ── */
 .heading {
   font-family: var(--ff-head);
-  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  font-size: clamp(17px, 2vw, 20px);
   color: var(--navy);
   line-height: 1.22;
   margin-bottom: 18px;
@@ -36,7 +36,7 @@
 /* ── SUBTEXT ── */
 .subText {
   color: var(--text2);
-  font-size: 16px;
+  font-size: clamp(15px, 1.5vw, 17px);
   max-width: 600px;
   line-height: 1.7;
   margin-bottom: 0;
@@ -95,7 +95,7 @@
   color: var(--navy);
   text-decoration: none;
   font-weight: 700;
-  font-size: 13px;
+  font-size: clamp(15px, 1.5vw, 17px);
   background: rgba(212, 168, 67, 0.12);
   border: 1.5px solid var(--gold);
   padding: 5px 14px;
@@ -142,7 +142,7 @@
 }
 
 .mobileCardName {
-  font-size: 15px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: var(--navy);
 }

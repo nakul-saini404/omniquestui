@@ -70,7 +70,7 @@
 
 /* ── Body ── */
 .body {
-  font-size: 17px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--text2);
   line-height: 1.8;
   margin-bottom: 48px;

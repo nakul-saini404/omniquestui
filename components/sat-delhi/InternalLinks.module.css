@@ -34,21 +34,21 @@
 }
 
 .card h4 {
-  font-size: 14px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 4px;
 }
 
 .card p {
-  font-size: 12px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--text3);
   line-height: 1.55;
 }
 
 .arrow {
   margin-top: 8px;
-  font-size: 11px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--red);
   font-weight: 700;
 }

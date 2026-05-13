@@ -63,7 +63,7 @@
 
 /* ── Content wrapper ── */
 .inner {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -171,7 +171,7 @@
   align-items: center;
   gap: 8px;
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 11px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -189,7 +189,7 @@
 
 .heading {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(24px, 3.2vw, 42px);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: -0.02em;
   color: #ffffff;
@@ -205,7 +205,7 @@
 
 .subtext {
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 15.5px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(255, 255, 255, 0.52);
   max-width: 520px;
   margin: 0 auto;
@@ -360,7 +360,7 @@
 /* card text */
 .cardTitle {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 14.5px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 600;
   color: #ffffff;
   margin-bottom: 8px;
@@ -369,7 +369,7 @@
 
 .cardBody {
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 13px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(255, 255, 255, 0.52);
   line-height: 1.67;
   margin: 0;
@@ -401,7 +401,7 @@
 /* ════════════════════════════════════
    RESPONSIVE
 ════════════════════════════════════ */
-@media (max-width: 1100px) {
+@media (max-width: 1600px) {
   .grid { grid-template-columns: repeat(3, 1fr); }
 }
 

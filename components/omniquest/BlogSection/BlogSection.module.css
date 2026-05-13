@@ -7,7 +7,7 @@
   }
   
   .inner {
-    max-width: 1450px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 24px;
   }
@@ -30,7 +30,7 @@
   }
   .eyebrowLine { width: 32px; height: 1px; background: #d4af37; }
   .eyebrow {
-    font-size: 0.68rem;
+    font-size: clamp(15px, 1.5vw, 17px);
     font-weight: 700;
     letter-spacing: 0.14em;
     color: #d4af37;
@@ -115,7 +115,7 @@
   
   .cardTitle {
     font-family: var(--font-head);
-    font-size: 0.88rem;
+    font-size: clamp(17px, 2vw, 20px);
     font-weight: 700;
     color: #0b1c3d;
     line-height: 1.45;

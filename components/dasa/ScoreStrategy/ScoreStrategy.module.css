@@ -36,7 +36,7 @@
 
 /* ── Container ── */
 .container {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 24px;
   position: relative;
@@ -59,7 +59,7 @@
 }
 
 .sectionHead p {
-  font-size: 15.5px;
+  font-size: clamp(17px, 2vw, 20px);
   color: rgba(255, 255, 255, 0.65);
   max-width: 600px;
   line-height: 1.7;
@@ -78,7 +78,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 11px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -166,7 +166,7 @@
 /* ── Card Typography ── */
 .stratCard h4 {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 15px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 600;
   color: #ffffff;
   margin-bottom: 8px;
@@ -174,7 +174,7 @@
 }
 
 .stratCard p {
-  font-size: 13px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(255, 255, 255, 0.55);
   line-height: 1.65;
 }

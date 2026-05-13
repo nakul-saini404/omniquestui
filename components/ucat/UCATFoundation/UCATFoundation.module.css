@@ -19,7 +19,7 @@
 /* ── CONTAINER ── */
 .container {
   width: 100%;
-  max-width: 1180px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -43,7 +43,7 @@
 
 .sectionTitle {
   font-family: var(--ff-head, "Playfair Display", serif);
-  font-size: clamp(26px, 3.5vw, 38px);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 900;
   color: var(--navy, #0b1b3d);
   line-height: 1.18;
@@ -51,7 +51,7 @@
 }
 
 .sectionSub {
-  font-size: 16px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--muted, #5a6a85);
   max-width: 600px;
   line-height: 1.75;
@@ -101,7 +101,7 @@
 
 .whatCard h3 {
   font-family: var(--ff-head, "Playfair Display", serif);
-  font-size: 16px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 600;
   color: var(--navy, #0b1b3d);
   margin: 0 0 8px;
@@ -109,7 +109,7 @@
 }
 
 .whatCard p {
-  font-size: 14px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--muted, #5a6a85);
   line-height: 1.65;
   margin: 0;
@@ -151,7 +151,7 @@
   .container    { padding: 0 16px; }
   .whatGrid     { grid-template-columns: 1fr; }
   .whatCard     { padding: 22px 20px; }
-  .sectionSub   { font-size: 15px; }
+  .sectionSub   { font-size: clamp(15px, 1.5vw, 17px); }
 }
 
 /* ── Reduced motion ── */

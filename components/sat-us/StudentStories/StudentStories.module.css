@@ -82,7 +82,7 @@
 
 .eyebrow {
   display: inline-block;
-  font-size: 0.65rem;
+  font-size: clamp(15px, 1.5vw, 17px);
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -92,7 +92,7 @@
 
 .title {
   font-family: var(--ff-head);
-  font-size: clamp(1.8rem, 3.5vw, 2.55rem);
+  font-size: clamp(17px, 2vw, 20px);
   line-height: 1.2;
   font-weight: 700;
   color: var(--text);
@@ -113,7 +113,7 @@
 }
 
 .subtitle {
-  font-size: 0.92rem;
+  font-size: clamp(17px, 2vw, 20px);
   color: var(--text2);
   line-height: 1.75;
   max-width: 520px;
@@ -150,7 +150,7 @@
 }
 
 .statLabel {
-  font-size: 0.66rem;
+  font-size: clamp(17px, 2vw, 20px);
   color: var(--text3);
   text-transform: uppercase;
   letter-spacing: 0.07em;
@@ -316,7 +316,7 @@
 }
 
 .authorName {
-  font-size: 0.82rem;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: var(--text);
   white-space: nowrap;

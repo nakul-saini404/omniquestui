@@ -21,7 +21,7 @@
 
 /* ─── INNER WRAPPER ───────────────────────────────────────────────────── */
 .sectionInner {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -53,7 +53,7 @@
 
 .sectionTitle {
   font-family: var(--ff-head);
-  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: var(--navy);
   line-height: 1.25;
@@ -136,7 +136,7 @@
 
 /* ─── TESTIMONIAL TEXT ────────────────────────────────────────────────── */
 .testiText {
-  font-size: 13.5px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--text2);
   line-height: 1.75;
   font-style: italic;
@@ -174,7 +174,7 @@
 
 /* ─── NAME ────────────────────────────────────────────────────────────── */
 .testiName {
-  font-size: 13.5px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: var(--navy);
   display: flex;

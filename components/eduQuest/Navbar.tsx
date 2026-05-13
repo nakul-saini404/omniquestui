@@ -38,7 +38,7 @@ const navItems = [
     href: '#',
     children: [
       { label: 'Online Home Tuition', href: '/online-home-tuition' },
-      { label: 'Online Tuition classes', href: 'https://eduquest.org.in/online-tuition-classes-india/' },
+      { label: 'Online Tuition classes', href: '/online-tuition-classes-india' },
       { label: 'IB', href: 'https://eduquest.org.in/ib-international-baccalaureate/' },
       { label: 'Indian Curricula', href: 'https://eduquest.org.in/indian-curricula/' },
       { label: 'International Curricula', href: 'https://eduquest.org.in/international-curricula/' },

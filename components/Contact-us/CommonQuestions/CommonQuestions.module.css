@@ -23,7 +23,7 @@
 
 /* ─── INNER WRAPPER ───────────────────────────────────────────────────── */
 .sectionInner {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -78,7 +78,7 @@
 
 .sectionTitle {
   font-family: var(--ff-head);
-  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: var(--navy);
   line-height: 1.25;
@@ -99,7 +99,7 @@
 }
 
 .sectionSub {
-  font-size: 14.5px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--text2);
   max-width: 420px;
   line-height: 1.75;
@@ -217,7 +217,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  font-size: 14px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--navy3);
   line-height: 1;
   transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;

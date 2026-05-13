@@ -30,7 +30,7 @@
 }
 
 .container {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -51,7 +51,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 11px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -83,7 +83,7 @@
 
 /* ── Body Paragraphs ── */
 .aboutP {
-  font-size: 15px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: #4a5568;
   line-height: 1.8;
   margin-bottom: 14px;
@@ -119,14 +119,14 @@
 }
 
 .aboutFeatTitle {
-  font-size: 14px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: #0b1c3d;
   margin-bottom: 4px;
 }
 
 .aboutFeatBody {
-  font-size: 13px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: #4a5568;
   line-height: 1.6;
 }
@@ -220,7 +220,7 @@
 
 .aboutImgBadgeSub {
   display: block;
-  font-size: 10.5px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: #718096;
 }
 

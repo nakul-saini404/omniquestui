@@ -36,7 +36,7 @@
 }
 
 .container {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -53,7 +53,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-size: 11px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -82,7 +82,7 @@
 }
 
 .secSub {
-  font-size: 15px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: #4a5568;
   line-height: 1.75;
   max-width: 600px;
@@ -163,7 +163,7 @@
 }
 
 .gradeLabel {
-  font-size: 13px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -172,7 +172,7 @@
 
 .phaseName {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 28px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: #ffffff;
   margin-top: 6px;
@@ -184,7 +184,7 @@
 }
 
 .heroDesc {
-  font-size: 15px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.75;
 }
@@ -222,7 +222,7 @@
 }
 
 .brandColTitle {
-  font-size: 11px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -241,7 +241,7 @@
 }
 
 .brandColText {
-  font-size: 13px;
+  font-size: clamp(15px, 1.5vw, 17px);
   line-height: 1.65;
   color: #2d3748;
 }
@@ -303,7 +303,7 @@
 }
 
 .cardTitle {
-  font-size: 14px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: #0b1c3d;
   margin-bottom: 10px;
@@ -319,7 +319,7 @@
 }
 
 .cardListItem {
-  font-size: 12.5px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: #4a5568;
   padding-left: 14px;
   position: relative;
@@ -351,14 +351,14 @@
 }
 
 .calloutTitle {
-  font-size: 15px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 4px;
 }
 
 .calloutDesc {
-  font-size: 13px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(255, 255, 255, 0.65);
   line-height: 1.6;
 }
@@ -398,7 +398,7 @@
   }
 
   .phaseName {
-    font-size: 22px;
+    font-size: clamp(17px, 2vw, 20px);
   }
 
   .hero {

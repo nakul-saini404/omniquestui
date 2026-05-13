@@ -28,7 +28,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 11px;
+    font-size: clamp(15px, 1.5vw, 17px);
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -46,7 +46,7 @@
 
 .title {
     font-family: "Playfair Display", Georgia, serif;
-    font-size: clamp(22px, 3.5vw, 36px);
+    font-size: clamp(17px, 2vw, 20px);
     font-weight: 700;
     color: #0b1c3d;
     letter-spacing: -0.02em;
@@ -60,7 +60,7 @@
 }
 
 .subtitle {
-    font-size: 13.5px;
+    font-size: clamp(17px, 2vw, 20px);
     color: #718096;
     margin: 0;
     letter-spacing: 0.04em;
@@ -127,7 +127,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 14px;
-    max-width: 1100px;
+    max-width: 1600px;
     margin: 0 auto;
 }
 
@@ -262,7 +262,7 @@
     position: absolute;
     top: -12px;
     right: -6px;
-    font-size: 0.95rem;
+    font-size: clamp(15px, 1.5vw, 17px);
     filter: drop-shadow(0 1px 3px rgba(212, 168, 67, 0.7));
     animation: crownBob 2.2s ease-in-out infinite;
 }
@@ -291,7 +291,7 @@
 
 .name {
     font-family: "Playfair Display", Georgia, serif;
-    font-size: 13px;
+    font-size: clamp(17px, 2vw, 20px);
     font-weight: 600;
     color: #0b1c3d;
     text-align: center;
@@ -362,7 +362,7 @@
     justify-content: center;
     gap: 16px;
     margin-top: 24px;
-    max-width: 1100px;
+    max-width: 1600px;
     margin-left: auto;
     margin-right: auto;
 }

@@ -56,7 +56,7 @@
 
 /* ── Layout Container ── */
 .container {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -109,7 +109,7 @@
 
 /* ── Sub-heading ── */
 .heroSub {
-  font-size: 15.5px;
+  font-size: clamp(17px, 2vw, 20px);
   color: rgba(255, 255, 255, 0.7);
   max-width: 500px;
   margin-bottom: 32px;
@@ -255,7 +255,7 @@
 }
 
 .heroCardName {
-  font-size: 11.5px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: #ffffff;
   text-transform: uppercase;

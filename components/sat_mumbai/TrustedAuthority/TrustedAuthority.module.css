@@ -24,7 +24,7 @@
 
 /* ── Section label ── */
 .sectionLabel {
-  font-size: 12px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 1.4px;
   text-transform: uppercase;
@@ -40,7 +40,7 @@
 /* ── Section title ── */
 .sectionTitle {
   font-family: var(--ff-head, "Playfair Display", serif);
-  font-size: clamp(28px, 3vw, 40px);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: var(--navy, #0b1c3d);
   line-height: 1.2;
@@ -55,7 +55,7 @@
 /* ── Section sub ── */
 .sectionSub {
   color: var(--gray, #6b7280);
-  font-size: 16px;
+  font-size: clamp(15px, 1.5vw, 17px);
   max-width: 600px;
   margin-bottom: 48px;
   line-height: 1.65;
@@ -86,7 +86,7 @@
 }
 
 .outLabel {
-  font-size: 13px;
+  font-size: clamp(17px, 2vw, 20px);
   color: rgba(255, 255, 255, 0.6);
   margin-top: 6px;
 }
@@ -125,7 +125,7 @@
 }
 
 .testiText {
-  font-size: 14px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--gray, #6b7280);
   line-height: 1.7;
   margin-bottom: 16px;
@@ -154,7 +154,7 @@
 
 .testiName {
   font-weight: 600;
-  font-size: 14px;
+  font-size: clamp(17px, 2vw, 20px);
   color: var(--navy, #0b1c3d);
 }
 

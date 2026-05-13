@@ -73,7 +73,7 @@
 
 /* ─── Max-width container ───────────────────────────────────── */
 .inner {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -108,7 +108,7 @@
 }
 
 .eyebrowText {
-  font-size: 12px;
+  font-size: clamp(15px, 1.5vw, 17px);
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -118,7 +118,7 @@
 /* ── Section title ── */
 .title {
   font-family: var(--ff-head);
-  font-size: clamp(30px, 4vw, 48px);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 800;
   line-height: 1.12;
   letter-spacing: -0.4px;
@@ -134,7 +134,7 @@
 
 /* ── Sub paragraph ── */
 .sub {
-  font-size: 16px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--text2);
   line-height: 1.82;
   max-width: 600px;
@@ -246,7 +246,7 @@
 /* ── Card title ── */
 .cardTitle {
   font-family: var(--ff-head);
-  font-size: 17px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 800;
   color: var(--navy);
   margin-bottom: 10px;
@@ -256,7 +256,7 @@
 
 /* ── Card body ── */
 .cardDesc {
-  font-size: 14px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: var(--text2);
   line-height: 1.68;
   margin: 0;
@@ -281,11 +281,11 @@
   }
 
   .title {
-    font-size: 28px;
+    font-size: clamp(17px, 2vw, 20px);
   }
 
   .sub {
-    font-size: 14px;
+    font-size: clamp(15px, 1.5vw, 17px);
   }
 
   .card {
@@ -293,6 +293,6 @@
   }
 
   .cardTitle {
-    font-size: 15px;
+    font-size: clamp(17px, 2vw, 20px);
   }
 }

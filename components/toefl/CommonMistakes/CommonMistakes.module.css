@@ -15,7 +15,7 @@
 }
 
 .container {
-  max-width: 1450px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 24px;
   position: relative;
@@ -49,7 +49,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 11px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -72,7 +72,7 @@
 /* ── Heading ── */
 .heading {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(24px, 3.2vw, 42px);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   color: #ffffff;
   letter-spacing: -0.02em;
@@ -87,7 +87,7 @@
 
 /* ── Subtitle ── */
 .failSub {
-  font-size: 15.5px;
+  font-size: clamp(17px, 2vw, 20px);
   color: rgba(255, 255, 255, 0.55);
   max-width: 540px;
   margin: 0 auto 52px;
@@ -158,7 +158,7 @@
 /* ── Card title ── */
 .cardTitle {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 14.5px;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 600;
   color: #ffffff;
   margin-bottom: 8px;
@@ -167,7 +167,7 @@
 
 /* ── Card body ── */
 .cardBody {
-  font-size: 13px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(255, 255, 255, 0.5);
   line-height: 1.67;
 }
@@ -197,7 +197,7 @@
 }
 
 .ctaText {
-  font-size: 15px;
+  font-size: clamp(15px, 1.5vw, 17px);
   color: rgba(255, 255, 255, 0.75);
   margin-bottom: 16px;
   line-height: 1.7;
