@@ -1,0 +1,414 @@
+/* ── Design tokens (scoped, no :root) ── */
+.section {
+  --ink: #0b1120;
+  --navy: #162038;
+  --gold: #d4a017;
+  --gold2: #f0c030;
+  --cream: #faf8f3;
+  --warm: #f5f0e8;
+  --muted: #6b7694;
+  --white: #fff;
+  --red: rgba(220, 38, 38, 0.42);
+  --red-bg: rgba(220, 38, 38, 0.05);
+  --r: 10px;
+  --card-h: 260px;
+
+  position: relative;
+  padding: 88px 5%;
+  background: var(--cream);
+  font-family: "Outfit", sans-serif;
+  color: var(--ink);
+  overflow: hidden;
+
+  /* scroll reveal */
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.sectionVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Subtle dot-grid background ── */
+.bgPattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    rgba(212, 160, 23, 0.12) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ════════════════════════
+   HEADER
+════════════════════════ */
+.sectionHeader {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 52px;
+}
+
+.sectionLabel {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
+.titleAccent {
+  color: rgba(220, 38, 38, 0.75);
+}
+
+.sectionSub {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.75;
+  max-width: 620px;
+  margin: 0 0 16px;
+}
+
+.flipHint {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.78rem;
+  color: var(--muted);
+  background: rgba(212, 160, 23, 0.08);
+  border: 1px dashed rgba(212, 160, 23, 0.35);
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-top: 4px;
+}
+
+.hintIcon {
+  font-size: 0.95rem;
+}
+
+/* ════════════════════════
+   GRID
+════════════════════════ */
+.grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ════════════════════════
+   CARD ENTRANCE ANIMATION
+════════════════════════ */
+.cardWrap {
+  height: var(--card-h);
+  perspective: 1000px;
+
+  opacity: 0;
+  transform: translateY(32px) scale(0.96);
+  animation: none;
+}
+
+.cardVisible {
+  animation: cardEntrance 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes cardEntrance {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ════════════════════════
+   FLIP MECHANIC
+════════════════════════ */
+.cardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border-radius: var(--r);
+}
+
+.cardFlipped {
+  transform: rotateY(180deg);
+}
+
+/* shared face styles */
+.cardFront,
+.cardBack {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r);
+  padding: 26px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+}
+
+/* ── FRONT ── */
+.cardFront {
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.cardWrap:hover .cardFront {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.11);
+}
+
+/* red left accent bar */
+.accentBar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--red);
+  border-radius: var(--r) 0 0 var(--r);
+  transition: width 0.25s;
+}
+
+.cardWrap:hover .accentBar {
+  width: 6px;
+}
+
+/* pulse ring on hover */
+.pulseRing {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 2px solid rgba(220, 38, 38, 0.25);
+  animation: pulse 1.4s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+
+.emojiWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--red-bg);
+  border: 1px solid rgba(220, 38, 38, 0.15);
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.cardWrap:hover .emojiWrap {
+  transform: scale(1.1) rotate(-4deg);
+}
+
+.emoji {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.cardTitle {
+  font-weight: 700;
+  font-size: 0.96rem;
+  color: var(--ink);
+  margin: 0 0 10px;
+  line-height: 1.35;
+  flex-shrink: 0;
+}
+
+.cardDesc {
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.68;
+  margin: 0;
+  flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+/* flip cue */
+.flipCue {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 10px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+
+.cardWrap:hover .flipCue {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.flipCueIcon {
+  font-size: 0.85rem;
+}
+
+/* ── BACK ── */
+.cardBack {
+  background: linear-gradient(145deg, var(--navy), #1b3462);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 8px 36px rgba(0, 0, 0, 0.25);
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+}
+
+.backGlow {
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(
+    circle,
+    rgba(212, 160, 23, 0.2) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.backEmojiWrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  display: grid;
+  place-items: center;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.backEmoji {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.backTitle {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold2);
+  margin: 0 0 6px;
+  flex-shrink: 0;
+}
+
+.backOriginalTitle {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.3;
+  margin: 0 0 10px;
+  flex-shrink: 0;
+}
+
+.backFix {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.7;
+  margin: 0;
+  flex: 1;
+}
+
+.backCta {
+  margin-top: 12px;
+  flex-shrink: 0;
+}
+
+.backBtn {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--ink);
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.backBtn:hover {
+  background: var(--gold2);
+  transform: translateY(-1px);
+}
+
+/* ════════════════════════
+   RESPONSIVE
+════════════════════════ */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 4%;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .section {
+    --card-h: 280px;
+  }
+}
+
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    --card-h: 240px;
+  }
+}

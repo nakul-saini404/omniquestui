@@ -1,0 +1,338 @@
+/* ── Design tokens (scoped, no :root) ── */
+.section {
+    --ink: #0b1120;
+    --navy: #162038;
+    --gold: #d4a017;
+    --gold2: #f0c030;
+    --cream: #faf8f3;
+    --warm: #f5f0e8;
+    --muted: #6b7694;
+    --white: #fff;
+    --border: rgba(212, 160, 23, 0.18);
+    --r: 10px;
+
+    position: relative;
+    padding: 88px 5%;
+    background: var(--warm);
+    font-family: "Outfit", sans-serif;
+    color: var(--ink);
+    overflow: hidden;
+
+    /* scroll reveal */
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.sectionVisible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Background decoration ── */
+.bgDeco {
+    position: absolute;
+    bottom: -120px;
+    right: -120px;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+            rgba(212, 160, 23, 0.07) 0%,
+            transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ════════════════════════
+   HEADER
+════════════════════════ */
+.sectionHeader {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 44px;
+}
+
+.sectionLabel {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.sectionTitle {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(2rem, 4vw, 3.1rem);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+    margin: 0 0 16px;
+}
+
+.titleAccent {
+    color: var(--gold);
+}
+
+.sectionSub {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.75;
+    max-width: 580px;
+    margin: 0;
+}
+
+/* ════════════════════════
+   TABS
+════════════════════════ */
+.tabs {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 36px;
+}
+
+.tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    border-radius: 100px;
+    border: 1.5px solid var(--border);
+    font-family: "Outfit", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: transparent;
+    color: var(--muted);
+    transition: background 0.2s, border-color 0.2s, color 0.2s,
+        transform 0.15s, box-shadow 0.2s;
+    white-space: nowrap;
+}
+
+.tab:hover {
+    background: rgba(212, 160, 23, 0.08);
+    border-color: var(--gold);
+    color: var(--ink);
+    transform: translateY(-1px);
+}
+
+.tabActive {
+    background: var(--gold) !important;
+    border-color: var(--gold) !important;
+    color: var(--ink) !important;
+    box-shadow: 0 4px 16px rgba(212, 160, 23, 0.32);
+    transform: translateY(-1px);
+}
+
+.tabEmoji {
+    font-size: 0.95rem;
+    line-height: 1;
+}
+
+/* ════════════════════════
+   PANEL
+════════════════════════ */
+.panel {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    animation: panelFadeUp 0.35s ease both;
+}
+
+@keyframes panelFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ════════════════════════
+   FAQ LIST
+════════════════════════ */
+.faqList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ════════════════════════
+   FAQ ITEM — entrance
+════════════════════════ */
+.faqItem {
+    background: var(--white);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: var(--r);
+    overflow: hidden;
+    transition: border-color 0.25s, box-shadow 0.25s;
+
+    /* staggered entrance */
+    opacity: 0;
+    transform: translateY(12px);
+    animation: itemEntrance 0.42s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes itemEntrance {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.faqItem:hover {
+    border-color: rgba(212, 160, 23, 0.28);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.faqItemOpen {
+    border-color: rgba(212, 160, 23, 0.4) !important;
+    box-shadow: 0 6px 28px rgba(212, 160, 23, 0.1) !important;
+}
+
+/* ── Question button ── */
+.faqQuestion {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 22px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: "Outfit", sans-serif;
+    text-align: left;
+    transition: background 0.2s;
+}
+
+.faqQuestion:hover {
+    background: var(--warm);
+}
+
+.faqItemOpen .faqQuestion {
+    background: rgba(212, 160, 23, 0.04);
+}
+
+/* number badge */
+.qNum {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gold);
+    flex-shrink: 0;
+    width: 28px;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.faqItemOpen .qNum {
+    color: var(--gold2);
+}
+
+/* question text */
+.qText {
+    flex: 1;
+    font-weight: 600;
+    font-size: 0.93rem;
+    color: var(--ink);
+    line-height: 1.45;
+}
+
+/* chevron icon */
+.chevron {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(212, 160, 23, 0.1);
+    display: grid;
+    place-items: center;
+    color: var(--gold);
+    flex-shrink: 0;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        background 0.2s, color 0.2s;
+}
+
+.chevronOpen {
+    transform: rotate(180deg);
+    background: var(--gold);
+    color: var(--ink);
+}
+
+/* ── Answer panel — smooth height ── */
+.faqAnswer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faqAnswerInner {
+    padding: 0 22px 20px 66px;
+}
+
+.faqAnswerText {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.78;
+    margin: 0;
+    padding-top: 14px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* ════════════════════════
+   RESPONSIVE
+════════════════════════ */
+@media (max-width: 768px) {
+    .section {
+        padding: 60px 4%;
+    }
+
+    .tabs {
+        gap: 6px;
+    }
+
+    .tab {
+        padding: 7px 13px;
+        font-size: 0.76rem;
+    }
+
+    .faqAnswerInner {
+        padding: 0 16px 18px 16px;
+    }
+
+    .qNum {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+    }
+
+    .tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .faqQuestion {
+        padding: 15px 16px;
+        gap: 12px;
+    }
+}

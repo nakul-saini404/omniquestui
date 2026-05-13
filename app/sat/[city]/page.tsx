@@ -84,7 +84,7 @@ function buildLocalBusinessSchema(slug: CitySlug) {
   const isIndiaCity = data.countryCode === "IN";
   return {
     "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
+    "@type": ["EducationalOrganization", "LocalBusiness"],
     name: "EduQuest",
     alternateName: `EduQuest SAT Coaching ${data.city}`,
     url: BASE_URL,
@@ -193,6 +193,10 @@ function buildWebPageSchema(slug: CitySlug) {
       { "@type": "Thing", name: `SAT Coaching in ${data.city}` },
       { "@type": "Thing", name: "US University Admissions" },
     ],
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", "h2", ".sectionLabel"],
+    },
     breadcrumb: {
       "@type": "BreadcrumbList",
       itemListElement: [

@@ -7,7 +7,7 @@ const faqData = [
     {
         question: 'Which boards and classes does EduQuest cover for online tuition?',
         answer:
-            "EduQuest covers Grades 6–12 across all major boards: CBSE, ICSE, IB (MYP and Diploma Programme), IGCSE (Cambridge), and major State Boards. Subject availability spans Mathematics, Physics, Chemistry, Biology, English, Economics, Accountancy, Business Studies, Computer Science, and more. If you're unsure whether we cover your child's board and subject, just call us — we almost certainly do.",
+            'EduQuest covers Grades 6–12 across all major boards: CBSE, ICSE, IB (MYP and Diploma Programme), IGCSE (Cambridge), and major State Boards. Subject availability spans Mathematics, Physics, Chemistry, Biology, English, Economics, Accountancy, Business Studies, Computer Science, and more. If you are  unsure whether we cover your child\'s board and subject, just call us — we almost certainly do.',
     },
     {
         question: 'How are the online classes conducted? What technology is needed?',
@@ -78,7 +78,7 @@ export default function FAQ() {
                                 Still have questions? Our academic counsellors are available Monday–Saturday,
                                 9am–7pm.
                             </p>
-                            <a href="/contact-us" className={styles.contactBoxLink}>
+                            <a href="#contact" className={styles.contactBoxLink}>
                                 Talk to a Counsellor →
                             </a>
                         </div>

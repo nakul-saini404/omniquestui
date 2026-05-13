@@ -1,0 +1,121 @@
+/* ─── Design tokens scoped to .section (no :root) ─── */
+
+.section {
+    --ink: #0b1120;
+    --gold: #d4a017;
+    --gold2: #f0c030;
+    --cream: #faf8f3;
+    --white: #fff;
+    --muted: #6b7694;
+    --r: 10px;
+
+    padding: 88px 5%;
+    background: var(--cream);
+    font-family: 'Outfit', sans-serif;
+}
+
+/* ─── Section header ─── */
+.sectionHeader {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 54px;
+}
+
+.sectionLabel {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.sectionTitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.1rem);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 18px;
+}
+
+.sectionSub {
+    font-size: 1.05rem;
+    color: var(--muted);
+    line-height: 1.75;
+    max-width: 660px;
+}
+
+/* ─── Cards grid ─── */
+.cardsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* ─── Individual card ─── */
+.card {
+    background: var(--white);
+    border-radius: var(--r);
+    padding: 28px;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 36px rgba(0, 0, 0, 0.1);
+}
+
+.cardIcon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: rgba(212, 160, 23, 0.1);
+    display: grid;
+    place-items: center;
+    font-size: 1.4rem;
+    margin-bottom: 18px;
+}
+
+.cardTitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 9px;
+}
+
+.cardDesc {
+    font-size: 0.87rem;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1024px) {
+    .cardsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 60px 4%;
+    }
+
+    .cardsGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .sectionTitle {
+        font-size: clamp(1.7rem, 7vw, 2.4rem);
+    }
+}

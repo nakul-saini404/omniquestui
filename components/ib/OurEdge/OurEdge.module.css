@@ -1,0 +1,374 @@
+/* ── Design tokens (scoped, no :root) ── */
+.section {
+    --ink: #0b1120;
+    --navy: #162038;
+    --blue: #1e3a5f;
+    --gold: #d4a017;
+    --gold2: #f0c030;
+    --cream: #faf8f3;
+    --warm: #f5f0e8;
+    --muted: #6b7694;
+    --white: #fff;
+    --border: rgba(212, 160, 23, 0.18);
+    --r: 10px;
+
+    padding: 88px 5%;
+    background: var(--warm);
+    font-family: "Outfit", sans-serif;
+    color: var(--ink);
+
+    /* scroll reveal */
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.sectionVisible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ════════════════════════
+   TWO-COLUMN LAYOUT
+════════════════════════ */
+.inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: start;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* ════════════════════════
+   LEFT — HEADER
+════════════════════════ */
+.left {
+    display: flex;
+    flex-direction: column;
+}
+
+.sectionHeader {
+    margin-bottom: 40px;
+}
+
+.sectionLabel {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.sectionTitle {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(2rem, 3.6vw, 3rem);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+    margin: 0 0 16px;
+}
+
+.titleAccent {
+    color: var(--gold);
+}
+
+.sectionSub {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.75;
+    max-width: 500px;
+    margin: 0;
+}
+
+/* ════════════════════════
+   FEATURE ROWS
+════════════════════════ */
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.featureRow {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    padding: 18px 16px;
+    border-radius: var(--r);
+    cursor: default;
+    transition: background 0.22s, transform 0.2s, box-shadow 0.2s;
+    position: relative;
+
+    /* staggered reveal */
+    opacity: 0;
+    transform: translateX(-14px);
+    animation: none;
+}
+
+.sectionVisible .featureRow {
+    animation: slideInLeft 0.45s ease forwards;
+}
+
+@keyframes slideInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.featureRowActive {
+    background: var(--white);
+    box-shadow: 0 4px 22px rgba(0, 0, 0, 0.07);
+    transform: translateX(4px) !important;
+}
+
+/* icon */
+.featIcon {
+    width: 46px;
+    height: 46px;
+    background: rgba(212, 160, 23, 0.08);
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.featureRowActive .featIcon {
+    background: rgba(212, 160, 23, 0.16);
+    transform: scale(1.07);
+}
+
+/* text */
+.featText {
+    flex: 1;
+}
+
+.featTitle {
+    font-weight: 700;
+    font-size: 0.97rem;
+    color: var(--ink);
+    margin: 0 0 6px;
+    line-height: 1.4;
+}
+
+.featDesc {
+    font-size: 0.87rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* chevron */
+.featChevron {
+    font-size: 1.3rem;
+    color: var(--gold);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.2s, transform 0.2s;
+    padding-top: 2px;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.featureRowActive .featChevron {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ════════════════════════
+   RIGHT COLUMN
+════════════════════════ */
+.right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: sticky;
+    top: 90px;
+}
+
+/* ── Trust card (navy gradient) ── */
+.trustCard {
+    position: relative;
+    background: linear-gradient(145deg, var(--navy), #1a3260);
+    border-radius: 16px;
+    padding: 40px;
+    color: var(--white);
+    overflow: hidden;
+}
+
+.trustCardGlow {
+    position: absolute;
+    top: -40%;
+    right: -20%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle,
+            rgba(212, 160, 23, 0.18) 0%,
+            transparent 70%);
+    pointer-events: none;
+}
+
+.trustCardTitle {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 14px;
+    position: relative;
+}
+
+.trustCardDesc {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 28px;
+    position: relative;
+}
+
+/* metrics grid */
+.metricsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    position: relative;
+}
+
+.metricBox {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+    transition: background 0.2s, transform 0.2s;
+
+    /* staggered reveal */
+    opacity: 0;
+    transform: translateY(10px);
+    animation: none;
+}
+
+.sectionVisible .metricBox {
+    animation: fadeUp 0.4s ease forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.metricBox:hover {
+    background: rgba(255, 255, 255, 0.13);
+    transform: translateY(-2px);
+}
+
+.metricVal {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold2);
+    display: block;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.metricLabel {
+    font-size: 0.73rem;
+    color: rgba(255, 255, 255, 0.52);
+    display: block;
+    line-height: 1.4;
+}
+
+/* ── Testimonial cards ── */
+.testimonialCard {
+    background: var(--white);
+    border-radius: var(--r);
+    padding: 28px 28px 24px;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.testimonialCard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.09);
+}
+
+.quoteIcon {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 5rem;
+    font-weight: 700;
+    color: rgba(212, 160, 23, 0.1);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+}
+
+.quote {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.75;
+    margin: 0 0 14px;
+    position: relative;
+}
+
+.quoteAuthor {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--ink);
+}
+
+/* ════════════════════════
+   RESPONSIVE
+════════════════════════ */
+@media (max-width: 1024px) {
+    .inner {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 60px 4%;
+    }
+
+    .inner {
+        grid-template-columns: 1fr;
+        gap: 44px;
+    }
+
+    .right {
+        position: static;
+    }
+
+    .featureRow {
+        padding: 14px 10px;
+    }
+
+    .trustCard {
+        padding: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .metricsGrid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .metricVal {
+        font-size: 1.6rem;
+    }
+}

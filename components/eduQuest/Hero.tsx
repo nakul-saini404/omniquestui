@@ -1,39 +1,40 @@
 'use client';
 
 const stats = [
-  { value: '97%',  label: 'Success Ratio' },
+  { value: '97%', label: 'Success Ratio' },
   { value: '10K+', label: 'Happy Students' },
   { value: '$8M+', label: 'In Scholarships' },
-  { value: '20+',  label: 'Years of Service' },
+  { value: '20+', label: 'Years of Service' },
 ];
 
 const univBadges = ['Harvard', 'Yale', 'MIT', 'Oxford', 'Stanford', 'LSE', 'Cambridge'];
 
 const transformSteps = [
-  { icon: '🎒', label: 'Raw Student',        bg: '#FEF3C7' },
+  { icon: '🎒', label: 'Raw Student', bg: '#FEF3C7' },
   { icon: '📐', label: 'Structured Profile', bg: '#DBEAFE' },
-  { icon: '🎓', label: 'Ivy Admit',          bg: '#D1FAE5' },
+  { icon: '🎓', label: 'Ivy Admit', bg: '#D1FAE5' },
 ];
 
 const T = {
-  ink:        '#0A0A14',
-  paper:      '#FAFAF7',
-  cream:      '#F5F0E8',
-  gold:       '#C9973A',
-  goldLight:  '#E8B84B',
-  slate:      '#2E3A52',
+  ink: '#0A0A14',
+  paper: '#FAFAF7',
+  cream: '#F5F0E8',
+  gold: '#C9973A',
+  goldLight: '#E8B84B',
+  slate: '#2E3A52',
   slateLight: '#4A5568',
-  rust:       '#B8432C',
-  border:     'rgba(10,10,20,0.1)',
-  white:      '#ffffff',
-  serif:      '"DM Serif Display", Georgia, serif',
-  sans:       '"DM Sans", system-ui, sans-serif',
+  rust: '#B8432C',
+  border: 'rgba(10,10,20,0.1)',
+  white: '#ffffff',
+  serif: '"DM Serif Display", Georgia, serif',
+  sans: '"DM Sans", system-ui, sans-serif',
 };
 
 export default function Hero() {
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
         *, *::before, *::after { box-sizing: border-box; }
@@ -145,14 +146,15 @@ export default function Hero() {
           pointer-events: none;
           z-index: 0;
         }
+
+        /* ── Centring wrapper ── */
         .eq-hero-inner {
-          max-width:"1560px";
           position: relative;
           z-index: 1;
-        }
-
-        #hero-div {
-        max-width:"1560px";
+          width: 100%;
+          max-width: 1600px;
+          margin-left: auto;
+          margin-right: auto;
         }
 
         /* ── Layout grid ── */
@@ -188,14 +190,12 @@ export default function Hero() {
            BREAKPOINTS
         ━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
-        /* Tablet (641 – 1024px) */
         @media (max-width: 1024px) {
           .eq-hero-section  { padding: 60px 40px !important; min-height: unset !important; }
           .eq-hero-grid     { gap: 40px; }
           .eq-stats-grid    { grid-template-columns: repeat(2, 1fr); }
         }
 
-        /* Small tablet / large phone (641 – 900px): single-column */
         @media (max-width: 900px) {
           .eq-hero-grid {
             grid-template-columns: 1fr !important;
@@ -204,14 +204,11 @@ export default function Hero() {
           .eq-hero-section { padding: 56px 32px !important; }
         }
 
-        /* Mobile (≤ 640px) */
         @media (max-width: 640px) {
           .eq-hero-section  { padding: 36px 16px !important; }
           .eq-hero-grid     { gap: 28px; }
 
-          .eq-cta-row {
-            flex-direction: column;
-          }
+          .eq-cta-row       { flex-direction: column; }
           .eq-btn-primary-link,
           .eq-btn-secondary-link {
             width: 100%;
@@ -228,7 +225,7 @@ export default function Hero() {
             font-size: 1.1rem !important;
           }
           .eq-transform-step-label { font-size: 0.7rem !important; }
-          .eq-transform-arrow { font-size: 0.9rem !important; }
+          .eq-transform-arrow      { font-size: 0.9rem !important; }
 
           .eq-univ-badges-wrap { gap: 8px !important; }
           .eq-univ-badge-pill  { font-size: 0.68rem; padding: 3px 8px; }
@@ -236,7 +233,6 @@ export default function Hero() {
           .eq-card-pad { padding: 20px 18px !important; }
         }
 
-        /* Very small (≤ 375px) */
         @media (max-width: 375px) {
           .eq-hero-section { padding: 28px 12px !important; }
           .eq-stats-grid   { grid-template-columns: repeat(2, 1fr); gap: 8px; }
@@ -248,15 +244,18 @@ export default function Hero() {
         className="eq-hero-section"
         id="home"
         style={{
-          minHeight: 'calc(100vh - 180px)',
+          minHeight: 'calc(100vh - 240px)',
           padding: '80px',
           background: `linear-gradient(135deg, ${T.paper} 0%, ${T.cream} 100%)`,
           fontFamily: T.sans,
+          /* vertically + horizontally centre the inner wrapper */
           display: 'flex',
           alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
-        <div className="eq-hero-inner" id="hero-div" style={{ maxWidth: '100%' }}>
+        {/* max-width 1600px + auto horizontal margins live here */}
+        <div className="eq-hero-inner">
           <div className="eq-hero-grid">
 
             {/* ── LEFT ── */}
@@ -274,10 +273,10 @@ export default function Hero() {
                 fontSize: '0.78rem',
                 fontWeight: 600,
                 letterSpacing: '0.06em',
-                textTransform: 'uppercase',
+                textTransform: 'uppercase' as const,
                 marginBottom: '22px',
                 fontFamily: T.sans,
-                flexWrap: 'wrap',
+                flexWrap: 'wrap' as const,
               }}>
                 <span style={{ fontSize: '1rem' }}>🏛️</span>
                 Narrative Architects for Top University Admissions
@@ -289,7 +288,6 @@ export default function Hero() {
                 fontSize: 'clamp(2rem, 4.5vw, 3.6rem)',
                 lineHeight: 1.15,
                 color: T.ink,
-                marginBottom: '20px',
                 fontWeight: 400,
                 margin: '0 0 20px',
               }}>
@@ -351,7 +349,7 @@ export default function Hero() {
                   fontSize: '0.7rem',
                   fontWeight: 700,
                   letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
+                  textTransform: 'uppercase' as const,
                   color: T.slateLight,
                   marginBottom: '16px',
                   fontFamily: T.sans,
@@ -361,7 +359,7 @@ export default function Hero() {
                 <div className="eq-transform-row">
                   {transformSteps.map((step, i) => (
                     <div key={step.label} style={{ display: 'contents' }}>
-                      <div style={{ flex: 1, textAlign: 'center' }}>
+                      <div style={{ flex: 1, textAlign: 'center' as const }}>
                         <div
                           className="eq-transform-step-icon"
                           style={{
@@ -411,7 +409,7 @@ export default function Hero() {
                       border: `1px solid ${T.border}`,
                       borderRadius: '12px',
                       padding: '16px 12px',
-                      textAlign: 'center',
+                      textAlign: 'center' as const,
                     }}
                   >
                     <div style={{
@@ -449,7 +447,7 @@ export default function Hero() {
                   color: T.slateLight,
                   fontWeight: 700,
                   letterSpacing: '0.07em',
-                  textTransform: 'uppercase',
+                  textTransform: 'uppercase' as const,
                   marginBottom: '10px',
                   fontFamily: T.sans,
                 }}>
@@ -457,11 +455,7 @@ export default function Hero() {
                 </span>
                 <div
                   className="eq-univ-badges-wrap"
-                  style={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    gap: '8px',
-                  }}
+                  style={{ display: 'flex', flexWrap: 'wrap' as const, gap: '8px' }}
                 >
                   {univBadges.map((u) => (
                     <span key={u} className="eq-univ-badge-pill">{u}</span>

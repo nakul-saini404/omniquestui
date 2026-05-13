@@ -52,6 +52,7 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
   // ── Online Home Tuition ─────────────────────────────────────────────────────
   { url: `${BASE_URL}/online-home-tuition`,                                lastModified: new Date("2026-05-13"), changeFrequency: "monthly",  priority: 0.88 },
   { url: `${BASE_URL}/online-tuition-classes-india`,                       lastModified: new Date("2026-05-13"), changeFrequency: "monthly",  priority: 0.88 },
+  { url: `${BASE_URL}/ib-international-baccalaureate`,                     lastModified: new Date("2026-05-13"), changeFrequency: "monthly",  priority: 0.88 },
 
   // ── Contact ───────────────────────────────────────────────────────────────
   { url: `${BASE_URL}/contact-us`,                                         lastModified: new Date("2026-05-12"), changeFrequency: "yearly",   priority: 0.65 },
@@ -92,7 +93,7 @@ const CITY_PRIORITY: Record<CitySlug, number> = {
 // ─────────────────────────────────────────────────────────────────────────────
 function generateSATDynamicRoutes(): MetadataRoute.Sitemap {
   return (Object.keys(SAT_CITIES) as CitySlug[]).map((slug) => ({
-    url: `${BASE_URL}/sat/${slug}`,
+    url: SAT_CITIES[slug].canonicalUrl,
     lastModified: new Date(SAT_CITIES[slug].lastUpdated),
     changeFrequency: "monthly" as const,
     priority: CITY_PRIORITY[slug] ?? 0.75,

@@ -1,0 +1,343 @@
+/* ── Design tokens (scoped, no :root) ── */
+.section {
+    --ink: #0b1120;
+    --navy: #162038;
+    --blue: #1e3a5f;
+    --gold: #d4a017;
+    --gold2: #f0c030;
+    --cream: #faf8f3;
+    --warm: #f5f0e8;
+    --muted: #6b7694;
+    --white: #fff;
+    --border: rgba(212, 160, 23, 0.18);
+    --red-border: rgba(220, 38, 38, 0.35);
+    --red-bg: rgba(220, 38, 38, 0.04);
+    --r: 10px;
+
+    padding: 88px 5%;
+    background: var(--cream);
+    font-family: "Outfit", sans-serif;
+    color: var(--ink);
+
+    /* scroll reveal */
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.sectionVisible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ════════════════════════
+   HEADER
+════════════════════════ */
+.sectionHeader {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 48px;
+}
+
+.sectionLabel {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.sectionTitle {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(2rem, 4vw, 3.1rem);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+    margin: 0 0 16px;
+}
+
+.titleAccent {
+    color: var(--gold);
+}
+
+.sectionSub {
+    font-size: 1.02rem;
+    color: var(--muted);
+    line-height: 1.75;
+    max-width: 600px;
+    margin: 0;
+}
+
+/* ════════════════════════
+   TABS
+════════════════════════ */
+.tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 20px;
+    border-radius: 100px;
+    border: 1.5px solid var(--border);
+    font-family: "Outfit", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: transparent;
+    color: var(--muted);
+    transition: background 0.2s, border-color 0.2s, color 0.2s,
+        transform 0.15s, box-shadow 0.2s;
+    white-space: nowrap;
+}
+
+.tab:hover {
+    background: rgba(212, 160, 23, 0.08);
+    border-color: var(--gold);
+    color: var(--ink);
+    transform: translateY(-1px);
+}
+
+.tabActive {
+    background: var(--gold) !important;
+    border-color: var(--gold) !important;
+    color: var(--ink) !important;
+    box-shadow: 0 4px 16px rgba(212, 160, 23, 0.35);
+    transform: translateY(-1px);
+}
+
+.tabEmoji {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+/* ════════════════════════
+   PANEL ANIMATION
+════════════════════════ */
+.panel {
+    animation: panelFadeUp 0.38s ease both;
+}
+
+@keyframes panelFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ════════════════════════
+   GRID LAYOUT
+════════════════════════ */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: start;
+}
+
+/* ════════════════════════
+   MAIN CARD
+════════════════════════ */
+.main {
+    background: var(--white);
+    border-radius: var(--r);
+    padding: 36px;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(212, 160, 23, 0.1);
+    color: var(--gold);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 100px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.subjTitle {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 8px;
+    line-height: 1.2;
+}
+
+.subjDesc {
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin: 0 0 22px;
+}
+
+/* ── Mini title ── */
+.miniTitle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--ink);
+    margin-bottom: 14px;
+}
+
+.miniTitleBar {
+    width: 18px;
+    height: 2px;
+    background: var(--gold);
+    flex-shrink: 0;
+    border-radius: 2px;
+}
+
+.cardIconBadge {
+    font-size: 0.95rem;
+    line-height: 1;
+}
+
+/* ── Topic list ── */
+.topicList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+}
+
+.topicItem {
+    font-size: 0.88rem;
+    color: var(--ink);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.55;
+}
+
+.topicArrow {
+    color: var(--gold);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* ════════════════════════
+   ASIDE COLUMN
+════════════════════════ */
+.aside {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.asideCard {
+    background: var(--white);
+    border-radius: var(--r);
+    padding: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+
+    /* staggered reveal */
+    opacity: 0;
+    transform: translateX(12px);
+    animation: slideInRight 0.4s ease forwards;
+}
+
+@keyframes slideInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.asideCardStruggle {
+    border-left: 4px solid var(--red-border);
+}
+
+/* ── Fail list ── */
+.failList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+}
+
+.failItem {
+    font-size: 0.85rem;
+    color: var(--muted);
+    padding: 8px 12px;
+    background: var(--red-bg);
+    border-left: 3px solid var(--red-border);
+    border-radius: 0 6px 6px 0;
+    line-height: 1.55;
+}
+
+/* ════════════════════════
+   RESPONSIVE
+════════════════════════ */
+@media (max-width: 1024px) {
+    .grid {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 60px 4%;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tabs {
+        gap: 6px;
+    }
+
+    .tab {
+        padding: 8px 14px;
+        font-size: 0.78rem;
+    }
+
+    .main {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sectionTitle {
+        font-size: 1.8rem;
+    }
+
+    .tabs {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+    }
+
+    .tabs::-webkit-scrollbar {
+        display: none;
+    }
+}
