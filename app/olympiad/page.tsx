@@ -5,39 +5,38 @@ import {
   organizationSchema,
   webPageSchema,
   courseSchema,
-} from "./ibSchema";
-import IB from "./ib";
+} from "./olympiadSchema";
+import Olympiad from "./olympiad";
 
 export const metadata: Metadata = {
   title:
-    "IB Online Tuition | Expert International Baccalaureate Tutors | EduQuest",
+    "Olympiad Online Tuition | Expert Olympiad Tutors | EduQuest",
   description:
-    "EduQuest offers premium IB online tuition with expert tutors. Comprehensive guidance for IB MYP and DP including all subjects, Extended Essay (EE), and TOK. Book a free demo!",
+    "EduQuest offers premium Olympiad online tuition with expert tutors. Comprehensive guidance for all major Olympiads including IMO, NSO, IEO, and more. Book a free demo!",
   keywords: [
-    "IB online tuition",
-    "International Baccalaureate tutor",
-    "IB DP tuition",
-    "IB MYP tuition",
-    "best IB tutors",
-    "online IB classes",
-    "EduQuest IB",
-    "IB Math tutor",
-    "IB Physics tutor",
-    "IB Chemistry tutor",
+    "Olympiad online tuition",
+    "Olympiad tutor",
+    "IMO tuition",
+    "NSO tuition",
+    "best Olympiad tutors",
+    "online Olympiad classes",
+    "EduQuest Olympiad",
+    "Math Olympiad tutor",
+    "Science Olympiad tutor",
   ],
   alternates: {
-    canonical: "https://eduquest.org.in/ib-international-baccalaureate/",
+    canonical: "https://eduquest.org.in/olympiad/",
     languages: {
-      "x-default": "https://eduquest.org.in/ib-international-baccalaureate/",
-      en: "https://eduquest.org.in/ib-international-baccalaureate/",
-      "en-IN": "https://eduquest.org.in/ib-international-baccalaureate/",
+      "x-default": "https://eduquest.org.in/olympiad/",
+      en: "https://eduquest.org.in/olympiad/",
+      "en-IN": "https://eduquest.org.in/olympiad/",
     },
   },
   openGraph: {
-    title: "IB Online Tuition | Expert International Baccalaureate Tutors | EduQuest",
+    title: "Olympiad Online Tuition | Expert Olympiad Tutors | EduQuest",
     description:
-      "EduQuest offers premium IB online tuition with expert tutors. Comprehensive guidance for IB MYP and DP including all subjects, EE, and TOK.",
-    url: "https://eduquest.org.in/ib-international-baccalaureate/",
+      "EduQuest offers premium Olympiad online tuition with expert tutors. Comprehensive guidance for all major Olympiads including IMO, NSO, IEO, and more.",
+    url: "https://eduquest.org.in/olympiad/",
     siteName: "EduQuest",
     locale: "en_IN",
     type: "website",
@@ -46,15 +45,15 @@ export const metadata: Metadata = {
         url: "https://eduquest.org.in/wp-content/uploads/eduquest-og.jpg",
         width: 1200,
         height: 630,
-        alt: "EduQuest IB Online Tuition",
+        alt: "EduQuest Olympiad Online Tuition",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "IB Online Tuition | Expert International Baccalaureate Tutors | EduQuest",
+    title: "Olympiad Online Tuition | Expert Olympiad Tutors | EduQuest",
     description:
-      "EduQuest offers premium IB online tuition with expert tutors. Comprehensive guidance for IB MYP and DP.",
+      "EduQuest offers premium Olympiad online tuition with expert tutors. Comprehensive guidance for all major Olympiads.",
     images: ["https://eduquest.org.in/wp-content/uploads/eduquest-og.jpg"],
   },
   robots: {
@@ -70,7 +69,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function IBPage() {
+export default function OlympiadPage() {
   return (
     <>
       <div style={{ display: 'none' }}>
@@ -81,7 +80,7 @@ export default function IBPage() {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
       </div>
 
-      <IB />
+      <Olympiad />
     </>
   );
 }

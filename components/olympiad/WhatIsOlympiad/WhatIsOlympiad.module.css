@@ -1,0 +1,174 @@
+/* ── Section Wrapper ── */
+.section {
+    --navy: #0D1B3E;
+    --navy-mid: #1a2d5a;
+    --gold: #D4A017;
+    --gold-lt: #F0C040;
+    --off-white: #F8F9FC;
+    --sky-lt: #3B82F6;
+    --shadow-lg: 0 20px 60px rgba(13, 27, 62, 0.18);
+    --radius: 16px;
+
+    background: #ffffff;
+    padding: 72px 0;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ── Container ── */
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ── Two-column Grid ── */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+}
+
+/* ── Left: Text Column ── */
+.eyebrow {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.heading {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.9rem;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.heading em {
+    font-style: italic;
+    color: var(--sky-lt);
+}
+
+.textCol p {
+    font-size: 1rem;
+    color: #475569;
+    line-height: 1.8;
+    margin-bottom: 14px;
+}
+
+.textCol p strong {
+    color: var(--navy);
+    font-weight: 700;
+}
+
+/* ── Pillar Chips Grid ── */
+.pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.pillarChip {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: var(--off-white);
+    border-radius: 10px;
+    padding: 14px;
+    border-left: 3px solid var(--gold);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pillarChip:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(13, 27, 62, 0.1);
+}
+
+.pillarIcon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.pillarBody h5 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 3px;
+}
+
+.pillarBody p {
+    font-size: 0.85rem;
+    color: #64748B;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ── Right: Visual Card ── */
+.visual {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    border-radius: var(--radius);
+    padding: 36px 28px;
+    color: #fff;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.visual::before {
+    content: '🏆';
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    font-size: 8rem;
+    opacity: 0.06;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.visualHeading {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--gold-lt);
+    margin-bottom: 20px;
+}
+
+/* ── Benefit List ── */
+.benefitList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.benefitList li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.93rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+}
+
+.benefitList li::before {
+    content: '✦';
+    color: var(--gold-lt);
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    margin-top: 3px;
+}

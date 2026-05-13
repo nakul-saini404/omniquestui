@@ -3,14 +3,14 @@ import Image from 'next/image';
 const footerLinks = {
   courses: [
     { label: 'SAT Coaching', href: '/sat' },
-      { label: 'LSAT Coaching', href: '/lsat' },
-      { label: 'SSAT Coaching', href: '/ssat' },
-      { label: 'PSAT Coaching', href: '/psat' },
+    { label: 'LSAT Coaching', href: '/lsat' },
+    { label: 'SSAT Coaching', href: '/ssat' },
+    { label: 'PSAT Coaching', href: '/psat' },
     { label: 'ACT Coaching', href: '/act' },
     { label: 'AP Coaching', href: '/ap-coaching' },
     { label: 'Pre-AP Coaching', href: '/pre-ap-gurgaon' },
     { label: 'IPMAT Coaching', href: '/ipmat-coaching-and-profile-building-eduquest-2026' },
-      { label: 'MCAT Coaching', href: '/mcat' },
+    { label: 'MCAT Coaching', href: '/mcat' },
     { label: 'UCAT Coaching', href: '/ucat' },
     { label: 'TMUA Coaching', href: '/tmua' },
     { label: 'IELTS Coaching', href: '/ielts' },
@@ -18,16 +18,16 @@ const footerLinks = {
     { label: 'PTE Coaching', href: '/pte' },
     { label: 'TOEFL Coaching', href: '/toefl' },
     // { label: 'SAT Coaching Classes Dubai', href: 'https://eduquest.org.in/sat-test-preparation-online-course-dubai/' },
-   
+
   ],
   tuition: [
-    { label: 'Olympiads', href: 'https://eduquest.org.in/olympiad/' },
-    { label: 'DASA/CIWG', href: 'https://eduquest.org.in/dasa-and-ciwg-quota/' },
-    { label: 'IB Coaching', href: 'https://eduquest.org.in/ib-international-baccalaureate/' },
-    { label: 'Indian Curricula', href: 'https://eduquest.org.in/indian-curricula/' },
-    { label: 'International Curricula', href: 'https://eduquest.org.in/international-curricula/' },
-    { label: 'Online Home Tuition', href: 'https://eduquest.org.in/online-home-tuition/' },
-    { label: 'Our Achievements', href: 'https://eduquest.org.in/our-achievements/' },
+    { label: 'Olympiads', href: '/olympiad' },
+    { label: 'DASA/CIWG', href: '/dasa-and-ciwg-quota' },
+    { label: 'IB Coaching', href: '/ib-international-baccalaureate' },
+    { label: 'Indian Curricula', href: '/indian-curricula' },
+    { label: 'International Curricula', href: '/international-curricula' },
+    { label: 'Online Home Tuition', href: '/online-home-tuition' },
+    { label: 'Our Achievements', href: '/our-achievements' },
   ],
   useful: [
     { label: 'About Us', href: 'https://eduquest.org.in/about-us/' },

@@ -15,7 +15,7 @@ interface Board {
 const stats: Stat[] = [
     { num: "30+", label: "Years of Excellence" },
     { num: "10,000+", label: "Students Guided" },
-    { num: "95%+", label: "Avg. Score Improvement" },
+    { num: "95%+", label: "Score Improvement" },
     { num: "4", label: "Boards Covered" },
 ];
 
@@ -29,26 +29,33 @@ const boards: Board[] = [
 export default function TuitionHero() {
     return (
         <section className={styles.hero} id="hero">
-            {/* Decorative glow — bottom left */}
+            {/* Decorative glows */}
             <div className={styles.glowLeft} aria-hidden="true" />
+            <div className={styles.glowRight} aria-hidden="true" />
+            <div className={styles.gridOverlay} aria-hidden="true" />
 
             <div className={styles.container}>
                 <div className={styles.inner}>
 
                     {/* Eyebrow */}
-                    <div className={styles.eyebrow}>EduQuest Online Tuitions</div>
+                    <div className={styles.eyebrow}>
+                        <span className={styles.eyebrowLine} />
+                        EduQuest Online Tuitions
+                        <span className={styles.eyebrowLine} />
+                    </div>
 
                     {/* Heading */}
                     <h1 className={styles.heading}>
-                        Score High in Your Exams with{" "}
-                        <em className={styles.headingEm}>EduQuest</em>
+                        Score High in Your Exams
+                        <br />
+                        <span className={styles.headingAccent}>with EduQuest</span>
                     </h1>
 
                     {/* Sub */}
                     <p className={styles.sub}>
                         Personalised online school tuitions for CBSE, ICSE, IB &amp; IGCSE
-                        — Class 6 to 12. Expert tutors, flexible scheduling, proven results
-                        since 1995.
+                        — Class 6 to 12. Expert tutors, flexible scheduling,
+                        proven results since 1995.
                     </p>
 
                     {/* Board badges */}
@@ -61,15 +68,24 @@ export default function TuitionHero() {
                         ))}
                     </div>
 
+                    {/* CTA */}
+                    <div className={styles.ctaRow}>
+                        <a href="/contact-us" className={styles.ctaPrimary}>
+                            Book a Free Demo
+                            <span className={styles.ctaArrow}>→</span>
+                        </a>
+
+                    </div>
+
+                    {/* Divider */}
+                    <div className={styles.divider} aria-hidden="true" />
+
                     {/* Stats */}
                     <div className={styles.stats}>
                         {stats.map((stat, i) => (
                             <React.Fragment key={stat.label}>
                                 {i > 0 && (
-                                    <div
-                                        className={styles.statDivider}
-                                        aria-hidden="true"
-                                    />
+                                    <div className={styles.statDivider} aria-hidden="true" />
                                 )}
                                 <div className={styles.stat}>
                                     <span className={styles.statNum}>{stat.num}</span>
@@ -78,15 +94,6 @@ export default function TuitionHero() {
                             </React.Fragment>
                         ))}
                     </div>
-
-                    {/* CTA */}
-                    <a
-                        href="https://eduquest.org.in/contact-us/"
-                        className={styles.cta}
-                    >
-                        Start 3-Day FREE Trial
-                        <span className={styles.ctaArrow}>→</span>
-                    </a>
 
                 </div>
             </div>

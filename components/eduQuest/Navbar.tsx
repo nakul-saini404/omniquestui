@@ -42,7 +42,7 @@ const navItems = [
       { label: 'IB', href: '/ib-international-baccalaureate' },
       { label: 'Indian Curricula', href: 'https://eduquest.org.in/indian-curricula/' },
       { label: 'International Curricula', href: 'https://eduquest.org.in/international-curricula/' },
-      { label: 'Olympiads', href: 'https://eduquest.org.in/olympiad/' },
+      { label: 'Olympiads', href: '/olympiad' },
     ],
   },
   { label: 'Study Abroad', href: 'https://eduquest.org.in/overseas-education-consultant-studyabroad-consultant/' },

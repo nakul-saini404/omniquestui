@@ -1,0 +1,112 @@
+/* ── Outer dark section ── */
+.outerSection {
+    --navy: #0D1B3E;
+    --navy-deep: #080f24;
+    --navy-mid: #1a2d5a;
+    --gold: #D4A017;
+    --gold-lt: #F0C040;
+    --shadow-lg: 0 20px 60px rgba(13, 27, 62, 0.18);
+    --radius: 16px;
+
+    background: #F8F9FC;
+    padding: 0 20px 72px;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ── Inner wrapper — centres and caps width ── */
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ── CTA Strip Card ── */
+.ctaStrip {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    border-radius: var(--radius);
+    padding: 44px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+/* Decorative gold orb — top-right corner, matching original HTML */
+.ctaStrip::before {
+    content: '';
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: rgba(212, 160, 23, 0.08);
+    pointer-events: none;
+}
+
+/* ── Text block ── */
+.ctaText h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 6px;
+}
+
+.ctaText h3 em {
+    font-style: italic;
+    color: var(--gold-lt);
+}
+
+.ctaText p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0;
+}
+
+/* ── Button group ── */
+.ctaBtns {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Primary button */
+.btnPrimary {
+    background: var(--gold);
+    color: var(--navy-deep);
+    padding: 12px 26px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.btnPrimary:hover {
+    background: var(--gold-lt);
+    transform: translateY(-2px);
+}
+
+/* Outline button */
+.btnOutline {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.85);
+    padding: 12px 26px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.btnOutline:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+    color: #fff;
+}

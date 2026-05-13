@@ -1,0 +1,97 @@
+/* ── Section ── */
+.section {
+    --navy: #0D1B3E;
+    --gold-lt: #F0C040;
+    --gold: #D4A017;
+    --white: #FFFFFF;
+    --off-white: #F8F9FC;
+    --shadow-md: 0 8px 32px rgba(13, 27, 62, 0.12);
+    --radius: 16px;
+
+    background: var(--off-white);
+    padding: 72px 0;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ── Container ── */
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ── Section Head ── */
+.sectionHead {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.eyebrow {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.sectionHead h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    color: var(--navy);
+    margin-bottom: 10px;
+}
+
+/* ── How Grid ── */
+.howGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2px;
+    background: #E2E8F0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+/* ── How Step ── */
+.howStep {
+    background: var(--white);
+    padding: 30px 24px;
+    text-align: center;
+}
+
+.stepIcon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.stepNum {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--gold-lt);
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+}
+
+.howStep h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+}
+
+.howStep p {
+    font-size: 0.97rem;
+    color: #64748B;
+    line-height: 1.6;
+    margin: 0;
+}

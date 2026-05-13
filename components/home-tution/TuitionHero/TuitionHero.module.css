@@ -1,219 +1,145 @@
 /* ── TuitionHero.module.css ── */
-/* No :root used — all values scoped to class selectors */
 
+/* ── Base Section ── */
 .hero {
     background: #0b1c3d;
-    padding: 88px 0 72px;
+    padding: 100px 0 88px;
     position: relative;
     overflow: hidden;
     font-family: "Plus Jakarta Sans", sans-serif;
 }
 
-/* Subtle repeating grid overlay */
-.hero::before {
-    content: "";
+/* ── Decorative layers ── */
+.gridOverlay {
     position: absolute;
     inset: 0;
     background-image:
         repeating-linear-gradient(0deg,
             transparent,
             transparent 80px,
-            rgba(255, 255, 255, 0.013) 80px,
-            rgba(255, 255, 255, 0.013) 81px),
+            rgba(255, 255, 255, 0.014) 80px,
+            rgba(255, 255, 255, 0.014) 81px),
         repeating-linear-gradient(90deg,
             transparent,
             transparent 80px,
-            rgba(255, 255, 255, 0.013) 80px,
-            rgba(255, 255, 255, 0.013) 81px);
+            rgba(255, 255, 255, 0.014) 80px,
+            rgba(255, 255, 255, 0.014) 81px);
     pointer-events: none;
 }
 
-/* Gold radial glow — top right */
-.hero::after {
-    content: "";
+.glowRight {
     position: absolute;
-    top: -120px;
-    right: -120px;
-    width: 520px;
-    height: 520px;
-    background: radial-gradient(circle, rgba(212, 168, 67, 0.12) 0%, transparent 70%);
+    top: -140px;
+    right: -140px;
+    width: 580px;
+    height: 580px;
+    background: radial-gradient(circle, rgba(212, 168, 67, 0.14) 0%, transparent 68%);
     pointer-events: none;
 }
 
-/* Second subtle glow — bottom left */
 .glowLeft {
     position: absolute;
-    bottom: -80px;
-    left: -80px;
-    width: 360px;
-    height: 360px;
-    background: radial-gradient(circle, rgba(212, 168, 67, 0.06) 0%, transparent 70%);
+    bottom: -100px;
+    left: -100px;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(212, 168, 67, 0.07) 0%, transparent 68%);
     pointer-events: none;
 }
 
+/* ── Layout ── */
 .container {
-    max-width: 1600px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 24px;
     position: relative;
     z-index: 1;
 }
 
-/* ── Inner: centred column ── */
 .inner {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 20px;
+    gap: 24px;
 }
 
 /* ── Eyebrow ── */
 .eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    font-size: 15px;
+    gap: 12px;
+    font-size: 11.5px;
     font-weight: 700;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: #d4a843;
 }
 
-.eyebrow::before,
-.eyebrow::after {
-    content: "";
-    width: 24px;
+.eyebrowLine {
+    display: block;
+    width: 28px;
     height: 1px;
     background: #d4a843;
-    opacity: 0.6;
+    opacity: 0.55;
 }
 
 /* ── Heading ── */
 .heading {
     font-family: "Playfair Display", Georgia, serif;
-    font-size: 20px;
+    font-size: clamp(38px, 6.5vw, 64px);
     font-weight: 700;
     color: #fff;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    max-width: 820px;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    max-width: 780px;
     margin: 0;
 }
 
-.headingEm {
+.headingAccent {
     color: #d4a843;
     font-style: italic;
+    display: inline-block;
 }
 
-/* ── Sub text ── */
+/* ── Sub ── */
 .sub {
-    font-size: 15px;
-    color: rgba(255, 255, 255, 0.65);
-    line-height: 1.75;
-    max-width: 620px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.8;
+    max-width: 580px;
     margin: 0;
+    font-weight: 400;
 }
 
-/* ── Stats row ── */
-.stats {
-    display: flex;
-    gap: 48px;
-    margin-top: 12px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-}
-
-.statNum {
-    font-family: "Playfair Display", Georgia, serif;
-    font-size: 34px;
-    font-weight: 700;
-    color: #d4a843;
-    line-height: 1;
-}
-
-.statLabel {
-    font-size: 20px;
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-}
-
-/* ── Divider between stats ── */
-.statDivider {
-    width: 1px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    align-self: center;
-}
-
-/* ── CTA button ── */
-.cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 13px 28px;
-    background: #d4a843;
-    color: #0b1c3d;
-    border-radius: 6px;
-    font-size: 14.5px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.2s;
-    margin-top: 8px;
-    cursor: pointer;
-    border: none;
-    font-family: "Plus Jakarta Sans", sans-serif;
-}
-
-.cta:hover {
-    background: #e8c96a;
-    transform: translateY(-2px);
-}
-
-.ctaArrow {
-    font-size: 15px;
-    transition: transform 0.2s;
-}
-
-.cta:hover .ctaArrow {
-    transform: translateX(3px);
-}
-
-/* ── Boards badge strip ── */
+/* ── Board badges ── */
 .boardBadges {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 4px;
 }
 
 .boardBadge {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    padding: 5px 14px;
-    border: 1px solid rgba(212, 168, 67, 0.3);
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.75);
-    background: rgba(255, 255, 255, 0.04);
-    letter-spacing: 0.04em;
-    transition: border-color 0.2s, background 0.2s;
+    gap: 6px;
+    padding: 6px 16px;
+    border: 1px solid rgba(212, 168, 67, 0.28);
+    border-radius: 100px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.03);
+    transition: border-color 0.2s, background 0.2s, color 0.2s;
+    cursor: default;
 }
 
 .boardBadge:hover {
-    border-color: rgba(212, 168, 67, 0.6);
-    background: rgba(212, 168, 67, 0.06);
+    border-color: rgba(212, 168, 67, 0.65);
+    background: rgba(212, 168, 67, 0.07);
     color: #fff;
 }
 
@@ -225,213 +151,37 @@
     flex-shrink: 0;
 }
 
-/* ── Responsive ── */
-@media (max-width: 768px) {
-    .hero {
-        padding: 64px 0 56px;
-    }
-
-    .stats {
-        gap: 28px;
-    }
-
-    .statDivider {
-        display: none;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        padding: 52px 0 48px;
-    }
-
-    .stats {
-        gap: 20px;
-    }
-
-    .boardBadges {
-        gap: 8px;
-    }
-}
-
-/* ── TuitionHero.module.css ── */
-/* No :root used — all values scoped to class selectors */
-
-.hero {
-    background: #0b1c3d;
-    padding: 88px 0 72px;
-    position: relative;
-    overflow: hidden;
-    font-family: "Plus Jakarta Sans", sans-serif;
-}
-
-/* Subtle repeating grid overlay */
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image:
-        repeating-linear-gradient(0deg,
-            transparent,
-            transparent 80px,
-            rgba(255, 255, 255, 0.013) 80px,
-            rgba(255, 255, 255, 0.013) 81px),
-        repeating-linear-gradient(90deg,
-            transparent,
-            transparent 80px,
-            rgba(255, 255, 255, 0.013) 80px,
-            rgba(255, 255, 255, 0.013) 81px);
-    pointer-events: none;
-}
-
-/* Gold radial glow — top right */
-.hero::after {
-    content: "";
-    position: absolute;
-    top: -120px;
-    right: -120px;
-    width: 520px;
-    height: 520px;
-    background: radial-gradient(circle, rgba(212, 168, 67, 0.12) 0%, transparent 70%);
-    pointer-events: none;
-}
-
-/* Second subtle glow — bottom left */
-.glowLeft {
-    position: absolute;
-    bottom: -80px;
-    left: -80px;
-    width: 360px;
-    height: 360px;
-    background: radial-gradient(circle, rgba(212, 168, 67, 0.06) 0%, transparent 70%);
-    pointer-events: none;
-}
-
-.container {
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: 0 24px;
-    position: relative;
-    z-index: 1;
-}
-
-/* ── Inner: centred column ── */
-.inner {
+/* ── CTA row ── */
+.ctaRow {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
-    gap: 20px;
-}
-
-/* ── Eyebrow ── */
-.eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #d4a843;
-}
-
-.eyebrow::before,
-.eyebrow::after {
-    content: "";
-    width: 24px;
-    height: 1px;
-    background: #d4a843;
-    opacity: 0.6;
-}
-
-/* ── Heading ── */
-.heading {
-    font-family: "Playfair Display", Georgia, serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: #fff;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    max-width: 820px;
-    margin: 0;
-}
-
-.headingEm {
-    color: #d4a843;
-    font-style: italic;
-}
-
-/* ── Sub text ── */
-.sub {
-    font-size: 15px;
-    color: rgba(255, 255, 255, 0.65);
-    line-height: 1.75;
-    max-width: 620px;
-    margin: 0;
-}
-
-/* ── Stats row ── */
-.stats {
-    display: flex;
-    gap: 48px;
-    margin-top: 12px;
+    gap: 14px;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 4px;
 }
 
-.stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-}
-
-.statNum {
-    font-family: "Playfair Display", Georgia, serif;
-    font-size: 34px;
-    font-weight: 700;
-    color: #d4a843;
-    line-height: 1;
-}
-
-.statLabel {
-    font-size: 20px;
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-}
-
-/* ── Divider between stats ── */
-.statDivider {
-    width: 1px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    align-self: center;
-}
-
-/* ── CTA button ── */
-.cta {
+.ctaPrimary {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 13px 28px;
+    padding: 14px 30px;
     background: #d4a843;
     color: #0b1c3d;
-    border-radius: 6px;
-    font-size: 14.5px;
+    border-radius: 7px;
+    font-size: 14px;
     font-weight: 700;
     text-decoration: none;
-    transition: background 0.2s, transform 0.2s;
-    margin-top: 8px;
-    cursor: pointer;
-    border: none;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
     font-family: "Plus Jakarta Sans", sans-serif;
+    letter-spacing: 0.01em;
+    box-shadow: 0 4px 20px rgba(212, 168, 67, 0.25);
 }
 
-.cta:hover {
+.ctaPrimary:hover {
     background: #e8c96a;
     transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(212, 168, 67, 0.35);
 }
 
 .ctaArrow {
@@ -439,73 +189,124 @@
     transition: transform 0.2s;
 }
 
-.cta:hover .ctaArrow {
+.ctaPrimary:hover .ctaArrow {
     transform: translateX(3px);
 }
 
-/* ── Boards badge strip ── */
-.boardBadges {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 4px;
-}
-
-.boardBadge {
+.ctaSecondary {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    padding: 5px 14px;
-    border: 1px solid rgba(212, 168, 67, 0.3);
-    border-radius: 20px;
-    font-size: 12px;
+    padding: 14px 28px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 7px;
+    font-size: 14px;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.75);
-    background: rgba(255, 255, 255, 0.04);
-    letter-spacing: 0.04em;
-    transition: border-color 0.2s, background 0.2s;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    letter-spacing: 0.01em;
 }
 
-.boardBadge:hover {
-    border-color: rgba(212, 168, 67, 0.6);
-    background: rgba(212, 168, 67, 0.06);
+.ctaSecondary:hover {
+    border-color: rgba(255, 255, 255, 0.4);
     color: #fff;
+    background: rgba(255, 255, 255, 0.05);
 }
 
-.boardBadgeDot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: #d4a843;
-    flex-shrink: 0;
+/* ── Divider ── */
+.divider {
+    width: 100%;
+    max-width: 560px;
+    height: 1px;
+    background: linear-gradient(to right,
+            transparent,
+            rgba(255, 255, 255, 0.1) 30%,
+            rgba(255, 255, 255, 0.1) 70%,
+            transparent);
+    margin: 4px 0;
+}
+
+/* ── Stats ── */
+.stats {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.statNum {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #d4a843;
+    line-height: 1;
+    letter-spacing: -0.01em;
+}
+
+.statLabel {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+}
+
+.statDivider {
+    width: 1px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.1);
+    align-self: center;
 }
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
     .hero {
-        padding: 64px 0 56px;
+        padding: 72px 0 64px;
+    }
+
+    .inner {
+        gap: 20px;
     }
 
     .stats {
-        gap: 28px;
+        gap: 24px;
     }
 
     .statDivider {
         display: none;
     }
+
+    .ctaRow {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .ctaPrimary,
+    .ctaSecondary {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 480px) {
     .hero {
-        padding: 52px 0 48px;
-    }
-
-    .stats {
-        gap: 20px;
+        padding: 56px 0 52px;
     }
 
     .boardBadges {
-        gap: 8px;
+        gap: 6px;
+    }
+
+    .stats {
+        gap: 16px;
     }
 }

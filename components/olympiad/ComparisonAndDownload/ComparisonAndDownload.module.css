@@ -1,0 +1,317 @@
+/* ── Section ── */
+.section {
+    --navy: #0D1B3E;
+    --gold: #D4A017;
+    --white: #FFFFFF;
+    --off-white: #F8F9FC;
+    --shadow-md: 0 8px 32px rgba(13, 27, 62, 0.12);
+    --shadow-lg: 0 20px 60px rgba(13, 27, 62, 0.18);
+    --radius: 16px;
+
+    background: var(--white);
+    padding: 72px 0;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ── Container ── */
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ── Section Divider between the two sub-sections ── */
+.divider {
+    height: 1px;
+    background: #E2E8F0;
+    margin: 64px 0;
+}
+
+/* ════════════════════════════════
+   SECTION HEAD (shared)
+════════════════════════════════ */
+.sectionHead {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.eyebrow {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.sectionHead h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    color: var(--navy);
+    margin-bottom: 10px;
+}
+
+.sectionHead p {
+    font-size: 1.1rem;
+    color: #64748B;
+    line-height: 1.7;
+    max-width: 580px;
+    margin: 0 auto;
+}
+
+/* ════════════════════════════════
+   AT A GLANCE — COMPARISON TABLE
+════════════════════════════════ */
+.comparisonWrap {
+    overflow-x: auto;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    border: 1px solid #E2E8F0;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.03rem;
+    background: var(--white);
+}
+
+.table thead th {
+    background: var(--navy);
+    color: #fff;
+    padding: 14px 20px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.98rem;
+    letter-spacing: 0.3px;
+}
+
+.table tbody td {
+    padding: 13px 20px;
+    border-bottom: 1px solid #F1F5F9;
+    color: #475569;
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.table tbody tr:hover td {
+    background: #F8F9FC;
+}
+
+.cn {
+    font-weight: 700;
+    color: var(--navy);
+}
+
+/* Badge pills */
+.bSky {
+    background: #EFF6FF;
+    color: #1E40AF;
+    border-radius: 50px;
+    padding: 3px 10px;
+    font-weight: 700;
+    font-size: 0.92rem;
+}
+
+.bTeal {
+    background: #F0FDFA;
+    color: #0F766E;
+    border-radius: 50px;
+    padding: 3px 10px;
+    font-weight: 700;
+    font-size: 0.72rem;
+}
+
+.bAmber {
+    background: #FFFBEB;
+    color: #92400E;
+    border-radius: 50px;
+    padding: 3px 10px;
+    font-weight: 700;
+    font-size: 0.92rem;
+}
+
+.bRose {
+    background: #FFF1F2;
+    color: #881337;
+    border-radius: 50px;
+    padding: 3px 10px;
+    font-weight: 700;
+    font-size: 0.92rem;
+}
+
+/* ════════════════════════════════
+   FREE RESOURCES — DOWNLOAD CARDS
+════════════════════════════════ */
+.subjectGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+}
+
+.subjectCard {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    border: 1px solid rgba(13, 27, 62, 0.06);
+    transition: transform 0.25s cubic-bezier(0.34, 1.2, 0.64, 1), box-shadow 0.25s;
+}
+
+.subjectCard:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Stripe */
+.cardStripe {
+    height: 4px;
+}
+
+.stripeSky {
+    background: linear-gradient(90deg, #1E40AF, #3B82F6);
+}
+
+.stripeTeal {
+    background: linear-gradient(90deg, #0F766E, #14B8A6);
+}
+
+.stripeAmber {
+    background: linear-gradient(90deg, #92400E, #F59E0B);
+}
+
+.stripeRose {
+    background: linear-gradient(90deg, #881337, #F43F5E);
+}
+
+/* Card header row */
+.cardHeader {
+    padding: 22px 20px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.cardIcon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    flex-shrink: 0;
+}
+
+.iconSky {
+    background: #EFF6FF;
+}
+
+.iconTeal {
+    background: #F0FDFA;
+}
+
+.iconAmber {
+    background: #FFFBEB;
+}
+
+.iconRose {
+    background: #FFF1F2;
+}
+
+.cardTitle {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--navy);
+    line-height: 1.1;
+}
+
+.cardSubtitle {
+    font-size: 0.92rem;
+    color: #64748B;
+    margin-top: 3px;
+    font-weight: 500;
+}
+
+.cardDivider {
+    height: 1px;
+    background: #F1F5F9;
+    margin: 0 20px;
+}
+
+.cardBody {
+    padding: 16px 20px 22px;
+}
+
+.cardLabel {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #94A3B8;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.classGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/* Class buttons */
+.btnClass {
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 7px 10px;
+    font-size: 0.93rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.btnClass:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.btnSky {
+    background: #1E40AF;
+}
+
+.btnSky:hover {
+    background: #1D4ED8;
+}
+
+.btnTeal {
+    background: #0F766E;
+}
+
+.btnTeal:hover {
+    background: #0D9488;
+}
+
+.btnAmber {
+    background: #92400E;
+}
+
+.btnAmber:hover {
+    background: #B45309;
+}
+
+.btnRose {
+    background: #881337;
+}
+
+.btnRose:hover {
+    background: #BE123C;
+}

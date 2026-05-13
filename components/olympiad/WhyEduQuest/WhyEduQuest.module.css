@@ -1,0 +1,178 @@
+/* ── WhyEduQuest.module.css ── */
+/* No :root — all values scoped to class selectors */
+
+/* ── Section ── */
+.section {
+    background: #0D1B3E;
+    padding: 72px 0;
+    font-family: "DM Sans", sans-serif;
+}
+
+/* ── Container ── */
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ── Section Head ── */
+.sectionHead {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+/* Eyebrow: exact from HTML → .section-head .eyebrow → font-size: .7rem */
+.eyebrow {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #D4A017;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Section h2: exact from HTML → clamp(1.6rem, 3vw, 2.2rem) */
+.heading {
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: #ffffff;
+    margin-bottom: 10px;
+    margin-top: 0;
+    line-height: 1.25;
+    letter-spacing: -0.3px;
+}
+
+/* Section p (dark): exact from HTML → .section-dark .section-head p → font-size: .9rem */
+.subText {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.7;
+    max-width: 580px;
+    margin: 0 auto;
+}
+
+/* ── Cards Grid ── */
+/* Exact from HTML → .why-grid → repeat(auto-fit, minmax(280px, 1fr)) */
+.whyGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* ── Individual Card ── */
+/* Exact from HTML → .why-card */
+.whyCard {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 28px;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.whyCard:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Icon container: exact from HTML → .why-card .wc-icon */
+.wcIcon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(212, 160, 23, 0.15);
+    border: 1px solid rgba(212, 160, 23, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+}
+
+/* Card title: exact from HTML → .why-card h4 → font-size: 1.05rem */
+.cardTitle {
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: 1.05rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+    margin-top: 0;
+    line-height: 1.3;
+}
+
+/* Card description: exact from HTML → .why-card p → font-size: .82rem */
+.cardDesc {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.75;
+    margin: 0;
+}
+
+/* ── Banner ── */
+/* Exact from HTML → .why-banner */
+.whyBanner {
+    background: rgba(212, 160, 23, 0.15);
+    border: 1px solid rgba(212, 160, 23, 0.25);
+    border-radius: 16px;
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+}
+
+/* Banner star icon: exact from HTML → .why-banner .wb-icon → font-size: 2.2rem */
+.wbIcon {
+    font-size: 2.2rem;
+    flex-shrink: 0;
+}
+
+.whyBannerText {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Banner quote: exact from HTML → .why-banner-text h4 → font-size: 1.05rem */
+.bannerQuote {
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: 1.05rem;
+    color: #F0C040;
+    margin-bottom: 4px;
+    margin-top: 0;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+/* Banner sub: exact from HTML → .why-banner-text p → font-size: .8rem */
+.bannerSub {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .whyGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .section {
+        padding: 52px 0;
+    }
+
+    .whyGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .whyBanner {
+        padding: 22px 20px;
+        gap: 14px;
+    }
+
+    .sectionHead {
+        margin-bottom: 32px;
+    }
+}

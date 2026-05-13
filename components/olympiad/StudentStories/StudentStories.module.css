@@ -1,0 +1,165 @@
+/* ── StudentStories.module.css ── */
+/* No :root — all values scoped to class selectors */
+
+/* ── Section ── */
+/* Exact from HTML → .section + .section-alt */
+.section {
+    background: #ffffff;
+    padding: 72px 0;
+    font-family: "DM Sans", sans-serif;
+}
+
+/* ── Container ── */
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ── Section Head ── */
+/* Exact from HTML → .section-head */
+.sectionHead {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+/* Exact from HTML → .section-head .eyebrow → font-size: .7rem */
+.eyebrow {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #D4A017;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Exact from HTML → .section-head h2 → font-size: clamp(1.6rem, 3vw, 2.2rem) */
+.heading {
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    color: #0D1B3E;
+    margin-bottom: 10px;
+    margin-top: 0;
+    line-height: 1.25;
+    letter-spacing: -0.3px;
+}
+
+/* Exact from HTML → .section-head p → font-size: .9rem */
+.subText {
+    font-size: 1.1rem;
+    color: #64748B;
+    line-height: 1.7;
+    max-width: 580px;
+    margin: 0 auto;
+}
+
+/* ── Testimonial Grid ── */
+/* Exact from HTML → .testimonial-grid → repeat(auto-fit, minmax(280px,1fr)) */
+/* Forced to 3 columns to match 3 cards in one row */
+.testimonialGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* ── Testimonial Card ── */
+/* Exact from HTML → .testimonial-card */
+.testimonialCard {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 26px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid #F1F5F9;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Stars ── */
+/* Exact from HTML → .stars → font-size: 1rem */
+.stars {
+    color: #D4A017;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+}
+
+/* ── Blockquote ── */
+/* Exact from HTML → .testimonial-card blockquote → font-size: .85rem */
+.blockquote {
+    font-size: 1.05rem;
+    color: #475569;
+    line-height: 1.75;
+    font-style: italic;
+    margin: 0 0 16px 0;
+    padding: 0;
+    flex: 1;
+}
+
+/* Opening quote mark: exact from HTML → blockquote::before → font-size: 1.3rem */
+.blockquote::before {
+    content: "\201C";
+    font-size: 1.5rem;
+    color: #D4A017;
+    font-style: normal;
+    line-height: 0;
+    vertical-align: -0.4rem;
+    margin-right: 3px;
+}
+
+/* ── Author Row ── */
+/* Exact from HTML → .t-author */
+.tAuthor {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Exact from HTML → .t-avatar → font-size: .9rem */
+.tAvatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #0D1B3E;
+    color: #F0C040;
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Exact from HTML → .t-author-name → font-size: .8rem */
+.tAuthorName {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0D1B3E;
+}
+
+/* Exact from HTML → .t-author-sub → font-size: .72rem */
+.tAuthorSub {
+    font-size: 0.92rem;
+    color: #94A3B8;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .testimonialGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .section {
+        padding: 52px 0;
+    }
+
+    .testimonialGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .sectionHead {
+        margin-bottom: 32px;
+    }
+}
