@@ -40,8 +40,8 @@ const navItems = [
       { label: 'Online Home Tuition', href: '/online-home-tuition' },
       { label: 'Online Tuition classes', href: '/online-tuition-classes-india' },
       { label: 'IB', href: '/ib-international-baccalaureate' },
-      { label: 'Indian Curricula', href: 'https://eduquest.org.in/indian-curricula/' },
-      { label: 'International Curricula', href: 'https://eduquest.org.in/international-curricula/' },
+      { label: 'Indian Curricula', href: '/indian-curricula' },
+      { label: 'International Curricula', href: '/international-curricula' },
       { label: 'Olympiads', href: '/olympiad' },
     ],
   },
@@ -145,432 +145,433 @@ export default function Navbar({ onToggleDesign }: { onToggleDesign?: () => void
 
   return (
     <>
+      <div style={{ display: 'none' }}>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=DM+Sans:wght@400;500;600;700&display=swap');
+          *, *::before, *::after { box-sizing: border-box; }
 
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=DM+Sans:wght@400;500;600;700&display=swap');
-        *, *::before, *::after { box-sizing: border-box; }
+          /* ════════════════════════════════════════
+             ROW 1 — TOPBAR (phone + social)
+          ════════════════════════════════════════ */
+          .eq-row1 {
+            background: ${CSS.navy};
+            width: 100%;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.72rem;
+            color: #a0aec0;
+            letter-spacing: 0.02em;
+          }
+          .eq-row1-inner {
+            width: 100%;
+            padding: 5px clamp(14px, 2.5vw, 40px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            flex-wrap: wrap;
+          }
+          .eq-row1-contact {
+            display: flex;
+            gap: clamp(8px, 1.5vw, 20px);
+            align-items: center;
+            flex-wrap: wrap;
+          }
+          .eq-row1-contact a {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: ${CSS.transition};
+            display: flex;
+            align-items: center;
+            gap: 4px;
+          }
+          .eq-row1-contact a:hover { color: ${CSS.gold}; }
+          .eq-row1-social {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+          }
+          .eq-social-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            border-radius: 5px;
+            color: #a0aec0;
+            background: rgba(255,255,255,0.06);
+            transition: ${CSS.transition};
+            text-decoration: none;
+            flex-shrink: 0;
+          }
+          .eq-social-btn:hover { color: ${CSS.white}; background: rgba(201,168,76,0.25); }
+          .eq-social-btn svg { display: block; }
 
-        /* ════════════════════════════════════════
-           ROW 1 — TOPBAR (phone + social)
-        ════════════════════════════════════════ */
-        .eq-row1 {
-          background: ${CSS.navy};
-          width: 100%;
-          font-family: 'DM Sans', sans-serif;
-          font-size: 0.72rem;
-          color: #a0aec0;
-          letter-spacing: 0.02em;
-        }
-        .eq-row1-inner {
-          width: 100%;
-          padding: 5px clamp(14px, 2.5vw, 40px);
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 8px;
-          flex-wrap: wrap;
-        }
-        .eq-row1-contact {
-          display: flex;
-          gap: clamp(8px, 1.5vw, 20px);
-          align-items: center;
-          flex-wrap: wrap;
-        }
-        .eq-row1-contact a {
-          color: #a0aec0;
-          text-decoration: none;
-          transition: ${CSS.transition};
-          display: flex;
-          align-items: center;
-          gap: 4px;
-        }
-        .eq-row1-contact a:hover { color: ${CSS.gold}; }
-        .eq-row1-social {
-          display: flex;
-          gap: 5px;
-          align-items: center;
-        }
-        .eq-social-btn {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          width: 26px;
-          height: 26px;
-          border-radius: 5px;
-          color: #a0aec0;
-          background: rgba(255,255,255,0.06);
-          transition: ${CSS.transition};
-          text-decoration: none;
-          flex-shrink: 0;
-        }
-        .eq-social-btn:hover { color: ${CSS.white}; background: rgba(201,168,76,0.25); }
-        .eq-social-btn svg { display: block; }
+          /* ════════════════════════════════════════
+             ROW 2 — LOGO + CTA BUTTONS
+          ════════════════════════════════════════ */
+          .eq-row2 {
+            background: ${CSS.white};
+            border-bottom: 1px solid rgba(0,0,0,0.07);
+            width: 100%;
+            font-family: 'DM Sans', sans-serif;
+          }
+          .eq-row2-inner {
+            width: 100%;
+            padding: 10px clamp(14px, 2.5vw, 40px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: clamp(8px, 1.5vw, 24px);
+          }
+          .eq-logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            flex-shrink: 0;
+          }
+          .eq-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+            font-weight: 900;
+            color: ${CSS.navy};
+            letter-spacing: -0.02em;
+            white-space: nowrap;
+          }
+          .eq-logo-text span { color: ${CSS.gold}; }
+          .eq-row2-actions {
+            display: flex;
+            gap: clamp(6px, 0.8vw, 10px);
+            align-items: center;
+            flex-shrink: 0;
+            flex-wrap: wrap;
+          }
+          .eq-btn-outline {
+            border: 1.5px solid ${CSS.navy};
+            color: ${CSS.navy};
+            padding: 7px clamp(10px, 1vw, 18px);
+            border-radius: 6px;
+            font-size: clamp(0.72rem, 0.85vw, 0.82rem);
+            font-weight: 600;
+            text-decoration: none;
+            transition: ${CSS.transition};
+            white-space: nowrap;
+            font-family: 'DM Sans', sans-serif;
+            display: inline-block;
+          }
+          .eq-btn-outline:hover { background: ${CSS.navy}; color: ${CSS.white}; }
+          .eq-btn-gold {
+            background: ${CSS.gold};
+            color: ${CSS.navy};
+            padding: 8px clamp(12px, 1.2vw, 22px);
+            border-radius: 6px;
+            font-size: clamp(0.72rem, 0.85vw, 0.82rem);
+            font-weight: 700;
+            text-decoration: none;
+            transition: ${CSS.transition};
+            white-space: nowrap;
+            border: none;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            display: inline-block;
+          }
+          .eq-btn-gold:hover { background: ${CSS.goldLight}; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(201,168,76,0.35); }
 
-        /* ════════════════════════════════════════
-           ROW 2 — LOGO + CTA BUTTONS
-        ════════════════════════════════════════ */
-        .eq-row2 {
-          background: ${CSS.white};
-          border-bottom: 1px solid rgba(0,0,0,0.07);
-          width: 100%;
-          font-family: 'DM Sans', sans-serif;
-        }
-        .eq-row2-inner {
-          width: 100%;
-          padding: 10px clamp(14px, 2.5vw, 40px);
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: clamp(8px, 1.5vw, 24px);
-        }
-        .eq-logo-wrap {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          text-decoration: none;
-          flex-shrink: 0;
-        }
-        .eq-logo-text {
-          font-family: 'Playfair Display', serif;
-          font-size: clamp(1.2rem, 1.8vw, 1.6rem);
-          font-weight: 900;
-          color: ${CSS.navy};
-          letter-spacing: -0.02em;
-          white-space: nowrap;
-        }
-        .eq-logo-text span { color: ${CSS.gold}; }
-        .eq-row2-actions {
-          display: flex;
-          gap: clamp(6px, 0.8vw, 10px);
-          align-items: center;
-          flex-shrink: 0;
-          flex-wrap: wrap;
-        }
-        .eq-btn-outline {
-          border: 1.5px solid ${CSS.navy};
-          color: ${CSS.navy};
-          padding: 7px clamp(10px, 1vw, 18px);
-          border-radius: 6px;
-          font-size: clamp(0.72rem, 0.85vw, 0.82rem);
-          font-weight: 600;
-          text-decoration: none;
-          transition: ${CSS.transition};
-          white-space: nowrap;
-          font-family: 'DM Sans', sans-serif;
-          display: inline-block;
-        }
-        .eq-btn-outline:hover { background: ${CSS.navy}; color: ${CSS.white}; }
-        .eq-btn-gold {
-          background: ${CSS.gold};
-          color: ${CSS.navy};
-          padding: 8px clamp(12px, 1.2vw, 22px);
-          border-radius: 6px;
-          font-size: clamp(0.72rem, 0.85vw, 0.82rem);
-          font-weight: 700;
-          text-decoration: none;
-          transition: ${CSS.transition};
-          white-space: nowrap;
-          border: none;
-          cursor: pointer;
-          font-family: 'DM Sans', sans-serif;
-          display: inline-block;
-        }
-        .eq-btn-gold:hover { background: ${CSS.goldLight}; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(201,168,76,0.35); }
+          /* ════════════════════════════════════════
+             ROW 3 — NAV MENU
+          ════════════════════════════════════════ */
+          .eq-row3 {
+            background: ${CSS.navy};
+            width: 100%;
+            font-family: 'DM Sans', sans-serif;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: ${CSS.transition};
+          }
+          .eq-row3.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.25); }
+          .eq-row3-inner {
+            width: 100%;
+            padding: 0 clamp(14px, 2.5vw, 40px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+          .eq-nav-menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 0;
+            flex: 1;
+          }
+          .eq-nav-menu > li { position: relative; }
+          .eq-nav-menu > li > a {
+            display: block;
+            padding: 0 clamp(6px, 0.9vw, 15px);
+            height: 46px;
+            line-height: 46px;
+            font-size: clamp(0.7rem, 0.82vw, 0.82rem);
+            font-weight: 600;
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            white-space: nowrap;
+            transition: ${CSS.transition};
+            letter-spacing: 0.01em;
+            position: relative;
+          }
+          .eq-nav-menu > li > a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            right: 50%;
+            height: 2px;
+            background: ${CSS.gold};
+            transition: ${CSS.transition};
+          }
+          .eq-nav-menu > li:hover > a,
+          .eq-nav-menu > li.has-open > a { color: ${CSS.gold}; }
+          .eq-nav-menu > li:hover > a::after,
+          .eq-nav-menu > li.has-open > a::after { left: clamp(6px, 0.9vw, 15px); right: clamp(6px, 0.9vw, 15px); }
+          .eq-has-arrow::after { content: '▾' !important; position: static !important; height: auto !important; background: none !important; margin-left: 2px; font-size: 0.6rem; display: inline; }
+          .eq-has-arrow { position: relative; }
+          .eq-has-arrow .eq-underline::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: clamp(6px, 0.9vw, 15px);
+            right: clamp(6px, 0.9vw, 15px);
+            height: 2px;
+            background: ${CSS.gold};
+            opacity: 0;
+            transition: ${CSS.transition};
+          }
 
-        /* ════════════════════════════════════════
-           ROW 3 — NAV MENU
-        ════════════════════════════════════════ */
-        .eq-row3 {
-          background: ${CSS.navy};
-          width: 100%;
-          font-family: 'DM Sans', sans-serif;
-          position: sticky;
-          top: 0;
-          z-index: 1000;
-          transition: ${CSS.transition};
-        }
-        .eq-row3.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.25); }
-        .eq-row3-inner {
-          width: 100%;
-          padding: 0 clamp(14px, 2.5vw, 40px);
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
-        .eq-nav-menu {
-          display: flex;
-          align-items: center;
-          list-style: none;
-          margin: 0;
-          padding: 0;
-          gap: 0;
-          flex: 1;
-        }
-        .eq-nav-menu > li { position: relative; }
-        .eq-nav-menu > li > a {
-          display: block;
-          padding: 0 clamp(6px, 0.9vw, 15px);
-          height: 46px;
-          line-height: 46px;
-          font-size: clamp(0.7rem, 0.82vw, 0.82rem);
-          font-weight: 600;
-          color: rgba(255,255,255,0.85);
-          text-decoration: none;
-          white-space: nowrap;
-          transition: ${CSS.transition};
-          letter-spacing: 0.01em;
-          position: relative;
-        }
-        .eq-nav-menu > li > a::after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          right: 50%;
-          height: 2px;
-          background: ${CSS.gold};
-          transition: ${CSS.transition};
-        }
-        .eq-nav-menu > li:hover > a,
-        .eq-nav-menu > li.has-open > a { color: ${CSS.gold}; }
-        .eq-nav-menu > li:hover > a::after,
-        .eq-nav-menu > li.has-open > a::after { left: clamp(6px, 0.9vw, 15px); right: clamp(6px, 0.9vw, 15px); }
-        .eq-has-arrow::after { content: '▾' !important; position: static !important; height: auto !important; background: none !important; margin-left: 2px; font-size: 0.6rem; display: inline; }
-        .eq-has-arrow { position: relative; }
-        .eq-has-arrow .eq-underline::after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: clamp(6px, 0.9vw, 15px);
-          right: clamp(6px, 0.9vw, 15px);
-          height: 2px;
-          background: ${CSS.gold};
-          opacity: 0;
-          transition: ${CSS.transition};
-        }
+          /* Simpler approach for arrow items */
+          .eq-nav-menu > li > a.eq-has-arrow {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+          }
+          .eq-nav-menu > li > a.eq-has-arrow::after {
+            content: '▾';
+            position: static;
+            height: auto;
+            background: none;
+            width: auto;
+            font-size: 0.6rem;
+            line-height: 1;
+            transition: transform 0.2s;
+          }
+          .eq-nav-menu > li.has-open > a.eq-has-arrow::after { transform: rotate(180deg); }
 
-        /* Simpler approach for arrow items */
-        .eq-nav-menu > li > a.eq-has-arrow {
-          display: flex;
-          align-items: center;
-          gap: 2px;
-        }
-        .eq-nav-menu > li > a.eq-has-arrow::after {
-          content: '▾';
-          position: static;
-          height: auto;
-          background: none;
-          width: auto;
-          font-size: 0.6rem;
-          line-height: 1;
-          transition: transform 0.2s;
-        }
-        .eq-nav-menu > li.has-open > a.eq-has-arrow::after { transform: rotate(180deg); }
+          /* ── DROPDOWN ── */
+          .eq-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 210px;
+            background: ${CSS.white};
+            border: 1px solid rgba(0,0,0,0.08);
+            border-top: 2px solid ${CSS.gold};
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(6px);
+            transition: ${CSS.transition};
+            z-index: 999;
+            list-style: none;
+            padding: 8px 0;
+            margin: 0;
+            pointer-events: none;
+          }
+          .eq-dropdown.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+          }
+          .eq-dropdown li a {
+            display: block;
+            padding: 8px 16px;
+            font-size: 0.78rem;
+            color: ${CSS.text};
+            text-decoration: none;
+            transition: ${CSS.transition};
+            font-family: 'DM Sans', sans-serif;
+            white-space: nowrap;
+            border-left: 2px solid transparent;
+          }
+          .eq-dropdown li a:hover {
+            background: rgba(201,168,76,0.08);
+            color: ${CSS.gold};
+            border-left-color: ${CSS.gold};
+            padding-left: 20px;
+          }
 
-        /* ── DROPDOWN ── */
-        .eq-dropdown {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          min-width: 210px;
-          background: ${CSS.white};
-          border: 1px solid rgba(0,0,0,0.08);
-          border-top: 2px solid ${CSS.gold};
-          border-radius: 0 0 8px 8px;
-          box-shadow: 0 12px 40px rgba(0,0,0,0.15);
-          opacity: 0;
-          visibility: hidden;
-          transform: translateY(6px);
-          transition: ${CSS.transition};
-          z-index: 999;
-          list-style: none;
-          padding: 8px 0;
-          margin: 0;
-          pointer-events: none;
-        }
-        .eq-dropdown.open {
-          opacity: 1;
-          visibility: visible;
-          transform: translateY(0);
-          pointer-events: auto;
-        }
-        .eq-dropdown li a {
-          display: block;
-          padding: 8px 16px;
-          font-size: 0.78rem;
-          color: ${CSS.text};
-          text-decoration: none;
-          transition: ${CSS.transition};
-          font-family: 'DM Sans', sans-serif;
-          white-space: nowrap;
-          border-left: 2px solid transparent;
-        }
-        .eq-dropdown li a:hover {
-          background: rgba(201,168,76,0.08);
-          color: ${CSS.gold};
-          border-left-color: ${CSS.gold};
-          padding-left: 20px;
-        }
+          /* Hamburger — only shown on small screens */
+          .eq-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            background: none;
+            border: none;
+            flex-shrink: 0;
+          }
+          .eq-hamburger span {
+            width: 22px;
+            height: 2px;
+            background: ${CSS.navy};
+            border-radius: 2px;
+            transition: ${CSS.transition};
+            display: block;
+          }
+          .eq-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+          .eq-hamburger.open span:nth-child(2) { opacity: 0; }
+          .eq-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-        /* Hamburger — only shown on small screens */
-        .eq-hamburger {
-          display: none;
-          flex-direction: column;
-          gap: 5px;
-          cursor: pointer;
-          padding: 8px;
-          background: none;
-          border: none;
-          flex-shrink: 0;
-        }
-        .eq-hamburger span {
-          width: 22px;
-          height: 2px;
-          background: ${CSS.navy};
-          border-radius: 2px;
-          transition: ${CSS.transition};
-          display: block;
-        }
-        .eq-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .eq-hamburger.open span:nth-child(2) { opacity: 0; }
-        .eq-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+          /* ════════════════════════════════════════
+             MOBILE DRAWER
+          ════════════════════════════════════════ */
+          .eq-mobile-nav {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: ${CSS.navy};
+            z-index: 1999;
+            overflow-y: auto;
+            padding: 20px 20px 40px;
+            -webkit-overflow-scrolling: touch;
+          }
+          .eq-mobile-nav.open { display: block; animation: eq-fadeIn 0.25s ease; }
+          .eq-mobile-nav-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+          }
+          .eq-mobile-nav-close {
+            background: none;
+            border: none;
+            color: ${CSS.white};
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 4px 8px;
+          }
+          .eq-mobile-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: ${CSS.white};
+          }
+          .eq-mobile-logo span { color: ${CSS.gold}; }
+          .eq-mobile-nav ul { list-style: none; padding: 0; margin: 0; }
+          .eq-mobile-nav ul > li > a,
+          .eq-mobile-nav-btn {
+            display: flex;
+            width: 100%;
+            text-align: left;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            color: ${CSS.white};
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            background: none;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            justify-content: space-between;
+            align-items: center;
+          }
+          .eq-mobile-dropdown { padding-left: 14px; }
+          .eq-mobile-dropdown a {
+            display: block;
+            padding: 9px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.65);
+            text-decoration: none;
+            font-size: 0.83rem;
+            font-family: 'DM Sans', sans-serif;
+            transition: color 0.2s;
+          }
+          .eq-mobile-dropdown a:hover { color: ${CSS.gold}; }
+          .eq-mobile-ctas { margin-top: 22px; display: flex; flex-direction: column; gap: 10px; }
+          .eq-mobile-ctas a {
+            display: block;
+            text-align: center;
+            padding: 13px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            font-family: 'DM Sans', sans-serif;
+          }
+          .eq-mobile-cta-gold { background: ${CSS.gold}; color: ${CSS.navy}; }
+          .eq-mobile-cta-outline { border: 1.5px solid rgba(255,255,255,0.3); color: ${CSS.white}; }
+          .eq-mobile-social {
+            display: flex;
+            gap: 10px;
+            margin-top: 26px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            flex-wrap: wrap;
+          }
+          .eq-mobile-social-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            color: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.08);
+            transition: ${CSS.transition};
+            text-decoration: none;
+          }
+          .eq-mobile-social-btn:hover { color: ${CSS.white}; background: rgba(201,168,76,0.3); }
+          .eq-chevron { font-size: 0.75rem; transition: transform 0.2s; color: rgba(255,255,255,0.5); }
+          .eq-chevron.open { transform: rotate(180deg); color: ${CSS.gold}; }
 
-        /* ════════════════════════════════════════
-           MOBILE DRAWER
-        ════════════════════════════════════════ */
-        .eq-mobile-nav {
-          display: none;
-          position: fixed;
-          inset: 0;
-          background: ${CSS.navy};
-          z-index: 1999;
-          overflow-y: auto;
-          padding: 20px 20px 40px;
-          -webkit-overflow-scrolling: touch;
-        }
-        .eq-mobile-nav.open { display: block; animation: eq-fadeIn 0.25s ease; }
-        .eq-mobile-nav-header {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          margin-bottom: 24px;
-        }
-        .eq-mobile-nav-close {
-          background: none;
-          border: none;
-          color: ${CSS.white};
-          font-size: 1.5rem;
-          cursor: pointer;
-          padding: 4px 8px;
-        }
-        .eq-mobile-logo {
-          font-family: 'Playfair Display', serif;
-          font-size: 1.35rem;
-          font-weight: 900;
-          color: ${CSS.white};
-        }
-        .eq-mobile-logo span { color: ${CSS.gold}; }
-        .eq-mobile-nav ul { list-style: none; padding: 0; margin: 0; }
-        .eq-mobile-nav ul > li > a,
-        .eq-mobile-nav-btn {
-          display: flex;
-          width: 100%;
-          text-align: left;
-          padding: 12px 0;
-          border-bottom: 1px solid rgba(255,255,255,0.08);
-          color: ${CSS.white};
-          text-decoration: none;
-          font-size: 0.9rem;
-          font-weight: 500;
-          background: none;
-          border-left: none;
-          border-right: none;
-          border-top: none;
-          cursor: pointer;
-          font-family: 'DM Sans', sans-serif;
-          justify-content: space-between;
-          align-items: center;
-        }
-        .eq-mobile-dropdown { padding-left: 14px; }
-        .eq-mobile-dropdown a {
-          display: block;
-          padding: 9px 0;
-          border-bottom: 1px solid rgba(255,255,255,0.05);
-          color: rgba(255,255,255,0.65);
-          text-decoration: none;
-          font-size: 0.83rem;
-          font-family: 'DM Sans', sans-serif;
-          transition: color 0.2s;
-        }
-        .eq-mobile-dropdown a:hover { color: ${CSS.gold}; }
-        .eq-mobile-ctas { margin-top: 22px; display: flex; flex-direction: column; gap: 10px; }
-        .eq-mobile-ctas a {
-          display: block;
-          text-align: center;
-          padding: 13px;
-          border-radius: 8px;
-          font-size: 0.88rem;
-          font-weight: 700;
-          text-decoration: none;
-          font-family: 'DM Sans', sans-serif;
-        }
-        .eq-mobile-cta-gold { background: ${CSS.gold}; color: ${CSS.navy}; }
-        .eq-mobile-cta-outline { border: 1.5px solid rgba(255,255,255,0.3); color: ${CSS.white}; }
-        .eq-mobile-social {
-          display: flex;
-          gap: 10px;
-          margin-top: 26px;
-          padding-top: 20px;
-          border-top: 1px solid rgba(255,255,255,0.1);
-          flex-wrap: wrap;
-        }
-        .eq-mobile-social-btn {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          width: 36px;
-          height: 36px;
-          border-radius: 8px;
-          color: rgba(255,255,255,0.7);
-          background: rgba(255,255,255,0.08);
-          transition: ${CSS.transition};
-          text-decoration: none;
-        }
-        .eq-mobile-social-btn:hover { color: ${CSS.white}; background: rgba(201,168,76,0.3); }
-        .eq-chevron { font-size: 0.75rem; transition: transform 0.2s; color: rgba(255,255,255,0.5); }
-        .eq-chevron.open { transform: rotate(180deg); color: ${CSS.gold}; }
+          @keyframes eq-fadeIn { from { opacity: 0 } to { opacity: 1 } }
 
-        @keyframes eq-fadeIn { from { opacity: 0 } to { opacity: 1 } }
+          /* ════════════════════════════════════════
+             RESPONSIVE
+          ════════════════════════════════════════ */
+          @media (max-width: 899px) {
+            .eq-nav-menu { display: none; }
+            .eq-hamburger { display: flex; }
+            .eq-row2-actions { display: none; }
+            .eq-row3 { display: none; }
+          }
+          @media (max-width: 640px) {
+            .eq-row1-social { display: none; }
+            .eq-row1-contact a:not(:first-child) { display: none; }
+            .eq-row2-inner { padding: 8px 14px; }
+          }
+          @media (max-width: 375px) {
+            .eq-mobile-nav { padding: 16px 16px 36px; }
+          }
 
-        /* ════════════════════════════════════════
-           RESPONSIVE
-        ════════════════════════════════════════ */
-        @media (max-width: 899px) {
-          .eq-nav-menu { display: none; }
-          .eq-hamburger { display: flex; }
-          .eq-row2-actions { display: none; }
-          .eq-row3 { display: none; }
-        }
-        @media (max-width: 640px) {
-          .eq-row1-social { display: none; }
-          .eq-row1-contact a:not(:first-child) { display: none; }
-          .eq-row2-inner { padding: 8px 14px; }
-        }
-        @media (max-width: 375px) {
-          .eq-mobile-nav { padding: 16px 16px 36px; }
-        }
-
-        /* On medium screens (900–1200): show nav, hide some CTAs */
-        @media (max-width: 1450px) and (min-width: 900px) {
-          .eq-row2-actions .eq-btn-outline:nth-child(2),
-          .eq-row2-actions .eq-btn-outline:nth-child(3) { display: none; }
-          .eq-nav-menu > li > a { padding: 0 clamp(4px, 0.65vw, 10px); font-size: clamp(0.67rem, 0.76vw, 0.78rem); }
-        }
-          `
-        }}
-      />
+          /* On medium screens (900–1200): show nav, hide some CTAs */
+          @media (max-width: 1450px) and (min-width: 900px) {
+            .eq-row2-actions .eq-btn-outline:nth-child(2),
+            .eq-row2-actions .eq-btn-outline:nth-child(3) { display: none; }
+            .eq-nav-menu > li > a { padding: 0 clamp(4px, 0.65vw, 10px); font-size: clamp(0.67rem, 0.76vw, 0.78rem); }
+          }
+            `
+          }}
+        />
+      </div>
 
       {/* ── ROW 1: TOPBAR (phone + social) ──────────────────────────── */}
       <div className="eq-row1">

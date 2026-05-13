@@ -29,7 +29,7 @@
             var(--navy) 55%,
             var(--navy-mid) 100%);
     color: #fff;
-    padding: 80px 24px 72px;
+    padding: 105px 24px 97px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -49,16 +49,7 @@
 }
 
 /* Curved bottom mask */
-.hero::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background: var(--off-white);
-    clip-path: ellipse(55% 100% at 50% 100%);
-}
+
 
 /* ── Eyebrow Badge ── */
 .eyebrow {
@@ -81,7 +72,7 @@
 /* ── Heading ── */
 .heroH1 {
     font-family: 'DM Serif Display', serif;
-    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-size: clamp(2rem, 5vw, 4.8rem);
     line-height: 1.15;
     margin-bottom: 18px;
     letter-spacing: -0.5px;
