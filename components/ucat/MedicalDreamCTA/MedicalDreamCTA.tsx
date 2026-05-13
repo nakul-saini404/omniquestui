@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./MedicalDreamCTA.module.css";
+import { validateContactForm } from "@/lib/formValidation";
 
 /* ── Types ──────────────────────────────────────────────────────── */
 interface FormState {
@@ -76,11 +77,19 @@ const MedicalDreamCTA: React.FC = () => {
   const [done, setDone] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
   /* ── Submit — same API call as Contact.tsx ────────────────────── */
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+
+    const errors = validateContactForm(form);
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
+      return;
+    }
+    setFieldErrors({});
     setLoading(true);
 
     try {
@@ -121,8 +130,10 @@ const MedicalDreamCTA: React.FC = () => {
   };
 
   const set = (field: keyof FormState) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
       setForm((prev) => ({ ...prev, [field]: e.target.value }));
+      setFieldErrors(prev => { const next = { ...prev }; delete next[field]; return next; });
+    };
 
   return (
     <section className={styles.ctaSection} id="enroll">
@@ -174,31 +185,34 @@ const MedicalDreamCTA: React.FC = () => {
               {/* 2-col grid: name + mobile, email + city */}
               <div className={styles.formGrid}>
                 <input
-                  className={styles.formInput}
+                  className={`${styles.formInput} ${fieldErrors.name ? styles.inputError : ''}`}
                   type="text"
                   placeholder="Your full name"
                   required
                   value={form.name}
                   onChange={set("name")}
                 />
+                {fieldErrors.name && <p className={styles.fieldError}>{fieldErrors.name}</p>}
                 <input
-                  className={styles.formInput}
+                  className={`${styles.formInput} ${fieldErrors.mobile ? styles.inputError : ''}`}
                   type="tel"
                   placeholder="Mobile number"
                   required
                   value={form.mobile}
                   onChange={set("mobile")}
                 />
+                {fieldErrors.mobile && <p className={styles.fieldError}>{fieldErrors.mobile}</p>}
                 <input
-                  className={styles.formInput}
+                  className={`${styles.formInput} ${fieldErrors.email ? styles.inputError : ''}`}
                   type="email"
                   placeholder="Email address"
                   required
                   value={form.email}
                   onChange={set("email")}
                 />
+                {fieldErrors.email && <p className={styles.fieldError}>{fieldErrors.email}</p>}
                 <select
-                  className={`${styles.formInput} ${styles.formSelect}`}
+                  className={`${styles.formInput} ${styles.formSelect} ${fieldErrors.city ? styles.inputError : ''}`}
                   required
                   value={form.city}
                   onChange={set("city")}
@@ -212,11 +226,12 @@ const MedicalDreamCTA: React.FC = () => {
                     </option>
                   ))}
                 </select>
+                {fieldErrors.city && <p className={styles.fieldError}>{fieldErrors.city}</p>}
               </div>
 
               {/* Full-width interest select */}
               <select
-                className={`${styles.formInput} ${styles.formSelect} ${styles.fullInput}`}
+                className={`${styles.formInput} ${styles.formSelect} ${styles.fullInput} ${fieldErrors.interest ? styles.inputError : ''}`}
                 required
                 value={form.interest}
                 onChange={set("interest")}
@@ -230,6 +245,7 @@ const MedicalDreamCTA: React.FC = () => {
                   </option>
                 ))}
               </select>
+              {fieldErrors.interest && <p className={styles.fieldError}>{fieldErrors.interest}</p>}
 
               {/* Submit */}
               <button

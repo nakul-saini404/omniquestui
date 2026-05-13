@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import styles from './GetInTouch.module.css';
+import { validateContactForm } from '@/lib/formValidation';
 
 /* ── Data ── */
 const interests = [
@@ -71,6 +72,7 @@ export default function GetInTouch() {
   const [done, setDone]       = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError]     = useState('');
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
   /* scroll-in animation */
   const leftRef  = useRef<HTMLDivElement>(null);
@@ -97,12 +99,21 @@ export default function GetInTouch() {
   }, []);
 
   const set = (key: keyof FormState) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
       setForm(prev => ({ ...prev, [key]: e.target.value }));
+      setFieldErrors(prev => { const next = { ...prev }; delete next[key]; return next; });
+    };
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+
+    const errors = validateContactForm(form);
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
+      return;
+    }
+    setFieldErrors({});
     setLoading(true);
 
     try {
@@ -223,7 +234,7 @@ export default function GetInTouch() {
                     <div className={styles.selectWrap}>
                       <select
                         id="gi-interest"
-                        className={styles.select}
+                        className={`${styles.select} ${fieldErrors.interest ? styles.inputError : ''}`}
                         required
                         value={form.interest}
                         onChange={set('interest')}
@@ -237,6 +248,7 @@ export default function GetInTouch() {
                         </svg>
                       </span>
                     </div>
+                    {fieldErrors.interest && <p className={styles.fieldError}>{fieldErrors.interest}</p>}
                   </div>
 
                   {/* Name + Mobile */}
@@ -245,25 +257,27 @@ export default function GetInTouch() {
                       <label className={styles.label} htmlFor="gi-name">Full Name</label>
                       <input
                         id="gi-name"
-                        className={styles.input}
+                        className={`${styles.input} ${fieldErrors.name ? styles.inputError : ''}`}
                         type="text"
                         required
                         placeholder="Your name"
                         value={form.name}
                         onChange={set('name')}
                       />
+                      {fieldErrors.name && <p className={styles.fieldError}>{fieldErrors.name}</p>}
                     </div>
                     <div className={styles.formGroup}>
                       <label className={styles.label} htmlFor="gi-mobile">Mobile Number</label>
                       <input
                         id="gi-mobile"
-                        className={styles.input}
+                        className={`${styles.input} ${fieldErrors.mobile ? styles.inputError : ''}`}
                         type="tel"
                         required
                         placeholder="+91 XXXXX XXXXX"
                         value={form.mobile}
                         onChange={set('mobile')}
                       />
+                      {fieldErrors.mobile && <p className={styles.fieldError}>{fieldErrors.mobile}</p>}
                     </div>
                   </div>
 
@@ -273,25 +287,27 @@ export default function GetInTouch() {
                       <label className={styles.label} htmlFor="gi-email">Email Address</label>
                       <input
                         id="gi-email"
-                        className={styles.input}
+                        className={`${styles.input} ${fieldErrors.email ? styles.inputError : ''}`}
                         type="email"
                         required
                         placeholder="your@email.com"
                         value={form.email}
                         onChange={set('email')}
                       />
+                      {fieldErrors.email && <p className={styles.fieldError}>{fieldErrors.email}</p>}
                     </div>
                     <div className={styles.formGroup}>
                       <label className={styles.label} htmlFor="gi-city">City</label>
                       <input
                         id="gi-city"
-                        className={styles.input}
+                        className={`${styles.input} ${fieldErrors.city ? styles.inputError : ''}`}
                         type="text"
                         required
                         placeholder="Your city"
                         value={form.city}
                         onChange={set('city')}
                       />
+                      {fieldErrors.city && <p className={styles.fieldError}>{fieldErrors.city}</p>}
                     </div>
                   </div>
 

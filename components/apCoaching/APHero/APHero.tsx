@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import styles from "./APHero.module.css";
+import { validateContactForm } from "@/lib/formValidation";
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 interface HeroStat {
@@ -179,6 +180,7 @@ export default function APHero() {
     email:    "",
     city:     "",
   });
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 60);
@@ -189,10 +191,16 @@ export default function APHero() {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setFieldErrors(prev => { const next = { ...prev }; delete next[e.target.name]; return next; });
   }
 
   async function handleSubmit() {
-    if (!form.name || !form.mobile || !form.email) return;
+    const errors = validateContactForm(form);
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
+      return;
+    }
+    setFieldErrors({});
 
     setSubmitStatus("loading");
     setErrorMsg("");
@@ -276,7 +284,7 @@ export default function APHero() {
     document.getElementById("enroll")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
-  const isFormValid = !!(form.name && form.mobile && form.email);
+  const isFormValid = Object.keys(fieldErrors).length === 0;
 
   // ── Render ─────────────────────────────────────────────────────────────────
   return (
@@ -386,9 +394,10 @@ export default function APHero() {
                     placeholder="Your full name"
                     value={form.name}
                     onChange={handleChange}
-                    className={styles.formInput}
+                    className={`${styles.formInput} ${fieldErrors.name ? styles.inputError : ''}`}
                     autoComplete="name"
                   />
+                  {fieldErrors.name && <p className={styles.fieldError}>{fieldErrors.name}</p>}
                 </div>
 
                 <div className={styles.formGroup}>
@@ -398,9 +407,10 @@ export default function APHero() {
                     placeholder="+91 XXXXX XXXXX"
                     value={form.mobile}
                     onChange={handleChange}
-                    className={styles.formInput}
+                    className={`${styles.formInput} ${fieldErrors.mobile ? styles.inputError : ''}`}
                     autoComplete="tel"
                   />
+                  {fieldErrors.mobile && <p className={styles.fieldError}>{fieldErrors.mobile}</p>}
                 </div>
 
                 <div className={styles.formGroup}>
@@ -410,9 +420,10 @@ export default function APHero() {
                     placeholder="your@email.com"
                     value={form.email}
                     onChange={handleChange}
-                    className={styles.formInput}
+                    className={`${styles.formInput} ${fieldErrors.email ? styles.inputError : ''}`}
                     autoComplete="email"
                   />
+                  {fieldErrors.email && <p className={styles.fieldError}>{fieldErrors.email}</p>}
                 </div>
 
                 <div className={styles.formGroup}>
@@ -422,9 +433,10 @@ export default function APHero() {
                     placeholder="Delhi / Dubai / New York…"
                     value={form.city}
                     onChange={handleChange}
-                    className={styles.formInput}
+                    className={`${styles.formInput} ${fieldErrors.city ? styles.inputError : ''}`}
                     autoComplete="address-level2"
                   />
+                  {fieldErrors.city && <p className={styles.fieldError}>{fieldErrors.city}</p>}
                 </div>
 
                 {submitStatus === "error" && (

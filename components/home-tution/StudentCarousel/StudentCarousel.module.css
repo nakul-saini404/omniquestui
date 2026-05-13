@@ -1,0 +1,433 @@
+/* ═══════════════════════════════════════
+   EDUQUEST COLOR TOKENS
+   Navy:  #0b1c3d
+   Gold:  #d4a843
+   Cream: #ede7d9
+   Sand:  #f5f0e8
+   Grey:  #4a5568
+   Muted: #718096
+   White: #ffffff
+   Font:  Playfair Display (serif) + Plus Jakarta Sans (sans)
+═══════════════════════════════════════ */
+
+/* ── Section wrapper ── */
+.section {
+    background: #ede7d9;
+    padding: 56px 24px 48px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ── Header ── */
+.header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d4a843;
+    margin-bottom: 10px;
+}
+
+.eyebrow::before,
+.eyebrow::after {
+    content: "";
+    width: 20px;
+    height: 2px;
+    background: #d4a843;
+}
+
+.title {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(22px, 3.5vw, 36px);
+    font-weight: 700;
+    color: #0b1c3d;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin: 0 0 6px;
+}
+
+.title em {
+    color: #d4a843;
+    font-style: italic;
+}
+
+.subtitle {
+    font-size: 13.5px;
+    color: #718096;
+    margin: 0;
+    letter-spacing: 0.04em;
+}
+
+/* ── Board filter tab bar ── */
+.tabBar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.tabBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 18px;
+    font-size: 12.5px;
+    font-weight: 700;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    letter-spacing: 0.04em;
+    border: 1.5px solid rgba(11, 28, 61, 0.18);
+    border-radius: 20px;
+    background: #fff;
+    color: #718096;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.tabBtn:hover {
+    border-color: #0b1c3d;
+    color: #0b1c3d;
+}
+
+.tabActive {
+    background: #0b1c3d;
+    color: #fff;
+    border-color: #0b1c3d;
+}
+
+.tabCount {
+    font-size: 10.5px;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    padding: 1px 6px;
+    line-height: 1.4;
+}
+
+.tabActive .tabCount {
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+}
+
+.tabBtn:not(.tabActive) .tabCount {
+    background: rgba(11, 28, 61, 0.08);
+    color: #0b1c3d;
+}
+
+/* ── Cards grid ── */
+.track {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+@media (max-width: 860px) {
+    .track {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .track {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+}
+
+/* ── Individual card ── */
+.card {
+    background: #fff;
+    border: 1px solid rgba(11, 28, 61, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0 16px;
+    transition: box-shadow 0.3s, transform 0.3s;
+    animation: cardIn 0.35s ease both;
+    position: relative;
+}
+
+.card:hover {
+    box-shadow: 0 12px 36px rgba(11, 28, 61, 0.13);
+    transform: translateY(-3px);
+}
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Top colour stripe per board */
+.cardTop {
+    width: 100%;
+    height: 5px;
+    flex-shrink: 0;
+}
+
+.top_CBSE {
+    background: #d4a843;
+}
+
+.top_ICSE {
+    background: #0b1c3d;
+}
+
+.top_IB {
+    background: linear-gradient(90deg, #d4a843, #0b1c3d);
+}
+
+/* Rank accent — subtle left border */
+.rank_gold {
+    border-left: 3px solid #d4a843;
+}
+
+.rank_silver {
+    border-left: 3px solid #94a3b8;
+}
+
+.rank_bronze {
+    border-left: 3px solid #b45309;
+}
+
+.rank_standard {
+    border-left: 3px solid rgba(11, 28, 61, 0.12);
+}
+
+/* ── Avatar ── */
+.avatarRing {
+    position: relative;
+    margin: 14px 0 10px;
+}
+
+.avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #f5f0e8;
+    border: 2.5px solid rgba(11, 28, 61, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.25s;
+}
+
+.card:hover .avatar {
+    border-color: #d4a843;
+}
+
+.initials {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0b1c3d;
+    line-height: 1;
+}
+
+/* Rank ring glow */
+.ring_gold .avatar {
+    border-color: #d4a843;
+    box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.2);
+}
+
+.ring_silver .avatar {
+    border-color: #94a3b8;
+    box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.18);
+}
+
+.ring_bronze .avatar {
+    border-color: #b45309;
+    box-shadow: 0 0 0 3px rgba(180, 83, 9, 0.15);
+}
+
+.crown {
+    position: absolute;
+    top: -12px;
+    right: -6px;
+    font-size: 0.95rem;
+    filter: drop-shadow(0 1px 3px rgba(212, 168, 67, 0.7));
+    animation: crownBob 2.2s ease-in-out infinite;
+}
+
+@keyframes crownBob {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+/* ── Card body ── */
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px;
+    width: 100%;
+}
+
+.name {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #0b1c3d;
+    text-align: center;
+    line-height: 1.35;
+    margin: 0;
+}
+
+.score {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 17px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1;
+}
+
+.score_gold {
+    color: #d4a843;
+}
+
+.score_silver {
+    color: #718096;
+}
+
+.score_bronze {
+    color: #b45309;
+}
+
+.score_standard {
+    color: #0b1c3d;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 2px 9px;
+    border-radius: 12px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    margin-top: 2px;
+}
+
+.badge_CBSE {
+    background: rgba(212, 168, 67, 0.12);
+    color: #a07c20;
+    border: 1px solid rgba(212, 168, 67, 0.35);
+}
+
+.badge_ICSE {
+    background: rgba(11, 28, 61, 0.07);
+    color: #0b1c3d;
+    border: 1px solid rgba(11, 28, 61, 0.18);
+}
+
+.badge_IB {
+    background: rgba(11, 28, 61, 0.05);
+    color: #0b1c3d;
+    border: 1px solid rgba(212, 168, 67, 0.4);
+}
+
+/* ── Controls ── */
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 24px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navBtn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(11, 28, 61, 0.2);
+    background: #fff;
+    color: #0b1c3d;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.navBtn:hover:not(:disabled) {
+    background: #0b1c3d;
+    border-color: #0b1c3d;
+    color: #fff;
+    transform: scale(1.07);
+}
+
+.navBtn:disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.dots {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(11, 28, 61, 0.2);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.22s, width 0.22s, border-radius 0.22s;
+}
+
+.dot:hover {
+    background: rgba(11, 28, 61, 0.4);
+}
+
+.dotActive {
+    background: #d4a843;
+    width: 22px;
+    border-radius: 4px;
+}
+
+.counter {
+    font-size: 12px;
+    font-weight: 600;
+    color: #718096;
+    min-width: 38px;
+    text-align: center;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}

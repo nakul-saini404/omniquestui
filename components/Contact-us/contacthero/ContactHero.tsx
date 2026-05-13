@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import styles from './ContactHero.module.css';
+import { validateContactForm } from '@/lib/formValidation';
 
 const interests = [
   'Profile Building',
@@ -12,6 +13,7 @@ const interests = [
 
 interface FormState {
   interest: string;
+  otherInterest: string;
   name:     string;
   mobile:   string;
   email:    string;
@@ -27,14 +29,34 @@ const checks = [
 ];
 
 export default function ContactHero() {
-  const [form, setForm]       = useState<FormState>({ interest: '', name: '', mobile: '', email: '', city: '' });
+  const [form, setForm]       = useState<FormState>({ interest: '', otherInterest: '', name: '', mobile: '', email: '', city: '' });
   const [done, setDone]       = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError]     = useState('');
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+
+  const clearFieldError = (field: string) => {
+    setFieldErrors(prev => { const next = { ...prev }; delete next[field]; return next; });
+  };
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+
+    const errors = validateContactForm(form);
+    // Validate otherInterest when "Others" is selected
+    if (form.interest === 'Others') {
+      if (!form.otherInterest.trim()) {
+        errors.otherInterest = 'Please specify your interest';
+      } else if (form.otherInterest.trim().length < 2) {
+        errors.otherInterest = 'Please enter at least 2 characters';
+      }
+    }
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
+      return;
+    }
+    setFieldErrors({});
     setLoading(true);
 
     try {
@@ -46,7 +68,9 @@ export default function ContactHero() {
           email:    form.email,
           mobile:   form.mobile,
           city:     form.city,
-          interest: form.interest,
+          interest: form.interest === 'Others'
+            ? `Others: ${form.otherInterest.trim()}`
+            : form.interest,
           pageName: 'Contact Us',
         }),
       });
@@ -69,7 +93,7 @@ export default function ContactHero() {
   const reset = () => {
     setDone(false);
     setError('');
-    setForm({ interest: '', name: '', mobile: '', email: '', city: '' });
+    setForm({ interest: '', otherInterest: '', name: '', mobile: '', email: '', city: '' });
   };
 
   return (
@@ -190,10 +214,10 @@ export default function ContactHero() {
                     <div className={styles.selectWrap}>
                       <select
                         id="interest"
-                        className={styles.select}
+                        className={`${styles.select} ${fieldErrors.interest ? styles.inputError : ''}`}
                         required
                         value={form.interest}
-                        onChange={e => setForm({ ...form, interest: e.target.value })}
+                        onChange={e => { setForm({ ...form, interest: e.target.value, otherInterest: '' }); clearFieldError('interest'); clearFieldError('otherInterest'); }}
                       >
                         <option value="">Select a program…</option>
                         {interests.map(i => <option key={i} value={i}>{i}</option>)}
@@ -202,6 +226,26 @@ export default function ContactHero() {
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                       </span>
                     </div>
+                    {fieldErrors.interest && <p className={styles.fieldError}>{fieldErrors.interest}</p>}
+
+                    {/* Show text input when "Others" is selected */}
+                    {form.interest === 'Others' && (
+                      <div className={styles.field} style={{ marginTop: 10 }}>
+                        <label className={styles.label} htmlFor="otherInterest">
+                          Please Specify
+                        </label>
+                        <input
+                          id="otherInterest"
+                          className={`${styles.input} ${fieldErrors.otherInterest ? styles.inputError : ''}`}
+                          type="text"
+                          required
+                          placeholder="E.g. GRE, GMAT, Study in Canada…"
+                          value={form.otherInterest}
+                          onChange={e => { setForm({ ...form, otherInterest: e.target.value }); clearFieldError('otherInterest'); }}
+                        />
+                        {fieldErrors.otherInterest && <p className={styles.fieldError}>{fieldErrors.otherInterest}</p>}
+                      </div>
+                    )}
                   </div>
 
                   <div className={styles.fieldRow}>
@@ -209,25 +253,27 @@ export default function ContactHero() {
                       <label className={styles.label} htmlFor="name">Full Name</label>
                       <input
                         id="name"
-                        className={styles.input}
+                        className={`${styles.input} ${fieldErrors.name ? styles.inputError : ''}`}
                         type="text"
                         required
                         placeholder="Your name"
                         value={form.name}
-                        onChange={e => setForm({ ...form, name: e.target.value })}
+                        onChange={e => { setForm({ ...form, name: e.target.value }); clearFieldError('name'); }}
                       />
+                      {fieldErrors.name && <p className={styles.fieldError}>{fieldErrors.name}</p>}
                     </div>
                     <div className={styles.field}>
                       <label className={styles.label} htmlFor="mobile">Mobile</label>
                       <input
                         id="mobile"
-                        className={styles.input}
+                        className={`${styles.input} ${fieldErrors.mobile ? styles.inputError : ''}`}
                         type="tel"
                         required
                         placeholder="+91 XXXXX XXXXX"
                         value={form.mobile}
-                        onChange={e => setForm({ ...form, mobile: e.target.value })}
+                        onChange={e => { setForm({ ...form, mobile: e.target.value }); clearFieldError('mobile'); }}
                       />
+                      {fieldErrors.mobile && <p className={styles.fieldError}>{fieldErrors.mobile}</p>}
                     </div>
                   </div>
 
@@ -235,26 +281,28 @@ export default function ContactHero() {
                     <label className={styles.label} htmlFor="email">Email</label>
                     <input
                       id="email"
-                      className={styles.input}
+                      className={`${styles.input} ${fieldErrors.email ? styles.inputError : ''}`}
                       type="email"
                       required
                       placeholder="your@email.com"
                       value={form.email}
-                      onChange={e => setForm({ ...form, email: e.target.value })}
+                      onChange={e => { setForm({ ...form, email: e.target.value }); clearFieldError('email'); }}
                     />
+                    {fieldErrors.email && <p className={styles.fieldError}>{fieldErrors.email}</p>}
                   </div>
 
                   <div className={styles.field}>
                     <label className={styles.label} htmlFor="city">City</label>
                     <input
                       id="city"
-                      className={styles.input}
+                      className={`${styles.input} ${fieldErrors.city ? styles.inputError : ''}`}
                       type="text"
                       required
                       placeholder="Your city"
                       value={form.city}
-                      onChange={e => setForm({ ...form, city: e.target.value })}
+                      onChange={e => { setForm({ ...form, city: e.target.value }); clearFieldError('city'); }}
                     />
+                    {fieldErrors.city && <p className={styles.fieldError}>{fieldErrors.city}</p>}
                   </div>
 
                   <button

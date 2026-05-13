@@ -1,0 +1,321 @@
+/*
+  EduQuest Results — CSS Module
+  Colors taken verbatim from the HTML stylesheet:
+    Navy:      #0b1c3d
+    Gold:      #d4a843
+    Cream bg:  #ede7d9
+    Sand:      #f5f0e8
+    Grey:      #4a5568
+    Muted:     #718096
+    White:     #ffffff
+  Fonts: "Playfair Display" (serif) + "Plus Jakarta Sans" (sans-serif)
+*/
+
+/* ── Google Fonts import ── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+/* ── Section wrapper ── */
+.resultsSection {
+    padding: 88px 0;
+    background: #ede7d9;
+    overflow: hidden;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #0b1c3d;
+}
+
+/* ── Container ── */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ── Section head ── */
+.sectionHead {
+    margin-bottom: 48px;
+}
+
+.sectionHead h2 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(24px, 3.2vw, 40px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #0b1c3d;
+    line-height: 1.18;
+    margin-bottom: 10px;
+}
+
+.sectionHead p {
+    font-size: 15.5px;
+    color: #4a5568;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.center {
+    text-align: center;
+}
+
+.center p {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+/* ── Section label ── */
+.sectionLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d4a843;
+    margin-bottom: 14px;
+}
+
+.sectionLabel::before {
+    content: "";
+    width: 20px;
+    height: 2px;
+    background: #d4a843;
+    flex-shrink: 0;
+}
+
+/* ── Board tab bar ── */
+.resultTabBar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+    justify-content: center;
+}
+
+.resultTabBtn {
+    padding: 9px 22px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    cursor: pointer;
+    border: 1.5px solid rgba(11, 28, 61, 0.18);
+    border-radius: 20px;
+    background: #fff;
+    color: #718096;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    line-height: 1;
+}
+
+.resultTabBtn:hover {
+    border-color: #0b1c3d;
+    color: #0b1c3d;
+}
+
+.resultTabBtnActive {
+    background: #0b1c3d;
+    color: #fff;
+    border-color: #0b1c3d;
+}
+
+/* ── Carousel viewport ── */
+.carouselViewport {
+    position: relative;
+    margin-top: 8px;
+}
+
+/* ── Track wrapper (clips overflow) ── */
+.carouselTrackWrap {
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+/* ── Sliding track ── */
+.carouselTrack {
+    display: flex;
+    transition: transform 0.52s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* ── Slide ── */
+.resultSlide {
+    flex-shrink: 0;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* ── Result card ── */
+.resultCard {
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid rgba(11, 28, 61, 0.1);
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.resultCard:hover {
+    box-shadow: 0 16px 44px rgba(11, 28, 61, 0.12);
+    transform: translateY(-3px);
+}
+
+/* ── Card image ── */
+.resultCardImg {
+    width: 100%;
+    aspect-ratio: 4 / 2.6;
+    overflow: hidden;
+    background: #e2d9c8;
+}
+
+.resultCardImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.4s;
+}
+
+.resultCard:hover .resultCardImg img {
+    transform: scale(1.04);
+}
+
+/* ── Card body ── */
+.resultCardBody {
+    padding: 16px 18px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.resultCardName {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0b1c3d;
+    line-height: 1.3;
+}
+
+.resultCardScore {
+    font-size: 20px;
+    font-weight: 700;
+    color: #d4a843;
+    font-family: "Playfair Display", Georgia, serif;
+    line-height: 1.2;
+}
+
+.resultCardDetail {
+    font-size: 12.5px;
+    color: #718096;
+    line-height: 1.55;
+}
+
+.resultCardBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 6px;
+    padding: 3px 10px;
+    background: rgba(11, 28, 61, 0.06);
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #0b1c3d;
+    align-self: flex-start;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* ── Carousel controls ── */
+.carouselControls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 32px;
+}
+
+.carouselBtn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(11, 28, 61, 0.2);
+    background: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0b1c3d;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    flex-shrink: 0;
+    padding: 0;
+}
+
+.carouselBtn:hover:not(:disabled) {
+    background: #0b1c3d;
+    border-color: #0b1c3d;
+    color: #fff;
+    transform: scale(1.08);
+}
+
+.carouselBtn:disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.carouselDots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.carouselDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(11, 28, 61, 0.2);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.25s, width 0.25s, border-radius 0.25s;
+}
+
+.carouselDot:hover {
+    background: rgba(11, 28, 61, 0.4);
+}
+
+.carouselDotActive {
+    background: #d4a843;
+    width: 22px;
+    border-radius: 4px;
+}
+
+.carouselCount {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #718096;
+    min-width: 40px;
+    text-align: center;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .resultSlide {
+        flex-basis: 50%;
+    }
+}
+
+@media (max-width: 560px) {
+    .resultSlide {
+        flex-basis: 100%;
+        padding: 0 4px;
+    }
+
+    .resultsSection {
+        padding: 56px 0;
+    }
+}

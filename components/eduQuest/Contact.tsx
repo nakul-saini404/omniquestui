@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { validateContactForm } from '@/lib/formValidation';
 
 const interests = [
   'Profile Building',
@@ -22,10 +23,22 @@ export default function Contact() {
   const [done, setDone]       = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError]     = useState('');
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+
+  const clearFieldError = (field: string) => {
+    setFieldErrors(prev => { const next = { ...prev }; delete next[field]; return next; });
+  };
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+
+    const errors = validateContactForm(form);
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
+      return;
+    }
+    setFieldErrors({});
     setLoading(true);
 
     try {
@@ -227,6 +240,16 @@ export default function Contact() {
           color: #dc2626;
           margin-bottom: 14px;
         }
+        .ct-field-error {
+          font-size: 0.72rem;
+          color: #dc2626;
+          margin-top: 4px;
+          line-height: 1.3;
+        }
+        .ct-input-error {
+          border-color: #dc2626 !important;
+          box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.12) !important;
+        }
         .ct-success {
           text-align: center; padding: 40px 0;
         }
@@ -332,48 +355,58 @@ export default function Contact() {
                     <label>I&apos;m Interested In</label>
                     <select
                       required
+                      className={fieldErrors.interest ? 'ct-input-error' : ''}
                       value={form.interest}
-                      onChange={e => setForm({ ...form, interest: e.target.value })}
+                      onChange={e => { setForm({ ...form, interest: e.target.value }); clearFieldError('interest'); }}
                     >
                       <option value="">Select a program...</option>
                       {interests.map(i => <option key={i} value={i}>{i}</option>)}
                     </select>
+                    {fieldErrors.interest && <p className="ct-field-error">{fieldErrors.interest}</p>}
                   </div>
 
                   <div className="ct-field">
                     <label>Full Name</label>
                     <input
                       type="text" required placeholder="Your name"
+                      className={fieldErrors.name ? 'ct-input-error' : ''}
                       value={form.name}
-                      onChange={e => setForm({ ...form, name: e.target.value })}
+                      onChange={e => { setForm({ ...form, name: e.target.value }); clearFieldError('name'); }}
                     />
+                    {fieldErrors.name && <p className="ct-field-error">{fieldErrors.name}</p>}
                   </div>
 
                   <div className="ct-field">
                     <label>Mobile</label>
                     <input
                       type="tel" required placeholder="+91 XXXXX XXXXX"
+                      className={fieldErrors.mobile ? 'ct-input-error' : ''}
                       value={form.mobile}
-                      onChange={e => setForm({ ...form, mobile: e.target.value })}
+                      onChange={e => { setForm({ ...form, mobile: e.target.value }); clearFieldError('mobile'); }}
                     />
+                    {fieldErrors.mobile && <p className="ct-field-error">{fieldErrors.mobile}</p>}
                   </div>
 
                   <div className="ct-field">
                     <label>Email</label>
                     <input
                       type="email" required placeholder="your@email.com"
+                      className={fieldErrors.email ? 'ct-input-error' : ''}
                       value={form.email}
-                      onChange={e => setForm({ ...form, email: e.target.value })}
+                      onChange={e => { setForm({ ...form, email: e.target.value }); clearFieldError('email'); }}
                     />
+                    {fieldErrors.email && <p className="ct-field-error">{fieldErrors.email}</p>}
                   </div>
 
                   <div className="ct-field">
                     <label>City</label>
                     <input
                       type="text" required placeholder="Your city"
+                      className={fieldErrors.city ? 'ct-input-error' : ''}
                       value={form.city}
-                      onChange={e => setForm({ ...form, city: e.target.value })}
+                      onChange={e => { setForm({ ...form, city: e.target.value }); clearFieldError('city'); }}
                     />
+                    {fieldErrors.city && <p className="ct-field-error">{fieldErrors.city}</p>}
                   </div>
 
                   <button type="submit" className="ct-submit" disabled={loading}>

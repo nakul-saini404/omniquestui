@@ -49,6 +49,9 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
   // ── Tools & interactive pages ─────────────────────────────────────────────
   { url: `${BASE_URL}/personality-test`,                                   lastModified: new Date("2026-05-12"), changeFrequency: "monthly",  priority: 0.78 },
 
+  // ── Online Home Tuition ─────────────────────────────────────────────────────
+  { url: `${BASE_URL}/online-home-tuition`,                                lastModified: new Date("2026-05-13"), changeFrequency: "monthly",  priority: 0.88 },
+
   // ── Contact ───────────────────────────────────────────────────────────────
   { url: `${BASE_URL}/contact-us`,                                         lastModified: new Date("2026-05-12"), changeFrequency: "yearly",   priority: 0.65 },
 ];

@@ -1,0 +1,170 @@
+/*
+  EduQuestFAQ.module.css
+  Colors from HTML:
+    Navy    #0b1c3d
+    Gold    #d4a843
+    Sand    #f5f0e8
+    Warm    #fffbf0
+    Grey    #4a5568
+    White   #ffffff
+  Fonts: "Playfair Display" (serif) + "Plus Jakarta Sans" (sans-serif)
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+/* ── Container ── */
+.container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ── Section ── */
+.faqSection {
+    padding: 88px 0;
+    background: #f5f0e8;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ── Section head ── */
+.sectionHead {
+    margin-bottom: 48px;
+}
+
+.sectionHead h2 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(24px, 3.2vw, 40px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #0b1c3d;
+    line-height: 1.18;
+    margin-bottom: 10px;
+}
+
+.sectionHead p {
+    font-size: 15.5px;
+    color: #4a5568;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.center {
+    text-align: center;
+}
+
+.center p {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+/* ── Section label ── */
+.sectionLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d4a843;
+    margin-bottom: 14px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.sectionLabel::before {
+    content: "";
+    width: 20px;
+    height: 2px;
+    background: #d4a843;
+    flex-shrink: 0;
+}
+
+/* ── FAQ list ── */
+.faqList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ── FAQ item ── */
+.faqItem {
+    background: #ffffff;
+    border: 1px solid rgba(11, 28, 61, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* ── Question button ── */
+.faqQuestion {
+    width: 100%;
+    text-align: left;
+    padding: 18px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #0b1c3d;
+    cursor: pointer;
+    border: none;
+    background: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    transition: background 0.2s;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    line-height: 1.4;
+}
+
+.faqQuestion:hover {
+    background: #fffbf0;
+}
+
+.faqQuestion[aria-expanded="true"] {
+    background: #fffbf0;
+    color: #0b1c3d;
+}
+
+/* ── Chevron icon ── */
+.faqChevron {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: #d4a843;
+    transition: transform 0.3s ease;
+}
+
+.faqChevronOpen {
+    transform: rotate(180deg);
+}
+
+/* ── Answer panel ── */
+.faqAnswer {
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+.faqAnswerInner {
+    padding: 0 22px 18px;
+    font-size: 14px;
+    color: #4a5568;
+    line-height: 1.8;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+    .faqSection {
+        padding: 56px 0;
+    }
+
+    .faqQuestion {
+        font-size: 14px;
+        padding: 15px 16px;
+    }
+
+    .faqAnswerInner {
+        padding: 0 16px 16px;
+    }
+}

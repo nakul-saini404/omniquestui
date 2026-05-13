@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./HeroSection.module.css";
+import { validateContactForm } from "@/lib/formValidation";
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 interface FormState {
@@ -211,6 +212,7 @@ export default function HeroSection() {
     email:   "",
     city:    "",
   });
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 60);
@@ -221,10 +223,16 @@ export default function HeroSection() {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setFieldErrors(prev => { const next = { ...prev }; delete next[e.target.name]; return next; });
   }
 
   async function handleSubmit() {
-    if (!form.name || !form.mobile || !form.email) return;
+    const errors = validateContactForm(form);
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
+      return;
+    }
+    setFieldErrors({});
 
     setSubmitStatus("loading");
     setErrorMsg("");
@@ -304,7 +312,7 @@ export default function HeroSection() {
     }
   }
 
-  const isFormValid = !!(form.name && form.mobile && form.email);
+  const isFormValid = Object.keys(fieldErrors).length === 0;
 
   // ── Render ─────────────────────────────────────────────────────────────────
   return (
@@ -426,51 +434,55 @@ export default function HeroSection() {
                 <label htmlFor="name" className={styles.formLabel}>Full Name</label>
                 <input
                   id="name" name="name" type="text"
-                  className={styles.formControl}
+                  className={`${styles.formControl} ${fieldErrors.name ? styles.inputError : ''}`}
                   placeholder="Your name"
                   value={form.name}
                   onChange={handleChange}
                   autoComplete="name"
                   required
                 />
+                {fieldErrors.name && <p className={styles.fieldError}>{fieldErrors.name}</p>}
               </div>
 
               <div className={styles.formGroup}>
                 <label htmlFor="mobile" className={styles.formLabel}>Mobile</label>
                 <input
                   id="mobile" name="mobile" type="tel"
-                  className={styles.formControl}
+                  className={`${styles.formControl} ${fieldErrors.mobile ? styles.inputError : ''}`}
                   placeholder="+91 XXXXX XXXXX"
                   value={form.mobile}
                   onChange={handleChange}
                   autoComplete="tel"
                   required
                 />
+                {fieldErrors.mobile && <p className={styles.fieldError}>{fieldErrors.mobile}</p>}
               </div>
 
               <div className={styles.formGroup}>
                 <label htmlFor="email" className={styles.formLabel}>Email</label>
                 <input
                   id="email" name="email" type="email"
-                  className={styles.formControl}
+                  className={`${styles.formControl} ${fieldErrors.email ? styles.inputError : ''}`}
                   placeholder="your@email.com"
                   value={form.email}
                   onChange={handleChange}
                   autoComplete="email"
                   required
                 />
+                {fieldErrors.email && <p className={styles.fieldError}>{fieldErrors.email}</p>}
               </div>
 
               <div className={styles.formGroup}>
                 <label htmlFor="city" className={styles.formLabel}>City</label>
                 <input
                   id="city" name="city" type="text"
-                  className={styles.formControl}
+                  className={`${styles.formControl} ${fieldErrors.city ? styles.inputError : ''}`}
                   placeholder="Delhi / Gurgaon / Online"
                   value={form.city}
                   onChange={handleChange}
                   autoComplete="address-level2"
                 />
+                {fieldErrors.city && <p className={styles.fieldError}>{fieldErrors.city}</p>}
               </div>
 
               {submitStatus === "error" && (
