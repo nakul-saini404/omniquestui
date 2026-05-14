@@ -132,7 +132,7 @@ export default function WhatWeOffer() {
                             case for admission.
                         </p>
                         <a
-                            href="https://eduquest.org.in/profile-building-programs/"
+                            href="/eduquest-guide"
                             className={styles.offerSpotlightLink}
                         >
                             Explore Profile Building →
