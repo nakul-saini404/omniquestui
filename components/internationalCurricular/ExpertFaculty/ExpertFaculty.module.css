@@ -1,0 +1,272 @@
+/* ──────────────────────────────────────────────────────────────────────────── */
+/* ExpertFaculty.module.css                                                     */
+/* Section: Expert Faculty / Mentors                                            */
+/* No :root block — all values are direct literals                              */
+/* ──────────────────────────────────────────────────────────────────────────── */
+
+/* ── SECTION WRAPPER ── */
+.section {
+    background: linear-gradient(135deg, #0a1628 0%, #1a3a6e 100%);
+    color: #ffffff;
+    padding: 80px 32px;
+    font-family: 'DM Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+/* ── CONTAINER ── */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ── SECTION HEAD ── */
+.sectionHead {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.sectionLabel {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c8952a;
+    margin-bottom: 12px;
+}
+
+.sectionTitle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0 0 16px 0;
+}
+
+.sectionTitle em {
+    color: #e8a020;
+    font-style: normal;
+}
+
+.sectionSub {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 1.05rem;
+    max-width: 640px;
+    line-height: 1.7;
+    margin: 0 auto;
+}
+
+/* ── MENTORS GRID ── */
+.mentorsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 56px;
+}
+
+/* ── MENTOR CARD ── */
+.mentorCard {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 18px;
+    padding: 36px 28px 32px;
+    text-align: center;
+    transition: background 0.25s, border-color 0.25s, transform 0.25s;
+    position: relative;
+    overflow: hidden;
+}
+
+.mentorCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #c8952a, #e8a020);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.mentorCard:hover {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(232, 160, 32, 0.35);
+    transform: translateY(-4px);
+}
+
+.mentorCard:hover::before {
+    transform: scaleX(1);
+}
+
+/* ── AVATAR ── */
+.mentorAvatar {
+    width: 72px;
+    height: 72px;
+    background: rgba(232, 160, 32, 0.12);
+    border: 2px solid rgba(232, 160, 32, 0.30);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.9rem;
+    margin: 0 auto 18px;
+    line-height: 1;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.mentorCard:hover .mentorAvatar {
+    background: rgba(232, 160, 32, 0.20);
+    border-color: rgba(232, 160, 32, 0.60);
+}
+
+/* ── NAME ── */
+.mentorName {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 5px;
+    line-height: 1.25;
+}
+
+/* ── ROLE ── */
+.mentorRole {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #e8a020;
+    margin-bottom: 16px;
+    letter-spacing: 0.2px;
+}
+
+/* ── SUBJECT TAGS ── */
+.mentorSubjects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.mentorTag {
+    background: rgba(200, 149, 42, 0.18);
+    border: 1px solid rgba(200, 149, 42, 0.35);
+    color: #f5d07a;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 13px;
+    border-radius: 50px;
+    letter-spacing: 0.3px;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.mentorCard:hover .mentorTag {
+    background: rgba(200, 149, 42, 0.28);
+    border-color: rgba(200, 149, 42, 0.55);
+}
+
+/* ── EXPERIENCE LINE ── */
+.mentorExp {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.50);
+    line-height: 1.5;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── CTA BANNER ── */
+.mentorCta {
+    background: rgba(232, 160, 32, 0.12);
+    border: 2px solid #e8a020;
+    border-radius: 20px;
+    padding: 52px 40px;
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.mentorCta h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #ffffff;
+    margin: 0 0 14px 0;
+    line-height: 1.2;
+}
+
+.mentorCta p {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 0 0 28px 0;
+}
+
+.ctaBtns {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ── BUTTONS ── */
+.btnPrimary {
+    background: #c8952a;
+    color: #0a1628;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 14px 32px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.btnPrimary:hover {
+    background: #e8a020;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(232, 160, 32, 0.35);
+}
+
+.btnOutline {
+    background: transparent;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 13px 30px;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.45);
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.btnOutline:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #ffffff;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+    .mentorsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .section {
+        padding: 60px 18px;
+    }
+
+    .mentorsGrid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .mentorCta {
+        padding: 36px 24px;
+    }
+
+    .mentorCta h3 {
+        font-size: 1.4rem;
+    }
+}

@@ -1,0 +1,159 @@
+/* ── SECTION ── */
+.cbseSection {
+    background: linear-gradient(135deg, #fafaf7 0%, #f5f0e8 100%);
+    padding: 80px 32px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ── GRID ── */
+.cbseGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* ── LEFT CONTENT ── */
+.sectionLabel {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c8952a;
+    margin-bottom: 10px;
+}
+
+.cbseTitle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 900;
+    color: #0a1628;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.cbseContent p {
+    color: #4a4a4a;
+    font-size: 0.97rem;
+    line-height: 1.75;
+    margin-bottom: 16px;
+}
+
+/* Explicit class instead of .cbseContent p — avoids SSR selector mismatch */
+.cbsePara {
+    color: #4a4a4a;
+    font-size: 0.97rem;
+    line-height: 1.75;
+    margin-bottom: 16px;
+}
+
+/* ── BADGES ── */
+.programBadges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.badge {
+    background: #f5ede0;
+    color: #0a1628;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 6px 16px;
+    border-radius: 50px;
+    border: 1px solid #c8952a;
+}
+
+/* ── RIGHT VISUAL ── */
+.cbseVisual {
+    background: linear-gradient(135deg, #0a1628 0%, #1e3258 100%);
+    border-radius: 20px;
+    padding: 40px 32px;
+    color: #ffffff;
+}
+
+.visualTitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #e8a020;
+    margin-bottom: 20px;
+}
+
+/* ── COMPARE ROWS ── */
+.compareRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+}
+
+.compareRow:last-of-type {
+    border-bottom: none;
+}
+
+/* Explicit classes instead of :first-child/:last-child — prevents hydration removeChild crash */
+.compareLabel {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.compareValue {
+    color: #e8a020;
+    font-weight: 600;
+}
+
+/* ── VISUAL FOOTER ── */
+.visualFooter {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.methodology {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 13px;
+    margin-bottom: 14px;
+}
+
+.methodologyEm {
+    color: #e8a020;
+    font-style: normal;
+}
+
+/* ── CTA BUTTON ── */
+.btnPrimary {
+    display: inline-block;
+    background: #c8952a;
+    color: #0a1628;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btnPrimary:hover {
+    background: #e8a020;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(232, 160, 32, 0.35);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    .cbseGrid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .cbseSection {
+        padding: 60px 20px;
+    }
+}

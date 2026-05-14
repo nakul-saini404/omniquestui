@@ -53,6 +53,9 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/online-home-tuition`,                                lastModified: new Date("2026-05-13"), changeFrequency: "monthly",  priority: 0.88 },
   { url: `${BASE_URL}/online-tuition-classes-india`,                       lastModified: new Date("2026-05-13"), changeFrequency: "monthly",  priority: 0.88 },
   { url: `${BASE_URL}/ib-international-baccalaureate`,                     lastModified: new Date("2026-05-13"), changeFrequency: "monthly",  priority: 0.88 },
+  { url: `${BASE_URL}/international-curricula`,                             lastModified: new Date("2026-05-14"), changeFrequency: "monthly",  priority: 0.88 },
+  { url: `${BASE_URL}/indian-curricula`,                                     lastModified: new Date("2026-05-14"), changeFrequency: "monthly",  priority: 0.88 },
+  { url: `${BASE_URL}/olympiad`,                                             lastModified: new Date("2026-05-14"), changeFrequency: "monthly",  priority: 0.88 },
 
   // ── Contact ───────────────────────────────────────────────────────────────
   { url: `${BASE_URL}/contact-us`,                                         lastModified: new Date("2026-05-12"), changeFrequency: "yearly",   priority: 0.65 },

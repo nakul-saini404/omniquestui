@@ -1,0 +1,131 @@
+/* ── HERO ── */
+.hero {
+    background: linear-gradient(135deg, #0a1628 0%, #132140 55%, #1a3a6e 100%);
+    color: #ffffff;
+    padding: 90px 32px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"><circle cx="30" cy="30" r="1.5" fill="rgba(232,160,32,0.18)"/></svg>') repeat;
+}
+
+.heroBadge {
+    display: inline-block;
+    background: rgba(232, 160, 32, 0.18);
+    border: 1px solid #c8952a;
+    color: #e8a020;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 6px 20px;
+    margin-bottom: 22px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+}
+
+.heroTitle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 1;
+}
+
+.heroTitle em {
+    color: #c8952a;
+    font-style: normal;
+}
+
+.heroDesc {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.80);
+    max-width: 650px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+}
+
+.heroBtns {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+.btnPrimary {
+    background: #c8952a;
+    color: #0a1628;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 14px 32px;
+    border-radius: 10px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-block;
+}
+
+.btnPrimary:hover {
+    background: #e8a020;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(232, 160, 32, 0.35);
+}
+
+.btnOutline {
+    background: transparent;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 13px 30px;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.45);
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+}
+
+.btnOutline:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #ffffff;
+}
+
+.heroStats {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    margin-top: 56px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+.stat {
+    text-align: center;
+}
+
+.statNum {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #c8952a;
+}
+
+.statLabel {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.65);
+    margin-top: 4px;
+}

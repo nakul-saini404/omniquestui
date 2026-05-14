@@ -1,0 +1,451 @@
+/* ── GetInTouch.module.css ── */
+
+/* ── Section ── */
+.section {
+    background: #0a1628;
+    padding: 88px 32px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* subtle dot-grid texture */
+.section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(232, 160, 32, 0.07) 1.5px, transparent 1.5px);
+    background-size: 32px 32px;
+    pointer-events: none;
+}
+
+/* ── Container ── */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Two-column grid ── */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+}
+
+/* ────────────────────────────────
+   LEFT — Info column
+──────────────────────────────── */
+.info {
+    padding-top: 8px;
+}
+
+.sectionLabel {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #c8952a;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.sectionLabel::before,
+.sectionLabel::after {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1.5px;
+    background: #c8952a;
+    vertical-align: middle;
+    margin: 0 8px;
+    opacity: 0.6;
+}
+
+.heading {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.25;
+    margin-bottom: 20px;
+}
+
+.headingAccent {
+    color: #c8952a;
+    font-style: normal;
+}
+
+.sub {
+    color: rgba(255, 255, 255, 0.70);
+    font-size: 0.97rem;
+    line-height: 1.78;
+    margin-bottom: 36px;
+}
+
+/* ── Bullet list ── */
+.bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.bullet {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.93rem;
+    line-height: 1.6;
+}
+
+.bulletIcon {
+    width: 38px;
+    height: 38px;
+    background: rgba(232, 160, 32, 0.12);
+    border: 1px solid rgba(232, 160, 32, 0.20);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.bulletText strong {
+    color: #ffffff;
+}
+
+/* ────────────────────────────────
+   RIGHT — Form Card
+──────────────────────────────── */
+.formCard {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px 36px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.30);
+}
+
+/* Gold top accent bar */
+.cardAccentBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #c8952a, #e8a020);
+    border-radius: 20px 20px 0 0;
+}
+
+/* ── Form header ── */
+.formHeader {
+    margin-bottom: 28px;
+}
+
+.formTitle {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #0a1628;
+    margin-bottom: 6px;
+}
+
+.formSub {
+    font-size: 0.88rem;
+    color: #6b6b6b;
+}
+
+/* ── Error banner ── */
+.errorBox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff1f1;
+    border: 1.5px solid #fca5a5;
+    color: #b91c1c;
+    border-radius: 9px;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+/* ── Form layout ── */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.fieldRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.field {
+    margin-bottom: 16px;
+}
+
+.label {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #1c1c1e;
+    margin-bottom: 6px;
+    letter-spacing: 0.2px;
+}
+
+.optional {
+    font-weight: 400;
+    color: #9ca3af;
+    font-size: 11.5px;
+}
+
+/* ── Inputs ── */
+.input,
+.select,
+.textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border-radius: 9px;
+    border: 1.5px solid #E0D8CC;
+    font-size: 13.5px;
+    font-family: inherit;
+    color: #1c1c1e;
+    background: #F5F0E8;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+    border-color: #c8952a;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(200, 149, 42, 0.12);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+    color: #9ca3af;
+}
+
+.inputError {
+    border-color: #f87171 !important;
+    background: #fff8f8 !important;
+}
+
+.fieldError {
+    font-size: 11.5px;
+    color: #dc2626;
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+/* ── Select wrapper ── */
+.selectWrap {
+    position: relative;
+}
+
+.selectArrow {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #6b6b6b;
+}
+
+/* ── Textarea ── */
+.textarea {
+    min-height: 92px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+/* ── Submit Button ── */
+.submit {
+    width: 100%;
+    padding: 13px 24px;
+    background: #c8952a;
+    color: #0a1628;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: inherit;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    margin-top: 4px;
+}
+
+.submit:hover:not(:disabled) {
+    background: #e8a020;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(200, 149, 42, 0.35);
+}
+
+.submit:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.submit:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* ── Spinner ── */
+.spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(10, 22, 40, 0.25);
+    border-top-color: #0a1628;
+    border-radius: 50%;
+    animation: spin 0.65s linear infinite;
+    flex-shrink: 0;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ── Privacy note ── */
+.privacy {
+    text-align: center;
+    font-size: 11.5px;
+    color: #9ca3af;
+    margin-top: 12px;
+}
+
+/* ── Success state ── */
+.success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 32px 16px;
+    gap: 16px;
+}
+
+.successMark {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: #dcfce7;
+    border: 2px solid #86efac;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #16a34a;
+    animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.successTitle {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0a1628;
+}
+
+.successText {
+    color: #4a4a4a;
+    font-size: 0.93rem;
+    line-height: 1.75;
+}
+
+.successBack {
+    margin-top: 8px;
+    padding: 9px 22px;
+    background: transparent;
+    border: 1.5px solid #c8952a;
+    color: #c8952a;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.successBack:hover {
+    background: #c8952a;
+    color: #ffffff;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+    .section {
+        padding: 72px 24px;
+    }
+
+    .grid {
+        gap: 48px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 64px 20px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .info {
+        padding-top: 0;
+    }
+
+    .formCard {
+        padding: 32px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 52px 14px;
+    }
+
+    .fieldRow {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .formCard {
+        padding: 28px 18px;
+        border-radius: 16px;
+    }
+
+    .formTitle {
+        font-size: 1.25rem;
+    }
+}

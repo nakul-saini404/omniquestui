@@ -195,7 +195,7 @@ const NAV_LINKS = [
     { href: 'https://eduquest.org.in', label: 'Home' },
     { href: 'https://eduquest.org.in/online-tuition-classes-india/', label: 'Online Tuition' },
     { href: 'https://eduquest.org.in/olympiad/', label: 'Olympiads' },
-    { href: 'https://eduquest.org.in/indian-curricula/', label: 'Indian Curricula', active: true },
+    { href: 'https://eduquest.org.in/indian-Curricular/', label: 'Indian Curricular', active: true },
     { href: 'https://eduquest.org.in/contact-us/', label: 'Contact' },
 ];
 
@@ -251,7 +251,7 @@ export default function EduQuestAdvantage() {
 
             {/* HERO */}
             <div className={styles.hero} id="hero">
-                <div className={styles.heroEyebrow}>📚 Indian Curricula · CBSE &amp; ICSE</div>
+                <div className={styles.heroEyebrow}>📚 Indian Curricular · CBSE &amp; ICSE</div>
                 <h1>
                     Score Higher in <em>CBSE &amp; ICSE</em>
                     <br />

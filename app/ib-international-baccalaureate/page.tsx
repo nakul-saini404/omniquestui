@@ -24,6 +24,13 @@ export const metadata: Metadata = {
     "IB Math tutor",
     "IB Physics tutor",
     "IB Chemistry tutor",
+    "IB Biology HL tutor",
+    "IB Economics tutor online",
+    "IB English Language and Literature",
+    "IB Extended Essay EE help",
+    "IB Theory of Knowledge TOK guidance",
+    "IB Internal Assessment IA support",
+    "IB DP Mock Exams",
   ],
   alternates: {
     canonical: "https://eduquest.org.in/ib-international-baccalaureate/",
