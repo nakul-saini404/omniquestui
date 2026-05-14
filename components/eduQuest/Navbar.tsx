@@ -45,7 +45,17 @@ const navItems = [
       { label: 'Olympiads', href: '/olympiad' },
     ],
   },
-  { label: 'Study Abroad', href: 'https://eduquest.org.in/overseas-education-consultant-studyabroad-consultant/' },
+  {
+    label: 'Study Abroad',
+    href: 'https://eduquest.org.in/overseas-education-consultant-studyabroad-consultant/',
+    children: [
+      { label: 'Profile Building for Class 6 to Class 8 students', href: '/sat' },
+      { label: 'Profile Building for Class 9', href: '/lsat' },
+      { label: 'Profile Building for Class 10', href: '/ssat' },
+      { label: 'Profile Building for Class 11', href: '/psat' },
+      { label: 'Profile Building for Class 12', href: '/act' },
+    ],
+  },
   {
     label: 'Language',
     href: '#',

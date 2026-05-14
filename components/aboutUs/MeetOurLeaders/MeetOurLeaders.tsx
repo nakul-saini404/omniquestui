@@ -145,24 +145,31 @@ function LeaderCard({ leader }: { leader: Leader }) {
 
     return (
         <div className={styles.leaderCard}>
-            <div className={styles.leaderPhotoWrap}>
-                {imgError ? (
-                    <div className={styles.leaderPhotoPlaceholder}>{leader.initials}</div>
-                ) : (
-                    <img
-                        className={styles.leaderPhoto}
-                        src={leader.photo}
-                        alt={leader.name}
-                        loading="lazy"
-                        onError={() => setImgError(true)}
-                    />
-                )}
-                <div className={styles.leaderPhotoInfo}>
+            {/* Header row: circle photo + name/role */}
+            <div className={styles.leaderHeader}>
+                <div className={styles.leaderAvatar}>
+                    {imgError ? (
+                        <div className={styles.leaderAvatarPlaceholder}>{leader.initials}</div>
+                    ) : (
+                        <img
+                            className={styles.leaderAvatarImg}
+                            src={leader.photo}
+                            alt={leader.name}
+                            loading="lazy"
+                            onError={() => setImgError(true)}
+                        />
+                    )}
+                </div>
+                <div className={styles.leaderHeaderInfo}>
                     <div className={styles.leaderName}>{leader.name}</div>
                     <div className={styles.leaderRole}>{leader.role}</div>
                 </div>
             </div>
 
+            {/* Divider */}
+            <div className={styles.leaderDivider} />
+
+            {/* Details + LinkedIn */}
             <div className={styles.leaderBody}>
                 <div className={styles.leaderDetails}>
                     {leader.details.map((detail, i) => (
@@ -200,14 +207,12 @@ export default function MeetOurLeaders() {
     );
     const pages = useCallback((pv: number) => total - pv + 1, [total]);
 
-    // Update track position
     useEffect(() => {
         if (!trackRef.current) return;
         const pct = (100 / perView) * current;
         trackRef.current.style.transform = `translateX(-${pct}%)`;
     }, [current, perView]);
 
-    // Resize handler
     useEffect(() => {
         function handleResize() {
             const pv = getPerView(window.innerWidth);
@@ -219,7 +224,6 @@ export default function MeetOurLeaders() {
         return () => window.removeEventListener("resize", handleResize);
     }, [maxIndex]);
 
-    // Auto-play
     const startAuto = useCallback(() => {
         if (autoRef.current) clearInterval(autoRef.current);
         autoRef.current = setInterval(() => {
@@ -245,7 +249,6 @@ export default function MeetOurLeaders() {
         [maxIndex, perView, startAuto]
     );
 
-    // Keyboard
     useEffect(() => {
         function onKey(e: KeyboardEvent) {
             if (e.key === "ArrowLeft") goTo(current - 1);
@@ -255,7 +258,6 @@ export default function MeetOurLeaders() {
         return () => window.removeEventListener("keydown", onKey);
     }, [current, goTo]);
 
-    // Drag handlers
     function onMouseDown(e: React.MouseEvent) {
         dragStartX.current = e.clientX;
         isDragging.current = true;
@@ -283,7 +285,6 @@ export default function MeetOurLeaders() {
     return (
         <section className={styles.section} id="leaders">
             <div className={styles.container}>
-                {/* Header */}
                 <div className={styles.sectionHead}>
                     <div className={styles.sectionLabel}>Meet Our Leaders</div>
                     <h2>The Team Behind Three Decades of Results</h2>
@@ -293,7 +294,6 @@ export default function MeetOurLeaders() {
                     </p>
                 </div>
 
-                {/* Carousel */}
                 <div className={styles.carouselViewport}>
                     <div className={styles.carouselTrackWrap}>
                         <div
@@ -319,7 +319,6 @@ export default function MeetOurLeaders() {
                         </div>
                     </div>
 
-                    {/* Controls */}
                     <div className={styles.carouselControls}>
                         <button
                             className={styles.carouselBtn}
