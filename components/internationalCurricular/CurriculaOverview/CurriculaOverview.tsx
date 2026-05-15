@@ -79,7 +79,7 @@ function useCardsPerView(): number {
     return cpv;
 }
 
-export default function CurriculaOverview() {
+export default function CurricularOverview() {
     const [page, setPage] = useState(0);
     const [mounted, setMounted] = useState(false);
     // animKey increments on every page/resize change — used as CSS animation seed
@@ -119,12 +119,12 @@ export default function CurriculaOverview() {
     const visibleCards = cards.slice(start, start + cardsPerView);
 
     return (
-        <section className={styles.curriculaOverview} id="curricula">
+        <section className={styles.curriculaOverview} id="Curricular">
             <div className={styles.container}>
 
                 {/* ── Header ── */}
                 <div className={styles.textCenter}>
-                    <div className={styles.sectionLabel}>International Curricula</div>
+                    <div className={styles.sectionLabel}>International Curricular</div>
                     <h2 className={styles.sectionTitle}>
                         IGCSE / GCSE / O-Level — <em>All Subjects</em>
                     </h2>

@@ -110,7 +110,7 @@ export default function GetInTouch() {
                         ? `Others: ${form.otherInterest.trim()}`
                         : form.interest,
                     message: form.message.trim() || undefined,
-                    pageName: 'International Curricula – Get In Touch',
+                    pageName: 'International Curricular – Get In Touch',
                 }),
             });
 

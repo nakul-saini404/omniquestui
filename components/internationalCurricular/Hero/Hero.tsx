@@ -13,11 +13,11 @@ export default function Hero() {
     return (
         <section className={styles.hero} id="top">
             <div className={styles.heroBadge}>
-                🌍 International Curricula · IGCSE · GCSE · O-Level
+                🌍 International Curricular · IGCSE · GCSE · O-Level
             </div>
 
             <h1 className={styles.heroTitle}>
-                Master International Curricula
+                Master International Curricular
                 <br />
                 <em>with India&apos;s Best Mentors</em>
             </h1>

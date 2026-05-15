@@ -64,7 +64,7 @@ export default function ProgramOverview() {
                         <p className={styles.cbsePara}>
                             EduQuest supports students from both Indian (CBSE/ICSE) and international school
                             systems transition to, study within, or supplement their learning across IGCSE and
-                            GCSE curricula.
+                            GCSE Curricular.
                         </p>
                         <div className={styles.programBadges}>
                             {badges.map((badge) => (
