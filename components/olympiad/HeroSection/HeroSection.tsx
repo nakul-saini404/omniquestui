@@ -26,9 +26,10 @@ export default function HeroSection() {
                 <div className={styles.eyebrow}>🏆 Olympiad Practice Resources</div>
 
                 <h1 className={styles.heroH1}>
-                    Free <em>Sample Papers</em>
+                    Prepare for <em>Olympiads</em>
                     <br />
-                    for Every Olympiad
+                    with Expert Coaching <br />
+                    & Mock Tests
                 </h1>
 
                 <p className={styles.heroP}>

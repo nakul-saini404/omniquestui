@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+/* ═══════════════════════════════════
+   SECTION WRAPPER
+═══════════════════════════════════ */
+.programs {
+    background: #f5f0e8;
+    padding: 96px 0;
+    overflow: hidden;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* ═══════════════════════════════════
+   CONTAINER
+═══════════════════════════════════ */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ═══════════════════════════════════
+   SCROLL REVEAL ANIMATIONS
+═══════════════════════════════════ */
+.revealLeft {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.revealRight {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.revealUp {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.revealLeft.in,
+.revealRight.in,
+.revealUp.in {
+    opacity: 1;
+    transform: none;
+}
+
+.d1 {
+    transition-delay: 0.08s;
+}
+
+.d2 {
+    transition-delay: 0.16s;
+}
+
+.d3 {
+    transition-delay: 0.24s;
+}
+
+/* ═══════════════════════════════════
+   SECTION HEADER
+═══════════════════════════════════ */
+.programsHeader {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.secLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #d4a843;
+    margin-bottom: 14px;
+}
+
+.secLabel::before {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background: #d4a843;
+    flex-shrink: 0;
+}
+
+.secHeading {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(28px, 3.4vw, 46px);
+    font-weight: 900;
+    color: #0b1c3d;
+    line-height: 1.13;
+    letter-spacing: -0.025em;
+    margin-bottom: 16px;
+}
+
+.secHeading em {
+    color: #b8860b;
+    font-style: italic;
+}
+
+.secSub {
+    font-size: 17px;
+    color: #4a5568;
+    line-height: 1.8;
+    max-width: 620px;
+}
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ═══════════════════════════════════
+   GRID
+═══════════════════════════════════ */
+.programsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+/* ═══════════════════════════════════
+   CARD
+═══════════════════════════════════ */
+.progCard {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid rgba(11, 28, 61, 0.08);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Gold underline bar on hover */
+.progCard::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #d4a843;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.progCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(11, 28, 61, 0.12);
+    background: #fdfbf8;
+}
+
+.progCard:hover::after {
+    transform: scaleX(1);
+}
+
+/* Centered last card (AI / Data Science) */
+.progCardCentered {
+    grid-column: 1 / -1;
+    max-width: 380px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ═══════════════════════════════════
+   CARD CONTENT
+═══════════════════════════════════ */
+.progIcon {
+    font-size: 28px;
+}
+
+.progTitle {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0b1c3d;
+    line-height: 1.3;
+}
+
+.progDesc {
+    font-size: 13px;
+    color: #4a5568;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* ═══════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════ */
+@media (max-width: 960px) {
+    .programs {
+        padding: 72px 0;
+    }
+
+    .programsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .progCardCentered {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 600px) {
+    .programs {
+        padding: 56px 0;
+    }
+
+    .programsHeader {
+        margin-bottom: 40px;
+    }
+
+    .programsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .progCardCentered {
+        grid-column: auto;
+        max-width: 100%;
+    }
+}

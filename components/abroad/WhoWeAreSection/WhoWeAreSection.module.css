@@ -1,0 +1,265 @@
+/* ═══════════════════════════════════
+   FONTS — add to your global CSS or _app.tsx if not already present:
+   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+═══════════════════════════════════ */
+
+/* ═══════════════════════════════════
+   CONTAINER
+═══════════════════════════════════ */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ═══════════════════════════════════
+   SECTION
+═══════════════════════════════════ */
+.leader {
+    background: #ffffff;
+    padding: 96px 0;
+    overflow: hidden;
+}
+
+/* ═══════════════════════════════════
+   GRID
+═══════════════════════════════════ */
+.leaderGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+}
+
+/* ═══════════════════════════════════
+   SLIDE-FROM-LEFT  (left column)
+═══════════════════════════════════ */
+.slideFromLeft {
+    opacity: 0;
+    transform: translateX(-72px);
+    transition:
+        opacity 0.78s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.78s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.slideFromLeft.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ═══════════════════════════════════
+   SLIDE-FROM-RIGHT  (right column)
+═══════════════════════════════════ */
+.slideFromRight {
+    opacity: 0;
+    transform: translateX(72px);
+    transition:
+        opacity 0.78s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.78s cubic-bezier(0.22, 1, 0.36, 1);
+    /* slight delay so both columns animate in tandem but right trails a touch */
+    transition-delay: 0.08s;
+}
+
+.slideFromRight.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ── Each highlight card inside the right column fades in staggered ──
+   The delay is applied inline via style={{ transitionDelay }} in TSX.
+   We only need the base hidden state here.                            */
+.highlightItem {
+    opacity: 0;
+    transform: translateX(40px);
+    transition:
+        opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* When the parent gets .animate, every child highlight snaps into place */
+.slideFromRight.animate .highlightItem {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ═══════════════════════════════════
+   LEFT COLUMN — TEXT
+═══════════════════════════════════ */
+.leaderText {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Section label ── */
+.secLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #d4a843;
+    margin-bottom: 14px;
+}
+
+.secLabel::before {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background: #d4a843;
+    flex-shrink: 0;
+}
+
+/* ── Heading ── */
+.secHeading {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(28px, 3.4vw, 46px);
+    font-weight: 900;
+    color: #0b1c3d;
+    line-height: 1.13;
+    letter-spacing: -0.025em;
+    margin-bottom: 20px;
+}
+
+.secHeading em {
+    color: #b8860b;
+    font-style: italic;
+}
+
+/* ── Body paragraphs ── */
+.leaderText p {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 17px;
+    color: #4a5568;
+    line-height: 1.85;
+    margin-bottom: 16px;
+}
+
+/* ── CTA wrapper ── */
+.ctaWrap {
+    margin-top: 28px;
+}
+
+/* ── Gold button ── */
+.btnGold {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #d4a843;
+    color: #0b1c3d;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 14px 32px;
+    border-radius: 40px;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition:
+        background 0.22s,
+        transform 0.22s,
+        box-shadow 0.22s;
+}
+
+.btnGold:hover {
+    background: #e8c96a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(212, 168, 67, 0.35);
+}
+
+/* ═══════════════════════════════════
+   RIGHT COLUMN — HIGHLIGHTS LIST
+═══════════════════════════════════ */
+.leaderHighlights {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ── Single highlight row ── */
+.highlightItem {
+    background: #f5f0e8;
+    border-radius: 12px;
+    border-left: 4px solid #d4a843;
+    padding: 16px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+.highlightItem:hover {
+    transform: translateX(4px);
+    box-shadow: 0 6px 24px rgba(11, 28, 61, 0.09);
+}
+
+.highlightIcon {
+    font-size: 24px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    line-height: 1;
+}
+
+.highlightTitle {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0b1c3d;
+    margin-bottom: 4px;
+}
+
+.highlightDesc {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 15px;
+    color: #4a5568;
+    line-height: 1.65;
+}
+
+/* ═══════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════ */
+@media (max-width: 960px) {
+    .leaderGrid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .leader {
+        padding: 72px 0;
+    }
+
+    /* On mobile both columns slide up instead of from sides */
+    .slideFromLeft,
+    .slideFromRight {
+        transform: translateY(48px);
+        transition-delay: 0s;
+    }
+
+    .slideFromLeft.animate,
+    .slideFromRight.animate {
+        transform: translateY(0);
+    }
+
+    .highlightItem {
+        transform: translateY(24px);
+    }
+
+    .slideFromRight.animate .highlightItem {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .leader {
+        padding: 56px 0;
+    }
+
+    .highlightItem {
+        padding: 14px 16px;
+    }
+}

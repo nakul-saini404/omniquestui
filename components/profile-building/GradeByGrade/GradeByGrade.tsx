@@ -7,8 +7,8 @@ import styles from "./GradeByGrade.module.css";
    Types
 ───────────────────────────────────────── */
 interface BrandRow {
-  bad: string;
-  good: string;
+  bad: string[];
+  good: string[];
   whatHappening: string;
 }
 
@@ -49,8 +49,20 @@ const GRADES: GradeData[] = [
       "Grade 8 is the seed stage. Before the world narrows your options, EduQuest helps you explore widely — subjects, skills, activities — so that by Grade 9 you already have a head start on every peer.",
     tags: ["Foundational Year", "Wide Exploration", "Habit Formation", "Early Awareness"],
     brand: {
-      bad: 'Join random clubs, try coding, MUN, Olympiads because "it\'s good for profile"',
-      good: "Explore without pressure. Observe what genuinely excites you. Document curiosity.",
+      bad: [
+        'Join random clubs because "it looks good on a profile"',
+        "Do MUN, Olympiads, coding — all at once without real interest",
+        "Chase certificates over genuine learning",
+        "Copy what toppers are doing without self-reflection",
+        "Start SAT prep too early without academic foundation",
+      ],
+      good: [
+        "Explore widely without any pressure to perform",
+        "Observe what genuinely excites you — notice the spark",
+        "Document moments of curiosity in a journal",
+        "Try one creative, one academic, one physical activity",
+        "Ask: What would I do even if no college could see it?",
+      ],
       whatHappening:
         "You're not building a profile yet — you're discovering raw signals of identity.",
     },
@@ -117,8 +129,20 @@ const GRADES: GradeData[] = [
       "6–7 Project Modules",
     ],
     brand: {
-      bad: 'Continue multiple activities to "show consistency"',
-      good: "Notice patterns: What do you enjoy + perform well in? Drop the noise.",
+      bad: [
+        'Continue every activity to "show consistency"',
+        "Add new clubs every semester to bulk up the resume",
+        "Pick subjects based on what friends are doing",
+        "Ignore SAT prep thinking Grade 10 is soon enough",
+        "Do summer programmes only for the certificate, not the skill",
+      ],
+      good: [
+        "Notice patterns: What do you enjoy AND perform well in?",
+        "Drop activities that don't align — quality over quantity",
+        "Choose Grade 11/12 subjects based on your target major",
+        "Start SAT diagnostic to understand your baseline now",
+        "Apply to one meaningful summer programme with real deliverables",
+      ],
       whatHappening: "Your interests start becoming intentional.",
     },
     cards: [
@@ -179,8 +203,20 @@ const GRADES: GradeData[] = [
       "Grade 10 is where good students become great applicants. Board exams, SAT prep, and the sharpening of your extracurricular story — this is the busiest and most important year to have expert guidance.",
     tags: ["Highest Stakes Year", "SAT Preparation", "6–7 Workshops", "4–5 Projects"],
     brand: {
-      bad: "Add certifications, competitions, resume lines",
-      good: "Begin building skills + small projects in 1–2 clear directions.",
+      bad: [
+        "Add certifications and competition medals to pad the resume",
+        "Join 5+ clubs while excelling at none of them",
+        "Treat board exams and SAT prep as entirely separate silos",
+        "Apply to summer programmes just for the brand name",
+        "Postpone leadership roles thinking Grade 11 is early enough",
+      ],
+      good: [
+        "Build real skills and small projects in 1–2 clear directions",
+        "Double down on 2 activities — aim to lead by Grade 11",
+        "Integrate board exam prep and SAT strategy with one study plan",
+        "Choose summer programmes that produce tangible outputs",
+        "Earn one nationally-recognised award or competition placement",
+      ],
       whatHappening: "Your profile shifts from participation → capability.",
     },
     cards: [
@@ -246,8 +282,20 @@ const GRADES: GradeData[] = [
       "2–3 Capstone Projects",
     ],
     brand: {
-      bad: "Stack achievements, internships, research for college apps",
-      good: "Go deep: Solve a problem, build something original, take ownership.",
+      bad: [
+        "Stack achievements, internships, and research purely for college apps",
+        "Take 6 APs to impress — without genuine depth in any",
+        "Join leadership roles in activities you don't care about",
+        "Write research papers that merely summarise existing work",
+        "Start IELTS/TOEFL too late, leaving no time for retakes",
+      ],
+      good: [
+        "Go deep: Solve a real problem, build something original",
+        "Take 3–5 APs in subjects directly tied to your intended major",
+        "Claim leadership in the 1–2 activities you've invested in since Grade 9",
+        "Co-author or independently publish a research paper with a mentor",
+        "Begin IELTS/TOEFL early — target 7.5+ / 110+ with buffer time",
+      ],
       whatHappening: "Your profile becomes distinct and differentiated.",
     },
     cards: [
@@ -313,8 +361,20 @@ const GRADES: GradeData[] = [
       "Financial Aid Strategy",
     ],
     brand: {
-      bad: "Compile everything into a resume and essays",
-      good: "Craft a clear narrative: Why you, why this field, what impact you've created.",
+      bad: [
+        "Compile everything into a resume and hope it speaks for itself",
+        "Write generic essays about a mission trip or a sports lesson",
+        "Apply to 20 universities without a coherent strategic list",
+        "Leave scholarship and financial aid research until after decisions",
+        "Submit applications without mock interviews or second reads",
+      ],
+      good: [
+        "Craft a clear narrative: Why you, why this field, what impact you've created",
+        "Write essays that only YOU could have written — specific, vulnerable, surprising",
+        "Build a balanced list of 10–15: Dream / Match / Safety with clear rationale",
+        "Start CSS Profile, FAFSA, and merit scholarship research in July",
+        "Run 3+ mock interviews and have every essay read by at least two mentors",
+      ],
       whatHappening: "Your profile becomes a story universities remember.",
     },
     cards: [
@@ -456,20 +516,35 @@ export default function GradeByGrade() {
 
           {/* Brand thinking row */}
           <div className={styles.brandRow}>
+            {/* Checklist Thinking */}
             <div className={styles.brandCol}>
               <h5 className={`${styles.brandColTitle} ${styles.brandColBad}`}>
                 ❌ Checklist Thinking
               </h5>
-              <p className={styles.brandColText}>{active.brand.bad}</p>
+              <ul className={styles.brandList}>
+                {active.brand.bad.map((pt, i) => (
+                  <li key={i} className={`${styles.brandListItem} ${styles.brandListItemBad}`}>
+                    {pt}
+                  </li>
+                ))}
+              </ul>
             </div>
+
+            {/* Brand Thinking */}
             <div className={styles.brandCol}>
               <h5 className={`${styles.brandColTitle} ${styles.brandColGood}`}>
                 ✅ Brand Thinking
               </h5>
-              <p className={`${styles.brandColText} ${styles.brandColTextGood}`}>
-                {active.brand.good}
-              </p>
+              <ul className={styles.brandList}>
+                {active.brand.good.map((pt, i) => (
+                  <li key={i} className={`${styles.brandListItem} ${styles.brandListItemGood}`}>
+                    {pt}
+                  </li>
+                ))}
+              </ul>
             </div>
+
+            {/* What's really happening */}
             <div className={styles.whatHappening}>
               <strong>What's Really Happening:</strong> {active.brand.whatHappening}
             </div>

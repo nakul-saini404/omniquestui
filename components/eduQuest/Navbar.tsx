@@ -6,7 +6,7 @@ import Image from 'next/image';
 const navItems = [
   { label: 'Home', href: '/eduQuest' },
   { label: 'About Us', href: '/about-us' },
-  { label: 'EduQuest × Aptech', href: 'https://eduquest.org.in/eduquest-aptech/' },
+  { label: 'EduQuest × Aptech', href: '/eduquest-aptech' },
   {
     label: 'Profile Building',
     href: '/eduquest-guide',
@@ -37,24 +37,17 @@ const navItems = [
     label: 'Online Tuition',
     href: '#',
     children: [
-      { label: 'Online Home Tuition', href: '/online-home-tuition' },
+      // { label: 'Online Home Tuition', href: '/online-home-tuition' },
       { label: 'Online Tuition classes', href: '/online-tuition-classes-india' },
       { label: 'IB', href: '/ib-international-baccalaureate' },
-      { label: 'Indian Curricula', href: '/indian-curricula' },
-      { label: 'International Curricula', href: '/international-curricula' },
+      { label: 'Indian Curricular', href: '/indian-curricula' },
+      { label: 'International Curricular', href: '/international-curricula' },
       { label: 'Olympiads', href: '/olympiad' },
     ],
   },
   {
     label: 'Study Abroad',
-    href: 'https://eduquest.org.in/overseas-education-consultant-studyabroad-consultant/',
-    children: [
-      { label: 'Profile Building for Class 6 to Class 8 students', href: '/sat' },
-      { label: 'Profile Building for Class 9', href: '/lsat' },
-      { label: 'Profile Building for Class 10', href: '/ssat' },
-      { label: 'Profile Building for Class 11', href: '/psat' },
-      { label: 'Profile Building for Class 12', href: '/act' },
-    ],
+    href: '/overseas-education-consultant-studyabroad-consultant',
   },
   {
     label: 'Language',

@@ -21,12 +21,19 @@
     opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
 .reveal.in {
   opacity: 1;
   transform: none;
 }
-.revealDelay1 { transition-delay: 0.12s; }
-.revealDelay2 { transition-delay: 0.22s; }
+
+.revealDelay1 {
+  transition-delay: 0.12s;
+}
+
+.revealDelay2 {
+  transition-delay: 0.22s;
+}
 
 /* ── Section ── */
 .section {
@@ -60,6 +67,7 @@
   color: #d4a843;
   margin-bottom: 14px;
 }
+
 .secLabel::before {
   content: '';
   width: 20px;
@@ -76,6 +84,7 @@
   line-height: 1.15;
   margin-bottom: 14px;
 }
+
 .secHeading em {
   color: #1a4a8a;
   font-style: italic;
@@ -116,15 +125,17 @@
   transition: background 0.2s, color 0.2s;
   outline: none;
 }
+
 .tab:last-child {
   border-right: none;
 }
+
 .tab:hover:not(.tabActive) {
   background: #f5f0e8;
   color: #0b1c3d;
 }
+
 .tabActive {
-  /* background & color are set inline per grade accent */
   font-weight: 800;
 }
 
@@ -145,7 +156,7 @@
   justify-content: space-between;
   gap: 24px;
   flex-wrap: wrap;
-  border-left: 5px solid transparent; /* accent set inline */
+  border-left: 5px solid transparent;
 }
 
 .heroLeft {
@@ -159,7 +170,6 @@
   line-height: 0.9;
   letter-spacing: -0.04em;
   margin-bottom: 8px;
-  /* color set inline per grade */
 }
 
 .gradeLabel {
@@ -211,25 +221,27 @@
   background: rgba(11, 28, 61, 0.03);
   border: 1px solid rgba(11, 28, 61, 0.07);
   border-radius: 12px;
-  padding: 20px;
+  padding: 24px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 20px;
 }
 
 .brandCol {
-  /* no extra styles needed */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .brandColTitle {
-  font-size: 20px;
+  font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin-bottom: 10px;
   display: flex;
   align-items: center;
   gap: 6px;
+  margin: 0;
 }
 
 .brandColBad {
@@ -240,17 +252,56 @@
   color: #1a7a4a;
 }
 
-.brandColText {
-  font-size: 15px;
-  line-height: 1.65;
-  color: #2d3748;
+/* ── Brand point lists ── */
+.brandList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.brandColTextGood {
-  font-weight: 600;
-  color: #1a4a8a;
+.brandListItem {
+  font-size: 13.5px;
+  line-height: 1.6;
+  padding: 8px 12px 8px 34px;
+  border-radius: 8px;
+  position: relative;
 }
 
+.brandListItem::before {
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.brandListItemBad {
+  background: rgba(192, 57, 43, 0.06);
+  color: #5c1f1a;
+  border: 1px solid rgba(192, 57, 43, 0.12);
+}
+
+.brandListItemBad::before {
+  content: '✗';
+  color: #c0392b;
+}
+
+.brandListItemGood {
+  background: rgba(26, 122, 74, 0.06);
+  color: #0d3b24;
+  border: 1px solid rgba(26, 122, 74, 0.12);
+}
+
+.brandListItemGood::before {
+  content: '✓';
+  color: #1a7a4a;
+}
+
+/* ── What's happening banner ── */
 .whatHappening {
   background: #0b1c3d;
   border-radius: 8px;
@@ -288,7 +339,6 @@
   box-shadow: 0 12px 48px rgba(11, 28, 61, 0.16);
 }
 
-/* accent top bar — background set inline */
 .cardAccentBar {
   position: absolute;
   top: 0;
@@ -350,6 +400,11 @@
   flex-shrink: 0;
 }
 
+.calloutText {
+  flex: 1;
+  min-width: 200px;
+}
+
 .calloutTitle {
   font-size: 20px;
   font-weight: 700;
@@ -373,6 +428,7 @@
 
   .brandRow {
     grid-template-columns: 1fr;
+    padding: 16px;
   }
 
   .tabs {
@@ -407,5 +463,9 @@
 
   .callout {
     padding: 20px;
+  }
+
+  .brandListItem {
+    font-size: 13px;
   }
 }

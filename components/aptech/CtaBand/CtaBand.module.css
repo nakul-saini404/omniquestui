@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+/* ═══════════════════════════════════
+   SECTION WRAPPER
+═══════════════════════════════════ */
+.ctaBand {
+    background: #0b1c3d;
+    padding: 80px 0;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Centered radial glow */
+.ctaBand::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 350px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse,
+            rgba(212, 168, 67, 0.08),
+            transparent 70%);
+    pointer-events: none;
+}
+
+/* ═══════════════════════════════════
+   CONTAINER
+═══════════════════════════════════ */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ═══════════════════════════════════
+   SCROLL REVEAL ANIMATION
+═══════════════════════════════════ */
+.revealUp {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.revealUp.in {
+    opacity: 1;
+    transform: none;
+}
+
+/* ═══════════════════════════════════
+   INNER WRAPPER
+═══════════════════════════════════ */
+.ctaBandInner {
+    position: relative;
+    z-index: 1;
+}
+
+/* ═══════════════════════════════════
+   HEADING
+═══════════════════════════════════ */
+.ctaBandH {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(26px, 3.2vw, 44px);
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.15;
+    margin-bottom: 14px;
+    margin-top: 0;
+}
+
+.ctaBandH em {
+    color: #d4a843;
+    font-style: italic;
+}
+
+/* ═══════════════════════════════════
+   SUBHEADING
+═══════════════════════════════════ */
+.ctaBandSub {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 32px;
+    margin-top: 0;
+    line-height: 1.7;
+}
+
+/* ═══════════════════════════════════
+   BUTTON ROW
+═══════════════════════════════════ */
+.ctaBandBtns {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ═══════════════════════════════════
+   GOLD BUTTON
+═══════════════════════════════════ */
+.btnGold {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #d4a843;
+    color: #0b1c3d;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 14px 32px;
+    border-radius: 40px;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.22s, transform 0.22s, box-shadow 0.22s;
+}
+
+.btnGold:hover {
+    background: #e8c96a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(212, 168, 67, 0.35);
+}
+
+/* ═══════════════════════════════════
+   OUTLINE BUTTON
+═══════════════════════════════════ */
+.btnOutline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: #ffffff;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 13px 28px;
+    border-radius: 40px;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.btnOutline:hover {
+    border-color: #d4a843;
+    background: rgba(212, 168, 67, 0.1);
+}
+
+/* ═══════════════════════════════════
+   RESPONSIVE — tablet
+═══════════════════════════════════ */
+@media (max-width: 960px) {
+    .ctaBand {
+        padding: 64px 0;
+    }
+}
+
+/* ═══════════════════════════════════
+   RESPONSIVE — mobile
+═══════════════════════════════════ */
+@media (max-width: 600px) {
+    .ctaBand {
+        padding: 56px 0;
+    }
+
+    .ctaBandBtns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btnGold,
+    .btnOutline {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+    }
+}

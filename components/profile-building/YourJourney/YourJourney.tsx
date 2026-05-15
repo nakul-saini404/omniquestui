@@ -34,9 +34,9 @@ const GRADES: GradeData[] = [
     title: "Class 8 — Explore",
     desc: "The foundation year. Before the race begins, EduQuest helps you understand yourself — your strengths, passions, and the vast landscape of global higher education.",
     items: [
-      { icon: "🧭", title: "Interest Discovery",         detail: "Aptitude & personality mapping to identify your authentic academic direction." },
-      { icon: "📚", title: "Academic Foundation",         detail: "Early SAT Math concepts, reading habits, introduction to AP subjects." },
-      { icon: "🎯", title: "Activity Seeding",            detail: "Identify 2–3 genuine interest areas — clubs, arts, science, community service." },
+      { icon: "🧭", title: "Interest Discovery", detail: "Aptitude & personality mapping to identify your authentic academic direction." },
+      { icon: "📚", title: "Academic Foundation", detail: "Early SAT Math concepts, reading habits, introduction to AP subjects." },
+      { icon: "🎯", title: "Activity Seeding", detail: "Identify 2–3 genuine interest areas — clubs, arts, science, community service." },
       { icon: "🌍", title: "Global University Awareness", detail: "Understand what US, UK, Canada & Singapore admissions actually look for." },
     ],
   },
@@ -49,9 +49,9 @@ const GRADES: GradeData[] = [
     desc: "Direction is set. You commit to subjects, begin SAT planning, and build the first chapter of your extracurricular story with 8–9 EduQuest workshops.",
     items: [
       { icon: "📐", title: "Subject Selection (Gr.11/12)", detail: "Choose the right subjects for Grade 11 & 12 — aligned to your target major." },
-      { icon: "📝", title: "SAT/ACT Planning Begins",      detail: "Diagnostic assessment + recommended timeline for 1400+ score." },
-      { icon: "☀️", title: "Summer Programmes",            detail: "Apply to skill-based summer programmes and age-appropriate internships." },
-      { icon: "🏆", title: "Competitions & Workshops",     detail: "8–9 EduQuest workshops + 6–7 projects. National competition participation." },
+      { icon: "📝", title: "SAT/ACT Planning Begins", detail: "Diagnostic assessment + recommended timeline for 1400+ score." },
+      { icon: "☀️", title: "Summer Programmes", detail: "Apply to skill-based summer programmes and age-appropriate internships." },
+      { icon: "🏆", title: "Competitions & Workshops", detail: "8–9 EduQuest workshops + 6–7 projects. National competition participation." },
     ],
   },
   {
@@ -62,10 +62,10 @@ const GRADES: GradeData[] = [
     title: "Class 10 — Develop",
     desc: "Board exams meet SAT prep meets profile sharpening. The busiest and most pivotal year — guided by EduQuest every step of the way.",
     items: [
-      { icon: "🧪", title: "Board + SAT Dual Strategy",       detail: "CBSE/ICSE/IB boards strategy alongside full SAT preparation track." },
-      { icon: "📊", title: "AP Subject Entry",                 detail: "Begin 1–2 AP subjects aligned to intended major. Target 4s & 5s." },
-      { icon: "🌏", title: "Prestigious Summer Programmes",    detail: "Apply to MIT, Stanford, and other selective summer research programmes." },
-      { icon: "🏅", title: "National Recognition Track",       detail: "6–7 workshops + 4–5 projects. Begin earning national-level awards." },
+      { icon: "🧪", title: "Board + SAT Dual Strategy", detail: "CBSE/ICSE/IB boards strategy alongside full SAT preparation track." },
+      { icon: "📊", title: "AP Subject Entry", detail: "Begin 1–2 AP subjects aligned to intended major. Target 4s & 5s." },
+      { icon: "🌏", title: "Prestigious Summer Programmes", detail: "Apply to MIT, Stanford, and other selective summer research programmes." },
+      { icon: "🏅", title: "National Recognition Track", detail: "6–7 workshops + 4–5 projects. Begin earning national-level awards." },
     ],
   },
   {
@@ -77,9 +77,9 @@ const GRADES: GradeData[] = [
     desc: "Intended major crystallises. Leadership is claimed. Research is published. Grade 11 is when a good student becomes a compelling applicant.",
     items: [
       { icon: "🔬", title: "Research & Major Exploration", detail: "1-on-1 sessions with subject matter experts. Research paper pairing begins." },
-      { icon: "📋", title: "SAT 1450+ & 3–5 APs",          detail: "Target score attainment, AP 4s & 5s, IELTS/TOEFL early preparation." },
-      { icon: "👑", title: "Leadership Positions",          detail: "Captain, President, Editor — secure the leadership roles that define your story." },
-      { icon: "🌐", title: "Intensive Summer & Research",   detail: "2–3 publishable projects + abroad/online research programmes." },
+      { icon: "📋", title: "SAT 1450+ & 3–5 APs", detail: "Target score attainment, AP 4s & 5s, IELTS/TOEFL early preparation." },
+      { icon: "👑", title: "Leadership Positions", detail: "Captain, President, Editor — secure the leadership roles that define your story." },
+      { icon: "🌐", title: "Intensive Summer & Research", detail: "2–3 publishable projects + abroad/online research programmes." },
     ],
   },
   {
@@ -90,9 +90,9 @@ const GRADES: GradeData[] = [
     title: "Class 12 — Launch",
     desc: "Everything built over four years converges into the most important applications of your life. EduQuest guides you from shortlist to acceptance letter.",
     items: [
-      { icon: "🎓", title: "College List & Strategy",      detail: "Dream/Match/Safety list. Activity list curation. Recommendation letter strategy." },
-      { icon: "✍️", title: "Essay Coaching",               detail: "Common App, UCAS personal statement, all supplementals — crafted to perfection." },
-      { icon: "📅", title: "Deadline Management",          detail: "ED/EA/RD strategy, interview prep, waitlist and deferral response coaching." },
+      { icon: "🎓", title: "College List & Strategy", detail: "Dream/Match/Safety list. Activity list curation. Recommendation letter strategy." },
+      { icon: "✍️", title: "Essay Coaching", detail: "Common App, UCAS personal statement, all supplementals — crafted to perfection." },
+      { icon: "📅", title: "Deadline Management", detail: "ED/EA/RD strategy, interview prep, waitlist and deferral response coaching." },
       { icon: "💰", title: "Scholarships & Financial Aid", detail: "CSS Profile, FAFSA, merit scholarships, and education loan advisory." },
     ],
   },
@@ -132,11 +132,11 @@ interface SegConfig {
 }
 
 const SEGS: SegConfig[] = [
-  { grade: 8,  startDeg: 0,   endDeg: 72,  midDeg: 36,  color: "#7ec8e3", labelFill: "#0b1c3d", subFill: "rgba(11,28,61,.72)",   phase: "EXPLORE"  },
-  { grade: 9,  startDeg: 72,  endDeg: 144, midDeg: 108, color: "#a8d5a2", labelFill: "#0b1c3d", subFill: "rgba(11,28,61,.72)",   phase: "DISCOVER" },
-  { grade: 10, startDeg: 144, endDeg: 216, midDeg: 180, color: "#d4a843", labelFill: "#0b1c3d", subFill: "rgba(11,28,61,.72)",   phase: "DEVELOP"  },
-  { grade: 11, startDeg: 216, endDeg: 288, midDeg: 252, color: "#f4a261", labelFill: "#ffffff", subFill: "rgba(255,255,255,.88)", phase: "DEFINE"   },
-  { grade: 12, startDeg: 288, endDeg: 360, midDeg: 324, color: "#e76f51", labelFill: "#ffffff", subFill: "rgba(255,255,255,.88)", phase: "LAUNCH"   },
+  { grade: 8, startDeg: 0, endDeg: 72, midDeg: 36, color: "#7ec8e3", labelFill: "#0b1c3d", subFill: "rgba(11,28,61,.72)", phase: "EXPLORE" },
+  { grade: 9, startDeg: 72, endDeg: 144, midDeg: 108, color: "#a8d5a2", labelFill: "#0b1c3d", subFill: "rgba(11,28,61,.72)", phase: "DISCOVER" },
+  { grade: 10, startDeg: 144, endDeg: 216, midDeg: 180, color: "#d4a843", labelFill: "#0b1c3d", subFill: "rgba(11,28,61,.72)", phase: "DEVELOP" },
+  { grade: 11, startDeg: 216, endDeg: 288, midDeg: 252, color: "#f4a261", labelFill: "#ffffff", subFill: "rgba(255,255,255,.88)", phase: "DEFINE" },
+  { grade: 12, startDeg: 288, endDeg: 360, midDeg: 324, color: "#e76f51", labelFill: "#ffffff", subFill: "rgba(255,255,255,.88)", phase: "LAUNCH" },
 ];
 
 /* ─────────────────────────────────────────
@@ -144,32 +144,56 @@ const SEGS: SegConfig[] = [
 ───────────────────────────────────────── */
 export default function YourJourney() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const wheelRef = useRef<SVGSVGElement>(null);
+  const hasSpun = useRef(false);
 
-  /* Default to Grade 8 on mount */
   const [activeGrade, setActiveGrade] = useState<number>(8);
+  const [isSpinning, setIsSpinning] = useState(false);
 
-  /* Active data — always in sync, no delay */
   const active = GRADES.find((g) => g.grade === activeGrade)!;
 
-  /* Scroll-reveal */
+  /* ── Scroll-reveal + one-time wheel spin ── */
   useEffect(() => {
     const section = sectionRef.current;
-    if (!section) return;
-    const io = new IntersectionObserver(
+    const wheel = wheelRef.current;
+    if (!section || !wheel) return;
+
+    /* Reveal observer */
+    const revealIO = new IntersectionObserver(
       (entries) =>
         entries.forEach((e) => {
           if (e.isIntersecting) {
             e.target.classList.add(styles.in);
-            io.unobserve(e.target);
+            revealIO.unobserve(e.target);
           }
         }),
       { threshold: 0.08 }
     );
-    section.querySelectorAll(`.${styles.reveal}`).forEach((el) => io.observe(el));
-    return () => io.disconnect();
+    section.querySelectorAll(`.${styles.reveal}`).forEach((el) => revealIO.observe(el));
+
+    /* Wheel spin observer — fires once when wheel is 20% visible */
+    const spinIO = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting && !hasSpun.current) {
+            hasSpun.current = true;
+            setIsSpinning(true);
+            /* Remove spinning class after animation completes (1.2s) */
+            setTimeout(() => setIsSpinning(false), 2200);
+            spinIO.disconnect();
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    spinIO.observe(wheel);
+
+    return () => {
+      revealIO.disconnect();
+      spinIO.disconnect();
+    };
   }, []);
 
-  /* Handle segment click — instant swap, no fade delay */
   function handleSegClick(grade: number) {
     setActiveGrade(grade);
   }
@@ -201,74 +225,81 @@ export default function YourJourney() {
           {/* LEFT — SVG Wheel */}
           <div className={`${styles.wheelWrap} ${styles.reveal} ${styles.revealDelay1}`}>
             <svg
+              ref={wheelRef}
               viewBox="0 0 400 400"
               xmlns="http://www.w3.org/2000/svg"
               aria-label="Grade journey wheel"
               role="img"
+            /* Apply spin class on the SVG's inner group via className on a <g> below */
             >
-              {/* Pie segments */}
-              {SEGS.map((seg) => {
-                const path = slicePath(seg.startDeg, seg.endDeg);
-                const lbl  = labelPos(seg.midDeg);
-                const isActive = activeGrade === seg.grade;
+              {/* Spinning group — wraps all segments + labels, rotates around centre */}
+              <g
+                className={`${styles.wheelGroup} ${isSpinning ? styles.wheelSpin : ""}`}
+                style={{ transformOrigin: "200px 200px" }}
+              >
+                {SEGS.map((seg) => {
+                  const path = slicePath(seg.startDeg, seg.endDeg);
+                  const lbl = labelPos(seg.midDeg);
+                  const isActive = activeGrade === seg.grade;
 
-                return (
-                  <g
-                    key={seg.grade}
-                    className={`${styles.seg} ${isActive ? styles.segActive : ""}`}
-                    onClick={() => handleSegClick(seg.grade)}
-                    role="button"
-                    tabIndex={0}
-                    aria-label={`Grade ${seg.grade} — ${seg.phase}`}
-                    aria-pressed={isActive}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        handleSegClick(seg.grade);
-                      }
-                    }}
-                  >
-                    <path
-                      d={path}
-                      fill={seg.color}
-                      stroke="#0b1c3d"
-                      strokeWidth="2"
-                      strokeLinejoin="round"
-                    />
-                    {/* Grade number */}
-                    <text
-                      x={lbl.x}
-                      y={lbl.y - 11}
-                      textAnchor="middle"
-                      dominantBaseline="middle"
-                      fontFamily="'Playfair Display', Georgia, serif"
-                      fontSize={seg.grade === 10 ? "22" : "26"}
-                      fontWeight="900"
-                      fill={seg.labelFill}
-                      style={{ pointerEvents: "none" }}
+                  return (
+                    <g
+                      key={seg.grade}
+                      className={`${styles.seg} ${isActive ? styles.segActive : ""}`}
+                      onClick={() => handleSegClick(seg.grade)}
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`Grade ${seg.grade} — ${seg.phase}`}
+                      aria-pressed={isActive}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          handleSegClick(seg.grade);
+                        }
+                      }}
                     >
-                      {seg.grade}
-                    </text>
-                    {/* Phase label */}
-                    <text
-                      x={lbl.x}
-                      y={lbl.y + 12}
-                      textAnchor="middle"
-                      dominantBaseline="middle"
-                      fontFamily="'Plus Jakarta Sans', sans-serif"
-                      fontSize="9"
-                      fontWeight="700"
-                      fill={seg.subFill}
-                      letterSpacing="1"
-                      style={{ pointerEvents: "none" }}
-                    >
-                      {seg.phase}
-                    </text>
-                  </g>
-                );
-              })}
+                      <path
+                        d={path}
+                        fill={seg.color}
+                        stroke="#0b1c3d"
+                        strokeWidth="2"
+                        strokeLinejoin="round"
+                      />
+                      {/* Grade number */}
+                      <text
+                        x={lbl.x}
+                        y={lbl.y - 11}
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        fontFamily="'Playfair Display', Georgia, serif"
+                        fontSize={seg.grade === 10 ? "22" : "26"}
+                        fontWeight="900"
+                        fill={seg.labelFill}
+                        style={{ pointerEvents: "none" }}
+                      >
+                        {seg.grade}
+                      </text>
+                      {/* Phase label */}
+                      <text
+                        x={lbl.x}
+                        y={lbl.y + 12}
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        fontFamily="'Plus Jakarta Sans', sans-serif"
+                        fontSize="9"
+                        fontWeight="700"
+                        fill={seg.subFill}
+                        letterSpacing="1"
+                        style={{ pointerEvents: "none" }}
+                      >
+                        {seg.phase}
+                      </text>
+                    </g>
+                  );
+                })}
+              </g>
 
-              {/* Centre donut */}
+              {/* Centre donut — NOT in spinning group, stays fixed */}
               <circle
                 cx="200"
                 cy="200"
@@ -322,7 +353,6 @@ export default function YourJourney() {
             aria-live="polite"
             aria-label={`Details for ${active.title}`}
           >
-            {/* Grade tag pill */}
             <span
               className={styles.gradeTag}
               style={{ background: active.color, color: active.textColor }}
@@ -330,13 +360,9 @@ export default function YourJourney() {
               CLASS {active.grade} · {active.phase}
             </span>
 
-            {/* Title */}
             <h3 className={styles.panelTitle}>{active.title}</h3>
-
-            {/* Description */}
             <p className={styles.panelDesc}>{active.desc}</p>
 
-            {/* Items */}
             <div className={styles.items}>
               {active.items.map((item) => (
                 <div

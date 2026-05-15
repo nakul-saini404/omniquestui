@@ -1,0 +1,325 @@
+/* ═══════════════════════════════════
+   FONTS — add to your global CSS or _app.tsx if not already present:
+   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+═══════════════════════════════════ */
+
+/* ═══════════════════════════════════
+   CONTAINER
+═══════════════════════════════════ */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ═══════════════════════════════════
+   SECTION
+═══════════════════════════════════ */
+.top10 {
+    background: #ede7d9;
+    padding: 96px 0;
+    overflow: hidden;
+}
+
+/* ═══════════════════════════════════
+   SCROLL REVEAL — reveal-up
+═══════════════════════════════════ */
+.revealUp {
+    opacity: 0;
+    transform: translateY(44px);
+    transition:
+        opacity 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.revealUp.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.d1 {
+    transition-delay: 0.14s;
+}
+
+/* ═══════════════════════════════════
+   HEADER
+═══════════════════════════════════ */
+.top10Header {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+/* ── Section label ── */
+.secLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #d4a843;
+    margin-bottom: 14px;
+}
+
+.secLabel::before {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background: #d4a843;
+    flex-shrink: 0;
+}
+
+/* ── Heading ── */
+.secHeading {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(28px, 3.4vw, 46px);
+    font-weight: 900;
+    color: #0b1c3d;
+    line-height: 1.13;
+    letter-spacing: -0.025em;
+    margin-bottom: 16px;
+}
+
+.secHeading em {
+    color: #b8860b;
+    font-style: italic;
+}
+
+/* ── Sub copy ── */
+.secSub {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 17px;
+    color: #4a5568;
+    line-height: 1.8;
+    max-width: 620px;
+}
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ═══════════════════════════════════
+   CAROUSEL WRAPPER
+═══════════════════════════════════ */
+.carouselWrap {
+    position: relative;
+}
+
+/* ── Viewport clips the sliding track ── */
+.carouselViewport {
+    overflow: hidden;
+    border-radius: 16px;
+    /* subtle cursor hint that track is draggable */
+    cursor: grab;
+}
+
+.carouselViewport:active {
+    cursor: grabbing;
+}
+
+/* ── Track slides horizontally ── */
+.carouselTrack {
+    display: flex;
+    transition: transform 0.52s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+    /* prevent text selection while dragging */
+    user-select: none;
+}
+
+/* ═══════════════════════════════════
+   SLIDE + CARD
+═══════════════════════════════════ */
+.pointSlide {
+    padding: 0 10px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.pointCard {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid rgba(11, 28, 61, 0.08);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition:
+        transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pointCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(11, 28, 61, 0.13);
+}
+
+/* ── Card header (navy band) ── */
+.pointCardHead {
+    background: #0b1c3d;
+    padding: 24px 22px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.pointNum {
+    font-family: "Playfair Display", serif;
+    font-size: 38px;
+    font-weight: 900;
+    color: rgba(212, 168, 67, 0.35);
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.pointIcon {
+    font-size: 26px;
+    flex-shrink: 0;
+    margin-top: 4px;
+    line-height: 1;
+}
+
+.pointTitle {
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.3;
+}
+
+/* ── Card body ── */
+.pointBody {
+    padding: 20px 22px;
+    flex: 1;
+}
+
+.pointDesc {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 14px;
+    color: #4a5568;
+    line-height: 1.8;
+}
+
+/* ═══════════════════════════════════
+   CAROUSEL CONTROLS
+═══════════════════════════════════ */
+.carouselControls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 32px;
+}
+
+/* ── Prev / Next buttons ── */
+.cBtn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(11, 28, 61, 0.2);
+    background: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0b1c3d;
+    font-size: 22px;
+    line-height: 1;
+    transition:
+        background 0.2s,
+        border-color 0.2s,
+        transform 0.2s;
+    padding: 0;
+}
+
+.cBtn:hover {
+    background: #0b1c3d;
+    border-color: #0b1c3d;
+    color: #ffffff;
+    transform: scale(1.08);
+}
+
+.cBtn:disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* ── Dot indicators ── */
+.cDots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.cDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(11, 28, 61, 0.2);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition:
+        background 0.25s,
+        width 0.25s,
+        border-radius 0.25s;
+}
+
+.cDotActive {
+    background: #d4a843;
+    width: 22px;
+    border-radius: 4px;
+}
+
+/* ── Slide counter ── */
+.cCount {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #718096;
+    min-width: 38px;
+    text-align: center;
+}
+
+/* ═══════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════ */
+@media (max-width: 960px) {
+    .top10 {
+        padding: 72px 0;
+    }
+
+    .top10Header {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .top10 {
+        padding: 56px 0;
+    }
+
+    .pointCardHead {
+        padding: 18px 16px 14px;
+        gap: 10px;
+    }
+
+    .pointNum {
+        font-size: 30px;
+    }
+
+    .pointTitle {
+        font-size: 16px;
+    }
+
+    .pointBody {
+        padding: 16px;
+    }
+
+    .carouselControls {
+        gap: 12px;
+        margin-top: 24px;
+    }
+}

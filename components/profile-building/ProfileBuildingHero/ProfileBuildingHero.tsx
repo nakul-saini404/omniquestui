@@ -12,10 +12,8 @@ interface Badge {
 /* ── Static data ── */
 const badges: Badge[] = [
   { emoji: "🎯", label: "Strategic Admissions" },
-  { emoji: "📊", label: "SAT / AP Benchmarking" },
-  { emoji: "🔬", label: "Research & Capstones" },
   { emoji: "🌍", label: "US · UK · Canada · Singapore" },
-  { emoji: "🏆", label: "1,000+ Students Placed" },
+  { emoji: "🏆", label: "1,000+ Students Placed" }
 ];
 
 /* ── Component ── */
@@ -55,9 +53,9 @@ export default function ProfileBuildingHero() {
           <p className={styles.heroLabel}>Profile Building Programme</p>
 
           <h1 className={styles.heroHeading}>
-            Don&apos;t just <em>study</em>.<br />
-            Build a story they<br />
-            can&apos;t ignore.
+            Build a <em>Winning Profile</em>.<br />
+            for Ivy League &<br />
+            Global Universities
           </h1>
 
           <p className={styles.heroSub}>

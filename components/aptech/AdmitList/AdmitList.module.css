@@ -1,0 +1,158 @@
+.section {
+    width: 100%;
+    padding: 80px 24px 100px;
+    background: #f5f7ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.headerWrapper {
+    text-align: center;
+    margin-bottom: 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.badge {
+    display: inline-block;
+    background: #ffd700;
+    color: #1a1a2e;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 999px;
+}
+
+.heading {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    color: #1a1a2e;
+    margin: 0;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.subheading {
+    font-size: 0.95rem;
+    color: #6b7280;
+    margin: 0;
+    font-style: italic;
+}
+
+/* ── Grid ── */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    width: 100%;
+    max-width: 1400px;
+}
+
+/* ── Image wrapper / button ── */
+
+.imageWrapper {
+    position: relative;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(26, 26, 46, 0.12);
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.35s ease;
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+}
+
+.imageWrapper:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 48px rgba(26, 26, 46, 0.22);
+}
+
+.imageWrapper:hover .overlay {
+    opacity: 1;
+}
+
+.imageWrapper:focus-visible {
+    outline: 3px solid #ffd700;
+    outline-offset: 4px;
+}
+
+/* ── Image ── */
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.4s ease;
+    pointer-events: none;
+}
+
+.imageWrapper:hover .image {
+    transform: scale(1.04);
+}
+
+/* ── Hover overlay ── */
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            rgba(26, 26, 46, 0.72) 0%,
+            rgba(26, 26, 46, 0.1) 60%,
+            transparent 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 28px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.overlayText {
+    color: #ffd700;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    background: rgba(26, 26, 46, 0.6);
+    padding: 8px 20px;
+    border-radius: 999px;
+    border: 1.5px solid #ffd700;
+    backdrop-filter: blur(4px);
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 560px) {
+    .section {
+        padding: 56px 16px 72px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        max-width: 360px;
+        gap: 20px;
+    }
+
+    .heading {
+        font-size: 2rem;
+    }
+}

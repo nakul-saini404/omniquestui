@@ -30,7 +30,7 @@ const footerLinks = {
     { label: 'Our Achievements', href: '/our-achievements' },
   ],
   useful: [
-    { label: 'About Us', href: 'https://eduquest.org.in/about-us/' },
+    { label: 'About Us', href: '/about-us' },
     { label: 'Blog', href: 'https://eduquest.org.in/blog' },
     { label: 'Contact Us', href: '/contact-us' },
     { label: 'Franchise', href: 'https://eduquest.org.in/franchise/' },

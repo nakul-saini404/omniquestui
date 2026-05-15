@@ -10,6 +10,7 @@ import SimpleProcess from '@/components/olympiad/SimpleProcess/SimpleProcess';
 import StudentStories from '@/components/olympiad/StudentStories/StudentStories';
 import CommonQuestions from '@/components/olympiad/CommonQuestions/CommonQuestions';
 import CtaStrip from '@/components/olympiad/CtaStrip/CtaStrip';
+import OlympiadSection from '@/components/olympiad/OlympiadSection/OlympiadSection';
 
 export default function Olympiad() {
   return (
@@ -20,6 +21,7 @@ export default function Olympiad() {
       <main>
         <HeroSection />
         <WhatIsOlympiad />
+        <OlympiadSection />
         <DeepDive />
         <ComparisonAndDownload />
         <SimpleProcess />

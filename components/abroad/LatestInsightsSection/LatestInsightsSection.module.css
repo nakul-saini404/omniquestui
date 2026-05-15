@@ -1,0 +1,286 @@
+/* ═══════════════════════════════════
+   FONTS — add to your global CSS or _app.tsx if not already present:
+   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+═══════════════════════════════════ */
+
+/* ═══════════════════════════════════
+   CONTAINER
+═══════════════════════════════════ */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ═══════════════════════════════════
+   SECTION
+═══════════════════════════════════ */
+.blogs {
+    background: #0b1c3d;
+    padding: 96px 0;
+    overflow: hidden;
+}
+
+/* ═══════════════════════════════════
+   SCROLL REVEAL — slide up
+═══════════════════════════════════ */
+.revealUp {
+    opacity: 0;
+    transform: translateY(48px);
+    transition:
+        opacity 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.revealUp.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ═══════════════════════════════════
+   HEADER
+═══════════════════════════════════ */
+.blogsHeader {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+/* ── Section label ── */
+.secLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #d4a843;
+    margin-bottom: 14px;
+}
+
+.secLabel::before {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background: #d4a843;
+    flex-shrink: 0;
+}
+
+/* ── Heading ── */
+.secHeading {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(28px, 3.4vw, 46px);
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.13;
+    letter-spacing: -0.025em;
+    margin-bottom: 16px;
+}
+
+.secHeading em {
+    color: #d4a843;
+    font-style: italic;
+}
+
+/* ── Sub copy ── */
+.secSub {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.8;
+    max-width: 620px;
+}
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ═══════════════════════════════════
+   CARDS GRID
+═══════════════════════════════════ */
+.blogsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+/* ═══════════════════════════════════
+   SINGLE BLOG CARD
+═══════════════════════════════════ */
+.blogCard {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    /* hover handled separately — must not conflict with reveal transform */
+    transition:
+        opacity 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.28s ease;
+}
+
+.blogCard:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Tag bar ── */
+.blogTagBar {
+    padding: 18px 20px 0;
+}
+
+.blogTag {
+    display: inline-block;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #0b1c3d;
+    background: #d4a843;
+    border-radius: 5px;
+    padding: 4px 10px;
+}
+
+/* ── Card body ── */
+.blogBody {
+    padding: 16px 20px 22px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.blogTitle {
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+}
+
+.blogExcerpt {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.75;
+    flex: 1;
+}
+
+/* ── Card footer ── */
+.blogFooter {
+    padding: 14px 20px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.blogDate {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 600;
+}
+
+.blogBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #d4a843;
+    color: #0b1c3d;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    padding: 7px 16px;
+    border-radius: 30px;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+        background 0.2s,
+        transform 0.2s;
+}
+
+.blogBtn:hover {
+    background: #e8c96a;
+    transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════
+   CTA
+═══════════════════════════════════ */
+.blogsCta {
+    text-align: center;
+    margin-top: 44px;
+}
+
+.btnGold {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #d4a843;
+    color: #0b1c3d;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 14px 32px;
+    border-radius: 40px;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition:
+        background 0.22s,
+        transform 0.22s,
+        box-shadow 0.22s;
+}
+
+.btnGold:hover {
+    background: #e8c96a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(212, 168, 67, 0.35);
+}
+
+/* ═══════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════ */
+@media (max-width: 960px) {
+    .blogs {
+        padding: 72px 0;
+    }
+
+    .blogsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .blogsHeader {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .blogs {
+        padding: 56px 0;
+    }
+
+    .blogsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .blogTitle {
+        font-size: 16px;
+    }
+
+    .blogFooter {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}

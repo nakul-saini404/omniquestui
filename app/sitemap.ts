@@ -56,6 +56,8 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/international-curricula`,                             lastModified: new Date("2026-05-14"), changeFrequency: "monthly",  priority: 0.88 },
   { url: `${BASE_URL}/indian-curricula`,                                     lastModified: new Date("2026-05-14"), changeFrequency: "monthly",  priority: 0.88 },
   { url: `${BASE_URL}/olympiad`,                                             lastModified: new Date("2026-05-14"), changeFrequency: "monthly",  priority: 0.88 },
+  { url: `${BASE_URL}/eduquest-aptech`,                                      lastModified: new Date("2026-05-15"), changeFrequency: "monthly",  priority: 0.88 },
+  { url: `${BASE_URL}/overseas-education-consultant-studyabroad-consultant`, lastModified: new Date("2026-05-15"), changeFrequency: "monthly",  priority: 0.88 },
 
   // ── Contact ───────────────────────────────────────────────────────────────
   { url: `${BASE_URL}/contact-us`,                                         lastModified: new Date("2026-05-12"), changeFrequency: "yearly",   priority: 0.65 },

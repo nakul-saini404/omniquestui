@@ -19,12 +19,19 @@
     opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
 .reveal.in {
   opacity: 1;
   transform: none;
 }
-.revealDelay1 { transition-delay: 0.12s; }
-.revealDelay2 { transition-delay: 0.22s; }
+
+.revealDelay1 {
+  transition-delay: 0.12s;
+}
+
+.revealDelay2 {
+  transition-delay: 0.22s;
+}
 
 /* ── Section ── */
 .section {
@@ -72,6 +79,7 @@
   color: #d4a843;
   margin-bottom: 16px;
 }
+
 .secLabel::before {
   content: '';
   width: 20px;
@@ -79,7 +87,6 @@
   background: #d4a843;
 }
 
-/* Improved heading — dark navy, high contrast, italic gold em */
 .secHeading {
   font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(28px, 3.5vw, 46px);
@@ -90,9 +97,8 @@
   margin-bottom: 16px;
 }
 
-/* Gold italic emphasis — clearly legible against white background */
 .secHeading em {
-  color: #b8860b;          /* darker gold — AAA contrast on white */
+  color: #b8860b;
   font-style: italic;
 }
 
@@ -104,10 +110,11 @@
   margin: 0 auto;
 }
 
-/* ── Cards grid ── */
+/* ── Cards grid — centered ── */
 .cardGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
   margin-bottom: 0;
 }
@@ -121,6 +128,7 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  width: 210px;
   min-height: 148px;
   display: flex;
   flex-direction: column;
@@ -168,6 +176,7 @@
   margin-bottom: 6px;
   transition: color 0.2s;
 }
+
 .cardOpen .cardNum {
   color: rgba(212, 168, 67, 0.3);
 }
@@ -179,7 +188,6 @@
   line-height: 1;
 }
 
-/* Card title — strong navy, clearly readable */
 .cardTitle {
   font-size: 20px;
   font-weight: 700;
@@ -196,6 +204,7 @@
   display: inline-block;
   transition: transform 0.25s;
 }
+
 .cardOpen .cardArrow {
   transform: rotate(90deg);
 }
@@ -229,7 +238,6 @@
   padding: 36px 40px;
 }
 
-/* Drawer tag pill */
 .drawerTag {
   display: inline-flex;
   align-items: center;
@@ -246,7 +254,6 @@
   margin-bottom: 14px;
 }
 
-/* Drawer heading — white on navy, Playfair, high contrast */
 .drawerTitle {
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 20px;
@@ -262,7 +269,6 @@
   line-height: 1.8;
 }
 
-/* Drawer bullet list */
 .drawerPoints {
   list-style: none;
   display: flex;
@@ -298,22 +304,24 @@
     padding: 28px 24px;
     gap: 24px;
   }
+
   .drawerOpen {
     max-height: 900px;
   }
 }
 
 @media (max-width: 560px) {
-  .cardGrid {
-    grid-template-columns: 1fr 1fr;
+  .card {
+    width: calc(50% - 8px);
   }
+
   .section {
     padding: 64px 0;
   }
 }
 
 @media (max-width: 380px) {
-  .cardGrid {
-    grid-template-columns: 1fr;
+  .card {
+    width: 100%;
   }
 }

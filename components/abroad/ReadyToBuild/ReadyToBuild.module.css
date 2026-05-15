@@ -1,0 +1,139 @@
+.ctaSection {
+    background: #0b1c3d;
+    padding: 80px 0;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ── Inner Card ──────────────────────────── */
+.ctaInner {
+    background: linear-gradient(135deg,
+            rgba(212, 168, 67, 0.12),
+            rgba(26, 74, 138, 0.12));
+    border: 1px solid rgba(212, 168, 67, 0.2);
+    border-radius: 24px;
+    padding: 56px 48px;
+    text-align: center;
+}
+
+/* ── Heading ─────────────────────────────── */
+.ctaHeading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(28px, 3.5vw, 46px);
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 16px;
+}
+
+.ctaHeading em {
+    color: #d4a843;
+    font-style: italic;
+}
+
+/* ── Subtext ─────────────────────────────── */
+.ctaSub {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.8;
+    margin-bottom: 36px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ── Buttons Row ─────────────────────────── */
+.ctaButtons {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ── Gold Button ─────────────────────────── */
+.btnGold {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #d4a843;
+    color: #0b1c3d;
+    font-size: 14px;
+    font-weight: 800;
+    padding: 14px 32px;
+    border-radius: 40px;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.22s, transform 0.22s, box-shadow 0.22s;
+}
+
+.btnGold:hover {
+    background: #e8c96a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(212, 168, 67, 0.35);
+}
+
+/* ── Outline Gold Button ─────────────────── */
+.btnOutlineGold {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: #d4a843;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 13px 28px;
+    border-radius: 40px;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border: 2px solid rgba(212, 168, 67, 0.5);
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.btnOutlineGold:hover {
+    border-color: #d4a843;
+    background: rgba(212, 168, 67, 0.1);
+    transform: translateY(-2px);
+}
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 768px) {
+    .ctaSection {
+        padding: 60px 0;
+    }
+
+    .ctaInner {
+        padding: 40px 24px;
+    }
+
+    .ctaHeading {
+        font-size: clamp(24px, 6vw, 36px);
+    }
+
+    .ctaSub {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .ctaButtons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btnGold,
+    .btnOutlineGold {
+        width: 100%;
+        justify-content: center;
+    }
+}

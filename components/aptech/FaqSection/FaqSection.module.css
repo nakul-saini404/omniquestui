@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+/* ═══════════════════════════════════
+   SECTION WRAPPER
+═══════════════════════════════════ */
+.faq {
+    background: #ffffff;
+    padding: 96px 0;
+    overflow: hidden;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* ═══════════════════════════════════
+   CONTAINER
+═══════════════════════════════════ */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ═══════════════════════════════════
+   SCROLL REVEAL ANIMATIONS
+═══════════════════════════════════ */
+.revealUp {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.revealUp.in {
+    opacity: 1;
+    transform: none;
+}
+
+.d1 {
+    transition-delay: 0.16s;
+}
+
+/* ═══════════════════════════════════
+   SECTION HEADER
+═══════════════════════════════════ */
+.faqHeader {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.secLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #d4a843;
+    margin-bottom: 14px;
+}
+
+.secLabel::before {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background: #d4a843;
+    flex-shrink: 0;
+}
+
+.secHeading {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(28px, 3.4vw, 46px);
+    font-weight: 900;
+    color: #0b1c3d;
+    line-height: 1.13;
+    letter-spacing: -0.025em;
+    margin-bottom: 16px;
+}
+
+.secHeading em {
+    color: #b8860b;
+    font-style: italic;
+}
+
+.secSub {
+    font-size: 17px;
+    color: #4a5568;
+    line-height: 1.8;
+    max-width: 620px;
+}
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ═══════════════════════════════════
+   FAQ LIST
+═══════════════════════════════════ */
+.faqList {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ═══════════════════════════════════
+   FAQ ITEM
+═══════════════════════════════════ */
+.faqItem {
+    border: 1px solid rgba(11, 28, 61, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+}
+
+.faqItem.open {
+    border-color: rgba(212, 168, 67, 0.4);
+}
+
+/* ═══════════════════════════════════
+   QUESTION BUTTON
+═══════════════════════════════════ */
+.faqQ {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 20px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    cursor: pointer;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #0b1c3d;
+    line-height: 1.4;
+}
+
+.faqQ:hover {
+    background: #fafaf8;
+}
+
+/* ═══════════════════════════════════
+   ARROW ICON
+═══════════════════════════════════ */
+.faqArrow {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #f5f0e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+    transition: transform 0.3s, background 0.2s, color 0.2s;
+    color: #0b1c3d;
+    /* Needed because span doesn't default to flex */
+    line-height: 1;
+    padding-top: 1px;
+}
+
+.faqArrowOpen {
+    transform: rotate(180deg);
+    background: #d4a843;
+    color: #0b1c3d;
+}
+
+/* ═══════════════════════════════════
+   ANSWER PANEL — CSS height transition
+═══════════════════════════════════ */
+.faqA {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.faqAOpen {
+    max-height: 400px;
+}
+
+/* ═══════════════════════════════════
+   ANSWER INNER CONTENT
+═══════════════════════════════════ */
+.faqAInner {
+    padding: 16px 22px 20px;
+    font-size: 16px;
+    color: #4a5568;
+    line-height: 1.8;
+    border-top: 1px solid rgba(11, 28, 61, 0.06);
+}
+
+/* ═══════════════════════════════════
+   RESPONSIVE — tablet
+═══════════════════════════════════ */
+@media (max-width: 960px) {
+    .faq {
+        padding: 72px 0;
+    }
+}
+
+/* ═══════════════════════════════════
+   RESPONSIVE — mobile
+═══════════════════════════════════ */
+@media (max-width: 600px) {
+    .faq {
+        padding: 56px 0;
+    }
+
+    .faqHeader {
+        margin-bottom: 40px;
+    }
+
+    .faqQ {
+        font-size: 14px;
+        padding: 16px 18px;
+    }
+
+    .faqAInner {
+        padding: 14px 18px 18px;
+    }
+}
