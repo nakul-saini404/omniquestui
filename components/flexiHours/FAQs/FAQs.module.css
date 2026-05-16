@@ -1,0 +1,244 @@
+/* ═══════════════════════════════════
+   FAQ SECTION
+═══════════════════════════════════ */
+
+.section {
+    background: #f5f0e8;
+    padding: 96px 0;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ── Header ── */
+.header {
+    text-align: center;
+    margin-bottom: 56px;
+
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.header.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sectionLabel {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #d4a843;
+    margin-bottom: 14px;
+}
+
+.sectionLabel::before {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background: #d4a843;
+    flex-shrink: 0;
+}
+
+.heading {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(28px, 3.4vw, 46px);
+    font-weight: 900;
+    color: #0b1c3d;
+    line-height: 1.13;
+    letter-spacing: -0.025em;
+    margin-bottom: 16px;
+}
+
+.heading em {
+    color: #b8860b;
+    font-style: italic;
+}
+
+.subText {
+    font-size: 17px;
+    color: #4a5568;
+    line-height: 1.8;
+    max-width: 620px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ── FAQ list ── */
+.list {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ── Individual FAQ item ── */
+.item {
+    background: #ffffff;
+    border: 1px solid rgba(11, 28, 61, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+    /* scroll reveal — slide up */
+    opacity: 0;
+    transform: translateY(28px);
+}
+
+.item.revealed {
+    /* entrance transition applied once */
+    transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.item.open {
+    border-color: rgba(212, 168, 67, 0.4);
+    box-shadow: 0 6px 24px rgba(11, 28, 61, 0.08);
+}
+
+/* stagger delays */
+.delay1 {
+    transition-delay: 0.05s;
+}
+
+.delay2 {
+    transition-delay: 0.12s;
+}
+
+.delay3 {
+    transition-delay: 0.19s;
+}
+
+.delay4 {
+    transition-delay: 0.26s;
+}
+
+.delay5 {
+    transition-delay: 0.33s;
+}
+
+.delay6 {
+    transition-delay: 0.40s;
+}
+
+.delay7 {
+    transition-delay: 0.47s;
+}
+
+.delay8 {
+    transition-delay: 0.54s;
+}
+
+/* ── Question button ── */
+.question {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px;
+    text-align: left;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #0b1c3d;
+    transition: color 0.2s ease;
+}
+
+.question:hover {
+    color: #b8860b;
+}
+
+.item.open .question {
+    color: #b8860b;
+}
+
+/* ── Arrow icon ── */
+.arrow {
+    font-size: 20px;
+    flex-shrink: 0;
+    color: #d4a843;
+    transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+    line-height: 1;
+    display: flex;
+    align-items: center;
+}
+
+.item.open .arrow {
+    transform: rotate(180deg);
+}
+
+/* ── Answer panel — animated height via grid trick ── */
+.answerWrap {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.item.open .answerWrap {
+    grid-template-rows: 1fr;
+}
+
+.answerInner {
+    overflow: hidden;
+}
+
+.answerContent {
+    padding: 0 24px 22px;
+    font-size: 14px;
+    color: #4a5568;
+    line-height: 1.85;
+}
+
+.answerContent ul {
+    margin-top: 10px;
+    padding-left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.answerContent ul li {
+    list-style: disc;
+}
+
+.answerContent strong {
+    font-weight: 700;
+    color: #0b1c3d;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .section {
+        padding: 64px 0;
+    }
+
+    .question {
+        font-size: 14px;
+        padding: 16px 18px;
+    }
+
+    .answerContent {
+        padding: 0 18px 18px;
+    }
+}

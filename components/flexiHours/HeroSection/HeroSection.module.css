@@ -1,0 +1,326 @@
+/* ═══════════════════════════════════════════════════════
+   HeroSection.module.css  —  StudyVault · EduQuest
+   Design tokens inlined (no :root used anywhere).
+   Fonts: "Playfair Display" (serif display) +
+          "Plus Jakarta Sans" (body / UI)
+   Palette:
+     navy        #0b1c3d
+     navy-deep   #162e5c
+     gold        #d4a843
+     gold-hover  #e8c96a
+     gold-dark   #b8860b
+═══════════════════════════════════════════════════════ */
+
+/* ── Section wrapper ── */
+.hero {
+    background: #0b1c3d;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 0 100px;
+    min-height: 78vh;
+    display: flex;
+    align-items: center;
+}
+
+/* top-right gold radial glow */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 650px;
+    height: 650px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+            rgba(212, 168, 67, 0.09),
+            transparent 68%);
+    pointer-events: none;
+}
+
+/* bottom-left blue radial glow */
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 440px;
+    height: 440px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+            rgba(26, 74, 138, 0.22),
+            transparent 70%);
+    pointer-events: none;
+}
+
+/* ── Diagonal accent strip ── */
+.heroStrip {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 38%;
+    height: 100%;
+    background: linear-gradient(135deg,
+            transparent 40%,
+            rgba(212, 168, 67, 0.04) 100%);
+    pointer-events: none;
+}
+
+/* ── Max-width wrapper ── */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Two-column grid ── */
+.heroInner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+}
+
+/* ═══════════════════════════════════
+   SCROLL-REVEAL CLASSES
+   Mirrors the original .slide-from-left
+   / .slide-from-right / .in pattern.
+═══════════════════════════════════ */
+.slideFromLeft {
+    opacity: 0;
+    transform: translateX(-130px);
+    transition:
+        opacity 1.05s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.05s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slideFromRight {
+    opacity: 0;
+    transform: translateX(130px);
+    transition:
+        opacity 1.05s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.05s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slideIn {
+    opacity: 1;
+    transform: none;
+    transition:
+        opacity 1.05s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.05s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ═══════════════════════════════════
+   LEFT COLUMN — COPY
+═══════════════════════════════════ */
+.heroLeft {
+    /* reveal classes applied via JS */
+}
+
+/* ── Badge ── */
+.heroBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #d4a843;
+    margin-bottom: 20px;
+}
+
+.heroBadgeLine {
+    display: inline-block;
+    width: 28px;
+    height: 1.5px;
+    background: #d4a843;
+    flex-shrink: 0;
+}
+
+/* ── H1 ── */
+.heroH1 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(32px, 4.4vw, 58px);
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    margin-bottom: 22px;
+}
+
+.heroH1 em {
+    color: #d4a843;
+    font-style: italic;
+}
+
+/* ── Sub-copy ── */
+.heroSub {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.62);
+    line-height: 1.8;
+    margin-bottom: 36px;
+    max-width: 480px;
+}
+
+/* ── CTA buttons row ── */
+.heroBtns {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.btnGold {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #d4a843;
+    color: #0b1c3d;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    padding: 14px 32px;
+    border-radius: 40px;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition:
+        background 0.22s,
+        transform 0.22s,
+        box-shadow 0.22s;
+}
+
+.btnGold:hover {
+    background: #e8c96a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(212, 168, 67, 0.35);
+}
+
+.btnOutlineGold {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: #d4a843;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 13px 28px;
+    border-radius: 40px;
+    letter-spacing: 0.04em;
+    border: 2px solid rgba(212, 168, 67, 0.5);
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        border-color 0.2s,
+        background 0.2s,
+        transform 0.2s;
+}
+
+.btnOutlineGold:hover {
+    border-color: #d4a843;
+    background: rgba(212, 168, 67, 0.1);
+    transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════
+   RIGHT COLUMN — STAT CARD
+═══════════════════════════════════ */
+.heroStatCard {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(212, 168, 67, 0.2);
+    border-radius: 20px;
+    padding: 36px 32px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.heroStatCardTitle {
+    font-family: "Playfair Display", serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 24px;
+}
+
+/* ── 2×2 stats grid ── */
+.heroStats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.heroStat {
+    text-align: center;
+}
+
+.heroStatVal {
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+    font-weight: 900;
+    color: #d4a843;
+    display: block;
+    line-height: 1;
+    margin-bottom: 6px;
+    /* subtle scale pop when value changes */
+    transition: transform 0.08s ease-out;
+}
+
+.heroStatLbl {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* ── Subject tags ── */
+.heroSubjects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.subjectTag {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 6px;
+    padding: 5px 12px;
+    transition: background 0.18s;
+}
+
+.subjectTag:hover {
+    background: rgba(212, 168, 67, 0.15);
+    color: #ffffff;
+}
+
+/* ═══════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════ */
+@media (max-width: 1024px) {
+    .heroInner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    /* hide stat card on tablet — matches original behaviour */
+    .heroStatCard {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 80px 0 64px;
+        min-height: auto;
+    }
+}

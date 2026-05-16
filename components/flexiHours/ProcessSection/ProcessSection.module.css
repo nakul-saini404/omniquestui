@@ -1,0 +1,227 @@
+/* ═══════════════════════════════════════════════════════
+   ProcessSection.module.css  —  StudyVault · EduQuest
+   No :root used. All design tokens inlined.
+   Fonts  : "Playfair Display" + "Plus Jakarta Sans"
+   Palette:
+     white-bg   #ffffff
+     cream      #f5f0e8
+     navy       #0b1c3d
+     gold       #d4a843
+     text-muted #4a5568
+═══════════════════════════════════════════════════════ */
+
+/* ── Section wrapper ── */
+.section {
+    background: #ffffff;
+    padding: 96px 0;
+    overflow: hidden;
+}
+
+/* ── Max-width container ── */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ═══════════════════════════════════
+   SCROLL-REVEAL UTILITIES
+   Mirrors .reveal-up / .in pattern
+   (translateY 40 px, 0.75 s ease)
+═══════════════════════════════════ */
+.revealUp {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+        opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.revealIn {
+    opacity: 1;
+    transform: none;
+    transition:
+        opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ═══════════════════════════════════
+   SECTION HEADER
+═══════════════════════════════════ */
+.header {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+/* ── Section label ("Process") ── */
+.secLabel {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #d4a843;
+    margin-bottom: 14px;
+}
+
+.secLabel::before {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background: #d4a843;
+    flex-shrink: 0;
+}
+
+/* ── Heading ── */
+.secHeading {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(28px, 3.4vw, 46px);
+    font-weight: 900;
+    color: #0b1c3d;
+    line-height: 1.13;
+    letter-spacing: -0.025em;
+    margin-bottom: 16px;
+}
+
+.secHeading em {
+    color: #b8860b;
+    font-style: italic;
+}
+
+/* ── Sub-copy ── */
+.secSub {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 17px;
+    color: #4a5568;
+    line-height: 1.8;
+    max-width: 620px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ═══════════════════════════════════
+   STEPS TRACK
+   Holds the connector line + grid
+═══════════════════════════════════ */
+.track {
+    position: relative;
+}
+
+/* ── Gold connector line ── */
+/* Runs between the centre of the step numbers.
+   Hidden below 1024 px (same as original). */
+.connectorLine {
+    position: absolute;
+    top: 44px;
+    /* aligns with centre of .stepNum circle (56 px tall / 2 = 28 px + 16 px top pad) */
+    left: calc(10% + 44px);
+    right: calc(10% + 44px);
+    height: 2px;
+    background: linear-gradient(90deg, #d4a843, rgba(212, 168, 67, 0.2));
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ── 4-column grid ── */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ═══════════════════════════════════
+   STEP CARD
+═══════════════════════════════════ */
+.card {
+    background: #f5f0e8;
+    border-radius: 16px;
+    border: 1px solid rgba(11, 28, 61, 0.06);
+    padding: 32px 22px 26px;
+    text-align: center;
+    position: relative;
+    transition:
+        transform 0.28s,
+        box-shadow 0.28s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 48px rgba(11, 28, 61, 0.12);
+}
+
+/* ── Number badge ── */
+.stepNum {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #0b1c3d;
+    color: #d4a843;
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 6px 20px rgba(11, 28, 61, 0.2);
+}
+
+/* ── Emoji icon ── */
+.stepIcon {
+    font-size: 28px;
+    line-height: 1;
+    margin-bottom: 14px;
+}
+
+/* ── Title ── */
+.stepTitle {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #0b1c3d;
+    margin-bottom: 10px;
+}
+
+/* ── Description ── */
+.stepDesc {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 13px;
+    color: #4a5568;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ═══════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════ */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    /* hide connector line — can't span a 2-col layout cleanly */
+    .connectorLine {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 64px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

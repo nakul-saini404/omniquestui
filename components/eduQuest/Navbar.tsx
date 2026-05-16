@@ -50,6 +50,14 @@ const navItems = [
     href: '/overseas-education-consultant-studyabroad-consultant',
   },
   {
+    label: 'Study Vault',
+    href: '/flexible-learning-hours',
+  },
+  {
+    label: 'Research Paper',
+    href: '/research-paper-drafting-publishing-services',
+  },
+  {
     label: 'Language',
     href: '#',
     children: [

@@ -1,0 +1,219 @@
+/* ═══════════════════════════════════════════════════════
+   WhyStudyVault.module.css  —  StudyVault · EduQuest
+   No :root used. All design tokens inlined.
+   Fonts: "Playfair Display" + "Plus Jakarta Sans"
+   Palette:
+     cream-bg    #f5f0e8
+     navy        #0b1c3d
+     gold        #d4a843
+     gold-hover  #e8c96a
+     text-muted  #4a5568
+═══════════════════════════════════════════════════════ */
+
+/* ── Section wrapper ── */
+.section {
+    background: #f5f0e8;
+    padding: 96px 0;
+    overflow: hidden;
+}
+
+/* ── Max-width container ── */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ── Two-column grid ── */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+}
+
+/* ═══════════════════════════════════
+   SCROLL-REVEAL UTILITIES
+   Mirrors .reveal-left / .reveal-right
+   / .in from the original HTML
+   (translateX ±80px, 0.85s ease)
+═══════════════════════════════════ */
+.revealLeft {
+    opacity: 0;
+    transform: translateX(-80px);
+    transition:
+        opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.revealRight {
+    opacity: 0;
+    transform: translateX(80px);
+    transition:
+        opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    /* original .d1 delay on the cards column */
+    transition-delay: 0.1s;
+}
+
+.revealIn {
+    opacity: 1;
+    transform: none;
+    transition:
+        opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ═══════════════════════════════════
+   LEFT COLUMN — COPY
+═══════════════════════════════════ */
+.left {
+    /* reveal applied via JS */
+}
+
+/* ── Section label ("Why StudyVault") ── */
+.secLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #d4a843;
+    margin-bottom: 14px;
+}
+
+.secLabel::before {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background: #d4a843;
+    flex-shrink: 0;
+}
+
+/* ── Heading ── */
+.secHeading {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(28px, 4.4vw, 48px);
+    font-weight: 900;
+    color: #0b1c3d;
+    line-height: 1.13;
+    letter-spacing: -0.025em;
+    margin-bottom: 16px;
+}
+
+.secHeading em {
+    color: #b8860b;
+    font-style: italic;
+}
+
+/* ── Sub-copy ── */
+.secSub {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 17px;
+    color: #4a5568;
+    line-height: 1.8;
+    max-width: 620px;
+    margin-bottom: 32px;
+}
+
+/* ── CTA button ── */
+.btnGold {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #d4a843;
+    color: #0b1c3d;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 14px 32px;
+    border-radius: 40px;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition:
+        background 0.22s,
+        transform 0.22s,
+        box-shadow 0.22s;
+}
+
+.btnGold:hover {
+    background: #e8c96a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(212, 168, 67, 0.35);
+}
+
+/* ═══════════════════════════════════
+   RIGHT COLUMN — FEATURE CARDS
+═══════════════════════════════════ */
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid rgba(11, 28, 61, 0.07);
+    border-left: 4px solid #d4a843;
+    padding: 20px 22px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 32px rgba(11, 28, 61, 0.1);
+}
+
+.cardIcon {
+    font-size: 22px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    line-height: 1;
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+}
+
+.cardTitle {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #0b1c3d;
+    margin-bottom: 4px;
+}
+
+.cardDesc {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 15.5px;
+    color: #4a5568;
+    line-height: 1.65;
+}
+
+/* ═══════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════ */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 64px 0;
+    }
+}

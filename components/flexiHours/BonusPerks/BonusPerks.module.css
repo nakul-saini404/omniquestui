@@ -1,0 +1,246 @@
+/* ═══════════════════════════════════
+   BONUS PERKS SECTION
+═══════════════════════════════════ */
+
+.section {
+    background: #0b1c3d;
+    padding: 96px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* subtle radial glow behind everything */
+.section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(212, 168, 67, 0.06), transparent 70%);
+    pointer-events: none;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Header ── */
+.header {
+    text-align: center;
+    margin-bottom: 56px;
+
+    /* reveal-up: hidden by default */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.header.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sectionLabel {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #d4a843;
+    margin-bottom: 14px;
+}
+
+.sectionLabel::before {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background: #d4a843;
+    flex-shrink: 0;
+}
+
+.heading {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(28px, 3.4vw, 46px);
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.13;
+    letter-spacing: -0.025em;
+    margin-bottom: 16px;
+}
+
+.heading em {
+    color: #d4a843;
+    font-style: italic;
+}
+
+.subText {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.8;
+    max-width: 620px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ── Grid ── */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* ── Card ── */
+.card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(212, 168, 67, 0.18);
+    border-radius: 16px;
+    padding: 32px 26px;
+
+    /* slide-up hidden by default */
+    opacity: 0;
+    transform: translateY(48px);
+
+    /* hover transitions (will be overridden while animating in) */
+    transition: transform 0.28s ease,
+        box-shadow 0.28s ease,
+        border-color 0.28s ease;
+}
+
+.card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.78s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.78s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.28s ease,
+        border-color 0.28s ease;
+}
+
+/* stagger delays */
+.delay1 {
+    transition-delay: 0.10s;
+}
+
+.delay2 {
+    transition-delay: 0.26s;
+}
+
+.delay3 {
+    transition-delay: 0.42s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    border-color: rgba(212, 168, 67, 0.4);
+}
+
+/* ── Card icon ── */
+.cardIcon {
+    font-size: 32px;
+    margin-bottom: 18px;
+    display: block;
+    line-height: 1;
+}
+
+/* ── Animated counter number ── */
+.statNumber {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: #d4a843;
+    display: block;
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+}
+
+/* ── Card text ── */
+.cardTitle {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.cardDesc {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.8;
+}
+
+/* ── CTA block ── */
+.cta {
+    text-align: center;
+    margin-top: 52px;
+
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: 0.52s;
+}
+
+.cta.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #d4a843;
+    color: #0b1c3d;
+    font-size: 14px;
+    font-weight: 800;
+    padding: 14px 32px;
+    border-radius: 40px;
+    letter-spacing: 0.04em;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.22s ease,
+        transform 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+.ctaButton:hover {
+    background: #e8c96a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(212, 168, 67, 0.35);
+}
+
+.ctaNote {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 14px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 64px 0;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

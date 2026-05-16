@@ -262,7 +262,7 @@ export default function EduQuestAdvantage() {
                     struggle with most — delivered by subject experts since 2016.
                 </p>
                 <div className={styles.heroCta}>
-                    <a href="https://app.eduquest.org.in/contact-us" className={styles.heroBtnP}>
+                    <a href="/contact-us" className={styles.heroBtnP}>
                         ▶ Request a Free Demo
                     </a>
                     <a href="#program" className={styles.heroBtnS}>
